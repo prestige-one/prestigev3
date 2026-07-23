@@ -1,0 +1,312 @@
+.fauchon-dls-slider {
+  width: 100%;
+  background: #000;
+  padding: 24px 14px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fauchon-dls-slides {
+  position: relative;
+  width: 100%;
+  height: clamp(400px, 54vw, 580px);
+}
+
+.fauchon-dls-slide {
+  position: absolute;
+  top: 0;
+  width: min(430px, 78vw);
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 18px 22px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0) scale(0.88);
+  transition:
+    transform 560ms cubic-bezier(0.2, 0.86, 0.25, 1),
+    opacity 520ms ease,
+    filter 420ms ease;
+  filter: brightness(0.56) saturate(0.84);
+  isolation: isolate;
+}
+
+.fauchon-dls-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(6, 8, 18, 0.14) 16%, rgba(4, 5, 11, 0.42) 56%, rgba(0, 0, 0, 0.92) 100%);
+}
+
+.fauchon-dls-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 84%, rgba(255, 75, 207, 0.1), transparent 52%);
+  transition: opacity 620ms ease;
+}
+
+.fauchon-dls-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: #000;
+  z-index: 0;
+}
+
+.fauchon-dls-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.fauchon-dls-minutes {
+  margin: 0;
+  color: #aeb3c2;
+  font-size: 0.94rem;
+  font-weight: 600;
+  transition: color 360ms ease, text-shadow 360ms ease;
+}
+
+.fauchon-dls-title {
+  margin: 8px 0 8px;
+  color: #e6e9f3;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  line-height: 1.18;
+  transition: color 360ms ease, text-shadow 360ms ease;
+}
+
+.fauchon-dls-description {
+  margin: 0;
+  color: #cdd1da;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  transition: color 360ms ease;
+}
+
+.fauchon-dls-slide.fauchon-dls-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fauchon-dls-slide.fauchon-dls-active {
+  transform: translate(-50%, 0) scale(1);
+  filter: brightness(1) saturate(1.05);
+  z-index: 9;
+}
+
+.fauchon-dls-slide.fauchon-dls-active::after {
+  opacity: 1;
+}
+
+.fauchon-dls-slide.fauchon-dls-active .fauchon-dls-minutes,
+.fauchon-dls-slide.fauchon-dls-active .fauchon-dls-title {
+  color: #ff7fdf;
+  text-shadow: 0 0 12px rgba(255, 75, 207, 0.25);
+}
+
+.fauchon-dls-slide.fauchon-dls-active .fauchon-dls-description {
+  color: #f0f2f8;
+}
+
+.fauchon-dls-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 14;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  border: none;
+  display: grid;
+  place-items: center;
+  color: #ff8ce6;
+  background: rgba(18, 11, 23, 0.72);
+  box-shadow:
+    0 0 18px rgba(255, 75, 207, 0.4),
+    inset 0 0 0 1px rgba(255, 142, 230, 0.45);
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease,
+    background 220ms ease;
+}
+
+.fauchon-dls-arrow svg {
+  width: 32px;
+  height: 32px;
+}
+
+.fauchon-dls-arrow:hover {
+  color: #ffc0f2;
+  background: rgba(30, 17, 36, 0.82);
+  box-shadow:
+    0 0 24px rgba(255, 75, 207, 0.55),
+    inset 0 0 0 1px rgba(255, 169, 238, 0.58);
+}
+
+.fauchon-dls-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.fauchon-dls-arrow-prev {
+  left: clamp(18px, 8vw, 120px);
+}
+
+.fauchon-dls-arrow-next {
+  right: clamp(18px, 8vw, 120px);
+}
+
+.fauchon-dls-track {
+  position: relative;
+  margin: 20px auto 0;
+  width: min(680px, 82vw);
+  height: 4px;
+  background: #2a2b35;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fauchon-dls-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff62d8, #ff35c8);
+  box-shadow: 0 0 16px rgba(255, 75, 207, 0.5);
+  transition: transform 520ms cubic-bezier(0.2, 0.86, 0.25, 1);
+}
+
+.po-project-page-destinations {
+  background: #000;
+  color: #fff;
+  padding: clamp(2.5rem, 6vw, 4rem) 0 0;
+}
+
+.po-project-page-destinations-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(1.5rem, 4vw, 2.25rem);
+  padding: 0 1.25rem;
+}
+
+.po-project-page-destinations-intro .po-project-page-section-kicker {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.po-project-page-destinations-title {
+  margin: 0.5rem 0 0.75rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.po-project-page-destinations-lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.po-fauchon-amenities .po-project-page-amenity-top-label {
+  background: #ec008c;
+  color: #fff;
+  border-color: rgba(236, 0, 140, 0.35);
+  box-shadow: 0 4px 14px rgba(236, 0, 140, 0.28);
+}
+
+@media (max-width: 1023px) {
+  .fauchon-dls-slides {
+    height: clamp(360px, 72vw, 500px);
+  }
+
+  .fauchon-dls-slide {
+    width: min(390px, 76vw);
+  }
+
+  .fauchon-dls-arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+  .fauchon-dls-arrow svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .fauchon-dls-arrow-prev {
+    left: clamp(14px, 5vw, 64px);
+  }
+
+  .fauchon-dls-arrow-next {
+    right: clamp(14px, 5vw, 64px);
+  }
+}
+
+@media (max-width: 767px) {
+  .fauchon-dls-slider {
+    padding: 18px 10px 16px;
+  }
+
+  .fauchon-dls-slides {
+    height: clamp(420px, 124vw, 560px);
+  }
+
+  .fauchon-dls-slide {
+    width: min(96vw, 500px);
+    border-radius: 20px;
+    padding: 18px 16px 20px;
+  }
+
+  .fauchon-dls-title {
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+  }
+
+  .fauchon-dls-description {
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .fauchon-dls-track {
+    width: min(500px, 92vw);
+    margin-top: 18px;
+  }
+
+  .fauchon-dls-arrow {
+    width: 44px;
+    height: 44px;
+    top: auto;
+    bottom: 78px;
+    transform: none;
+  }
+
+  .fauchon-dls-arrow:active {
+    transform: scale(0.96);
+  }
+
+  .fauchon-dls-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .fauchon-dls-arrow-prev {
+    left: 10px;
+  }
+
+  .fauchon-dls-arrow-next {
+    right: 10px;
+  }
+}

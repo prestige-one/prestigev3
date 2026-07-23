@@ -1,0 +1,435 @@
+.wrap {
+  max-width: 1080px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2ddd5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabRow {
+  display: flex;
+  border-bottom: 1px solid #e2ddd5;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px 16px;
+  border: 0;
+  background: #f7f6f4;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: #fff;
+  color: #151515;
+}
+
+.sliders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.col {
+  padding: 28px 36px;
+}
+
+.col:first-child {
+  border-right: 1px solid #e2ddd5;
+}
+
+.field + .field {
+  margin-top: 24px;
+}
+
+.fieldHead {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.value {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 700;
+  color: #151515;
+}
+
+.range {
+  width: 100%;
+  accent-color: #222;
+}
+
+.optionsRow {
+  padding: 8px 36px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+  align-items: center;
+}
+
+.optionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.optionLabel input {
+  accent-color: #222;
+}
+
+.textLinkBtn {
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+}
+
+.breakdownDetail {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 13px;
+  color: #444;
+}
+
+.resetRow {
+  border-top: 1px solid #e2ddd5;
+  border-bottom: 1px solid #e2ddd5;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.resetBtn {
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+  cursor: pointer;
+}
+
+.resultBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 22px 28px;
+}
+
+.resultBlock {
+  padding-right: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.resultBlock + .resultBlock {
+  padding-left: 20px;
+}
+
+.resultMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 2px;
+}
+
+.resultLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.feesBtn {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  text-decoration: underline;
+  font-size: 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resultCurrency {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+}
+
+.resultValue {
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.resultSub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+}
+
+.enquireBtn {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  margin-left: 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  background: #fff;
+  color: #101216;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.contactModalOverlay {
+  z-index: 10050;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 620px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  color: #151515;
+}
+
+.modal h3,
+.modal span,
+.modal strong,
+.modal p {
+  color: #151515 !important;
+}
+
+.modalHead h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.modalHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.closeBtn {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+}
+
+.feeRow {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.feeHint {
+  color: #4e5b70 !important;
+  font-size: 12px;
+}
+
+.contactModal {
+  width: 100%;
+  max-width: 760px;
+  max-height: min(92vh, 900px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  margin: 0;
+  background: #000;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  outline: none;
+}
+
+.contactModal:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.contactModalHead {
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 0 2.25rem 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactModalHead .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.contactModal :global(.po-project-page-register-title),
+.contactModal :global(.po-project-page-register-lead) {
+  text-align: center;
+}
+
+.contactModal :global(.po-project-page-register-title) {
+  color: #fff;
+}
+
+.contactModal :global(.po-project-page-register-lead) {
+  margin: 0.75rem auto 1.25rem;
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.contactModal:global(.po-project-page-register) {
+  background: #000;
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.contactModal :global(.po-contact-form) {
+  text-align: center;
+}
+
+.contactModal :global(.po-contact-form .po-contact-submit-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 220px;
+  margin: 0.25rem auto 0;
+  padding: 12px 28px;
+  border: 1px solid #fff !important;
+  border-radius: 8px;
+  background: transparent !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contactModal :global(.po-contact-form .po-contact-submit-btn:hover),
+.contactModal :global(.po-contact-form .po-contact-submit-btn:focus) {
+  border-color: #fff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+.contactModal :global(.po-contact-form input),
+.contactModal :global(.po-contact-form select),
+.contactModal :global(.po-contact-form textarea) {
+  background: #000;
+  border-color: #333;
+  color: #fff;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.contactModal :global(.po-contact-form input::placeholder),
+.contactModal :global(.po-contact-form textarea::placeholder) {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.contactModal :global(.po-contact-form-feedback--success) {
+  color: #86efac;
+}
+
+.contactModal :global(.po-contact-form-feedback--error) {
+  color: #fca5a5;
+}
+
+.contactModal :global(.po-contact-form .po-contact-submit-btn span) {
+  color: #fff !important;
+  transform: none !important;
+  opacity: 1 !important;
+  position: static !important;
+}
+
+.contactModal :global(.po-contact-form .po-contact-submit-btn span:last-child) {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sliders {
+    grid-template-columns: 1fr;
+  }
+
+  .col:first-child {
+    border-right: 0;
+    border-bottom: 1px solid #e2ddd5;
+  }
+
+  .resultBar {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .resultBlock {
+    border-right: 0;
+    padding: 0;
+  }
+
+  .resultBlock + .resultBlock {
+    padding: 0;
+  }
+
+  .enquireBtn {
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+}

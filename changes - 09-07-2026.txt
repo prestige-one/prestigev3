@@ -1,0 +1,52 @@
+HOME
+- video need more quality, more projects
+- add golf logo
+- logos switch - sanctuary, Berkeley, make bold 
+- slogan show home page with signature font
+- home page about description must be updated, creative, feel for viewers
+
+- cards==
+animate up, down, up, =============
+show tagline==============
+high resolution renders=========
+
+- cards sequence ==============
+Hilton, Fauchon, Sanctuary,
+The One, Berkeley Square South, Berkeley Square North
+Golf, Canal, Residence
+Seaside, Waterway, Parkway, 
+Caostal, Boulevard, Vista, 
+Seascape, Luxe Villa, Palm Villa
+
+MAP LOCATION
+- Crystal blue
+- remove Yellow and Gold from whole website
+- map image - remove Warehouses, Add more Green 
+- Integrate created map, Show Head Office
+
+DESTINATION SLIDER
+- remove mouse scrolling restriction============
+- fix conflicting issue, allow to navigate======================
+
+ABOUT
+- Show awards on about us page===
+- Use poppins font for all===============
+- Sequence :- About us, Leadership, Vision/Mission, Our Impact in Numbers(Add our Stats), Milestones
+- Add simple sub menu=====
+- Add mega menus must be transparent 30/40
+
+- Locations: 21+ Locations:
+- 3500+ Available units================
+
+- show actual reviews count from google, no faces
+- Make a testimonial page and show from google
+
+
+FOOTER
+- remove TOOLS-----------
+- add Our Services
+- show contact details on footer
+
+
+
+

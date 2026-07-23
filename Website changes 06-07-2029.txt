@@ -1,0 +1,42 @@
+Website changes 06-07-2029
+
+Home slider
+- show the effect for text while changing the slider. -----------
+- slider moving fast. keep bit slow to view the video like 5 seconds----------------
+- gradient at the bottom of slider.-------------
+
+
+Logo slider
+- logos link to projects---------------
+- continuous animation with smooth----------------------
+
+
+About us
+- Add WhatsApp button--------
+- Add WhatsApp floating button----------
+- Fill the email with contents once clicking on email link anywhere------------
+
+Core values
+- Images need to replace with suitable HQ images - discuss with Salman-------------
+
+
+The Heart of Every Locations
+- add this section between the projects and destination slider------
+- implement the map with all projects in 3d view===== limitation, learning curve
+
+
+Destination slider
+- stop endless looping for mouse scrolling----------------
+
+
+Mega menu implementation---------------------
+About our history----------
+Refer other developers and add features-------------
+
+
+
+
+
+
+
+

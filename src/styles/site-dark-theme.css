@@ -1,0 +1,1017 @@
+/* Site-wide dark theme: black backgrounds, light text */
+
+.po-site-dark {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark,
+.po-site-dark p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.po-site-dark h1,
+.po-site-dark h2,
+.po-site-dark h3,
+.po-site-dark h4,
+.po-site-dark h5,
+.po-site-dark h6 {
+  color: #fff;
+}
+
+.po-site-dark a:not(.btn):not(.po-project-page-btn):not(.po-list-item-btn):not(.po-dual-btn):not(.po-project-page-construction-cta) {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.po-site-dark .po-page-loading {
+  background: #000;
+}
+
+.po-site-dark .po-page-loading__dot {
+  background: #fff;
+}
+
+/* Header on dark pages (before sticky) */
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .dark-logo {
+  display: none !important;
+}
+
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .light-logo {
+  display: block !important;
+}
+
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .navbar-nav li > a,
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .navbar-toggler,
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .navbar-nav li .dropdown-toggler,
+.po-site-dark .po-body-hub-list-page .header-area:not(.sticky-on) .navbar-nav li.vorix-dd .dropdown-toggler {
+  color: #fff !important;
+}
+
+/* List / hub pages */
+.po-site-dark .po-list-page {
+  background: #000;
+}
+
+.po-site-dark .po-list-page-hero {
+  background: #000;
+  border-bottom-color: #222;
+}
+
+.po-site-dark .po-list-page-title {
+  color: #fff;
+}
+
+.po-site-dark .po-list-page-intro {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.po-site-dark .po-list-page-kicker {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.po-site-dark .po-list-item-card,
+.po-site-dark .item-card {
+  background: #000;
+  border-color: #2a2a2a;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
+}
+
+.po-site-dark .po-list-item-title {
+  color: #fff;
+}
+
+.po-site-dark .po-list-item-meta {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.po-site-dark .po-list-item-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.po-site-dark .po-list-item-bullet {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-list-item-check {
+  color: #fff;
+}
+
+.po-site-dark .po-press-release-content {
+  background: #000;
+}
+
+.po-site-dark .po-press-release-content .po-list-item-title {
+  color: #fff;
+}
+
+/* About / mission */
+.po-site-dark .po-values-tabs-section {
+  background: #000;
+}
+
+.po-site-dark .po-values-content h2 {
+  color: #fff;
+}
+
+.po-site-dark .po-values-kicker {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.po-site-dark .po-values-intro,
+.po-site-dark .po-values-tab-text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-values-tab-buttons {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.po-site-dark .po-values-tab-buttons button {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.po-site-dark .po-values-tab-buttons button.active {
+  color: #fff;
+}
+
+.po-site-dark .po-values-tab-buttons button.active::after {
+  background: #fff;
+}
+
+.po-site-dark .po-dual-btn {
+  border-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.po-site-dark .po-dual-btn-dark {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+.po-site-dark .po-dual-btn-dark span {
+  color: #fff !important;
+}
+
+.po-site-dark .po-dual-btn-dark:hover,
+.po-site-dark .po-dual-btn-dark:focus {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.po-site-dark .po-dual-btn-dark:hover span,
+.po-site-dark .po-dual-btn-dark:focus span {
+  color: #000 !important;
+}
+
+.po-site-dark .po-dual-btn-light {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.po-site-dark .po-dual-btn-light span {
+  color: #000 !important;
+}
+
+.po-site-dark .po-dual-btn-light:hover,
+.po-site-dark .po-dual-btn-light:focus {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+.po-site-dark .po-dual-btn-light:hover span,
+.po-site-dark .po-dual-btn-light:focus span {
+  color: #fff !important;
+}
+
+.po-site-dark .po-mv-stats-section {
+  background: #000;
+}
+
+.po-site-dark .po-mv-panel {
+  background: #000;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.po-site-dark .po-mv-panel-body {
+  background: transparent;
+}
+
+.po-site-dark .po-mv-panel-body h3,
+.po-site-dark .po-mv-panel-copy h3 {
+  color: #fff;
+}
+
+.po-site-dark .po-mv-panel-body p,
+.po-site-dark .po-mv-panel-text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.po-site-dark .po-mv-panel-kicker {
+  color: #d4b06a;
+}
+
+.po-site-dark .po-mv-stats-band {
+  border-color: #2a2a2a;
+  background: linear-gradient(165deg, #0d0d0d 0%, #050505 100%);
+}
+
+.po-site-dark .po-mv-stats-head h2,
+.po-site-dark .po-mv-stats-head p {
+  color: #fff;
+}
+
+.po-site-dark .po-mv-stats-head p {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.po-site-dark .po-mv-stats-grid--prominent .po-mv-stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.po-site-dark .po-mv-feature-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-mv-feature-card h3 {
+  color: #fff;
+}
+
+.po-site-dark .po-mv-feature-card p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-mv-stats-grid {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-mv-stat-card h3,
+.po-site-dark .po-mv-stat-card span {
+  color: #fff;
+}
+
+.po-site-dark .po-mv-stat-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.po-site-dark .po-mv-stat-card {
+  background: #000;
+  border-color: #2a2a2a;
+  box-shadow: none;
+}
+
+.po-site-dark .po-mv-stat-icon {
+  background: #000;
+}
+
+.po-site-dark .po-mv-stat-icon svg {
+  stroke: #fff;
+}
+
+.po-site-dark .po-mv-feature-icon {
+  background: #fff;
+}
+
+.po-site-dark .po-mv-feature-icon svg {
+  stroke: #111;
+}
+
+/* About Us page */
+.po-site-dark .about-us-wrapper,
+.po-site-dark .po-about-intro-section {
+  background: #000;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.po-site-dark .about-us-wrapper h2,
+.po-site-dark .about-us-wrapper .section-heading h2,
+.po-site-dark .about-us-text-content h2 {
+  color: #fff;
+}
+
+.po-site-dark .about-us-text-content p {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.po-site-dark .po-about-intro-section {
+	overflow: visible;
+	padding-bottom: 50px;
+}
+
+.po-site-dark .po-about-logo-card img {
+  filter: brightness(0) invert(1);
+}
+
+.po-site-dark .po-founder-section,
+.po-site-dark .po-founder-section--light {
+  background: #000;
+}
+
+.po-site-dark .po-growing-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-roadmap-section {
+  background: #000;
+}
+
+.po-site-dark .po-about-logos-section {
+  background: #000;
+}
+
+.po-site-dark .po-about-logo-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-management-section {
+  background: #000;
+}
+
+.po-site-dark .po-management-head p {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.po-site-dark .po-management-head h2 {
+  color: #fff;
+}
+
+.po-site-dark .po-management-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-management-card h3 {
+  color: #fff;
+}
+
+.po-site-dark .po-management-card p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-management-meta {
+  border-top-color: #2a2a2a;
+}
+
+.po-site-dark .po-management-media {
+  background: #000;
+}
+
+/* Home sections */
+.po-site-dark .po-logo-slider,
+.po-site-dark .po-core-v2,
+.po-site-dark .po-project-slider-section,
+.po-site-dark .po-destinations-section {
+  background: #000;
+}
+
+.po-site-dark .po-project-slider-head h2 {
+  color: #fff;
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+}
+
+/* Project pages */
+.po-site-dark .po-project-page-signature {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-signature-title,
+.po-site-dark .po-project-page-signature-text {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-signature-text {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.po-site-dark .po-project-page-resource-strip {
+  background: #000;
+  border-bottom-color: #222;
+}
+
+.po-site-dark .po-project-page-resource-kicker {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.po-site-dark .po-project-page-resource-value {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-resource-icon {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.po-site-dark .po-project-page-gallery-section {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-gallery-title,
+.po-site-dark .po-project-page-gallery-lead {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-gallery-lead {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-project-page-surroundings-intro {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-surroundings-intro-title {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-surroundings-intro-text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-project-page-register {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-register-title {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-register-lead {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-project-page-register .po-contact-form input,
+.po-site-dark .po-project-page-register .po-contact-form select,
+.po-site-dark .po-project-page-register .po-contact-form textarea {
+  background: #000;
+  border-color: #333;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-register .po-contact-form input::placeholder,
+.po-site-dark .po-project-page-register .po-contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Construction updates */
+.po-site-dark .po-cu-detail-section {
+  background: #000;
+}
+
+.po-site-dark .po-cu-tech-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-cu-tech-card h3 {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.po-site-dark .po-cu-tech-card p {
+  color: #fff;
+}
+
+/* Legal */
+.po-site-dark .po-legal-doc {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-legal-doc-inner,
+.po-site-dark .po-legal-doc-inner p,
+.po-site-dark .po-legal-doc-inner h2,
+.po-site-dark .po-legal-doc-inner h3,
+.po-site-dark .po-legal-doc-inner h4,
+.po-site-dark .po-legal-doc-inner strong,
+.po-site-dark .po-legal-doc-list,
+.po-site-dark .po-legal-doc-list li,
+.po-site-dark .po-legal-doc-lead p {
+  color: #fff;
+}
+
+.po-site-dark .po-legal-doc-inner a {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.po-site-dark .po-legal-doc-legal-caps {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.po-site-dark .po-legal-doc-legal-caps p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Blog */
+.po-site-dark .po-blog-post-hero {
+  background: #000;
+  border-bottom-color: #222;
+}
+
+.po-site-dark .po-blog-post-hero-title {
+  color: #fff;
+}
+
+.po-site-dark .po-blog-post-content-shell,
+.po-site-dark .po-blog-post-related {
+  background: #000;
+}
+
+.po-site-dark .po-blog-post-content-inner,
+.po-site-dark .po-blog-post-content-inner p,
+.po-site-dark .po-blog-post-content-inner li,
+.po-site-dark .po-blog-post-content-inner h1,
+.po-site-dark .po-blog-post-content-inner h2,
+.po-site-dark .po-blog-post-content-inner h3,
+.po-site-dark .po-blog-post-content-inner h4,
+.po-site-dark .po-blog-post-content-inner h5,
+.po-site-dark .po-blog-post-content-inner h6 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.po-site-dark .po-blog-post-content-inner a {
+  color: #fff;
+}
+
+.po-site-dark .po-blog-post-related-title {
+  color: #fff;
+}
+
+.po-site-dark .po-blogs-pagination-btn {
+  background: #000;
+  border-color: #333;
+  color: #fff;
+}
+
+.po-site-dark .po-blogs-pagination-btn.is-active {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* Contact page */
+.po-site-dark .po-contact-detail-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-contact-detail-card-label {
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-card-value,
+.po-site-dark .po-contact-detail-card-value a {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-contact-detail-card-icon {
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-social-link {
+  background: #000;
+  border-color: #333;
+  color: #fff;
+}
+
+/* Final contact */
+.po-site-dark .po-final-contact-section {
+  background: #000;
+  border-bottom-color: #222;
+}
+
+/* Broker registration */
+.po-site-dark .po-broker-reg-page--light.po-list-page {
+  background: #000 !important;
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-detail-shell {
+  background: #000;
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-detail-panel,
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-fieldset.po-broker-reg-form-panel,
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-panel-body,
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-actions-panel {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-detail-heading {
+  color: #fff;
+  border-bottom-color: #2a2a2a;
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-detail-text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-panel .po-broker-reg-form-legend {
+  background: #000;
+  color: #fff;
+  border-bottom-color: #2a2a2a;
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-cell label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-checkbox-wrap label {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.po-site-dark .po-broker-reg-page--light .po-broker-reg-form-file {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* FAQ / misc light panels */
+.po-site-dark .po-faq-page {
+  background: #000;
+}
+
+.po-site-dark .po-values-years span {
+  color: #fff;
+}
+
+.po-site-dark .po-values-years h3 {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Destination pages */
+.po-site-dark .po-destination-page {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-destination-intro {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-destination-intro-text,
+.po-site-dark .po-destination-intro-point {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.po-site-dark .po-destination-nearby {
+  background: #000;
+}
+
+.po-site-dark .po-destination-section-title,
+.po-site-dark h2.po-destination-section-title {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-section-lead {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-destination-nearby-caption {
+  background: rgba(0, 0, 0, 0.55);
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+.po-site-dark .po-destination-nearby-caption-text,
+.po-site-dark .po-destination-nearby-caption-time {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-access {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-destination-access-heading {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-access-card {
+  background: #000;
+  border-color: #2a2a2a;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.po-site-dark .po-destination-access-card:hover {
+  border-color: #3a3a3a;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.po-site-dark .po-destination-access-card-title {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-access-card-text {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-destination-invest {
+  background: #000;
+}
+
+.po-site-dark .po-destination-invest-header {
+  background: #000;
+  border-top-color: #222;
+}
+
+.po-site-dark .po-destination-invest-kicker {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.po-site-dark .po-destination-invest-title {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-invest-intro {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-destination-invest-card {
+  background: #000;
+  border-color: #2a2a2a;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.po-site-dark .po-destination-invest-card-title {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-invest-card-desc,
+.po-site-dark .po-destination-invest-list-item {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.po-site-dark .po-destination-invest-check {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-project-spotlight {
+  background: #000;
+  border-top-color: #222;
+}
+
+.po-site-dark .po-destination-project-card {
+  background: #000;
+  border-color: #2a2a2a;
+  color: #fff;
+}
+
+.po-site-dark .po-destination-project-card:hover {
+  border-color: #3a3a3a;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.po-site-dark .po-destination-project-card-title {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-map-footnote,
+.po-site-dark .po-destination-map-footnote a {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.po-site-dark .po-destination-map-footnote a:hover {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-tail {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-destination-tail-text {
+  color: #fff;
+}
+
+.po-site-dark .po-destination-tail-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.po-site-dark .po-destination-tail-link:hover {
+  color: #fff;
+}
+
+/* Destination contact strip (non-hero) */
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) {
+  background: #000;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-heading {
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card-icon,
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card-label {
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card-value,
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card-value--link {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-card-value--link:hover {
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-social {
+  border-top-color: #2a2a2a;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-social-link {
+  background: #000;
+  border-color: #333;
+  color: #fff;
+}
+
+.po-site-dark .po-contact-detail-strip:not(.po-contact-detail-strip--hero-glass) .po-contact-detail-social-link:hover {
+  background: #fff;
+  color: #000 !important;
+  border-color: #fff;
+}
+
+/* Project detail pages — base */
+.po-site-dark .po-project-page-amenities {
+  background: #000;
+}
+
+.po-site-dark .po-project-page-section-kicker {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.po-site-dark .po-project-page-section-title {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-section-sub {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.po-site-dark .po-project-page-trio-card h3 {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-interior,
+.po-site-dark .po-project-page-interior-title,
+.po-site-dark .po-project-page-interior-figure figcaption {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-nearby {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-nearby-block--follow {
+  border-top-color: #2a2a2a;
+}
+
+.po-site-dark .po-project-page-nearby-title {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-nearby-card {
+  background: #000;
+  border-color: #2a2a2a;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.po-site-dark .po-project-page-nearby-card:hover {
+  border-color: #3a3a3a;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+.po-site-dark .po-project-page-nearby-card-icon-wrap {
+  background: #000;
+}
+
+.po-site-dark .po-project-page-nearby-card-index {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.po-site-dark .po-project-page-nearby-card-body h3 {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-nearby-card-body p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.po-site-dark .po-project-page-construction-cta {
+  color: #111 !important;
+}
+
+.po-site-dark .po-project-page-construction-cta:hover {
+  color: #111 !important;
+}
+
+.po-site-dark .po-project-page-map {
+  background: #000;
+}
+
+.po-site-dark .po-project-page-construction {
+  background: #000;
+}
+
+.po-site-dark .po-project-page-map-section,
+.po-site-dark .po-project-page-map-section .po-project-page-section-title,
+.po-site-dark .po-project-page-map-section .po-project-page-section-kicker {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-wide-video,
+.po-site-dark .po-project-page-featured-banner,
+.po-site-dark .po-virtual-tour-section {
+  background: #000;
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-feature-trio {
+  background: #000;
+}
+
+.po-site-dark .po-destination-project-spotlight-title,
+.po-site-dark .po-destination-project-spotlight-lead,
+.po-site-dark .po-destination-project-spotlight-cta {
+  color: #fff !important;
+}
+
+.po-site-dark .po-destination-access-media-fallback {
+  background: #000;
+}
+
+/* Contact page */
+.po-site-dark .po-contact-page-details {
+  background: #000;
+}
+
+.po-site-dark .po-contact-page-details .contact-info-card,
+.po-site-dark .light-mode .po-contact-page-details .contact-info-card {
+  background: #000 !important;
+  border-color: #606060 !important;
+}
+
+.po-site-dark .po-contact-page-card-label {
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+.po-site-dark .po-contact-page-card-value,
+.po-site-dark .po-contact-page-card-value a {
+  color: #fff !important;
+}
+
+.po-site-dark .po-contact-detail-strip {
+  background: #000;
+}
+
+.po-site-dark .po-contact-detail-heading {
+  color: #fff;
+}
+
+/* Investments */
+.po-site-dark .po-investments-section {
+  background: #000;
+}
+
+.po-site-dark .po-investment-card {
+  background: #000;
+  border-color: #2a2a2a;
+}
+
+.po-site-dark .po-investment-card-title {
+  color: #fff;
+}
+
+.po-site-dark .po-investment-card-text {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+/* Project gallery captions */
+.po-site-dark .po-project-page-gallery-caption-bar {
+  background: #000;
+  border: 1px solid #2a2a2a;
+}
+
+.po-site-dark .po-project-page-gallery-caption-text {
+  color: #fff;
+}
+
+.po-site-dark .po-project-page-amenity-top-label {
+  background: #000;
+  color: #fff;
+  border-color: #333;
+}
+
+.po-site-dark .po-growing-section {
+  background: #000;
+}

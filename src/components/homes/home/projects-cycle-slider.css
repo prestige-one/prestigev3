@@ -1,0 +1,391 @@
+.po-cycle-section {
+  --po-cycle-text: #fff;
+  --po-cycle-muted: rgba(255, 255, 255, 0.68);
+  --po-cycle-line: rgba(255, 255, 255, 0.22);
+  --po-cycle-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --po-cycle-autoplay: 11.5s;
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 90vh;
+  padding: 10px clamp(10px, 2vw, 28px) 14px;
+  background: #000;
+  color: var(--po-cycle-text);
+  overflow: hidden;
+}
+
+.po-cycle-heading {
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  text-align: center;
+  padding-top: clamp(4px, 1vh, 12px);
+  padding-bottom: 2px;
+}
+
+.po-cycle-heading-icon {
+  display: none;
+}
+
+.po-cycle-heading h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+
+.po-cycle-heading p {
+  margin: 10px 0 0;
+  color: var(--po-cycle-muted);
+  font-size: clamp(0.82rem, 1.2vw, 0.92rem);
+  line-height: 1.6;
+}
+
+.po-cycle-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  perspective: 1800px;
+}
+
+.po-cycle-stage {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  max-height: calc(90vh - 96px);
+  margin: 0 auto;
+  width: min(100%, 1680px);
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.po-cycle-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(74vw, 1120px);
+  height: 100%;
+  min-height: 0;
+  max-height: calc(90vh - 96px);
+  border: 1px solid var(--po-cycle-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #000;
+  background-image: var(--po-cycle-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55);
+  transform: translate(-50%, -50%) translateX(var(--po-cycle-x)) translateZ(var(--po-cycle-z)) rotateY(var(--po-cycle-rotate)) scale(var(--po-cycle-scale));
+  opacity: var(--po-cycle-opacity);
+  filter: brightness(var(--po-cycle-brightness)) saturate(var(--po-cycle-saturation));
+  transition:
+    transform 760ms var(--po-cycle-ease),
+    opacity 760ms var(--po-cycle-ease),
+    filter 760ms var(--po-cycle-ease),
+    border-color 760ms var(--po-cycle-ease);
+  pointer-events: none;
+}
+
+.po-cycle-slide.is-active {
+  border-color: rgba(255, 255, 255, 0.42);
+  pointer-events: auto;
+}
+
+.po-cycle-slide.is-active .po-cycle-slide-button {
+  pointer-events: auto;
+}
+
+.po-cycle-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 40%, rgba(0, 0, 0, 0.72) 100%);
+  pointer-events: none;
+}
+
+.po-cycle-slide--coming-soon {
+  background-image: none;
+  background-color: #000;
+  border-color: rgba(201, 169, 98, 0.35);
+}
+
+.po-cycle-slide--coming-soon::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201, 169, 98, 0.12) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.po-cycle-slide--coming-soon .po-cycle-slide-content {
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.po-cycle-slide--coming-soon .po-cycle-slide-title {
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.po-cycle-slide--coming-soon .po-cycle-slide-text {
+  font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+  max-width: 36ch;
+}
+
+.po-cycle-slide-content {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(18px, 3.5vh, 32px);
+  transform: translateX(-50%);
+  width: min(88%, 620px);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.po-cycle-slide-title {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.po-cycle-slide-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(0.72rem, 0.95vw, 0.84rem);
+  line-height: 1.45;
+  max-width: 48ch;
+}
+
+.po-cycle-slide-button {
+  margin-top: 6px;
+  min-width: 168px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.42);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.po-cycle-slide-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.po-cycle-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.po-cycle-arrow:hover {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.po-cycle-arrow svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.8;
+}
+
+.po-cycle-arrow-prev {
+  left: clamp(4px, 1.8vw, 24px);
+}
+
+.po-cycle-arrow-next {
+  right: clamp(4px, 1.8vw, 24px);
+}
+
+.po-cycle-footer {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.po-cycle-progress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  max-width: min(100%, 920px);
+}
+
+.po-cycle-dot {
+  width: 24px;
+  height: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.po-cycle-dot span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #fff;
+}
+
+.po-cycle-dot.is-active span {
+  animation: po-cycle-fill var(--po-cycle-autoplay) linear forwards;
+}
+
+.po-cycle-counter {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+}
+
+.po-cycle-counter strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+@keyframes po-cycle-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .po-cycle-section {
+    min-height: 90svh;
+  }
+
+  .po-cycle-stage {
+    width: 100%;
+    max-height: calc(90svh - 88px);
+  }
+
+  .po-cycle-slide {
+    width: min(92vw, 680px);
+    max-height: calc(90svh - 88px);
+  }
+
+  .po-cycle-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .po-cycle-dot {
+    width: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .po-cycle-stage {
+    max-height: calc(90svh - 84px);
+  }
+
+  .po-cycle-slide {
+    width: 94vw;
+    max-height: calc(90svh - 84px);
+    border-radius: 12px;
+  }
+
+  .po-cycle-slide-content {
+    bottom: 16px;
+    width: 90%;
+  }
+
+  .po-cycle-slide-button {
+    min-width: 150px;
+    padding: 9px 14px;
+  }
+
+  .po-cycle-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.po-home-page .po-cycle-section {
+  margin-top: 30px;
+  background: #000;
+}
+
+/* Desktop immersive: hide site header and give active slide full 90vh */
+@media (min-width: 992px) {
+  body.po-cycle-immersive .header-area {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  body.po-cycle-immersive .po-home-page .po-cycle-section.is-immersive {
+    margin-top: 0;
+    min-height: auto;
+    padding: 10px clamp(10px, 2vw, 28px) 14px;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  body.po-cycle-immersive .po-cycle-section.is-immersive .po-cycle-shell {
+    min-height: 90vh;
+    height: 90vh;
+  }
+
+  body.po-cycle-immersive .po-cycle-section.is-immersive .po-cycle-stage {
+    height: 90vh;
+    max-height: 90vh;
+  }
+
+  body.po-cycle-immersive .po-cycle-section.is-immersive .po-cycle-slide {
+    height: 90vh;
+    max-height: 90vh;
+  }
+
+  body.po-cycle-immersive .po-cycle-section.is-immersive .po-cycle-footer {
+    margin-top: 10px;
+  }
+}

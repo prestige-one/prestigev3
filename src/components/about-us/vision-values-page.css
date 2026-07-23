@@ -1,0 +1,51 @@
+.po-vision-values-intro {
+  padding: clamp(0.75rem, 1.2vw, 1rem) 0;
+  background: #000;
+}
+
+.po-vision-values-intro__panel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: clamp(1.25rem, 2.6vw, 2rem);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+.po-vision-values-intro__kicker {
+  margin: 0 0 0.55rem;
+  color: #d4b36a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+.po-vision-values-intro__panel h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1rem, 2.3vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.po-vision-values-intro__panel p {
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.75;
+}
+
+/* About page — "Our Philosophy" + "Our Journey" combined row, 2 columns on desktop */
+.po-philosophy-journey {
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+  background: #000;
+}
+
+.po-philosophy-journey__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .po-philosophy-journey__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}

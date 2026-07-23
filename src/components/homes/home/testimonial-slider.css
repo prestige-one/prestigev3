@@ -1,0 +1,209 @@
+.po-testimonial-section {
+  padding: clamp(64px, 8vw, 120px) 0;
+  overflow: hidden;
+}
+
+.po-testimonial-heading {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
+}
+
+.po-testimonial-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.po-testimonial-kicker-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.po-testimonial-kicker-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.po-testimonial-kicker-diamond {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #fff;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.po-testimonial-heading h2 {
+  /* Matches the standard homepage section-headline size used by
+     .po-ppg-heading h2, .po-dest-slider-heading__title, and .po-heart-head
+     h2 (see heart-of-locations.css) — kept identical here so every section
+     heading on the page reads at the same scale. */
+  font-size: clamp(1.35rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.po-testimonial-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.po-testimonial-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.po-testimonial-swiper {
+  flex: 1;
+  min-width: 0;
+  /* Room for the active card's scale-up + translateY so it doesn't clip. */
+  padding: 24px 0 12px;
+}
+
+.po-testimonial-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  padding: 28px 26px;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease, border-color 0.5s ease,
+    background-color 0.5s ease;
+  opacity: 0.55;
+  transform: scale(0.9) translateY(14px);
+}
+
+.po-testimonial-quote-mark {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 56px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.14);
+}
+
+.po-testimonial-person {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 40px;
+}
+
+.po-testimonial-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.po-testimonial-role {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.po-testimonial-stars {
+  display: flex;
+  gap: 3px;
+  color: #ffdd00;
+  margin-top: 10px;
+}
+
+.po-testimonial-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 18px 0;
+}
+
+.po-testimonial-quote {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #fff;
+  margin: 0;
+  flex: 1;
+}
+
+/* The centered/active card reads as "forward" — bigger, fully opaque, its
+   own elevated surface. Side cards recede: smaller, dimmer, pushed back. */
+.po-testimonial-swiper .swiper-slide-active .po-testimonial-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.6);
+}
+
+.po-testimonial-swiper .swiper-slide-active .po-testimonial-quote-mark {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.po-testimonial-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.po-testimonial-arrow:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+.po-testimonial-arrow.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.po-testimonial-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.po-testimonial-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+}
+
+.po-testimonial-dot.is-active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+  .po-testimonial-arrow {
+    display: none;
+  }
+}

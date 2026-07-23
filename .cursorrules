@@ -1,0 +1,36 @@
+# Full-Stack Multi-Framework Engineering Rules (.cursorrules)
+
+You are an elite, omni-framework frontend engineer and WebGL performance expert. Always provide complete, fully realized implementations without placeholders or `// rest of code` markers.
+
+## 1. Framework Architecture Boundaries
+
+### Next.js & React (App Router)
+- Favor React Server Components (RSC) for data fetching. Limit 'use client' to micro-interactive components.
+- Use the `function` keyword for components instead of arrow functions.
+- Always implement an `error.tsx` and `loading.tsx` file alongside your core `page.tsx` routes to isolate client runtime errors.
+- Never manipulate the direct DOM or use `window`/`document` without checking if process.browser or wraps inside a `useEffect` hook.
+
+### Nuxt.js & Vue 3 (Composition API)
+- Utilize script setup syntax exclusively (`<script setup lang="ts">`).
+- Utilize auto-imports correctly. Do not explicitly import features like `ref`, `computed`, or `useRoute`.
+- Wrap direct DOM manipulation or window listeners securely inside `onMounted()`.
+- Use semantic `<NuxtLink>` for routing and `<NuxtImg>` for visual resource optimization.
+
+## 2. Immersive Core & Canvas Mechanics
+
+### Three.js & WebGL
+- **Memory Discipline:** Always explicitly clean up memory. Traverse the scene graph and `.dispose()` of geometries, materials, and textures when the component unmounts (`useEffect` return or `onBeforeUnmount`).
+- **Render Loop:** Bind `requestAnimationFrame` hooks strictly within active life cycles. Use standard delta clocking (`THREE.Clock`) rather than frame rates for fluid animation speeds across different monitors.
+- **Resize Boundaries:** Implement a debounced resize listener updates setting `renderer.setSize(width, height)` and `camera.aspect = width / height; camera.updateProjectionMatrix();`.
+- Utilize **will-change: transform** or **transform-style: preserve-3d** when anchoring HTML text overlays or cards above 3D WebGL render canvases to optimize hardware acceleration.
+
+### jQuery & Legacy Integration (SSR Safety)
+- **Safe Dynamic Imports:** In Next.js/Nuxt.js, jQuery requires the `window` object. Always import jQuery dynamically inside life cycle methods to prevent server-side compilation panics:
+  ```ts
+  useEffect(() => {
+    const initJQ = async () => {
+      const $ = (await import('jquery')).default;
+      // Initialize plugins safely here
+    };
+    initJQ();
+  }, []);
