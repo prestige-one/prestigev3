@@ -26,6 +26,10 @@
             <prestige-upcoming-developments />
             <!-- upcoming developments area end -->
 
+            <!-- why prestige one area start -->
+            <prestige-why-us />
+            <!-- why prestige one area end -->
+
           </main>
 
           <!-- footer area start -->

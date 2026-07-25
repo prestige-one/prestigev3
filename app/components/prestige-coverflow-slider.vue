@@ -230,6 +230,16 @@ onMounted(() => {
   display: block;
 }
 
+/* contained sliders (commercial, upcoming) — object-fit: contain at this
+   height left visible letterboxed empty space around images whose aspect
+   ratio doesn't match the box, since shrinking the box to remove that gap
+   just clipped the images instead. Filling the box with cover trades a
+   bit of edge-cropping for no dead space, at the same height as the
+   residential slider. */
+.coverflow-slider-contained .coverflow-slider-item img {
+  object-fit: cover;
+}
+
 .coverflow-slider-title-sm {
   font-size: 30px;
   line-height: 1;
