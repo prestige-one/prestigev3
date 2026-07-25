@@ -7,7 +7,7 @@
             <h2 class="prestige-developments-title prestige-text-paint">
               Our Developments
             </h2>
-            <p class="prestige-developments-subtitle prestige-text-paint">
+            <p class="prestige-developments-subtitle">
               From vision to reality
             </p>
           </div>
@@ -48,6 +48,36 @@
 .prestige-developments-subtitle {
   font-size: clamp(14px, 1.6vw, 18px);
   margin: 0 0 60px;
+  color: #fff;
+}
+
+/* soft aurora-style glow behind the headline — same idea as the "why
+   choose us" section's gradient-shape image on /dark/unique-ai-image, but
+   rebuilt as a small, contained CSS gradient (that page's pastel PNG is
+   sized for a full light-page backdrop and would bleed edge-to-edge here).
+   Kept compact and positioned within the title box's own top padding so it
+   never reaches up into the hero section's bottom-fade gradient above it. */
+.prestige-developments-title-box {
+  position: relative;
+}
+
+.prestige-developments-title-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 90vw);
+  height: 320px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 65% 35%,
+      rgba(120, 210, 255, 0.32),
+      transparent 60%
+    ),
+    radial-gradient(circle at 32% 68%, rgba(255, 140, 210, 0.24), transparent 60%);
+  filter: blur(60px);
 }
 
 .prestige-developments-eyebrow {

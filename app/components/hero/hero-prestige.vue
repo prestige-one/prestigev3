@@ -7,7 +7,7 @@
       loop
       playsinline
     >
-      <source src="/assets/videos/Hilton.mp4" type="video/mp4">
+      <source src="/assets/videos/Hero-Video-v1.mp4" type="video/mp4">
     </video>
     <div class="prestige-hero-overlay" />
     <div class="prestige-hero-bottom-fade" />
@@ -22,13 +22,13 @@
       <h2>Our Story</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-1">
-      <h2>It started with a vision.</h2>
+      <h2>It started with a vision</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-2">
-      <h2>To create homes people truly love living in.</h2>
+      <h2>To create homes people truly love living in</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-3">
-      <h2>Today, that vision shapes every Prestige One home.</h2>
+      <h2>Today, that vision shapes every Prestige One home</h2>
     </div>
   </div>
 </template>
@@ -54,10 +54,14 @@
   transform: translate(-50%, -50%);
 }
 
+/* hidden by default so the video reads clean and bright on load — GSAP
+   fades it in (see prestige-hero-animation.ts) right before the headlines
+   start appearing, then leaves it in place for the rest of the sequence. */
 .prestige-hero-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.44);
+  opacity: 0;
 }
 
 .prestige-hero-bottom-fade {

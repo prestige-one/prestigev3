@@ -7,6 +7,7 @@ export function prestigeHeroAnimation() {
     const hero = document.querySelector(".prestige-hero");
     const intro = document.querySelector(".prestige-hero-content");
     const logo = document.querySelector(".prestige-hero-logo");
+    const overlay = document.querySelector(".prestige-hero-overlay");
 
     const headlines = ["story", 1, 2, 3]
       .map((n) => {
@@ -18,7 +19,7 @@ export function prestigeHeroAnimation() {
         (h): h is { el: HTMLElement; text: HTMLHeadingElement } => !!h.el && !!h.text,
       );
 
-    if (!hero || !intro || !logo || headlines.length !== 4) return;
+    if (!hero || !intro || !logo || !overlay || headlines.length !== 4) return;
 
     // headline pacing knobs — tweak these to change how the sequence feels
     const HEADLINE_ENTER = 0.9; // slide-up + text-paint duration
@@ -33,11 +34,17 @@ export function prestigeHeroAnimation() {
       return isLast ? exitStart + HEADLINE_EXIT : exitStart + NEXT_OVERLAP;
     }, HEADLINES_START);
 
+    // scroll-distance-per-timeline-second — was 76 (≈9 viewport heights for
+    // the full sequence), which meant the logo and headlines only arrived
+    // after many separate scroll actions. Dropped way down so the whole
+    // thing plays out within roughly one continuous scroll gesture.
+    const SCROLL_DISTANCE_PER_SECOND = 20;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: hero,
         start: "top top",
-        end: `+=${Math.round(totalHeadlineTime * 76)}%`,
+        end: `+=${Math.round(totalHeadlineTime * SCROLL_DISTANCE_PER_SECOND)}%`,
         scrub: 1,
         pin: true,
         anticipatePin: 1,
@@ -63,6 +70,16 @@ export function prestigeHeroAnimation() {
       // it's fully invisible before it ever gets close enough to the top
       // to be clipped by the header — no cut-off bottom edge ever shows
       .to(logo, { opacity: 0, duration: 1, ease: "none" }, 1.3);
+
+    // dark overlay fades in smoothly right before the headlines start
+    // arriving (for text contrast) and is never faded back out — it stays
+    // in place for the rest of the pinned sequence.
+    const OVERLAY_FADE = 1;
+    tl.to(
+      overlay,
+      { opacity: 1, duration: OVERLAY_FADE, ease: "none" },
+      HEADLINES_START - OVERLAY_FADE,
+    );
 
     // each headline reveals by sliding up from below while the previous
     // one is covered/faded, mirroring the tp-service-pin panel reveal —

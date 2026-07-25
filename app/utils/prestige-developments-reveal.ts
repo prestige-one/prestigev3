@@ -41,4 +41,26 @@ export function prestigeDevelopmentsReveal() {
       }
     );
   }
+
+  // Subtitle appears with a subtle zoom instead of the text-paint sweep
+  // used elsewhere — a lighter scale range than the title since it's a
+  // smaller supporting line, not the main headline.
+  const subtitle = document.querySelector<HTMLElement>(".prestige-developments-subtitle");
+  if (subtitle) {
+    gsap.fromTo(
+      subtitle,
+      { scale: 0.85, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: subtitle,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+  }
 }
