@@ -12,14 +12,7 @@ withDefaults(defineProps<{
 }>(), {
   bgCls: 'cursor-white-bg'
 });
-onMounted(() => {
-  setTimeout(() => {
-    cursorAnimation();
-  }, 50)
-});
-useHead({
-  bodyAttrs: {
-    class: 'tp-magic-cursor'
-  }
-});
+// Custom trailing-dot cursor disabled — site uses the native pointer.
+// #magic-cursor stays display:none since we no longer add the
+// tp-magic-cursor body class that CSS relies on to reveal it.
 </script>

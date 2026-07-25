@@ -130,8 +130,8 @@
 }
 
 .prestige-hero-headline h2 {
-  font-size: clamp(28px, 5vw, 56px);
-  font-weight: 600;
+  font-size: clamp(20px, 3vw, 45px);
+  font-weight: 500;
   line-height: 1.2;
   max-width: 900px;
   margin: 0 auto;

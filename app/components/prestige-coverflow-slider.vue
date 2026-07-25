@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import Swiper from "swiper";
-import { Navigation, EffectCoverflow, Autoplay, Keyboard, Controller } from "swiper/modules";
+import { Navigation, EffectCoverflow, Autoplay, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
@@ -60,31 +60,37 @@ const baseDevelopmentSlides = [
   {
     id: 1,
     image: "/assets/project-featured-images/hilton/HILTON-NIGHT-VIEW-1.webp",
-    title: "Hilton Residences",
+    title: "Hilton Residences Dubai Maritime City",
     href: "#",
   },
   {
     id: 2,
     image: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
-    title: "Fauchon Residences",
+    title: "FAUCHON Résidences by Prestige One",
     href: "#",
   },
   {
     id: 3,
-    image: "/assets/project-featured-images/berkeley/Berkeley-Square-North.webp",
-    title: "Berkeley Square",
+    image: "/assets/project-featured-images/sanctuary/sanctuary-aprtment.webp",
+    title: "SANCTUARY Residences by Prestige One",
     href: "#",
   },
   {
     id: 4,
-    image: "/assets/project-featured-images/coastal-haven/Coastal-Haven.webp",
-    title: "Coastal Haven",
+    image: "/assets/project-featured-images/berkeley/Berkeley-Square-North.webp",
+    title: "Berkeley Square by Prestige One",
     href: "#",
   },
   {
     id: 5,
+    image: "/assets/project-featured-images/coastal-haven/Coastal-Haven.webp",
+    title: "Coastal Haven by Prestige One",
+    href: "#",
+  },
+  {
+    id: 6,
     image: "/assets/project-featured-images/parkway/parkway.webp",
-    title: "Parkway",
+    title: "Parkway by Prestige One",
     href: "#",
   },
 ];
@@ -98,13 +104,11 @@ const developmentSlides = [...baseDevelopmentSlides, ...baseDevelopmentSlides].m
 );
 
 onMounted(() => {
-  const modules = [Navigation, EffectCoverflow, Autoplay, Keyboard, Controller];
-
   // main (image) swiper — no mousewheel interaction, autoplay only
   const coverflowThumbSlider = new Swiper(".coverflow-slider-active", {
     loop: true,
     effect: "coverflow",
-    modules: [...modules],
+    modules: [Navigation, EffectCoverflow, Autoplay, Keyboard],
     speed: 1500,
     slidesPerView: 1,
     spaceBetween: 0,
@@ -128,19 +132,28 @@ onMounted(() => {
     },
   });
 
-  // text swiper, synced to the image swiper
+  // text swiper — purely a follower, driven programmatically below
   const coverflowTextSlider = new Swiper(".coverflow-slider-text-active", {
-    modules,
+    modules: [Keyboard],
     spaceBetween: 30,
     slidesPerView: 1,
     direction: "vertical",
     loop: true,
-    touchRatio: 0.2,
+    allowTouchMove: false,
     speed: 1500,
   });
 
-  coverflowThumbSlider.controller.control = coverflowTextSlider;
-  coverflowTextSlider.controller.control = coverflowThumbSlider;
+  // Sync the caption swiper to the image swiper's real (non-looped) index.
+  // The Controller module keys its sync off scroll *progress*, which
+  // diverges badly here because the two swipers have different
+  // slidesPerView (image: 1-4 depending on breakpoint, text: always 1)
+  // and therefore different loop-clone counts — that mismatch left the
+  // caption stuck on whichever slide happened to sit under the initial
+  // progress value. Driving it by realIndex instead stays correct at
+  // every breakpoint.
+  coverflowThumbSlider.on("slideChange", () => {
+    coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 1500);
+  });
 });
 </script>
 

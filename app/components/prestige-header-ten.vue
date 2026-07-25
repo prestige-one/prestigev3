@@ -25,17 +25,19 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 col-7">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
-                                    <nuxt-link href="#" class="tp-btn-black btn-white-bg">
-                                        <span class="tp-btn-black-filter-blur">
-                                            <svg-btn-blur-filter filter-id="buttonFilter10" />
-                                        </span>
-                                        <span class="tp-btn-black-filter d-inline-flex align-items-center" style="filter: url(#buttonFilter10)">
-                                            <span class="tp-btn-black-text">Get in touch</span>
-                                            <span class="tp-btn-black-circle">
-                                                <svg-arrow-one />
+                                        <span class="tp-btn-black btn-white-bg">
+                                            <span class="tp-btn-black-filter-blur">
+                                                <svg-btn-blur-filter filter-id="buttonFilter10" />
+                                            </span>
+                                            <span class="tp-btn-black-filter d-inline-flex align-items-center" style="filter: url(#buttonFilter10)">
+                                                <nuxt-link href="#" target="_blank" rel="noopener" class="tp-btn-black-text">
+                                                    Get in touch
+                                                </nuxt-link>
+                                                <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="tp-btn-black-circle tp-btn-black-circle-whatsapp">
+                                                    <svg-social-whatsapp-three />
+                                                </nuxt-link>
                                             </span>
                                         </span>
-                                    </nuxt-link>
                                 </div>
                                 <div class="tp-header-10-offcanvas ml-20">
                                     <div class="tp-header-bar">
@@ -96,4 +98,14 @@ const openMobileOffcanvas = ref(false);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+
+/* the WhatsApp glyph is an icon-font <i>, not an <svg>, so it falls
+   outside the theme's ".tp-btn-black-circle > svg" sizing/color rule —
+   size and center it to match that circle explicitly. */
+.prestige-header-ten :deep(.tp-btn-black-circle-whatsapp) {
+  font-size: 27px;
+  color: var(--tp-common-black);
+  padding-top: 2px;
+}
+
 </style>

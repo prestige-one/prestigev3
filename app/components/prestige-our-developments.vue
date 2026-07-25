@@ -19,6 +19,11 @@
           <p class="prestige-developments-eyebrow text-center">
             Residential Projects
           </p>
+          <img
+            src="/assets/images/v3/slogan.png"
+            alt="The Heart of Every Location"
+            class="prestige-developments-slogan"
+          >
         </div>
       </div>
     </div>
@@ -53,6 +58,15 @@
   text-transform: uppercase;
   margin: 0 0 20px;
 }
+
+.prestige-developments-slogan {
+  display: block;
+  width: 270px;
+  height: auto;
+  	margin: 0 auto 50px;
+  opacity: 0.7;
+}
+
 
 /* text-paint reveal — same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
