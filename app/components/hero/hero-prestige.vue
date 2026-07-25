@@ -7,7 +7,7 @@
       loop
       playsinline
     >
-      <source src="/assets/videos/Hero-Video-v1.mp4" type="video/mp4">
+      <source src="/assets/videos/Hilton.mp4" type="video/mp4">
     </video>
     <div class="prestige-hero-overlay" />
     <div class="prestige-hero-bottom-fade" />
