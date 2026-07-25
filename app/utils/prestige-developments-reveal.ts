@@ -22,10 +22,13 @@ export function prestigeDevelopmentsReveal() {
     });
   });
 
-  // Zoom the headline in as it enters, tied to the same scrub so it
-  // un-zooms in reverse when scrolling back up past it.
-  const title = document.querySelector<HTMLElement>(".prestige-developments-title");
-  if (title) {
+  // Zoom each headline in as it enters, tied to the same scrub so it
+  // un-zooms in reverse when scrolling back up past it. querySelectorAll
+  // (not querySelector) because this page has more than one "Our
+  // Developments"-style section (residential + commercial) — a single
+  // query would only ever animate the first one.
+  const titles = document.querySelectorAll<HTMLElement>(".prestige-developments-title");
+  titles.forEach((title) => {
     gsap.fromTo(
       title,
       { scale: 0.75 },
@@ -40,13 +43,13 @@ export function prestigeDevelopmentsReveal() {
         },
       }
     );
-  }
+  });
 
-  // Subtitle appears with a subtle zoom instead of the text-paint sweep
+  // Subtitles appear with a subtle zoom instead of the text-paint sweep
   // used elsewhere — a lighter scale range than the title since it's a
   // smaller supporting line, not the main headline.
-  const subtitle = document.querySelector<HTMLElement>(".prestige-developments-subtitle");
-  if (subtitle) {
+  const subtitles = document.querySelectorAll<HTMLElement>(".prestige-developments-subtitle");
+  subtitles.forEach((subtitle) => {
     gsap.fromTo(
       subtitle,
       { scale: 0.85, opacity: 0 },
@@ -62,5 +65,5 @@ export function prestigeDevelopmentsReveal() {
         },
       }
     );
-  }
+  });
 }

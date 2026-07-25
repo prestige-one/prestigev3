@@ -18,6 +18,14 @@
             <prestige-our-developments />
             <!-- our developments area end -->
 
+            <!-- commercial developments area start -->
+            <prestige-commercial-developments />
+            <!-- commercial developments area end -->
+
+            <!-- upcoming developments area start -->
+            <prestige-upcoming-developments />
+            <!-- upcoming developments area end -->
+
           </main>
 
           <!-- footer area start -->

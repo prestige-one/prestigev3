@@ -1,48 +1,56 @@
 <template>
-  <main>
+  <main ref="sliderRoot">
     <!-- project slider area start (same as portfolio-coverflow-slider-light) -->
-    <div class="coverflow-slider-main fix">
-      <div class="coverflow-slider-wrap">
-        <div class="swiper-container coverflow-slider-active fix">
-          <div class="swiper-wrapper">
-            <div v-for="item in developmentSlides" :key="item.id" class="swiper-slide">
-              <div class="coverflow-slider-item">
-                <img :src="item.image" :alt="item.title">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="coverflow-slider-text-wrap">
-        <div class="swiper-container coverflow-slider-text-active fix">
-          <div class="swiper-wrapper">
-            <div v-for="item in developmentSlides" :key="item.id" class="swiper-slide">
-              <div class="coverflow-slider-item">
-                <div class="coverflow-slider-content text-center">
-                  <h4 class="coverflow-slider-title-sm">
-                    <NuxtLink class="tp-line-white" :to="item.href">
-                      {{ item.title }}
-                    </NuxtLink>
-                  </h4>
+    <div :class="['coverflow-slider-main', 'fix', { 'coverflow-slider-contained': contained }]">
+      <div :class="contained ? 'container' : null">
+        <div class="coverflow-slider-inner">
+          <div class="coverflow-slider-wrap">
+            <div class="swiper-container coverflow-slider-active fix">
+              <div class="swiper-wrapper">
+                <div v-for="item in loopSlides" :key="item.id" class="swiper-slide">
+                  <div class="coverflow-slider-item">
+                    <img :src="item.image" :alt="item.title">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="coverflow-slider-text-wrap">
+            <div class="swiper-container coverflow-slider-text-active fix">
+              <div class="swiper-wrapper">
+                <div v-for="item in loopSlides" :key="item.id" class="swiper-slide">
+                  <div class="coverflow-slider-item">
+                    <div class="coverflow-slider-content text-center">
+                      <h4 class="coverflow-slider-title-sm">
+                        <NuxtLink class="tp-line-white" :to="item.href">
+                          {{ item.title }}
+                          <div class="coverflow-slider-location">[{{ item.location }}]</div>
+                        </NuxtLink>
+                      </h4>
+                      <p class="coverflow-slider-description">
+                        {{ item.description }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="coverflow-slider-arrow">
+            <button class="coverflow-slider-prev pl-100">
+              <span>
+                <svg-arrow-slide-prev />
+              </span>
+              <span>Prev</span>
+            </button>
+            <button class="coverflow-slider-next pr-100">
+              <span>Next</span>
+              <span>
+                <svg-arrow-slide-next />
+              </span>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="coverflow-slider-arrow">
-        <button class="coverflow-slider-prev pl-100">
-          <span>
-            <svg-arrow-slide-prev />
-          </span>
-          <span>Prev</span>
-        </button>
-        <button class="coverflow-slider-next pr-100">
-          <span>Next</span>
-          <span>
-            <svg-arrow-slide-next />
-          </span>
-        </button>
       </div>
     </div>
     <!-- project slider area end -->
@@ -55,58 +63,62 @@ import { Navigation, EffectCoverflow, Autoplay, Keyboard } from "swiper/modules"
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
+import type { DevelopmentSlide } from "../data/residential-developments-data";
 
-const baseDevelopmentSlides = [
+const props = withDefaults(
+  defineProps<{
+    slides: DevelopmentSlide[];
+    loop?: boolean;
+    autoplay?: boolean;
+    contained?: boolean;
+  }>(),
   {
-    id: 1,
-    image: "/assets/project-featured-images/hilton/HILTON-NIGHT-VIEW-1.webp",
-    title: "Hilton Residences Dubai Maritime City",
-    href: "#",
-  },
-  {
-    id: 2,
-    image: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
-    title: "FAUCHON Résidences by Prestige One",
-    href: "#",
-  },
-  {
-    id: 3,
-    image: "/assets/project-featured-images/sanctuary/sanctuary-aprtment.webp",
-    title: "SANCTUARY Residences by Prestige One",
-    href: "#",
-  },
-  {
-    id: 4,
-    image: "/assets/project-featured-images/berkeley/Berkeley-Square-North.webp",
-    title: "Berkeley Square by Prestige One",
-    href: "#",
-  },
-  {
-    id: 5,
-    image: "/assets/project-featured-images/coastal-haven/Coastal-Haven.webp",
-    title: "Coastal Haven by Prestige One",
-    href: "#",
-  },
-  {
-    id: 6,
-    image: "/assets/project-featured-images/parkway/parkway.webp",
-    title: "Parkway by Prestige One",
-    href: "#",
-  },
-];
-
-// Swiper's loop mode needs roughly slidesPerView * 2 slides to loop
-// reliably (the demo used 11 for the same reason) — with only 5 real
-// developments, duplicate the set so loop + autoplay work correctly at
-// the wider breakpoints (slidesPerView up to 4).
-const developmentSlides = [...baseDevelopmentSlides, ...baseDevelopmentSlides].map(
-  (item, index) => ({ ...item, id: index + 1 }),
+    loop: true,
+    autoplay: true,
+    contained: false,
+  }
 );
 
+const sliderRoot = ref<HTMLElement | null>(null);
+
+// Swiper's loop mode needs roughly slidesPerView * 2 slides to loop
+// reliably (the demo used 11 for the same reason) — duplicate the real
+// project list enough times to clear that at the widest breakpoint
+// (slidesPerView: 4). Skipped entirely when loop is off (e.g. the
+// commercial section only has 2 real projects, so it just shows those 2
+// as-is rather than padding them out with repeats).
+const MIN_LOOP_SLIDES = 8;
+const loopSlides = computed(() => {
+  const base = props.slides;
+  if (!props.loop) return base;
+  const repeatCount = Math.max(2, Math.ceil(MIN_LOOP_SLIDES / base.length));
+  return Array.from({ length: repeatCount })
+    .flatMap(() => base)
+    .map((item, index) => ({ ...item, id: index + 1 }));
+});
+
+// Never request more slides-per-view than there actually are — otherwise
+// a short, non-looping list (2 slides) would leave empty gaps at the
+// wider breakpoints instead of just showing what exists.
+const slidesPerViewAt = (n: number) => Math.min(n, props.slides.length);
+
 onMounted(() => {
+  // This component can appear more than once on a page (residential +
+  // commercial development sliders), so every Swiper target is queried
+  // from this instance's own root rather than a page-wide class selector
+  // — otherwise Swiper would only ever find the first instance's markup.
+  const root = sliderRoot.value;
+  if (!root) return;
+
+  const thumbEl = root.querySelector<HTMLElement>(".coverflow-slider-active");
+  const textEl = root.querySelector<HTMLElement>(".coverflow-slider-text-active");
+  const prevEl = root.querySelector<HTMLElement>(".coverflow-slider-prev");
+  const nextEl = root.querySelector<HTMLElement>(".coverflow-slider-next");
+  if (!thumbEl || !textEl || !prevEl || !nextEl) return;
+
   // main (image) swiper — no mousewheel interaction, autoplay only
-  const coverflowThumbSlider = new Swiper(".coverflow-slider-active", {
-    loop: true,
+  const coverflowThumbSlider = new Swiper(thumbEl, {
+    loop: props.loop,
     effect: "coverflow",
     modules: [Navigation, EffectCoverflow, Autoplay, Keyboard],
     speed: 1500,
@@ -117,28 +129,35 @@ onMounted(() => {
     keyboard: {
       enabled: true,
     },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+    autoplay: props.autoplay
+      ? {
+          delay: 2500,
+          disableOnInteraction: false,
+        }
+      : false,
     navigation: {
-      nextEl: ".coverflow-slider-next",
-      prevEl: ".coverflow-slider-prev",
+      nextEl,
+      prevEl,
     },
     breakpoints: {
-      600: { slidesPerView: 2 },
-      991: { slidesPerView: 3 },
-      1400: { slidesPerView: 4 },
+      600: { slidesPerView: slidesPerViewAt(2) },
+      991: { slidesPerView: slidesPerViewAt(3) },
+      1400: { slidesPerView: slidesPerViewAt(4) },
     },
   });
 
-  // text swiper — purely a follower, driven programmatically below
-  const coverflowTextSlider = new Swiper(".coverflow-slider-text-active", {
+  // text swiper — purely a follower, driven programmatically below.
+  // (autoHeight was tried here so each slide sizes to its title +
+  // location + description content, but combined with loop mode and this
+  // absolutely-positioned wrapper it made Swiper miscompute slide height
+  // as 6000px — a known-flaky combo. A fixed height sized generously for
+  // the tallest caption is far more predictable.)
+  const coverflowTextSlider = new Swiper(textEl, {
     modules: [Keyboard],
     spaceBetween: 30,
     slidesPerView: 1,
     direction: "vertical",
-    loop: true,
+    loop: props.loop,
     allowTouchMove: false,
     speed: 1500,
   });
@@ -152,33 +171,104 @@ onMounted(() => {
   // progress value. Driving it by realIndex instead stays correct at
   // every breakpoint.
   coverflowThumbSlider.on("slideChange", () => {
-    coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 1500);
+    if (props.loop) {
+      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 1500);
+    } else {
+      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, 1500);
+    }
   });
 });
 </script>
 
 <style scoped>
-/* .coverflow-slider-text-wrap (theme CSS) is `position: absolute; bottom:
-   60px;` with no positioned ancestor of its own — without a containing
-   block here, it skips every static ancestor all the way up to GSAP
-   ScrollSmoother's #smooth-wrapper (position: fixed, viewport-sized),
-   so "bottom: 60px" ends up meaning "60px from the bottom of the
-   viewport" rather than the bottom of this slider — pinning the title
-   text to the screen everywhere, bleeding into the hero on load/scroll.
-   Establishing a positioning context here contains it correctly. */
 .coverflow-slider-main {
   position: relative;
 }
 
+/* the theme's base .coverflow-slider-text-wrap is `position: absolute;
+   bottom: 60px`, overlaid on top of the images — hard to read against a
+   busy photo. Pulled into normal flow instead so the caption sits as its
+   own block underneath the image row, never on top of it. */
+.coverflow-slider-text-wrap {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  margin-top: 40px;
+}
+
+/* contained variant (commercial) sits in a narrower box — a slightly
+   tighter gap than the full-bleed residential slider reads better there. */
+.coverflow-slider-contained .coverflow-slider-text-wrap {
+  margin-top: 24px;
+}
+
+.coverflow-slider-inner {
+  position: relative;
+}
+
+/* .coverflow-slider-item (the image box) is a fixed 500px tall in the
+   base theme, but .coverflow-slider-wrap was a viewport-relative height
+   (55vh) — on anything taller than a ~900px-tall viewport that's bigger
+   than the 500px image it's centering, so the wrap's own box left dead
+   space below the image before the caption even started. Matching the
+   wrap's height to the image's exactly removes that empty space instead
+   of trying to paper over it with a bigger margin below. */
 .coverflow-slider-wrap {
-  height: 70vh;
-  min-height: 480px;
+  height: 470px;
+}
+
+/* the base theme crops images to fill a fixed-height box
+   (.coverflow-slider-item { height: 500px; overflow: hidden }) — with
+   object-fit: contain the full image is always visible instead, resized
+   to fit rather than cropped, letterboxing into the section's own black
+   background when the aspect ratio doesn't match. */
+.coverflow-slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .coverflow-slider-title-sm {
-  font-size: 40px;
+  font-size: 30px;
   line-height: 1;
   letter-spacing: 0px;
   font-family: Poppins;
+}
+
+.coverflow-slider-location {
+  font-size: 0.5em;
+  font-weight: 400; 
+  letter-spacing: 0px;
+  margin-top: 10px;
+}
+
+/* the theme's base .coverflow-slider-text-active is a fixed 100px tall,
+   sized for a single line of title text — bumped up to fit the title +
+   location line plus a 2-line description underneath. */
+.coverflow-slider-text-active {
+  height: 190px;
+}
+
+.coverflow-slider-content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.coverflow-slider-description {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+}
+
+/* nav arrows moved from the bottom bar to vertically centered at the
+   slider's left/right edges. */
+.coverflow-slider-arrow {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
 }
 </style>

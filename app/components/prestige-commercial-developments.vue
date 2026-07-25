@@ -5,41 +5,33 @@
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
             <h2 class="prestige-developments-title prestige-text-paint">
-              Our Developments
+              Commercial Projects
             </h2>
-            <p class="prestige-developments-subtitle">
-              From vision to reality
-            </p>
+            <img
+              src="/assets/images/v3/slogan.png"
+              alt="The Heart of Every Location"
+              class="prestige-developments-slogan"
+            >
           </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <p class="prestige-developments-eyebrow text-center">
-            Residential Projects
-          </p>
-          <img
-            src="/assets/images/v3/slogan.png"
-            alt="The Heart of Every Location"
-            class="prestige-developments-slogan"
-          >
         </div>
       </div>
     </div>
 
-    <!-- project coverflow slider (same as portfolio-coverflow-slider-light) -->
-    <prestige-coverflow-slider :slides="residentialDevelopments" />
+    <!-- project coverflow slider (same slider as the residential section, different
+         data) — boxed within the page container rather than full-bleed since
+         there are only 2 projects, but still loops/autoplays like the
+         residential slider. -->
+    <prestige-coverflow-slider :slides="commercialDevelopments" contained />
   </section>
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments from "../data/residential-developments-data";
+import commercialDevelopments from "../data/commercial-developments-data";
 </script>
 
 <style scoped>
 .prestige-developments-title {
-  font-size: clamp(25px, 3vw, 55px);
+  font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 16px;
@@ -47,18 +39,8 @@ import residentialDevelopments from "../data/residential-developments-data";
   letter-spacing: 1px;
 }
 
-.prestige-developments-subtitle {
-  font-size: clamp(14px, 1.6vw, 18px);
-  margin: 0 0 60px;
-  color: #fff;
-}
-
-/* soft aurora-style glow behind the headline — same idea as the "why
-   choose us" section's gradient-shape image on /dark/unique-ai-image, but
-   rebuilt as a small, contained CSS gradient (that page's pastel PNG is
-   sized for a full light-page backdrop and would bleed edge-to-edge here).
-   Kept compact and positioned within the title box's own top padding so it
-   never reaches up into the hero section's bottom-fade gradient above it. */
+/* same small, contained aurora-style glow as the residential section's
+   headline — see prestige-our-developments.vue for the full rationale. */
 .prestige-developments-title-box {
   position: relative;
 }
@@ -82,22 +64,13 @@ import residentialDevelopments from "../data/residential-developments-data";
   filter: blur(60px);
 }
 
-.prestige-developments-eyebrow {
-  color: #fff;
-  font-size: 35px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 0 0 20px;
-}
-
 .prestige-developments-slogan {
   display: block;
   width: 270px;
   height: auto;
-  	margin: 0 auto 50px;
+  margin: 0 auto 50px;
   opacity: 0.7;
 }
-
 
 /* text-paint reveal — same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
