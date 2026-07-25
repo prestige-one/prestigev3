@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+# nuxt.js
+/.nuxt/
+/.output/
+/.nitro/
+/.cache/
+
 # production
 /build
 

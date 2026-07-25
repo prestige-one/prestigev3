@@ -1,0 +1,11 @@
+@forward 'theme';
+@forward 'components';
+@forward 'layout';
+
+/* Prestige One runs a permanent dark theme (see agntix-dark class set
+   globally in nuxt.config.ts) — force the black body background on
+   every page regardless of any page-level theme class overrides. */
+html,
+body {
+	background-color: #000 !important;
+}
