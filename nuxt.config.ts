@@ -19,6 +19,9 @@ export default defineNuxtConfig({
         // color overrides, incl. body background) rather than per-page
         class: 'agntix-dark',
       },
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/assets/images/v3/fav-black-v3.png' },
+      ],
       script: [
         {
           src: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js",

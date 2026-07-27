@@ -7,7 +7,7 @@
         <div class="dgm-footer-area pt-100 pb-60">
             <div class="container container-1430">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-40">
+                    <div class="col-xl-3 col-lg-3 col-md-6 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-1 z-index-1 tp_fade_anim" data-delay=".3">
                             <div class="dgm-footer-logo mb-15">
                                 <nuxt-link href="/">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-2 col-md-3 mb-40">
+                    <div class="col-xl-3 col-lg-3 col-md-2 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-3 tp_fade_anim" data-delay=".5">
                             <h4 class="dgm-footer-widget-title">Media Center</h4>
                             <div class="dgm-footer-widget-menu">
@@ -132,6 +132,10 @@
    default white body background around the edges. */
 .prestige-dgm-footer {
   background-color: #000;
+  /* faint hairline so the footer doesn't just blend into whatever black
+     section sits above it — kept very low-opacity on purpose, not meant
+     to read as a hard divider. */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .prestige-dgm-footer :deep(.dgm-footer-bg) {
@@ -140,10 +144,32 @@
   overflow: visible;
 }
 
+/* the theme's own rule (_footer-13.scss, scoped to .dgm-footer-col-2/3/4)
+   sets this to var(--tp-ff-onest) at equal (two-class) specificity — nest
+   under the footer's own wrapper class so this one wins outright. */
+.prestige-dgm-footer .dgm-footer-widget-title {
+  font-family: var(--tp-ff-poppins);
+  font-weight: 600;
+}
+
 /* theme's decorative two-tone side panel — drop it for a flat, uniform
    black footer instead of the lighter-grey accent block. */
 .prestige-dgm-footer :deep(.dgm-footer-bg::after) {
   display: none;
+}
+
+/* footer-social.vue is a child component rendering the bare <a> icons —
+   the theme's own hover state (_footer-2.scss, .dgm-footer-widget-social a)
+   is a lime green-yellow (--tp-common-green-regular / #C1ED00); swap it
+   for a white pill with dark icons instead. */
+.prestige-dgm-footer :deep(.dgm-footer-widget-social a:hover) {
+  color: #111013;
+  border-color: #fff;
+  background-color: #fff;
+}
+
+.dgm-footer-col-1 {
+  padding-right: 40px;
 }
 
 .prestige-dgm-footer :deep(.dgm-footer-area),

@@ -30,6 +30,10 @@
             <prestige-why-us />
             <!-- why prestige one area end -->
 
+            <!-- contact form area start -->
+            <prestige-contact-form />
+            <!-- contact form area end -->
+
           </main>
 
           <!-- footer area start -->
@@ -96,6 +100,11 @@ onMounted(async () => {
       prestigeHeroAnimation();
       prestigeDevelopmentsReveal();
       fadeAnimation();
+      revealAnimation();
+      zoomAnimation();
+      // clear the fixed prestige-header-ten pill so pinned rows stop just
+      // below it instead of under it (120 sat too far down)
+      portfolioAnimation(80);
     });
   }
 });

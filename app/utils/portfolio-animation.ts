@@ -2,7 +2,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
-export function portfolioAnimation() {
+/**
+ * @param topOffset Pixels to keep clear at the top when a panel pins — lets
+ * the pinned panel stop below a fixed header instead of sliding under it.
+ * Defaults to 0 (pins flush to the viewport top, the original behavior).
+ */
+export function portfolioAnimation(topOffset = 0) {
   const mm = gsap.matchMedia();
 
   mm.add("(min-width: 767px)", () => {
@@ -20,7 +25,7 @@ export function portfolioAnimation() {
           trigger: section,
           pin: true,
           scrub: 1,
-          start: 'top top',
+          start: `top ${topOffset}`,
           end: 'bottom 60%',
           endTrigger: wrap,
           pinSpacing: false,

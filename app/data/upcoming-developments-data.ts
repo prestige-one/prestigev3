@@ -3,7 +3,7 @@ import type { DevelopmentSlide } from "./residential-developments-data";
 const upcomingDevelopments: DevelopmentSlide[] = [
   {
     id: 1,
-    image: "/assets/project-featured-images/vista-hub/vista-hub-1.webp",
+    image: "/assets/project-featured-images/vista-hub/vista-hub--blur.webp",
     title: "Vista Hub",
     location: "Majan City",
     description: "A new landmark taking shape in Majan City.",
@@ -11,7 +11,7 @@ const upcomingDevelopments: DevelopmentSlide[] = [
   },
   {
     id: 2,
-    image: "/assets/project-featured-images/prestige-seaside/glyfada.webp",
+    image: "/assets/project-featured-images/prestige-seaside/glyfada-blur.webp",
     title: "Prestige Seaside",
     location: "Greece",
     description: "Prestige One's first address on the Greek coast.",
