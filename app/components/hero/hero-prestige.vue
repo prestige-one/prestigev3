@@ -27,6 +27,14 @@
     <div class="prestige-hero-headline prestige-hero-headline-3">
       <h2>That's Prestige One</h2>
     </div>
+
+    <!-- mobile-only static hero (the scroll-driven sequence above is
+         desktop-only, >=992px) -->
+    <div class="prestige-hero-mobile">
+      <img class="prestige-hero-mobile-logo" src="/assets/images/v3/only-logo-light.webp" alt="Prestige One">
+      <h2 class="prestige-hero-mobile-title">We Build Homes People Love Living In</h2>
+      <span class="prestige-hero-mobile-sub">That's Prestige One</span>
+    </div>
   </div>
 </template>
 
@@ -129,6 +137,66 @@
   padding: 20px 10px;
 }
  
+/* mobile-only static hero content — hidden on desktop where the GSAP
+   scroll sequence runs (>=992px) */
+.prestige-hero-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .prestige-hero-logo,
+  .prestige-hero-headline {
+    display: none;
+  }
+  .prestige-hero-mobile {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 26px 12vh;
+    gap: 18px;
+  }
+  .prestige-hero-mobile-logo {
+    width: min(180px, 44vw);
+    height: auto;
+    opacity: 0;
+    animation: prestigeHeroMobileIn 1s ease 0.2s forwards;
+  }
+  .prestige-hero-mobile-title {
+    font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(26px, 8vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #fff;
+    margin: 0;
+    max-width: 460px;
+    opacity: 0;
+    animation: prestigeHeroMobileIn 1s ease 0.5s forwards;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+  .prestige-hero-mobile-sub {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tp-common-gold, #d9b382);
+    opacity: 0;
+    animation: prestigeHeroMobileIn 1s ease 0.8s forwards;
+  }
+  /* keep the overlay visible on mobile so text stays legible over video */
+  .prestige-hero-overlay {
+    opacity: 1;
+  }
+}
+
+@keyframes prestigeHeroMobileIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .prestige-hero-headline h2 {
   font-size: clamp(20px, 2vw, 33px);
 	font-weight: 400;

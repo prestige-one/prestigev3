@@ -32,7 +32,6 @@ export function collect(
  * credentials from runtimeConfig / env — do not hardcode secrets.
  */
 export async function deliver(kind: string, payload: Record<string, unknown>): Promise<void> {
-  // eslint-disable-next-line no-console
   console.info(`[forms] ${kind} submission`, {
     ...payload,
     receivedAt: new Date().toISOString(),
