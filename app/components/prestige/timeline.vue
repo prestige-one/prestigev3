@@ -9,10 +9,13 @@
       data-delay=".2"
     >
       <div class="prestige-timeline__node" aria-hidden="true" />
-      <div class="prestige-timeline__card">
+      <div class="prestige-timeline__text">
         <span class="prestige-timeline__year">{{ item.year }}</span>
         <h3 class="prestige-timeline__title">{{ item.title }}</h3>
-        <p class="prestige-timeline__text">{{ item.text }}</p>
+        <p class="prestige-timeline__desc">{{ item.text }}</p>
+      </div>
+      <div v-if="item.image" class="prestige-timeline__media">
+        <img :src="item.image" :alt="`${item.year} — ${item.title}`" loading="lazy">
       </div>
     </div>
   </div>
@@ -23,6 +26,7 @@ interface TimelineItem {
   year: string;
   title: string;
   text: string;
+  image?: string;
 }
 
 defineProps<{ items: TimelineItem[] }>();
@@ -31,7 +35,7 @@ defineProps<{ items: TimelineItem[] }>();
 <style scoped>
 .prestige-timeline {
   position: relative;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -46,43 +50,49 @@ defineProps<{ items: TimelineItem[] }>();
   background: linear-gradient(
     180deg,
     rgba(217, 179, 130, 0) 0%,
-    rgba(217, 179, 130, 0.55) 12%,
-    rgba(217, 179, 130, 0.55) 88%,
+    rgba(217, 179, 130, 0.55) 10%,
+    rgba(217, 179, 130, 0.55) 90%,
     rgba(217, 179, 130, 0) 100%
   );
 }
+/* each row: text on one side of the centre line, image on the other */
 .prestige-timeline__item {
   position: relative;
-  width: 50%;
-  padding: 0 48px 60px;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 90px;
+  align-items: center;
+  padding-bottom: 64px;
 }
 .prestige-timeline__item:last-child {
   padding-bottom: 0;
 }
-.prestige-timeline__item.is-left {
-  margin-left: 0;
+.prestige-timeline__text {
+  grid-column: 1;
   text-align: right;
 }
-.prestige-timeline__item.is-right {
-  margin-left: 50%;
+.prestige-timeline__media {
+  grid-column: 2;
+}
+.is-right .prestige-timeline__text {
+  grid-column: 2;
   text-align: left;
 }
-/* node dot on the center line */
+.is-right .prestige-timeline__media {
+  grid-column: 1;
+  grid-row: 1;
+}
+/* node dot on the centre line */
 .prestige-timeline__node {
   position: absolute;
-  top: 6px;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 13px;
   height: 13px;
   border-radius: 50%;
   background: var(--tp-common-gold, #d9b382);
   box-shadow: 0 0 0 6px rgba(217, 179, 130, 0.12);
-}
-.prestige-timeline__item.is-left .prestige-timeline__node {
-  right: -6.5px;
-}
-.prestige-timeline__item.is-right .prestige-timeline__node {
-  left: -6.5px;
 }
 .prestige-timeline__year {
   display: block;
@@ -99,11 +109,26 @@ defineProps<{ items: TimelineItem[] }>();
   color: #fff;
   margin: 0 0 12px;
 }
-.prestige-timeline__text {
+.prestige-timeline__desc {
   margin: 0;
   font-size: 15px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.68);
+}
+.prestige-timeline__media {
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 16 / 10;
+  background: #101013;
+}
+.prestige-timeline__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prestige-timeline__item:hover .prestige-timeline__media img {
+  transform: scale(1.06);
 }
 
 /* mobile: single stacked column with the line on the left */
@@ -113,15 +138,23 @@ defineProps<{ items: TimelineItem[] }>();
     transform: none;
   }
   .prestige-timeline__item {
-    width: 100%;
-    margin-left: 0 !important;
-    padding: 0 0 44px 34px;
-    text-align: left !important;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    padding: 0 0 46px 34px;
   }
-  .prestige-timeline__item.is-left .prestige-timeline__node,
-  .prestige-timeline__item.is-right .prestige-timeline__node {
+  .prestige-timeline__text,
+  .is-right .prestige-timeline__text {
+    grid-column: 1;
+    text-align: left;
+  }
+  .prestige-timeline__media,
+  .is-right .prestige-timeline__media {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .prestige-timeline__node {
     left: 0;
-    right: auto;
+    transform: none;
   }
 }
 </style>

@@ -182,6 +182,7 @@ interface Milestone {
   year: string;
   title: string;
   text: string;
+  image: string;
 }
 
 definePageMeta({ layout: false });
@@ -273,36 +274,43 @@ const milestones: Milestone[] = [
     year: "1967",
     title: "Prestige Holding Group is founded",
     text: "Our parent group, Prestige Holding Group, is established in Dubai — beginning a legacy across construction, trade and hospitality that still guides how we build today.",
+    image: "/assets/images/v2/locations/downtown-dubai.webp",
   },
   {
     year: "2007",
     title: "Entering Dubai real estate",
     text: "The group enters Dubai's real-estate sector, bringing decades of building experience to the city, and begins developing projects from 2008.",
+    image: "/assets/images/v2/our-destinations/dubai-maritime.webp",
   },
   {
     year: "2016",
     title: "AED 1 billion+ invested",
     text: "By 2016 the group has invested more than AED 1 billion into residential units across prime Dubai locations, from Dubai Marina to Downtown and Palm Jumeirah.",
+    image: "/assets/project-featured-images/sliders/waterway.webp",
   },
   {
     year: "2023",
     title: "Prestige One Developments is founded",
     text: "Decades of group expertise are consolidated into a dedicated luxury real-estate developer — Prestige One Developments.",
+    image: "/assets/project-featured-images/sliders/hilton-1.webp",
   },
   {
     year: "2024",
     title: "Sponsor of the Argentina National Team",
     text: "Prestige One becomes the first regional real-estate sponsor of the Argentine Football Association (AFA). Vista sells out, and The Waterway, Seaside, Place, Parkway and The One launch.",
+    image: "/assets/images/v2/pages/AFA-sponsorship-1-1.webp",
   },
   {
     year: "2025",
     title: "Hilton, Berkeley Square & Sanctuary",
     text: "Hilton-branded residences launch alongside Berkeley Square and Sanctuary — bringing globally recognised, hospitality-led living to the portfolio.",
+    image: "/assets/project-featured-images/sliders/berkeley-north.webp",
   },
   {
     year: "2026",
     title: "FAUCHON Résidences & the AFA Tower",
     text: "A partnership with the storied Parisian maison FAUCHON brings art-de-vivre residences to Dubai, and the landmark AFA Tower is announced.",
+    image: "/assets/project-featured-images/sliders/fauchon.webp",
   },
 ];
 
