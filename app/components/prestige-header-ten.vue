@@ -6,14 +6,14 @@
             <div class="container container-1430">
                 <div class="tp-header-10-wrapper mt-30">
                     <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-4 col-6">
+                        <div class="col-xl-2 col-lg-4 col-6">
                             <div class="tp-header-10-logo">
                                 <nuxt-link href="/">
                                   <img src="/assets/images/v3/prestigeone_logo_oneline_white-hr.svg" alt="Prestige One" width="220">
                                 </nuxt-link>
                             </div>
                         </div>
-                        <div class="col-xl-6 d-none d-xl-block">
+                        <div class="col-xl-7 d-none d-xl-block">
                             <div class="tp-header-10-box text-center">
                                 <div class="tp-header-menu tp-header-10-menu tp-header-dropdown dropdown-white-bg">
                                     <nav class="tp-mobile-menu-active">
@@ -80,6 +80,31 @@ const openMobileOffcanvas = ref(false);
 
 .prestige-header-ten :deep(li.has-dropdown::after) {
   color: #fff;
+}
+
+/* keep the whole primary menu on a single horizontal line, centered, and
+   never wrapping regardless of the theme's default list layout */
+.prestige-header-ten :deep(.tp-header-menu > nav > ul) {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 2vw, 34px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.prestige-header-ten :deep(.tp-header-menu > nav > ul > li) {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  white-space: nowrap;
+}
+.prestige-header-ten :deep(.tp-header-menu > nav > ul > li > a) {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 /* permanently fixed at the top — no scroll-triggered class toggle, so

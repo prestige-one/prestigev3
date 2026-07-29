@@ -12,6 +12,8 @@
               image="/assets/project-featured-images/sliders/hilton-1.webp"
             />
 
+            <prestige-stat-band :stats="portfolioStats" />
+
             <section class="prestige-section">
               <div class="container container-1430">
                 <!-- filter tabs -->
@@ -45,6 +47,17 @@
                 </p>
               </div>
             </section>
+
+            <prestige-cta-band
+              eyebrow="Can't decide?"
+              title="Let's find the right address for you"
+              text="Tell us what you're looking for and our team will match you with the Prestige One developments that fit."
+              image="/assets/project-featured-images/sliders/luxury-canal.webp"
+              primary-label="Talk to our team"
+              primary-to="/contact-us"
+              secondary-label="Explore destinations"
+              secondary-to="/destinations"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>
@@ -71,6 +84,13 @@ type CatKey = ProjectCategory | "all";
 const route = useRoute();
 const router = useRouter();
 const all = getAllProjects();
+
+const portfolioStats = [
+  { value: `${all.length}`, label: "Developments" },
+  { value: "10", label: "Destinations" },
+  { value: "2", label: "Countries" },
+  { value: "100%", label: "Freehold" },
+];
 
 const activeCategory = ref<CatKey>(
   (route.query.category as CatKey) || "all",

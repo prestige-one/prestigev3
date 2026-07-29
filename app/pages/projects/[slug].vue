@@ -14,49 +14,38 @@
             >
               <template #actions>
                 <span class="prestige-detail__badge">{{ project.status }}</span>
+                <nuxt-link to="/contact-us" class="prestige-btn">Enquire now</nuxt-link>
               </template>
             </prestige-page-hero>
 
-            <!-- overview + specs -->
-            <section class="prestige-section">
+            <!-- quick facts -->
+            <section class="prestige-section--tight prestige-detail__facts">
               <div class="container container-1430">
                 <div class="row">
-                  <div class="col-xl-7 col-lg-7 mb-40">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Overview</span>
-                    <div class="prestige-prose tp_fade_anim" data-delay=".3">
-                      <p v-for="(para, i) in project.overview" :key="i">{{ para }}</p>
-                    </div>
-                  </div>
-                  <div class="col-xl-4 offset-xl-1 col-lg-5">
-                    <div class="prestige-specs tp_fade_anim" data-delay=".4">
-                      <div v-for="spec in project.specs" :key="spec.label" class="prestige-specs__row">
-                        <span class="prestige-specs__label">{{ spec.label }}</span>
-                        <span class="prestige-specs__value">{{ spec.value }}</span>
-                      </div>
-                    </div>
+                  <div v-for="spec in project.specs" :key="spec.label" class="col-lg-3 col-6 mb-20">
+                    <span class="prestige-detail__fact-label">{{ spec.label }}</span>
+                    <span class="prestige-detail__fact-value">{{ spec.value }}</span>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- highlights -->
-            <section class="prestige-section prestige-section--tight prestige-detail__highlights">
-              <div class="container container-1430">
-                <div class="row">
-                  <div
-                    v-for="(h, i) in project.highlights"
-                    :key="i"
-                    class="col-xl-3 col-lg-3 col-md-6 mb-30 tp_fade_anim"
-                    data-delay=".2"
-                  >
-                    <div class="prestige-detail__hl">
-                      <span class="prestige-detail__hl-num">{{ String(i + 1).padStart(2, '0') }}</span>
-                      <p>{{ h }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <!-- overview (image + prose + highlights) -->
+            <prestige-feature-split
+              eyebrow="Overview"
+              :title="`Life at ${project.title.split(' by ')[0]}`"
+              :image="project.gallery[1] || project.hero"
+              :paragraphs="project.overview"
+              :points="project.highlights"
+            />
+
+            <!-- amenities -->
+            <prestige-amenities-grid
+              eyebrow="Amenities"
+              title="Everything at your doorstep"
+              lead="Thoughtfully curated amenities designed around comfort, wellbeing and everyday convenience."
+              :items="project.amenities"
+            />
 
             <!-- gallery -->
             <section v-if="project.gallery.length" class="prestige-section">
@@ -79,6 +68,35 @@
               </div>
             </section>
 
+            <!-- payment plan + connectivity -->
+            <section class="prestige-section prestige-detail__pp">
+              <div class="container container-1430">
+                <div class="row">
+                  <div class="col-lg-6 mb-40">
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Payment plan</span>
+                    <h2 class="prestige-heading mb-30 tp_fade_anim" data-delay=".3">Flexible & transparent</h2>
+                    <div class="prestige-detail__plan tp_fade_anim" data-delay=".4">
+                      <div v-for="(m, i) in project.paymentPlan" :key="i" class="prestige-detail__plan-row">
+                        <span class="prestige-detail__plan-label">{{ m.label }}</span>
+                        <span class="prestige-detail__plan-value">{{ m.value }}</span>
+                      </div>
+                    </div>
+                    <p class="prestige-detail__note tp_fade_anim" data-delay=".5">Indicative payment plan. Speak to our team for the latest terms and availability.</p>
+                  </div>
+                  <div class="col-lg-5 offset-lg-1">
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Connectivity</span>
+                    <h2 class="prestige-heading mb-30 tp_fade_anim" data-delay=".3">Perfectly placed</h2>
+                    <ul class="prestige-detail__conn tp_fade_anim" data-delay=".4">
+                      <li v-for="(c, i) in project.connectivity" :key="i"><span class="prestige-detail__dot" />{{ c }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- FAQ -->
+            <prestige-faq-accordion title="Good to know" :items="faqs" />
+
             <!-- related -->
             <section v-if="related.length" class="prestige-section prestige-section--tight">
               <div class="container container-1430">
@@ -97,7 +115,18 @@
               </div>
             </section>
 
-            <!-- contact CTA -->
+            <!-- CTA band -->
+            <prestige-cta-band
+              eyebrow="Register your interest"
+              :title="`Make ${project.title.split(' by ')[0]} home`"
+              text="Speak to our team for floor plans, availability and the latest payment terms."
+              :image="project.hero"
+              primary-label="Enquire now"
+              primary-to="/contact-us"
+              secondary-label="View all projects"
+              secondary-to="/projects"
+            />
+
             <prestige-contact-form />
           </main>
 
@@ -110,6 +139,8 @@
 
 <script setup lang="ts">
 import { getProjectBySlug, getAllProjects } from "~/data/projects";
+
+interface FaqItem { q: string; a: string }
 
 definePageMeta({ layout: false });
 
@@ -126,6 +157,17 @@ const related = computed(() => {
   return getAllProjects()
     .filter((x) => x.slug !== p.slug && (x.category === p.category || x.location === p.location))
     .slice(0, 3);
+});
+
+const faqs = computed<FaqItem[]>(() => {
+  const p = project.value!;
+  return [
+    { q: `Where is ${p.title.split(" by ")[0]} located?`, a: `${p.title} is located in ${p.location}. ${p.connectivity.slice(0, 2).join(". ")}.` },
+    { q: "What is the payment plan?", a: `A flexible plan is available — typically ${p.paymentPlan.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(", ")}. Terms are indicative; contact our team for the latest.` },
+    { q: "What amenities are included?", a: `Residents enjoy ${p.amenities.slice(0, 4).join(", ").toLowerCase()} and more.` },
+    { q: "Who is the developer?", a: "Prestige One Developments — a premium Dubai developer known for well-located, thoughtfully designed homes built to last." },
+    { q: "What is the current status?", a: `${p.title} is currently ${p.status.toLowerCase()}. Register your interest to receive availability and pricing.` },
+  ];
 });
 
 useSeoMeta({
@@ -151,47 +193,26 @@ usePrestigePage({ hero: false });
   text-transform: uppercase;
   color: #fff;
 }
-.prestige-specs {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+.prestige-detail__facts {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
-.prestige-specs__row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-.prestige-specs__label {
+.prestige-detail__fact-label {
+  display: block;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
 }
-.prestige-specs__value {
-  font-size: 17px;
-  color: #fff;
-  text-align: right;
-}
-.prestige-detail__highlights {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-.prestige-detail__hl {
-  padding-right: 14px;
-}
-.prestige-detail__hl-num {
+.prestige-detail__fact-value {
   display: block;
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 34px;
-  color: var(--tp-common-gold, #d9b382);
-  margin-bottom: 10px;
-}
-.prestige-detail__hl p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-  margin: 0;
+  font-size: clamp(20px, 2.2vw, 28px);
+  color: #fff;
+  line-height: 1.2;
 }
 .prestige-detail__shot {
   overflow: hidden;
@@ -205,7 +226,51 @@ usePrestigePage({ hero: false });
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.prestige-detail__shot:hover img {
-  transform: scale(1.05);
+.prestige-detail__shot:hover img { transform: scale(1.05); }
+.prestige-detail__plan {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.prestige-detail__plan-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.prestige-detail__plan-label {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.82);
+}
+.prestige-detail__plan-value {
+  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-size: 34px;
+  color: var(--tp-common-gold, #d9b382);
+}
+.prestige-detail__note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+.prestige-detail__conn {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.prestige-detail__conn li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.82);
+}
+.prestige-detail__dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tp-common-gold, #d9b382);
 }
 </style>

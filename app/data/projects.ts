@@ -19,6 +19,11 @@ export interface ProjectSpec {
   value: string;
 }
 
+export interface PaymentMilestone {
+  label: string;
+  value: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -33,6 +38,9 @@ export interface Project {
   overview: string[];
   highlights: string[];
   specs: ProjectSpec[];
+  amenities: string[];
+  paymentPlan: PaymentMilestone[];
+  connectivity: string[];
   video?: string;
 }
 
@@ -43,8 +51,38 @@ interface ProjectEnrichment {
   overview?: string[];
   highlights?: string[];
   specs?: ProjectSpec[];
+  amenities?: string[];
+  paymentPlan?: PaymentMilestone[];
+  connectivity?: string[];
   video?: string;
 }
+
+// Sensible, brand-plausible defaults so every project detail page reads as a
+// full page even before bespoke content is written. Clearly generic /
+// indicative — refine per project in a later content pass.
+const DEFAULT_AMENITIES = [
+  "Infinity swimming pool",
+  "State-of-the-art fitness centre",
+  "Landscaped podium gardens",
+  "24/7 concierge & security",
+  "Covered resident parking",
+  "Children's play area",
+  "Residents' lounge & co-working",
+  "Retail & dining on the doorstep",
+];
+
+const DEFAULT_PAYMENT_PLAN: PaymentMilestone[] = [
+  { label: "On booking", value: "20%" },
+  { label: "During construction", value: "40%" },
+  { label: "On handover", value: "40%" },
+];
+
+const DEFAULT_CONNECTIVITY = [
+  "Minutes from Sheikh Zayed Road",
+  "Close to Dubai International Airport",
+  "Near beaches, schools and retail",
+  "Quick access across the city",
+];
 
 export function slugify(input: string): string {
   return input
@@ -157,12 +195,18 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     image: slide.image,
     hero,
     gallery: e.gallery ?? [hero],
-    overview: e.overview ?? [slide.description],
+    overview:
+      e.overview ?? [
+        slide.description,
+        `Set in ${slide.location}, ${slide.title} reflects the Prestige One approach — well-connected locations, architecture designed around real living, and quality you can rely on. Every residence is planned to make the everyday feel effortless.`,
+        "Backed by in-house expertise and careful execution, it is an address built to hold its value and its appeal for years to come.",
+      ],
     highlights:
       e.highlights ?? [
-        `Located in ${slide.location}`,
+        `A signature address in ${slide.location}`,
         "Designed and delivered by Prestige One Developments",
-        "Considered architecture with lasting value",
+        "Considered architecture built for lasting value",
+        "Premium finishes and thoughtful, liveable layouts",
       ],
     specs:
       e.specs ?? [
@@ -171,6 +215,9 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
         { label: "Developer", value: "Prestige One" },
         { label: "Status", value: e.status ?? CATEGORY_DEFAULT_STATUS[category] },
       ],
+    amenities: e.amenities ?? DEFAULT_AMENITIES,
+    paymentPlan: e.paymentPlan ?? DEFAULT_PAYMENT_PLAN,
+    connectivity: e.connectivity ?? DEFAULT_CONNECTIVITY,
     video: e.video,
   };
 }
