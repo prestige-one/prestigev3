@@ -85,31 +85,31 @@
                   </div>
                 </div>
                 <div class="row gy-5">
-                  <div class="col-lg-3 col-sm-6">
+                  <div v-if="nearby.length" class="col-lg-3 col-sm-6">
                     <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".2">Nearby</h4>
                     <ul class="prestige-detail__poi prestige-detail__poi--stack tp_fade_anim" data-delay=".25">
-                      <li v-for="(p, i) in project.nearby" :key="i">
+                      <li v-for="(p, i) in nearby" :key="i">
                         <span class="prestige-detail__poi-name">{{ p.name }}</span>
                         <span class="prestige-detail__poi-time">{{ p.time }}</span>
                       </li>
                     </ul>
                   </div>
-                  <div class="col-lg-3 col-sm-6">
+                  <div v-if="connectivity.length" class="col-lg-3 col-sm-6">
                     <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">Connectivity</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
-                      <li v-for="(c, i) in project.connectivity" :key="i">{{ c }}</li>
+                      <li v-for="(c, i) in connectivity" :key="i">{{ c }}</li>
                     </ul>
                   </div>
-                  <div class="col-lg-3 col-sm-6">
+                  <div v-if="schools.length" class="col-lg-3 col-sm-6">
                     <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">Schools</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
-                      <li v-for="(s, i) in project.schools" :key="i">{{ s }}</li>
+                      <li v-for="(s, i) in schools" :key="i">{{ s }}</li>
                     </ul>
                   </div>
-                  <div class="col-lg-3 col-sm-6">
+                  <div v-if="hospitals.length" class="col-lg-3 col-sm-6">
                     <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">Healthcare</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
-                      <li v-for="(h, i) in project.hospitals" :key="i">{{ h }}</li>
+                      <li v-for="(h, i) in hospitals" :key="i">{{ h }}</li>
                     </ul>
                   </div>
                 </div>
@@ -196,6 +196,7 @@
 
 <script setup lang="ts">
 import { getProjectBySlug, getAllProjects } from "~/data/projects";
+import { destinations } from "~/data/destinations-data";
 
 interface FaqItem { q: string; a: string }
 
@@ -211,6 +212,18 @@ if (!project.value) {
 
 const shortName = computed(() => project.value!.title.split(" by ")[0]);
 
+// The destination this project sits in — used to fill location facts (nearby
+// drive times, connectivity, schools, hospitals) with real, researched data
+// instead of generic guesses. The project's own values win when present.
+const areaDest = computed(() => {
+  const loc = project.value!.location.toLowerCase();
+  return destinations.find((d) => d.match.some((m) => loc.includes(m.toLowerCase())));
+});
+const nearby = computed(() => (project.value!.nearby.length ? project.value!.nearby : areaDest.value?.attractions ?? []));
+const connectivity = computed(() => (project.value!.connectivity.length ? project.value!.connectivity : areaDest.value?.transport ?? []));
+const schools = computed(() => (project.value!.schools.length ? project.value!.schools : areaDest.value?.education ?? []));
+const hospitals = computed(() => (project.value!.hospitals.length ? project.value!.hospitals : areaDest.value?.healthcare ?? []));
+
 const related = computed(() => {
   const p = project.value!;
   return getAllProjects()
@@ -220,13 +233,16 @@ const related = computed(() => {
 
 const faqs = computed<FaqItem[]>(() => {
   const p = project.value!;
-  return [
-    { q: `Where is ${shortName.value} located?`, a: `${p.title} is located in ${p.location}. ${p.nearby.slice(0, 2).map((n) => `${n.name} is around ${n.time} away`).join(", and ")}.` },
+  const items: FaqItem[] = [
+    { q: `Where is ${shortName.value} located?`, a: `${p.title} is located in ${p.location}${nearby.value.length ? `. ${nearby.value.slice(0, 2).map((n) => `${n.name} is around ${n.time} away`).join(", and ")}` : ""}.` },
     { q: "What is the payment plan?", a: `A flexible plan is available — typically ${p.paymentPlan.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(", ")}. Terms are indicative; contact our team for the latest.` },
     { q: "What amenities are included?", a: `Residents enjoy ${p.amenities.slice(0, 5).join(", ").toLowerCase()} and more.` },
-    { q: "Are schools and healthcare nearby?", a: `Yes — ${p.schools.slice(0, 2).join(", ")} and ${p.hospitals.slice(0, 1).join("")} are within easy reach.` },
-    { q: "Who is the developer and what is the status?", a: `${p.title} is developed by Prestige One and is currently ${p.status.toLowerCase()}. Register your interest for availability and pricing.` },
   ];
+  if (schools.value.length || hospitals.value.length) {
+    items.push({ q: "Are schools and healthcare nearby?", a: `Yes — ${[...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ")} are within easy reach.` });
+  }
+  items.push({ q: "Who is the developer and what is the status?", a: `${p.title} is developed by Prestige One and is currently ${p.status.toLowerCase()}. Register your interest for availability and pricing.` });
+  return items;
 });
 
 useSeoMeta({

@@ -206,10 +206,10 @@ const storyPoints: string[] = [
 ];
 
 const counters: CounterItem[] = [
-  { value: 60, suffix: "+", label: "Years of heritage" },
-  { value: 21, suffix: "+", label: "Destinations worldwide" },
-  { value: 32, suffix: "+", label: "Projects developing" },
-  { value: 3500, suffix: "+", label: "Units delivered" },
+  { value: 19, suffix: "+", label: "Years in Dubai real estate" },
+  { value: 30, suffix: "+", label: "Projects in Dubai" },
+  { value: 1, prefix: "AED ", suffix: "B+", label: "Invested in Dubai" },
+  { value: 10, label: "Destinations across Dubai" },
 ];
 
 const missionParagraphs: string[] = [
@@ -225,13 +225,13 @@ const missionPoints: string[] = [
 ];
 
 const visionParagraphs: string[] = [
-  "We see Dubai as a global stage, and we build for it accordingly. Our vision is a portfolio that spans destinations worldwide while remaining rooted in the craft, warmth and hospitality that define this city — bringing an international standard of living to every address we create.",
+  "We see Dubai as a global stage, and we build for it accordingly. Our vision is a portfolio that reaches across the emirate's most sought-after destinations — and, increasingly, beyond it — while remaining rooted in the craft, warmth and hospitality that define this city, bringing an international standard of living to every address we create.",
   "That perspective shapes who we choose to work with. As Regional Sponsor of the Argentina National Team and partner to maisons like FAUCHON and hospitality leaders like Hilton, we surround our residents with names that carry meaning far beyond real estate.",
   "The goal has never changed. To create places of lasting value where design, service and community come together — so that, wherever life takes you, there is one feeling worth coming home to. Live in Prestige.",
 ];
 
 const visionPoints: string[] = [
-  "A growing global footprint across 21+ destinations",
+  "Landmark addresses across Dubai's prime destinations",
   "Partnerships with world-class brands and institutions",
   "Enduring value built on design, service and community",
 ];
@@ -271,43 +271,38 @@ const coreValues: CoreValue[] = [
 const milestones: Milestone[] = [
   {
     year: "1967",
-    title: "The group is founded",
-    text: "Our parent group is established, beginning a legacy across construction, trade and hospitality that still guides how we build today.",
+    title: "Prestige Holding Group is founded",
+    text: "Our parent group, Prestige Holding Group, is established in Dubai — beginning a legacy across construction, trade and hospitality that still guides how we build today.",
   },
   {
     year: "2007",
     title: "Entering Dubai real estate",
-    text: "We bring decades of building experience to Dubai, drawn by a city whose ambition matches our own.",
+    text: "The group enters Dubai's real-estate sector, bringing decades of building experience to the city, and begins developing projects from 2008.",
   },
   {
-    year: "2009",
-    title: "Investing in Dubai Marina",
-    text: "A commitment of AED 100M+ into Dubai Marina anchors our belief in the city through the cycle — and our appetite for prime waterfront addresses.",
-  },
-  {
-    year: "2021",
-    title: "Flagship residential portfolio",
-    text: "We launch a new generation of residences designed around wellbeing, service and lasting value across Dubai's key destinations.",
+    year: "2016",
+    title: "AED 1 billion+ invested",
+    text: "By 2016 the group has invested more than AED 1 billion into residential units across prime Dubai locations, from Dubai Marina to Downtown and Palm Jumeirah.",
   },
   {
     year: "2023",
-    title: "Partnership with Hilton",
-    text: "We join forces with Hilton to bring globally recognised, hospitality-led branded residences to our portfolio.",
+    title: "Prestige One Developments is founded",
+    text: "Decades of group expertise are consolidated into a dedicated luxury real-estate developer — Prestige One Developments.",
   },
   {
     year: "2024",
-    title: "Regional Sponsor of the Argentina National Team",
-    text: "Prestige One becomes a Regional Sponsor of the Argentina National Team (AFA), aligning the brand with world-class ambition and excellence.",
+    title: "Sponsor of the Argentina National Team",
+    text: "Prestige One becomes the first regional real-estate sponsor of the Argentine Football Association (AFA). Vista sells out, and The Waterway, Seaside, Place, Parkway and The One launch.",
   },
   {
     year: "2025",
-    title: "FAUCHON Résidences",
-    text: "A partnership with the storied Parisian maison FAUCHON brings heritage French craftsmanship and art-de-vivre to branded residences in Dubai.",
+    title: "Hilton, Berkeley Square & Sanctuary",
+    text: "Hilton-branded residences launch alongside Berkeley Square and Sanctuary — bringing globally recognised, hospitality-led living to the portfolio.",
   },
   {
     year: "2026",
-    title: "30+ developments across Dubai",
-    text: "We deliver and progress more than thirty developments across the emirate — the clearest proof yet of homes people love living in.",
+    title: "FAUCHON Résidences & the AFA Tower",
+    text: "A partnership with the storied Parisian maison FAUCHON brings art-de-vivre residences to Dubai, and the landmark AFA Tower is announced.",
   },
 ];
 

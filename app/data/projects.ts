@@ -90,22 +90,9 @@ const DEFAULT_PAYMENT_PLAN: PaymentMilestone[] = [
   { label: "On handover", value: "40%" },
 ];
 
-const DEFAULT_CONNECTIVITY = [
-  "Minutes from Sheikh Zayed Road",
-  "Close to Dubai International Airport",
-  "Near beaches, schools and retail",
-  "Quick access across the city",
-];
-
-const DEFAULT_NEARBY: ProjectPOI[] = [
-  { name: "Downtown Dubai", time: "20 min" },
-  { name: "Dubai International Airport", time: "20 min" },
-  { name: "Mall of the Emirates", time: "20 min" },
-  { name: "Nearest beach", time: "15 min" },
-];
-
-const DEFAULT_SCHOOLS = ["GEMS international schools", "Nearby nurseries & academies"];
-const DEFAULT_HOSPITALS = ["Leading private hospitals within reach", "Clinics and pharmacies nearby"];
+// Non-flagship projects leave nearby/schools/hospitals empty; the project page
+// fills them from the project's matching destination (which carries real,
+// researched drive times, schools and hospitals) so nothing is generic-guessed.
 const DEFAULT_DOCUMENTS = ["Brochure", "Floor plans", "Payment plan", "Fact sheet"];
 
 export function slugify(input: string): string {
@@ -259,10 +246,10 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
       ],
     amenities: e.amenities ?? DEFAULT_AMENITIES,
     paymentPlan: e.paymentPlan ?? DEFAULT_PAYMENT_PLAN,
-    connectivity: e.connectivity ?? DEFAULT_CONNECTIVITY,
-    nearby: e.nearby ?? DEFAULT_NEARBY,
-    schools: e.schools ?? DEFAULT_SCHOOLS,
-    hospitals: e.hospitals ?? DEFAULT_HOSPITALS,
+    connectivity: e.connectivity ?? [],
+    nearby: e.nearby ?? [],
+    schools: e.schools ?? [],
+    hospitals: e.hospitals ?? [],
     documents: e.documents ?? DEFAULT_DOCUMENTS,
     video: e.video,
   };
