@@ -1,0 +1,120 @@
+<template>
+  <div>
+    <common-magic-cursor />
+    <nuxt-layout name="layout-one">
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <main class="prestige-page">
+            <prestige-page-hero
+              eyebrow="Our Destinations"
+              title="Prime locations"
+              lead="Prestige One builds where life is best lived — the waterfronts, communities and landmarks that define Dubai and beyond."
+              image="/assets/images/v2/our-destinations/palm-jumeira.webp"
+            />
+
+            <section class="prestige-section">
+              <div class="container container-1430">
+                <div class="row">
+                  <div
+                    v-for="dest in destinations"
+                    :key="dest.slug"
+                    class="col-xl-4 col-lg-4 col-md-6 mb-50 tp_fade_anim"
+                    data-delay=".2"
+                  >
+                    <nuxt-link :to="`/destinations/${dest.slug}`" class="prestige-dest-card">
+                      <div class="prestige-dest-card__media">
+                        <img :src="dest.image" :alt="dest.name" loading="lazy">
+                        <div class="prestige-dest-card__veil" />
+                        <div class="prestige-dest-card__body">
+                          <span class="prestige-dest-card__region">{{ dest.region }}</span>
+                          <h3 class="prestige-dest-card__name">{{ dest.name }}</h3>
+                          <span class="prestige-dest-card__count">{{ countFor(dest) }}</span>
+                        </div>
+                      </div>
+                    </nuxt-link>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+          <prestige-footer-digital-marketing />
+        </div>
+      </div>
+    </nuxt-layout>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { destinations, getProjectsForDestination, type Destination } from "~/data/destinations-data";
+
+definePageMeta({ layout: false });
+useSeoMeta({
+  title: "Our Destinations | Prestige One",
+  description:
+    "Explore the Dubai waterfronts, communities and landmarks where Prestige One builds — from Palm Jumeirah to Dubai Islands.",
+});
+
+function countFor(dest: Destination) {
+  const n = getProjectsForDestination(dest).length;
+  return n === 1 ? "1 development" : `${n} developments`;
+}
+
+usePrestigePage({ hero: false });
+</script>
+
+<style scoped>
+.prestige-dest-card {
+  display: block;
+  color: #fff;
+}
+.prestige-dest-card__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #101013;
+}
+.prestige-dest-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prestige-dest-card:hover .prestige-dest-card__media img {
+  transform: scale(1.07);
+}
+.prestige-dest-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.85) 100%);
+}
+.prestige-dest-card__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px;
+  z-index: 2;
+}
+.prestige-dest-card__region {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tp-common-gold, #d9b382);
+}
+.prestige-dest-card__name {
+  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-size: 30px;
+  font-weight: 400;
+  color: #fff;
+  margin: 6px 0 8px;
+  line-height: 1.15;
+}
+.prestige-dest-card__count {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.65);
+}
+</style>

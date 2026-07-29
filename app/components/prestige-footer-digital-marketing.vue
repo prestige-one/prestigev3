@@ -75,17 +75,18 @@
                                 <p>Subscribe our newsletter to get the latest news and updates!</p>
                             </div>
                             <div class="dgm-footer-widget-input p-relative">
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your email">
+                                <form novalidate @submit.prevent="subscribe">
+                                    <input v-model="newsletterEmail" type="email" placeholder="Enter your email">
                                     <span class="input-icon">
                                         <svg-email-one color-name="#A1A4AA" stroke-width="1.5"/>
                                     </span>
-                                    <button class="input-button" type="submit">
+                                    <button class="input-button" type="submit" :disabled="newsletterStatus === 'submitting'">
                                         <span>
                                             <svg-plane-one/>
                                         </span>
                                     </button>
                                 </form>
+                                <p v-if="newsletterMsg" class="prestige-newsletter-msg" :class="`is-${newsletterStatus}`">{{ newsletterMsg }}</p>
                             </div>
                         </div>
                     </div>
@@ -124,7 +125,33 @@
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const newsletterEmail = ref("");
+const newsletterStatus = ref<"idle" | "submitting" | "success" | "error">("idle");
+const newsletterMsg = ref("");
+
+async function subscribe() {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail.value.trim())) {
+    newsletterStatus.value = "error";
+    newsletterMsg.value = "Please enter a valid email address.";
+    return;
+  }
+  newsletterStatus.value = "submitting";
+  newsletterMsg.value = "";
+  try {
+    const res = await $fetch<{ ok: boolean; message: string }>("/api/newsletter", {
+      method: "POST",
+      body: { email: newsletterEmail.value },
+    });
+    newsletterStatus.value = "success";
+    newsletterMsg.value = res.message;
+    newsletterEmail.value = "";
+  } catch {
+    newsletterStatus.value = "error";
+    newsletterMsg.value = "Something went wrong. Please try again.";
+  }
+}
+</script>
 
 <style scoped>
 /* solid black, full-bleed footer — no rounded corners / bottom padding
@@ -259,4 +286,10 @@
 .dgm-footer-widget-input .input-button span svg {
 	color: #FFF;
 }
+.prestige-newsletter-msg {
+	margin-top: 12px;
+	font-size: 13px;
+}
+.prestige-newsletter-msg.is-success { color: #7ee2a0; }
+.prestige-newsletter-msg.is-error { color: #ff9a9a; }
 </style>
