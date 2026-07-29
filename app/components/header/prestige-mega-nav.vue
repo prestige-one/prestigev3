@@ -57,10 +57,10 @@
             </ul>
           </div>
           <div class="pmn__col pmn__col--cards">
-            <span class="pmn__label">Featured projects</span>
-            <div class="pmn__cards">
+            <span class="pmn__label">All projects <em>({{ allProjects.length }})</em></span>
+            <div class="pmn__cards pmn__cards--all">
               <nuxt-link
-                v-for="p in featuredProjects"
+                v-for="p in allProjects"
                 :key="p.slug"
                 :to="`/projects/${p.slug}`"
                 class="pmn__card"
@@ -143,7 +143,7 @@ import { getAllProjects } from "~/data/projects";
 const active = ref<"about" | "projects" | "destinations" | null>(null);
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
-const featuredProjects = getAllProjects().slice(0, 6);
+const allProjects = getAllProjects();
 
 const aboutLinks = [
   { label: "Our Story", to: "/about-us", desc: "Who we are and what we build" },
@@ -278,6 +278,17 @@ onBeforeUnmount(cancelClose);
 .pmn__chiplist a:hover { color: #fff; }
 
 .pmn__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
+.pmn__cards--all {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px 20px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+}
+.pmn__cards--all::-webkit-scrollbar { width: 5px; }
+.pmn__cards--all::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
+.pmn__label em { font-style: normal; color: rgba(255, 255, 255, 0.4); }
 .pmn__dgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px 22px; }
 .pmn__card { display: flex; align-items: center; gap: 12px; color: #fff; }
 .pmn__card-thumb {
