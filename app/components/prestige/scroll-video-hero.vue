@@ -46,6 +46,20 @@ onMounted(() => {
   if (!v || !r) return;
   v.pause();
 
+  // prime the decoder: a muted play()->pause() forces the first frame to paint
+  // and makes seeking responsive immediately (otherwise a paused video can sit
+  // black until the first seek decodes).
+  const prime = () => {
+    const p = v.play();
+    if (p && typeof p.then === "function") {
+      p.then(() => v.pause()).catch(() => {});
+    } else {
+      v.pause();
+    }
+  };
+  if (v.readyState >= 2) prime();
+  else v.addEventListener("loadeddata", prime, { once: true });
+
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // auto-scroll only on desktop pointers — on touch it would fight finger-scroll
   const desktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
