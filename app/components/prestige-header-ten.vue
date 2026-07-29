@@ -15,11 +15,7 @@
                         </div>
                         <div class="col-xl-7 d-none d-xl-block">
                             <div class="tp-header-10-box text-center">
-                                <div class="tp-header-menu tp-header-10-menu tp-header-dropdown dropdown-white-bg">
-                                    <nav class="tp-mobile-menu-active">
-                                        <header-nav-menus-prestige />
-                                    </nav>
-                                </div>
+                                <header-prestige-mega-nav />
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-8 col-6">
