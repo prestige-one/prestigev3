@@ -6,14 +6,23 @@
             <div class="container container-1430">
                 <div class="tp-header-10-wrapper mt-30">
                     <div class="row align-items-center">
-                        <div class="col-6">
+                        <div class="col-xl-3 col-lg-4 col-6">
                             <div class="tp-header-10-logo">
                                 <nuxt-link href="/">
                                   <img src="/assets/images/v3/prestigeone_logo_oneline_white-hr.svg" alt="Prestige One" width="220">
                                 </nuxt-link>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <div class="tp-header-10-box text-center">
+                                <div class="tp-header-menu tp-header-10-menu tp-header-dropdown dropdown-white-bg">
+                                    <nav class="tp-mobile-menu-active">
+                                        <header-nav-menus-prestige />
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-8 col-6">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
                                         <span class="tp-btn-black btn-white-bg">
@@ -30,7 +39,8 @@
                                             </span>
                                         </span>
                                 </div>
-                                <div class="tp-header-10-offcanvas ml-20">
+                                <!-- side menu trigger — mobile & iPad only (below xl / 1200px) -->
+                                <div class="tp-header-10-offcanvas ml-20 d-xl-none">
                                     <div class="tp-header-bar">
                                         <button class="tp-offcanvas-open-btn" aria-label="Open menu" @click="openMobileOffcanvas = true">
                                             <i/>
@@ -48,8 +58,8 @@
         <!-- header area end -->
     </div>
 
-    <!-- immersive split-reveal off-canvas nav -->
-    <prestige-offcanvas-nav
+    <!-- classic side menu — mobile & iPad only -->
+    <offcanvas-mobile-area-prestige
         :is-open="openMobileOffcanvas"
         @close="openMobileOffcanvas = false"
     />

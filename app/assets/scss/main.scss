@@ -114,6 +114,14 @@ body {
 	line-height: 1.85;
 	color: rgba(255, 255, 255, 0.72);
 }
+/* the theme sets a dark global `p`/`li` color (for its light demos); force the
+   light-on-dark prose color explicitly so paragraphs don't render near-black
+   on our black background. */
+.prestige-prose p,
+.prestige-prose li,
+.prestige-prose span {
+	color: rgba(255, 255, 255, 0.72);
+}
 .prestige-prose p { margin-bottom: 1.3em; }
 .prestige-prose h2 { color: #fff; font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif); font-size: clamp(26px, 3vw, 40px); margin: 1.6em 0 0.6em; font-weight: 400; }
 .prestige-prose h3 { color: #fff; font-size: 22px; margin: 1.4em 0 0.5em; }
