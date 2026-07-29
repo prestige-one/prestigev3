@@ -81,6 +81,13 @@
               </div>
             </section>
 
+            <!-- cinematic interlude -->
+            <prestige-statement-band
+              eyebrow="Prime location"
+              :text="dest.intro"
+              :image="dest.image"
+            />
+
             <!-- 5 · essentials -->
             <section class="prestige-section">
               <div class="container container-1430">

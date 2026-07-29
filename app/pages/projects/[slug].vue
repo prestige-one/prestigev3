@@ -47,6 +47,13 @@
               :items="project.amenities"
             />
 
+            <!-- cinematic interlude -->
+            <prestige-statement-band
+              eyebrow="The Prestige One difference"
+              :text="project.tagline"
+              :image="project.gallery[2] || project.gallery[0] || project.hero"
+            />
+
             <!-- 4 · gallery -->
             <section v-if="project.gallery.length" class="prestige-section">
               <div class="container container-1430">
