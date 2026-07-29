@@ -25,16 +25,20 @@
       </div>
     </div>
 
-    <!-- theater-mode coverflow slider, same effect as /dark/portfolio-coverflow-slider
-         (portfolio-coverflow-slider.vue) — kept as the original slider for
-         this first section; the two-row marquee variant
-         (prestige-residential-marquee.vue) is not used here anymore. -->
-    <prestige-coverflow-slider :slides="residentialDevelopments" />
+    <!-- two-row opposite-direction marquee on home-2 only (per page,
+         opted in via the twoWaySlider prop); everywhere else (the main
+         index.vue home page) keeps the theater-mode coverflow slider,
+         same effect as /dark/portfolio-coverflow-slider
+         (portfolio-coverflow-slider.vue). -->
+    <prestige-residential-marquee v-if="twoWaySlider" hide-title />
+    <prestige-coverflow-slider v-else :slides="residentialDevelopments" />
   </section>
 </template>
 
 <script setup lang="ts">
 import residentialDevelopments from "../data/residential-developments-data";
+
+withDefaults(defineProps<{ twoWaySlider?: boolean }>(), { twoWaySlider: false });
 </script>
 
 <style scoped>

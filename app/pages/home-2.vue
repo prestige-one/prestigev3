@@ -14,9 +14,9 @@
             <hero-prestige />
             <!-- hero area end -->
 
-            <!-- our developments area start (now includes the two-row
-                 residential marquee in place of the old coverflow slider) -->
-            <prestige-our-developments />
+            <!-- our developments area start — two-way marquee slider,
+                 home-2 only (index.vue keeps the coverflow slider) -->
+            <prestige-our-developments two-way-slider />
             <!-- our developments area end -->
 
             <!-- upcoming developments area start -->
