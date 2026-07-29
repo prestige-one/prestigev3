@@ -18,17 +18,14 @@
       <img src="/assets/images/v3/only-logo-light.webp" alt="Prestige One">
     </div>
 
-    <div class="prestige-hero-headline prestige-hero-headline-story">
-      <h2>Our Story</h2>
-    </div>
     <div class="prestige-hero-headline prestige-hero-headline-1">
-      <h2>It started with a vision</h2>
+      <h2>It All Starts Here</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-2">
-      <h2>To create homes people truly love living in</h2>
+      <h2>We Build Homes People Love Living In</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-3">
-      <h2>Today, that vision shapes every Prestige One home</h2>
+      <h2>That's Prestige One</h2>
     </div>
   </div>
 </template>
@@ -94,7 +91,7 @@
 }
 
 .prestige-hero-logo img {
-  width: min(460px, 40vw);
+  width: min(260px, 26vw);
   height: auto;
 }
 
@@ -125,17 +122,16 @@
   z-index: 5;
 }
 
-/* the 3 story sentences (not the "Our Story" title) each get their own
-   padded wrapper */
+/* the 3 story sentences each get their own padded wrapper */
 .prestige-hero-headline-1,
 .prestige-hero-headline-2,
 .prestige-hero-headline-3 {
   padding: 20px 10px;
 }
-
+ 
 .prestige-hero-headline h2 {
-  font-size: clamp(20px, 3vw, 45px);
-  font-weight: 500;
+  font-size: clamp(20px, 2vw, 33px);
+	font-weight: 400;
   line-height: 1.2;
   max-width: 900px;
   margin: 0 auto;

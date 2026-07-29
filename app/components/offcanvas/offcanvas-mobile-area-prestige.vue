@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="['tp-offcanvas-area', isOpen ? 'opened' : '']">
-        <div :class="`tp-offcanvas-wrapper ${isDark?'offcanvas-black-bg':''}`">
+        <div class="tp-offcanvas-wrapper offcanvas-black-bg prestige-offcanvas-glass">
             <div class="tp-offcanvas-top d-flex align-items-center justify-content-between">
                 <div class="tp-offcanvas-logo">
                     <nuxt-link href="/">
@@ -84,8 +84,6 @@ defineProps<{
 defineEmits<{
   close: [];
 }>();
-
-const {isDark} = useIsDark();
 </script>
 
 <style scoped>
@@ -101,8 +99,11 @@ const {isDark} = useIsDark();
   gap: 10px;
 }
 
+/* this row is a plain div (not an <a>), so it falls outside the theme's
+   .offcanvas-black-bg .tp-offcanvas-contact ul li a rule — colored to
+   match that rule's white-on-dark text explicitly. */
 .prestige-offcanvas-contact-row {
-  color: #414144;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
 }
 
@@ -114,7 +115,18 @@ const {isDark} = useIsDark();
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(2, 11, 24, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: inherit;
+}
+
+/* site is permanently dark-themed, so this panel always uses the theme's
+   .offcanvas-black-bg look (white logo/text/close-button/social icons) —
+   but swapped from that variant's solid #1C1D20 fill to a translucent,
+   blurred glass panel so the page behind still shows through, tinted
+   black, matching the header pill's glass treatment. */
+.prestige-offcanvas-glass {
+  background: rgba(10, 10, 12, 0.8) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 </style>

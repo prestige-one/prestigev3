@@ -81,18 +81,18 @@ const whyUsData: WhyUsItem[] = [
   {
     id: 1,
     number: "01",
-    title: "Where Growth Begins",
+    title: "Where Opportunity Grows",
     description:
-      "Carefully selected communities that combine connectivity, lifestyle, and long-term value.",
+      "We choose well-connected locations that offer great lifestyles and lasting value",
     image: "/assets/images/v3/Built-on-Strong-Principles.webp",
     imagePosition: "left",
   },
   {
     id: 2,
     number: "02",
-    title: "Designed for Real Living",
+    title: "Designed Around Life",
     description:
-      "Homes thoughtfully designed around everyday comfort, functionality, and modern lifestyles.",
+      "Thoughtful homes that bring comfort, function, and everyday living together",
     image: "/assets/images/v3/Designed-for-Real-Living.webp",
     imagePosition: "right",
   },
@@ -101,16 +101,16 @@ const whyUsData: WhyUsItem[] = [
     number: "03",
     title: "Built on Trust",
     description:
-      "Every project is backed by in-house expertise, disciplined execution, and a commitment to delivering as promised.",
+      "In-house expertise, careful execution, and quality you can rely on",
     image: "/assets/images/v3/Built-on-Trust.webp",
     imagePosition: "left",
   },
   {
     id: 4,
     number: "04",
-    title: "A Global Perspective",
+    title: "Connected to the World",
     description:
-      "A vision shaped by decades of experience and strengthened through internationally recognized partnerships.",
+      "Decades of experience, strengthened by partnerships with globally recognized brands",
     image: "/assets/images/v3/A-Global-Perspective.webp",
     imagePosition: "right",
   },

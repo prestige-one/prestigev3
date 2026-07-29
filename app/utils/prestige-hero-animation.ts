@@ -9,7 +9,7 @@ export function prestigeHeroAnimation() {
     const logo = document.querySelector(".prestige-hero-logo");
     const overlay = document.querySelector(".prestige-hero-overlay");
 
-    const headlines = ["story", 1, 2, 3]
+    const headlines = [1, 2, 3]
       .map((n) => {
         const el = document.querySelector<HTMLElement>(`.prestige-hero-headline-${n}`);
         const text = el?.querySelector<HTMLHeadingElement>("h2") ?? null;
@@ -19,7 +19,7 @@ export function prestigeHeroAnimation() {
         (h): h is { el: HTMLElement; text: HTMLHeadingElement } => !!h.el && !!h.text,
       );
 
-    if (!hero || !intro || !logo || !overlay || headlines.length !== 4) return;
+    if (!hero || !intro || !logo || !overlay || headlines.length !== 3) return;
 
     // headline pacing knobs — tweak these to change how the sequence feels
     const HEADLINE_ENTER = 0.9; // slide-up + text-paint duration
@@ -52,17 +52,20 @@ export function prestigeHeroAnimation() {
     });
 
     // intro copy fades right away, logo rises from the bottom and settles
-    // in clearly visible (opacity 0.8, scale 1.2) — then, instead of
+    // in clearly visible (opacity 0.55, scale 1) — then, instead of
     // holding still, it travels upward while fading out AT THE SAME TIME
     // (scroll-driven the whole way, no dead/static zone). The travel
     // distance is kept short and the fade finishes before it gets near
     // the top/header, so its bottom edge never ends up peeking out —
-    // it's fully gone well before it would reach that point.
+    // it's fully gone well before it would reach that point. Settling at
+    // scale 1 (not 1.2) keeps the logo's full height inside the hero's
+    // overflow:hidden bounds instead of overshooting past the top/bottom
+    // edges and getting clipped.
     tl.to(intro, { opacity: 0, y: -30, duration: 0.5, ease: "none" }, 0)
       .fromTo(
         logo,
         { yPercent: 100, scale: 0.6, opacity: 0 },
-        { yPercent: 0, scale: 1.2, opacity: 0.8, duration: 1, ease: "none" },
+        { yPercent: 0, scale: 1, opacity: 0.55, duration: 1, ease: "none" },
         0.3,
       )
       .to(logo, { yPercent: -35, duration: 1.7, ease: "none" }, 1.3)
@@ -103,7 +106,11 @@ export function prestigeHeroAnimation() {
       );
 
       const exitStart = enterStart + HEADLINE_ENTER + HEADLINE_HOLD;
-      tl.to(el, { opacity: 0, duration: HEADLINE_EXIT, ease: "none" }, exitStart);
+      tl.to(
+        el,
+        { yPercent: -25, opacity: 0, duration: HEADLINE_EXIT, ease: "none" },
+        exitStart,
+      );
 
       const isLast = index === headlines.length - 1;
       cursor = isLast ? exitStart + HEADLINE_EXIT : exitStart + NEXT_OVERLAP;

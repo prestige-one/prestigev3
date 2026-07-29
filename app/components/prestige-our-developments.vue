@@ -16,9 +16,6 @@
 
       <div class="row justify-content-center">
         <div class="col-xl-8">
-          <p class="prestige-developments-eyebrow text-center">
-            Residential Projects
-          </p>
           <img
             src="/assets/images/v3/slogan.png"
             alt="The Heart of Every Location"
@@ -28,7 +25,10 @@
       </div>
     </div>
 
-    <!-- project coverflow slider (same as portfolio-coverflow-slider-light) -->
+    <!-- theater-mode coverflow slider, same effect as /dark/portfolio-coverflow-slider
+         (portfolio-coverflow-slider.vue) — kept as the original slider for
+         this first section; the two-row marquee variant
+         (prestige-residential-marquee.vue) is not used here anymore. -->
     <prestige-coverflow-slider :slides="residentialDevelopments" />
   </section>
 </template>
@@ -49,7 +49,7 @@ import residentialDevelopments from "../data/residential-developments-data";
 
 .prestige-developments-subtitle {
   font-size: clamp(14px, 1.6vw, 18px);
-  margin: 0 0 60px;
+  margin: 0 0 36px;
   color: #fff;
 }
 
@@ -82,19 +82,11 @@ import residentialDevelopments from "../data/residential-developments-data";
   filter: blur(60px);
 }
 
-.prestige-developments-eyebrow {
-  color: #fff;
-  font-size: 35px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 0 0 20px;
-}
-
 .prestige-developments-slogan {
   display: block;
   width: 270px;
   height: auto;
-  	margin: 0 auto 50px;
+  margin: 0 auto 30px;
   opacity: 0.7;
 }
 

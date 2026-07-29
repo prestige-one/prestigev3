@@ -66,4 +66,34 @@ export function prestigeDevelopmentsReveal() {
       }
     );
   });
+
+  // Slogan image: zoom + fade in, kept back at its resting 0.7 opacity
+  // (its CSS default) rather than a full 1 so it still reads as a subtle
+  // watermark-style signature once revealed. Triggered off its own
+  // position (same "top 85% -> top 40%" entrance window as everything
+  // else here) so it reveals as soon as it scrolls into view. This used
+  // to be chained to the subtitle's scroll position instead so it would
+  // only start after the subtitle finished — but that end point ("top
+  // -20%" of the *subtitle*) worked out to well above the viewport by
+  // the time it resolved, so the slogan (sitting lower on the page than
+  // the subtitle) was still finishing its reveal after it had already
+  // scrolled up under the header.
+  const slogans = document.querySelectorAll<HTMLElement>(".prestige-developments-slogan");
+  slogans.forEach((slogan) => {
+    gsap.fromTo(
+      slogan,
+      { scale: 0.7, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 0.7,
+        ease: "none",
+        scrollTrigger: {
+          trigger: slogan,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+  });
 }

@@ -81,13 +81,16 @@ const props = withDefaults(
 
 const sliderRoot = ref<HTMLElement | null>(null);
 
-// Swiper's loop mode needs roughly slidesPerView * 2 slides to loop
-// reliably (the demo used 11 for the same reason) — duplicate the real
-// project list enough times to clear that at the widest breakpoint
-// (slidesPerView: 4). Skipped entirely when loop is off (e.g. the
-// commercial section only has 2 real projects, so it just shows those 2
-// as-is rather than padding them out with repeats).
-const MIN_LOOP_SLIDES = 8;
+// Swiper's loop mode needs roughly twice as many slides as can be visible
+// at once to loop reliably (the demo used 11 for the same reason) —
+// duplicate the real project list enough times to clear that. Bumped up
+// from 8 to cover ultra-wide viewports too: slide width is now a fixed
+// px value (see .coverflow-slider-active .swiper-slide below) rather than
+// container-width ÷ slidesPerView, so a very wide screen can fit more
+// slides at once than the old 4-per-view cap ever allowed. Skipped
+// entirely when loop is off (e.g. the commercial section only has 2 real
+// projects, so it just shows those 2 as-is rather than padding them out).
+const MIN_LOOP_SLIDES = 14;
 const loopSlides = computed(() => {
   const base = props.slides;
   if (!props.loop) return base;
@@ -96,11 +99,6 @@ const loopSlides = computed(() => {
     .flatMap(() => base)
     .map((item, index) => ({ ...item, id: index + 1 }));
 });
-
-// Never request more slides-per-view than there actually are — otherwise
-// a short, non-looping list (2 slides) would leave empty gaps at the
-// wider breakpoints instead of just showing what exists.
-const slidesPerViewAt = (n: number) => Math.min(n, props.slides.length);
 
 onMounted(() => {
   // This component can appear more than once on a page (residential +
@@ -116,13 +114,22 @@ onMounted(() => {
   const nextEl = root.querySelector<HTMLElement>(".coverflow-slider-next");
   if (!thumbEl || !textEl || !prevEl || !nextEl) return;
 
-  // main (image) swiper — no mousewheel interaction, autoplay only
+  // main (image) swiper — no mousewheel interaction, autoplay only.
+  // slidesPerView: "auto" makes Swiper size each slide from its own CSS
+  // width (see .coverflow-slider-active .swiper-slide) instead of
+  // dividing the container width by a slide count — that container-width
+  // division was the reason a boxed slider (commercial/upcoming, narrower
+  // "contained" container) and a full-bleed one (residential, full
+  // viewport width) rendered different-sized slides even at the same
+  // slidesPerView number. Fixed pixel widths make every slider's cards
+  // the same size everywhere, independent of both slide count and
+  // container width.
   const coverflowThumbSlider = new Swiper(thumbEl, {
     loop: props.loop,
     effect: "coverflow",
     modules: [Navigation, EffectCoverflow, Autoplay, Keyboard],
     speed: 1500,
-    slidesPerView: 1,
+    slidesPerView: "auto",
     spaceBetween: 0,
     centeredSlides: true,
     grabCursor: true,
@@ -138,11 +145,6 @@ onMounted(() => {
     navigation: {
       nextEl,
       prevEl,
-    },
-    breakpoints: {
-      600: { slidesPerView: slidesPerViewAt(2) },
-      991: { slidesPerView: slidesPerViewAt(3) },
-      1400: { slidesPerView: slidesPerViewAt(4) },
     },
   });
 
@@ -205,6 +207,35 @@ onMounted(() => {
 
 .coverflow-slider-inner {
   position: relative;
+}
+
+/* fixed slide width for the image (thumb) swiper only — paired with
+   slidesPerView: "auto" above, this is what makes every slide the same
+   physical size regardless of slide count or whether the slider sits in
+   a full-bleed or "contained" (boxed) section. Deliberately NOT applied
+   to .coverflow-slider-text-active, which stays a single full-width
+   vertical slide. Stepped by viewport width (not container width) so it
+   stays consistent whether or not the slider is boxed. */
+.coverflow-slider-active .swiper-slide {
+  width: min(320px, 82vw);
+}
+
+@media (min-width: 600px) {
+  .coverflow-slider-active .swiper-slide {
+    width: 300px;
+  }
+}
+
+@media (min-width: 991px) {
+  .coverflow-slider-active .swiper-slide {
+    width: 340px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .coverflow-slider-active .swiper-slide {
+    width: 400px;
+  }
 }
 
 /* .coverflow-slider-item (the image box) is a fixed 500px tall in the

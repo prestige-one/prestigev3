@@ -14,7 +14,8 @@
             <hero-prestige />
             <!-- hero area end -->
 
-            <!-- our developments area start -->
+            <!-- our developments area start (now includes the two-row
+                 residential marquee in place of the old coverflow slider) -->
             <prestige-our-developments />
             <!-- our developments area end -->
 
@@ -70,7 +71,7 @@ onMounted(async () => {
   const smoothWrapper = document.getElementById('smooth-wrapper');
   if (smoothWrapper) {
     const imgLoad = imagesLoaded(smoothWrapper, { background: true });
-    
+
     // Handle individual image load failures
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     imgLoad.on('fail', (instance: any) => {
@@ -81,7 +82,7 @@ onMounted(async () => {
         console.warn('[imagesLoaded] Some images failed to load:', failedImages.map((img: any) => img.img?.src || img.img?.getAttribute('data-background') || 'unknown'));
       }
     });
-    
+
     // Handle progress for each image
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     imgLoad.on('progress', (_instance: any, image: any) => {
@@ -90,7 +91,7 @@ onMounted(async () => {
         console.error('[imagesLoaded] Failed to load image:', imgSrc);
       }
     });
-    
+
     // Always run animations regardless of success/failure
     imgLoad.on('always', () => {
       prestigeHeroAnimation();

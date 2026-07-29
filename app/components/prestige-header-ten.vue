@@ -97,6 +97,31 @@ const openMobileOffcanvas = ref(false);
   border-radius: 60px !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* dropdown submenu — dark, blurred glass panel with white text by default,
+   flipping to a white pill + black text on the hovered item (matches the
+   provided design). .dropdown-white-bg's own base-theme rule sets the
+   submenu to a solid white background, so this overrides it back to the
+   dark glass look for this header only. */
+.prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu li a) {
+  color: #fff;
+}
+
+.prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu li:hover > a) {
+  background-color: #F8F8FB;
+  color: #000;
+}
+
+.prestige-header-ten :deep(.tp-header-dropdown nav ul li .tp-submenu) {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(38, 37, 40, 0.9);
+}
+
+.prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu) {
+  background: rgba(0, 0, 0, 0.24);
 }
 
 /* the WhatsApp glyph is an icon-font <i>, not an <svg>, so it falls
@@ -104,7 +129,7 @@ const openMobileOffcanvas = ref(false);
    size and center it to match that circle explicitly. */
 .prestige-header-ten :deep(.tp-btn-black-circle-whatsapp) {
   font-size: 27px;
-  color: var(--tp-common-black);
+  color: #25D366;
   padding-top: 2px;
 }
 
