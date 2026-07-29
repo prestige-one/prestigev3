@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
   app: {
+    // cinematic cross-page fade (respects reduced-motion via CSS)
+    pageTransition: { name: "page-fade", mode: "out-in" },
     head: {
       title: "Prestige One Developments",
       charset: 'utf-8',

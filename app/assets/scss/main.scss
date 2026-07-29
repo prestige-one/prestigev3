@@ -9,3 +9,136 @@ html,
 body {
 	background-color: #000 !important;
 }
+
+/* cinematic cross-page fade (app.pageTransition = "page-fade") */
+.page-fade-enter-active,
+.page-fade-leave-active {
+	transition: opacity 0.5s ease;
+}
+.page-fade-enter-from,
+.page-fade-leave-to {
+	opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-fade-enter-active,
+	.page-fade-leave-active {
+		transition-duration: 0.01ms;
+	}
+}
+
+/* ---- shared inner-page primitives (used across the built-out site) ---- */
+.prestige-page {
+	position: relative;
+	background-color: #000;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* page hero band */
+.prestige-hero-band {
+	position: relative;
+	min-height: 78vh;
+	display: flex;
+	align-items: flex-end;
+	overflow: hidden;
+}
+.prestige-hero-band__media,
+.prestige-hero-band__media video,
+.prestige-hero-band__media img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.prestige-hero-band__veil {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0.9) 100%);
+}
+.prestige-hero-band__inner {
+	position: relative;
+	z-index: 2;
+	padding: 0 0 clamp(50px, 8vh, 110px);
+}
+.prestige-hero-band__eyebrow {
+	display: inline-block;
+	font-size: 13px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--tp-common-gold, #d9b382);
+	margin-bottom: 18px;
+}
+.prestige-hero-band__title {
+	font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+	color: #fff;
+	font-size: clamp(40px, 6.5vw, 92px);
+	line-height: 1.02;
+	font-weight: 400;
+	margin: 0;
+}
+.prestige-hero-band__lead {
+	max-width: 640px;
+	margin-top: 22px;
+	font-size: 18px;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* generic dark section */
+.prestige-section {
+	position: relative;
+	padding: clamp(70px, 11vh, 150px) 0;
+}
+.prestige-section--tight {
+	padding: clamp(44px, 7vh, 90px) 0;
+}
+.prestige-eyebrow {
+	display: inline-block;
+	font-size: 13px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--tp-common-gold, #d9b382);
+	margin-bottom: 16px;
+}
+.prestige-heading {
+	font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+	color: #fff;
+	font-size: clamp(32px, 4.6vw, 64px);
+	line-height: 1.08;
+	font-weight: 400;
+	margin: 0;
+}
+.prestige-prose {
+	font-size: 17px;
+	line-height: 1.85;
+	color: rgba(255, 255, 255, 0.72);
+}
+.prestige-prose p { margin-bottom: 1.3em; }
+.prestige-prose h2 { color: #fff; font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif); font-size: clamp(26px, 3vw, 40px); margin: 1.6em 0 0.6em; font-weight: 400; }
+.prestige-prose h3 { color: #fff; font-size: 22px; margin: 1.4em 0 0.5em; }
+.prestige-prose a { color: var(--tp-common-gold, #d9b382); text-decoration: underline; }
+.prestige-prose ul { margin: 0 0 1.3em 1.1em; }
+.prestige-prose li { margin-bottom: 0.5em; }
+
+/* gold pill button */
+.prestige-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 15px 30px;
+	border-radius: 60px;
+	font-size: 14px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #0b0b0d;
+	background: var(--tp-common-gold, #d9b382);
+	transition: transform 0.3s ease, background 0.3s ease;
+}
+.prestige-btn:hover { transform: translateY(-2px); color: #0b0b0d; background: #e7c79c; }
+.prestige-btn--ghost {
+	color: #fff;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.prestige-btn--ghost:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }

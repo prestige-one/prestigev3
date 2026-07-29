@@ -44,12 +44,12 @@
                         <div class="dgm-footer-widget dgm-footer-col-2 tp_fade_anim" data-delay=".4">
                             <h4 class="dgm-footer-widget-title">Corporate</h4>
                             <div class="dgm-footer-widget-menu">
-                                <ul> 
-                                    <li><a href="#">Broker Registration</a></li>
-                                    <li><a href="#">Project Documents</a></li>
-                                    <li><a href="#">Invest in Prestige One</a></li>
-                                    <li><a href="#">Marketing Terms &amp; Conditions</a></li>
-                                    <li><a href="#">Corporate Social Responsibility</a></li>
+                                <ul>
+                                    <li><nuxt-link to="/broker-registration">Broker Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/project-documents">Project Documents</nuxt-link></li>
+                                    <li><nuxt-link to="/invest">Invest in Prestige One</nuxt-link></li>
+                                    <li><nuxt-link to="/marketing-terms">Marketing Terms &amp; Conditions</nuxt-link></li>
+                                    <li><nuxt-link to="/csr">Corporate Social Responsibility</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
@@ -59,11 +59,11 @@
                             <h4 class="dgm-footer-widget-title">Media Center</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
-                                    <li><a href="#">Construction Updates</a></li>
-                                    <li><a href="#">Press Release</a></li>
-                                    <li><a href="#">Blog Posts</a></li>
-                                    <li><a href="#">Industry News</a></li>
-                                    <li><a href="#">FAQs</a></li>
+                                    <li><nuxt-link to="/construction-updates">Construction Updates</nuxt-link></li>
+                                    <li><nuxt-link to="/press-release">Press Release</nuxt-link></li>
+                                    <li><nuxt-link to="/blog">Blog Posts</nuxt-link></li>
+                                    <li><nuxt-link to="/industry-news">Industry News</nuxt-link></li>
+                                    <li><nuxt-link to="/media">FAQs</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
@@ -108,8 +108,8 @@
                         <div class="tp-copyright-2-right">
                             <div class="tp-copyright-2-menu text-md-end text-center">
                                 <ul>
-                                    <li><a href="#">Privacy Policy </a></li>
-                                    <li><a href="#">Terms and Conditions</a></li>
+                                    <li><nuxt-link to="/privacy-policy">Privacy Policy</nuxt-link></li>
+                                    <li><nuxt-link to="/terms-conditions">Terms and Conditions</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
