@@ -24,6 +24,11 @@ export interface PaymentMilestone {
   value: string;
 }
 
+export interface ProjectPOI {
+  name: string;
+  time: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -41,6 +46,10 @@ export interface Project {
   amenities: string[];
   paymentPlan: PaymentMilestone[];
   connectivity: string[];
+  nearby: ProjectPOI[];
+  schools: string[];
+  hospitals: string[];
+  documents: string[];
   video?: string;
 }
 
@@ -54,6 +63,10 @@ interface ProjectEnrichment {
   amenities?: string[];
   paymentPlan?: PaymentMilestone[];
   connectivity?: string[];
+  nearby?: ProjectPOI[];
+  schools?: string[];
+  hospitals?: string[];
+  documents?: string[];
   video?: string;
 }
 
@@ -84,6 +97,17 @@ const DEFAULT_CONNECTIVITY = [
   "Quick access across the city",
 ];
 
+const DEFAULT_NEARBY: ProjectPOI[] = [
+  { name: "Downtown Dubai", time: "20 min" },
+  { name: "Dubai International Airport", time: "20 min" },
+  { name: "Mall of the Emirates", time: "20 min" },
+  { name: "Nearest beach", time: "15 min" },
+];
+
+const DEFAULT_SCHOOLS = ["GEMS international schools", "Nearby nurseries & academies"];
+const DEFAULT_HOSPITALS = ["Leading private hospitals within reach", "Clinics and pharmacies nearby"];
+const DEFAULT_DOCUMENTS = ["Brochure", "Floor plans", "Payment plan", "Fact sheet"];
+
 export function slugify(input: string): string {
   return input
     .toLowerCase()
@@ -111,13 +135,14 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${V2}/hilton/25770800_Prestige_SPL-3BED_M-Bathroom__.webp`,
     ],
     overview: [
-      "Hilton Residences by Prestige One brings the world's most celebrated hospitality name to Dubai Maritime City — a waterfront community where elegance meets ease.",
-      "Residences range from considered one- and two-bedroom apartments to expansive duplexes, each finished to hotel-brand standards with sweeping views of the harbour and the Dubai skyline.",
+      "Life at Hilton Residences by Prestige One is a balance of elegance and ease — one of the most defining landmarks taking shape in Dubai Maritime City.",
+      "Impeccable design, enriched by thoughtful amenities and elevated by the trusted Hilton name, brings branded waterfront living to a peninsula wrapped by the sea, with sweeping views of the harbour and the Dubai skyline.",
+      "Residences range from considered one- and two-bedroom apartments to expansive duplexes, each finished to hotel-brand standards.",
     ],
     highlights: [
       "Branded residences operated to Hilton hospitality standards",
-      "Waterfront living in Dubai Maritime City",
-      "Alfresco lounges, outdoor gym and resort-style amenities",
+      "Waterfront living on the Dubai Maritime City peninsula",
+      "Infinity skyline pool, outdoor cinema and resort amenities",
       "One- and two-bedroom apartments plus signature duplexes",
     ],
     specs: [
@@ -125,6 +150,23 @@ const enrichment: Record<string, ProjectEnrichment> = {
       { label: "Location", value: "Dubai Maritime City" },
       { label: "Configurations", value: "1 & 2 Bed · Duplexes" },
       { label: "Status", value: "Now Selling" },
+    ],
+    amenities: [
+      "Infinity skyline pool",
+      "Outdoor cinema",
+      "Fitness centre",
+      "Running track",
+      "Multi-sports court",
+      "BBQ deck",
+      "Outdoor kids' play area",
+      "Indoor play area",
+      "Juice bar",
+    ],
+    nearby: [
+      { name: "Downtown Dubai", time: "5–10 min" },
+      { name: "Dubai International Airport", time: "10–15 min" },
+      { name: "Jumeirah Beach Residence (JBR)", time: "10–15 min" },
+      { name: "Mall of the Emirates", time: "15 min" },
     ],
   },
   "fauchon-residences-by-prestige-one": {
@@ -218,6 +260,10 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     amenities: e.amenities ?? DEFAULT_AMENITIES,
     paymentPlan: e.paymentPlan ?? DEFAULT_PAYMENT_PLAN,
     connectivity: e.connectivity ?? DEFAULT_CONNECTIVITY,
+    nearby: e.nearby ?? DEFAULT_NEARBY,
+    schools: e.schools ?? DEFAULT_SCHOOLS,
+    hospitals: e.hospitals ?? DEFAULT_HOSPITALS,
+    documents: e.documents ?? DEFAULT_DOCUMENTS,
     video: e.video,
   };
 }
