@@ -104,8 +104,9 @@ body {
 .prestige-heading {
 	font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
 	color: #fff;
-	font-size: clamp(32px, 4.6vw, 64px);
-	line-height: 1.08;
+	/* capped so it never blows up and wraps badly inside narrow columns */
+	font-size: clamp(26px, 3.2vw, 44px);
+	line-height: 1.12;
 	font-weight: 400;
 	margin: 0;
 }
@@ -150,3 +151,22 @@ body {
 	border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .prestige-btn--ghost:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+/* ---- responsive / mobile pass ---- */
+@media (max-width: 991.98px) {
+	.prestige-section { padding: 70px 0; }
+	.prestige-section--tight { padding: 46px 0; }
+	.prestige-hero-band__lead { font-size: 16px; }
+}
+@media (max-width: 767.98px) {
+	.prestige-section { padding: 54px 0; }
+	.prestige-section--tight { padding: 38px 0; }
+	.prestige-hero-band { min-height: 66vh; }
+	.prestige-hero-band__title { font-size: clamp(30px, 9vw, 46px); }
+	.prestige-hero-band__inner { padding-bottom: 44px; }
+	.prestige-hero-band__lead { margin-top: 16px; }
+	.prestige-eyebrow { font-size: 12px; }
+	.prestige-prose { font-size: 16px; }
+	/* keep any full-bleed fixed backgrounds from janking on mobile */
+	.prestige-hero-band__media { transform: none; }
+}

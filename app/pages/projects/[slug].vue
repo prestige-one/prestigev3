@@ -78,37 +78,39 @@
             <!-- 5 · location & nearby -->
             <section class="prestige-section prestige-detail__loc">
               <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-4 col-lg-4 mb-40">
+                <div class="row mb-40">
+                  <div class="col-lg-9">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Location</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Perfectly placed in {{ project.location }}</h2>
-                    <ul class="prestige-detail__conn tp_fade_anim" data-delay=".4">
-                      <li v-for="(c, i) in project.connectivity" :key="i"><span class="prestige-detail__dot" />{{ c }}</li>
+                  </div>
+                </div>
+                <div class="row gy-5">
+                  <div class="col-lg-3 col-sm-6">
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".2">Nearby</h4>
+                    <ul class="prestige-detail__poi prestige-detail__poi--stack tp_fade_anim" data-delay=".25">
+                      <li v-for="(p, i) in project.nearby" :key="i">
+                        <span class="prestige-detail__poi-name">{{ p.name }}</span>
+                        <span class="prestige-detail__poi-time">{{ p.time }}</span>
+                      </li>
                     </ul>
                   </div>
-                  <div class="col-xl-8 col-lg-8">
-                    <div class="row">
-                      <div class="col-md-6 mb-30">
-                        <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">Nearby</h4>
-                        <ul class="prestige-detail__poi tp_fade_anim" data-delay=".35">
-                          <li v-for="(p, i) in project.nearby" :key="i">
-                            <span>{{ p.name }}</span><span class="prestige-detail__poi-time">{{ p.time }}</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="col-md-3 col-6 mb-30">
-                        <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">Schools</h4>
-                        <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
-                          <li v-for="(s, i) in project.schools" :key="i">{{ s }}</li>
-                        </ul>
-                      </div>
-                      <div class="col-md-3 col-6 mb-30">
-                        <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">Healthcare</h4>
-                        <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
-                          <li v-for="(h, i) in project.hospitals" :key="i">{{ h }}</li>
-                        </ul>
-                      </div>
-                    </div>
+                  <div class="col-lg-3 col-sm-6">
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">Connectivity</h4>
+                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
+                      <li v-for="(c, i) in project.connectivity" :key="i">{{ c }}</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">Schools</h4>
+                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
+                      <li v-for="(s, i) in project.schools" :key="i">{{ s }}</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">Healthcare</h4>
+                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
+                      <li v-for="(h, i) in project.hospitals" :key="i">{{ h }}</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -319,6 +321,20 @@ usePrestigePage({ hero: false });
   color: rgba(255, 255, 255, 0.82);
 }
 .prestige-detail__poi-time { color: var(--tp-common-gold, #d9b382); white-space: nowrap; }
+.prestige-detail__poi--stack li {
+  display: block;
+  padding: 12px 0;
+}
+.prestige-detail__poi--stack .prestige-detail__poi-name {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+.prestige-detail__poi--stack .prestige-detail__poi-time {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+}
 .prestige-detail__list li {
   padding: 9px 0;
   font-size: 15px;
