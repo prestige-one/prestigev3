@@ -32,7 +32,12 @@ const videoEl = ref<HTMLVideoElement | null>(null);
 
 let raf = 0;
 let current = 0;
+let autoY = 0;
+let autoInit = false;
+let lastManual = 0;
 let io: IntersectionObserver | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let markManual: any = null;
 
 onMounted(() => {
   if (import.meta.server) return;
@@ -42,20 +47,52 @@ onMounted(() => {
   v.pause();
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // auto-scroll only on desktop pointers — on touch it would fight finger-scroll
+  const desktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const autoAllowed = desktop && !reduce;
+  // seconds to auto-play the whole clip (capped so the hero doesn't drag)
+  const AUTO_SECONDS = 18;
 
-  // Read scroll position every frame (no dependency on scroll events, which
-  // can be swallowed by smooth-scroll libs) and ease the video's currentTime
-  // toward the target derived from how far we've scrolled through the section.
+  // pause auto-scroll whenever the user drives the page themselves
+  markManual = () => {
+    lastManual = performance.now();
+  };
+  window.addEventListener("wheel", markManual, { passive: true });
+  window.addEventListener("touchmove", markManual, { passive: true });
+  window.addEventListener("keydown", markManual);
+
+  // Read scroll position every frame (no dependency on scroll events) and ease
+  // the video's currentTime toward the target derived from how far through the
+  // section we are. While the section is pinned and the user is idle, gently
+  // auto-scroll so the video plays on its own — but the moment they scroll,
+  // they take over.
   const frame = () => {
     const dur = v.duration;
     if (dur && isFinite(dur)) {
-      const rect = r.getBoundingClientRect();
       const total = Math.max(r.offsetHeight - window.innerHeight, 1);
+      let rect = r.getBoundingClientRect();
+      const pinned = rect.top <= 0.5;
+      const scrolled0 = Math.min(Math.max(-rect.top, 0), total);
+      const atEnd = scrolled0 >= total - 1;
+      const idle = performance.now() - lastManual > 1100;
+
+      if (autoAllowed && pinned && !atEnd && idle) {
+        if (!autoInit) {
+          autoY = window.scrollY;
+          autoInit = true;
+        }
+        autoY += total / (AUTO_SECONDS * 60);
+        window.scrollTo(0, Math.round(autoY));
+      } else {
+        autoY = window.scrollY;
+        autoInit = pinned;
+      }
+
+      rect = r.getBoundingClientRect();
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
       const target = (scrolled / total) * dur;
-      current = reduce ? target : current + (target - current) * 0.15;
+      current = reduce ? target : current + (target - current) * 0.2;
       if (Math.abs(target - current) < 0.004) current = target;
-      // only seek when it actually changed, to avoid redundant work when idle
       if (v.readyState >= 2 && Math.abs(v.currentTime - current) > 0.01) {
         try {
           v.currentTime = current;
@@ -76,7 +113,6 @@ onMounted(() => {
     }
   };
 
-  // only run the loop while the hero is on screen
   io = new IntersectionObserver(
     (entries) => {
       if (entries[0]?.isIntersecting) startLoop();
@@ -91,6 +127,11 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (raf) cancelAnimationFrame(raf);
   io?.disconnect();
+  if (markManual) {
+    window.removeEventListener("wheel", markManual);
+    window.removeEventListener("touchmove", markManual);
+    window.removeEventListener("keydown", markManual);
+  }
 });
 </script>
 
