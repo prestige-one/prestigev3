@@ -12,7 +12,20 @@
               image="/assets/images/v2/our-destinations/dubai-Islands.webp"
             />
 
-            <section class="prestige-section">
+            <section class="prestige-section--tight">
+              <div class="container container-1430">
+                <div class="row">
+                  <div class="col-xl-9">
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Reading the market</span>
+                    <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
+                      <p>Dubai's property market rewards those who understand it. Here we share the trends, fundamentals and shifts we watch most closely — from the tax advantages that draw global capital to the rise of branded residences — so you can make decisions with clarity rather than guesswork.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="prestige-section prestige-section--tight">
               <div class="container container-1430">
                 <div v-if="items.length" class="row">
                   <div
@@ -29,6 +42,17 @@
                 </p>
               </div>
             </section>
+
+            <prestige-cta-band
+              eyebrow="Invest with confidence"
+              title="Turn insight into your next move"
+              text="Our team can help you translate the market into a decision — matching Dubai's fundamentals to the right Prestige One address for you."
+              image="/assets/images/v2/locations/JBR.webp"
+              primary-label="Speak to an advisor"
+              primary-to="/contact-us"
+              secondary-label="Explore destinations"
+              secondary-to="/destinations"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>

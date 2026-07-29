@@ -56,6 +56,24 @@
               </div>
             </section>
 
+            <!-- inside prestige one -->
+            <prestige-feature-split
+              eyebrow="Inside Prestige One"
+              title="Built in the open"
+              image="/assets/images/v2/news/website-banner-collage-01-scaled.webp"
+              :paragraphs="[
+                'We believe the story of a home should not begin on handover day. From groundbreaking ceremonies to façade milestones, we share the progress of our developments openly — so buyers can watch their future address take shape, floor by floor.',
+                'Alongside construction news, our Media Center brings you the partnerships and market perspective that shape how we build: the brands we work with, the investments we make, and the fundamentals that keep Dubai at the forefront of global real estate.',
+              ]"
+              :points="[
+                'Regular construction updates from active sites',
+                'Official announcements and brand partnerships',
+                'Market insight on investing in Dubai',
+                'Design thinking behind every Prestige One home',
+              ]"
+              reverse
+            />
+
             <!-- quick links -->
             <section class="prestige-section prestige-section--tight prestige-quicklinks">
               <div class="container container-1430">
@@ -79,6 +97,17 @@
                 </div>
               </div>
             </section>
+
+            <prestige-cta-band
+              eyebrow="Stay in the loop"
+              title="Never miss a milestone"
+              text="Register your interest to receive construction updates, launch news and market insight from Prestige One — straight from the source."
+              image="/assets/images/v2/news/2K6A3227-scaled.webp"
+              primary-label="Get in touch"
+              primary-to="/contact-us"
+              secondary-label="Read the blog"
+              secondary-to="/blog"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>

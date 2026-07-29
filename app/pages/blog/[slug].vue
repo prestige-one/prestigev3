@@ -58,6 +58,17 @@
                 </div>
               </div>
             </section>
+
+            <prestige-cta-band
+              eyebrow="Prestige One"
+              title="Homes designed for real living"
+              text="Explore our developments across Dubai's most sought-after destinations, or talk to our team about finding the right address for you."
+              :image="article.cover"
+              primary-label="Get in touch"
+              primary-to="/contact-us"
+              secondary-label="View developments"
+              secondary-to="/projects"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>

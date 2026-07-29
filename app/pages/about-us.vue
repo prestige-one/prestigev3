@@ -10,43 +10,31 @@
               title="Built on Strong Principles"
               lead="Prestige One is a Dubai luxury developer redefining premium living — crafting landmark residences where architecture, service and lifestyle meet at the highest standard."
               image="/assets/images/v3/Built-on-Strong-Principles.webp"
+            >
+              <template #actions>
+                <nuxt-link to="/projects" class="prestige-btn">View developments</nuxt-link>
+                <nuxt-link to="/contact-us" class="prestige-btn prestige-btn--ghost">Get in touch</nuxt-link>
+              </template>
+            </prestige-page-hero>
+
+            <prestige-stat-band :stats="stats" />
+
+            <prestige-feature-split
+              eyebrow="Our Story"
+              title="A new benchmark for luxury living"
+              image="/assets/images/v3/Built-on-Trust.webp"
+              :paragraphs="storyParagraphs"
+              :points="storyPoints"
             />
 
-            <!-- our story -->
-            <section class="prestige-section">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-4 col-lg-4 mb-30">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Our Story</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">
-                      A new benchmark for luxury living
-                    </h2>
-                  </div>
-                  <div class="col-xl-7 offset-xl-1 col-lg-8">
-                    <div class="prestige-prose tp_fade_anim" data-delay=".4">
-                      <p>
-                        Prestige One is a Dubai-based luxury real-estate developer redefining what
-                        premium living should feel like. As part of a group with decades of experience
-                        across construction, hospitality and real estate, we bring an uncommon depth
-                        of expertise to every address we create.
-                      </p>
-                      <p>
-                        Our developments are shaped by an obsession with detail — from the way light
-                        moves through a living space to the calibre of the amenities and the service
-                        that surrounds residents every day. Each project is conceived as a landmark,
-                        designed to hold its value and elevate the neighbourhood around it.
-                      </p>
-                      <p>
-                        That ambition is reflected in the company we keep. Through partnerships with
-                        globally recognised brands such as Hilton and FAUCHON, Prestige One blends
-                        world-class hospitality and heritage craftsmanship into homes that are
-                        unmistakably Dubai and unmistakably ours.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-feature-split
+              eyebrow="Our Approach"
+              title="Homes designed for real living"
+              image="/assets/images/v3/Designed-for-Real-Living.webp"
+              :paragraphs="approachParagraphs"
+              :points="approachPoints"
+              reverse
+            />
 
             <!-- our values -->
             <section class="prestige-section prestige-section--tight prestige-about__values">
@@ -74,22 +62,16 @@
               </div>
             </section>
 
-            <!-- closing CTA -->
-            <section class="prestige-section prestige-section--tight">
-              <div class="container container-1430">
-                <div class="prestige-about__cta tp_fade_anim" data-delay=".2">
-                  <h2 class="prestige-heading mb-30">Discover the portfolio</h2>
-                  <p class="prestige-prose mb-40">
-                    Explore our collection of residential and commercial landmarks across Dubai's
-                    most sought-after destinations — or reach out to speak with our team.
-                  </p>
-                  <div class="prestige-about__cta-actions">
-                    <NuxtLink to="/projects" class="prestige-btn">View Developments</NuxtLink>
-                    <NuxtLink to="/contact-us" class="prestige-btn prestige-btn--ghost">Contact Us</NuxtLink>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-cta-band
+              eyebrow="Discover the portfolio"
+              title="Come and see what we build"
+              text="Explore our collection of residential and commercial landmarks across Dubai's most sought-after destinations, or speak with our team about what's coming next."
+              image="/assets/images/v3/A-Global-Perspective.webp"
+              primary-label="View developments"
+              primary-to="/projects"
+              secondary-label="Contact us"
+              secondary-to="/contact-us"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>
@@ -99,6 +81,11 @@
 </template>
 
 <script setup lang="ts">
+interface StatItem {
+  value: string;
+  label: string;
+}
+
 interface CoreValue {
   title: string;
   text: string;
@@ -111,6 +98,38 @@ useSeoMeta({
   description:
     "Prestige One is a Dubai luxury developer redefining premium living, with partnerships spanning globally recognised brands like Hilton and FAUCHON.",
 });
+
+const stats: StatItem[] = [
+  { value: "18+", label: "Developments" },
+  { value: "9", label: "Destinations" },
+  { value: "3", label: "Countries" },
+  { value: "25+", label: "Years of expertise" },
+];
+
+const storyParagraphs: string[] = [
+  "Prestige One is a Dubai-based luxury real-estate developer redefining what premium living should feel like. As part of a group with more than two decades of experience across construction, hospitality and real estate, we bring an uncommon depth of expertise to every address we create.",
+  "Our developments are shaped by an obsession with detail — from the way light moves through a living space to the calibre of the amenities and the service that surrounds residents every day. Each project is conceived as a landmark, designed to hold its value and elevate the neighbourhood around it.",
+  "That ambition is reflected in the company we keep. Through partnerships with globally recognised names such as Hilton and the storied Parisian maison FAUCHON, we blend world-class hospitality and heritage craftsmanship into homes that are unmistakably Dubai and unmistakably ours.",
+];
+
+const storyPoints: string[] = [
+  "Backed by a diversified group with a 25-year track record",
+  "Branded residences with Hilton and FAUCHON Paris",
+  "A growing portfolio across Dubai's prime destinations",
+];
+
+const approachParagraphs: string[] = [
+  "We start with how people actually live. Before a single line is drawn, we study the site, the light and the daily rhythm of the neighbourhood — then design around comfort, wellbeing and the quiet moments that make a house a home.",
+  "Quality is never negotiable. We partner with leading architects, interior designers and contractors, and we hold every material, finish and fit-out to a single uncompromising standard. The result is homes that feel considered on the first day and endure for decades.",
+  "And we stay long after handover. Thoughtful management, hospitality-grade service and genuinely useful amenities mean residents don't just own a Prestige One home — they love living in it.",
+];
+
+const approachPoints: string[] = [
+  "Human-centred design led by daily rhythms, not floor-plan efficiency",
+  "Best-in-class architects, designers and contractors on every project",
+  "Hospitality-grade service and management after handover",
+  "Amenities curated around wellbeing and everyday convenience",
+];
 
 const coreValues: CoreValue[] = [
   {
@@ -171,13 +190,5 @@ usePrestigePage({ hero: false });
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.68);
   margin: 0;
-}
-.prestige-about__cta {
-  max-width: 720px;
-}
-.prestige-about__cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
 }
 </style>

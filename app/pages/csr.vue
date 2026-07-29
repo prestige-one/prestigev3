@@ -10,8 +10,13 @@
               title="Corporate Social Responsibility"
               lead="Building responsibly means looking beyond the buildings — to the communities we serve and the environment we share."
               image="/assets/images/v2/pages/core-values/sustainability.webp"
-            />
+            >
+              <template #actions>
+                <nuxt-link to="/about-us" class="prestige-btn">About Prestige One</nuxt-link>
+              </template>
+            </prestige-page-hero>
 
+            <!-- intro prose -->
             <section class="prestige-section">
               <div class="container container-1430">
                 <div class="row">
@@ -29,10 +34,16 @@
                         them and treading lightly on the environment they inhabit.
                       </p>
                       <p>
-                        From energy-efficient design and considered material choices to spaces that
-                        bring people together, our approach to sustainability is practical and
-                        long-term. We hold ourselves to the same high standard in our social impact as
-                        we do in our architecture, ensuring every project leaves a positive legacy.
+                        From energy-efficient design and considered material choices to public realm
+                        that genuinely brings people together, our approach is practical, measurable
+                        and long-term. We hold ourselves to the same high standard in our social and
+                        environmental impact as we do in our architecture, so that every project leaves
+                        a positive legacy well beyond handover.
+                      </p>
+                      <p>
+                        Our commitment is organised around three pillars: sustainability, community and
+                        responsible building. Together they shape how we choose sites, how we design,
+                        how we build and how we operate the places we deliver.
                       </p>
                     </div>
                   </div>
@@ -40,25 +51,44 @@
               </div>
             </section>
 
-            <!-- pillars -->
-            <section class="prestige-section prestige-section--tight prestige-csr__pillars">
-              <div class="container container-1430">
-                <div class="row">
-                  <div
-                    v-for="(pillar, i) in pillars"
-                    :key="pillar.title"
-                    class="col-xl-4 col-lg-4 col-md-6 mb-30 tp_fade_anim"
-                    data-delay=".2"
-                  >
-                    <div class="prestige-csr__pillar">
-                      <span class="prestige-csr__pillar-num">{{ String(i + 1).padStart(2, "0") }}</span>
-                      <h3 class="prestige-csr__pillar-title">{{ pillar.title }}</h3>
-                      <p class="prestige-csr__pillar-text">{{ pillar.text }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <!-- three pillars as feature-splits -->
+            <prestige-feature-split
+              eyebrow="Pillar 01"
+              title="Sustainability"
+              image="/assets/images/v2/pages/core-values/sustainability.webp"
+              :paragraphs="sustainabilityParagraphs"
+              :points="sustainabilityPoints"
+            />
+
+            <prestige-feature-split
+              eyebrow="Pillar 02"
+              title="Community"
+              image="/assets/images/v2/locations/city-walk-1024x768-1.webp"
+              :paragraphs="communityParagraphs"
+              :points="communityPoints"
+              reverse
+            />
+
+            <prestige-feature-split
+              eyebrow="Pillar 03"
+              title="Responsible Building"
+              image="/assets/images/v3/Built-on-Trust.webp"
+              :paragraphs="responsibleParagraphs"
+              :points="responsiblePoints"
+            />
+
+            <prestige-stat-band :stats="stats" />
+
+            <prestige-cta-band
+              eyebrow="Build with purpose"
+              title="A partner that gives back"
+              text="Learn more about the principles behind Prestige One, or talk to our team about the values that shape every home we deliver."
+              image="/assets/images/v3/A-Global-Perspective.webp"
+              primary-label="About Prestige One"
+              primary-to="/about-us"
+              secondary-label="Contact us"
+              secondary-to="/contact-us"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>
@@ -68,9 +98,9 @@
 </template>
 
 <script setup lang="ts">
-interface Pillar {
-  title: string;
-  text: string;
+interface StatItem {
+  value: string;
+  label: string;
 }
 
 definePageMeta({ layout: false });
@@ -80,50 +110,48 @@ useSeoMeta({
     "Prestige One's commitment to sustainable development, community and responsible building across every project we deliver.",
 });
 
-const pillars: Pillar[] = [
-  {
-    title: "Sustainability",
-    text: "Energy-efficient design, responsible materials and a lower environmental footprint across the lifecycle of every development.",
-  },
-  {
-    title: "Community",
-    text: "Creating shared spaces and supporting local initiatives that bring people together and strengthen the neighbourhoods we build in.",
-  },
-  {
-    title: "Responsible Building",
-    text: "Uncompromising safety, ethical practices and lasting quality — building homes that stand the test of time.",
-  },
+const sustainabilityParagraphs: string[] = [
+  "Sustainability at Prestige One starts at the drawing board. We design for the climate we build in — orienting buildings to reduce solar gain, specifying high-performance glazing and insulation, and choosing efficient systems that cut energy and water use over the whole life of a development.",
+  "We favour responsibly sourced materials, design out waste on site, and integrate landscaping and shade that lower the urban heat around our buildings. The goal is simple: homes that cost less to run, last longer, and place a lighter demand on the resources of the city.",
+];
+
+const sustainabilityPoints: string[] = [
+  "Energy-efficient design, glazing and building systems",
+  "Responsibly sourced, durable materials",
+  "Water-wise landscaping and reduced heat island effect",
+  "Construction practices that design out waste",
+];
+
+const communityParagraphs: string[] = [
+  "A building is only as good as the life that happens around it. We design generous shared spaces — landscaped courtyards, walkable ground floors, gathering areas and amenities — that turn residents into neighbours and developments into genuine communities.",
+  "Beyond our own sites, we invest in the neighbourhoods we build in and support local initiatives that improve everyday life. We prioritise local partners and talent, and we design public realm that stays open, active and welcoming long after the last home is sold.",
+];
+
+const communityPoints: string[] = [
+  "Generous shared and public spaces in every scheme",
+  "Support for local initiatives and neighbourhood life",
+  "Local partners, suppliers and talent prioritised",
+  "Walkable, welcoming ground floors and courtyards",
+];
+
+const responsibleParagraphs: string[] = [
+  "Responsible building means uncompromising standards where it matters most — safety, ethics and lasting quality. We hold our contractors to strict health-and-safety practices, fair labour standards and transparent conduct on every site we run.",
+  "That discipline carries through to the finished home. Rigorous quality control, honest specifications and thorough handover checks mean the residence you buy is the residence you receive — built to endure, and backed by a developer that stands behind its work.",
+];
+
+const responsiblePoints: string[] = [
+  "Strict health, safety and fair-labour standards on site",
+  "Transparent, ethical conduct with every partner",
+  "Rigorous quality control and honest specifications",
+  "Homes built to endure, backed after handover",
+];
+
+const stats: StatItem[] = [
+  { value: "3", label: "Pillars of commitment" },
+  { value: "100%", label: "Freehold, well-regulated sites" },
+  { value: "25+", label: "Years of responsible delivery" },
+  { value: "0", label: "Compromises on safety" },
 ];
 
 usePrestigePage({ hero: false });
 </script>
-
-<style scoped>
-.prestige-csr__pillars {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-.prestige-csr__pillar {
-  padding-right: 14px;
-}
-.prestige-csr__pillar-num {
-  display: block;
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 34px;
-  color: var(--tp-common-gold, #d9b382);
-  margin-bottom: 14px;
-}
-.prestige-csr__pillar-title {
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  color: #fff;
-  font-size: 26px;
-  font-weight: 400;
-  margin: 0 0 12px;
-}
-.prestige-csr__pillar-text {
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-}
-</style>

@@ -63,6 +63,16 @@
           </div>
         </div>
       </div>
+
+      <!-- partner logos — supporting global-credibility strip (per content plan) -->
+      <div class="prestige-why-us-partners">
+        <span class="prestige-why-us-partners-label tp_fade_anim">In partnership with globally recognised brands</span>
+        <div class="prestige-why-us-partners-logos">
+          <img src="/assets/images/v2/web-logos/hilton.webp" alt="Hilton" class="tp_fade_anim">
+          <img src="/assets/images/v2/web-logos/v2/fauchon-logo-1.webp" alt="FAUCHON" class="tp_fade_anim">
+          <img src="/assets/images/v2/pages/AFA-logo-400.webp" alt="Argentina National Team" class="tp_fade_anim">
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -116,6 +126,41 @@ const whyUsData: WhyUsItem[] = [
   },
 ];
 </script>
+
+<style scoped>
+/* partner logos strip — monochrome, equal size, understated (per content plan) */
+.prestige-why-us-partners {
+  margin-top: 90px;
+  text-align: center;
+}
+.prestige-why-us-partners-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 34px;
+}
+.prestige-why-us-partners-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(36px, 6vw, 90px);
+}
+.prestige-why-us-partners-logos img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  /* force any source logo to a soft monochrome white */
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+.prestige-why-us-partners-logos img:hover {
+  opacity: 0.95;
+}
+</style>
 
 <style scoped>
 /* thin separator from the section above (Upcoming Projects) — subtle,

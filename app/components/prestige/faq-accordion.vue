@@ -28,8 +28,13 @@
   </section>
 </template>
 
+<script lang="ts">
+// exported from a plain <script> block so pages can `import type { FaqItem }`
+// from this SFC (type exports aren't allowed from <script setup>).
+export interface FaqItem { q: string; a: string }
+</script>
+
 <script setup lang="ts">
-interface FaqItem { q: string; a: string }
 withDefaults(
   defineProps<{ items: FaqItem[]; title: string; eyebrow?: string }>(),
   { eyebrow: "FAQs" },

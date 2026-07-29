@@ -12,6 +12,24 @@
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
 
+            <prestige-stat-band :stats="portfolioStats" />
+
+            <prestige-feature-split
+              eyebrow="Why location matters"
+              title="We build where Dubai lives best"
+              image="/assets/images/v2/locations/downtown-dubai.webp"
+              :paragraphs="[
+                'A home is only ever as good as the life around it. That belief guides every acquisition we make — before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.',
+                'From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water — the everyday things that make a place worth returning to.',
+              ]"
+              :points="[
+                'Waterfront, community and landmark destinations across Dubai',
+                'Minutes from the metro, Sheikh Zayed Road and the airport',
+                'Locations selected for long-term liveability and value',
+                'Neighbourhoods with schools, retail and leisure at hand',
+              ]"
+            />
+
             <section class="prestige-section">
               <div class="container container-1430">
                 <div class="row">
@@ -36,6 +54,17 @@
                 </div>
               </div>
             </section>
+
+            <prestige-cta-band
+              eyebrow="Find your address"
+              title="Not sure where to begin?"
+              text="Tell us how you want to live and our team will point you to the destinations — and the developments — that fit. From first investment to forever home."
+              image="/assets/images/v2/locations/Meydan.webp"
+              primary-label="Speak to our team"
+              primary-to="/contact-us"
+              secondary-label="View all developments"
+              secondary-to="/projects"
+            />
           </main>
           <prestige-footer-digital-marketing />
         </div>
@@ -46,6 +75,7 @@
 
 <script setup lang="ts">
 import { destinations, getProjectsForDestination, type Destination } from "~/data/destinations-data";
+import { getAllProjects } from "~/data/projects";
 
 definePageMeta({ layout: false });
 useSeoMeta({
@@ -58,6 +88,13 @@ function countFor(dest: Destination) {
   const n = getProjectsForDestination(dest).length;
   return n === 1 ? "1 development" : `${n} developments`;
 }
+
+const portfolioStats: { value: string; label: string }[] = [
+  { value: `${destinations.length}`, label: "Destinations" },
+  { value: `${getAllProjects().length}`, label: "Developments" },
+  { value: "AED 500M+", label: "Committed investment" },
+  { value: "100%", label: "Escrow-protected" },
+];
 
 usePrestigePage({ hero: false });
 </script>
