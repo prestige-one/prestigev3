@@ -22,7 +22,7 @@
                   <div class="coverflow-slider-item">
                     <div class="coverflow-slider-content text-center">
                       <h4 class="coverflow-slider-title-sm">
-                        <NuxtLink class="tp-line-white" :to="item.href">
+                        <NuxtLink class="tp-line-white" :to="linkFor(item)">
                           {{ item.title }}
                           <div class="coverflow-slider-location">[{{ item.location }}]</div>
                         </NuxtLink>
@@ -64,6 +64,12 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import type { DevelopmentSlide } from "../data/residential-developments-data";
+import { slugify } from "../data/projects";
+
+// prefer an explicit href; otherwise route to the generated project detail page
+function linkFor(item: DevelopmentSlide) {
+  return item.href && item.href !== "#" ? item.href : `/projects/${slugify(item.title)}`;
+}
 
 const props = withDefaults(
   defineProps<{

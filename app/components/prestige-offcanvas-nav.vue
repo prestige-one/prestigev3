@@ -1,5 +1,5 @@
 <template>
-  <div class="prestige-nav" :class="{ opened: isOpen }" aria-hidden="!isOpen">
+  <div class="prestige-nav" :class="{ opened: isOpen }" :aria-hidden="!isOpen">
     <!-- click-to-close backdrop -->
     <div class="prestige-nav__overlay" @click="$emit('close')" />
 

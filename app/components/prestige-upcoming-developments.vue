@@ -27,7 +27,7 @@
         <div v-for="item in upcomingDevelopments" :key="item.id" class="col-md-6">
           <div class="prestige-upcoming-item mb-40">
             <div :ref="addToRefs" class="prestige-upcoming-thumb tp--hover-item">
-              <NuxtLink :to="item.href">
+              <NuxtLink :to="linkFor(item)">
                 <div class="tp--hover-img" data-displacement="/img/webgl/1.jpg" data-intensity="0.6" data-speedin="1" data-speedout="1">
                   <img :src="item.image" :alt="item.title">
                 </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="prestige-upcoming-content text-center">
               <h4 class="prestige-upcoming-title">
-                <NuxtLink class="tp-line-white" :to="item.href">
+                <NuxtLink class="tp-line-white" :to="linkFor(item)">
                   {{ item.title }}
                 </NuxtLink>
               </h4>
@@ -53,8 +53,14 @@
 
 <script setup lang="ts">
 import upcomingDevelopments from "../data/upcoming-developments-data";
+import { slugify } from "../data/projects";
+import type { DevelopmentSlide } from "../data/residential-developments-data";
 
 const { addToRefs } = useHoverEffect();
+
+function linkFor(item: DevelopmentSlide) {
+  return item.href && item.href !== "#" ? item.href : `/projects/${slugify(item.title)}`;
+}
 </script>
 
 <style scoped>
