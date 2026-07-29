@@ -107,7 +107,9 @@ onMounted(() => {
       const target = (scrolled / total) * dur;
       current = reduce ? target : current + (target - current) * 0.2;
       if (Math.abs(target - current) < 0.004) current = target;
-      if (v.readyState >= 2 && Math.abs(v.currentTime - current) > 0.01) {
+      // don't issue a new seek while one is still resolving — piling up seeks
+      // is what makes the video stall/stick
+      if (v.readyState >= 2 && !v.seeking && Math.abs(v.currentTime - current) > 0.01) {
         try {
           v.currentTime = current;
         } catch {
