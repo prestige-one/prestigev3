@@ -60,19 +60,10 @@ onMounted(() => {
   if (v.readyState >= 2) prime();
   else v.addEventListener("loadeddata", prime, { once: true });
 
-  // Don't auto-scroll until the clip can play through, and never seek past what
-  // has downloaded — seeking ahead of the buffer is what makes it stall at the
-  // very start (before scrolling has "primed" the buffer).
-  let canScrub = v.readyState >= 4;
-  const markReady = () => {
-    canScrub = true;
-  };
-  if (!canScrub) {
-    v.addEventListener("canplaythrough", markReady, { once: true });
-    v.addEventListener("canplay", markReady, { once: true });
-    // safety net: enable after a moment even if those events are missed
-    window.setTimeout(markReady, 2500);
-  }
+  // Never seek past what has downloaded, and drive readiness off the actual
+  // buffer instead of the flaky canplay* events (which often don't fire on a
+  // big streamed file). Auto-scroll starts the moment a little is buffered and
+  // self-throttles to the buffer below, so it can't outrun the download.
   const bufferedEnd = () => {
     try {
       return v.buffered.length ? v.buffered.end(v.buffered.length - 1) : 0;
@@ -112,7 +103,14 @@ onMounted(() => {
       const atEnd = scrolled0 >= total - 1;
       const idle = performance.now() - lastManual > 1100;
 
-      if (autoAllowed && pinned && !atEnd && idle && canScrub) {
+      // buffer-driven readiness: start as soon as a little is downloaded, and
+      // only advance while the buffer stays ahead of the frame we're showing so
+      // the page can't scroll past what the video can display.
+      const be0 = bufferedEnd();
+      const ready = be0 > 0.25;
+      const bufferAhead = be0 - current > 0.35;
+
+      if (autoAllowed && pinned && !atEnd && idle && ready && bufferAhead) {
         if (!autoInit) {
           autoY = window.scrollY;
           autoInit = true;
