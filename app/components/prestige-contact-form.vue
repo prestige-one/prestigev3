@@ -1,22 +1,45 @@
 <template>
-  <section class="prestige-contact-form-area pt-120 pb-120">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <div class="prestige-developments-title-box text-center">
-            <h2 class="prestige-developments-title prestige-text-paint">
-              Get In Touch
-            </h2>
-            <p class="prestige-developments-subtitle">
-              Let's Talk About Your Next Move
-            </p>
-          </div>
+  <section id="contact" class="prestige-contact-area">
+    <div class="container container-1430">
+      <!-- centered variant (main home page): just the headline and form,
+           no map, no side-by-side grid — everything stacked and centered. -->
+      <div v-if="centered" class="prestige-contact-centered">
+        <span class="prestige-contact-eyebrow">Get In Touch</span>
+        <h2 class="prestige-contact-title">
+          Let's Talk About<br>
+          Your Next Move
+        </h2>
+
+        <div class="prestige-contact-form-card">
+          <form-contact-prestige />
         </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <div class="prestige-contact-form-wrap">
+      <!-- default variant (home-2): heading + map on the left, form on the
+           right. -->
+      <div v-else class="prestige-contact-grid">
+        <!-- left column: heading, map -->
+        <div class="prestige-contact-left">
+          <span class="prestige-contact-eyebrow">Get In Touch</span>
+          <h2 class="prestige-contact-title">
+            Let's Talk About<br>
+            Your Next Move
+          </h2>
+
+          <div class="prestige-contact-map-box">
+            <iframe
+              class="prestige-contact-map-frame"
+              src="https://www.google.com/maps?q=Marina+Plaza,+Dubai+Marina,+Dubai,+UAE&z=12&output=embed"
+              title="Prestige One Developments — Marina Plaza, Dubai Marina"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+
+        <!-- right column: form card -->
+        <div class="prestige-contact-right">
+          <div class="prestige-contact-form-card">
             <form-contact-prestige />
           </div>
         </div>
@@ -25,102 +48,159 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
+</script>
 
 <style scoped>
-/* section is forced opaque black, independent of the global body bg, so
-   it never bleeds into whatever sits above/below it. */
-.prestige-contact-form-area {
+.prestige-contact-area {
   background-color: #000;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 270px;
+  padding-bottom: 50px;
 }
 
-.prestige-developments-title-box {
-  margin-top: 140px;
-  position: relative;
+.prestige-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
+  /* the left column (heading + map) is naturally shorter than the form
+     card — center them against each other instead of top-aligning, so the
+     shorter side doesn't just leave dead space below it. */
+  align-items: center;
 }
 
-/* same small, contained aurora-style glow as the "Our Developments"
-   headline — see prestige-our-developments.vue for the full rationale. */
-.prestige-developments-title-box::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(560px, 90vw);
-  height: 320px;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(
-      circle at 65% 35%,
-      rgba(120, 210, 255, 0.32),
-      transparent 60%
-    ),
-    radial-gradient(circle at 32% 68%, rgba(255, 140, 210, 0.24), transparent 60%);
-  filter: blur(60px);
-}
+/* ---- left column ---- */
 
-.prestige-developments-title {
-  font-size: clamp(28px, 4.5vw, 52px);
+.prestige-contact-left {
+  display: flex;
+  flex-direction: column;
+}
+.prestige-contact-form-field label {
+  text-align: left;
+}
+.prestige-contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
   font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 22px;
+}
+
+.prestige-contact-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  margin-right: 14px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.prestige-contact-title {
+  font-weight: 600;
+  font-size: clamp(24px, 2.4vw, 36px);
   line-height: 1.2;
-  margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.prestige-developments-subtitle {
-  font-size: clamp(14px, 1.6vw, 18px);
-  margin: 0;
   color: #fff;
+  margin: 0 0 24px;
 }
 
-.prestige-text-paint {
-  background-image: linear-gradient(
-    to right,
-    #ffffff 50%,
-    rgba(255, 255, 255, 0.32) 50%
-  );
-  background-size: 200% 100%;
-  background-position-x: 100%;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
+/* ---- map ---- */
+
+.prestige-contact-map-box {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.prestige-contact-form-wrap {
-  margin-top: 100px;
+.prestige-contact-map-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* Google's embed API doesn't offer a grayscale map style without a paid
+     JS-API key + custom style JSON — filtering the rendered iframe gets
+     the same look for free. */
+  filter: grayscale(1) contrast(1.05) brightness(0.9);
 }
 
-/* form-contact-prestige.vue is a separate component — reach into it with
-   :deep() and force the field/button colors, overridden with !important
-   to win regardless of the global stylesheet's load order). */
-.prestige-contact-form-wrap :deep(.tp-contact-form-input label) {
-  color: #fff !important;
+/* ---- centered variant ---- */
+
+.prestige-contact-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.prestige-contact-form-wrap :deep(.tp-contact-form-input input),
-.prestige-contact-form-wrap :deep(.tp-contact-form-input textarea) {
-  background: #1f1f1f !important;
-  border-color: #484646 !important;
-  color: #fff !important;
+.prestige-contact-centered .prestige-contact-eyebrow::before {
+  display: none;
 }
 
-.prestige-contact-form-wrap :deep(.tp-contact-form-input input:focus),
-.prestige-contact-form-wrap :deep(.tp-contact-form-input textarea:focus) {
-  background: #1f1f1f !important;
-  border-color: rgba(120, 210, 255, 0.7) !important;
+.prestige-contact-centered .prestige-contact-title {
+  margin-bottom: 36px;
 }
 
-.prestige-contact-form-wrap :deep(.tp-contact-form-input input)::placeholder,
-.prestige-contact-form-wrap :deep(.tp-contact-form-input textarea)::placeholder {
-  color: rgba(255, 255, 255, 0.4) !important;
+.prestige-contact-centered .prestige-contact-form-card {
+  width: 100%;
+  max-width: 820px;
 }
 
-.prestige-contact-form-wrap :deep(.tp-contact-form-btn button) {
-  background-color: #303030 !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+/* ---- right column: form card ---- */
+
+.prestige-contact-form-card {
+  position: relative;
+  padding: 30px 80px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  overflow: hidden;
+}
+
+/* soft sheen in the top-right corner, matching the reference card's subtle
+   highlight. */
+.prestige-contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+@media (max-width: 1199.98px) {
+  .prestige-contact-grid {
+    gap: 50px;
+  }
+
+  .prestige-contact-form-card {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .prestige-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .prestige-contact-map-box {
+    height: 300px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .prestige-contact-form-card {
+    padding: 20px;
+  }
 }
 </style>

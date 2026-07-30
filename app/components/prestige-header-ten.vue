@@ -25,19 +25,14 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 col-7">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
-                                        <span class="tp-btn-black btn-white-bg">
-                                            <span class="tp-btn-black-filter-blur">
-                                                <svg-btn-blur-filter filter-id="buttonFilter10" />
-                                            </span>
-                                            <span class="tp-btn-black-filter d-inline-flex align-items-center" style="filter: url(#buttonFilter10)">
-                                                <nuxt-link href="#" target="_blank" rel="noopener" class="tp-btn-black-text">
-                                                    Get in touch
-                                                </nuxt-link>
-                                                <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="tp-btn-black-circle tp-btn-black-circle-whatsapp">
-                                                    <svg-social-whatsapp-three />
-                                                </nuxt-link>
-                                            </span>
-                                        </span>
+                                        <div class="prestige-header-cta">
+                                            <nuxt-link href="#" target="_blank" rel="noopener" class="prestige-header-cta-text">
+                                                Get in touch
+                                            </nuxt-link>
+                                            <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="prestige-header-cta-whatsapp">
+                                                <svg-social-whatsapp-three />
+                                            </nuxt-link>
+                                        </div>
                                 </div>
                                 <div class="tp-header-10-offcanvas ml-20">
                                     <div class="tp-header-bar">
@@ -110,27 +105,114 @@ const openMobileOffcanvas = ref(false);
 }
 
 .prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu li:hover > a) {
-  background-color: #F8F8FB;
-  color: #000;
+  background-color: transparent;
+	color: #818181;
 }
-
+.tp-header-dropdown nav ul li .tp-submenu li a {
+	padding: 5px 18px;
+}
 .prestige-header-ten :deep(.tp-header-dropdown nav ul li .tp-submenu) {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(38, 37, 40, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu) {
-  background: rgba(0, 0, 0, 0.24);
+  background: rgba(0, 0, 0, 0.9);
 }
 
-/* the WhatsApp glyph is an icon-font <i>, not an <svg>, so it falls
-   outside the theme's ".tp-btn-black-circle > svg" sizing/color rule —
-   size and center it to match that circle explicitly. */
-.prestige-header-ten :deep(.tp-btn-black-circle-whatsapp) {
+/* "Get in touch" CTA — plain text + WhatsApp glyph directly on the
+   header's own glass pill, no separate solid-fill button chrome. */
+.prestige-header-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prestige-header-cta-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+
+.prestige-header-cta-text:hover {
+  opacity: 0.75;
+}
+
+/* the WhatsApp glyph is an icon-font <i>, not an <svg> — font-size/color
+   are inherited by it directly from this wrapping link. */
+.prestige-header-cta-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 27px;
   color: #25D366;
-  padding-top: 2px;
 }
 
+/* simple thumbnail-list submenus (Projects, Destinations) — same dark
+   glass panel as the plain .tp-submenu above, just wider to fit a small
+   preview image per row plus a "view all" button at the bottom. */
+.prestige-header-ten :deep(.prestige-thumb-submenu) {
+  width: 340px;
+  padding: 18px 10px;
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu-label) {
+  padding: 0 10px 12px;
+  margin: 0 8px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu li a) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu li a span) {
+  font-size: 15px;
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu-img) {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu-viewall) {
+  margin: 10px 8px 0;
+}
+
+.prestige-header-ten :deep(.prestige-thumb-submenu-viewall a) {
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+/* the general .tp-submenu li:hover > a rule (transparent bg, #818181
+   text) has higher specificity than a plain .prestige-thumb-submenu-viewall
+   a:hover override would — matching its exact ancestor chain here (plus
+   the extra class) is what actually wins. */
+.prestige-header-ten :deep(.dropdown-white-bg nav ul li .tp-submenu li.prestige-thumb-submenu-viewall:hover > a) {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
 </style>

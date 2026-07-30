@@ -126,7 +126,7 @@ const whyUsData: WhyUsItem[] = [
 }
 
 .prestige-developments-title {
-  font-size: clamp(28px, 4.5vw, 52px);
+  font-size: clamp(28px, 4.5vw, 35px);
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 16px;
@@ -216,7 +216,7 @@ const whyUsData: WhyUsItem[] = [
 }
 
 .prestige-why-us-title {
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(24px, 2.6vw, 25px);
   font-weight: 600;
   line-height: 1.25;
   color: #fff;

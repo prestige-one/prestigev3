@@ -7,7 +7,16 @@ export default defineNuxtConfig({
   
   typescript: {
     strict: true,
-    typeCheck: true,
+    // vite-plugin-checker (which this flag wires in for live dev-server
+    // type errors) ships a vendored TypeScript build under
+    // dist/checkers/vueTsc/typescript-vue-tsc/lib/ that's missing its
+    // main typescript.js in this install (reinstalling the package alone
+    // doesn't restore it — likely an install/sync issue, not a config
+    // problem), which crashed the dev server with an uncaughtException on
+    // every run. Type-checking itself still works fine standalone via
+    // `npx vue-tsc --noEmit`; this only turns off the live dev-server
+    // integration. Re-enable once the underlying install is fixed.
+    typeCheck: false,
   },
   app: {
     head: {

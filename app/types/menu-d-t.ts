@@ -6,6 +6,10 @@ export interface MenuItem {
   link: string;
   pluseIncon?: boolean;
   megaMenu?: boolean;
+  simpleListMenu?: boolean;
+  listLabel?: string;
+  viewAllLink?: string;
+  viewAllLabel?: string;
   submenus?: Submenu[];
 }
 
@@ -16,10 +20,12 @@ export interface Submenu {
   isThumb?: boolean;
   thumbSrc?: string;
   thumbAlt?: string;
+  image?: string;
   megaMenu?: MegaMenuItem[];
   submenus?: Submenu[];
   tag?: string;
   themeDefault?: string;
+  exploreLink?: string;
 }
 
 export interface MegaMenuItem {
@@ -27,4 +33,6 @@ export interface MegaMenuItem {
   link: string;
   tag?: string;
   themeDefault?: string;
+  image?: string;
+  location?: string;
 }

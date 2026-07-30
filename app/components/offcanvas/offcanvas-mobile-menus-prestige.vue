@@ -18,8 +18,14 @@
         :style="{ display: activeMenu === menuItem.id ? 'block' : 'none' }"
       >
         <li v-for="(subItem, subIndex) in menuItem.submenus" :key="subIndex">
-          <NuxtLink :to="subItem.link || '#'">
-            {{ subItem.title }}
+          <NuxtLink :to="subItem.link || '#'" class="prestige-mobile-sub-link">
+            <img v-if="subItem.image" :src="subItem.image" :alt="subItem.title" class="prestige-mobile-sub-img">
+            <span>{{ subItem.title }}</span>
+          </NuxtLink>
+        </li>
+        <li v-if="menuItem.viewAllLink" class="prestige-mobile-viewall">
+          <NuxtLink :to="menuItem.viewAllLink">
+            {{ menuItem.viewAllLabel || "View All" }} <span>→</span>
           </NuxtLink>
         </li>
       </ul>
@@ -53,3 +59,32 @@ const handleMenuClick = (e: Event, menuItem: MenuItem): void => {
   }
 };
 </script>
+
+<style scoped>
+.prestige-mobile-sub-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prestige-mobile-sub-img {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.prestige-mobile-viewall {
+  margin-top: 4px;
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.prestige-mobile-viewall a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+}
+</style>

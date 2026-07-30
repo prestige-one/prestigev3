@@ -17,6 +17,14 @@ const upcomingDevelopments: DevelopmentSlide[] = [
     description: "Prestige One's first address on the Greek coast.",
     href: "#",
   },
+  {
+    id: 3,
+    image: "/assets/project-featured-images/vista-hub/vista-hub--blur.webp",
+    title: "Prestige Square",
+    location: "Dubai",
+    description: "A new address taking shape in Dubai.",
+    href: "#",
+  },
 ];
 
 export default upcomingDevelopments;

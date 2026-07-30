@@ -1,83 +1,46 @@
 <template>
   <div>
-  <nuxt-layout>
+    <!-- Begin magic cursor -->
+    <common-magic-cursor />
+    <!-- End magic cursor -->
+    <nuxt-layout name="layout-one">
 
-    <!-- magic cursor -->
-    <common-magic-cursor bg-cls="cursor-bg-yellow" />
-    <!-- end magic cursor -->
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
 
-    <!-- header area start -->
-    <header-seventeen top-cls="tp-header-blur sticky-white-bg @@class" />
-    <!-- header area end -->
+          <main>
 
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
+            <!-- about hero area start -->
+            <prestige-about-hero />
+            <!-- about hero area end -->
 
-        <main>
+            <!-- legacy & credibility area start -->
+            <prestige-legacy-stats />
+            <!-- legacy & credibility area end -->
 
-          <!-- about us hero start -->
-          <about-us-hero />
-          <!-- about us hero end -->
+          </main>
 
-          <!-- text slider start -->
-          <about-us-text-slider />
-          <!-- text slider end -->
-
-          <!-- banner area start -->
-          <div class="ar-banner-area">
-            <div class="ar-banner-wrap ar-about-us-4">
-              <img class="w-100" src="/img/about-us/about-us-4/about-us-4-thumb-1.jpg" alt="" data-speed=".8">
-            </div>
-          </div>
-          <!-- banner area end -->
-
-          <!-- about area start -->
-          <about-one spacing="pb-140" bg-colur="#F6F6F9" />
-          <!-- about area end -->
-
-          <!-- service area start -->
-          <about-us-service />
-          <!-- service area end -->
-
-          <!-- fun fact area start -->
-          <fun-fact-one />
-          <!-- fun fact area end -->
-
-          <!-- work area start -->
-          <work-area-one />
-          <!-- work area end -->
-
-          <!-- team area start -->
-          <team-area-four />
-          <!-- team area end -->
-
-          <!-- award area start -->
-          <div class="tp-award-area tp-award-bg black-bg-3" data-background="/img/home-01/testimonial/noise.png" style="background-image: url(/img/home-01/testimonial/noise.png)">
-            <div class="container container-1230">
-              <award-item />
-            </div>
-          </div>
-          <!-- award area end -->
-
-        </main>
-
-        <!-- footer area start -->
-        <footer-one />
-        <!-- footer area end -->
+          <!-- footer area start -->
+          <prestige-footer-digital-marketing />
+          <!-- footer area end -->
+        </div>
       </div>
-    </div>
-
-  </nuxt-layout>
+    </nuxt-layout>
   </div>
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: false,
+});
 
 useSeoMeta({
-  title: "Agntix - About us vue nuxt Template",
-  ogTitle: "Agntix - About us vue nuxt Template",
-  description: "Learn more about Agntix, a creative agency dedicated to building high-quality digital experiences.",
-  ogDescription: "Learn more about Agntix, a creative agency dedicated to building high-quality digital experiences.",
+  title: "About Us | Prestige One Developments",
+  ogTitle: "About Us | Prestige One Developments",
+  description: "Discover our story, values, and the people shaping exceptional living experiences in Dubai and beyond.",
+  ogDescription: "Discover our story, values, and the people shaping exceptional living experiences in Dubai and beyond.",
+  ogImage: "/assets/images/v3/prestigeone_logo_oneline_dark-hr.svg",
+  twitterCard: "summary_large_image",
 });
 
 onMounted(async () => {
@@ -91,39 +54,10 @@ onMounted(async () => {
   const imagesLoaded = (await import('imagesloaded')).default;
   const smoothWrapper = document.getElementById('smooth-wrapper');
   if (smoothWrapper) {
-    const imgLoad = imagesLoaded(smoothWrapper, { background: true });    
-    // Handle individual image load failures
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    imgLoad.on('fail', (instance: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const failedImages = instance.images.filter((img: any) => !img.isLoaded);
-      if (failedImages.length > 0) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        console.warn('[imagesLoaded] Some images failed to load:', failedImages.map((img: any) => img.img?.src || img.img?.getAttribute('data-background') || 'unknown'));
-      }
-    });
-    
-    // Handle progress for each image
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    imgLoad.on('progress', (_instance: any, image: any) => {
-      if (!image.isLoaded) {
-        const imgSrc = image.img?.src || image.img?.getAttribute('data-background') || image.img?.getAttribute('src') || 'unknown';
-        console.error('[imagesLoaded] Failed to load image:', imgSrc);
-      }
-    });
-    
-    // Always run animations regardless of success/failure
+    const imgLoad = imagesLoaded(smoothWrapper, { background: true });
     imgLoad.on('always', () => {
-      fadeAnimation();
-      textBounceAnimation();
-      panelPin();
-      panelAnimation();
+      revealAnimation();
     });
-  }
-});
-useHead({
-  bodyAttrs: {
-    style: "background-color: #fff;",
   }
 });
 </script>

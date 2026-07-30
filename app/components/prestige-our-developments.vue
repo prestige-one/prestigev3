@@ -43,7 +43,7 @@ withDefaults(defineProps<{ twoWaySlider?: boolean }>(), { twoWaySlider: false })
 
 <style scoped>
 .prestige-developments-title {
-  font-size: clamp(25px, 3vw, 55px);
+  font-size: clamp(25px, 3vw, 35px);
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 16px;

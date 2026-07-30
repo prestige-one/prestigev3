@@ -27,7 +27,7 @@
             <!-- why prestige one area end -->
 
             <!-- contact form area start -->
-            <prestige-contact-form />
+            <prestige-contact-form centered />
             <!-- contact form area end -->
 
           </main>

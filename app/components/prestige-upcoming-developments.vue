@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-developments-area pb-120">
-    <div class="container">
+    <div class="container container-1430">
       <div class="row justify-content-center">
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
@@ -17,52 +17,22 @@
       </div>
     </div>
 
-    <!-- static 2-box grid instead of a slider (only 2 projects) — same
-         hover-distortion effect as /portfolio-col-2
-         (portfolio-two-col-area.vue: useHoverEffect + tp--hover-item /
-         tp--hover-img), boxed in the page .container rather than
-         full-bleed. -->
-    <div class="container">
-      <div class="row">
-        <div v-for="item in upcomingDevelopments" :key="item.id" class="col-md-6">
-          <div class="prestige-upcoming-item mb-40">
-            <div :ref="addToRefs" class="prestige-upcoming-thumb tp--hover-item">
-              <NuxtLink :to="item.href">
-                <div class="tp--hover-img" data-displacement="/img/webgl/1.jpg" data-intensity="0.6" data-speedin="1" data-speedout="1">
-                  <img :src="item.image" :alt="item.title">
-                </div>
-              </NuxtLink>
-            </div>
-            <div class="prestige-upcoming-content text-center">
-              <h4 class="prestige-upcoming-title">
-                <NuxtLink class="tp-line-white" :to="item.href">
-                  {{ item.title }}
-                </NuxtLink>
-              </h4>
-              <span class="prestige-upcoming-location">[{{ item.location }}]</span>
-              <p class="prestige-upcoming-description">
-                {{ item.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- same coverflow slider as the residential/commercial sections, boxed
+         within the page container rather than full-bleed. -->
+    <prestige-coverflow-slider :slides="upcomingDevelopments" contained />
   </section>
 </template>
 
 <script setup lang="ts">
 import upcomingDevelopments from "../data/upcoming-developments-data";
-
-const { addToRefs } = useHoverEffect();
 </script>
 
 <style scoped>
 .prestige-developments-title {
-  font-size: clamp(28px, 4.5vw, 52px);
+  font-size: clamp(22px, 3.2vw, 36px);
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -115,48 +85,5 @@ const { addToRefs } = useHoverEffect();
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-}
-
-/* mirrors .tp-portfolio-inner-* from portfolio-two-col-area.vue
-   (/portfolio-col-2) — rounded thumb, CSS zoom on hover layered on top
-   of the WebGL ripple-distortion effect from useHoverEffect(). */
-.prestige-upcoming-thumb {
-  overflow: hidden;
-  margin-bottom: 26px;
-  border-radius: 20px;
-}
-
-.prestige-upcoming-thumb img {
-  width: 100%;
-  display: block;
-  transition: 0.9s;
-  border-radius: 20px;
-}
-
-.prestige-upcoming-item:hover .prestige-upcoming-thumb img {
-  transform: scale(1.1);
-}
-
-.prestige-upcoming-title {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -1px;
-  color: #fff;
-  margin: 0 0 8px;
-}
-
-.prestige-upcoming-location {
-  font-size: 15px;
-  font-weight: 500;
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.prestige-upcoming-description {
-  margin: 10px 0 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgb(255, 255, 255);
 }
 </style>
