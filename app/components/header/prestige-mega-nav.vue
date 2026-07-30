@@ -37,7 +37,7 @@
           <div class="pmn__col pmn__col--filters">
             <span class="pmn__label">By location</span>
             <ul class="pmn__chiplist">
-              <li v-for="d in destinations" :key="d.slug">
+              <li v-for="d in menuDestinations" :key="d.slug">
                 <nuxt-link :to="`/destinations/${d.slug}`" @click="close">{{ d.name }}</nuxt-link>
               </li>
             </ul>
@@ -103,7 +103,7 @@
             <span class="pmn__label">Our destinations</span>
             <div class="pmn__dgrid">
               <nuxt-link
-                v-for="d in destinations"
+                v-for="d in menuDestinations"
                 :key="d.slug"
                 :to="`/destinations/${d.slug}`"
                 class="pmn__card"
@@ -155,10 +155,12 @@ let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
 // Vista Hub is excluded from the menu per request.
 const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
-// keep the mega focused: current ("new") projects + upcoming; the rest live on
-// the /projects page ("view all")
-const newProjects = menuProjects.filter((p) => p.category !== "upcoming");
+// keep the mega focused and uncluttered — a curated set of current ("new")
+// projects + upcoming; the rest live on the /projects page ("explore all").
+const newProjects = menuProjects.filter((p) => p.category !== "upcoming").slice(0, 9);
 const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
+// destinations menu: show a trimmed set of 9 (rest via "view all")
+const menuDestinations = destinations.slice(0, 9);
 
 const aboutLinks = [
   { label: "Our Story", to: "/about-us#our-story" },
