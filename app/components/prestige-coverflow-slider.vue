@@ -252,7 +252,30 @@ onMounted(() => {
    wrap's height to the image's exactly removes that empty space instead
    of trying to paper over it with a bigger margin below. */
 .coverflow-slider-wrap {
+  position: relative;
   height: 470px;
+}
+
+/* left & right edge gradient — the side slides fade into the section's black
+   background so the coverflow reads as an endless reel rather than hard-cut
+   cards at the viewport edges. Non-interactive so arrows/slides stay clickable. */
+.coverflow-slider-wrap::before,
+.coverflow-slider-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(120px, 16vw, 320px);
+  z-index: 2;
+  pointer-events: none;
+}
+.coverflow-slider-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #000 5%, rgba(0, 0, 0, 0));
+}
+.coverflow-slider-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #000 5%, rgba(0, 0, 0, 0));
 }
 
 /* the base theme crops images to fill a fixed-height box
@@ -317,5 +340,6 @@ onMounted(() => {
   top: 50%;
   bottom: auto;
   transform: translateY(-50%);
+  z-index: 3;
 }
 </style>

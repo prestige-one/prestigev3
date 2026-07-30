@@ -96,9 +96,11 @@ defineProps<{ items: TimelineItem[] }>();
 }
 .prestige-timeline__year {
   display: block;
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-family: "Google Sans", sans-serif;
   font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
   line-height: 1;
+  letter-spacing: 0.01em;
   color: var(--tp-common-gold, #d9b382);
   margin-bottom: 10px;
 }

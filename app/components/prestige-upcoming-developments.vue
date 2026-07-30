@@ -17,50 +17,14 @@
       </div>
     </div>
 
-    <!-- static 2-box grid instead of a slider (only 2 projects) — same
-         hover-distortion effect as /portfolio-col-2
-         (portfolio-two-col-area.vue: useHoverEffect + tp--hover-item /
-         tp--hover-img), boxed in the page .container rather than
-         full-bleed. -->
-    <div class="container">
-      <div class="row">
-        <div v-for="item in upcomingDevelopments" :key="item.id" class="col-md-6">
-          <div class="prestige-upcoming-item mb-40">
-            <div :ref="addToRefs" class="prestige-upcoming-thumb tp--hover-item">
-              <NuxtLink :to="linkFor(item)">
-                <div class="tp--hover-img" data-displacement="/img/webgl/1.jpg" data-intensity="0.6" data-speedin="1" data-speedout="1">
-                  <img :src="item.image" :alt="item.title">
-                </div>
-              </NuxtLink>
-            </div>
-            <div class="prestige-upcoming-content text-center">
-              <h4 class="prestige-upcoming-title">
-                <NuxtLink class="tp-line-white" :to="linkFor(item)">
-                  {{ item.title }}
-                </NuxtLink>
-              </h4>
-              <span class="prestige-upcoming-location">[{{ item.location }}]</span>
-              <p class="prestige-upcoming-description">
-                {{ item.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- same theater-mode coverflow slider as "Our Developments" (loop fills
+         the 5-slide coverflow out from the two real upcoming projects). -->
+    <prestige-coverflow-slider :slides="upcomingDevelopments" />
   </section>
 </template>
 
 <script setup lang="ts">
 import upcomingDevelopments from "../data/upcoming-developments-data";
-import { slugify } from "../data/projects";
-import type { DevelopmentSlide } from "../data/residential-developments-data";
-
-const { addToRefs } = useHoverEffect();
-
-function linkFor(item: DevelopmentSlide) {
-  return item.href && item.href !== "#" ? item.href : `/projects/${slugify(item.title)}`;
-}
 </script>
 
 <style scoped>
@@ -121,48 +85,5 @@ function linkFor(item: DevelopmentSlide) {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-}
-
-/* mirrors .tp-portfolio-inner-* from portfolio-two-col-area.vue
-   (/portfolio-col-2) — rounded thumb, CSS zoom on hover layered on top
-   of the WebGL ripple-distortion effect from useHoverEffect(). */
-.prestige-upcoming-thumb {
-  overflow: hidden;
-  margin-bottom: 26px;
-  border-radius: 20px;
-}
-
-.prestige-upcoming-thumb img {
-  width: 100%;
-  display: block;
-  transition: 0.9s;
-  border-radius: 20px;
-}
-
-.prestige-upcoming-item:hover .prestige-upcoming-thumb img {
-  transform: scale(1.1);
-}
-
-.prestige-upcoming-title {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -1px;
-  color: #fff;
-  margin: 0 0 8px;
-}
-
-.prestige-upcoming-location {
-  font-size: 15px;
-  font-weight: 500;
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.prestige-upcoming-description {
-  margin: 10px 0 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgb(255, 255, 255);
 }
 </style>
