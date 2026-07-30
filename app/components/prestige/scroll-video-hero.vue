@@ -82,11 +82,12 @@ onMounted(() => {
   };
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // auto-scroll only on desktop pointers — on touch it would fight finger-scroll
-  const desktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const autoAllowed = desktop && !reduce;
+  // auto-scroll on wider (desktop-ish) screens — using width, not the
+  // hover/pointer media query which is unreliable on touch-capable laptops.
+  // Below 1024px it stays manual so it doesn't fight finger-scroll.
+  const autoAllowed = window.innerWidth >= 1024 && !reduce;
   // seconds to auto-play the whole clip (capped so the hero doesn't drag)
-  const AUTO_SECONDS = 18;
+  const AUTO_SECONDS = 16;
 
   // pause auto-scroll whenever the user drives the page themselves
   markManual = () => {
