@@ -73,10 +73,10 @@ onMounted(() => {
   };
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // auto-scroll on wider (desktop-ish) screens — using width, not the
-  // hover/pointer media query which is unreliable on touch-capable laptops.
-  // Below 1024px it stays manual so it doesn't fight finger-scroll.
-  const autoAllowed = window.innerWidth >= 1024 && !reduce;
+  // auto-scroll on every screen (desktop + mobile). The idle gate below pauses
+  // it the moment the user touches/scrolls, so it never fights finger-scroll;
+  // it just resumes gently after they stop. Only reduced-motion opts out.
+  const autoAllowed = !reduce;
   // seconds to auto-play the whole clip (capped so the hero doesn't drag)
   const AUTO_SECONDS = 16;
 
