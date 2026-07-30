@@ -10,6 +10,43 @@ body {
 	background-color: #000 !important;
 }
 
+/* ---- site-wide font: "Google Sans", sans-serif ----
+   Redefine every text font-family variable the theme + our components use so
+   the whole website renders in Google Sans. The FontAwesome icon variable is
+   deliberately left untouched so icons keep working. */
+:root {
+	--tp-ff-body: "Google Sans", sans-serif;
+	--tp-ff-heading: "Google Sans", sans-serif;
+	--tp-ff-p: "Google Sans", sans-serif;
+	--tp-ff-onest: "Google Sans", sans-serif;
+	--tp-ff-teko: "Google Sans", sans-serif;
+	--tp-ff-poppins: "Google Sans", sans-serif;
+	--tp-ff-cormorant: "Google Sans", sans-serif;
+	--tp-ff-clash: "Google Sans", sans-serif;
+	--tp-ff-clash-light: "Google Sans", sans-serif;
+	--tp-ff-clash-regular: "Google Sans", sans-serif;
+	--tp-ff-clash-medium: "Google Sans", sans-serif;
+	--tp-ff-clash-semibold: "Google Sans", sans-serif;
+	--tp-ff-clash-bold: "Google Sans", sans-serif;
+	--tp-ff-grotesk: "Google Sans", sans-serif;
+	--tp-ff-mango: "Google Sans", sans-serif;
+	--tp-ff-mango-light: "Google Sans", sans-serif;
+	--tp-ff-mango-medium: "Google Sans", sans-serif;
+	--tp-ff-mango-semibold: "Google Sans", sans-serif;
+	--tp-ff-mango-bold: "Google Sans", sans-serif;
+	--tp-ff-playfair: "Google Sans", sans-serif;
+	--tp-ff-phudu: "Google Sans", sans-serif;
+	--tp-ff-platform: "Google Sans", sans-serif;
+	--tp-ff-inter: "Google Sans", sans-serif;
+	--tp-ff-dirtyline: "Google Sans", sans-serif;
+	--tp-ff-marcellus: "Google Sans", sans-serif;
+	--tp-ff-besley: "Google Sans", sans-serif;
+	--tp-ff-satisfy: "Google Sans", sans-serif;
+}
+body {
+	font-family: "Google Sans", sans-serif;
+}
+
 /* cinematic cross-page fade (app.pageTransition = "page-fade") */
 .page-fade-enter-active,
 .page-fade-leave-active {
