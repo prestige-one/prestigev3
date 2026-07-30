@@ -18,6 +18,10 @@
             <prestige-legacy-stats />
             <!-- legacy & credibility area end -->
 
+            <!-- global presence area start -->
+            <prestige-global-presence />
+            <!-- global presence area end -->
+
           </main>
 
           <!-- footer area start -->

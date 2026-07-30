@@ -19,10 +19,10 @@ const upcomingDevelopments: DevelopmentSlide[] = [
   },
   {
     id: 3,
-    image: "/assets/project-featured-images/vista-hub/vista-hub--blur.webp",
+    image: "/assets/project-featured-images/prestige-square/prestige-square.webp",
     title: "Prestige Square",
-    location: "Dubai",
-    description: "A new address taking shape in Dubai.",
+    location: "JVC",
+    description: "A new address taking shape in JVC.",
     href: "#",
   },
 ];

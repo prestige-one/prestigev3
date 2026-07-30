@@ -25,21 +25,11 @@
             <span class="prestige-legacy-shine" />
             <div class="prestige-legacy-sponsor-logos">
               <img
-                src="/assets/images/v3/only-logo-light.webp"
-                alt="Prestige One"
-                class="prestige-legacy-sponsor-mark"
-              >
-              <span class="prestige-legacy-sponsor-sep" />
-              <img
                 src="/assets/images/v2/pages/AFA-logo-400.webp"
                 alt="Argentina Football Association"
                 class="prestige-legacy-sponsor-afa"
               >
-            </div>
-            <span class="prestige-legacy-sponsor-name">Prestige One Developments</span>
-            <span class="prestige-legacy-sponsor-caption">
-              Regional Sponsor of the<br>Argentina National Team
-            </span>
+            </div>           
           </div>
         </div>
       </div>
@@ -162,7 +152,7 @@ const stats = [
 }
 
 .prestige-legacy-value {
-  font-size: clamp(22px, 2vw, 26px);
+  font-size: clamp(22px, 2vw, 37px);
   font-weight: 700;
   color: #fff;
 }
@@ -176,7 +166,7 @@ const stats = [
 }
 
 .prestige-legacy-label {
-  font-size: 12.5px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -198,18 +188,14 @@ const stats = [
 }
 
 .prestige-legacy-sponsor-mark {
-  height: 34px;
+  height: 100px;
   width: auto;
 }
 
-.prestige-legacy-sponsor-sep {
-  width: 1px;
-  height: 34px;
-  background: rgba(255, 255, 255, 0.2);
-}
+ 
 
 .prestige-legacy-sponsor-afa {
-  height: 44px;
+  height: 100px;
   width: auto;
 }
 
