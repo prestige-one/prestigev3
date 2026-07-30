@@ -103,14 +103,14 @@ onMounted(() => {
       const atEnd = scrolled0 >= total - 1;
       const idle = performance.now() - lastManual > 1100;
 
-      // buffer-driven readiness: start as soon as a little is downloaded, and
-      // only advance while the buffer stays ahead of the frame we're showing so
-      // the page can't scroll past what the video can display.
+      // Only auto-scroll once the WHOLE clip is buffered. This is what kills the
+      // "plays then stalls at the start" — auto-scroll never seeks into video
+      // that hasn't downloaded yet. Manual scrubbing below stays clamped to the
+      // buffer, so it's responsive immediately even while the rest downloads.
       const be0 = bufferedEnd();
-      const ready = be0 > 0.25;
-      const bufferAhead = be0 - current > 0.35;
+      const fullyBuffered = be0 >= dur - 0.4;
 
-      if (autoAllowed && pinned && !atEnd && idle && ready && bufferAhead) {
+      if (autoAllowed && pinned && !atEnd && idle && fullyBuffered) {
         if (!autoInit) {
           autoY = window.scrollY;
           autoInit = true;

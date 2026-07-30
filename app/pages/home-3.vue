@@ -5,8 +5,8 @@
       <main class="prestige-page">
         <!-- scroll-scrubbed video hero (no logo / no text) -->
         <prestige-scroll-video-hero
-          src="/assets/videos/Hero-scroll-v2.mp4"
-          poster="/assets/videos/hero-poster-v2.jpg"
+          src="/assets/videos/Hero-scroll-v3b.mp4"
+          poster="/assets/videos/hero-poster-v3.jpg"
           :scroll-vh="400"
         />
 

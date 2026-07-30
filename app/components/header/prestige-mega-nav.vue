@@ -155,9 +155,24 @@ let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
 // Vista Hub is excluded from the menu per request.
 const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
-// keep the mega focused and uncluttered — a curated set of current ("new")
-// projects + upcoming; the rest live on the /projects page ("explore all").
-const newProjects = menuProjects.filter((p) => p.category !== "upcoming").slice(0, 9);
+// Featured NEW launches — curated & ordered so the mega leads with Prestige
+// One's flagship current projects (branded / now-selling), NOT the older stock
+// entries. The full catalogue still lives on /projects ("explore all").
+const NEW_PROJECT_SLUGS = [
+  "fauchon-residences-by-prestige-one",
+  "hilton-residences-dubai-maritime-city",
+  "sanctuary-residences-by-prestige-one",
+  "golf-residences-by-prestige-one",
+  "seaside-by-prestige-one",
+  "seascape-villa",
+  "waterway-by-prestige-one",
+  "berkeley-square-north",
+  "berkeley-square-south",
+];
+const projectBySlug = new Map(menuProjects.map((p) => [p.slug, p]));
+const newProjects = NEW_PROJECT_SLUGS.map((s) => projectBySlug.get(s)).filter(
+  (p): p is NonNullable<typeof p> => Boolean(p),
+);
 const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
 // destinations menu: show a trimmed set of 9 (rest via "view all")
 const menuDestinations = destinations.slice(0, 9);
@@ -306,7 +321,11 @@ onBeforeUnmount(cancelClose);
   transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
 }
 /* transparent hover bridge upward to the header, so moving the mouse from a
-   nav item down to the panel never crosses a dead gap that drops the hover */
+   nav item down to the panel never crosses a dead gap that drops the hover.
+   IMPORTANT: pointer-events:none — the panel is teleported to <body> and paints
+   above the header, so a hit-testable bridge here would sit on top of the nav
+   buttons and stop you hovering a sibling menu (Projects ⇄ Destinations). The
+   320ms close delay already bridges the gap, so the strip stays purely visual. */
 .pmn__zone::before {
   content: "";
   position: absolute;
@@ -314,6 +333,7 @@ onBeforeUnmount(cancelClose);
   right: 0;
   top: -40px;
   height: 40px;
+  pointer-events: none;
 }
 .pmn__zone:not(.open)::before {
   display: none;
