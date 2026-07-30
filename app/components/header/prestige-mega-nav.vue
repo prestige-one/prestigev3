@@ -57,10 +57,10 @@
             </ul>
           </div>
           <div class="pmn__col pmn__col--cards">
-            <span class="pmn__label">All projects <em>({{ allProjects.length }})</em></span>
+            <span class="pmn__label">New projects</span>
             <div class="pmn__cards pmn__cards--all">
               <nuxt-link
-                v-for="p in allProjects"
+                v-for="p in newProjects"
                 :key="p.slug"
                 :to="`/projects/${p.slug}`"
                 class="pmn__card"
@@ -73,6 +73,24 @@
                 </span>
               </nuxt-link>
             </div>
+            <template v-if="upcomingProjects.length">
+              <span class="pmn__label mt">Upcoming</span>
+              <div class="pmn__cards">
+                <nuxt-link
+                  v-for="p in upcomingProjects"
+                  :key="p.slug"
+                  :to="`/projects/${p.slug}`"
+                  class="pmn__card"
+                  @click="close"
+                >
+                  <span class="pmn__card-thumb"><img :src="p.image" :alt="p.title" loading="lazy"></span>
+                  <span class="pmn__card-body">
+                    <span class="pmn__card-title">{{ p.title.split(' by ')[0] }}</span>
+                    <span class="pmn__card-loc">{{ p.location }}</span>
+                  </span>
+                </nuxt-link>
+              </div>
+            </template>
           </div>
           <div class="pmn__col pmn__col--feature">
             <nuxt-link to="/projects" class="pmn__feature" @click="close">
@@ -143,7 +161,12 @@ import { getAllProjects } from "~/data/projects";
 const active = ref<"about" | "projects" | "destinations" | null>(null);
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
-const allProjects = getAllProjects();
+// Vista Hub is excluded from the menu per request.
+const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
+// keep the mega focused: current ("new") projects + upcoming; the rest live on
+// the /projects page ("view all")
+const newProjects = menuProjects.filter((p) => p.category !== "upcoming");
+const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
 
 const aboutLinks = [
   { label: "Our Story", to: "/about-us", desc: "Who we are and what we build" },
@@ -175,7 +198,7 @@ function scheduleClose() {
   cancelClose();
   closeTimer = setTimeout(() => {
     active.value = null;
-  }, 140);
+  }, 320);
 }
 function close() {
   cancelClose();
@@ -225,7 +248,7 @@ onBeforeUnmount(cancelClose);
 /* full-width dropzone */
 .pmn__zone {
   position: fixed;
-  top: 104px;
+  top: 92px;
   left: 0;
   right: 0;
   z-index: 15;
@@ -238,6 +261,19 @@ onBeforeUnmount(cancelClose);
   visibility: hidden;
   transform: translateY(-10px);
   transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+}
+/* transparent hover bridge upward to the header, so moving the mouse from a
+   nav item down to the panel never crosses a dead gap that drops the hover */
+.pmn__zone::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -40px;
+  height: 40px;
+}
+.pmn__zone:not(.open)::before {
+  display: none;
 }
 .pmn__zone.open {
   opacity: 1;
@@ -304,13 +340,15 @@ onBeforeUnmount(cancelClose);
 .pmn__card-body { display: flex; flex-direction: column; min-width: 0; }
 .pmn__card-title {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 17px;
+  font-size: 14px;
   color: #fff;
   line-height: 1.2;
 }
+/* destination cards keep the larger title */
+.pmn__dgrid .pmn__card-title { font-size: 17px; }
 .pmn__card-loc,
 .pmn__card-desc {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 2px;
   line-height: 1.4;
