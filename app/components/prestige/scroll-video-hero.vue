@@ -110,12 +110,19 @@ onMounted(() => {
       const be0 = bufferedEnd();
       const fullyBuffered = be0 >= dur - 0.4;
 
-      if (autoAllowed && pinned && !atEnd && idle && fullyBuffered) {
+      if (autoAllowed && pinned && idle && fullyBuffered) {
         if (!autoInit) {
           autoY = window.scrollY;
           autoInit = true;
         }
-        autoY += total / (AUTO_SECONDS * 60);
+        if (atEnd) {
+          // reached the last frame — loop straight back to the clip start
+          // (hard cut, like a GIF) so the hero plays continuously while idle
+          autoY = window.scrollY + rect.top; // = section top (r.offsetTop)
+          current = 0;
+        } else {
+          autoY += total / (AUTO_SECONDS * 60);
+        }
         window.scrollTo(0, Math.round(autoY));
       } else {
         autoY = window.scrollY;
