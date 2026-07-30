@@ -19,13 +19,15 @@
             </prestige-page-hero>
 
             <!-- 2 · our story -->
-            <prestige-feature-split
-              eyebrow="Our Story"
-              title="Nearly sixty years of building trust"
-              image="/assets/images/v2/pages/core-values/quality.webp"
-              :paragraphs="storyParagraphs"
-              :points="storyPoints"
-            />
+            <div id="our-story" class="prestige-anchor">
+              <prestige-feature-split
+                eyebrow="Our Story"
+                title="Nearly sixty years of building trust"
+                image="/assets/images/v2/pages/core-values/quality.webp"
+                :paragraphs="storyParagraphs"
+                :points="storyPoints"
+              />
+            </div>
             <section class="prestige-section--tight prestige-about__trust">
               <div class="container container-1430 text-center">
                 <span class="prestige-about__badge tp_fade_anim" data-delay=".2">
@@ -38,15 +40,17 @@
             <!-- 3 · counters -->
             <prestige-stat-counters :stats="counters" />
 
-            <!-- 4 · our mission -->
-            <prestige-feature-split
-              eyebrow="Our Mission"
-              title="Designed for real living"
-              image="/assets/images/v3/Designed-for-Real-Living.webp"
-              :paragraphs="missionParagraphs"
-              :points="missionPoints"
-              reverse
-            />
+            <!-- 4 · our mission / vision -->
+            <div id="vision" class="prestige-anchor">
+              <prestige-feature-split
+                eyebrow="Our Mission"
+                title="Designed for real living"
+                image="/assets/images/v3/Designed-for-Real-Living.webp"
+                :paragraphs="missionParagraphs"
+                :points="missionPoints"
+                reverse
+              />
+            </div>
 
             <!-- 5 · our vision -->
             <prestige-feature-split
@@ -58,7 +62,7 @@
             />
 
             <!-- 6 · founder & CEO -->
-            <section class="prestige-section prestige-about__ceo">
+            <section id="leadership" class="prestige-section prestige-about__ceo prestige-anchor">
               <div class="container container-1430">
                 <div class="row align-items-center">
                   <div class="col-lg-5 mb-40">
@@ -126,7 +130,7 @@
             />
 
             <!-- 9 · milestones -->
-            <section class="prestige-section prestige-about__milestones">
+            <section id="milestones" class="prestige-section prestige-about__milestones prestige-anchor">
               <div class="container container-1430">
                 <div class="row justify-content-center text-center mb-60">
                   <div class="col-xl-8">
@@ -313,6 +317,40 @@ const milestones: Milestone[] = [
     image: "/assets/project-featured-images/sliders/fauchon.webp",
   },
 ];
+
+// Smooth-scroll to an anchored section when the About menu links (/about-us#...)
+// are used. The page runs GSAP ScrollSmoother, so native #hash scrolling won't
+// work — drive it through the smoother (with a header offset), falling back to
+// window scroll if the smoother isn't up yet.
+const route = useRoute();
+async function scrollToHash(hash: string) {
+  if (!import.meta.client || !hash) return;
+  const { ScrollSmoother } = await import("gsap/all");
+  for (let i = 0; i < 50; i++) {
+    const el = document.querySelector(hash) as HTMLElement | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sm: any = (ScrollSmoother as any).get?.();
+    if (el && sm) {
+      sm.scrollTo(el, true, "top 96px");
+      return;
+    }
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      return;
+    }
+    await new Promise((r) => setTimeout(r, 100));
+  }
+}
+onMounted(() => {
+  if (route.hash) scrollToHash(route.hash);
+});
+watch(
+  () => route.hash,
+  (h) => {
+    if (h) scrollToHash(h);
+  },
+);
 
 usePrestigePage({ hero: false });
 </script>

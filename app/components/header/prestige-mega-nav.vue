@@ -2,8 +2,13 @@
   <div class="pmn" @mouseleave="scheduleClose">
     <ul class="pmn__top">
       <li><nuxt-link to="/" @click="close">Home</nuxt-link></li>
-      <li :class="{ active: active === 'about' }" @mouseenter="open('about')">
+      <li class="pmn__has-dd" :class="{ active: active === 'about' }" @mouseenter="open('about')">
         <button type="button">About Us <span class="pmn__caret" /></button>
+        <ul class="pmn__dd" :class="{ open: active === 'about' }">
+          <li v-for="a in aboutLinks" :key="a.label">
+            <nuxt-link :to="a.to" @click="close">{{ a.label }}</nuxt-link>
+          </li>
+        </ul>
       </li>
       <li :class="{ active: active === 'projects' }" @mouseenter="open('projects')">
         <button type="button">Projects <span class="pmn__caret" /></button>
@@ -20,25 +25,12 @@
     <teleport to="body">
     <div
       class="pmn__zone"
-      :class="{ open: !!active }"
+      :class="{ open: active === 'projects' || active === 'destinations' }"
       data-pmn-zone
       @mouseenter="cancelClose"
       @mouseleave="scheduleClose"
     >
       <div class="pmn__panel container container-1430">
-        <!-- ABOUT -->
-        <div v-show="active === 'about'" class="pmn__about">
-          <div class="pmn__about-links">
-            <nuxt-link v-for="a in aboutLinks" :key="a.label" :to="a.to" @click="close">
-              <span class="pmn__about-t">{{ a.label }}</span>
-              <span class="pmn__about-d">{{ a.desc }}</span>
-            </nuxt-link>
-          </div>
-          <div class="pmn__about-feature">
-            <img src="/assets/images/v3/Built-on-Strong-Principles.webp" alt="Prestige One">
-            <span class="pmn__feature-cap">Who we are</span>
-          </div>
-        </div>
 
         <!-- PROJECTS -->
         <div v-show="active === 'projects'" class="pmn__grid">
@@ -169,10 +161,10 @@ const newProjects = menuProjects.filter((p) => p.category !== "upcoming");
 const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
 
 const aboutLinks = [
-  { label: "Our Story", to: "/about-us", desc: "Who we are and what we build" },
-  { label: "Vision & Mission", to: "/about-us", desc: "The principles behind every home" },
-  { label: "Our Leadership", to: "/about-us", desc: "The team shaping Prestige One" },
-  { label: "Corporate Responsibility", to: "/csr", desc: "Building responsibly, for the long term" },
+  { label: "Our Story", to: "/about-us#our-story" },
+  { label: "Vision & Mission", to: "/about-us#vision" },
+  { label: "Our Leadership", to: "/about-us#leadership" },
+  { label: "Our Milestones", to: "/about-us#milestones" },
 ];
 
 const projectTypes = [
@@ -244,6 +236,55 @@ onBeforeUnmount(cancelClose);
   transition: transform 0.3s ease;
 }
 .pmn__top > li.active .pmn__caret { transform: rotate(-135deg); }
+
+/* simple compact dropdown (About Us) */
+.pmn__has-dd { position: relative; }
+.pmn__dd {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  min-width: 220px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background: rgba(8, 8, 10, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+  z-index: 30;
+}
+.pmn__dd.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* transparent hover bridge up to the nav item */
+.pmn__dd::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+.pmn__dd a {
+  display: block;
+  padding: 10px 22px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.pmn__dd a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
 
 /* full-width dropzone */
 .pmn__zone {
