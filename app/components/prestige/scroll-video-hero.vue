@@ -60,6 +60,27 @@ onMounted(() => {
   if (v.readyState >= 2) prime();
   else v.addEventListener("loadeddata", prime, { once: true });
 
+  // Don't auto-scroll until the clip can play through, and never seek past what
+  // has downloaded — seeking ahead of the buffer is what makes it stall at the
+  // very start (before scrolling has "primed" the buffer).
+  let canScrub = v.readyState >= 4;
+  const markReady = () => {
+    canScrub = true;
+  };
+  if (!canScrub) {
+    v.addEventListener("canplaythrough", markReady, { once: true });
+    v.addEventListener("canplay", markReady, { once: true });
+    // safety net: enable after a moment even if those events are missed
+    window.setTimeout(markReady, 2500);
+  }
+  const bufferedEnd = () => {
+    try {
+      return v.buffered.length ? v.buffered.end(v.buffered.length - 1) : 0;
+    } catch {
+      return 0;
+    }
+  };
+
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // auto-scroll only on desktop pointers — on touch it would fight finger-scroll
   const desktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -90,7 +111,7 @@ onMounted(() => {
       const atEnd = scrolled0 >= total - 1;
       const idle = performance.now() - lastManual > 1100;
 
-      if (autoAllowed && pinned && !atEnd && idle) {
+      if (autoAllowed && pinned && !atEnd && idle && canScrub) {
         if (!autoInit) {
           autoY = window.scrollY;
           autoInit = true;
@@ -107,11 +128,14 @@ onMounted(() => {
       const target = (scrolled / total) * dur;
       current = reduce ? target : current + (target - current) * 0.2;
       if (Math.abs(target - current) < 0.004) current = target;
-      // don't issue a new seek while one is still resolving — piling up seeks
-      // is what makes the video stall/stick
-      if (v.readyState >= 2 && !v.seeking && Math.abs(v.currentTime - current) > 0.01) {
+      // clamp the seek to what's actually buffered so we never seek into the
+      // void (which stalls the element), and don't queue a seek while one is
+      // still resolving
+      const be = bufferedEnd();
+      const seekTo = be > 0.2 ? Math.min(current, be - 0.15) : current;
+      if (v.readyState >= 2 && !v.seeking && Math.abs(v.currentTime - seekTo) > 0.01) {
         try {
-          v.currentTime = current;
+          v.currentTime = seekTo;
         } catch {
           /* not seekable yet */
         }
