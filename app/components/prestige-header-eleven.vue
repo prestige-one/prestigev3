@@ -35,8 +35,9 @@
                                             </span>
                                         </span>
                                 </div>
-                                <!-- side menu trigger — mobile & iPad only (below xl / 1200px) -->
-                                <div class="tp-header-10-offcanvas ml-20 d-xl-none">
+                                <!-- menu-panel trigger — shown at the end on every breakpoint
+                                     (desktop included); opens the full slide-in menu panel -->
+                                <div class="tp-header-10-offcanvas ml-20">
                                     <div class="tp-header-bar">
                                         <button class="tp-offcanvas-open-btn" aria-label="Open menu" @click="openMobileOffcanvas = true">
                                             <i/>
