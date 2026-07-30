@@ -14,8 +14,8 @@
             <hero-prestige />
             <!-- hero area end -->
 
-            <!-- our developments area start -->
-            <prestige-our-developments />
+            <!-- our developments area start (home-4: only the 3 main projects) -->
+            <prestige-our-developments :slides="mainProjects" />
             <!-- our developments area end -->
 
             <!-- upcoming developments area start -->
@@ -46,6 +46,16 @@
 </template>
 
 <script setup lang="ts">
+import residentialDevelopments from "~/data/residential-developments-data";
+
+// home-4 features only the 3 main (flagship) projects in the developments slider
+const MAIN_TITLES = [
+  "FAUCHON Résidences by Prestige One",
+  "Hilton Residences Dubai Maritime City",
+  "Sanctuary Residences by Prestige One",
+];
+const mainProjects = residentialDevelopments.filter((d) => MAIN_TITLES.includes(d.title));
+
 definePageMeta({
   layout: false,
 });
