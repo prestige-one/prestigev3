@@ -8,11 +8,11 @@ const menu_data_prestige = [
   {
     id: 2,
     title: "About Us",
-    link: "#",
+    link: "/about-us",
     pluseIncon: true,
     submenus: [
       { title: "Our Story", link: "/about-us#our-story" },
-      { title: "Vision & Mission", link: "/about-us#vision-mission" },
+      { title: "Founder’s Vision", link: "/about-us#founders-vision" },
       { title: "Our Leadership", link: "/about-us#our-leadership" },
       { title: "Our Milestones", link: "/about-us#our-milestones" },
     ],
@@ -31,8 +31,8 @@ const menu_data_prestige = [
       { title: "Hilton Residences Dubai Maritime City", link: "#", image: "/assets/project-featured-images/sliders/hilton-1.webp" },
       { title: "Sanctuary Residences", link: "#", image: "/assets/project-featured-images/sliders/sanctuary.webp" },
       { title: "Golf Residences", link: "#", image: "/assets/project-featured-images/sliders/golf-1.webp" },
-      { title: "Seaside", link: "#", image: "/assets/project-featured-images/sliders/seaside.webp" },
-      { title: "The One", link: "#", image: "/assets/project-featured-images/sliders/the-one-1.webp" },
+      { title: "Seaside by Prestige One", link: "#", image: "/assets/project-featured-images/sliders/seaside.webp" },
+      { title: "Vista by Prestige One", link: "#", image: "/assets/project-featured-images/sliders/vista.webp" },
     ],
   },
   {

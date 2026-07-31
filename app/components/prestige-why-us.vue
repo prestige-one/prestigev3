@@ -56,7 +56,10 @@
               class="col-xl-7"
               :class="item.imagePosition === 'left' ? 'order-xl-1' : 'order-xl-2'"
             >
-              <div class="prestige-why-us-thumb anim-zoomin">
+              <div
+                class="prestige-why-us-thumb anim-zoomin"
+                :class="{ 'prestige-why-us-thumb--map': item.id === 1 }"
+              >
                 <img :src="item.image" :alt="item.title">
               </div>
             </div>
@@ -84,7 +87,7 @@ const whyUsData: WhyUsItem[] = [
     title: "Where Opportunity Grows",
     description:
       "We choose well-connected locations that offer great lifestyles and lasting value",
-    image: "/assets/images/v3/Built-on-Strong-Principles.webp",
+    image: "/assets/images/v3/projects-map.webp",
     imagePosition: "left",
   },
   {
@@ -247,6 +250,15 @@ const whyUsData: WhyUsItem[] = [
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.prestige-why-us-thumb--map {
+  aspect-ratio: 1391 / 800;
+  background: #05090d;
+}
+
+.prestige-why-us-thumb--map img {
+  object-fit: contain;
 }
 
 @media (max-width: 1199.98px) {

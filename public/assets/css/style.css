@@ -43,6 +43,8 @@
       5.2 Light Version
 --------------------- */
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap");
+
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;
@@ -116,7 +118,7 @@ body,
 html {
   color: #C8C8CD;
   scroll-behavior: smooth;
-  font-family: var(--font-poppins), sans-serif !important;
+  font-family: var(--font-plus-jakarta), sans-serif !important;
   background-color: #0E0E0E;
   overflow-x: hidden;
 }
@@ -128,9 +130,9 @@ h4,
 h5,
 h6 {
   color: #FEFEFE;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4;
-  font-family: var(--font-poppins), sans-serif;
+  font-family: "Unbounded", sans-serif;
 }
 
 p {
@@ -151,7 +153,7 @@ a:focus {
   text-decoration: none;
   outline: 0 solid transparent;
   color: #FEFEFE;
-  font-family: var(--font-poppins), sans-serif;
+  font-family: "Unbounded", sans-serif;
 }
 
 ul,
@@ -161,7 +163,7 @@ ol {
 
 button,
 .btn {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: "Unbounded", sans-serif;
 }
 
 img {
@@ -454,8 +456,8 @@ ol li {
   -webkit-transition: all 500ms;
   transition: all 500ms;
   z-index: 9999;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: #ECC80B;
   font-size: 1.5rem;
   display: -webkit-box;
@@ -488,8 +490,8 @@ ol li {
 }
 @media only screen and (min-width:992px) {
   #scrollTopButton {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
     bottom: 2rem;
     right: 2rem;
   }
@@ -633,7 +635,7 @@ picture.jarallax-img img {
 }
 @media only screen and (min-width:992px) {
   .header-area .navbar {
-    height: 80px;
+    height: 110px;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -670,7 +672,7 @@ picture.jarallax-img img {
   display: inline-block;
   color: #FFFFFF;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -703,7 +705,7 @@ picture.jarallax-img img {
     transition: all 500ms ease-in-out;
     position: absolute;
     top: calc(100% + 8px);
-    width: 17rem;
+    width: 15rem;
     background-color: #1A1A1A;
     -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.125);
             box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.125);
@@ -717,11 +719,10 @@ picture.jarallax-img img {
   -webkit-transition: all 400ms;
   transition: all 400ms;
   position: relative;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0.375rem 1rem;
   color: #C8C8CD;
   text-transform: capitalize;
-  font-weight: 500;
 }
 @media only screen and (min-width:992px) {
   .header-area .navbar-nav li .vorix-dd-menu li > a {
@@ -811,7 +812,7 @@ picture.jarallax-img img {
 }
 @media only screen and (min-width:992px) {
   .header-area.sticky-on .navbar {
-    height: 80px;
+    height: 90px;
   }
 }
 
@@ -923,12 +924,12 @@ picture.jarallax-img img {
 }
 @media only screen and (min-width:576px) {
   .right-side-vorix-offcanvas .offcanvas-body {
-    padding: 30px 40px 40px;
+    padding: 60px 40px;
   }
 }
 .right-side-vorix-offcanvas .offcanvas-body p {
 	color: #C8C8CD;
-	font-size: 13px;
+	font-size: 15px;
 	margin-bottom: 0;
 }
 .right-side-vorix-offcanvas .offcanvas-body .contact-info {
@@ -4754,7 +4755,7 @@ form .btn {
   color: #0E0E0E;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: var(--font-poppins), sans-serif;
+  font-family: "Unbounded", sans-serif;
   font-size: 12px;
 }
 @media only screen and (min-width:576px) {
@@ -5301,8 +5302,8 @@ form .btn {
   color: #0E0E0E;
 }
 .light-mode .header-area .navbar-nav li .vorix-dd-menu {
-  background-color: #000000bf;
-  border: 1px solid var(--po-mega-panel-border, rgba(255, 255, 255, 0.22));
+  background-color: #000000;
+  border: 1px solid rgba(26, 26, 26, 0.2);
 }
 .light-mode .header-area .navbar-nav li .vorix-dd-menu li > a {
   color: #ffffff !important; 
@@ -5467,12 +5468,6 @@ form .btn {
 .light-mode .footer-card .social-nav a:hover, .light-mode .footer-card .social-nav a:focus {
   background-color: #ECC80B;
 }
-.light-mode .right-side-vorix-offcanvas .offcanvas-body .social-nav a svg {
-	fill: #000;
-}
-.light-mode .right-side-vorix-offcanvas .offcanvas-body .social-nav a:hover svg {
-	fill: #fff;
-}
 .light-mode .footer-wrapper {
   background-color: #FEFEFE;
 }
@@ -5505,28 +5500,29 @@ form .btn {
 }
 .light-mode .footer-bottom-nav a:hover,
 .light-mode .footer-bottom-nav a:focus {
-  color: #e2e2e2;
+  color: #ECC80B;
 }
 .light-mode .right-side-vorix-offcanvas {
-  background-color: #000c;
+  background-color: #F6F5F3;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-body p {
-  color: #ffffff;
+  color: #0E0E0E;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-body .contact-info > div p {
-  color: #ffffff;
+  color: #0E0E0E;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-body .social-nav a {
   background-color: #FEFEFE;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-body .social-nav a:hover, .light-mode .right-side-vorix-offcanvas .offcanvas-body .social-nav a:focus {
-  background-color: #e9e9e9;
+  background-color: #ECC80B;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-body .contact-info > div .icon {
   background-color: #FEFEFE;
 }
 .light-mode .right-side-vorix-offcanvas .offcanvas-header .btn-close {
- 
+  -webkit-filter: none;
+          filter: none;
   border: 1px solid rgba(26, 26, 26, 0.3);
 }
 .light-mode .mission-vision-img-container .experience {
@@ -5678,9 +5674,6 @@ form .btn {
 .light-mode .single-blog .post-title {
   color: #1A1A1A;
 }
-.po-faqs-content p {
-	color: #000;
-}
 .light-mode .single-blog .post-title:hover, .light-mode .single-blog .post-title:focus {
   color: #ECC80B;
 }
@@ -5746,7 +5739,4 @@ form .btn {
 .light-mode .client-testimonial-card {
   border-color: rgba(26, 26, 26, 0.3);
   background: #FEFEFE;
-}
-.tp-copyright-2-right ul li a:hover {
-	color: #eee !important;
 }

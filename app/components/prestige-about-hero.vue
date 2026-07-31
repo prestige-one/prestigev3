@@ -1,52 +1,63 @@
 <template>
-  <section class="prestige-about-hero-area">
+  <section id="our-story" class="prestige-about-hero-area pt-200 pb-120">
     <div class="container container-1430">
       <div class="row justify-content-center">
-        <div class="col-xl-7">
-          <div class="prestige-about-hero-title-box text-center">
-            <h1 class="prestige-about-hero-title tp_reveal_anim">About Us</h1>
-            <p class="prestige-about-hero-subtitle">
-              Discover our story, values, and the people shaping exceptional living experiences in Dubai and beyond.
+        <div class="col-xl-8">
+          <div class="prestige-developments-title-box text-center">
+            <h2
+              class="prestige-developments-title prestige-text-paint prestige-load-title prestige-load-text-paint"
+            >
+              About Us
+            </h2>
+            <p class="prestige-developments-subtitle prestige-load-subtitle">
+              Behind Every Place, There's a Purpose
             </p>
           </div>
         </div>
       </div>
 
-      <div class="prestige-about-hero-grid">
-        <div class="prestige-about-hero-media">
-          <video
-            class="prestige-about-hero-video"
-            src="/assets/videos/company-showcase.mp4"
-            autoplay
-            muted
-            loop
-            playsinline
-          />
+      <div class="row align-items-center gy-4 gx-xl-5 prestige-about-hero-row">
+        <div class="col-xl-6">
+          <div class="prestige-about-hero-thumb anim-zoomin">
+            <video
+              class="prestige-about-hero-video"
+              src="/assets/videos/company-showcase.mp4"
+              aria-label="Prestige One Developments company showcase"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
 
-        <div class="prestige-about-hero-content">
-          <h2 class="prestige-about-hero-heading tp_reveal_anim">Prestige One Developments</h2>
-          <img
-            class="prestige-about-hero-slogan"
-            src="/assets/images/v3/slogan.png"
-            alt="The Heart of Every Location"
-          >
-          <p class="prestige-about-hero-desc">
-            Prestige One Developments is a global force in real estate, known for shaping more than just homes, we create immersive living experiences. With a focus on customer needs, community values, and visionary design, we are a leading Dubai-based developer committed to crafting high-end lifestyles for discerning buyers. Each Prestige One project reflects a deep understanding of experiential living, from striking architecture and elegant interiors to carefully curated amenities, all designed to enrich the lives of our residents and the communities they call home.
-          </p>
+        <div class="col-xl-6">
+          <div class="prestige-about-hero-content">
+            <h2
+              class="prestige-about-hero-heading tp_fade_anim"
+              data-fade-from="bottom"
+            >
+              We Build With Purpose.<br>
+              We Create For Life.
+            </h2>
+            <p
+              class="prestige-about-hero-desc tp_reveal_anim"
+              data-delay="0.05"
+              data-duration="0.6"
+              data-stagger="0.004"
+            >
+              Prestige One Developments is a Dubai-based real estate developer creating residential
+              and commercial spaces shaped around how people live, work, and experience the city.
+            </p>
 
-          <div class="prestige-about-hero-actions">
-            <NuxtLink to="/#contact" class="prestige-about-hero-btn">Contact Us</NuxtLink>
-
-            <div class="prestige-about-hero-rating">
-              <svg-google class="prestige-about-hero-rating-icon" />
-              <div class="prestige-about-hero-rating-text">
-                <span class="prestige-about-hero-rating-score">
-                  4.8/5.0 <span class="prestige-about-hero-rating-star">★</span>
-                </span>
-                <span class="prestige-about-hero-rating-caption">Based on 500+ Reviews</span>
-              </div>
-            </div>
+            <prestige-contact-review-actions
+              class="tp_fade_anim"
+              data-fade-from="bottom"
+              data-delay="0.1"
+            />
           </div>
         </div>
       </div>
@@ -54,169 +65,122 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <style scoped>
-.prestige-about-hero-area {
-  background-color: #000;
-  padding-top: 220px;
-  padding-bottom: 90px;
-}
-
-.prestige-about-hero-title {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 500;
+/* ---- shared title box — same treatment as prestige-why-us / prestige-upcoming-developments,
+   reusing the .prestige-text-paint scroll-reveal wired generically in
+   prestige-developments-reveal.ts. ---- */
+.prestige-developments-title {
+  font-size: clamp(26px, 4vw, 46px);
+  font-weight: 600;
   line-height: 1.2;
-  color: #fff;
-  margin: 0 0 20px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.prestige-about-hero-subtitle {
-  font-size: clamp(15px, 1.6vw, 17px);
-  line-height: 1.6;
+.prestige-about-hero-area {
+  scroll-margin-top: 120px;
+}
+
+.prestige-developments-subtitle {
+  font-size: clamp(14px, 1.6vw, 18px);
+  margin: 0;
   color: rgba(255, 255, 255, 0.65);
-  margin: 0 0 60px;
 }
 
-.prestige-about-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 64px;
-  align-items: center;
+.prestige-developments-title-box {
+  position: relative;
 }
 
-/* ---- media (video) ---- */
+.prestige-developments-title-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: min(560px, 90vw);
+  height: 320px;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 65% 35%, rgba(120, 210, 255, 0.32), transparent 60%),
+    radial-gradient(circle at 32% 68%, rgba(255, 140, 210, 0.24), transparent 60%);
+  filter: blur(60px);
+  transform: translateX(-50%);
+}
 
-.prestige-about-hero-media {
-  border-radius: 20px;
+.prestige-text-paint {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 50%,
+    rgba(255, 255, 255, 0.32) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ---- About Us intro row ---- */
+
+.prestige-about-hero-row {
+  margin-top: 60px;
+}
+
+.prestige-about-hero-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #090909;
 }
 
-/* no fixed aspect-ratio / object-fit crop on purpose — the video sizes to
-   its own natural aspect ratio at the column's width, so nothing gets
-   cropped regardless of its source dimensions. */
 .prestige-about-hero-video {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ---- content ---- */
+.prestige-about-hero-content {
+  max-width: 520px;
+}
 
 .prestige-about-hero-heading {
-  font-size: clamp(22px, 2.6vw, 32px);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: clamp(22px, 1.9vw, 28px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
   color: #fff;
-  margin: 0 0 4px;
-}
-
-.prestige-about-hero-slogan {
-  display: block;
-  width: 220px;
-  height: auto;
-  margin: 4px 0 22px;
-  opacity: 0.85;
+  margin: 0 0 24px;
 }
 
 .prestige-about-hero-desc {
-  font-size: 15.5px;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.68);
   margin: 0 0 34px;
-  max-width: 560px;
 }
 
-.prestige-about-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-}
-
-.prestige-about-hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 58px;
-  padding: 0 34px;
-  border-radius: 999px;
-  background: #fff;
-  color: #111;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.prestige-about-hero-rating {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  height: 58px;
-  padding: 0 22px;
-  border-radius: 999px;
-  background: #fff;
-}
-
-.prestige-about-hero-rating-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-}
-
-.prestige-about-hero-rating-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
-}
-
-.prestige-about-hero-rating-score {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #111;
-}
-
-.prestige-about-hero-rating-star {
-  color: #fbbc05;
-}
-
-.prestige-about-hero-rating-caption {
-  font-size: 12px;
-  color: #6b6b6b;
-}
-
-@media (max-width: 991.98px) {
-  .prestige-about-hero-area {
-    padding-top: 170px;
-  }
-
-  .prestige-about-hero-subtitle {
-    margin-bottom: 40px;
-  }
-
-  .prestige-about-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .prestige-about-hero-desc {
+@media (max-width: 1199.98px) {
+  .prestige-about-hero-content {
     max-width: 100%;
   }
 }
 
-@media (max-width: 575.98px) {
-  .prestige-about-hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 767.98px) {
+  .prestige-about-hero-row {
+    margin-top: 36px;
   }
 
-  .prestige-about-hero-btn,
-  .prestige-about-hero-rating {
-    width: 100%;
-    justify-content: center;
+  .prestige-about-hero-heading {
+    font-size: clamp(22px, 6vw, 25px);
   }
 }
 </style>

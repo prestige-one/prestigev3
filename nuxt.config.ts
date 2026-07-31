@@ -18,6 +18,13 @@ export default defineNuxtConfig({
     // integration. Re-enable once the underlying install is fixed.
     typeCheck: false,
   },
+  vite: {
+    server: {
+      hmr: {
+        port: 24679,
+      },
+    },
+  },
   app: {
     head: {
       title: "Prestige One Developments",

@@ -155,7 +155,7 @@ const openMobileOffcanvas = ref(false);
    glass panel as the plain .tp-submenu above, just wider to fit a small
    preview image per row plus a "view all" button at the bottom. */
 .prestige-header-ten :deep(.prestige-thumb-submenu) {
-  width: 340px;
+  width: 430px;
   padding: 18px 10px;
 }
 
@@ -173,19 +173,20 @@ const openMobileOffcanvas = ref(false);
 .prestige-header-ten :deep(.prestige-thumb-submenu li a) {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 8px 10px;
+  gap: 12px;
+  padding: 5px 10px;
 }
 
 .prestige-header-ten :deep(.prestige-thumb-submenu li a span) {
   font-size: 15px;
+  white-space: nowrap;
 }
 
 .prestige-header-ten :deep(.prestige-thumb-submenu-img) {
-  width: 50px;
-  height: 50px;
+  width: 68px;
+  height: 45px;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
