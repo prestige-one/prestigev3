@@ -8,7 +8,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-4 col-6">
                             <div class="tp-header-10-logo">
-                                <nuxt-link href="/home-4">
+                                <nuxt-link href="/">
                                   <img src="/assets/images/v3/prestigeone_logo_oneline_white-hr.svg" alt="Prestige One" width="220">
                                 </nuxt-link>
                             </div>

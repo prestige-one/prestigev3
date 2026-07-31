@@ -3,19 +3,19 @@
     <!-- Begin magic cursor -->
     <common-magic-cursor />
     <!-- End magic cursor -->
-    <nuxt-layout name="layout-one">
+    <nuxt-layout name="layout-home4">
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
 
           <main>
 
-            <!-- hero area start -->
+            <!-- hero area start (autoplay background video hero, no scroll-scrub) -->
             <hero-prestige />
             <!-- hero area end -->
 
-            <!-- our developments area start -->
-            <prestige-our-developments />
+            <!-- our developments area start (only the 3 main projects) -->
+            <prestige-our-developments :slides="mainProjects" />
             <!-- our developments area end -->
 
             <!-- upcoming developments area start -->
@@ -31,7 +31,7 @@
             <!-- testimonials area end -->
 
             <!-- contact form area start -->
-            <prestige-contact-form centered />
+            <prestige-contact-form />
             <!-- contact form area end -->
 
           </main>
@@ -46,6 +46,15 @@
 </template>
 
 <script setup lang="ts">
+import residentialDevelopments from "~/data/residential-developments-data";
+
+// homepage features only the 3 main (flagship) projects in the developments slider
+const MAIN_TITLES = [
+  "FAUCHON Résidences by Prestige One",
+  "Hilton Residences Dubai Maritime City",
+  "Sanctuary Residences by Prestige One",
+];
+const mainProjects = residentialDevelopments.filter((d) => MAIN_TITLES.includes(d.title));
 
 definePageMeta({
   layout: false,

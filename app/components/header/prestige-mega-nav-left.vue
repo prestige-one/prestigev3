@@ -1,7 +1,7 @@
 <template>
   <div class="lnv" @mouseleave="scheduleClose">
     <ul class="lnv__top">
-      <li><nuxt-link to="/home-4" @click="close">Home</nuxt-link></li>
+      <li><nuxt-link to="/" @click="close">Home</nuxt-link></li>
 
       <!-- ABOUT US -->
       <li class="lnv__has" :class="{ active: active === 'about' }" @mouseenter="open('about')">
