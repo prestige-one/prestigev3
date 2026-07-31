@@ -7,7 +7,51 @@ import gsap from "gsap";
  * when the user scrolls back up, exactly like the hero sentences do.
  */
 export function prestigeDevelopmentsReveal() {
-  const elements = document.querySelectorAll<HTMLElement>(".prestige-text-paint");
+  const loadPaintElements = document.querySelectorAll<HTMLElement>(".prestige-load-text-paint");
+  const loadTitles = document.querySelectorAll<HTMLElement>(".prestige-load-title");
+  const loadSubtitles = document.querySelectorAll<HTMLElement>(".prestige-load-subtitle");
+
+  loadPaintElements.forEach((element) => {
+    gsap.fromTo(
+      element,
+      { backgroundPositionX: "100%" },
+      {
+        backgroundPositionX: "0%",
+        duration: 1.15,
+        ease: "power2.out",
+      }
+    );
+  });
+
+  loadTitles.forEach((title) => {
+    gsap.fromTo(
+      title,
+      { scale: 0.75 },
+      {
+        scale: 1,
+        duration: 1.15,
+        ease: "power2.out",
+      }
+    );
+  });
+
+  loadSubtitles.forEach((subtitle) => {
+    gsap.fromTo(
+      subtitle,
+      { scale: 0.85, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.9,
+        delay: 0.2,
+        ease: "power2.out",
+      }
+    );
+  });
+
+  const elements = document.querySelectorAll<HTMLElement>(
+    ".prestige-text-paint:not(.prestige-load-text-paint)"
+  );
 
   elements.forEach((el) => {
     gsap.to(el, {
@@ -27,7 +71,9 @@ export function prestigeDevelopmentsReveal() {
   // (not querySelector) because this page has more than one "Our
   // Developments"-style section (residential + commercial) — a single
   // query would only ever animate the first one.
-  const titles = document.querySelectorAll<HTMLElement>(".prestige-developments-title");
+  const titles = document.querySelectorAll<HTMLElement>(
+    ".prestige-developments-title:not(.prestige-load-title)"
+  );
   titles.forEach((title) => {
     gsap.fromTo(
       title,
@@ -48,7 +94,9 @@ export function prestigeDevelopmentsReveal() {
   // Subtitles appear with a subtle zoom instead of the text-paint sweep
   // used elsewhere — a lighter scale range than the title since it's a
   // smaller supporting line, not the main headline.
-  const subtitles = document.querySelectorAll<HTMLElement>(".prestige-developments-subtitle");
+  const subtitles = document.querySelectorAll<HTMLElement>(
+    ".prestige-developments-subtitle:not(.prestige-load-subtitle)"
+  );
   subtitles.forEach((subtitle) => {
     gsap.fromTo(
       subtitle,

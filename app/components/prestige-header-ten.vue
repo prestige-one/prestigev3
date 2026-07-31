@@ -124,13 +124,57 @@ const openMobileOffcanvas = ref(false);
   background: rgba(0, 0, 0, 0.24);
 }
 
+/* "no white background" — this header stays fully transparent/glass
+   everywhere, so the theme's white capsule under "Get in touch" doesn't
+   fit here; drop it to plain white text directly on the header's own
+   blurred glass background. The goo-merge blur filter on
+   .tp-btn-black-filter (see svg-btn-blur-filter) existed only to blend
+   that white capsule into the white WhatsApp circle below — with both
+   gone, it would just blur the text's edges, so it's cancelled too. */
+.prestige-header-ten :deep(.tp-btn-black-filter) {
+  filter: none !important;
+}
+
+.prestige-header-ten :deep(.tp-btn-black-text) {
+  background-color: transparent !important;
+  color: #fff !important;
+  transition: opacity 0.25s ease;
+}
+
+.prestige-header-ten :deep(.tp-btn-black-text:hover) {
+  opacity: 0.7;
+}
+
 /* the WhatsApp glyph is an icon-font <i>, not an <svg>, so it falls
    outside the theme's ".tp-btn-black-circle > svg" sizing/color rule —
-   size and center it to match that circle explicitly. */
+   sized and centered to match that circle explicitly. Styled as a
+   conventional green-badge icon (green circle, white glyph) instead of
+   the theme's white-circle default, with a plain scale-up on hover
+   instead of the theme's translateX+rotate(45deg) — that slide-and-spin
+   was built for an arrow icon, not a static WhatsApp logo. */
 .prestige-header-ten :deep(.tp-btn-black-circle-whatsapp) {
-  font-size: 27px;
-  color: #25D366;
-  padding-top: 2px;
+  background-color: #25d366 !important;
+  color: #fff;
+  font-size: 25px;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.prestige-header-ten :deep(.tp-btn-black:hover .tp-btn-black-circle-whatsapp) {
+  transform: scale(1.12) !important;
+}
+
+/* small hover cue on the offcanvas hamburger button, matching the other
+   two header buttons instead of being the only static one. */
+.prestige-header-ten :deep(.tp-offcanvas-open-btn) {
+  transition: opacity 0.25s ease;
+}
+
+.prestige-header-ten :deep(.tp-offcanvas-open-btn:hover) {
+  opacity: 0.65;
 }
 
 </style>

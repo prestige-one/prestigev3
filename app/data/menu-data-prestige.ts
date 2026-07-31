@@ -8,7 +8,7 @@ const menu_data_prestige = [
   {
     id: 2,
     title: "About Us",
-    link: "#",
+    link: "/about",
     pluseIncon: true,
     submenus: [
       { title: "Our Story", link: "#" },
