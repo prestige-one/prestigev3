@@ -14,6 +14,8 @@
                 </div>
               </div>
             </div>
+            <div class="coverflow-slider-edge-fade coverflow-slider-edge-fade-left" />
+            <div class="coverflow-slider-edge-fade coverflow-slider-edge-fade-right" />
           </div>
           <div class="coverflow-slider-text-wrap">
             <div class="swiper-container coverflow-slider-text-active fix">
@@ -22,7 +24,7 @@
                   <div class="coverflow-slider-item">
                     <div class="coverflow-slider-content text-center">
                       <h4 class="coverflow-slider-title-sm">
-                        <NuxtLink class="tp-line-white" :to="linkFor(item)">
+                        <NuxtLink class="tp-line-white" :to="item.href">
                           {{ item.title }}
                           <div class="coverflow-slider-location">[{{ item.location }}]</div>
                         </NuxtLink>
@@ -64,12 +66,6 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import type { DevelopmentSlide } from "../data/residential-developments-data";
-import { slugify } from "../data/projects";
-
-// prefer an explicit href; otherwise route to the generated project detail page
-function linkFor(item: DevelopmentSlide) {
-  return item.href && item.href !== "#" ? item.href : `/projects/${slugify(item.title)}`;
-}
 
 const props = withDefaults(
   defineProps<{
@@ -215,6 +211,16 @@ onMounted(() => {
   position: relative;
 }
 
+/* the base theme pads the image swiper itself by 100px top/bottom
+   (_project-slider.scss .coverflow-slider-active { padding: 100px 0 }) —
+   on top of the .coverflow-slider-wrap height trim above, that leftover
+   padding was still the biggest single contributor to the gap before the
+   caption. Cut down instead of removed outright so the coverflow's 3D
+   tilt still has a little breathing room and doesn't clip. */
+.coverflow-slider-active {
+  padding: 20px 0;
+}
+
 /* fixed slide width for the image (thumb) swiper only — paired with
    slidesPerView: "auto" above, this is what makes every slide the same
    physical size regardless of slide count or whether the slider sits in
@@ -250,61 +256,85 @@ onMounted(() => {
    than the 500px image it's centering, so the wrap's own box left dead
    space below the image before the caption even started. Matching the
    wrap's height to the image's exactly removes that empty space instead
-   of trying to paper over it with a bigger margin below. */
+   of trying to paper over it with a bigger margin below. Trimmed further
+   (470 -> 380) to pull the caption closer under the image. */
 .coverflow-slider-wrap {
   position: relative;
-  height: 470px;
+  height: 380px;
 }
 
-/* left & right edge gradient — the side slides fade into the section's black
-   background so the coverflow reads as an endless reel rather than hard-cut
-   cards at the viewport edges. Non-interactive so arrows/slides stay clickable. */
-.coverflow-slider-wrap::before,
-.coverflow-slider-wrap::after {
-  content: "";
+/* fades the coverflow's outermost slides into the page's solid black
+   background (main.scss sets body { background-color: #000 }) instead of
+   letting them hard-crop at the section edge — paired with the narrower
+   max-width below (~5 slides' worth) so only 5 cards ever read as fully
+   visible per side-trim request. */
+.coverflow-slider-edge-fade {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: clamp(120px, 16vw, 320px);
-  z-index: 2;
+  width: min(320px, 24vw);
+  /* Swiper's coverflow effect assigns each .swiper-slide its own inline
+     z-index (highest at the center slide, stepping down outward) which
+     can run well into the double digits with this many loop-cloned
+     slides — a low z-index here just rendered underneath them. */
+  z-index: 999;
   pointer-events: none;
 }
-.coverflow-slider-wrap::before {
+
+/* solid for the outer half, only fading through the inner half — a fade
+   starting at 0% opacity right away left the outermost sliver of the
+   cropped 6th/7th slide still half-visible instead of fully hidden. */
+.coverflow-slider-edge-fade-left {
   left: 0;
-  background: linear-gradient(to right, #000 5%, rgba(0, 0, 0, 0));
-}
-.coverflow-slider-wrap::after {
-  right: 0;
-  background: linear-gradient(to left, #000 5%, rgba(0, 0, 0, 0));
+  background: linear-gradient(to right, #000 0%, #000 55%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* the base theme crops images to fill a fixed-height box
-   (.coverflow-slider-item { height: 500px; overflow: hidden }) — with
-   object-fit: contain the full image is always visible instead, resized
-   to fit rather than cropped, letterboxing into the section's own black
-   background when the aspect ratio doesn't match. */
+.coverflow-slider-edge-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #000 0%, #000 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* caps how many coverflow cards can occupy the visible row at once —
+   without this the swiper container spans the full viewport and, at
+   ultra-wide widths, fits 6-7 slide-widths (main + 3 per side) with the
+   outermost ones peeking in half-cropped. Narrowing to ~5 slide-widths
+   removes 1 card's worth from each side; the edge-fade above then hides
+   the now-closer clip point. */
+@media (min-width: 991px) {
+  .coverflow-slider-active {
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .coverflow-slider-active {
+    max-width: 1700px;
+  }
+}
+
+.coverflow-slider-item {
+  height: 340px;
+}
+
+/* object-fit: contain (the base theme's default crop behavior aside) left
+   visible letterboxed bars — the item's own background — around any image
+   whose aspect ratio didn't match the box, which read as a dark box edge
+   against the section's gradient background. cover fills the box
+   completely (trading a bit of edge-cropping for it) so no bg shows. */
 .coverflow-slider-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
-/* contained sliders (commercial, upcoming) — object-fit: contain at this
-   height left visible letterboxed empty space around images whose aspect
-   ratio doesn't match the box, since shrinking the box to remove that gap
-   just clipped the images instead. Filling the box with cover trades a
-   bit of edge-cropping for no dead space, at the same height as the
-   residential slider. */
-.coverflow-slider-contained .coverflow-slider-item img {
-  object-fit: cover;
-}
-
 .coverflow-slider-title-sm {
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1;
   letter-spacing: 0px;
-  font-family: Poppins;
+  font-family: var(--tp-ff-body);
+  font-weight: 600;
 }
 
 .coverflow-slider-location {
@@ -335,11 +365,12 @@ onMounted(() => {
 }
 
 /* nav arrows moved from the bottom bar to vertically centered at the
-   slider's left/right edges. */
+   slider's left/right edges. Raised above the edge-fade overlays (z-index
+   999) so Prev/Next stay visible instead of getting painted over by them. */
 .coverflow-slider-arrow {
   top: 50%;
   bottom: auto;
+  z-index: 1000;
   transform: translateY(-50%);
-  z-index: 3;
 }
 </style>

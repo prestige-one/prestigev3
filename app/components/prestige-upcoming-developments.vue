@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-developments-area pb-120">
-    <div class="container">
+    <div class="container container-1430">
       <div class="row justify-content-center">
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
@@ -17,9 +17,9 @@
       </div>
     </div>
 
-    <!-- same theater-mode coverflow slider as "Our Developments" (loop fills
-         the 5-slide coverflow out from the two real upcoming projects). -->
-    <prestige-coverflow-slider :slides="upcomingDevelopments" />
+    <!-- same coverflow slider as the residential/commercial sections, boxed
+         within the page container rather than full-bleed. -->
+    <prestige-coverflow-slider :slides="upcomingDevelopments" contained />
   </section>
 </template>
 
@@ -29,10 +29,10 @@ import upcomingDevelopments from "../data/upcoming-developments-data";
 
 <style scoped>
 .prestige-developments-title {
-  font-size: clamp(28px, 4.5vw, 52px);
+  font-size: clamp(22px, 3.2vw, 36px);
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }

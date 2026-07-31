@@ -207,7 +207,7 @@ const whyUsData: WhyUsItem[] = [
 /* ---- Why Choose Prestige One — alternating feature rows ---- */
 
 .prestige-why-us-rows {
-  margin-top: 90px;
+  margin-top: 40px;
 }
 
 .prestige-why-us-row {
@@ -310,7 +310,7 @@ const whyUsData: WhyUsItem[] = [
 
 @media (max-width: 767.98px) {
   .prestige-why-us-rows {
-    margin-top: 50px;
+    margin-top: 24px;
   }
 
   .prestige-why-us-row {
