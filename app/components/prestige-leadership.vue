@@ -44,13 +44,10 @@ interface Leader {
   initials?: string;
 }
 
-// Only the Founder & CEO is confirmed with a portrait; the remaining cards are
-// placeholders (role only) ready for real names + photography.
+// Management team as listed on prestigeone.ae (Meet the Management).
 const leaders: Leader[] = [
-  { name: "Ajmal Saifi", role: "Founder & CEO", image: "/assets/images/v3/mr.ajmal.webp" },
-  { name: "To be announced", role: "Managing Director", initials: "P1" },
-  { name: "To be announced", role: "Head of Development", initials: "P1" },
-  { name: "To be announced", role: "Head of Sales & Marketing", initials: "P1" },
+  { name: "Sulaiman Saifi", role: "Vice Chairman", image: "/assets/images/v3/Sulaiman_Saifi-740x850-1.webp" },
+  { name: "Ajmal Saifi", role: "Founder & CEO", image: "/assets/images/v3/Ajmal-CEO-short-new-740x850-1.webp" },
 ];
 </script>
 
@@ -80,8 +77,9 @@ const leaders: Leader[] = [
 }
 .prestige-leadership-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 26px);
+  grid-template-columns: repeat(2, minmax(0, 320px));
+  gap: clamp(18px, 2.4vw, 34px);
+  justify-content: center;
 }
 .prestige-leadership-card {
   overflow: hidden;
@@ -131,9 +129,9 @@ const leaders: Leader[] = [
   color: var(--tp-common-gold, #d9b382);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 575.98px) {
   .prestige-leadership-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 300px);
   }
 }
 @media (max-width: 767.98px) {
