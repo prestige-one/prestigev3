@@ -18,17 +18,11 @@
           :data-delay="index * 0.08"
         >
           <div class="prestige-leadership-portrait">
-            <img
-              v-if="leader.image"
-              :src="leader.image"
-              :alt="leader.name"
-              loading="lazy"
-            >
-            <span v-else class="prestige-leadership-portrait-placeholder">{{ leader.initials }}</span>
+            <img :src="leader.image" :alt="leader.name" loading="lazy">
           </div>
           <div class="prestige-leadership-body">
-            <h3 class="prestige-leadership-name">{{ leader.name }}</h3>
             <span class="prestige-leadership-role">{{ leader.role }}</span>
+            <h3 class="prestige-leadership-name">{{ leader.name }}</h3>
           </div>
         </article>
       </div>
@@ -40,8 +34,7 @@
 interface Leader {
   name: string;
   role: string;
-  image?: string;
-  initials?: string;
+  image: string;
 }
 
 // Management team as listed on prestigeone.ae (Meet the Management).
@@ -75,69 +68,69 @@ const leaders: Leader[] = [
   letter-spacing: -1px;
   color: #fff;
 }
+
+/* two wide horizontal cards fill the row so there's no dead space at the sides */
 .prestige-leadership-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 320px));
-  gap: clamp(18px, 2.4vw, 34px);
-  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 34px);
 }
 .prestige-leadership-card {
+  display: grid;
+  grid-template-columns: 44% 1fr;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(14, 17, 21, 0.6));
+  border-radius: 12px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.045), rgba(14, 17, 21, 0.7) 60%);
 }
 .prestige-leadership-portrait {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   background: radial-gradient(circle at 50% 30%, rgba(105, 139, 161, 0.25), #0e1115 70%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .prestige-leadership-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .prestige-leadership-card:hover .prestige-leadership-portrait img {
   transform: scale(1.04);
 }
-.prestige-leadership-portrait-placeholder {
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 34px;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.32);
-}
 .prestige-leadership-body {
-  padding: 22px 22px 26px;
-}
-.prestige-leadership-name {
-  margin: 0 0 6px;
-  font-size: clamp(18px, 1.6vw, 21px);
-  font-weight: 500;
-  letter-spacing: -0.2px;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(24px, 3vw, 44px);
 }
 .prestige-leadership-role {
   font-size: 12.5px;
   font-weight: 500;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: rgba(255, 255, 255, 0.55);
+}
+.prestige-leadership-name {
+  margin: 0;
+  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(26px, 2.6vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 1.1;
+  color: #fff;
 }
 
-@media (max-width: 575.98px) {
-  .prestige-leadership-grid {
-    grid-template-columns: minmax(0, 300px);
-  }
-}
 @media (max-width: 767.98px) {
   .prestige-leadership-area {
     padding-top: 100px;
     padding-bottom: 100px;
+  }
+  .prestige-leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
 </style>

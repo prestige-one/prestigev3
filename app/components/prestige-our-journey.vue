@@ -118,19 +118,20 @@ const milestones: Milestone[] = [
   max-width: 880px;
   margin: 0 auto;
 }
-/* vertical gold spine */
+/* vertical silver spine connecting the milestone dots */
 .prestige-journey-line {
   position: absolute;
-  top: 6px;
-  bottom: 6px;
+  top: 8px;
+  bottom: 8px;
   left: 138px;
-  width: 1px;
+  width: 2px;
+  transform: translateX(-50%);
   background: linear-gradient(
     180deg,
-    rgba(217, 179, 130, 0) 0%,
-    rgba(217, 179, 130, 0.5) 8%,
-    rgba(217, 179, 130, 0.5) 92%,
-    rgba(217, 179, 130, 0) 100%
+    rgba(198, 214, 226, 0) 0%,
+    rgba(198, 214, 226, 0.55) 7%,
+    rgba(198, 214, 226, 0.55) 93%,
+    rgba(198, 214, 226, 0) 100%
   );
 }
 .prestige-journey-list {
@@ -153,20 +154,35 @@ const milestones: Milestone[] = [
   top: 10px;
   left: 138px;
   transform: translateX(-50%);
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--tp-common-gold, #d9b382);
-  box-shadow: 0 0 0 5px rgba(217, 179, 130, 0.12);
+  background: #dfe8ee;
+  box-shadow: 0 0 0 5px rgba(198, 214, 226, 0.12);
 }
+/* silver-metallic year numerals (same treatment as the Legacy stats) */
 .prestige-journey-year {
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(26px, 2.6vw, 38px);
+  font-size: clamp(28px, 2.8vw, 42px);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.5px;
-  color: var(--tp-common-gold, #d9b382);
+  letter-spacing: -0.5px;
   text-align: right;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #f8fcff 0%,
+    #b7cad7 22%,
+    #819bab 23%,
+    #edf8ff 46%,
+    #7896aa 47%,
+    #eaf6ff 79%,
+    #9bb4c5 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);
 }
 .prestige-journey-content {
   padding-top: 2px;

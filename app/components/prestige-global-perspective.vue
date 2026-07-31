@@ -13,7 +13,7 @@
 
       <div class="prestige-global-map tp_fade_anim" data-fade-from="bottom" data-fade-offset="30">
         <img
-          src="/assets/images/v3/A-Global-Perspective.webp"
+          src="/assets/images/v2/pages/global-present.webp"
           alt="Prestige One global perspective"
           loading="lazy"
         >
