@@ -166,7 +166,9 @@ onBeforeUnmount(cancelClose);
 .lnv__dd {
   position: absolute;
   top: calc(100% + 16px);
-  left: 0;
+  /* pull left by the panel + item padding so the submenu TEXT lines up
+     directly under the parent menu label (not indented from it) */
+  left: -24px;
   min-width: 230px;
   margin: 0;
   padding: 10px;

@@ -14,6 +14,10 @@
             <prestige-about-hero />
             <!-- about us hero area end -->
 
+            <!-- introduction / who we are area start -->
+            <prestige-about-intro />
+            <!-- introduction / who we are area end -->
+
             <!-- legacy & credibility area start -->
             <prestige-legacy-stats />
             <!-- legacy & credibility area end -->
@@ -25,6 +29,22 @@
             <!-- founder and CEO area start -->
             <prestige-founder-profile />
             <!-- founder and CEO area end -->
+
+            <!-- our leadership area start -->
+            <prestige-leadership />
+            <!-- our leadership area end -->
+
+            <!-- our journey / timeline area start -->
+            <prestige-our-journey />
+            <!-- our journey / timeline area end -->
+
+            <!-- global perspective area start -->
+            <prestige-global-perspective />
+            <!-- global perspective area end -->
+
+            <!-- the next chapter / closing CTA area start -->
+            <prestige-next-chapter />
+            <!-- the next chapter / closing CTA area end -->
 
           </main>
 

@@ -259,7 +259,9 @@ onBeforeUnmount(cancelClose);
 .pmn__dd {
   position: absolute;
   top: calc(100% + 16px);
-  left: 0;
+  /* pull left by the item padding so the submenu text lines up under the
+     parent menu label instead of being indented from it */
+  left: -22px;
   min-width: 220px;
   margin: 0;
   padding: 10px 0;
