@@ -55,7 +55,7 @@
 }
 .prestige-opp-title {
   margin: 0 0 18px;
-  font-size: clamp(26px, 3vw, 44px);
+  font-size: clamp(26px, 3vw, 30px);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.5px;

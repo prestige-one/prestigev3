@@ -255,6 +255,13 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+/* project detail page: larger hero + intro (overview) heading */
+:deep(.prestige-hero-band__title) {
+  font-size: clamp(34px, 4.4vw, 40px);
+}
+:deep(.prestige-fsplit .prestige-heading) {
+  font-size: clamp(34px, 4.4vw, 40px);
+}
 .prestige-detail__badge {
   display: inline-flex;
   align-items: center;
