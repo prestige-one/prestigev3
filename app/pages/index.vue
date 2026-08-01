@@ -30,10 +30,6 @@
             <prestige-why-dubai />
             <!-- why dubai area end -->
 
-            <!-- where opportunity grows (locations map) area start -->
-            <prestige-opportunity />
-            <!-- where opportunity grows area end -->
-
             <!-- client handover stories area start -->
             <prestige-client-stories />
             <!-- client handover stories area end -->

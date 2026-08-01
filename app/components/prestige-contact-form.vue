@@ -54,7 +54,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 
 <style scoped>
 .prestige-contact-area {
-  background-color: #000;
+  background-color: #0e0e12;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding-top: 270px;
   padding-bottom: 50px;

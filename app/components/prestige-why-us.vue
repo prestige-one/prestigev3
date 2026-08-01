@@ -94,7 +94,7 @@ const whyUsData: WhyUsItem[] = [
     title: "Where Opportunity Grows",
     description:
       "We choose well-connected locations that offer great lifestyles and lasting value",
-    image: "/assets/images/v3/Built-on-Strong-Principles.webp",
+    image: "/assets/images/v3/projects-map.webp",
     imagePosition: "left",
   },
   {
@@ -215,8 +215,9 @@ const whyUsData: WhyUsItem[] = [
   position: relative;
   /* opaque so each row fully occludes the previous one as it scales down
      and slides underneath during the pin+scale "stack" scroll effect
-     (portfolioAnimation(), wired for this section in pages/index.vue). */
-  background-color: #000;
+     (portfolioAnimation(), wired for this section in pages/index.vue).
+     Matches the body background so cards and page read as one surface. */
+  background-color: #0e0e12;
 }
 
 /* pinSpacing is off (see portfolioAnimation()), so the next row's top
