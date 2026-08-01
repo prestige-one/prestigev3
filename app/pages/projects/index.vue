@@ -30,6 +30,19 @@
                   </button>
                 </div>
 
+                <!-- destination filter -->
+                <div class="prestige-filter prestige-filter--dest tp_fade_anim" data-delay=".25">
+                  <button
+                    v-for="loc in locations"
+                    :key="loc"
+                    class="prestige-filter__btn prestige-filter__btn--sm"
+                    :class="{ active: activeLocation === loc }"
+                    @click="activeLocation = loc"
+                  >
+                    {{ loc }}
+                  </button>
+                </div>
+
                 <!-- grid -->
                 <div class="row">
                   <div
@@ -83,14 +96,43 @@ useSeoMeta({
 type CatKey = ProjectCategory | "all";
 const route = useRoute();
 const router = useRouter();
-const all = getAllProjects();
+// display order — latest / flagship first, the three villas last
+const ORDER = [
+  "fauchon-residences-by-prestige-one",
+  "sanctuary-residences-by-prestige-one",
+  "hilton-residences-dubai-maritime-city",
+  "seaside-by-prestige-one",
+  "golf-residences-by-prestige-one",
+  "berkeley-square-south",
+  "berkeley-square-north",
+  "luxury-canal-residences-by-prestige-one",
+  "coastal-haven-by-prestige-one",
+  "the-boulevard-by-prestige-one",
+  "parkway-by-prestige-one",
+  "the-one-by-prestige-one",
+  "waterway-by-prestige-one",
+  "vista-by-prestige-one",
+  "the-residence-by-prestige-one",
+  "luxe-villa-by-prestige-one",
+  "seascape-villa",
+  "palm-villa-by-prestige-one",
+];
+const orderIndex = (slug: string) => {
+  const i = ORDER.indexOf(slug);
+  return i === -1 ? ORDER.length + 1 : i;
+};
+const all = [...getAllProjects()].sort((a, b) => orderIndex(a.slug) - orderIndex(b.slug));
 
 const portfolioStats = [
-  { value: `${all.length}`, label: "Developments" },
-  { value: "10", label: "Destinations" },
-  { value: "2", label: "Countries" },
+  { value: "24+", label: "Projects" },
+  { value: "21+", label: "Destinations" },
+  { value: "7", label: "Countries" },
   { value: "100%", label: "Freehold" },
 ];
+
+// destination (location) filter
+const locations = ["All", ...Array.from(new Set(all.map((p) => p.location)))];
+const activeLocation = ref("All");
 
 const activeCategory = ref<CatKey>(
   (route.query.category as CatKey) || "all",
@@ -105,9 +147,11 @@ watch(
 );
 
 const filtered = computed(() =>
-  activeCategory.value === "all"
-    ? all
-    : all.filter((p) => p.category === activeCategory.value),
+  all.filter(
+    (p) =>
+      (activeCategory.value === "all" || p.category === activeCategory.value) &&
+      (activeLocation.value === "All" || p.location === activeLocation.value),
+  ),
 );
 
 function countFor(key: CatKey) {
@@ -127,7 +171,15 @@ usePrestigePage({ hero: false });
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 16px;
+}
+.prestige-filter--dest {
+  gap: 8px;
+  margin-bottom: 56px;
+}
+.prestige-filter__btn--sm {
+  padding: 8px 16px;
+  font-size: 12.5px;
 }
 .prestige-filter__btn {
   display: inline-flex;
