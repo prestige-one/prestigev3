@@ -1,10 +1,10 @@
 <template>
-  <section class="prestige-legacy-area pb-40">
+  <section class="prestige-legacy-area pt-40 pb-80">
     <div class="container container-1430 prestige-legacy-panel">
       <div class="prestige-legacy-header">
         <span class="prestige-legacy-eyebrow">OUR LEGACY</span>
         <h2 class="prestige-legacy-title tp_reveal_anim" data-delay="0.05">
-          Decades of Experience. Built for What's Next.
+          Decades of Experience. Built for What's Next
         </h2>
       </div>
 

@@ -1,10 +1,10 @@
 <template>
-  <section class="prestige-leadership-area pt-140 pb-140">
+  <section class="prestige-leadership-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-leadership-header">
         <span class="prestige-leadership-eyebrow">OUR LEADERSHIP</span>
         <h2 class="prestige-leadership-title tp_reveal_anim" data-delay="0.05">
-          Guided by Experience.
+          Guided by Experience
         </h2>
       </header>
 

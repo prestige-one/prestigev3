@@ -1,10 +1,10 @@
 <template>
-  <section class="prestige-devyears-area pt-140 pb-140">
+  <section class="prestige-devyears-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-devyears-header">
         <span class="prestige-devyears-eyebrow">OUR DEVELOPMENTS</span>
         <h2 class="prestige-devyears-title tp_reveal_anim" data-delay="0.05">
-          Where Vision Shapes Addresses.
+          Where Vision Shapes Addresses
         </h2>
       </header>
 

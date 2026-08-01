@@ -1,10 +1,10 @@
 <template>
-  <section class="prestige-drives-area pt-140 pb-140">
+  <section class="prestige-drives-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-drives-header">
         <span class="prestige-drives-eyebrow">WHAT DRIVES US</span>
         <h2 class="prestige-drives-title tp_reveal_anim" data-delay="0.05">
-          Every Decision Starts With What Matters.
+          Every Decision Starts With What Matters
         </h2>
       </header>
 
@@ -99,13 +99,13 @@ const principles: PrestigeDrivePrinciple[] = [
 
 .prestige-drives-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(18px, 2.4vw, 30px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
 }
 
 .prestige-drives-card {
   position: relative;
-  min-height: clamp(330px, 35vw, 450px);
+  min-height: clamp(300px, 28vw, 420px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -181,6 +181,12 @@ const principles: PrestigeDrivePrinciple[] = [
   .prestige-drives-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .prestige-drives-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .prestige-drives-card {

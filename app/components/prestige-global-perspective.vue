@@ -1,10 +1,10 @@
 <template>
-  <section class="prestige-global-area pt-140 pb-140">
+  <section class="prestige-global-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-global-header">
         <span class="prestige-global-eyebrow">GLOBAL PERSPECTIVE</span>
         <h2 class="prestige-global-title tp_reveal_anim" data-delay="0.05">
-          Global Experience. A Dubai Focus.
+          Global Experience. A Dubai Focus
         </h2>
         <p class="prestige-global-lead">
           A wider perspective, shaping what we create in Dubai.
@@ -27,7 +27,30 @@
 
 <style scoped>
 .prestige-global-area {
+  position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+/* soft aurora gradient behind the section */
+.prestige-global-area::before {
+  content: "";
+  position: absolute;
+  top: -4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 96vw);
+  height: 560px;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 30%, rgba(96, 156, 210, 0.22), transparent 62%),
+    radial-gradient(circle at 28% 62%, rgba(150, 120, 210, 0.16), transparent 60%);
+  filter: blur(80px);
+}
+.prestige-global-header,
+.prestige-global-map {
+  position: relative;
+  z-index: 1;
 }
 .prestige-global-header {
   max-width: 760px;

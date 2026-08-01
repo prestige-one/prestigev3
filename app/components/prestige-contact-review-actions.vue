@@ -33,7 +33,7 @@
 
 .prestige-contact-review-actions__contact,
 .prestige-contact-review-actions__rating {
-  min-height: 64px;
+  min-height: 50px;
   border-radius: 999px;
   background: #fff;
   color: #0b0b0b;

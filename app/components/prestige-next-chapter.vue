@@ -1,9 +1,9 @@
 <template>
-  <section class="prestige-next-area pt-140 pb-160">
+  <section class="prestige-next-area pt-40 pb-80">
     <div class="container container-1430">
       <div class="prestige-next-inner">
         <h2 class="prestige-next-title tp_reveal_anim" data-delay="0.05">
-          The Vision Continues.
+          The Vision Continues
         </h2>
         <p class="prestige-next-lead tp_fade_anim" data-fade-from="bottom" data-fade-offset="24">
           New developments, new opportunities, and more to come from Prestige One.
