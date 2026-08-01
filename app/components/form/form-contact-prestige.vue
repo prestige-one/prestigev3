@@ -78,6 +78,18 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+/* left-aligned labels + lighter placeholder text */
+.tp-contact-form-input label {
+  display: block;
+  text-align: left;
+}
+.tp-contact-form-input input::placeholder,
+.tp-contact-form-input textarea::placeholder,
+.prestige-phone-number::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+
 /* white pill send button with dark arrow circle (matches the mock) */
 .prestige-send {
   display: flex;
