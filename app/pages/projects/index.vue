@@ -9,7 +9,7 @@
               eyebrow="Our Portfolio"
               title="Developments"
               lead="A diverse portfolio of residential and commercial addresses across Dubai's most prestigious destinations — each one built for how people actually want to live."
-              image="/assets/project-featured-images/sliders/hilton-1.webp"
+              image="/assets/images/v3/projects-hero-skyline.webp"
             />
 
             <prestige-stat-band :stats="portfolioStats" />
