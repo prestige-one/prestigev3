@@ -3,7 +3,7 @@
     <div class="container container-1430">
       <div class="prestige-opp-grid">
         <div class="prestige-opp-map tp_fade_anim" data-fade-from="left" data-fade-offset="40">
-          <img src="/assets/images/v3/map-locations.webp" alt="Prestige One locations across Dubai" loading="lazy">
+          <img src="/assets/images/v3/projects-map.webp" alt="Prestige One locations across Dubai" loading="lazy">
         </div>
 
         <div class="prestige-opp-content tp_fade_anim" data-fade-from="right" data-fade-offset="40">
