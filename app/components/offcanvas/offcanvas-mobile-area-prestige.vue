@@ -30,32 +30,6 @@
           </ul>
         </nav>
 
-        <!-- featured projects -->
-        <section class="pnav__group">
-          <span class="pnav__gtitle">Featured Projects</span>
-          <ul class="pnav__cards">
-            <li v-for="p in featuredProjects" :key="p.slug">
-              <nuxt-link :to="`/projects/${p.slug}`" @click="$emit('close')">
-                <span class="pnav__thumb"><img :src="p.image" :alt="p.name" loading="lazy"></span>
-                <span class="pnav__cname">{{ p.name }}</span>
-              </nuxt-link>
-            </li>
-          </ul>
-        </section>
-
-        <!-- popular destinations -->
-        <section class="pnav__group">
-          <span class="pnav__gtitle">Popular Destinations</span>
-          <ul class="pnav__cards pnav__cards--dest">
-            <li v-for="d in featuredDestinations" :key="d.slug">
-              <nuxt-link :to="`/destinations/${d.slug}`" @click="$emit('close')">
-                <span class="pnav__thumb pnav__thumb--wide"><img :src="d.image" :alt="d.name" loading="lazy"></span>
-                <span class="pnav__cname">{{ d.name }}</span>
-              </nuxt-link>
-            </li>
-          </ul>
-        </section>
-
         <!-- contact -->
         <div class="pnav__contact">
           <span class="pnav__cheading">Prestige One Developments</span>
@@ -90,26 +64,9 @@
 
 <script setup lang="ts">
 import { primaryNav } from "../../data/menu-data-prestige";
-import { destinations } from "../../data/destinations-data";
-import { getAllProjects } from "../../data/projects";
 
 const props = defineProps<{ isOpen: boolean }>();
 defineEmits<{ close: [] }>();
-
-const FEATURED_SLUGS = [
-  "fauchon-residences-by-prestige-one",
-  "hilton-residences-dubai-maritime-city",
-  "sanctuary-residences-by-prestige-one",
-  "golf-residences-by-prestige-one",
-  "seaside-by-prestige-one",
-  "vista-by-prestige-one",
-];
-const bySlug = new Map(getAllProjects().map((p) => [p.slug, p]));
-const featuredProjects = FEATURED_SLUGS.map((s) => bySlug.get(s))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p))
-  .map((p) => ({ slug: p.slug, name: p.title.split(" by ")[0], image: p.image }));
-
-const featuredDestinations = destinations.slice(0, 6);
 
 watch(
   () => props.isOpen,

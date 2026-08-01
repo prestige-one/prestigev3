@@ -7,7 +7,8 @@
    every page regardless of any page-level theme class overrides. */
 html,
 body {
-	background-color: #000 !important;
+	/* lighter-than-pure black for a softer, less heavy feel */
+	background-color: #0e0e12 !important;
 }
 
 /* ---- site-wide font: "Google Sans", sans-serif ----
@@ -67,7 +68,7 @@ body {
 /* ---- shared inner-page primitives (used across the built-out site) ---- */
 .prestige-page {
 	position: relative;
-	background-color: #000;
+	background-color: #0e0e12;
 	color: rgba(255, 255, 255, 0.85);
 }
 

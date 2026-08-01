@@ -26,9 +26,17 @@
             <prestige-why-us />
             <!-- why prestige one area end -->
 
+            <!-- why dubai area start -->
+            <prestige-why-dubai />
+            <!-- why dubai area end -->
+
             <!-- where opportunity grows (locations map) area start -->
             <prestige-opportunity />
             <!-- where opportunity grows area end -->
+
+            <!-- client handover stories area start -->
+            <prestige-client-stories />
+            <!-- client handover stories area end -->
 
             <!-- contact form area start (centered single-column variant) -->
             <prestige-contact-form centered />
