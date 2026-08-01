@@ -306,7 +306,7 @@ onBeforeUnmount(() => {
   color: rgba(255, 255, 255, 0.55);
   transition: color 0.25s ease;
 }
-.prestige-nav__sub a:hover { color: var(--tp-common-gold, #d9b382); }
+.prestige-nav__sub a:hover { color: var(--tp-common-gold, #ffffff); }
 
 .prestige-nav__secondary {
   list-style: none;

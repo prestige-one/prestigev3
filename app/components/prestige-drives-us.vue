@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-drives-area pt-140 pb-140">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <header class="prestige-drives-header">
         <span class="prestige-drives-eyebrow">WHAT DRIVES US</span>
         <h2 class="prestige-drives-title tp_reveal_anim" data-delay="0.05">
@@ -99,7 +99,7 @@ const principles: PrestigeDrivePrinciple[] = [
 
 .prestige-drives-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(18px, 2.4vw, 30px);
 }
 

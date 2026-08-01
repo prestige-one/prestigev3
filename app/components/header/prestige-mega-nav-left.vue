@@ -222,7 +222,7 @@ onBeforeUnmount(cancelClose);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .lnv__cards { list-style: none; margin: 0; padding: 0; }
 .lnv__card {
@@ -251,20 +251,20 @@ onBeforeUnmount(cancelClose);
   color: rgba(255, 255, 255, 0.9);
   white-space: nowrap;
 }
-.lnv__card:hover .lnv__cardname { color: var(--tp-common-gold, #d9b382); }
+.lnv__card:hover .lnv__cardname { color: var(--tp-common-gold, #ffffff); }
 
 .lnv__viewall {
   display: block;
   margin: 8px 6px 4px;
   padding: 11px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(217, 179, 130, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   transition: background 0.25s ease, color 0.25s ease;
 }
-.lnv__viewall:hover { background: var(--tp-common-gold, #d9b382); color: #0b0b0d; }
+.lnv__viewall:hover { background: var(--tp-common-gold, #ffffff); color: #0b0b0d; }
 </style>

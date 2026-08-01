@@ -103,7 +103,7 @@ body {
 	font-size: 13px;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	color: var(--tp-common-gold, #d9b382);
+	color: var(--tp-common-gold, #ffffff);
 	margin-bottom: 18px;
 }
 .prestige-hero-band__title {
@@ -135,7 +135,7 @@ body {
 	font-size: 13px;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	color: var(--tp-common-gold, #d9b382);
+	color: var(--tp-common-gold, #ffffff);
 	margin-bottom: 16px;
 }
 .prestige-heading {
@@ -163,7 +163,7 @@ body {
 .prestige-prose p { margin-bottom: 1.3em; }
 .prestige-prose h2 { color: #fff; font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif); font-size: clamp(26px, 3vw, 40px); margin: 1.6em 0 0.6em; font-weight: 400; }
 .prestige-prose h3 { color: #fff; font-size: 22px; margin: 1.4em 0 0.5em; }
-.prestige-prose a { color: var(--tp-common-gold, #d9b382); text-decoration: underline; }
+.prestige-prose a { color: var(--tp-common-gold, #ffffff); text-decoration: underline; }
 .prestige-prose ul { margin: 0 0 1.3em 1.1em; }
 .prestige-prose li { margin-bottom: 0.5em; }
 
@@ -178,10 +178,10 @@ body {
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: #0b0b0d;
-	background: var(--tp-common-gold, #d9b382);
+	background: var(--tp-common-gold, #ffffff);
 	transition: transform 0.3s ease, background 0.3s ease;
 }
-.prestige-btn:hover { transform: translateY(-2px); color: #0b0b0d; background: #e7c79c; }
+.prestige-btn:hover { transform: translateY(-2px); color: #0b0b0d; background: #f0f0f0; }
 .prestige-btn--ghost {
 	color: #fff;
 	background: transparent;

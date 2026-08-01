@@ -139,7 +139,7 @@ usePrestigePage({ hero: false });
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-dest-card__name {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);

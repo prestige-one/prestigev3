@@ -68,6 +68,6 @@ defineProps<{
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--tp-common-gold, #d9b382);
+  background: var(--tp-common-gold, #ffffff);
 }
 </style>

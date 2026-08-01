@@ -228,7 +228,7 @@ usePrestigePage({ hero: false });
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   transition: letter-spacing 0.3s ease;
 }
 .prestige-tour:hover .prestige-tour__cta {

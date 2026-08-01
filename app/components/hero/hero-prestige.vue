@@ -182,7 +182,7 @@
     font-size: 13px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--tp-common-gold, #d9b382);
+    color: var(--tp-common-gold, #ffffff);
     opacity: 0;
     animation: prestigeHeroMobileIn 1s ease 0.8s forwards;
   }

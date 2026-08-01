@@ -181,7 +181,7 @@ usePrestigePage({ hero: false });
   margin-bottom: 16px;
 }
 .prestige-feature__cat {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-feature__dot {
   color: rgba(255, 255, 255, 0.35);

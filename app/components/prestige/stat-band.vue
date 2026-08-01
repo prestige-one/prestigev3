@@ -44,6 +44,6 @@ defineProps<{ stats: Stat[] }>();
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 </style>

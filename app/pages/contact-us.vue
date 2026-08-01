@@ -148,7 +148,7 @@ usePrestigePage({ hero: false });
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 .prestige-contact-card:hover {
-  border-color: rgba(217, 179, 130, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.04);
 }
 .prestige-contact-card__label {
@@ -156,7 +156,7 @@ usePrestigePage({ hero: false });
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   margin-bottom: 16px;
 }
 .prestige-contact-card__value {
@@ -169,7 +169,7 @@ usePrestigePage({ hero: false });
   word-break: break-word;
 }
 a.prestige-contact-card__value:hover {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-contact-card__value--address {
   font-size: 21px;
@@ -184,6 +184,6 @@ a.prestige-contact-card__value:hover {
   transition: color 0.3s ease;
 }
 a.prestige-contact-card__sub:hover {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 </style>

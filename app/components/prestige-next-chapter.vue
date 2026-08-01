@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-next-area pt-140 pb-160">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <div class="prestige-next-inner">
         <h2 class="prestige-next-title tp_reveal_anim" data-delay="0.05">
           The Vision Continues.
@@ -41,7 +41,7 @@
   pointer-events: none;
   background-image:
     radial-gradient(circle at 60% 40%, rgba(120, 210, 255, 0.16), transparent 60%),
-    radial-gradient(circle at 35% 65%, rgba(217, 179, 130, 0.14), transparent 60%);
+    radial-gradient(circle at 35% 65%, rgba(255, 255, 255, 0.14), transparent 60%);
   filter: blur(70px);
 }
 .prestige-next-inner {
@@ -53,9 +53,9 @@
 }
 .prestige-next-title {
   margin: 0 0 22px;
-  font-size: clamp(34px, 5vw, 68px);
+  font-size: clamp(25px, 2.3vw, 40px);
   font-weight: 500;
-  line-height: 1.06;
+  line-height: 1.12;
   letter-spacing: -1px;
   color: #fff;
 }
@@ -86,9 +86,9 @@
 .prestige-next-btn:hover span { transform: translateX(4px); }
 .prestige-next-btn--solid {
   color: #0b0b0d;
-  background: var(--tp-common-gold, #d9b382);
+  background: var(--tp-common-gold, #ffffff);
 }
-.prestige-next-btn--solid:hover { color: #0b0b0d; background: #e7c79c; transform: translateY(-2px); }
+.prestige-next-btn--solid:hover { color: #0b0b0d; background: #f0f0f0; transform: translateY(-2px); }
 .prestige-next-btn--ghost {
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.25);

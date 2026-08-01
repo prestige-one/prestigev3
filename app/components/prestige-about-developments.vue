@@ -138,7 +138,7 @@ const developmentsByYear = YEARS.map((block) => ({
   top: 120px;
   align-self: start;
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(46px, 5vw, 78px);
+  font-size: clamp(46px, 5vw, 55px);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -1px;
@@ -208,7 +208,7 @@ const developmentsByYear = YEARS.map((block) => ({
 .prestige-devyears-loc {
   font-size: 12.5px;
   letter-spacing: 0.4px;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-devyears-card:hover .prestige-devyears-name {
   color: #fff;

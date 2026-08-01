@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-global-area pt-140 pb-140">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <header class="prestige-global-header">
         <span class="prestige-global-eyebrow">GLOBAL PERSPECTIVE</span>
         <h2 class="prestige-global-title tp_reveal_anim" data-delay="0.05">
@@ -10,14 +10,15 @@
           A wider perspective, shaping what we create in Dubai.
         </p>
       </header>
+    </div>
 
-      <div class="prestige-global-map tp_fade_anim" data-fade-from="bottom" data-fade-offset="30">
-        <img
-          src="/assets/images/v2/pages/global-present.webp"
-          alt="Prestige One global perspective"
-          loading="lazy"
-        >
-      </div>
+    <!-- full-bleed map -->
+    <div class="prestige-global-map tp_fade_anim" data-fade-from="bottom" data-fade-offset="30">
+      <img
+        src="/assets/images/v2/pages/global-present.webp"
+        alt="Prestige One global perspective"
+        loading="lazy"
+      >
     </div>
   </section>
 </template>
@@ -56,8 +57,8 @@
   color: rgba(255, 255, 255, 0.65);
 }
 .prestige-global-map {
+  width: 100%;
   overflow: hidden;
-  border-radius: 12px;
 }
 .prestige-global-map img {
   width: 100%;

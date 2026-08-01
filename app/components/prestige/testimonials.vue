@@ -64,13 +64,13 @@ const items: Testimonial[] = [
   background: rgba(255, 255, 255, 0.02);
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
-.prestige-tst__card:hover { border-color: rgba(217, 179, 130, 0.5); transform: translateY(-3px); }
+.prestige-tst__card:hover { border-color: rgba(255, 255, 255, 0.5); transform: translateY(-3px); }
 .prestige-tst__quote {
   display: block;
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
   font-size: 60px;
   line-height: 0.6;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   margin-bottom: 14px;
 }
 .prestige-tst__text {
@@ -89,6 +89,6 @@ const items: Testimonial[] = [
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 </style>

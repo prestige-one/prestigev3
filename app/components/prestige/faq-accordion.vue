@@ -77,7 +77,7 @@ function toggle(i: number) {
   left: 50%;
   width: 16px;
   height: 1.5px;
-  background: var(--tp-common-gold, #d9b382);
+  background: var(--tp-common-gold, #ffffff);
   transform: translate(-50%, -50%);
   transition: transform 0.3s ease;
 }

@@ -44,7 +44,7 @@ withDefaults(
 }
 .prestige-amen__num {
   font-size: 13px;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   font-variant-numeric: tabular-nums;
 }
 .prestige-amen__label {

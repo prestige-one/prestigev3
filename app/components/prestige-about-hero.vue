@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-about-hero-area pt-200 pb-120">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <div class="row justify-content-center">
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">

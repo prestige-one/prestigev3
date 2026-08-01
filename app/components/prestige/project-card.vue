@@ -59,7 +59,7 @@ defineProps<{ project: Project }>();
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-pcard__title {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);

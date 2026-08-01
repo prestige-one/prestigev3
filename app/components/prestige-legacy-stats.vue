@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-legacy-area pb-40">
-    <div class="container container-1230 prestige-legacy-panel">
+    <div class="container container-1430 prestige-legacy-panel">
       <div class="prestige-legacy-header">
         <span class="prestige-legacy-eyebrow">OUR LEGACY</span>
         <h2 class="prestige-legacy-title tp_reveal_anim" data-delay="0.05">

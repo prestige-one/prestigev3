@@ -185,7 +185,7 @@ async function onSubmit() {
   margin-top: 14px;
 }
 .prestige-broker-form__status--success {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-broker-form__status--error {
   color: #ff8a8a;

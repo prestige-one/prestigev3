@@ -307,7 +307,7 @@ usePrestigePage({ hero: false });
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   margin-bottom: 16px;
 }
 .prestige-detail__poi,
@@ -336,7 +336,7 @@ usePrestigePage({ hero: false });
   font-size: 16px;
   color: rgba(255, 255, 255, 0.82);
 }
-.prestige-detail__poi-time { color: var(--tp-common-gold, #d9b382); white-space: nowrap; }
+.prestige-detail__poi-time { color: var(--tp-common-gold, #ffffff); white-space: nowrap; }
 .prestige-detail__poi--stack li {
   display: block;
   padding: 12px 0;
@@ -362,7 +362,7 @@ usePrestigePage({ hero: false });
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--tp-common-gold, #d9b382);
+  background: var(--tp-common-gold, #ffffff);
 }
 .prestige-detail__plan {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -381,7 +381,7 @@ usePrestigePage({ hero: false });
 .prestige-detail__plan-value {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
   font-size: 34px;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-detail__note {
   margin-top: 18px;
@@ -410,7 +410,7 @@ usePrestigePage({ hero: false });
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   white-space: nowrap;
 }
 .prestige-detail__docget i { font-style: normal; }

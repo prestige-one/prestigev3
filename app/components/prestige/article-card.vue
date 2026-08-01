@@ -68,7 +68,7 @@ const formattedDate = computed(() =>
   text-transform: uppercase;
 }
 .prestige-acard__cat {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-acard__dot {
   color: rgba(255, 255, 255, 0.35);

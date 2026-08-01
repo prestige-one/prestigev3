@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-founder-area pb-140">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <div class="prestige-founder-layout">
         <figure
           class="prestige-founder-portrait-panel tp_fade_anim"

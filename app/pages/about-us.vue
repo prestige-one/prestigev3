@@ -366,12 +366,12 @@ usePrestigePage({ hero: false });
   gap: 10px;
   padding: 11px 24px;
   border-radius: 40px;
-  border: 1px solid rgba(217, 179, 130, 0.4);
-  background: rgba(217, 179, 130, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-about__badge-star {
   font-size: 14px;
@@ -409,7 +409,7 @@ usePrestigePage({ hero: false });
   color: #fff;
 }
 .prestige-about__ceo-name span {
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   font-size: 15px;
   font-family: inherit;
 }
@@ -430,7 +430,7 @@ usePrestigePage({ hero: false });
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
   font-size: clamp(22px, 2.4vw, 30px);
   line-height: 1.1;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
 }
 .prestige-about__ceo-tile-label {
   display: block;

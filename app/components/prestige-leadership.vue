@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-leadership-area pt-140 pb-140">
-    <div class="container container-1230">
+    <div class="container container-1430">
       <header class="prestige-leadership-header">
         <span class="prestige-leadership-eyebrow">OUR LEADERSHIP</span>
         <h2 class="prestige-leadership-title tp_reveal_anim" data-delay="0.05">

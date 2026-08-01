@@ -148,8 +148,8 @@ usePrestigePage({ hero: false });
 }
 .prestige-filter__btn.active {
   color: #0b0b0d;
-  background: var(--tp-common-gold, #d9b382);
-  border-color: var(--tp-common-gold, #d9b382);
+  background: var(--tp-common-gold, #ffffff);
+  border-color: var(--tp-common-gold, #ffffff);
 }
 .prestige-filter__count {
   font-size: 11px;

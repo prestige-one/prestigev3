@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.25s ease;
 }
-.pnav__secondary a:hover { color: var(--tp-common-gold, #d9b382); }
+.pnav__secondary a:hover { color: var(--tp-common-gold, #ffffff); }
 .pnav__meta { display: flex; flex-direction: column; gap: 10px; }
 .pnav__contact {
   font-size: 14px;

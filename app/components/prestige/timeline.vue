@@ -49,10 +49,10 @@ defineProps<{ items: TimelineItem[] }>();
   transform: translateX(-50%);
   background: linear-gradient(
     180deg,
-    rgba(217, 179, 130, 0) 0%,
-    rgba(217, 179, 130, 0.55) 10%,
-    rgba(217, 179, 130, 0.55) 90%,
-    rgba(217, 179, 130, 0) 100%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 10%,
+    rgba(255, 255, 255, 0.55) 90%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 /* each row: text on one side of the centre line, image on the other */
@@ -91,8 +91,8 @@ defineProps<{ items: TimelineItem[] }>();
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: var(--tp-common-gold, #d9b382);
-  box-shadow: 0 0 0 6px rgba(217, 179, 130, 0.12);
+  background: var(--tp-common-gold, #ffffff);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.12);
 }
 .prestige-timeline__year {
   display: block;
@@ -101,7 +101,7 @@ defineProps<{ items: TimelineItem[] }>();
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.01em;
-  color: var(--tp-common-gold, #d9b382);
+  color: var(--tp-common-gold, #ffffff);
   margin-bottom: 10px;
 }
 .prestige-timeline__title {
