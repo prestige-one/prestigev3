@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Our Portfolio"
-              title="Developments"
-              lead="A diverse portfolio of residential and commercial addresses across Dubai's most prestigious destinations - each one built for how people actually want to live."
+              eyebrow="Our Developments"
+              title="Welcome to the World of Prestige"
+              lead="Explore our collection of residences and commercial addresses across Dubai's most prestigious destinations."
               image="/assets/images/v3/projects-hero-skyline.webp"
             />
 
@@ -110,15 +110,15 @@ const ORDER = [
   "fauchon-residences-by-prestige-one",
   "sanctuary-residences-by-prestige-one",
   "hilton-residences-dubai-maritime-city",
-  "seaside-by-prestige-one",
-  "golf-residences-by-prestige-one",
-  "berkeley-square-south",
   "berkeley-square-north",
+  "berkeley-square-south",
   "luxury-canal-residences-by-prestige-one",
   "coastal-haven-by-prestige-one",
   "the-boulevard-by-prestige-one",
   "parkway-by-prestige-one",
+  "golf-residences-by-prestige-one",
   "the-one-by-prestige-one",
+  "seaside-by-prestige-one",
   "waterway-by-prestige-one",
   "vista-by-prestige-one",
   "the-residence-by-prestige-one",

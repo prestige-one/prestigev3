@@ -7,16 +7,17 @@ export interface DevelopmentSlide {
   href: string;
 }
 
-// Order, taglines and locations follow the official Homepage Content Plan
-// (Our Developments). Titles keep the "by Prestige One" form where it keeps
-// generated slugs stable (enrichment in projects.ts keys on those slugs).
+// Taglines & locations follow the official Projects-page content plan. Titles
+// keep the "by Prestige One" form where it keeps generated slugs stable
+// (enrichment in projects.ts keys on those slugs). Display order on the
+// Projects page is controlled by the ORDER list in pages/projects/index.vue.
 const residentialDevelopments: DevelopmentSlide[] = [
   {
     id: 1,
     image: "/assets/project-featured-images/sliders/vista.webp",
     title: "Vista by Prestige One",
     location: "Dubai Sports City",
-    description: "Open views and modern comfort for everyday living.",
+    description: "Contemporary residences designed around panoramic views.",
     href: "#",
   },
   {
@@ -24,7 +25,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/residence.webp",
     title: "The Residence by Prestige One",
     location: "Jumeirah Village Circle",
-    description: "Thoughtful spaces shaped around contemporary lifestyles.",
+    description: "Boutique living with thoughtful design.",
     href: "#",
   },
   {
@@ -32,7 +33,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/waterway.webp",
     title: "Waterway by Prestige One",
     location: "Meydan Horizon",
-    description: "Crystal lagoons and peaceful waterfront surroundings.",
+    description: "Serene living inspired by the water.",
     href: "#",
   },
   {
@@ -40,7 +41,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/seaside.webp",
     title: "Seaside by Prestige One",
     location: "Dubai Islands",
-    description: "Island living with the comfort of city life.",
+    description: "A peaceful waterfront retreat.",
     href: "#",
   },
   {
@@ -48,7 +49,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/parkway.webp",
     title: "Parkway by Prestige One",
     location: "Meydan Horizon",
-    description: "Green spaces, calm surroundings, and a community made for families.",
+    description: "Nature-inspired living designed for balance.",
     href: "#",
   },
   {
@@ -56,7 +57,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/the-one-1.webp",
     title: "The One by Prestige One",
     location: "Barsha Heights",
-    description: "State-of-the-art workspaces for modern professionals.",
+    description: "Modern workspaces for today's professionals.",
     href: "#",
   },
   {
@@ -64,7 +65,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/boulevard.webp",
     title: "The Boulevard by Prestige One",
     location: "DLRC",
-    description: "Wellness-focused amenities with everyday convenience close at hand.",
+    description: "Bold urban living for modern lifestyles.",
     href: "#",
   },
   {
@@ -72,7 +73,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/coastal-heaven.webp",
     title: "Coastal Haven by Prestige One",
     location: "Dubai Islands",
-    description: "Private pools, Gulf views, and open spaces by the sea.",
+    description: "Coastal living with breathtaking Gulf views.",
     href: "#",
   },
   {
@@ -80,7 +81,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/luxury-canal.webp",
     title: "Luxury Canal Residences by Prestige One",
     location: "Dubai Islands",
-    description: "Effortless comfort with an elegant way of life.",
+    description: "Waterfront living inspired by the rhythm of Dubai Islands.",
     href: "#",
   },
   {
@@ -88,7 +89,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/palm-villa/Palm-Jumierah-Villa.webp",
     title: "Palm Villa by Prestige One",
     location: "Palm Jumeirah",
-    description: "Private villa living in one of Dubai's most iconic destinations.",
+    description: "Exclusive living, designed for privacy.",
     href: "#",
   },
   {
@@ -96,7 +97,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/luxe-villa.webp",
     title: "Luxe Villa by Prestige One",
     location: "Palm Jumeirah",
-    description: "Refined villa living with privacy at its heart.",
+    description: "Private villa living with timeless elegance.",
     href: "#",
   },
   {
@@ -104,7 +105,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/berkeley-north.webp",
     title: "Berkeley Square North",
     location: "Jumeirah Village Circle",
-    description: "Refined finishes and well-planned spaces made for balance and comfort.",
+    description: "Timeless architecture inspired by London living.",
     href: "#",
   },
   {
@@ -112,7 +113,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/berkeley-south.webp",
     title: "Berkeley Square South",
     location: "Jumeirah Village Circle",
-    description: "A landscaped courtyard, natural light, and open spaces to enjoy every day.",
+    description: "Where open spaces shape everyday living.",
     href: "#",
   },
   {
@@ -120,7 +121,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/hilton-1.webp",
     title: "Hilton Residences Dubai Maritime City",
     location: "Dubai Maritime City",
-    description: "Hilton-branded residences with uninterrupted sea and skyline views.",
+    description: "Waterfront living inspired by the Hilton way of life.",
     href: "#",
   },
   {
@@ -136,16 +137,15 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/fauchon.webp",
     title: "FAUCHON Résidences by Prestige One",
     location: "Jumeirah Garden City",
-    description: "Parisian elegance brought to Dubai through the iconic Fauchon brand.",
+    description: "Parisian-inspired living with the iconic FAUCHON lifestyle.",
     href: "#",
   },
-  // Real projects kept available beyond the featured plan order.
   {
     id: 18,
     image: "/assets/project-featured-images/sliders/golf-1.webp",
     title: "Golf Residences by Prestige One",
     location: "Dubai Sports City",
-    description: "Contemporary residences designed for active family living, with panoramic golf views.",
+    description: "Uninterrupted golf course views, every day.",
     href: "#",
   },
   {
@@ -153,7 +153,7 @@ const residentialDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/sliders/seascape-1.webp",
     title: "Seascape Villa",
     location: "Palm Jumeirah",
-    description: "A private escape into luxury where the serene embrace of the sea welcomes you.",
+    description: "A private escape by the sea.",
     href: "#",
   },
 ];
