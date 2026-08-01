@@ -26,12 +26,8 @@
             <prestige-why-us />
             <!-- why prestige one area end -->
 
-            <!-- testimonials area start -->
-            <prestige-testimonials />
-            <!-- testimonials area end -->
-
-            <!-- contact form area start -->
-            <prestige-contact-form />
+            <!-- contact form area start (centered single-column variant) -->
+            <prestige-contact-form centered />
             <!-- contact form area end -->
 
           </main>
