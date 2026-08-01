@@ -26,6 +26,10 @@
             <prestige-why-us />
             <!-- why prestige one area end -->
 
+            <!-- where opportunity grows (locations map) area start -->
+            <prestige-opportunity />
+            <!-- where opportunity grows area end -->
+
             <!-- contact form area start (centered single-column variant) -->
             <prestige-contact-form centered />
             <!-- contact form area end -->

@@ -33,10 +33,17 @@ defineProps<{ stats: Stat[] }>();
 }
 .prestige-statband__value {
   display: block;
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(40px, 5vw, 68px);
+  font-family: "Google Sans", sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -1px;
   line-height: 1;
-  color: #fff;
+  color: transparent;
+  background: linear-gradient(180deg, #f8fcff 0%, #b7cad7 22%, #819bab 23%, #edf8ff 46%, #7896aa 47%, #eaf6ff 79%, #9bb4c5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);
 }
 .prestige-statband__label {
   display: block;

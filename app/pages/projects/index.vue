@@ -16,6 +16,12 @@
 
             <section class="prestige-section">
               <div class="container container-1430">
+                <!-- search -->
+                <div class="prestige-search tp_fade_anim" data-delay=".15">
+                  <svg class="prestige-search__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+                  <input v-model="search" type="search" placeholder="Search projects by name or location…">
+                </div>
+
                 <!-- filter tabs -->
                 <div class="prestige-filter tp_fade_anim" data-delay=".2">
                   <button
@@ -146,13 +152,16 @@ watch(
   },
 );
 
-const filtered = computed(() =>
-  all.filter(
+const search = ref("");
+const filtered = computed(() => {
+  const q = search.value.trim().toLowerCase();
+  return all.filter(
     (p) =>
       (activeCategory.value === "all" || p.category === activeCategory.value) &&
-      (activeLocation.value === "All" || p.location === activeLocation.value),
-  ),
-);
+      (activeLocation.value === "All" || p.location === activeLocation.value) &&
+      (!q || p.title.toLowerCase().includes(q) || p.location.toLowerCase().includes(q)),
+  );
+});
 
 function countFor(key: CatKey) {
   return key === "all" ? all.length : all.filter((p) => p.category === key).length;
@@ -167,6 +176,29 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+.prestige-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 440px;
+  margin-bottom: 26px;
+  padding: 13px 20px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+}
+.prestige-search__icon { color: rgba(255, 255, 255, 0.5); flex: 0 0 auto; }
+.prestige-search input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14.5px;
+}
+.prestige-search input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
 .prestige-filter {
   display: flex;
   flex-wrap: wrap;

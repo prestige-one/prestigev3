@@ -3,40 +3,38 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Full name*</label>
-          <input v-model="form.name" name="name" type="text">
+          <label>Full name</label>
+          <input v-model="form.name" name="name" type="text" placeholder="Enter your full name">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Email address*</label>
-          <input v-model="form.email" name="email" type="email">
+          <label>Email address</label>
+          <input v-model="form.email" name="email" type="email" placeholder="Enter your email address">
         </div>
       </div>
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
-          <label>Phone number*</label>
+          <label>Phone number</label>
           <div class="prestige-phone-field">
             <select v-model="selectedCountry" name="phone_country" class="prestige-phone-code">
               <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
                 {{ getFlagEmoji(country.iso2) }} {{ country.dial }}
               </option>
             </select>
-            <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number">
+            <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number" placeholder="Enter your phone number">
           </div>
         </div>
       </div>
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
-          <label>How Can We Help You*
-          </label>
-          <textarea v-model="form.message" name="message" />
+          <label>How Can We Help You?</label>
+          <textarea v-model="form.message" name="message" placeholder="Tell us more about your inquiry" />
         </div>
         <div class="tp-contact-form-btn">
-          <button class="w-100" type="submit" :disabled="status === 'submitting'"><span>
-              <span class="text-1">{{ status === 'submitting' ? 'Sending…' : 'Send Message' }}</span>
-              <span class="text-2">{{ status === 'submitting' ? 'Sending…' : 'Send Message' }}</span>
-            </span>
+          <button class="prestige-send" type="submit" :disabled="status === 'submitting'">
+            <span class="prestige-send__label">{{ status === 'submitting' ? 'Sending…' : 'Send Message' }}</span>
+            <span class="prestige-send__arrow" aria-hidden="true">→</span>
           </button>
           <p v-if="responseMsg" class="ajax-response mt-5" :class="`is-${status}`">{{ responseMsg }}</p>
         </div>
@@ -80,6 +78,38 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+/* white pill send button with dark arrow circle (matches the mock) */
+.prestige-send {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 8px 8px 30px;
+  border: none;
+  border-radius: 60px;
+  background: #fff;
+  color: #0b0b0d;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.prestige-send:hover { background: #efefef; transform: translateY(-2px); }
+.prestige-send:disabled { opacity: 0.6; cursor: default; transform: none; }
+.prestige-send__arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0b0b0d;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
 .ajax-response {
   font-size: 14px;
 }
