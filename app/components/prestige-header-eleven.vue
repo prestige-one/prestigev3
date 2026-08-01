@@ -21,19 +21,14 @@
                         <div class="col-xl-3 col-lg-8 col-6">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
-                                        <span class="tp-btn-black btn-white-bg">
-                                            <span class="tp-btn-black-filter-blur">
-                                                <svg-btn-blur-filter filter-id="buttonFilter11" />
-                                            </span>
-                                            <span class="tp-btn-black-filter d-inline-flex align-items-center" style="filter: url(#buttonFilter11)">
-                                                <nuxt-link href="/contact-us" class="tp-btn-black-text">
-                                                    Get in touch
-                                                </nuxt-link>
-                                                <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="tp-btn-black-circle tp-btn-black-circle-whatsapp">
-                                                    <svg-social-whatsapp-three />
-                                                </nuxt-link>
-                                            </span>
-                                        </span>
+                                    <div class="prestige-getintouch">
+                                        <nuxt-link href="/contact-us" class="prestige-getintouch__text">
+                                            Get in touch
+                                        </nuxt-link>
+                                        <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="prestige-getintouch__wa" aria-label="WhatsApp">
+                                            <svg-social-whatsapp-three />
+                                        </nuxt-link>
+                                    </div>
                                 </div>
                                 <!-- menu-panel trigger — shown at the end on every breakpoint
                                      (desktop included); opens the full slide-in menu panel -->
@@ -84,10 +79,25 @@ const openMobileOffcanvas = ref(false);
   -webkit-backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.2);
 }
-/* the WhatsApp glyph is an icon-font <i>, size/colour it to match the circle */
-.prestige-header-eleven :deep(.tp-btn-black-circle-whatsapp) {
-  font-size: 27px;
+/* "Get in touch" — plain white text link + green WhatsApp, no white pill */
+.prestige-header-eleven :deep(.prestige-getintouch) {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.prestige-header-eleven :deep(.prestige-getintouch__text) {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
+}
+.prestige-header-eleven :deep(.prestige-getintouch__text:hover) { opacity: 0.72; }
+.prestige-header-eleven :deep(.prestige-getintouch__wa) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
   color: #25D366;
-  padding-top: 2px;
 }
 </style>

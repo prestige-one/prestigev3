@@ -61,7 +61,7 @@ const YEARS: { year: string; titles: string[] }[] = [
     titles: [
       "Waterway by Prestige One",
       "Seaside by Prestige One",
-      "Place by Prestige One",
+      "Golf Residences by Prestige One",
       "Parkway by Prestige One",
       "The One by Prestige One",
     ],

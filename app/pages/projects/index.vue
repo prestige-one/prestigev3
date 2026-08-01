@@ -16,14 +16,16 @@
 
             <section class="prestige-section">
               <div class="container container-1430">
+                <!-- filter toolbar: search | project types | destinations -->
+                <div class="prestige-toolbar tp_fade_anim" data-delay=".15">
                 <!-- search -->
-                <div class="prestige-search tp_fade_anim" data-delay=".15">
+                <div class="prestige-search">
                   <svg class="prestige-search__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
                   <input v-model="search" type="search" placeholder="Search projects by name or location…">
                 </div>
 
                 <!-- filter tabs -->
-                <div class="prestige-filter tp_fade_anim" data-delay=".2">
+                <div class="prestige-filter">
                   <button
                     v-for="cat in projectCategories"
                     :key="cat.key"
@@ -36,17 +38,18 @@
                   </button>
                 </div>
 
-                <!-- destination filter -->
-                <div class="prestige-filter prestige-filter--dest tp_fade_anim" data-delay=".25">
-                  <button
-                    v-for="loc in locations"
-                    :key="loc"
-                    class="prestige-filter__btn prestige-filter__btn--sm"
-                    :class="{ active: activeLocation === loc }"
-                    @click="activeLocation = loc"
-                  >
-                    {{ loc }}
-                  </button>
+                <!-- destination filter (dropdown, to save vertical space) -->
+                <div class="prestige-dest">
+                  <div class="prestige-dest__select">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                    <select v-model="activeLocation" aria-label="Filter by destination">
+                      <option v-for="loc in locations" :key="loc" :value="loc">
+                        {{ loc === 'All' ? 'All Destinations' : loc }}
+                      </option>
+                    </select>
+                    <svg class="prestige-dest__caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
                 </div>
 
                 <!-- grid -->
@@ -176,13 +179,21 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+/* one-line toolbar: search | project types | destinations dropdown */
+.prestige-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  margin-bottom: 54px;
+}
 .prestige-search {
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 440px;
-  margin-bottom: 26px;
-  padding: 13px 20px;
+  flex: 1 1 240px;
+  max-width: 340px;
+  padding: 11px 20px;
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.03);
@@ -203,15 +214,44 @@ usePrestigePage({ hero: false });
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 16px;
 }
-.prestige-filter--dest {
-  gap: 8px;
-  margin-bottom: 56px;
+
+/* destination dropdown pushed to the right */
+.prestige-dest { margin-left: auto; }
+.prestige-dest__select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 42px 11px 18px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
 }
-.prestige-filter__btn--sm {
-  padding: 8px 16px;
-  font-size: 12.5px;
+.prestige-dest__select > svg:first-child { flex: 0 0 auto; color: rgba(255, 255, 255, 0.5); }
+.prestige-dest__select select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.prestige-dest__select select option { color: #111; }
+.prestige-dest__caret {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 767.98px) {
+  .prestige-search { max-width: none; flex-basis: 100%; }
+  .prestige-dest { margin-left: 0; }
+  .prestige-dest__select { width: 100%; }
 }
 .prestige-filter__btn {
   display: inline-flex;

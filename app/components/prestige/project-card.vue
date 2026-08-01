@@ -50,15 +50,31 @@ const soldOut = computed(() => SOLD_OUT.has(props.project.slug));
   position: absolute;
   top: 16px;
   left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 6px 12px;
+  padding: 7px 14px 7px 12px;
   border-radius: 40px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
+  background: linear-gradient(135deg, #10b56a, #0c8f52);
+  box-shadow: 0 8px 22px rgba(16, 181, 106, 0.38);
+}
+.prestige-pcard__status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: pcardPulse 1.8s ease-out infinite;
+}
+@keyframes pcardPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 /* distinctive SOLD OUT badge */
 .prestige-pcard__soldout {
@@ -86,10 +102,10 @@ const soldOut = computed(() => SOLD_OUT.has(props.project.slug));
 }
 .prestige-pcard__title {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 400;
   color: #fff;
-  margin: 7px 0 16px;
+  margin: 7px 0 14px;
   line-height: 1.2;
 }
 /* eye-catching pill button */
@@ -97,7 +113,7 @@ const soldOut = computed(() => SOLD_OUT.has(props.project.slug));
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 11px 22px;
+  padding: 5px 22px;
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.28);
   font-size: 12.5px;

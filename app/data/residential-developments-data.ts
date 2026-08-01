@@ -44,14 +44,6 @@ const residentialDevelopments: DevelopmentSlide[] = [
     href: "#",
   },
   {
-    id: 5,
-    image: "/assets/project-featured-images/sliders/golf-1.webp",
-    title: "Place by Prestige One",
-    location: "Dubai Sports City",
-    description: "Designer apartments in a vibrant urban setting.",
-    href: "#",
-  },
-  {
     id: 6,
     image: "/assets/project-featured-images/sliders/parkway.webp",
     title: "Parkway by Prestige One",
