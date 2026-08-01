@@ -66,7 +66,7 @@
                     <div class="tp-pd-2-overview-wrap">
                         <p>Solfeggio Obscuro is a music event shaped by the pulse of the underground,
                             where rhythm moves the body and sound opens the mind. Obscuro suggests
-                            more than darkness—it speaks to the hidden,</p>
+                            more than darkness-it speaks to the hidden,</p>
                         <p>the not immediately understood. That mood shaped a visual language that
                             doesn’t explain, but invites. Nothing screams for attention, but everything
                             pulls you in. It’s not trying to be nostalgic,</p>

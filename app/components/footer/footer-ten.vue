@@ -64,7 +64,7 @@
                           <div class="crp-footer-widget-info mb-40">
                               <h4 class="crp-footer-widget-title">Location</h4>
                               <a class="tp-line-white cream-2" href="https://www.google.com/maps" target="_blank">
-                                  Germany — 482 15h Street, Office
+                                  Germany - 482 15h Street, Office
                                   426 Berlin, De 80500
                               </a>
                           </div>

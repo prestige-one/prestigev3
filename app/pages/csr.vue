@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Our Commitment"
               title="Corporate Social Responsibility"
-              lead="Building responsibly means looking beyond the buildings — to the communities we serve and the environment we share."
+              lead="Building responsibly means looking beyond the buildings - to the communities we serve and the environment we share."
               image="/assets/images/v2/pages/core-values/sustainability.webp"
             >
               <template #actions>
@@ -30,7 +30,7 @@
                     <div class="prestige-prose tp_fade_anim" data-delay=".4">
                       <p>
                         At Prestige One, responsibility is built into everything we create. We believe
-                        that great developments should give back — enriching the communities around
+                        that great developments should give back - enriching the communities around
                         them and treading lightly on the environment they inhabit.
                       </p>
                       <p>
@@ -111,7 +111,7 @@ useSeoMeta({
 });
 
 const sustainabilityParagraphs: string[] = [
-  "Sustainability at Prestige One starts at the drawing board. We design for the climate we build in — orienting buildings to reduce solar gain, specifying high-performance glazing and insulation, and choosing efficient systems that cut energy and water use over the whole life of a development.",
+  "Sustainability at Prestige One starts at the drawing board. We design for the climate we build in - orienting buildings to reduce solar gain, specifying high-performance glazing and insulation, and choosing efficient systems that cut energy and water use over the whole life of a development.",
   "We favour responsibly sourced materials, design out waste on site, and integrate landscaping and shade that lower the urban heat around our buildings. The goal is simple: homes that cost less to run, last longer, and place a lighter demand on the resources of the city.",
 ];
 
@@ -123,7 +123,7 @@ const sustainabilityPoints: string[] = [
 ];
 
 const communityParagraphs: string[] = [
-  "A building is only as good as the life that happens around it. We design generous shared spaces — landscaped courtyards, walkable ground floors, gathering areas and amenities — that turn residents into neighbours and developments into genuine communities.",
+  "A building is only as good as the life that happens around it. We design generous shared spaces - landscaped courtyards, walkable ground floors, gathering areas and amenities - that turn residents into neighbours and developments into genuine communities.",
   "Beyond our own sites, we invest in the neighbourhoods we build in and support local initiatives that improve everyday life. We prioritise local partners and talent, and we design public realm that stays open, active and welcoming long after the last home is sold.",
 ];
 
@@ -135,8 +135,8 @@ const communityPoints: string[] = [
 ];
 
 const responsibleParagraphs: string[] = [
-  "Responsible building means uncompromising standards where it matters most — safety, ethics and lasting quality. We hold our contractors to strict health-and-safety practices, fair labour standards and transparent conduct on every site we run.",
-  "That discipline carries through to the finished home. Rigorous quality control, honest specifications and thorough handover checks mean the residence you buy is the residence you receive — built to endure, and backed by a developer that stands behind its work.",
+  "Responsible building means uncompromising standards where it matters most - safety, ethics and lasting quality. We hold our contractors to strict health-and-safety practices, fair labour standards and transparent conduct on every site we run.",
+  "That discipline carries through to the finished home. Rigorous quality control, honest specifications and thorough handover checks mean the residence you buy is the residence you receive - built to endure, and backed by a developer that stands behind its work.",
 ];
 
 const responsiblePoints: string[] = [

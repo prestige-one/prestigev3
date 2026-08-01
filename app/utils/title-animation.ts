@@ -126,7 +126,7 @@ export function charAnimation(): void {
       stagger: 0.05,
     });
 
-    // (optional) return cleanup if needed by caller — not returned here.
+    // (optional) return cleanup if needed by caller - not returned here.
   });
 }
 

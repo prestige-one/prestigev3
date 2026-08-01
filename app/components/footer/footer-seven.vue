@@ -70,7 +70,7 @@
                               </div>
                               <div class="ai-footer-contact-item">
                                   <a href="https://www.google.com/maps/" target="_blank">
-                                      The USA — <br> 685 15h Street, Office 408 Seattle, WA 80066
+                                      The USA - <br> 685 15h Street, Office 408 Seattle, WA 80066
                                   </a>
                               </div>
                           </div>

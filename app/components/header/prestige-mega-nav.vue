@@ -97,7 +97,7 @@
         <div v-show="active === 'destinations'" class="pmn__grid">
           <div class="pmn__col pmn__col--intro">
             <img src="/assets/images/v3/slogan.png" alt="The Heart of Every Location" class="pmn__intro-slogan">
-            <p>From waterfront districts to vibrant communities — explore the destinations where Prestige One is shaping the next chapter of luxury living.</p>
+            <p>From waterfront districts to vibrant communities - explore the destinations where Prestige One is shaping the next chapter of luxury living.</p>
           </div>
           <div class="pmn__col pmn__col--dcards">
             <span class="pmn__label">Our destinations</span>
@@ -155,7 +155,7 @@ let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
 // Vista Hub is excluded from the menu per request.
 const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
-// Featured NEW launches — curated & ordered so the mega leads with Prestige
+// Featured NEW launches - curated & ordered so the mega leads with Prestige
 // One's flagship current projects (branded / now-selling), NOT the older stock
 // entries. The full catalogue still lives on /projects ("explore all").
 const NEW_PROJECT_SLUGS = [
@@ -324,7 +324,7 @@ onBeforeUnmount(cancelClose);
 }
 /* transparent hover bridge upward to the header, so moving the mouse from a
    nav item down to the panel never crosses a dead gap that drops the hover.
-   IMPORTANT: pointer-events:none — the panel is teleported to <body> and paints
+   IMPORTANT: pointer-events:none - the panel is teleported to <body> and paints
    above the header, so a hit-testable bridge here would sit on top of the nav
    buttons and stop you hovering a sibling menu (Projects ⇄ Destinations). The
    320ms close delay already bridges the gap, so the strip stays purely visual. */

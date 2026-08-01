@@ -59,7 +59,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* hidden by default so the video reads clean and bright on load — GSAP
+/* hidden by default so the video reads clean and bright on load - GSAP
    fades it in (see prestige-hero-animation.ts) right before the headlines
    start appearing, then leaves it in place for the rest of the sequence. */
 .prestige-hero-overlay {
@@ -137,7 +137,7 @@
   padding: 20px 10px;
 }
  
-/* mobile-only static hero content — hidden on desktop where the GSAP
+/* mobile-only static hero content - hidden on desktop where the GSAP
    scroll sequence runs (>=992px) */
 .prestige-hero-mobile {
   display: none;

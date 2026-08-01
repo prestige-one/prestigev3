@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <!-- partner logos — supporting global-credibility strip (per content plan) -->
+      <!-- partner logos - supporting global-credibility strip (per content plan) -->
       <div class="prestige-why-us-partners">
         <span class="prestige-why-us-partners-label tp_fade_anim">In partnership with globally recognised brands</span>
         <div class="prestige-why-us-partners-logos">
@@ -128,7 +128,7 @@ const whyUsData: WhyUsItem[] = [
 </script>
 
 <style scoped>
-/* partner logos strip — monochrome, equal size, understated (per content plan) */
+/* partner logos strip - monochrome, equal size, understated (per content plan) */
 .prestige-why-us-partners {
   margin-top: 90px;
   text-align: center;
@@ -163,7 +163,7 @@ const whyUsData: WhyUsItem[] = [
 </style>
 
 <style scoped>
-/* thin separator from the section above (Upcoming Projects) — subtle,
+/* thin separator from the section above (Upcoming Projects) - subtle,
    matching the site's other hairline borders (e.g. footer copyright bar,
    offcanvas contact icons) rather than a hard visual break. */
 .prestige-why-us-area {
@@ -185,7 +185,7 @@ const whyUsData: WhyUsItem[] = [
   color: #fff;
 }
 
-/* text-paint reveal — same technique as the hero's 3 sentences: a gradient
+/* text-paint reveal - same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
    (see prestige-developments-reveal.ts) so it plays forward on scroll down
    and un-paints in reverse on scroll up, exactly like the hero sentences.
@@ -204,7 +204,7 @@ const whyUsData: WhyUsItem[] = [
   background-clip: text;
 }
 
-/* ---- Why Choose Prestige One — alternating feature rows ---- */
+/* ---- Why Choose Prestige One - alternating feature rows ---- */
 
 .prestige-why-us-rows {
   margin-top: 40px;
@@ -220,7 +220,7 @@ const whyUsData: WhyUsItem[] = [
 }
 
 /* pinSpacing is off (see portfolioAnimation()), so the next row's top
-   sits flush against this row's bottom with zero scroll runway — it starts
+   sits flush against this row's bottom with zero scroll runway - it starts
    climbing over the pinned row's content the instant scrolling continues,
    cutting off the image/title reveal before it finishes. This margin adds
    scroll distance between rows so each one's reveal has time to complete
@@ -238,7 +238,7 @@ const whyUsData: WhyUsItem[] = [
   text-align: right;
 }
 
-/* the section number — a small pill so it reads as a step marker rather
+/* the section number - a small pill so it reads as a step marker rather
    than a decorative numeral, echoing the "01/02/03/04" convention used
    throughout the site's process/step blocks. */
 .prestige-why-us-number {
@@ -300,7 +300,7 @@ const whyUsData: WhyUsItem[] = [
   }
 
   /* below xl the columns stack vertically, so keep every row left-reading
-     — the right-alignment only makes sense while the text sits beside the
+     - the right-alignment only makes sense while the text sits beside the
      image in a two-column row. */
   .prestige-why-us-content.text-align-right {
     margin-left: 0;

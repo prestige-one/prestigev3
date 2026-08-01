@@ -72,7 +72,7 @@ interface ProjectEnrichment {
 
 // Sensible, brand-plausible defaults so every project detail page reads as a
 // full page even before bespoke content is written. Clearly generic /
-// indicative — refine per project in a later content pass.
+// indicative - refine per project in a later content pass.
 const DEFAULT_AMENITIES = [
   "Infinity swimming pool",
   "State-of-the-art fitness centre",
@@ -122,7 +122,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${V2}/hilton/25770800_Prestige_SPL-3BED_M-Bathroom__.webp`,
     ],
     overview: [
-      "Life at Hilton Residences by Prestige One is a balance of elegance and ease — one of the most defining landmarks taking shape in Dubai Maritime City.",
+      "Life at Hilton Residences by Prestige One is a balance of elegance and ease - one of the most defining landmarks taking shape in Dubai Maritime City.",
       "Impeccable design, enriched by thoughtful amenities and elevated by the trusted Hilton name, brings branded waterfront living to a peninsula wrapped by the sea, with sweeping views of the harbour and the Dubai skyline.",
       "Residences range from considered one- and two-bedroom apartments to expansive duplexes, each finished to hotel-brand standards.",
     ],
@@ -166,7 +166,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${V2}/fauchon/fauchon-banner-x.webp`,
     ],
     overview: [
-      "FAUCHON Résidences brings the art de vivre of the storied Parisian maison to Dubai — branded residences where French elegance shapes every detail.",
+      "FAUCHON Résidences brings the art de vivre of the storied Parisian maison to Dubai - branded residences where French elegance shapes every detail.",
       "From curated interiors to signature gastronomy, life at FAUCHON is designed around comfort, character and everyday luxury.",
     ],
     highlights: [
@@ -193,7 +193,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${V2}/sanctuary/8.-Residential-Amenities-Gym-Level-9-Option-1-scaled.jpg`,
     ],
     overview: [
-      "Sanctuary by Prestige One is a more balanced kind of Dubai living in Meydan — residences and considered commercial spaces arranged around calm, greenery and connection.",
+      "Sanctuary by Prestige One is a more balanced kind of Dubai living in Meydan - residences and considered commercial spaces arranged around calm, greenery and connection.",
     ],
     highlights: [
       "Residential and commercial in one balanced community",
@@ -227,7 +227,7 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     overview:
       e.overview ?? [
         slide.description,
-        `Set in ${slide.location}, ${slide.title} reflects the Prestige One approach — well-connected locations, architecture designed around real living, and quality you can rely on. Every residence is planned to make the everyday feel effortless.`,
+        `Set in ${slide.location}, ${slide.title} reflects the Prestige One approach - well-connected locations, architecture designed around real living, and quality you can rely on. Every residence is planned to make the everyday feel effortless.`,
         "Backed by in-house expertise and careful execution, it is an address built to hold its value and its appeal for years to come.",
       ],
     highlights:
@@ -257,7 +257,7 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
 
 // Build the catalogue. Residential first (the marquee list), then commercial &
 // upcoming. De-dupe by slug (The One / Sanctuary Hive appear in both the
-// residential list and the commercial list — keep the residential card but the
+// residential list and the commercial list - keep the residential card but the
 // commercial category wins if only commercial defines it).
 const bySlug = new Map<string, Project>();
 

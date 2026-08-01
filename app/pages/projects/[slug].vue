@@ -68,7 +68,7 @@
                     data-delay=".2"
                   >
                     <div class="prestige-detail__shot">
-                      <img :src="img" :alt="`${project.title} — view ${i + 1}`" loading="lazy">
+                      <img :src="img" :alt="`${project.title} - view ${i + 1}`" loading="lazy">
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@
                   <div class="col-lg-5 mb-40">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Payment plan</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Flexible &amp; transparent</h2>
-                    <p class="prestige-detail__note tp_fade_anim" data-delay=".4">Indicative plan — speak to our team for the latest terms and availability.</p>
+                    <p class="prestige-detail__note tp_fade_anim" data-delay=".4">Indicative plan - speak to our team for the latest terms and availability.</p>
                   </div>
                   <div class="col-lg-6 offset-lg-1">
                     <div class="prestige-detail__plan tp_fade_anim" data-delay=".3">
@@ -212,7 +212,7 @@ if (!project.value) {
 
 const shortName = computed(() => project.value!.title.split(" by ")[0]);
 
-// The destination this project sits in — used to fill location facts (nearby
+// The destination this project sits in - used to fill location facts (nearby
 // drive times, connectivity, schools, hospitals) with real, researched data
 // instead of generic guesses. The project's own values win when present.
 const areaDest = computed(() => {
@@ -235,11 +235,11 @@ const faqs = computed<FaqItem[]>(() => {
   const p = project.value!;
   const items: FaqItem[] = [
     { q: `Where is ${shortName.value} located?`, a: `${p.title} is located in ${p.location}${nearby.value.length ? `. ${nearby.value.slice(0, 2).map((n) => `${n.name} is around ${n.time} away`).join(", and ")}` : ""}.` },
-    { q: "What is the payment plan?", a: `A flexible plan is available — typically ${p.paymentPlan.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(", ")}. Terms are indicative; contact our team for the latest.` },
+    { q: "What is the payment plan?", a: `A flexible plan is available - typically ${p.paymentPlan.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(", ")}. Terms are indicative; contact our team for the latest.` },
     { q: "What amenities are included?", a: `Residents enjoy ${p.amenities.slice(0, 5).join(", ").toLowerCase()} and more.` },
   ];
   if (schools.value.length || hospitals.value.length) {
-    items.push({ q: "Are schools and healthcare nearby?", a: `Yes — ${[...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ")} are within easy reach.` });
+    items.push({ q: "Are schools and healthcare nearby?", a: `Yes - ${[...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ")} are within easy reach.` });
   }
   items.push({ q: "Who is the developer and what is the status?", a: `${p.title} is developed by Prestige One and is currently ${p.status.toLowerCase()}. Register your interest for availability and pricing.` });
   return items;

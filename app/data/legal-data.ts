@@ -3,7 +3,7 @@
 // Holds the boilerplate-style copy for the site's three legal pages
 // (Privacy Policy, Terms & Conditions, Marketing Terms & Conditions).
 // Each document exposes an HTML `body` string rendered via v-html inside
-// the shared `.prestige-prose` styling. This is generic, authored content —
+// the shared `.prestige-prose` styling. This is generic, authored content -
 // not legal advice.
 
 export interface LegalDoc {

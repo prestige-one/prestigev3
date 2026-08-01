@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 /**
- * Text-paint reveal for the "Our Developments" title/subtitle — same
+ * Text-paint reveal for the "Our Developments" title/subtitle - same
  * gradient text-clip technique as the hero's 3 sentences, but driven by a
  * scrub ScrollTrigger (not a one-shot play) so it un-paints in reverse
  * when the user scrolls back up, exactly like the hero sentences do.
@@ -69,7 +69,7 @@ export function prestigeDevelopmentsReveal() {
   // Zoom each headline in as it enters, tied to the same scrub so it
   // un-zooms in reverse when scrolling back up past it. querySelectorAll
   // (not querySelector) because this page has more than one "Our
-  // Developments"-style section (residential + commercial) — a single
+  // Developments"-style section (residential + commercial) - a single
   // query would only ever animate the first one.
   const titles = document.querySelectorAll<HTMLElement>(
     ".prestige-developments-title:not(.prestige-load-title)"
@@ -92,7 +92,7 @@ export function prestigeDevelopmentsReveal() {
   });
 
   // Subtitles appear with a subtle zoom instead of the text-paint sweep
-  // used elsewhere — a lighter scale range than the title since it's a
+  // used elsewhere - a lighter scale range than the title since it's a
   // smaller supporting line, not the main headline.
   const subtitles = document.querySelectorAll<HTMLElement>(
     ".prestige-developments-subtitle:not(.prestige-load-subtitle)"
@@ -121,7 +121,7 @@ export function prestigeDevelopmentsReveal() {
   // position (same "top 85% -> top 40%" entrance window as everything
   // else here) so it reveals as soon as it scrolls into view. This used
   // to be chained to the subtitle's scroll position instead so it would
-  // only start after the subtitle finished — but that end point ("top
+  // only start after the subtitle finished - but that end point ("top
   // -20%" of the *subtitle*) worked out to well above the viewport by
   // the time it resolved, so the slogan (sitting lower on the page than
   // the subtitle) was still finishing its reveal after it had already

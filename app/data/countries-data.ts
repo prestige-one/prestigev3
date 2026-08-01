@@ -6,7 +6,7 @@ export interface Country {
 
 /**
  * Converts an ISO 3166-1 alpha-2 country code into its flag emoji by
- * mapping each letter to a Unicode regional indicator symbol — avoids
+ * mapping each letter to a Unicode regional indicator symbol - avoids
  * hand-typing ~195 flag glyphs (and any typos that would come with it).
  */
 export function getFlagEmoji(iso2: string): string {

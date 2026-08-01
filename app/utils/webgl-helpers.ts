@@ -29,7 +29,7 @@ export function slidePrevTransitionStart(): void {
 }
 
 export function slideNextTransitionStart(): void {
-  // The original functions were identical — replicate same behavior without 
+  // The original functions were identical - replicate same behavior without 
   const bullets = Array.from(document.querySelectorAll<HTMLElement>(".tp-slider-dot .swiper-pagination-bullet"));
 
   bullets.forEach((bullet) => {

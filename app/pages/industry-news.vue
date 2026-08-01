@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Media Center"
               title="Industry News"
-              lead="Market perspective and analysis on Dubai real estate — the trends shaping how and where people invest."
+              lead="Market perspective and analysis on Dubai real estate - the trends shaping how and where people invest."
               image="/assets/images/v2/our-destinations/dubai-Islands.webp"
             />
 
@@ -18,7 +18,7 @@
                   <div class="col-xl-9">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Reading the market</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>Dubai's property market rewards those who understand it. Here we share the trends, fundamentals and shifts we watch most closely — from the tax advantages that draw global capital to the rise of branded residences — so you can make decisions with clarity rather than guesswork.</p>
+                      <p>Dubai's property market rewards those who understand it. Here we share the trends, fundamentals and shifts we watch most closely - from the tax advantages that draw global capital to the rise of branded residences - so you can make decisions with clarity rather than guesswork.</p>
                     </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                   </div>
                 </div>
                 <p v-else class="prestige-prose text-center">
-                  No industry news just yet — check back soon for our latest market insight.
+                  No industry news just yet - check back soon for our latest market insight.
                 </p>
               </div>
             </section>
@@ -46,7 +46,7 @@
             <prestige-cta-band
               eyebrow="Invest with confidence"
               title="Turn insight into your next move"
-              text="Our team can help you translate the market into a decision — matching Dubai's fundamentals to the right Prestige One address for you."
+              text="Our team can help you translate the market into a decision - matching Dubai's fundamentals to the right Prestige One address for you."
               image="/assets/images/v2/locations/JBR.webp"
               primary-label="Speak to an advisor"
               primary-to="/contact-us"

@@ -14,7 +14,7 @@
             <div v-for="m in milestones" :key="m.year" class="swiper-slide">
               <article class="prestige-journey-card">
                 <div class="prestige-journey-thumb">
-                  <img :src="m.image" :alt="`${m.year} — ${m.title}`" loading="lazy">
+                  <img :src="m.image" :alt="`${m.year} - ${m.title}`" loading="lazy">
                   <div class="prestige-journey-overlay" />
                   <span class="prestige-journey-year">{{ m.year }}</span>
                 </div>
@@ -50,7 +50,7 @@ interface Milestone {
   image: string;
 }
 
-// Representative imagery drawn from the brand/project library — swap for real
+// Representative imagery drawn from the brand/project library - swap for real
 // archival photography per milestone when available.
 const milestones: Milestone[] = [
   { year: "1967", title: "A Strong Foundation", text: "Prestige Holding Group is established, beginning a business journey built over decades.", image: "/assets/images/v2/locations/downtown-dubai.webp" },

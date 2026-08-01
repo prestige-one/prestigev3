@@ -26,7 +26,7 @@
     </div>
 
     <!-- theater-mode coverflow slider, same effect as /dark/portfolio-coverflow-slider
-         (portfolio-coverflow-slider.vue) — kept as the original slider for
+         (portfolio-coverflow-slider.vue) - kept as the original slider for
          this first section; the two-row marquee variant
          (prestige-residential-marquee.vue) is not used here anymore. -->
     <prestige-coverflow-slider :slides="displaySlides" />
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import residentialDevelopments, { type DevelopmentSlide } from "../data/residential-developments-data";
 
-// optional override — pages can pass a curated subset (e.g. home-4 shows only
+// optional override - pages can pass a curated subset (e.g. home-4 shows only
 // the main projects); defaults to the full residential list.
 const props = defineProps<{ slides?: DevelopmentSlide[] }>();
 const displaySlides = computed(() =>
@@ -60,7 +60,7 @@ const displaySlides = computed(() =>
   color: #fff;
 }
 
-/* soft aurora-style glow behind the headline — same idea as the "why
+/* soft aurora-style glow behind the headline - same idea as the "why
    choose us" section's gradient-shape image on /dark/unique-ai-image, but
    rebuilt as a small, contained CSS gradient (that page's pastel PNG is
    sized for a full light-page backdrop and would bleed edge-to-edge here).
@@ -98,7 +98,7 @@ const displaySlides = computed(() =>
 }
 
 
-/* text-paint reveal — same technique as the hero's 3 sentences: a gradient
+/* text-paint reveal - same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
    (see prestige-developments-reveal.ts) so it plays forward on scroll down
    and un-paints in reverse on scroll up, exactly like the hero sentences. */

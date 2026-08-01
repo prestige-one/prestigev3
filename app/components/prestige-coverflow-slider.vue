@@ -84,7 +84,7 @@ const props = withDefaults(
 const sliderRoot = ref<HTMLElement | null>(null);
 
 // Swiper's loop mode needs roughly twice as many slides as can be visible
-// at once to loop reliably (the demo used 11 for the same reason) —
+// at once to loop reliably (the demo used 11 for the same reason) -
 // duplicate the real project list enough times to clear that. Bumped up
 // from 8 to cover ultra-wide viewports too: slide width is now a fixed
 // px value (see .coverflow-slider-active .swiper-slide below) rather than
@@ -106,7 +106,7 @@ onMounted(() => {
   // This component can appear more than once on a page (residential +
   // commercial development sliders), so every Swiper target is queried
   // from this instance's own root rather than a page-wide class selector
-  // — otherwise Swiper would only ever find the first instance's markup.
+  // - otherwise Swiper would only ever find the first instance's markup.
   const root = sliderRoot.value;
   if (!root) return;
 
@@ -116,10 +116,10 @@ onMounted(() => {
   const nextEl = root.querySelector<HTMLElement>(".coverflow-slider-next");
   if (!thumbEl || !textEl || !prevEl || !nextEl) return;
 
-  // main (image) swiper — no mousewheel interaction, autoplay only.
+  // main (image) swiper - no mousewheel interaction, autoplay only.
   // slidesPerView: "auto" makes Swiper size each slide from its own CSS
   // width (see .coverflow-slider-active .swiper-slide) instead of
-  // dividing the container width by a slide count — that container-width
+  // dividing the container width by a slide count - that container-width
   // division was the reason a boxed slider (commercial/upcoming, narrower
   // "contained" container) and a full-bleed one (residential, full
   // viewport width) rendered different-sized slides even at the same
@@ -150,11 +150,11 @@ onMounted(() => {
     },
   });
 
-  // text swiper — purely a follower, driven programmatically below.
+  // text swiper - purely a follower, driven programmatically below.
   // (autoHeight was tried here so each slide sizes to its title +
   // location + description content, but combined with loop mode and this
   // absolutely-positioned wrapper it made Swiper miscompute slide height
-  // as 6000px — a known-flaky combo. A fixed height sized generously for
+  // as 6000px - a known-flaky combo. A fixed height sized generously for
   // the tallest caption is far more predictable.)
   const coverflowTextSlider = new Swiper(textEl, {
     modules: [Keyboard],
@@ -170,7 +170,7 @@ onMounted(() => {
   // The Controller module keys its sync off scroll *progress*, which
   // diverges badly here because the two swipers have different
   // slidesPerView (image: 1-4 depending on breakpoint, text: always 1)
-  // and therefore different loop-clone counts — that mismatch left the
+  // and therefore different loop-clone counts - that mismatch left the
   // caption stuck on whichever slide happened to sit under the initial
   // progress value. Driving it by realIndex instead stays correct at
   // every breakpoint.
@@ -190,7 +190,7 @@ onMounted(() => {
 }
 
 /* the theme's base .coverflow-slider-text-wrap is `position: absolute;
-   bottom: 60px`, overlaid on top of the images — hard to read against a
+   bottom: 60px`, overlaid on top of the images - hard to read against a
    busy photo. Pulled into normal flow instead so the caption sits as its
    own block underneath the image row, never on top of it. */
 .coverflow-slider-text-wrap {
@@ -201,7 +201,7 @@ onMounted(() => {
   margin-top: 40px;
 }
 
-/* contained variant (commercial) sits in a narrower box — a slightly
+/* contained variant (commercial) sits in a narrower box - a slightly
    tighter gap than the full-bleed residential slider reads better there. */
 .coverflow-slider-contained .coverflow-slider-text-wrap {
   margin-top: 24px;
@@ -212,7 +212,7 @@ onMounted(() => {
 }
 
 /* the base theme pads the image swiper itself by 100px top/bottom
-   (_project-slider.scss .coverflow-slider-active { padding: 100px 0 }) —
+   (_project-slider.scss .coverflow-slider-active { padding: 100px 0 }) -
    on top of the .coverflow-slider-wrap height trim above, that leftover
    padding was still the biggest single contributor to the gap before the
    caption. Cut down instead of removed outright so the coverflow's 3D
@@ -221,7 +221,7 @@ onMounted(() => {
   padding: 20px 0;
 }
 
-/* fixed slide width for the image (thumb) swiper only — paired with
+/* fixed slide width for the image (thumb) swiper only - paired with
    slidesPerView: "auto" above, this is what makes every slide the same
    physical size regardless of slide count or whether the slider sits in
    a full-bleed or "contained" (boxed) section. Deliberately NOT applied
@@ -252,7 +252,7 @@ onMounted(() => {
 
 /* .coverflow-slider-item (the image box) is a fixed 500px tall in the
    base theme, but .coverflow-slider-wrap was a viewport-relative height
-   (55vh) — on anything taller than a ~900px-tall viewport that's bigger
+   (55vh) - on anything taller than a ~900px-tall viewport that's bigger
    than the 500px image it's centering, so the wrap's own box left dead
    space below the image before the caption even started. Matching the
    wrap's height to the image's exactly removes that empty space instead
@@ -265,7 +265,7 @@ onMounted(() => {
 
 /* fades the coverflow's outermost slides into the page's solid black
    background (main.scss sets body { background-color: #000 }) instead of
-   letting them hard-crop at the section edge — paired with the narrower
+   letting them hard-crop at the section edge - paired with the narrower
    max-width below (~5 slides' worth) so only 5 cards ever read as fully
    visible per side-trim request. */
 .coverflow-slider-edge-fade {
@@ -276,12 +276,12 @@ onMounted(() => {
   /* Swiper's coverflow effect assigns each .swiper-slide its own inline
      z-index (highest at the center slide, stepping down outward) which
      can run well into the double digits with this many loop-cloned
-     slides — a low z-index here just rendered underneath them. */
+     slides - a low z-index here just rendered underneath them. */
   z-index: 999;
   pointer-events: none;
 }
 
-/* solid for the outer half, only fading through the inner half — a fade
+/* solid for the outer half, only fading through the inner half - a fade
    starting at 0% opacity right away left the outermost sliver of the
    cropped 6th/7th slide still half-visible instead of fully hidden. */
 .coverflow-slider-edge-fade-left {
@@ -294,7 +294,7 @@ onMounted(() => {
   background: linear-gradient(to left, #000 0%, #000 55%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* caps how many coverflow cards can occupy the visible row at once —
+/* caps how many coverflow cards can occupy the visible row at once -
    without this the swiper container spans the full viewport and, at
    ultra-wide widths, fits 6-7 slide-widths (main + 3 per side) with the
    outermost ones peeking in half-cropped. Narrowing to ~5 slide-widths
@@ -318,7 +318,7 @@ onMounted(() => {
 }
 
 /* object-fit: contain (the base theme's default crop behavior aside) left
-   visible letterboxed bars — the item's own background — around any image
+   visible letterboxed bars - the item's own background - around any image
    whose aspect ratio didn't match the box, which read as a dark box edge
    against the section's gradient background. cover fills the box
    completely (trading a bit of edge-cropping for it) so no bg shows. */
@@ -345,7 +345,7 @@ onMounted(() => {
 }
 
 /* the theme's base .coverflow-slider-text-active is a fixed 100px tall,
-   sized for a single line of title text — bumped up to fit the title +
+   sized for a single line of title text - bumped up to fit the title +
    location line plus a 2-line description underneath. */
 .coverflow-slider-text-active {
   height: 190px;

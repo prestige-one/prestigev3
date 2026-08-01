@@ -29,7 +29,7 @@ export function usePrestigePage(options: PrestigePageOptions = {}) {
     const imagesLoaded = (await import("imagesloaded")).default;
     const smoothWrapper = document.getElementById("smooth-wrapper");
     if (!smoothWrapper) {
-      // no smooth wrapper on this page — still run reveal animations
+      // no smooth wrapper on this page - still run reveal animations
       runAnimations();
       return;
     }

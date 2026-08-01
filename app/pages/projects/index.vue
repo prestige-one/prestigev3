@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Our Portfolio"
               title="Developments"
-              lead="A diverse portfolio of residential and commercial addresses across Dubai's most prestigious destinations — each one built for how people actually want to live."
+              lead="A diverse portfolio of residential and commercial addresses across Dubai's most prestigious destinations - each one built for how people actually want to live."
               image="/assets/images/v3/projects-hero-skyline.webp"
             />
 
@@ -65,7 +65,7 @@
                 </div>
 
                 <p v-if="!filtered.length" class="prestige-prose text-center mt-40">
-                  No projects in this category yet — check back soon.
+                  No projects in this category yet - check back soon.
                 </p>
               </div>
             </section>
@@ -105,7 +105,7 @@ useSeoMeta({
 type CatKey = ProjectCategory | "all";
 const route = useRoute();
 const router = useRouter();
-// display order — latest / flagship first, the three villas last
+// display order - latest / flagship first, the three villas last
 const ORDER = [
   "fauchon-residences-by-prestige-one",
   "sanctuary-residences-by-prestige-one",

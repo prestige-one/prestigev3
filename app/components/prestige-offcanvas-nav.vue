@@ -102,7 +102,7 @@
           </div>
           <div class="prestige-nav__media-veil" />
           <!-- keyed span (no <transition> wrapper) remounts cleanly and plays
-               its CSS entry animation — robust even when not compositing -->
+               its CSS entry animation - robust even when not compositing -->
           <span :key="activeCaption" class="prestige-nav__media-caption">{{ activeCaption }}</span>
         </div>
       </div>
@@ -123,7 +123,7 @@ const props = defineProps<{ isOpen: boolean }>();
 const emit = defineEmits<{ close: [] }>();
 
 // double-buffer: two media layers, we flip which one is active so the old
-// one fades out while the new fades in — no orphaned/stacked DOM nodes.
+// one fades out while the new fades in - no orphaned/stacked DOM nodes.
 const layers = reactive<{ a: NavMedia; b: NavMedia }>({
   a: { ...defaultNavMedia },
   b: { type: "image", src: "", caption: "" },
@@ -189,7 +189,7 @@ onBeforeUnmount(() => {
   opacity: 1;
 }
 
-/* the sliding panel — full-screen glass */
+/* the sliding panel - full-screen glass */
 .prestige-nav__inner {
   position: absolute;
   inset: 0;

@@ -42,7 +42,7 @@ const root = ref<HTMLElement | null>(null);
 const inner = ref<HTMLElement | null>(null);
 
 // layered parallax: the hero copy drifts up and fades as the hero scrolls
-// away, at a different rate than the ken-burns image behind it — depth.
+// away, at a different rate than the ken-burns image behind it - depth.
 onMounted(async () => {
   if (import.meta.server) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

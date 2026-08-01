@@ -68,7 +68,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-// shared GSAP + scroll-smooth + reveal bootstrap (see usePrestigePage) — same
+// shared GSAP + scroll-smooth + reveal bootstrap (see usePrestigePage) - same
 // as the main index page, so the autoplay hero + gradient sections behave
 // identically here.
 usePrestigePage();

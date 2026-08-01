@@ -15,7 +15,7 @@
         <p class="prestige-timeline__desc">{{ item.text }}</p>
       </div>
       <div v-if="item.image" class="prestige-timeline__media">
-        <img :src="item.image" :alt="`${item.year} — ${item.title}`" loading="lazy">
+        <img :src="item.image" :alt="`${item.year} - ${item.title}`" loading="lazy">
       </div>
     </div>
   </div>

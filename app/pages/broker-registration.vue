@@ -70,7 +70,7 @@ usePrestigePage({ hero: false });
   margin-top: 60px;
 }
 
-/* dark form styling — mirror prestige-contact-form.vue, reaching into the
+/* dark form styling - mirror prestige-contact-form.vue, reaching into the
    broker-form child with :deep() so field colors win over the global sheet. */
 .prestige-broker-form-wrap :deep(.tp-contact-form-input label) {
   color: #fff !important;

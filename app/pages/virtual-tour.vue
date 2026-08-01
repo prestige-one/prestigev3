@@ -30,7 +30,7 @@
                     <div class="prestige-prose tp_fade_anim" data-delay=".4">
                       <p>
                         A home is something you feel long before you sign for it. Our virtual tours
-                        are built to give you that feeling from wherever you are — the sweep of a
+                        are built to give you that feeling from wherever you are - the sweep of a
                         skyline view, the flow between living and dining, the quality of light through
                         a floor-to-ceiling window.
                       </p>
@@ -38,7 +38,7 @@
                         Each film below moves through a signature Prestige One development. Watch at
                         your own pace, share it with family, and shortlist the residences that speak
                         to you. When you're ready, our team will pick up exactly where the tour leaves
-                        off — with floor plans, availability and a private appointment.
+                        off - with floor plans, availability and a private appointment.
                       </p>
                     </div>
                   </div>
@@ -116,7 +116,7 @@ definePageMeta({ layout: false });
 useSeoMeta({
   title: "Virtual Tour | Prestige One",
   description:
-    "Explore Prestige One's landmark Dubai residences through immersive virtual video tours — Hilton, FAUCHON, Sanctuary, Berkeley and Coastal.",
+    "Explore Prestige One's landmark Dubai residences through immersive virtual video tours - Hilton, FAUCHON, Sanctuary, Berkeley and Coastal.",
 });
 
 const tours: Tour[] = [
@@ -158,7 +158,7 @@ const tours: Tour[] = [
 ];
 
 const whyParagraphs: string[] = [
-  "Not everyone can be in Dubai this week — and the best homes rarely wait. A virtual tour closes that gap, letting you explore a residence in genuine detail from another city or another continent, at any hour that suits you.",
+  "Not everyone can be in Dubai this week - and the best homes rarely wait. A virtual tour closes that gap, letting you explore a residence in genuine detail from another city or another continent, at any hour that suits you.",
   "It's also the smartest way to shortlist. Compare layouts side by side, revisit the views that matter, and involve everyone in the decision before booking a single flight. By the time you visit in person, you already know exactly what you've come to see.",
 ];
 

@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 /**
- * @param topOffset Pixels to keep clear at the top when a panel pins — lets
+ * @param topOffset Pixels to keep clear at the top when a panel pins - lets
  * the pinned panel stop below a fixed header instead of sliding under it.
  * Defaults to 0 (pins flush to the viewport top, the original behavior).
  */

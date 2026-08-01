@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Blog"
               title="Insights & Stories"
-              lead="Perspectives on design, investment and living well in Dubai — from the team shaping Prestige One's communities."
+              lead="Perspectives on design, investment and living well in Dubai - from the team shaping Prestige One's communities."
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
 
@@ -18,7 +18,7 @@
               title="More than a place to live"
               image="/assets/images/v3/Designed-for-Real-Living.webp"
               :paragraphs="[
-                'Buying a home is one of the biggest decisions most people ever make — and one of the most personal. These pages are where we share what we have learned along the way, from the design choices that make a space feel like home to the practical realities of investing in Dubai.',
+                'Buying a home is one of the biggest decisions most people ever make - and one of the most personal. These pages are where we share what we have learned along the way, from the design choices that make a space feel like home to the practical realities of investing in Dubai.',
                 'No jargon, no hard sell. Just honest perspective from the people who design, build and stand behind every Prestige One address.',
               ]"
               :points="[
@@ -52,7 +52,7 @@
             <prestige-cta-band
               eyebrow="Let's talk"
               title="Have a question we haven't answered?"
-              text="Whether you are weighing your first purchase or adding to a portfolio, our team is happy to help you think it through — no obligation."
+              text="Whether you are weighing your first purchase or adding to a portfolio, our team is happy to help you think it through - no obligation."
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
               primary-label="Get in touch"
               primary-to="/contact-us"

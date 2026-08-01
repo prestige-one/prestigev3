@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <!-- bottom row, scrolling right — a different half of the project
+      <!-- bottom row, scrolling right - a different half of the project
            list than the top row (see script) so the same project never
            shows in both rows, moving opposite direction same as the
            Collaborators section's two-row logo marquee on
@@ -61,11 +61,11 @@ import residentialDevelopments from "../data/residential-developments-data";
 
 withDefaults(defineProps<{ hideTitle?: boolean }>(), { hideTitle: false });
 
-// split the project list in half — one half per row — so the same
+// split the project list in half - one half per row - so the same
 // project never appears in both rows at once (it used to be the full
 // list on both, just scrolling opposite ways, which read as duplicated
 // content). Each half is then doubled so its row's track is exactly two
-// copies wide — paired with the -50% keyframe below, that's what makes
+// copies wide - paired with the -50% keyframe below, that's what makes
 // the loop seamless: by the time it's translated a full copy-width, the
 // second copy sits exactly where the first started.
 const half = Math.ceil(residentialDevelopments.length / 2);
@@ -124,7 +124,7 @@ const bottomRowSlides = [
 }
 
 /* real project photography reads much smaller than the theme's usual
-   marquee content (brand logos, tag pills) at their default sizing —
+   marquee content (brand logos, tag pills) at their default sizing -
    sized up so each slide is a proper showcase card, not a strip icon. */
 .prestige-residential-marquee-item {
   position: relative;

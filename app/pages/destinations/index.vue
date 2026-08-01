@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Our Destinations"
               title="Prime locations"
-              lead="Prestige One builds where life is best lived — the waterfronts, communities and landmarks that define Dubai and beyond."
+              lead="Prestige One builds where life is best lived - the waterfronts, communities and landmarks that define Dubai and beyond."
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
 
@@ -19,8 +19,8 @@
               title="We build where Dubai lives best"
               image="/assets/images/v2/locations/downtown-dubai.webp"
               :paragraphs="[
-                'A home is only ever as good as the life around it. That belief guides every acquisition we make — before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.',
-                'From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water — the everyday things that make a place worth returning to.',
+                'A home is only ever as good as the life around it. That belief guides every acquisition we make - before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.',
+                'From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.',
               ]"
               :points="[
                 'Waterfront, community and landmark destinations across Dubai',
@@ -58,7 +58,7 @@
             <prestige-cta-band
               eyebrow="Find your address"
               title="Not sure where to begin?"
-              text="Tell us how you want to live and our team will point you to the destinations — and the developments — that fit. From first investment to forever home."
+              text="Tell us how you want to live and our team will point you to the destinations - and the developments - that fit. From first investment to forever home."
               image="/assets/images/v2/locations/Meydan.webp"
               primary-label="Speak to our team"
               primary-to="/contact-us"
@@ -81,7 +81,7 @@ definePageMeta({ layout: false });
 useSeoMeta({
   title: "Our Destinations | Prestige One",
   description:
-    "Explore the Dubai waterfronts, communities and landmarks where Prestige One builds — from Palm Jumeirah to Dubai Islands.",
+    "Explore the Dubai waterfronts, communities and landmarks where Prestige One builds - from Palm Jumeirah to Dubai Islands.",
 });
 
 function countFor(dest: Destination) {
@@ -89,11 +89,11 @@ function countFor(dest: Destination) {
   return n === 1 ? "1 development" : `${n} developments`;
 }
 
-const portfolioStats: { value: string; label: string }[] = [
-  { value: `${destinations.length}`, label: "Destinations" },
-  { value: `${getAllProjects().length}`, label: "Developments" },
-  { value: "AED 500M+", label: "Committed investment" },
-  { value: "100%", label: "Escrow-protected" },
+const portfolioStats: { value: string; label: string; col?: string }[] = [
+  { value: `${destinations.length}`, label: "Destinations", col: "col-lg-2 col-md-6" },
+  { value: `${getAllProjects().length}`, label: "Developments", col: "col-lg-3 col-md-6" },
+  { value: "AED 500M+", label: "Committed investment", col: "col-lg-4 col-md-6" },
+  { value: "100%", label: "Escrow-protected", col: "col-lg-3 col-md-6" },
 ];
 
 usePrestigePage({ hero: false });

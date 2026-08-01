@@ -22,7 +22,7 @@ const upcomingDevelopments: DevelopmentSlide[] = [
     image: "/assets/project-featured-images/prestige-square/prestige-square--blur.webp",
     title: "Prestige Square",
     location: "Dubai",
-    description: "A new Prestige One landmark taking shape — coming soon.",
+    description: "A new Prestige One landmark taking shape - coming soon.",
     href: "#",
   },
 ];

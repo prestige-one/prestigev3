@@ -18,7 +18,7 @@
     </div>
 
     <!-- project coverflow slider (same slider as the residential section, different
-         data) — boxed within the page container rather than full-bleed since
+         data) - boxed within the page container rather than full-bleed since
          there are only 2 projects, but still loops/autoplays like the
          residential slider. -->
     <prestige-coverflow-slider :slides="commercialDevelopments" contained />
@@ -40,7 +40,7 @@ import commercialDevelopments from "../data/commercial-developments-data";
 }
 
 /* same small, contained aurora-style glow as the residential section's
-   headline — see prestige-our-developments.vue for the full rationale. */
+   headline - see prestige-our-developments.vue for the full rationale. */
 .prestige-developments-title-box {
   position: relative;
 }
@@ -72,7 +72,7 @@ import commercialDevelopments from "../data/commercial-developments-data";
   opacity: 0.7;
 }
 
-/* text-paint reveal — same technique as the hero's 3 sentences: a gradient
+/* text-paint reveal - same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
    (see prestige-developments-reveal.ts) so it plays forward on scroll down
    and un-paints in reverse on scroll up, exactly like the hero sentences. */

@@ -154,13 +154,13 @@ async function subscribe() {
 </script>
 
 <style scoped>
-/* solid black, full-bleed footer — no rounded corners / bottom padding
+/* solid black, full-bleed footer - no rounded corners / bottom padding
    left over from the theme's demo styling, which exposed the page's
    default white body background around the edges. */
 .prestige-dgm-footer {
   background-color: #000;
   /* faint hairline so the footer doesn't just blend into whatever black
-     section sits above it — kept very low-opacity on purpose, not meant
+     section sits above it - kept very low-opacity on purpose, not meant
      to read as a hard divider. */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -172,20 +172,20 @@ async function subscribe() {
 }
 
 /* the theme's own rule (_footer-13.scss, scoped to .dgm-footer-col-2/3/4)
-   sets this to var(--tp-ff-onest) at equal (two-class) specificity — nest
+   sets this to var(--tp-ff-onest) at equal (two-class) specificity - nest
    under the footer's own wrapper class so this one wins outright. */
 .prestige-dgm-footer .dgm-footer-widget-title {
   font-family: var(--tp-ff-poppins);
   font-weight: 600;
 }
 
-/* theme's decorative two-tone side panel — drop it for a flat, uniform
+/* theme's decorative two-tone side panel - drop it for a flat, uniform
    black footer instead of the lighter-grey accent block. */
 .prestige-dgm-footer :deep(.dgm-footer-bg::after) {
   display: none;
 }
 
-/* footer-social.vue is a child component rendering the bare <a> icons —
+/* footer-social.vue is a child component rendering the bare <a> icons -
    the theme's own hover state (_footer-2.scss, .dgm-footer-widget-social a)
    is a lime green-yellow (--tp-common-green-regular / #C1ED00); swap it
    for a white pill with dark icons instead. */
@@ -253,7 +253,7 @@ async function subscribe() {
 }
 
 /* same delayed sweep-in underline as the floating sidebar's contact links
-   (.tp-offcanvas-contact a::after) — a ::after that grows from 0 to full
+   (.tp-offcanvas-contact a::after) - a ::after that grows from 0 to full
    width on hover, instead of an instant text-decoration underline. */
 .dgm-footer-widget-menu ul li a {
   position: relative;
@@ -266,7 +266,7 @@ async function subscribe() {
   left: 0;
   /* the link's line-height is 1:1 with its font-size (no extra leading),
      so descenders (the "g" in Registration, "y" in Marketing, etc.) reach
-     almost to the bottom of the box — sitting the bar right at the edge
+     almost to the bottom of the box - sitting the bar right at the edge
      made it cross those descenders and read as a double line. Pushed
      further down clears them. */
   bottom: -6px;

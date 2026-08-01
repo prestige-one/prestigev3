@@ -2,7 +2,7 @@
   <section id="contact" class="prestige-contact-area">
     <div class="container container-1430">
       <!-- centered variant (main home page): just the headline and form,
-           no map, no side-by-side grid — everything stacked and centered. -->
+           no map, no side-by-side grid - everything stacked and centered. -->
       <div v-if="centered" class="prestige-contact-centered">
         <span class="prestige-contact-eyebrow">Get In Touch</span>
         <h2 class="prestige-contact-title">
@@ -30,7 +30,7 @@
             <iframe
               class="prestige-contact-map-frame"
               src="https://www.google.com/maps?q=Marina+Plaza,+Dubai+Marina,+Dubai,+UAE&z=12&output=embed"
-              title="Prestige One Developments — Marina Plaza, Dubai Marina"
+              title="Prestige One Developments - Marina Plaza, Dubai Marina"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             />
@@ -65,7 +65,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 70px;
   /* the left column (heading + map) is naturally shorter than the form
-     card — center them against each other instead of top-aligning, so the
+     card - center them against each other instead of top-aligning, so the
      shorter side doesn't just leave dead space below it. */
   align-items: center;
 }
@@ -126,7 +126,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   height: 100%;
   border: 0;
   /* Google's embed API doesn't offer a grayscale map style without a paid
-     JS-API key + custom style JSON — filtering the rendered iframe gets
+     JS-API key + custom style JSON - filtering the rendered iframe gets
      the same look for free. */
   filter: grayscale(1) contrast(1.05) brightness(0.9);
 }

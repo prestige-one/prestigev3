@@ -32,7 +32,7 @@
 interface Testimonial { quote: string; name: string; role: string }
 
 // TODO(content): replace with real, approved client testimonials.
-// Illustrative placeholders — attributed by role/context, not real individuals.
+// Illustrative placeholders - attributed by role/context, not real individuals.
 const items: Testimonial[] = [
   {
     quote: "From the first viewing to handover, the team made everything feel considered. The finish quality genuinely exceeded what we expected.",
@@ -45,7 +45,7 @@ const items: Testimonial[] = [
     role: "Dubai Islands",
   },
   {
-    quote: "What sets Prestige One apart is the attention to how you actually live in a space — the layouts and amenities are thought through.",
+    quote: "What sets Prestige One apart is the attention to how you actually live in a space - the layouts and amenities are thought through.",
     name: "Business Owner",
     role: "Hilton Residences, Maritime City",
   },

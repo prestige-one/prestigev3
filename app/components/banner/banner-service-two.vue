@@ -10,7 +10,7 @@
           </div>
           <div class="col-lg-4">
             <div class="pp-service-2-banner-text text-lg-center">
-              <p>(©2021 — 2025)</p>
+              <p>(©2021 - 2025)</p>
             </div>
           </div>
           <div class="col-lg-4">

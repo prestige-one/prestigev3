@@ -42,7 +42,7 @@
               </p>
               <p>
                 For him, every development begins with a deeper question:
-                <strong>what will make this place meaningful to the people who live there — today, and years from now?</strong>
+                <strong>what will make this place meaningful to the people who live there - today, and years from now?</strong>
               </p>
               <p>That thinking shaped Prestige One.</p>
               <p>

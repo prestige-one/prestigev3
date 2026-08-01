@@ -21,7 +21,7 @@ export function prestigeHeroAnimation() {
 
     if (!hero || !intro || !logo || !overlay || headlines.length !== 3) return;
 
-    // headline pacing knobs — tweak these to change how the sequence feels
+    // headline pacing knobs - tweak these to change how the sequence feels
     const HEADLINE_ENTER = 0.9; // slide-up + text-paint duration
     const HEADLINE_HOLD = 1.1; // how long a fully-revealed headline stays put before it exits
     const HEADLINE_EXIT = 0.6; // fade-out duration
@@ -34,7 +34,7 @@ export function prestigeHeroAnimation() {
       return isLast ? exitStart + HEADLINE_EXIT : exitStart + NEXT_OVERLAP;
     }, HEADLINES_START);
 
-    // scroll-distance-per-timeline-second — was 76 (≈9 viewport heights for
+    // scroll-distance-per-timeline-second - was 76 (≈9 viewport heights for
     // the full sequence), which meant the logo and headlines only arrived
     // after many separate scroll actions. Dropped way down so the whole
     // thing plays out within roughly one continuous scroll gesture.
@@ -52,11 +52,11 @@ export function prestigeHeroAnimation() {
     });
 
     // intro copy fades right away, logo rises from the bottom and settles
-    // in clearly visible (opacity 0.55, scale 1) — then, instead of
+    // in clearly visible (opacity 0.55, scale 1) - then, instead of
     // holding still, it travels upward while fading out AT THE SAME TIME
     // (scroll-driven the whole way, no dead/static zone). The travel
     // distance is kept short and the fade finishes before it gets near
-    // the top/header, so its bottom edge never ends up peeking out —
+    // the top/header, so its bottom edge never ends up peeking out -
     // it's fully gone well before it would reach that point. Settling at
     // scale 1 (not 1.2) keeps the logo's full height inside the hero's
     // overflow:hidden bounds instead of overshooting past the top/bottom
@@ -71,11 +71,11 @@ export function prestigeHeroAnimation() {
       .to(logo, { yPercent: -35, duration: 1.7, ease: "none" }, 1.3)
       // opacity finishes fading well before the travel above completes, so
       // it's fully invisible before it ever gets close enough to the top
-      // to be clipped by the header — no cut-off bottom edge ever shows
+      // to be clipped by the header - no cut-off bottom edge ever shows
       .to(logo, { opacity: 0, duration: 1, ease: "none" }, 1.3);
 
     // dark overlay fades in smoothly right before the headlines start
-    // arriving (for text contrast) and is never faded back out — it stays
+    // arriving (for text contrast) and is never faded back out - it stays
     // in place for the rest of the pinned sequence.
     const OVERLAY_FADE = 1;
     tl.to(
@@ -85,7 +85,7 @@ export function prestigeHeroAnimation() {
     );
 
     // each headline reveals by sliding up from below while the previous
-    // one is covered/faded, mirroring the tp-service-pin panel reveal —
+    // one is covered/faded, mirroring the tp-service-pin panel reveal -
     // plus a text-paint sweep (same technique as .tp_text_invert) that
     // brightens the words in as they arrive. Every headline then holds
     // in place for HEADLINE_HOLD before it fades out for the next one.

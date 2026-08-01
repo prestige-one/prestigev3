@@ -1,4 +1,4 @@
-// Prestige One "Our Destinations" — the Dubai (and beyond) areas the developer
+// Prestige One "Our Destinations" - the Dubai (and beyond) areas the developer
 // builds in. Each destination matches projects by location substring(s) so the
 // detail page can show every development in that area automatically.
 
@@ -54,7 +54,7 @@ export const destinations: Destination[] = [
     image: `${OD}/dubai-Islands.webp`,
     intro: "An archipelago of beachfront living minutes from the city.",
     about: [
-      "Dubai Islands is a masterfully designed waterfront destination — a collection of five islands (Deira Island, Dream Island, Island Central, Marina Island and Hills Island) reshaping the emirate's northern coastline with beaches, marinas and resorts.",
+      "Dubai Islands is a masterfully designed waterfront destination - a collection of five islands (Deira Island, Dream Island, Island Central, Marina Island and Hills Island) reshaping the emirate's northern coastline with beaches, marinas and resorts.",
       "It blends laid-back island living with genuine city connectivity: Downtown, the historic souks and Dubai International Airport are all a short drive away, while 20 kilometres of beaches and a growing collection of resorts sit on your doorstep.",
     ],
     subAreas: ["Deira Island", "Dream Island", "Island Central", "Hills Island"],
@@ -100,7 +100,7 @@ export const destinations: Destination[] = [
     intro: "A green, central district around the Meydan lifestyle.",
     about: [
       "Mohammed Bin Rashid City (MBR City) is a landmark AED 30 billion master development set at the green heart of Dubai, wrapped around one of the world's largest man-made crystal lagoons and threaded with parks, promenades and the Meydan lifestyle.",
-      "Framed by three of the city's key arteries — Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) and Al Khail Road (E44) — it puts Downtown, DIFC and the Dubai Mall within a five-minute reach while keeping the calm of lagoons and open green space.",
+      "Framed by three of the city's key arteries - Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) and Al Khail Road (E44) - it puts Downtown, DIFC and the Dubai Mall within a five-minute reach while keeping the calm of lagoons and open green space.",
       "It is where several of Prestige One's Meydan Horizon addresses take shape, balancing nature, connectivity and lasting value in one of Dubai's most sought-after central districts.",
     ],
     subAreas: ["District One", "Sobha Hartland", "Meydan One", "Nad Al Sheba"],
@@ -150,7 +150,7 @@ export const destinations: Destination[] = [
     image: `${OD}/dubai-sport-city.webp`,
     intro: "An active, family-focused community built around sport.",
     about: [
-      "Dubai Sports City is a purpose-built community for active living — championship golf, international stadiums and world-class academies threaded through walkable, family-friendly neighbourhoods along Mohammed Bin Zayed Road.",
+      "Dubai Sports City is a purpose-built community for active living - championship golf, international stadiums and world-class academies threaded through walkable, family-friendly neighbourhoods along Mohammed Bin Zayed Road.",
       "From the Dubai International Cricket Stadium and Dubai Autodrome to The Els Club golf course, sport shapes daily life here, while schools, clinics and retail keep the community entirely self-contained.",
       "Prestige One's residences here are designed for that rhythm of life, with panoramic golf views and amenities that keep every day in motion.",
     ],
@@ -200,7 +200,7 @@ export const destinations: Destination[] = [
     image: `${OD}/jumeirah-village-circle-jvc.webp`,
     intro: "One of Dubai's most loved, well-connected communities.",
     about: [
-      "Jumeirah Village Circle (JVC) is a self-contained 811-hectare community of villas, townhouses and apartments wrapped around landscaped parks — one of Dubai's most popular addresses for its blend of value, community feel and connectivity.",
+      "Jumeirah Village Circle (JVC) is a self-contained 811-hectare community of villas, townhouses and apartments wrapped around landscaped parks - one of Dubai's most popular addresses for its blend of value, community feel and connectivity.",
       "Mediterranean and Arabic-influenced homes sit alongside contemporary low-rises, with Circle Mall, schools and retail all inside the community and Al Khail Road linking residents to the rest of the city in minutes.",
       "Prestige One's London-inspired Berkeley Square residences and boutique low-rises call JVC home.",
     ],
@@ -250,7 +250,7 @@ export const destinations: Destination[] = [
     image: `${OD}/palm-jumeira.webp`,
     intro: "The world's most recognisable address on the water.",
     about: [
-      "Palm Jumeirah needs no introduction — the largest man-made island on earth, a 2km central trunk fanning into 17 fronds and wrapped by a protective crescent, lined with private beaches and landmark resorts.",
+      "Palm Jumeirah needs no introduction - the largest man-made island on earth, a 2km central trunk fanning into 17 fronds and wrapped by a protective crescent, lined with private beaches and landmark resorts.",
       "It is one of the most exclusive coastal addresses in the world, home to Atlantis, The View observation deck and Aquaventure Waterpark, yet still within a short drive of Dubai Marina and Downtown.",
       "Prestige One's signature villas here are a study in waterfront prestige, where the sea defines every aspect of living.",
     ],
@@ -355,7 +355,7 @@ export const destinations: Destination[] = [
     image: `${OD}/dubai-maritime.webp`,
     intro: "A purpose-built peninsula between Port Rashid and Drydocks.",
     about: [
-      "Dubai Maritime City is a purpose-built waterfront peninsula set between the historic Port Rashid and the open sea — a 360-degree coastal address rising close to the heart of both old and new Dubai.",
+      "Dubai Maritime City is a purpose-built waterfront peninsula set between the historic Port Rashid and the open sea - a 360-degree coastal address rising close to the heart of both old and new Dubai.",
       "With Sheikh Rashid Road linking it directly into the city, residents are minutes from the Dubai Frame, City Walk and the Gold Souk, and a short drive from Downtown, DIFC and the airport.",
       "It is home to Prestige One's Hilton Residences, bringing branded waterfront living to the district.",
     ],
@@ -401,7 +401,7 @@ export const destinations: Destination[] = [
     image: `${OD}/DLRC.webp`,
     intro: "A fast-growing, value-driven residential community.",
     about: [
-      "Dubai Land Residence Complex (DLRC) is a self-contained freehold community spanning roughly 14 million square feet within Dubailand's expansive vision — a value-driven address offering studios to townhouses and land plots along the Al Ain Road spine.",
+      "Dubai Land Residence Complex (DLRC) is a self-contained freehold community spanning roughly 14 million square feet within Dubailand's expansive vision - a value-driven address offering studios to townhouses and land plots along the Al Ain Road spine.",
       "Anchored by clusters such as Skycourts, Queue Point and neighbouring Liwan and The Villa, it offers space, greenery and community amenities with quick access to Emirates Road and the wider Dubailand attractions.",
       "Prestige One's The Boulevard brings bold, amenity-rich boulevard living to the community.",
     ],
@@ -447,7 +447,7 @@ export const destinations: Destination[] = [
     image: `${OD}/Jumeirah-Garden-City.webp`,
     intro: "A central urban district moments from the coast.",
     about: [
-      "Jumeirah Garden City is a central regeneration district in Al Satwa, set just off Sheikh Zayed Road between Downtown Dubai, DIFC and the Jumeirah coastline — one of the most walkable and connected corners of the city.",
+      "Jumeirah Garden City is a central regeneration district in Al Satwa, set just off Sheikh Zayed Road between Downtown Dubai, DIFC and the Jumeirah coastline - one of the most walkable and connected corners of the city.",
       "Residents are around five minutes from the Museum of the Future, the Dubai Mall and the Trade Centre, with City Walk and Jumeirah Beach on the doorstep and two metro stations within minutes.",
       "A destination Prestige One continues to watch closely as it grows into a blend of residential, retail and commercial life.",
     ],
@@ -492,7 +492,7 @@ export const destinations: Destination[] = [
     image: `${OD}/Majan-city.webp`,
     intro: "An emerging Dubailand community on the rise.",
     about: [
-      "Majan is a fast-emerging community within Dubailand, set off Sheikh Mohammed Bin Zayed Road (E311) — a calm, green and well-priced corner of the city bordering the lush Al Barari neighbourhood.",
+      "Majan is a fast-emerging community within Dubailand, set off Sheikh Mohammed Bin Zayed Road (E311) - a calm, green and well-priced corner of the city bordering the lush Al Barari neighbourhood.",
       "It offers quick access to Dubai Silicon Oasis and Arabian Ranches, and sits minutes from Dubailand's headline attractions including Global Village, IMG Worlds of Adventure and the Miracle and Butterfly Gardens.",
       "It is where Prestige One's upcoming Vista Hub is taking shape.",
     ],

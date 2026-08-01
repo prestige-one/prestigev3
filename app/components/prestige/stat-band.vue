@@ -5,7 +5,8 @@
         <div
           v-for="(s, i) in stats"
           :key="i"
-          class="col-lg-3 col-md-6 mb-30 tp_fade_anim"
+          class="mb-30 tp_fade_anim"
+          :class="s.col || 'col-lg-3 col-md-6'"
           data-delay=".2"
         >
           <div class="prestige-statband__item">
@@ -19,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-interface Stat { value: string; label: string }
+interface Stat { value: string; label: string; col?: string }
 defineProps<{ stats: Stat[] }>();
 </script>
 

@@ -77,7 +77,7 @@ const active = ref<"about" | "projects" | "destinations" | null>(null);
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
 const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
-// featured NEW launches (branded / current) — 6 for the compact dropdown
+// featured NEW launches (branded / current) - 6 for the compact dropdown
 const FEATURED_SLUGS = [
   "fauchon-residences-by-prestige-one",
   "hilton-residences-dubai-maritime-city",
@@ -162,7 +162,7 @@ onBeforeUnmount(cancelClose);
 .lnv__has { position: relative; }
 .lnv__has.active .lnv__caret { transform: rotate(-135deg); }
 
-/* the dark rounded dropdown panel — left-aligned, matches the design */
+/* the dark rounded dropdown panel - left-aligned, matches the design */
 .lnv__dd {
   position: absolute;
   top: calc(100% + 16px);

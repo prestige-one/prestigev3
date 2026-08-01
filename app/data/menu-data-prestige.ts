@@ -26,7 +26,7 @@ export interface NavItem {
   submenus?: NavSubmenu[];
 }
 
-// Primary navigation — drives the big serif list + the reveal panel.
+// Primary navigation - drives the big serif list + the reveal panel.
 export const primaryNav: NavItem[] = [
   {
     id: 1,
@@ -113,7 +113,7 @@ export const primaryNav: NavItem[] = [
   },
 ];
 
-// Secondary navigation — smaller links under the primary list.
+// Secondary navigation - smaller links under the primary list.
 export const secondaryNav: NavItem[] = [
   { id: 21, title: "Virtual Tour", link: "/virtual-tour" },
   { id: 22, title: "Invest in Prestige One", link: "/invest" },

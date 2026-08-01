@@ -30,7 +30,7 @@
                                         </nuxt-link>
                                     </div>
                                 </div>
-                                <!-- menu-panel trigger — shown at the end on every breakpoint
+                                <!-- menu-panel trigger - shown at the end on every breakpoint
                                      (desktop included); opens the full slide-in menu panel -->
                                 <div class="tp-header-10-offcanvas ml-20">
                                     <div class="tp-header-bar">
@@ -50,7 +50,7 @@
         <!-- header area end -->
     </div>
 
-    <!-- classic side menu — mobile & iPad only -->
+    <!-- classic side menu - mobile & iPad only -->
     <offcanvas-mobile-area-prestige
         :is-open="openMobileOffcanvas"
         @close="openMobileOffcanvas = false"
@@ -79,7 +79,7 @@ const openMobileOffcanvas = ref(false);
   -webkit-backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.2);
 }
-/* "Get in touch" — plain white text link + green WhatsApp, no white pill */
+/* "Get in touch" - plain white text link + green WhatsApp, no white pill */
 .prestige-header-eleven :deep(.prestige-getintouch) {
   display: inline-flex;
   align-items: center;

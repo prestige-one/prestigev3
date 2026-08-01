@@ -69,7 +69,7 @@
 </script>
 
 <style scoped>
-/* ---- shared title box — same treatment as prestige-why-us / prestige-upcoming-developments,
+/* ---- shared title box - same treatment as prestige-why-us / prestige-upcoming-developments,
    reusing the .prestige-text-paint scroll-reveal wired generically in
    prestige-developments-reveal.ts. ---- */
 .prestige-developments-title {

@@ -161,7 +161,7 @@ const testimonial_data = [
     position: "Co-Founder of Agntix",
     rating: 5,
     quote:
-      "We're beyond satisfied — Agntix made the entire process seamless and rewarding.",
+      "We're beyond satisfied - Agntix made the entire process seamless and rewarding.",
   },
   {
     id: 4,

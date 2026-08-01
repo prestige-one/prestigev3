@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Media Center"
               title="News & Updates"
-              lead="The latest from Prestige One — construction milestones, press announcements, market insight and stories from the communities we build."
+              lead="The latest from Prestige One - construction milestones, press announcements, market insight and stories from the communities we build."
               image="/assets/images/v2/news/2K6A3227-scaled.webp"
             />
 
@@ -62,7 +62,7 @@
               title="Built in the open"
               image="/assets/images/v2/news/website-banner-collage-01-scaled.webp"
               :paragraphs="[
-                'We believe the story of a home should not begin on handover day. From groundbreaking ceremonies to façade milestones, we share the progress of our developments openly — so buyers can watch their future address take shape, floor by floor.',
+                'We believe the story of a home should not begin on handover day. From groundbreaking ceremonies to façade milestones, we share the progress of our developments openly - so buyers can watch their future address take shape, floor by floor.',
                 'Alongside construction news, our Media Center brings you the partnerships and market perspective that shape how we build: the brands we work with, the investments we make, and the fundamentals that keep Dubai at the forefront of global real estate.',
               ]"
               :points="[
@@ -101,7 +101,7 @@
             <prestige-cta-band
               eyebrow="Stay in the loop"
               title="Never miss a milestone"
-              text="Register your interest to receive construction updates, launch news and market insight from Prestige One — straight from the source."
+              text="Register your interest to receive construction updates, launch news and market insight from Prestige One - straight from the source."
               image="/assets/images/v2/news/2K6A3227-scaled.webp"
               primary-label="Get in touch"
               primary-to="/contact-us"

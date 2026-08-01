@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Investments"
               title="Invest in Prestige One"
-              lead="Own a share of Dubai's most dynamic real-estate market — backed by a trusted developer, strong returns and one of the most investor-friendly cities in the world."
+              lead="Own a share of Dubai's most dynamic real-estate market - backed by a trusted developer, strong returns and one of the most investor-friendly cities in the world."
               image="/assets/images/v2/locations/Prestige-One-Invest-in-Dorra-Bay.webp"
             >
               <template #actions>
@@ -31,7 +31,7 @@
                     <div class="prestige-prose tp_fade_anim" data-delay=".4">
                       <p>
                         Dubai has established itself as one of the world's premier destinations for
-                        property investment — combining some of the strongest rental yields of any
+                        property investment - combining some of the strongest rental yields of any
                         global city with consistent capital appreciation and the security of a mature,
                         transparent, well-regulated market.
                       </p>
@@ -44,7 +44,7 @@
                       </p>
                       <p>
                         With flexible, construction-linked payment plans, entering the market has never
-                        been more accessible — you can secure a home today and pay in staged
+                        been more accessible - you can secure a home today and pay in staged
                         instalments as it is built.
                       </p>
                     </div>
@@ -104,7 +104,7 @@ definePageMeta({ layout: false });
 useSeoMeta({
   title: "Invest | Prestige One",
   description:
-    "Invest in Dubai real estate with Prestige One — strong rental yields, tax-free freehold ownership, capital appreciation and flexible payment plans.",
+    "Invest in Dubai real estate with Prestige One - strong rental yields, tax-free freehold ownership, capital appreciation and flexible payment plans.",
 });
 
 const stats: StatItem[] = [
@@ -115,7 +115,7 @@ const stats: StatItem[] = [
 ];
 
 const whyUsParagraphs: string[] = [
-  "An investment is only as sound as the developer behind it. Prestige One is part of a group with more than two decades of experience across construction, hospitality and real estate — depth that translates into projects delivered to standard, on quality, and built to hold their value.",
+  "An investment is only as sound as the developer behind it. Prestige One is part of a group with more than two decades of experience across construction, hospitality and real estate - depth that translates into projects delivered to standard, on quality, and built to hold their value.",
   "Our branded partnerships with globally recognised names such as Hilton and FAUCHON Paris add a layer of demand that ordinary developments can't match. Branded residences command premium rents and resale interest, and our prime locations keep occupancy high.",
 ];
 
@@ -127,7 +127,7 @@ const whyUsPoints: string[] = [
 ];
 
 const howParagraphs: string[] = [
-  "Investing with us is refreshingly straightforward. Tell us your goals and budget, and your advisor will shortlist the homes and payment plans that fit — whether you're after rental income, capital growth or a home to eventually move into.",
+  "Investing with us is refreshingly straightforward. Tell us your goals and budget, and your advisor will shortlist the homes and payment plans that fit - whether you're after rental income, capital growth or a home to eventually move into.",
   "From there we handle the detail: reservation, the Sale and Purchase Agreement, DLD registration and a clear payment schedule. The entire process can be completed remotely, and we stay with you through construction, handover and, if you wish, leasing and management.",
 ];
 
@@ -136,7 +136,7 @@ const howPoints: string[] = [
   "2. Shortlist homes and choose a payment plan",
   "3. Reserve, sign the SPA and register with the DLD",
   "4. Pay in staged instalments through construction",
-  "5. Take handover — we can lease and manage it for you",
+  "5. Take handover - we can lease and manage it for you",
 ];
 
 const faqs: FaqItem[] = [
@@ -158,7 +158,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "How do off-plan payment plans work?",
-    a: "Most of our homes are sold on construction-linked plans: a deposit on booking, a series of instalments tied to build milestones, and a final balance on handover. This spreads the cost over the construction period and lets you secure today's price. Exact terms vary by project and availability — your advisor will share the current plan.",
+    a: "Most of our homes are sold on construction-linked plans: a deposit on booking, a series of instalments tied to build milestones, and a final balance on handover. This spreads the cost over the construction period and lets you secure today's price. Exact terms vary by project and availability - your advisor will share the current plan.",
   },
 ];
 

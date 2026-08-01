@@ -8,7 +8,7 @@
             <prestige-page-hero
               eyebrow="Media Center"
               title="Press Releases"
-              lead="Official announcements from Prestige One — partnerships, launches and milestones shaping the business."
+              lead="Official announcements from Prestige One - partnerships, launches and milestones shaping the business."
               image="/assets/images/v2/press-releases/First-Hilton-branded-residences-to-debut-in-UAE-with-Prestige-One.webp"
             />
 
@@ -18,7 +18,7 @@
                   <div class="col-xl-9">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Official announcements</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>From world-first brand partnerships to major investment commitments, these are the moments that define Prestige One's growth — shared here in full and on the record. For media enquiries or interview requests, our communications team is ready to help.</p>
+                      <p>From world-first brand partnerships to major investment commitments, these are the moments that define Prestige One's growth - shared here in full and on the record. For media enquiries or interview requests, our communications team is ready to help.</p>
                     </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                   </div>
                 </div>
                 <p v-else class="prestige-prose text-center">
-                  No press releases just yet — check back soon for our latest announcements.
+                  No press releases just yet - check back soon for our latest announcements.
                 </p>
               </div>
             </section>

@@ -35,7 +35,7 @@
                                             </span>
                                         </span>
                                 </div>
-                                <!-- side menu trigger — mobile & iPad only (below xl / 1200px) -->
+                                <!-- side menu trigger - mobile & iPad only (below xl / 1200px) -->
                                 <div class="tp-header-10-offcanvas ml-20 d-xl-none">
                                     <div class="tp-header-bar">
                                         <button class="tp-offcanvas-open-btn" aria-label="Open menu" @click="openMobileOffcanvas = true">
@@ -54,7 +54,7 @@
         <!-- header area end -->
     </div>
 
-    <!-- classic side menu — mobile & iPad only -->
+    <!-- classic side menu - mobile & iPad only -->
     <offcanvas-mobile-area-prestige
         :is-open="openMobileOffcanvas"
         @close="openMobileOffcanvas = false"
@@ -68,7 +68,7 @@ const openMobileOffcanvas = ref(false);
 
 <style scoped>
 /* our site is permanently dark-themed, so this header always uses the
-   white-text/white-logo look regardless of scroll state — overriding the
+   white-text/white-logo look regardless of scroll state - overriding the
    theme's default sticky-white-bg (dark text) behavior. */
 .prestige-header-ten :deep(.tp-header-menu > nav > ul > li > a) {
   color: #fff;
@@ -103,7 +103,7 @@ const openMobileOffcanvas = ref(false);
   white-space: nowrap;
 }
 
-/* permanently fixed at the top — no scroll-triggered class toggle, so
+/* permanently fixed at the top - no scroll-triggered class toggle, so
    there's no state change to animate/glitch on first scroll. Same rounded
    pill, same position, all the time. */
 .prestige-header-ten {
@@ -122,7 +122,7 @@ const openMobileOffcanvas = ref(false);
   background: rgba(0, 0, 0, 0.2);
 }
 
-/* dropdown submenu — dark, blurred glass panel with white text by default,
+/* dropdown submenu - dark, blurred glass panel with white text by default,
    flipping to a white pill + black text on the hovered item (matches the
    provided design). .dropdown-white-bg's own base-theme rule sets the
    submenu to a solid white background, so this overrides it back to the
@@ -146,12 +146,12 @@ const openMobileOffcanvas = ref(false);
   background: rgba(0, 0, 0, 0.24);
 }
 
-/* "no white background" — this header stays fully transparent/glass
+/* "no white background" - this header stays fully transparent/glass
    everywhere, so the theme's white capsule under "Get in touch" doesn't
    fit here; drop it to plain white text directly on the header's own
    blurred glass background. The goo-merge blur filter on
    .tp-btn-black-filter (see svg-btn-blur-filter) existed only to blend
-   that white capsule into the white WhatsApp circle below — with both
+   that white capsule into the white WhatsApp circle below - with both
    gone, it would just blur the text's edges, so it's cancelled too. */
 .prestige-header-ten :deep(.tp-btn-black-filter) {
   filter: none !important;
@@ -168,11 +168,11 @@ const openMobileOffcanvas = ref(false);
 }
 
 /* the WhatsApp glyph is an icon-font <i>, not an <svg>, so it falls
-   outside the theme's ".tp-btn-black-circle > svg" sizing/color rule —
+   outside the theme's ".tp-btn-black-circle > svg" sizing/color rule -
    sized and centered to match that circle explicitly. Styled as a
    conventional green-badge icon (green circle, white glyph) instead of
    the theme's white-circle default, with a plain scale-up on hover
-   instead of the theme's translateX+rotate(45deg) — that slide-and-spin
+   instead of the theme's translateX+rotate(45deg) - that slide-and-spin
    was built for an arrow icon, not a static WhatsApp logo. */
 .prestige-header-ten :deep(.tp-btn-black-circle-whatsapp) {
   background-color: #25d366 !important;

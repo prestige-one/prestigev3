@@ -168,7 +168,7 @@
             <prestige-cta-band
               eyebrow="Your next address"
               :title="`Make ${dest.name} home`"
-              :text="`Speak to our team about living in ${dest.name} — availability, pricing and the developments best suited to how you want to live.`"
+              :text="`Speak to our team about living in ${dest.name} - availability, pricing and the developments best suited to how you want to live.`"
               :image="dest.image"
               primary-label="Enquire now"
               primary-to="/contact-us"

@@ -91,7 +91,7 @@ onMounted(() => {
   // Read scroll position every frame (no dependency on scroll events) and ease
   // the video's currentTime toward the target derived from how far through the
   // section we are. While the section is pinned and the user is idle, gently
-  // auto-scroll so the video plays on its own — but the moment they scroll,
+  // auto-scroll so the video plays on its own - but the moment they scroll,
   // they take over.
   const frame = () => {
     const dur = v.duration;
@@ -104,7 +104,7 @@ onMounted(() => {
       const idle = performance.now() - lastManual > 1100;
 
       // Only auto-scroll once the WHOLE clip is buffered. This is what kills the
-      // "plays then stalls at the start" — auto-scroll never seeks into video
+      // "plays then stalls at the start" - auto-scroll never seeks into video
       // that hasn't downloaded yet. Manual scrubbing below stays clamped to the
       // buffer, so it's responsive immediately even while the rest downloads.
       const be0 = bufferedEnd();
@@ -116,7 +116,7 @@ onMounted(() => {
           autoInit = true;
         }
         if (atEnd) {
-          // reached the last frame — loop straight back to the clip start
+          // reached the last frame - loop straight back to the clip start
           // (hard cut, like a GIF) so the hero plays continuously while idle
           autoY = window.scrollY + rect.top; // = section top (r.offsetTop)
           current = 0;
@@ -187,7 +187,7 @@ onBeforeUnmount(() => {
   width: 100%;
   background: #000;
 }
-/* CSS sticky pin — bulletproof, no JS pinning needed */
+/* CSS sticky pin - bulletproof, no JS pinning needed */
 .svh__pin {
   position: sticky;
   top: 0;
