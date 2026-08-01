@@ -129,7 +129,7 @@ onBeforeUnmount(cancelClose);
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: clamp(16px, 1.8vw, 30px);
   margin: 0;
   padding: 0;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- header area start -->
-        <prestige-header-ten />
+        <prestige-header-eleven />
         <!-- header area end -->
 
         <slot />
