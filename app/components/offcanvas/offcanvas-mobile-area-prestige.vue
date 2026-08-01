@@ -30,6 +30,13 @@
           </ul>
         </nav>
 
+        <!-- quick links -->
+        <ul class="pnav__quick">
+          <li v-for="q in quickLinks" :key="q.label">
+            <nuxt-link :to="q.to" @click="$emit('close')">{{ q.label }}</nuxt-link>
+          </li>
+        </ul>
+
         <!-- contact -->
         <div class="pnav__contact">
           <span class="pnav__cheading">Prestige One Developments</span>
@@ -67,6 +74,14 @@ import { primaryNav } from "../../data/menu-data-prestige";
 
 const props = defineProps<{ isOpen: boolean }>();
 defineEmits<{ close: [] }>();
+
+const quickLinks = [
+  { label: "Broker Registration", to: "/broker-registration" },
+  { label: "Construction Updates", to: "/construction-updates" },
+  { label: "Project Documents", to: "/project-documents" },
+  { label: "Press Release", to: "/press-release" },
+  { label: "Contact Us", to: "/contact-us" },
+];
 
 watch(
   () => props.isOpen,
@@ -168,7 +183,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 13px 0;
+  padding: 10px 0;
   color: #f2f2f2;
   transition: color 0.3s ease, padding-left 0.3s ease;
 }
@@ -180,10 +195,27 @@ onBeforeUnmount(() => {
 }
 .pnav__label {
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(22px, 5vw, 30px);
+  font-size: clamp(17px, 5vw, 20px);
   font-weight: 400;
   line-height: 1.1;
 }
+
+/* quick / utility links */
+.pnav__quick {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+.pnav__quick a {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.25s ease;
+}
+.pnav__quick a:hover { color: #fff; }
 
 /* thumbnail groups */
 .pnav__group { margin-top: 30px; }

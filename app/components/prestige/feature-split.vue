@@ -1,9 +1,12 @@
 <template>
   <section class="prestige-section prestige-fsplit">
     <div class="container container-1430">
-      <div class="row align-items-center" :class="{ 'flex-row-reverse': reverse }">
-        <div class="col-lg-6 mb-40">
-          <div class="prestige-fsplit__media tp_fade_anim" data-delay=".2">
+      <div
+        class="row"
+        :class="[reverse ? 'flex-row-reverse' : '', equalHeight ? 'align-items-stretch' : 'align-items-center']"
+      >
+        <div class="col-lg-6 mb-40" :class="{ 'd-flex': equalHeight }">
+          <div class="prestige-fsplit__media tp_fade_anim" :class="{ 'is-fill': equalHeight }" data-delay=".2">
             <img :src="image" :alt="title" loading="lazy">
           </div>
         </div>
@@ -32,6 +35,7 @@ defineProps<{
   eyebrow?: string;
   points?: string[];
   reverse?: boolean;
+  equalHeight?: boolean;
 }>();
 </script>
 
@@ -41,6 +45,12 @@ defineProps<{
   border-radius: 8px;
   aspect-ratio: 4 / 3;
   background: #101013;
+}
+/* equal-height variant: image matches the text column's height */
+.prestige-fsplit__media.is-fill {
+  aspect-ratio: auto;
+  width: 100%;
+  min-height: 340px;
 }
 .prestige-fsplit__media img {
   width: 100%;

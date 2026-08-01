@@ -64,15 +64,6 @@
         </div>
       </div>
 
-      <!-- partner logos - supporting global-credibility strip (per content plan) -->
-      <div class="prestige-why-us-partners">
-        <span class="prestige-why-us-partners-label tp_fade_anim">In partnership with globally recognised brands</span>
-        <div class="prestige-why-us-partners-logos">
-          <img src="/assets/images/v2/web-logos/hilton.webp" alt="Hilton" class="tp_fade_anim">
-          <img src="/assets/images/v2/web-logos/v2/fauchon-logo-1.webp" alt="FAUCHON" class="tp_fade_anim">
-          <img src="/assets/images/v2/pages/AFA-logo-400.webp" alt="Argentina National Team" class="tp_fade_anim">
-        </div>
-      </div>
     </div>
   </section>
 </template>

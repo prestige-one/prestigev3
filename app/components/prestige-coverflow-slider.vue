@@ -269,6 +269,9 @@ onMounted(() => {
    max-width below (~5 slides' worth) so only 5 cards ever read as fully
    visible per side-trim request. */
 .coverflow-slider-edge-fade {
+  /* removed the black side overlays so the left/right slides show fully
+     (no dark wash over them) */
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;

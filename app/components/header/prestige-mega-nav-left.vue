@@ -5,7 +5,7 @@
 
       <!-- ABOUT US -->
       <li class="lnv__has" :class="{ active: active === 'about' }" @mouseenter="open('about')">
-        <button type="button">About Us</button>
+        <nuxt-link to="/about-us" @click="close">About Us</nuxt-link>
         <div
           class="lnv__dd"
           :class="{ open: active === 'about' }"
@@ -22,7 +22,7 @@
 
       <!-- PROJECTS -->
       <li class="lnv__has" :class="{ active: active === 'projects' }" @mouseenter="open('projects')">
-        <button type="button">Projects</button>
+        <nuxt-link to="/projects" @click="close">Projects</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
           :class="{ open: active === 'projects' }"
@@ -44,7 +44,7 @@
 
       <!-- DESTINATIONS -->
       <li class="lnv__has" :class="{ active: active === 'destinations' }" @mouseenter="open('destinations')">
-        <button type="button">Destinations</button>
+        <nuxt-link to="/destinations" @click="close">Destinations</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
           :class="{ open: active === 'destinations' }"

@@ -28,6 +28,7 @@
                 'Locations selected for long-term liveability and value',
                 'Neighbourhoods with schools, retail and leisure at hand',
               ]"
+              equal-height
             />
 
             <section class="prestige-section">
@@ -143,7 +144,7 @@ usePrestigePage({ hero: false });
 }
 .prestige-dest-card__name {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
   color: #fff;
   margin: 6px 0 8px;

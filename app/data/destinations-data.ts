@@ -487,7 +487,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: "majan-city",
-    name: "Majan",
+    name: "Majan City",
     region: "Emerging · Dubai",
     image: `${OD}/Majan-city.webp`,
     intro: "An emerging Dubailand community on the rise.",

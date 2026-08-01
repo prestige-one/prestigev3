@@ -6,19 +6,24 @@
         <h2 class="prestige-stories__title prestige-text-paint">Homes Handed Over. Stories That Stay.</h2>
         <p class="prestige-stories__lead">
           From the first viewing to the moment they receive their keys, Prestige One
-          owners become part of a growing community. Here are a few of their journeys
-          - in their own words.
+          owners become part of a growing community. Here are a few of their journeys,
+          in their own words.
         </p>
       </header>
 
       <div class="prestige-stories__grid">
         <article v-for="(v, i) in videos" :key="i" class="prestige-stories__card tp_fade_anim" :data-delay="i * 0.08">
-          <button class="prestige-stories__media" type="button" aria-label="Video coming soon">
-            <span class="prestige-stories__play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-            <span class="prestige-stories__soon">Video coming soon</span>
-          </button>
+          <div class="prestige-stories__media">
+            <video
+              class="prestige-stories__video"
+              controls
+              playsinline
+              preload="metadata"
+              :poster="v.poster"
+            >
+              <source :src="v.video" type="video/mp4">
+            </video>
+          </div>
           <div class="prestige-stories__meta">
             <h3 class="prestige-stories__name">{{ v.name }}</h3>
             <span class="prestige-stories__project">{{ v.project }}</span>
@@ -30,11 +35,10 @@
 </template>
 
 <script setup lang="ts">
-// Placeholder client-handover videos — replace `poster`/embed once footage is ready.
 const videos = [
-  { name: "Handover Story", project: "Berkeley Square, JVC" },
-  { name: "Handover Story", project: "Hilton Residences, Maritime City" },
-  { name: "Handover Story", project: "Seaside, Dubai Islands" },
+  { name: "A Homeowner's Story", project: "Prestige One", video: "/assets/videos/handover-1.mp4", poster: "/assets/videos/handover-1-poster.jpg" },
+  { name: "Handover Day", project: "Vista by Prestige One", video: "/assets/videos/handover-2.mp4", poster: "/assets/videos/handover-2-poster.jpg" },
+  { name: "Receiving the Keys", project: "Vista by Prestige One", video: "/assets/videos/handover-3.mp4", poster: "/assets/videos/handover-3-poster.jpg" },
 ];
 </script>
 
@@ -69,52 +73,29 @@ const videos = [
 }
 .prestige-stories__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 320px));
   gap: clamp(16px, 1.8vw, 26px);
+  justify-content: center;
 }
 .prestige-stories__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 9 / 16;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  cursor: pointer;
+  border-radius: 14px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(120, 150, 180, 0.16), transparent 60%),
-    linear-gradient(160deg, #16181d, #0d0e12);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  background: #0d0e12;
 }
-.prestige-stories__media:hover { border-color: rgba(255, 255, 255, 0.28); transform: translateY(-3px); }
-.prestige-stories__play {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: #fff;
-  color: #0b0b0d;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+.prestige-stories__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.prestige-stories__media:hover .prestige-stories__play { transform: scale(1.06); }
-.prestige-stories__play svg { margin-left: 3px; }
-.prestige-stories__soon {
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-}
-.prestige-stories__meta { padding: 18px 4px 0; }
+.prestige-stories__meta { padding: 16px 4px 0; text-align: center; }
 .prestige-stories__name {
   margin: 0 0 4px;
-  font-size: clamp(17px, 1.4vw, 20px);
+  font-size: clamp(16px, 1.4vw, 19px);
   font-weight: 500;
   color: #fff;
 }
@@ -125,7 +106,7 @@ const videos = [
   color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 991.98px) {
-  .prestige-stories__grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+@media (max-width: 767.98px) {
+  .prestige-stories__grid { grid-template-columns: minmax(0, 320px); }
 }
 </style>
