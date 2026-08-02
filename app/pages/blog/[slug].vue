@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main v-if="article" class="prestige-page">
             <prestige-page-hero
-              :eyebrow="categoryLabel(article.category)"
-              :title="article.title"
-              :lead="article.excerpt"
+              :eyebrow="catLabel"
+              :title="articleTitle"
+              :lead="articleExcerpt"
               :image="article.cover"
             />
 
@@ -23,15 +23,15 @@
                       <span class="prestige-article__date">{{ formatDate(article.date) }}</span>
                     </div>
 
-                    <!-- eslint-disable-next-line vue/no-v-html -- static authored article content from blog-data.ts -->
-                    <div class="prestige-prose tp_fade_anim" data-delay=".3" v-html="article.body" />
+                    <!-- eslint-disable-next-line vue/no-v-html -- authored article content, translated copy resolved via raw locale message -->
+                    <div class="prestige-prose tp_fade_anim" data-delay=".3" v-html="articleBody" />
 
                     <div
                       v-if="relatedProject"
                       class="prestige-article__related tp_fade_anim"
                       data-delay=".2"
                     >
-                      <span class="prestige-eyebrow">Related development</span>
+                      <span class="prestige-eyebrow">{{ t('mdata.blog.article.relatedDevelopment') }}</span>
                       <nuxt-link :to="`/projects/${relatedProject.slug}`" class="prestige-btn">
                         {{ relatedProject.title }}<span>→</span>
                       </nuxt-link>
@@ -44,8 +44,8 @@
             <!-- more stories -->
             <section v-if="moreStories.length" class="prestige-section prestige-section--tight prestige-article__more">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Keep reading</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">More stories</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.blog.article.keepReading') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('mdata.blog.article.moreStories') }}</h2>
                 <div class="row">
                   <div
                     v-for="story in moreStories"
@@ -61,13 +61,13 @@
 
             <prestige-cta-band
               eyebrow="Prestige One"
-              title="Homes designed for real living"
-              text="Explore our developments across Dubai's most sought-after destinations, or talk to our team about finding the right address for you."
+              :title="t('mdata.blog.article.ctaTitle')"
+              :text="t('mdata.blog.article.ctaText')"
               :image="article.cover"
-              primary-label="Get in touch"
-              primary-to="/contact-us"
-              secondary-label="View developments"
-              secondary-to="/projects"
+              :primary-label="t('mdata.common.getInTouch')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('mdata.common.viewDevelopments')"
+              :secondary-to="localePath('/projects')"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -80,8 +80,12 @@
 <script setup lang="ts">
 import { getArticleBySlug, getAllArticles, categoryLabel } from "~/data/blog-data";
 import { getProjectBySlug } from "~/data/projects";
+import { blogBodies } from "~/data/i18n-bodies";
 
 definePageMeta({ layout: false });
+
+const { t, te, locale, getLocaleMessage } = useI18n();
+const localePath = useLocalePath();
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
@@ -90,6 +94,31 @@ const article = computed(() => getArticleBySlug(slug.value));
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: "Article not found", fatal: true });
 }
+
+// Raw (uncompiled) locale-message lookup by dotted path - used for the article
+// body/title/excerpt so large HTML strings (emails, markup) skip vue-i18n's
+// interpolation compiler. Falls back to the English data value; reactive on
+// locale switch.
+function rawMsg(path: string): string | undefined {
+  void locale.value;
+  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
+  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
+  return typeof val === "string" && val ? val : undefined;
+}
+
+const postKey = computed(() => `mdata.blog.posts.${slug.value}`);
+const articleTitle = computed(() => rawMsg(`${postKey.value}.title`) ?? article.value?.title ?? "");
+const articleExcerpt = computed(() => rawMsg(`${postKey.value}.excerpt`) ?? article.value?.excerpt ?? "");
+// Body HTML lives in the plain data module (not the locale JSON) - full markup
+// with email @ breaks vue-i18n's message precompiler. Fall back to the English
+// source body.
+const articleBody = computed(() => blogBodies[locale.value]?.[slug.value] ?? article.value?.body ?? "");
+const catLabel = computed(() => {
+  const c = article.value?.category;
+  if (!c) return "";
+  const k = `mdata.categories.${c}`;
+  return te(k) ? t(k) : categoryLabel(c);
+});
 
 const relatedProject = computed(() =>
   article.value?.project ? getProjectBySlug(article.value.project) : undefined,
@@ -110,8 +139,8 @@ function formatDate(date: string): string {
 }
 
 useSeoMeta({
-  title: () => `${article.value?.title} | Prestige One`,
-  description: () => article.value?.excerpt,
+  title: () => `${articleTitle.value} | Prestige One`,
+  description: () => articleExcerpt.value,
   ogImage: () => article.value?.cover,
 });
 

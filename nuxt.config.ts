@@ -10,6 +10,15 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     lazy: true,
     langDir: 'locales',
+    // Some locale messages intentionally carry full HTML bodies (translated
+    // blog articles and legal documents, rendered via v-html and resolved with
+    // a raw non-interpolating locale lookup). Relax the bundler's message guard
+    // so these compile: strictMessage disables the "Detected HTML in message"
+    // build error, and escapeHtml is left off so the markup is preserved as-is.
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false,
+    },
     locales: [
       { code: 'en', name: 'English', language: 'en-US', dir: 'ltr', files: ['en.json', 'home/en.json', 'projects/en.json', 'destinations/en.json', 'about/en.json', 'shared/en.json'] },
       { code: 'ar', name: 'العربية', language: 'ar-AE', dir: 'rtl', files: ['ar.json', 'home/ar.json', 'projects/ar.json', 'destinations/ar.json', 'about/ar.json', 'shared/ar.json'] },

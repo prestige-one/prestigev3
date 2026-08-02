@@ -47,7 +47,8 @@
       "requestDocument": "Demander le document",
       "readTheStory": "Lire l'histoire",
       "takeTheTour": "Faire la visite",
-      "lastUpdated": "Dernière mise à jour"
+      "lastUpdated": "Dernière mise à jour",
+      "readArticle": "Lire l'article"
     },
     "categories": {
       "blog": "Blog",
@@ -349,6 +350,13 @@
           "title": "Concevoir des logements où l'on aime vivre : la philosophie de Prestige One",
           "excerpt": "Un regard sur la philosophie de conception qui façonne chaque logement Prestige One — du premier croquis à l'espace achevé."
         }
+      },
+      "article": {
+        "keepReading": "Poursuivre la lecture",
+        "moreStories": "Plus d'articles",
+        "relatedDevelopment": "Projet associé",
+        "ctaTitle": "Des logements pensés pour la vraie vie",
+        "ctaText": "Découvrez nos projets dans les destinations les plus prisées de Dubai, ou échangez avec notre équipe pour trouver l'adresse qui vous ressemble."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "Sécurité des données",
           "Your Rights": "Vos droits",
           "Contact Us": "Nous contacter"
-        }
+        },
+        "intro": "Prestige One Developments respecte votre vie privée et s'engage à protéger les informations personnelles que vous partagez avec nous. La présente politique explique ce que nous collectons, la manière dont nous l'utilisons et les choix qui s'offrent à vous."
       },
       "terms": {
         "title": "Conditions générales",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "Limitation de responsabilité",
           "Governing Law": "Droit applicable",
           "Contact Us": "Nous contacter"
-        }
+        },
+        "intro": "Les présentes conditions régissent votre utilisation du site web de Prestige One Developments. Veuillez les lire attentivement avant de parcourir le site ou de soumettre une demande."
       },
       "marketing": {
         "title": "Conditions générales de marketing",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "Exactitude des supports marketing",
           "Opt-Out": "Désinscription",
           "Contact Us": "Nous contacter"
-        }
-      }
+        },
+        "intro": "Les présentes conditions de marketing expliquent comment Prestige One Developments communique avec vous, comment notre marque et nos supports marketing peuvent être utilisés, et comment vous pouvez vous désinscrire à tout moment."
+      },
+      "eyebrow": "Informations légales"
     }
   }
 }

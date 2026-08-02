@@ -47,7 +47,8 @@
       "requestDocument": "Richiedi documento",
       "readTheStory": "Leggi la storia",
       "takeTheTour": "Fai il tour",
-      "lastUpdated": "Ultimo aggiornamento"
+      "lastUpdated": "Ultimo aggiornamento",
+      "readArticle": "Leggi l’articolo"
     },
     "categories": {
       "blog": "Blog",
@@ -349,6 +350,13 @@
           "title": "Progettare case che si amano davvero: la filosofia di Prestige One",
           "excerpt": "Uno sguardo dentro la filosofia progettuale che dà forma a ogni casa Prestige One, dal primo schizzo allo spazio finito."
         }
+      },
+      "article": {
+        "keepReading": "Continua a leggere",
+        "moreStories": "Altre storie",
+        "relatedDevelopment": "Sviluppo correlato",
+        "ctaTitle": "Case pensate per la vita reale",
+        "ctaText": "Esplora i nostri sviluppi nelle destinazioni più ambite di Dubai, oppure parla con il nostro team per trovare l’indirizzo giusto per te."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "Sicurezza dei dati",
           "Your Rights": "I tuoi diritti",
           "Contact Us": "Contattaci"
-        }
+        },
+        "intro": "Prestige One Developments rispetta la tua privacy ed è impegnata a proteggere le informazioni personali che condividi con noi. Questa policy spiega che cosa raccogliamo, come lo utilizziamo e le scelte a tua disposizione."
       },
       "terms": {
         "title": "Termini e condizioni",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "Limitazione di responsabilità",
           "Governing Law": "Legge applicabile",
           "Contact Us": "Contattaci"
-        }
+        },
+        "intro": "I presenti termini disciplinano l’utilizzo del sito web di Prestige One Developments. Ti invitiamo a leggerli con attenzione prima di navigare nel sito o di inviare una richiesta."
       },
       "marketing": {
         "title": "Termini e condizioni di marketing",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "Accuratezza dei materiali di marketing",
           "Opt-Out": "Revoca del consenso",
           "Contact Us": "Contattaci"
-        }
-      }
+        },
+        "intro": "I presenti termini di marketing spiegano come Prestige One Developments comunica con te, come possono essere utilizzati il nostro marchio e i nostri materiali di marketing e come puoi revocare il consenso in qualsiasi momento."
+      },
+      "eyebrow": "Note legali"
     }
   }
 }

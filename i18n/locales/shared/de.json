@@ -47,7 +47,8 @@
       "requestDocument": "Dokument anfordern",
       "readTheStory": "Die Geschichte lesen",
       "takeTheTour": "Zur Tour",
-      "lastUpdated": "Zuletzt aktualisiert"
+      "lastUpdated": "Zuletzt aktualisiert",
+      "readArticle": "Artikel lesen"
     },
     "categories": {
       "blog": "Blog",
@@ -349,6 +350,13 @@
           "title": "Wohnungen entwerfen, in denen Menschen gern leben: Die Philosophie von Prestige One",
           "excerpt": "Ein Blick in die Designphilosophie, die jedes Prestige-One-Zuhause prägt – von der ersten Skizze bis zum fertigen Raum."
         }
+      },
+      "article": {
+        "keepReading": "Weiterlesen",
+        "moreStories": "Weitere Geschichten",
+        "relatedDevelopment": "Zugehöriges Projekt",
+        "ctaTitle": "Wohnungen, gestaltet für echtes Leben",
+        "ctaText": "Entdecken Sie unsere Projekte an Dubais begehrtesten Standorten oder sprechen Sie mit unserem Team, um die richtige Adresse für Sie zu finden."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "Datensicherheit",
           "Your Rights": "Ihre Rechte",
           "Contact Us": "Kontaktieren Sie uns"
-        }
+        },
+        "intro": "Prestige One Developments respektiert Ihre Privatsphäre und ist dem Schutz der personenbezogenen Daten verpflichtet, die Sie mit uns teilen. Diese Erklärung legt dar, welche Daten wir erheben, wie wir sie verwenden und welche Wahlmöglichkeiten Ihnen zur Verfügung stehen."
       },
       "terms": {
         "title": "Allgemeine Geschäftsbedingungen",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "Haftungsbeschränkung",
           "Governing Law": "Anwendbares Recht",
           "Contact Us": "Kontaktieren Sie uns"
-        }
+        },
+        "intro": "Diese Bedingungen regeln Ihre Nutzung der Website von Prestige One Developments. Bitte lesen Sie sie sorgfältig, bevor Sie die Website durchsuchen oder eine Anfrage übermitteln."
       },
       "marketing": {
         "title": "Marketing-Bedingungen",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "Richtigkeit der Marketingmaterialien",
           "Opt-Out": "Abmeldung",
           "Contact Us": "Kontaktieren Sie uns"
-        }
-      }
+        },
+        "intro": "Diese Marketing-Bedingungen erläutern, wie Prestige One Developments mit Ihnen kommuniziert, wie unsere Marke und Marketingmaterialien verwendet werden dürfen und wie Sie sich jederzeit abmelden können."
+      },
+      "eyebrow": "Rechtliches"
     }
   }
 }

@@ -47,7 +47,8 @@
       "requestDocument": "اطلب المستند",
       "readTheStory": "اقرأ القصة",
       "takeTheTour": "ابدأ الجولة",
-      "lastUpdated": "آخر تحديث"
+      "lastUpdated": "آخر تحديث",
+      "readArticle": "اقرأ المقال"
     },
     "categories": {
       "blog": "المدوّنة",
@@ -302,8 +303,8 @@
       "ctaText": "سواء كنت تدرس عملية شرائك الأولى أو تضيف إلى محفظتك، يسعد فريقنا بمساعدتك على التفكير في الأمر، دون أي التزام.",
       "posts": {
         "construction-update-fauchon-residences": {
-          "title": "مستجدّات الإنشاء: FAUCHON Résidences من Prestige One",
-          "excerpt": "تتقدّم الأعمال الإنشائية وفق الجدول الزمني بينما ترتفع FAUCHON Résidences طابقاً تلو الآخر، لتجلب فنّ العيش الباريسي إلى دبي."
+          "title": "تحديث الإنشاء: FAUCHON Résidences من Prestige One",
+          "excerpt": "تتقدّم الأعمال الإنشائية وفق الجدول الزمني مع ارتفاع FAUCHON Résidences طابقاً تلو الآخر، لتجلب فن العيش الباريسي إلى دبي."
         },
         "seaside-construction-progress": {
           "title": "Seaside من Prestige One - تقدّم الإنشاء",
@@ -349,6 +350,13 @@
           "title": "تصميم منازل يعشق الناس العيش فيها: فلسفة Prestige One",
           "excerpt": "نظرة من الداخل على فلسفة التصميم التي تُشكّل كل منزل من Prestige One، من الرسم الأول إلى المساحة المكتملة."
         }
+      },
+      "article": {
+        "keepReading": "تابع القراءة",
+        "moreStories": "قصص أخرى",
+        "relatedDevelopment": "مشروع ذو صلة",
+        "ctaTitle": "منازل مصمّمة لحياة حقيقية",
+        "ctaText": "اكتشف مشاريعنا في أكثر وجهات دبي طلباً، أو تحدّث إلى فريقنا للعثور على العنوان المناسب لك."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "أمن البيانات",
           "Your Rights": "حقوقك",
           "Contact Us": "تواصل معنا"
-        }
+        },
+        "intro": "تحترم Prestige One Developments خصوصيّتك وتلتزم بحماية المعلومات الشخصية التي تشاركها معنا. توضّح هذه السياسة ما نجمعه، وكيف نستخدمه، والخيارات المتاحة لك."
       },
       "terms": {
         "title": "الشروط والأحكام",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "تحديد المسؤولية",
           "Governing Law": "القانون الحاكم",
           "Contact Us": "تواصل معنا"
-        }
+        },
+        "intro": "تحكم هذه الشروط استخدامك لموقع Prestige One Developments الإلكتروني. يُرجى قراءتها بعناية قبل تصفّح الموقع أو تقديم استفسار."
       },
       "marketing": {
         "title": "شروط وأحكام التسويق",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "دقة المواد التسويقية",
           "Opt-Out": "إلغاء الاشتراك",
           "Contact Us": "تواصل معنا"
-        }
-      }
+        },
+        "intro": "توضّح شروط التسويق هذه كيف تتواصل معك Prestige One Developments، وكيف يمكن استخدام علامتنا وموادّنا التسويقية، وكيف يمكنك إلغاء الاشتراك في أيّ وقت."
+      },
+      "eyebrow": "الشؤون القانونية"
     }
   }
 }

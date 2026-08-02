@@ -47,7 +47,8 @@
       "requestDocument": "Solicitar documento",
       "readTheStory": "Lea la historia",
       "takeTheTour": "Realice el recorrido",
-      "lastUpdated": "Última actualización"
+      "lastUpdated": "Última actualización",
+      "readArticle": "Leer artículo"
     },
     "categories": {
       "blog": "Blog",
@@ -349,6 +350,13 @@
           "title": "Diseñar viviendas en las que a la gente le encanta vivir: la filosofía de Prestige One",
           "excerpt": "Una mirada al interior de la filosofía de diseño que da forma a cada vivienda de Prestige One, desde el primer boceto hasta el espacio terminado."
         }
+      },
+      "article": {
+        "keepReading": "Seguir leyendo",
+        "moreStories": "Más historias",
+        "relatedDevelopment": "Desarrollo relacionado",
+        "ctaTitle": "Hogares diseñados para la vida real",
+        "ctaText": "Explore nuestros desarrollos en los destinos más codiciados de Dubai, o hable con nuestro equipo para encontrar la dirección ideal para usted."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "Seguridad de los datos",
           "Your Rights": "Sus derechos",
           "Contact Us": "Contáctenos"
-        }
+        },
+        "intro": "Prestige One Developments respeta su privacidad y se compromete a proteger la información personal que comparte con nosotros. Esta política explica qué recopilamos, cómo lo utilizamos y las opciones de las que dispone."
       },
       "terms": {
         "title": "Términos y condiciones",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "Limitación de responsabilidad",
           "Governing Law": "Legislación aplicable",
           "Contact Us": "Contáctenos"
-        }
+        },
+        "intro": "Estos términos rigen el uso que usted hace del sitio web de Prestige One Developments. Le rogamos que los lea atentamente antes de navegar por el sitio o enviar una consulta."
       },
       "marketing": {
         "title": "Términos y condiciones de marketing",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "Exactitud de los materiales de marketing",
           "Opt-Out": "Baja de la suscripción",
           "Contact Us": "Contáctenos"
-        }
-      }
+        },
+        "intro": "Estos términos de marketing explican cómo se comunica Prestige One Developments con usted, cómo pueden utilizarse nuestra marca y nuestros materiales de marketing, y cómo puede darse de baja en cualquier momento."
+      },
+      "eyebrow": "Legal"
     }
   }
 }

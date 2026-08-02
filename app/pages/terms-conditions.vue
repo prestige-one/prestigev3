@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Legal"
+              :eyebrow="t('mdata.legal.eyebrow')"
               :title="title"
-              :lead="doc.intro"
+              :lead="intro"
               image="/assets/images/v3/map-locations.webp"
               short
             />
@@ -33,11 +33,12 @@
 
 <script setup lang="ts">
 import { getLegalDoc, type LegalDoc } from "~/data/legal-data";
+import { legalBodies } from "~/data/i18n-bodies";
 
 const doc: LegalDoc = getLegalDoc("terms-conditions")!;
 const legalKey = "terms";
 
-const { t, tm, rt, te } = useI18n();
+const { t, te, locale, getLocaleMessage } = useI18n();
 
 definePageMeta({ layout: false });
 useSeoMeta({
@@ -45,21 +46,23 @@ useSeoMeta({
   description: doc.intro,
 });
 
-// Translate the page title and the <h2> section headings only; the dense legal
-// body paragraphs stay in English. Reactive on locale switch.
+// Raw (uncompiled) locale-message lookup by dotted path - lets the full legal
+// body HTML (which contains email addresses and markup) skip vue-i18n's
+// interpolation compiler. Reactive on locale switch, English data fallback.
+function rawMsg(path: string): string | undefined {
+  void locale.value;
+  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
+  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
+  return typeof val === "string" && val ? val : undefined;
+}
+
 const title = computed(() =>
   te(`mdata.legal.${legalKey}.title`) ? t(`mdata.legal.${legalKey}.title`) : doc.title,
 );
-
-const body = computed(() => {
-  let html = doc.body;
-  const map = tm(`mdata.legal.${legalKey}.headings`) as Record<string, unknown>;
-  for (const [en, val] of Object.entries(map || {})) {
-    const translated = rt(val as string);
-    if (translated) html = html.replaceAll(`<h2>${en}</h2>`, `<h2>${translated}</h2>`);
-  }
-  return html;
-});
+const intro = computed(() => rawMsg(`mdata.legal.${legalKey}.intro`) ?? doc.intro);
+// Body HTML lives in the plain data module (not the locale JSON) - full markup
+// with email @ breaks vue-i18n's message precompiler. English data fallback.
+const body = computed(() => legalBodies[locale.value]?.[legalKey] ?? doc.body);
 
 usePrestigePage({ hero: false });
 </script>

@@ -47,7 +47,8 @@
       "requestDocument": "Request document",
       "readTheStory": "Read the story",
       "takeTheTour": "Take the tour",
-      "lastUpdated": "Last updated"
+      "lastUpdated": "Last updated",
+      "readArticle": "Read article"
     },
     "categories": {
       "blog": "Blog",
@@ -56,9 +57,18 @@
       "industry": "Industry News"
     },
     "testimonials": [
-      { "quote": "From the first viewing to handover, the team made everything feel considered. The finish quality genuinely exceeded what we expected.", "label": "Homeowner" },
-      { "quote": "As an overseas investor I needed transparency and speed. The process was seamless and the location has already appreciated well.", "label": "NRI Investor" },
-      { "quote": "What sets Prestige One apart is the attention to how you actually live in a space - the layouts and amenities are thought through.", "label": "Business Owner" }
+      {
+        "quote": "From the first viewing to handover, the team made everything feel considered. The finish quality genuinely exceeded what we expected.",
+        "label": "Homeowner"
+      },
+      {
+        "quote": "As an overseas investor I needed transparency and speed. The process was seamless and the location has already appreciated well.",
+        "label": "NRI Investor"
+      },
+      {
+        "quote": "What sets Prestige One apart is the attention to how you actually live in a space - the layouts and amenities are thought through.",
+        "label": "Business Owner"
+      }
     ],
     "invest": {
       "heroEyebrow": "Investments",
@@ -107,11 +117,26 @@
       "faqEyebrow": "FAQs",
       "faqTitle": "Investor questions",
       "faqs": [
-        { "q": "What kind of rental yield can I expect?", "a": "Well-located Dubai apartments commonly deliver gross rental yields in the region of 6-8%, among the highest of any major global city. Branded residences and prime addresses tend to sit at the stronger end of that range thanks to premium demand. Actual returns depend on the unit, location and management, so we'll model realistic figures for any home you're considering." },
-        { "q": "Do I really pay no tax on my property?", "a": "Dubai levies no annual property tax and no capital gains tax on residential real estate, and rental income is not personally taxed. You'll pay a one-time Dubai Land Department registration fee (typically 4%) at purchase. This tax-friendly structure is a major reason net yields here outperform many other global markets." },
-        { "q": "Can foreigners own property outright?", "a": "Yes. Our developments sit in designated freehold zones, where buyers of any nationality can own the property and the land it stands on outright, in perpetuity. Ownership is registered with the Dubai Land Department and gives you full rights to live in, lease or resell your home." },
-        { "q": "Does buying property give me UAE residency?", "a": "Qualifying property investments can open a pathway to UAE residency, including the long-term Golden Visa for eligible investments. Requirements and thresholds are set by the government and can change, so we'll connect you with the right guidance for your situation as part of the buying process." },
-        { "q": "How do off-plan payment plans work?", "a": "Most of our homes are sold on construction-linked plans: a deposit on booking, a series of instalments tied to build milestones, and a final balance on handover. This spreads the cost over the construction period and lets you secure today's price. Exact terms vary by project and availability - your advisor will share the current plan." }
+        {
+          "q": "What kind of rental yield can I expect?",
+          "a": "Well-located Dubai apartments commonly deliver gross rental yields in the region of 6-8%, among the highest of any major global city. Branded residences and prime addresses tend to sit at the stronger end of that range thanks to premium demand. Actual returns depend on the unit, location and management, so we'll model realistic figures for any home you're considering."
+        },
+        {
+          "q": "Do I really pay no tax on my property?",
+          "a": "Dubai levies no annual property tax and no capital gains tax on residential real estate, and rental income is not personally taxed. You'll pay a one-time Dubai Land Department registration fee (typically 4%) at purchase. This tax-friendly structure is a major reason net yields here outperform many other global markets."
+        },
+        {
+          "q": "Can foreigners own property outright?",
+          "a": "Yes. Our developments sit in designated freehold zones, where buyers of any nationality can own the property and the land it stands on outright, in perpetuity. Ownership is registered with the Dubai Land Department and gives you full rights to live in, lease or resell your home."
+        },
+        {
+          "q": "Does buying property give me UAE residency?",
+          "a": "Qualifying property investments can open a pathway to UAE residency, including the long-term Golden Visa for eligible investments. Requirements and thresholds are set by the government and can change, so we'll connect you with the right guidance for your situation as part of the buying process."
+        },
+        {
+          "q": "How do off-plan payment plans work?",
+          "a": "Most of our homes are sold on construction-linked plans: a deposit on booking, a series of instalments tied to build milestones, and a final balance on handover. This spreads the cost over the construction period and lets you secure today's price. Exact terms vary by project and availability - your advisor will share the current plan."
+        }
       ],
       "ctaEyebrow": "Start your investment journey",
       "ctaTitle": "Let's talk returns",
@@ -325,6 +350,13 @@
           "title": "Designing Homes People Love Living In: The Prestige One Philosophy",
           "excerpt": "A look inside the design philosophy that shapes every Prestige One home - from the first sketch to the finished space."
         }
+      },
+      "article": {
+        "keepReading": "Keep reading",
+        "moreStories": "More stories",
+        "relatedDevelopment": "Related development",
+        "ctaTitle": "Homes designed for real living",
+        "ctaText": "Explore our developments across Dubai's most sought-after destinations, or talk to our team about finding the right address for you."
       }
     },
     "legal": {
@@ -365,7 +397,8 @@
           "Opt-Out": "Opt-Out",
           "Contact Us": "Contact Us"
         }
-      }
+      },
+      "eyebrow": "Legal"
     }
   }
 }

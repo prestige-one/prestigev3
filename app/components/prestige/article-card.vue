@@ -5,13 +5,13 @@
     </div>
     <div class="prestige-acard__body">
       <div class="prestige-acard__meta">
-        <span class="prestige-acard__cat">{{ categoryLabel(article.category) }}</span>
+        <span class="prestige-acard__cat">{{ catLabel }}</span>
         <span class="prestige-acard__dot">·</span>
         <span class="prestige-acard__date">{{ formattedDate }}</span>
       </div>
-      <h3 class="prestige-acard__title">{{ article.title }}</h3>
-      <p class="prestige-acard__excerpt">{{ article.excerpt }}</p>
-      <span class="prestige-acard__cta">Read article<i class="prestige-acard__arrow">→</i></span>
+      <h3 class="prestige-acard__title">{{ title }}</h3>
+      <p class="prestige-acard__excerpt">{{ excerpt }}</p>
+      <span class="prestige-acard__cta">{{ t('mdata.common.readArticle') }}<i class="prestige-acard__arrow">→</i></span>
     </div>
   </nuxt-link>
 </template>
@@ -20,6 +20,27 @@
 import { categoryLabel, type Article } from "../../data/blog-data";
 
 const props = defineProps<{ article: Article }>();
+
+const { t, te, locale, getLocaleMessage } = useI18n();
+
+// Raw (uncompiled) locale-message lookup by dotted path - used for article
+// title/excerpt so translated copy is pulled without running large strings
+// through vue-i18n's interpolation compiler. Falls back to the English data
+// value. Reactive on locale switch (references locale.value).
+function rawMsg(path: string): string | undefined {
+  void locale.value;
+  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
+  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
+  return typeof val === "string" && val ? val : undefined;
+}
+
+const postKey = computed(() => `mdata.blog.posts.${props.article.slug}`);
+const title = computed(() => rawMsg(`${postKey.value}.title`) ?? props.article.title);
+const excerpt = computed(() => rawMsg(`${postKey.value}.excerpt`) ?? props.article.excerpt);
+const catLabel = computed(() => {
+  const k = `mdata.categories.${props.article.category}`;
+  return te(k) ? t(k) : categoryLabel(props.article.category);
+});
 
 const formattedDate = computed(() =>
   new Date(props.article.date).toLocaleDateString("en-GB", {

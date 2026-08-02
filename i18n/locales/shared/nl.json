@@ -47,7 +47,8 @@
       "requestDocument": "Document aanvragen",
       "readTheStory": "Lees het verhaal",
       "takeTheTour": "Maak de rondleiding",
-      "lastUpdated": "Laatst bijgewerkt"
+      "lastUpdated": "Laatst bijgewerkt",
+      "readArticle": "Artikel lezen"
     },
     "categories": {
       "blog": "Blog",
@@ -349,6 +350,13 @@
           "title": "Woningen ontwerpen waarin mensen graag leven: de filosofie van Prestige One",
           "excerpt": "Een blik in de ontwerpfilosofie die elke woning van Prestige One vormgeeft - van de eerste schets tot de voltooide ruimte."
         }
+      },
+      "article": {
+        "keepReading": "Verder lezen",
+        "moreStories": "Meer verhalen",
+        "relatedDevelopment": "Gerelateerde ontwikkeling",
+        "ctaTitle": "Woningen ontworpen voor het echte leven",
+        "ctaText": "Ontdek onze ontwikkelingen op de meest gewilde locaties van Dubai, of praat met ons team over het vinden van het juiste adres voor u."
       }
     },
     "legal": {
@@ -363,7 +371,8 @@
           "Data Security": "Gegevensbeveiliging",
           "Your Rights": "Uw rechten",
           "Contact Us": "Neem contact op"
-        }
+        },
+        "intro": "Prestige One Developments respecteert uw privacy en zet zich in voor de bescherming van de persoonsgegevens die u met ons deelt. In dit beleid wordt uitgelegd welke gegevens wij verzamelen, hoe wij deze gebruiken en welke keuzes u ter beschikking staan."
       },
       "terms": {
         "title": "Algemene voorwaarden",
@@ -376,7 +385,8 @@
           "Limitation of Liability": "Beperking van aansprakelijkheid",
           "Governing Law": "Toepasselijk recht",
           "Contact Us": "Neem contact op"
-        }
+        },
+        "intro": "Deze voorwaarden zijn van toepassing op uw gebruik van de website van Prestige One Developments. Lees ze zorgvuldig door voordat u de site bezoekt of een aanvraag indient."
       },
       "marketing": {
         "title": "Marketingvoorwaarden",
@@ -388,8 +398,10 @@
           "Accuracy of Marketing Materials": "Nauwkeurigheid van marketingmaterialen",
           "Opt-Out": "Afmelden",
           "Contact Us": "Neem contact op"
-        }
-      }
+        },
+        "intro": "Deze marketingvoorwaarden leggen uit hoe Prestige One Developments met u communiceert, hoe ons merk en onze marketingmaterialen mogen worden gebruikt, en hoe u zich op elk moment kunt afmelden."
+      },
+      "eyebrow": "Juridisch"
     }
   }
 }
