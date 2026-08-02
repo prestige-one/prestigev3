@@ -20,6 +20,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-8 col-6">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
+                                <prestige-language-switcher class="prestige-header-lang" />
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
                                     <div class="prestige-getintouch">
                                         <nuxt-link href="/contact-us" class="prestige-getintouch__text">

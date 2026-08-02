@@ -209,10 +209,169 @@ const CATEGORY_DEFAULT_STATUS: Record<ProjectCategory, string> = {
   upcoming: "Coming Soon",
 };
 
+// and the "closer look" grid always lead with the building.
+const GAL = "/assets/project-galleries";
+function gal(slug: string, files: string[]): string[] {
+  return files.map((f) => `${GAL}/${slug}/${f}`);
+}
+const galleryData: Record<string, string[]> = {
+  "berkeley-square-north": gal("berkeley-square-north", [
+    "berkeley-square-north.webp",
+    "berkeley-square-2br-living-room-02-scaled.webp",
+    "berkeley-square-kitchen.webp",
+    "berkeley-square-3br-bathroom-scaled.webp",
+    "berkeley-square-podcast-room-scaled.webp",
+    "gym-4-scaled.webp",
+    "kids-play-area-1-scaled.webp",
+  ]),
+  "berkeley-square-south": gal("berkeley-square-south", [
+    "berkeley-square-south.webp",
+    "berkeley-square-2br-living-room-02-scaled.webp",
+    "berkeley-square-kitchen.webp",
+    "berkeley-square-3br-bathroom-scaled.webp",
+    "berkeley-square-podcast-room-scaled.webp",
+    "gym-4-scaled.webp",
+    "kids-play-area-1-scaled.webp",
+  ]),
+  "coastal-haven-by-prestige-one": gal("coastal-haven-by-prestige-one", [
+    "coastal-haven.webp",
+    "04-3-bedroom-living-dining-scaled.webp",
+    "06-3-bedroom-kitchen-scaled.webp",
+    "bathroom-scaled.webp",
+    "01-game-room-view-scaled.webp",
+    "03-gym-scaled.webp",
+    "04-kids-play-area-scaled.webp",
+  ]),
+  "fauchon-residences-by-prestige-one": gal("fauchon-residences-by-prestige-one", [
+    "fauchon-banner.webp",
+    "fauchon-day-view.webp",
+    "fauchon-ext-2.webp",
+    "fauchon-ext-3.webp",
+    "fauchon-dining.webp",
+    "fauchon-bedroom.webp",
+    "fauchon-bathroom.webp",
+    "fauchon-banner-x.webp",
+  ]),
+  "golf-residences-by-prestige-one": gal("golf-residences-by-prestige-one", [
+    "the-place-banner.webp",
+    "living-1-scaled.webp",
+    "living-3-scaled.webp",
+    "bedroom-1-02-scaled-1.webp",
+    "club-lounge-02-scaled-1.webp",
+    "mens-gym-01-scaled.webp",
+    "kids-1-scaled.webp",
+  ]),
+  "hilton-residences-dubai-maritime-city": gal("hilton-residences-dubai-maritime-city", [
+    "hilton-night-view-1.webp",
+    "2bed_living-dining-kitchen.webp",
+    "duplex_master-bedroom.webp",
+    "25770800_prestige_spl-3bed_m-bathroom__.webp",
+    "pool.webp",
+    "25770800-prestige_v24_alfresco-lounge_20251113.webp",
+    "25770800-prestige_v26_outdoor-gym_20251113-1.webp",
+  ]),
+  "luxe-villa-by-prestige-one": gal("luxe-villa-by-prestige-one", [
+    "luxe-villas.webp",
+    "the-luxe-villas-1.jpg",
+    "the-luxe-villas-entrance.jpg",
+    "the-luxe-villas-entrance-2.jpg",
+    "the-luxe-villas-interior-firstfloor.jpg",
+    "the-luxe-villas-interior-firstfloor-2.jpg",
+    "the-luxe-villas-majlis.jpg",
+  ]),
+  "luxury-canal-residences-by-prestige-one": gal("luxury-canal-residences-by-prestige-one", [
+    "luxury-canal.webp",
+    "04-3-bedroom-living-dining-scaled.webp",
+    "06-3-bedroom-kitchen-scaled.webp",
+    "bathroom-scaled.webp",
+    "01-game-room-view-scaled.webp",
+    "03-gym-scaled.webp",
+    "04-kids-play-area-scaled.webp",
+  ]),
+  "parkway-by-prestige-one": gal("parkway-by-prestige-one", [
+    "parkway.webp",
+    "living-area-scaled.webp",
+    "bedroom-1.webp",
+    "bathroom-scaled.webp",
+    "lobby-2-1200x900.webp",
+    "indoor-cinema-scaled.webp",
+    "yoga-area.webp",
+  ]),
+  "sanctuary-residences-by-prestige-one": gal("sanctuary-residences-by-prestige-one", [
+    "sanctuary-aprtment.webp",
+    "3-bedroom-unit-living-room-1.webp",
+    "17.-3-bedroom-unit-master-bedroom.jpg",
+    "3-bedroom-unit-toilet-1.webp",
+    "rooftop-pool-scaled.jpg",
+    "8.-residential-amenities-gym-level-9-option-1-scaled.jpg",
+    "10.-residential-amenities-cinema-level-9-scaled.jpg",
+  ]),
+  "seascape-villa": gal("seascape-villa", [
+    "seascape2.jpg",
+    "seascape-ext2.jpg",
+    "seascape-ext4.jpg",
+    "seascape-ext5.jpg",
+  ]),
+  "seaside-by-prestige-one": gal("seaside-by-prestige-one", [
+    "seaside-featured-image.webp",
+    "seaside-2bhk-living.webp",
+    "seaside-3bhk-livingkitchen.webp",
+    "seaside-2bhk-kitchen.webp",
+    "seaside-3bhk-kitchen.webp",
+    "seaside-2bhk-kitchen-1.webp",
+    "seaside-3bhk-masterbedbathroom.webp",
+  ]),
+  "the-boulevard-by-prestige-one": gal("the-boulevard-by-prestige-one", [
+    "boulevard.webp",
+    "living-scaled.webp",
+    "kitchen-scaled.webp",
+    "k2-scaled.webp",
+    "bahtrrom-scaled.webp",
+    "art-room-scaled.webp",
+    "gameroom-scaled.webp",
+  ]),
+  "the-one-by-prestige-one": gal("the-one-by-prestige-one", [
+    "the-one.webp",
+    "4.webp",
+    "5.webp",
+    "owners-lounge_final_4.webp",
+    "9th-floor-spa-2.webp",
+    "pre_one_cigar_lounge_f2-scaled.webp",
+    "pre_one_gym_f1.webp",
+  ]),
+  "the-residence-by-prestige-one": gal("the-residence-by-prestige-one", [
+    "the-residence.webp",
+    "the-residence-carousel-2.webp",
+    "the-residence-carousel-3.jpg",
+    "the-residence-carousel-6.webp",
+    "the-residence-carousel-10.webp",
+    "berkeley-square-2br-living-room-02-scaled.webp",
+    "berkeley-square-kitchen.webp",
+  ]),
+  "vista-by-prestige-one": gal("vista-by-prestige-one", [
+    "vista.webp",
+    "vista-living-room.webp",
+    "vista-master-bedroom.webp",
+    "vista-carousel-bathroom-1.jpg",
+    "vista-observation-deck.webp",
+    "mens-gym-01-scaled.webp",
+    "kids-1-scaled.webp",
+  ]),
+  "waterway-by-prestige-one": gal("waterway-by-prestige-one", [
+    "waterway-pic-2.webp",
+    "the-waterway-living.webp",
+    "the-waterway-living-1.webp",
+    "the-waterway-bedroom.webp",
+    "the-waterway-bathroom.webp",
+  ]),
+};
+
 function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project {
   const slug = slugify(slide.title);
   const e = enrichment[slug] ?? {};
-  const hero = e.hero ?? slide.image;
+  // real gallery (from copied renders) drives both the gallery and the cover
+  const realGallery = galleryData[slug];
+  const hero = realGallery ? realGallery[0]! : (e.hero ?? slide.image);
   return {
     slug,
     title: slide.title,
@@ -223,7 +382,7 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     description: slide.description,
     image: slide.image,
     hero,
-    gallery: e.gallery ?? [hero],
+    gallery: realGallery ?? e.gallery ?? [hero],
     overview:
       e.overview ?? [
         slide.description,

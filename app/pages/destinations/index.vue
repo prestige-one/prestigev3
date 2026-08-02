@@ -56,6 +56,25 @@
               </div>
             </section>
 
+            <!-- immersive MapLibre map -->
+            <section class="prestige-mapsection">
+              <div class="container container-1430">
+                <header class="prestige-mapsection__head">
+                  <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Explore</span>
+                  <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Find Your Address on the Map</h2>
+                  <p class="prestige-mapsection__lead tp_fade_anim" data-delay=".4">
+                    Move across an immersive, satellite view of Dubai and see where every Prestige One
+                    development sits - filter by district, tap a marker and step through the collection.
+                  </p>
+                </header>
+              </div>
+              <div class="prestige-mapsection__stage">
+                <client-only>
+                  <prestige-immersive-map />
+                </client-only>
+              </div>
+            </section>
+
             <prestige-cta-band
               eyebrow="Find your address"
               title="Not sure where to begin?"
@@ -100,6 +119,38 @@ const portfolioStats: { value: string; label: string; col?: string }[] = [
 usePrestigePage({ hero: false });
 </script>
 
+<style scoped>
+/* immersive map section */
+.prestige-mapsection {
+  position: relative;
+  padding: clamp(70px, 8vw, 120px) 0 clamp(80px, 9vw, 130px);
+}
+.prestige-mapsection__head {
+  max-width: 760px;
+  margin: 0 auto clamp(34px, 4vw, 56px);
+  text-align: center;
+}
+.prestige-mapsection__lead {
+  max-width: 620px;
+  margin: 20px auto 0;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+}
+.prestige-mapsection__stage {
+  width: min(100% - 40px, 1560px);
+  height: min(82vh, 780px);
+  min-height: 580px;
+  margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  .prestige-mapsection__stage {
+    width: calc(100% - 20px);
+    height: 78vh;
+    min-height: 620px;
+  }
+}
+</style>
 <style scoped>
 .prestige-dest-card {
   display: block;
