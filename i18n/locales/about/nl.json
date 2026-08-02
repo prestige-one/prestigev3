@@ -5,7 +5,9 @@
       "subtitle": "Achter elke plek schuilt een doel",
       "headingLine1": "We bouwen met een doel.",
       "headingLine2": "We creëren voor het leven.",
-      "desc": "Prestige One Developments is een in Dubai gevestigde vastgoedontwikkelaar die woon- en commerciële ruimtes creëert, gevormd rond hoe mensen leven, werken en de stad ervaren."
+      "desc": "Prestige One Developments is een in Dubai gevestigde vastgoedontwikkelaar die woon- en commerciële ruimtes creëert, gevormd rond hoe mensen leven, werken en de stad ervaren.",
+      "videoAria": "Bedrijfspresentatie van Prestige One Developments",
+      "videoFallback": "Uw browser ondersteunt de videotag niet."
     },
     "legacy": {
       "eyebrow": "ONZE ERFENIS",
@@ -45,7 +47,9 @@
       "h2Title": "Miljarden",
       "h2Label": "Portefeuille in AED",
       "h3Title": "Gemeenschap",
-      "h3Label": "Waardegedreven leiderschap"
+      "h3Label": "Waardegedreven leiderschap",
+      "role": "Oprichter en CEO",
+      "highlightsAria": "Hoogtepunten van de oprichter"
     },
     "leadership": {
       "eyebrow": "ONZE LEIDING",
@@ -92,6 +96,11 @@
       "lead": "Nieuwe ontwikkelingen, nieuwe kansen en meer op komst van Prestige One.",
       "exploreBtn": "Ontdek onze ontwikkelingen",
       "contactBtn": "Neem contact op"
+    },
+    "reviews": {
+      "contact": "Neem contact op",
+      "ratingAria": "Google-beoordeling: 4.8 van 5, gebaseerd op meer dan 500 reviews",
+      "caption": "Gebaseerd op meer dan 500 reviews"
     }
   }
 }

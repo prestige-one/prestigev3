@@ -3,25 +3,25 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Full name*</label>
+          <label>{{ t('sh.form.fullName') }}</label>
           <input v-model="form.name" name="name" type="text">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Company / Agency*</label>
+          <label>{{ t('sh.form.companyAgency') }}</label>
           <input v-model="form.company" name="company" type="text">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Email address*</label>
+          <label>{{ t('sh.form.emailAddress') }}</label>
           <input v-model="form.email" name="email" type="email">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Phone number*</label>
+          <label>{{ t('sh.form.phoneNumber') }}</label>
           <div class="prestige-phone-field">
             <select v-model="form.phoneCountry" name="phone_country" class="prestige-phone-code">
               <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
@@ -34,13 +34,13 @@
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>RERA / ORN number</label>
+          <label>{{ t('sh.form.reraOrn') }}</label>
           <input v-model="form.rera" name="rera" type="text">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Country</label>
+          <label>{{ t('sh.form.country') }}</label>
           <select v-model="form.country" name="country" class="prestige-country-select">
             <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
               {{ getFlagEmoji(country.iso2) }} {{ country.name }}
@@ -50,14 +50,14 @@
       </div>
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
-          <label>Message</label>
+          <label>{{ t('sh.form.message') }}</label>
           <textarea v-model="form.message" name="message" />
         </div>
         <div class="tp-contact-form-btn">
           <button class="w-100" type="submit" :disabled="submitting">
             <span>
-              <span class="text-1">{{ submitting ? "Submitting…" : "Register" }}</span>
-              <span class="text-2">{{ submitting ? "Submitting…" : "Register" }}</span>
+              <span class="text-1">{{ submitting ? t('sh.form.submitting') : t('sh.form.register') }}</span>
+              <span class="text-2">{{ submitting ? t('sh.form.submitting') : t('sh.form.register') }}</span>
             </span>
           </button>
           <p
@@ -75,6 +75,8 @@
 
 <script setup lang="ts">
 import { countries, getFlagEmoji } from "~/data/countries-data";
+
+const { t } = useI18n();
 
 interface BrokerForm {
   name: string;
@@ -116,13 +118,13 @@ async function onSubmit() {
   if (!form.name.trim() || !form.company.trim() || !form.email.trim() || !form.phone.trim()) {
     status.value = {
       type: "error",
-      message: "Please complete all required fields marked with an asterisk.",
+      message: t("sh.form.errRequired"),
     };
     return;
   }
 
   if (!isValidEmail(form.email)) {
-    status.value = { type: "error", message: "Please enter a valid email address." };
+    status.value = { type: "error", message: t("sh.form.errInvalidEmail") };
     return;
   }
 
@@ -131,7 +133,7 @@ async function onSubmit() {
     await $fetch("/api/broker", { method: "POST", body: { ...form } });
     status.value = {
       type: "success",
-      message: "Thank you for registering. Our team will be in touch shortly.",
+      message: t("sh.form.successRegistered"),
     };
     form.name = "";
     form.company = "";
@@ -142,7 +144,7 @@ async function onSubmit() {
   } catch {
     status.value = {
       type: "error",
-      message: "Something went wrong, please email enquiries@prestigeone.ae",
+      message: t("sh.form.errGeneric", { email: "enquiries@prestigeone.ae" }),
     };
   } finally {
     submitting.value = false;

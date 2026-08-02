@@ -13,8 +13,8 @@
           @mouseleave="scheduleClose"
         >
           <ul class="lnv__list">
-            <li v-for="a in aboutLinks" :key="a.label">
-              <nuxt-link :to="a.to" @click="close">{{ a.label }}</nuxt-link>
+            <li v-for="a in aboutLinks" :key="a.key">
+              <nuxt-link :to="localePath(a.to)" @click="close">{{ $t(a.key) }}</nuxt-link>
             </li>
           </ul>
         </div>
@@ -95,10 +95,10 @@ const featuredProjects = FEATURED_SLUGS.map((s) => projectBySlug.get(s)).filter(
 const featuredDestinations = destinations.slice(0, 6);
 
 const aboutLinks = [
-  { label: "Our Story", to: "/about-us#our-story" },
-  { label: "Vision & Mission", to: "/about-us#vision" },
-  { label: "Our Leadership", to: "/about-us#leadership" },
-  { label: "Our Milestones", to: "/about-us#milestones" },
+  { key: "menu.ourStory", to: "/about-us#our-story" },
+  { key: "menu.visionMission", to: "/about-us#vision" },
+  { key: "menu.ourLeadership", to: "/about-us#leadership" },
+  { key: "menu.ourMilestones", to: "/about-us#milestones" },
 ];
 
 function open(key: "about" | "projects" | "destinations") {

@@ -52,7 +52,11 @@
   },
   "menu": {
     "featuredProjects": "Featured projects",
-    "ourDestinations": "Our destinations"
+    "ourDestinations": "Our destinations",
+    "ourStory": "Our Story",
+    "visionMission": "Vision & Mission",
+    "ourLeadership": "Our Leadership",
+    "ourMilestones": "Our Milestones"
   },
   "contact": {
     "fullName": "Full name",
@@ -62,7 +66,9 @@
     "phoneNumber": "Phone number",
     "phonePlaceholder": "Enter your phone number",
     "howCanWeHelp": "How Can We Help You?",
-    "messagePlaceholder": "Tell us more about your inquiry"
+    "messagePlaceholder": "Tell us more about your inquiry",
+    "errRequired": "Please complete all required fields with valid details.",
+    "errGeneric": "Something went wrong. Please email {email} or try again."
   },
   "language": {
     "label": "Language",

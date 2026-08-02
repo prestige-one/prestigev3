@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Entdecken",
       "title": "Finden Sie Ihre Adresse auf der Karte",
-      "lead": "Bewegen Sie sich durch eine immersive Satellitenansicht von Dubai und sehen Sie, wo jedes Prestige-One-Projekt liegt - filtern Sie nach Bezirk, tippen Sie auf eine Markierung und durchstöbern Sie die Kollektion."
+      "lead": "Bewegen Sie sich durch eine immersive Satellitenansicht von Dubai und sehen Sie, wo jedes Prestige-One-Projekt liegt - filtern Sie nach Bezirk, tippen Sie auf eine Markierung und durchstöbern Sie die Kollektion.",
+      "developmentsLabel": "Projekte",
+      "filterAria": "Projekte nach Gebiet filtern",
+      "legendAria": "Legende der Kartenmarkierungen",
+      "resetBearing": "Ausrichtung auf Norden zurücksetzen",
+      "zoomOut": "Verkleinern",
+      "zoomIn": "Vergrößern",
+      "areaFallback": "Gebiet",
+      "closeAria": "Projektdetails schließen",
+      "projectFallback": "Projekt",
+      "floorsLabel": "Etagen",
+      "districtLabel": "Bezirk",
+      "exploreMore": "Mehr entdecken",
+      "prevAria": "Vorheriges Projekt",
+      "nextAria": "Nächstes Projekt",
+      "filterAll": "Alle",
+      "loaderSubtitle": "Projekte in Dubai"
     },
     "card": {
       "count_one": "1 Projekt",

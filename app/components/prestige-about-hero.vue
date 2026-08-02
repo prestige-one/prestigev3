@@ -22,14 +22,14 @@
             <video
               class="prestige-about-hero-video"
               src="/assets/videos/company-showcase.mp4"
-              aria-label="Prestige One Developments company showcase"
+              :aria-label="t('ap.hero.videoAria')"
               autoplay
               muted
               loop
               playsinline
               preload="metadata"
             >
-              Your browser does not support the video tag.
+              {{ t('ap.hero.videoFallback') }}
             </video>
           </div>
         </div>

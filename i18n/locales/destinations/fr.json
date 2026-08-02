@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Explorer",
       "title": "Trouvez votre adresse sur la carte",
-      "lead": "Parcourez une vue satellite immersive de Dubaï et découvrez l'emplacement de chaque projet Prestige One - filtrez par quartier, appuyez sur un repère et parcourez la collection."
+      "lead": "Parcourez une vue satellite immersive de Dubaï et découvrez l'emplacement de chaque projet Prestige One - filtrez par quartier, appuyez sur un repère et parcourez la collection.",
+      "developmentsLabel": "Projets",
+      "filterAria": "Filtrer les projets par zone",
+      "legendAria": "Légende des points de repère de la carte",
+      "resetBearing": "Réinitialiser l'orientation au nord",
+      "zoomOut": "Dézoomer",
+      "zoomIn": "Zoomer",
+      "areaFallback": "Zone",
+      "closeAria": "Fermer les détails du projet",
+      "projectFallback": "Projet",
+      "floorsLabel": "Étages",
+      "districtLabel": "Quartier",
+      "exploreMore": "En savoir plus",
+      "prevAria": "Projet précédent",
+      "nextAria": "Projet suivant",
+      "filterAll": "Tous",
+      "loaderSubtitle": "Projets à Dubaï"
     },
     "card": {
       "count_one": "1 projet",

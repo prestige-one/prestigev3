@@ -30,7 +30,67 @@
     "faqEyebrow": "Good to know",
     "faqTitle": "Frequently asked",
     "whatClientsSay": "What our clients say",
-    "trustedToBuild": "Trusted to build more than structures"
+    "trustedToBuild": "Trusted to build more than structures",
+    "prev": "Prev",
+    "next": "Next",
+    "contactCta": {
+      "eyebrow": "Get In Touch",
+      "titleLine1": "Let's Talk About",
+      "titleLine2": "Your Next Move"
+    },
+    "getInTouch": "Get in touch",
+    "viewDevelopments": "View developments",
+    "gallery": {
+      "paras": [
+        "Our sales gallery sits on the 16th floor of Marina Plaza, in the heart of Dubai Marina. It's the best place to see our developments come to life - scale models, material palettes, sample interiors and interactive floor plans, all in one room.",
+        "A private appointment gives you a dedicated advisor, uninterrupted time to explore availability and payment plans, and the space to ask every question. Prefer to stay remote? We'll walk you through everything over a video call and share the same materials digitally."
+      ],
+      "points": [
+        "Office 1602-1604, Marina Plaza, Dubai Marina",
+        "Open seven days a week, 9am to 7pm",
+        "Private and virtual appointments available",
+        "Dedicated advisor for every enquiry"
+      ]
+    },
+    "faq": {
+      "items": [
+        {
+          "q": "How does the booking process work?",
+          "a": "Once you've chosen a home, we reserve it with a booking form and an initial deposit - typically a percentage of the purchase price. Your advisor prepares the Sale and Purchase Agreement, guides you through the DLD registration, and confirms your payment schedule. The whole process is transparent and usually completed within a few days."
+        },
+        {
+          "q": "What payment plans are available?",
+          "a": "Most of our developments offer flexible, construction-linked payment plans - commonly a deposit on booking, staged instalments through construction, and a final balance on handover. Exact terms vary by project and change with availability, so speak to our team for the latest plan on the home you're interested in."
+        },
+        {
+          "q": "Can international buyers purchase a Prestige One home?",
+          "a": "Yes. Our developments are in designated freehold areas, so buyers of any nationality can own their home outright. Purchases can be completed remotely, and qualifying investments may open a pathway to UAE residency. We regularly work with overseas buyers and can arrange everything by video call and secure digital documents."
+        },
+        {
+          "q": "How do I arrange a viewing?",
+          "a": "Call 800 PRESTIGE, message us on WhatsApp, or submit the enquiry form above and we'll be in touch to schedule a private appointment at our Dubai Marina sales gallery - or a virtual tour if you'd rather view from home."
+        },
+        {
+          "q": "I'm a broker - how do I register a client?",
+          "a": "We welcome registered brokers and offer a straightforward partner process. Email enquiries{'@'}prestigeone.ae with your RERA details and your client's information to register the lead, and our channel team will confirm terms and share the latest inventory and commission structure."
+        }
+      ]
+    },
+    "form": {
+      "fullName": "Full name*",
+      "companyAgency": "Company / Agency*",
+      "emailAddress": "Email address*",
+      "phoneNumber": "Phone number*",
+      "reraOrn": "RERA / ORN number",
+      "country": "Country",
+      "message": "Message",
+      "submitting": "Submitting…",
+      "register": "Register",
+      "errRequired": "Please complete all required fields marked with an asterisk.",
+      "errInvalidEmail": "Please enter a valid email address.",
+      "successRegistered": "Thank you for registering. Our team will be in touch shortly.",
+      "errGeneric": "Something went wrong, please email {email}"
+    }
   },
   "mdata": {
     "common": {
@@ -399,6 +459,51 @@
         }
       },
       "eyebrow": "Legal"
+    },
+    "constr": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Construction Updates",
+      "heroLead": "Progress from the ground up - milestones and site news from developments underway across our portfolio.",
+      "introEyebrow": "Progress you can follow",
+      "introBody": "A building is only as good as the care that goes into making it. That is why we share the journey openly - from the first pour to the final façade panel. Each update below is a real snapshot from an active Prestige One site, measured against a clear delivery roadmap and independently signed off at every milestone.",
+      "empty": "No construction updates just yet - check back soon for the latest from our sites.",
+      "ctaEyebrow": "Following a development?",
+      "ctaTitle": "Get milestone updates first",
+      "ctaText": "Register your interest and we'll keep you posted as your future home moves from foundation to handover.",
+      "ctaPrimary": "Register interest",
+      "ctaSecondary": "View developments",
+      "seoTitle": "Construction Updates | Prestige One",
+      "seoDesc": "Construction milestones and site progress from Prestige One developments across Dubai."
+    },
+    "news": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Industry News",
+      "heroLead": "Market perspective and analysis on Dubai real estate - the trends shaping how and where people invest.",
+      "introEyebrow": "Reading the market",
+      "introBody": "Dubai's property market rewards those who understand it. Here we share the trends, fundamentals and shifts we watch most closely - from the tax advantages that draw global capital to the rise of branded residences - so you can make decisions with clarity rather than guesswork.",
+      "empty": "No industry news just yet - check back soon for our latest market insight.",
+      "ctaEyebrow": "Invest with confidence",
+      "ctaTitle": "Turn insight into your next move",
+      "ctaText": "Our team can help you translate the market into a decision - matching Dubai's fundamentals to the right Prestige One address for you.",
+      "ctaPrimary": "Speak to an advisor",
+      "ctaSecondary": "Explore destinations",
+      "seoTitle": "Industry News | Prestige One",
+      "seoDesc": "Dubai real estate market insight and analysis from Prestige One Developments."
+    },
+    "press": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Press Releases",
+      "heroLead": "Official announcements from Prestige One - partnerships, launches and milestones shaping the business.",
+      "introEyebrow": "Official announcements",
+      "introBody": "From world-first brand partnerships to major investment commitments, these are the moments that define Prestige One's growth - shared here in full and on the record. For media enquiries or interview requests, our communications team is ready to help.",
+      "empty": "No press releases just yet - check back soon for our latest announcements.",
+      "ctaEyebrow": "Media & press",
+      "ctaTitle": "Working on a story?",
+      "ctaText": "Reach out to our communications team for press materials, imagery and interviews with the Prestige One leadership.",
+      "ctaPrimary": "Contact us",
+      "ctaSecondary": "Visit the Media Center",
+      "seoTitle": "Press Releases | Prestige One",
+      "seoDesc": "Official press announcements and news from Prestige One Developments."
     }
   }
 }

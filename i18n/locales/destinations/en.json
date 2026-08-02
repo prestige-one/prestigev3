@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Explore",
       "title": "Find Your Address on the Map",
-      "lead": "Move across an immersive, satellite view of Dubai and see where every Prestige One development sits - filter by district, tap a marker and step through the collection."
+      "lead": "Move across an immersive, satellite view of Dubai and see where every Prestige One development sits - filter by district, tap a marker and step through the collection.",
+      "developmentsLabel": "Developments",
+      "filterAria": "Filter developments by area",
+      "legendAria": "Map landmark legend",
+      "resetBearing": "Reset bearing to north",
+      "zoomOut": "Zoom out",
+      "zoomIn": "Zoom in",
+      "areaFallback": "Area",
+      "closeAria": "Close project details",
+      "projectFallback": "Project",
+      "floorsLabel": "Floors",
+      "districtLabel": "District",
+      "exploreMore": "Explore More",
+      "prevAria": "Previous project",
+      "nextAria": "Next project",
+      "filterAll": "All",
+      "loaderSubtitle": "Dubai Developments"
     },
     "card": {
       "count_one": "1 development",

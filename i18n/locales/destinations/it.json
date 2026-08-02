@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Esplora",
       "title": "Trova il tuo indirizzo sulla mappa",
-      "lead": "Muoviti in una vista satellitare immersiva di Dubai e scopri dove si trova ogni sviluppo Prestige One: filtra per distretto, tocca un segnaposto e sfoglia la collezione."
+      "lead": "Muoviti in una vista satellitare immersiva di Dubai e scopri dove si trova ogni sviluppo Prestige One: filtra per distretto, tocca un segnaposto e sfoglia la collezione.",
+      "developmentsLabel": "Sviluppi",
+      "filterAria": "Filtra gli sviluppi per zona",
+      "legendAria": "Legenda dei punti di riferimento della mappa",
+      "resetBearing": "Reimposta l'orientamento a nord",
+      "zoomOut": "Riduci zoom",
+      "zoomIn": "Aumenta zoom",
+      "areaFallback": "Zona",
+      "closeAria": "Chiudi i dettagli del progetto",
+      "projectFallback": "Progetto",
+      "floorsLabel": "Piani",
+      "districtLabel": "Distretto",
+      "exploreMore": "Scopri di più",
+      "prevAria": "Progetto precedente",
+      "nextAria": "Progetto successivo",
+      "filterAll": "Tutti",
+      "loaderSubtitle": "Sviluppi a Dubai"
     },
     "card": {
       "count_one": "1 sviluppo",

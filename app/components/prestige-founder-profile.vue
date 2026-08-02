@@ -17,7 +17,7 @@
           >
           <figcaption class="prestige-founder-caption">
             <strong class="prestige-founder-name">Ajmal Saifi</strong>
-            <span class="prestige-founder-role">Founder &amp; CEO</span>
+            <span class="prestige-founder-role">{{ t('ap.founder.role') }}</span>
             <span class="prestige-founder-company">Prestige One Developments</span>
           </figcaption>
         </figure>
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-          <div class="prestige-founder-highlights" aria-label="Founder highlights">
+          <div class="prestige-founder-highlights" :aria-label="t('ap.founder.highlightsAria')">
             <div v-for="highlight in highlights" :key="highlight.title" class="prestige-founder-highlight">
               <i :class="highlight.icon" aria-hidden="true"></i>
               <strong>{{ highlight.title }}</strong>

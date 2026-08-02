@@ -40,8 +40,11 @@ function close() {
   emit("close");
 }
 
-const prefillMessage = computed(
-  () => `I would like to request the ${props.documentName} for ${props.projectTitle}.`,
+const prefillMessage = computed(() =>
+  t('pp.doc.prefillMessage', {
+    documentName: props.documentName,
+    projectTitle: props.projectTitle,
+  }),
 );
 
 // Esc-to-close + body scroll lock. Guarded so nothing touches document on the server.

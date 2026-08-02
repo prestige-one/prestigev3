@@ -47,6 +47,7 @@
 import { countries, getFlagEmoji } from "~/data/countries-data";
 
 const props = defineProps<{ prefillMessage?: string }>();
+const { t } = useI18n();
 const selectedCountry = ref("AE");
 const form = reactive({ name: "", email: "", phone: "", message: props.prefillMessage ?? "" });
 const status = ref<"idle" | "submitting" | "success" | "error">("idle");
@@ -58,7 +59,7 @@ async function onSubmit() {
   // quick client-side validation
   if (!form.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) || form.phone.replace(/\D/g, "").length < 6 || !form.message.trim()) {
     status.value = "error";
-    responseMsg.value = "Please complete all required fields with valid details.";
+    responseMsg.value = t('contact.errRequired');
     return;
   }
   status.value = "submitting";
@@ -73,7 +74,7 @@ async function onSubmit() {
     form.name = form.email = form.phone = form.message = "";
   } catch {
     status.value = "error";
-    responseMsg.value = "Something went wrong. Please email enquiries@prestigeone.ae or try again.";
+    responseMsg.value = t('contact.errGeneric', { email: 'enquiries@prestigeone.ae' });
   }
 }
 </script>

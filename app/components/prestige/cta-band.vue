@@ -8,8 +8,8 @@
           <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
           <p v-if="text" class="prestige-ctaband__text tp_fade_anim" data-delay=".4">{{ text }}</p>
           <div class="prestige-ctaband__actions tp_fade_anim" data-delay=".5">
-            <nuxt-link :to="primaryTo" class="prestige-btn">{{ primaryLabel }}</nuxt-link>
-            <nuxt-link v-if="secondaryTo" :to="secondaryTo" class="prestige-btn prestige-btn--ghost">{{ secondaryLabel }}</nuxt-link>
+            <nuxt-link :to="primaryTo" class="prestige-btn">{{ primaryLabelText }}</nuxt-link>
+            <nuxt-link v-if="secondaryTo" :to="secondaryTo" class="prestige-btn prestige-btn--ghost">{{ secondaryLabelText }}</nuxt-link>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     title: string;
     image: string;
@@ -32,12 +32,16 @@ withDefaults(
   {
     eyebrow: "",
     text: "",
-    primaryLabel: "Get in touch",
+    primaryLabel: "",
     primaryTo: "/contact-us",
-    secondaryLabel: "View developments",
+    secondaryLabel: "",
     secondaryTo: "",
   },
 );
+
+const { t } = useI18n();
+const primaryLabelText = computed(() => props.primaryLabel || t("sh.getInTouch"));
+const secondaryLabelText = computed(() => props.secondaryLabel || t("sh.viewDevelopments"));
 </script>
 
 <style scoped>

@@ -5,7 +5,9 @@
       "subtitle": "Detrás de cada lugar hay un propósito",
       "headingLine1": "Construimos con propósito.",
       "headingLine2": "Creamos para la vida.",
-      "desc": "Prestige One Developments es una promotora inmobiliaria con sede en Dubái que crea espacios residenciales y comerciales diseñados en torno a cómo las personas viven, trabajan y experimentan la ciudad."
+      "desc": "Prestige One Developments es una promotora inmobiliaria con sede en Dubái que crea espacios residenciales y comerciales diseñados en torno a cómo las personas viven, trabajan y experimentan la ciudad.",
+      "videoAria": "Presentación de la empresa Prestige One Developments",
+      "videoFallback": "Su navegador no admite la etiqueta de vídeo."
     },
     "legacy": {
       "eyebrow": "NUESTRO LEGADO",
@@ -45,7 +47,9 @@
       "h2Title": "Miles de millones",
       "h2Label": "Cartera en AED",
       "h3Title": "Comunidad",
-      "h3Label": "Liderazgo con valores"
+      "h3Label": "Liderazgo con valores",
+      "role": "Fundador y CEO",
+      "highlightsAria": "Aspectos destacados del fundador"
     },
     "leadership": {
       "eyebrow": "NUESTRO LIDERAZGO",
@@ -92,6 +96,11 @@
       "lead": "Nuevos desarrollos, nuevas oportunidades y mucho más por venir de Prestige One.",
       "exploreBtn": "Explorar nuestros desarrollos",
       "contactBtn": "Ponte en contacto"
+    },
+    "reviews": {
+      "contact": "Contáctanos",
+      "ratingAria": "Valoración de Google: 4.8 de 5, basada en más de 500 reseñas",
+      "caption": "Basado en más de 500 reseñas"
     }
   }
 }

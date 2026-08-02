@@ -10,11 +10,11 @@
       <header class="po-dmap-topbar">
         <div class="po-dmap-counter">
           <div class="po-dmap-counter-num">{{ DUBAI_MAP_PROJECTS.length }}</div>
-          <div class="po-dmap-counter-lbl">Developments</div>
+          <div class="po-dmap-counter-lbl">{{ $t('dp.map.developmentsLabel') }}</div>
         </div>
       </header>
 
-      <nav class="po-dmap-filters" aria-label="Filter developments by area">
+      <nav class="po-dmap-filters" :aria-label="$t('dp.map.filterAria')">
         <button
           v-for="area in mapAreas"
           :key="area"
@@ -23,11 +23,11 @@
           :class="{ 'po-dmap-chip--active': activeArea === area }"
           @click="setFilter(area)"
         >
-          {{ area }}
+          {{ area === 'All' ? $t('dp.map.filterAll') : area }}
         </button>
       </nav>
 
-      <div class="po-dmap-legend" aria-label="Map landmark legend">
+      <div class="po-dmap-legend" :aria-label="$t('dp.map.legendAria')">
         <span v-for="item in legend" :key="item.label" class="po-dmap-legrow">
           <span class="po-dmap-legdot" :style="{ background: item.color }"></span>
           {{ item.label }}
@@ -35,7 +35,7 @@
       </div>
 
       <div class="po-dmap-instruments">
-        <button type="button" class="po-dmap-compass" title="Reset bearing to north" @click="resetBearing">
+        <button type="button" class="po-dmap-compass" :title="$t('dp.map.resetBearing')" @click="resetBearing">
           <svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true">
             <circle cx="37" cy="37" r="30" fill="none" stroke="rgba(255,255,255,0.10)" />
             <g class="po-dmap-needle" :style="{ transform: `rotate(${-bearing}deg)` }">
@@ -48,9 +48,9 @@
         </button>
 
         <div class="po-dmap-zoombox">
-          <button type="button" class="po-dmap-zbtn" aria-label="Zoom out" @click="zoomOut">&minus;</button>
+          <button type="button" class="po-dmap-zbtn" :aria-label="$t('dp.map.zoomOut')" @click="zoomOut">&minus;</button>
           <span class="po-dmap-zval">{{ zoomMultiple }}</span>
-          <button type="button" class="po-dmap-zbtn" aria-label="Zoom in" @click="zoomIn">+</button>
+          <button type="button" class="po-dmap-zbtn" :aria-label="$t('dp.map.zoomIn')" @click="zoomIn">+</button>
         </div>
       </div>
 
@@ -59,30 +59,30 @@
           class="po-dmap-card-media"
           :style="selectedProject ? { backgroundImage: `url(${selectedProject.image})` } : undefined"
         >
-          <span class="po-dmap-card-badge">{{ selectedProject?.area || "Area" }}</span>
-          <button type="button" class="po-dmap-card-close" aria-label="Close project details" @click="closeCard">&times;</button>
+          <span class="po-dmap-card-badge">{{ selectedProject?.area || $t('dp.map.areaFallback') }}</span>
+          <button type="button" class="po-dmap-card-close" :aria-label="$t('dp.map.closeAria')" @click="closeCard">&times;</button>
         </div>
 
         <div class="po-dmap-card-body">
-          <h2 class="po-dmap-card-title">{{ selectedProject?.name || "Project" }}</h2>
+          <h2 class="po-dmap-card-title">{{ selectedProject?.name || $t('dp.map.projectFallback') }}</h2>
           <div class="po-dmap-card-meta">
             <div class="po-dmap-m">
               <span class="po-dmap-mv">{{ selectedProject?.floors || 0 }}</span>
-              <span class="po-dmap-ml">Floors</span>
+              <span class="po-dmap-ml">{{ $t('dp.map.floorsLabel') }}</span>
             </div>
             <div class="po-dmap-m po-dmap-mwide">
-              <span class="po-dmap-mv po-dmap-mv-text">{{ selectedProject?.area || "Area" }}</span>
-              <span class="po-dmap-ml">District</span>
+              <span class="po-dmap-mv po-dmap-mv-text">{{ selectedProject?.area || $t('dp.map.areaFallback') }}</span>
+              <span class="po-dmap-ml">{{ $t('dp.map.districtLabel') }}</span>
             </div>
           </div>
           <p class="po-dmap-card-desc">{{ selectedProject?.desc }}</p>
         </div>
 
         <div class="po-dmap-card-foot">
-          <NuxtLink class="po-dmap-explore" :to="selectedProject?.url || '#'">Explore More</NuxtLink>
+          <NuxtLink class="po-dmap-explore" :to="selectedProject?.url || '#'">{{ $t('dp.map.exploreMore') }}</NuxtLink>
           <div class="po-dmap-card-nav">
-            <button type="button" class="po-dmap-navbtn" aria-label="Previous project" @click="stepProject(-1)">&#8249;</button>
-            <button type="button" class="po-dmap-navbtn" aria-label="Next project" @click="stepProject(1)">&#8250;</button>
+            <button type="button" class="po-dmap-navbtn" :aria-label="$t('dp.map.prevAria')" @click="stepProject(-1)">&#8249;</button>
+            <button type="button" class="po-dmap-navbtn" :aria-label="$t('dp.map.nextAria')" @click="stepProject(1)">&#8250;</button>
           </div>
         </div>
       </aside>
@@ -90,7 +90,7 @@
       <div v-show="loaderVisible" class="po-dmap-loader" :class="{ 'po-dmap-loader--done': loaderDone }">
         <div class="po-dmap-loader-brand">
           <div class="po-dmap-brand-mark">Prestige One</div>
-          <div class="po-dmap-brand-sub">Dubai Developments</div>
+          <div class="po-dmap-brand-sub">{{ $t('dp.map.loaderSubtitle') }}</div>
         </div>
         <div class="po-dmap-load-track"><span class="po-dmap-load-fill" :style="{ width: `${loaderProgress}%` }"></span></div>
         <div class="po-dmap-load-pct">{{ loaderProgress }}%</div>

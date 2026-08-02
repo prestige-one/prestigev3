@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Media Center"
-              title="Industry News"
-              lead="Market perspective and analysis on Dubai real estate - the trends shaping how and where people invest."
+              :eyebrow="t('mdata.news.heroEyebrow')"
+              :title="t('mdata.news.heroTitle')"
+              :lead="t('mdata.news.heroLead')"
               image="/assets/images/v2/our-destinations/dubai-Islands.webp"
             />
 
@@ -16,9 +16,9 @@
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-9">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Reading the market</span>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.news.introEyebrow') }}</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>Dubai's property market rewards those who understand it. Here we share the trends, fundamentals and shifts we watch most closely - from the tax advantages that draw global capital to the rise of branded residences - so you can make decisions with clarity rather than guesswork.</p>
+                      <p>{{ t('mdata.news.introBody') }}</p>
                     </div>
                   </div>
                 </div>
@@ -38,19 +38,19 @@
                   </div>
                 </div>
                 <p v-else class="prestige-prose text-center">
-                  No industry news just yet - check back soon for our latest market insight.
+                  {{ t('mdata.news.empty') }}
                 </p>
               </div>
             </section>
 
             <prestige-cta-band
-              eyebrow="Invest with confidence"
-              title="Turn insight into your next move"
-              text="Our team can help you translate the market into a decision - matching Dubai's fundamentals to the right Prestige One address for you."
+              :eyebrow="t('mdata.news.ctaEyebrow')"
+              :title="t('mdata.news.ctaTitle')"
+              :text="t('mdata.news.ctaText')"
               image="/assets/images/v2/locations/JBR.webp"
-              primary-label="Speak to an advisor"
+              :primary-label="t('mdata.news.ctaPrimary')"
               primary-to="/contact-us"
-              secondary-label="Explore destinations"
+              :secondary-label="t('mdata.news.ctaSecondary')"
               secondary-to="/destinations"
             />
           </main>
@@ -64,11 +64,12 @@
 <script setup lang="ts">
 import { getArticlesByCategory } from "~/data/blog-data";
 
+const { t } = useI18n();
+
 definePageMeta({ layout: false });
 useSeoMeta({
-  title: "Industry News | Prestige One",
-  description:
-    "Dubai real estate market insight and analysis from Prestige One Developments.",
+  title: () => t("mdata.news.seoTitle"),
+  description: () => t("mdata.news.seoDesc"),
 });
 
 const items = getArticlesByCategory("industry");

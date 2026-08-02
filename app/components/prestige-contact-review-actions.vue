@@ -1,12 +1,12 @@
 <template>
   <div class="prestige-contact-review-actions">
     <NuxtLink to="/#contact" class="prestige-contact-review-actions__contact">
-      Contact Us
+      {{ $t('ap.reviews.contact') }}
     </NuxtLink>
 
     <div
       class="prestige-contact-review-actions__rating"
-      aria-label="Google rating: 4.8 out of 5, based on more than 500 reviews"
+      :aria-label="$t('ap.reviews.ratingAria')"
     >
       <img
         src="/img/login/google.svg"
@@ -17,7 +17,7 @@
         <span class="prestige-contact-review-actions__score">
           4.8/5.0 <span class="prestige-contact-review-actions__star">&#9733;</span>
         </span>
-        <span class="prestige-contact-review-actions__caption">Based on 500+ Reviews</span>
+        <span class="prestige-contact-review-actions__caption">{{ $t('ap.reviews.caption') }}</span>
       </div>
     </div>
   </div>

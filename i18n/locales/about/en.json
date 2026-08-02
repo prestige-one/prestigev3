@@ -5,7 +5,9 @@
       "subtitle": "Behind Every Place, There's a Purpose",
       "headingLine1": "We Build With Purpose.",
       "headingLine2": "We Create For Life.",
-      "desc": "Prestige One Developments is a Dubai-based real estate developer creating residential and commercial spaces shaped around how people live, work, and experience the city."
+      "desc": "Prestige One Developments is a Dubai-based real estate developer creating residential and commercial spaces shaped around how people live, work, and experience the city.",
+      "videoAria": "Prestige One Developments company showcase",
+      "videoFallback": "Your browser does not support the video tag."
     },
     "legacy": {
       "eyebrow": "OUR LEGACY",
@@ -45,7 +47,9 @@
       "h2Title": "Multi-Billion",
       "h2Label": "AED Portfolio",
       "h3Title": "Community",
-      "h3Label": "Driven Leadership"
+      "h3Label": "Driven Leadership",
+      "role": "Founder & CEO",
+      "highlightsAria": "Founder highlights"
     },
     "leadership": {
       "eyebrow": "OUR LEADERSHIP",
@@ -92,6 +96,11 @@
       "lead": "New developments, new opportunities, and more to come from Prestige One.",
       "exploreBtn": "Explore Our Developments",
       "contactBtn": "Get in Touch"
+    },
+    "reviews": {
+      "contact": "Contact Us",
+      "ratingAria": "Google rating: 4.8 out of 5, based on more than 500 reviews",
+      "caption": "Based on 500+ Reviews"
     }
   }
 }

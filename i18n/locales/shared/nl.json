@@ -30,7 +30,67 @@
     "faqEyebrow": "Goed om te weten",
     "faqTitle": "Veelgestelde vragen",
     "whatClientsSay": "Wat onze klanten zeggen",
-    "trustedToBuild": "Vertrouwd om meer dan alleen gebouwen te creëren"
+    "trustedToBuild": "Vertrouwd om meer dan alleen gebouwen te creëren",
+    "prev": "Vorige",
+    "next": "Volgende",
+    "contactCta": {
+      "eyebrow": "Neem contact op",
+      "titleLine1": "Laten we praten over",
+      "titleLine2": "uw volgende stap"
+    },
+    "getInTouch": "Neem contact met ons op",
+    "viewDevelopments": "Bekijk ontwikkelingen",
+    "gallery": {
+      "paras": [
+        "Onze verkoopgalerie bevindt zich op de 16e verdieping van Marina Plaza, in het hart van Dubai Marina. Het is de beste plek om onze projecten tot leven te zien komen: schaalmodellen, materiaalpaletten, voorbeeldinterieurs en interactieve plattegronden, allemaal in één ruimte.",
+        "Een privéafspraak biedt u een toegewijde adviseur, ononderbroken tijd om beschikbaarheid en betaalplannen te verkennen, en de ruimte om elke vraag te stellen. Blijft u liever op afstand? We nemen alles met u door via een videogesprek en delen dezelfde materialen digitaal."
+      ],
+      "points": [
+        "Office 1602-1604, Marina Plaza, Dubai Marina",
+        "Zeven dagen per week open, van 9.00 tot 19.00 uur",
+        "Privé- en virtuele afspraken beschikbaar",
+        "Een toegewijde adviseur voor elke aanvraag"
+      ]
+    },
+    "faq": {
+      "items": [
+        {
+          "q": "Hoe verloopt het reserveringsproces?",
+          "a": "Zodra u een woning hebt gekozen, reserveren we deze met een reserveringsformulier en een aanbetaling – doorgaans een percentage van de koopprijs. Uw adviseur stelt de koopovereenkomst (Sale and Purchase Agreement) op, begeleidt u door de DLD-registratie en bevestigt uw betaalschema. Het hele proces is transparant en meestal binnen enkele dagen afgerond."
+        },
+        {
+          "q": "Welke betaalplannen zijn er beschikbaar?",
+          "a": "De meeste van onze projecten bieden flexibele, aan de bouw gekoppelde betaalplannen – doorgaans een aanbetaling bij reservering, gefaseerde termijnen tijdens de bouw en een slotbetaling bij oplevering. De exacte voorwaarden verschillen per project en veranderen met de beschikbaarheid, dus neem contact op met ons team voor het actuele plan voor de woning die u interesseert."
+        },
+        {
+          "q": "Kunnen internationale kopers een Prestige One-woning kopen?",
+          "a": "Ja. Onze projecten liggen in aangewezen freehold-zones, zodat kopers van elke nationaliteit hun woning volledig in eigendom kunnen hebben. Aankopen kunnen op afstand worden afgerond, en kwalificerende investeringen kunnen een pad naar verblijf in de VAE openen. We werken regelmatig met buitenlandse kopers en kunnen alles regelen via videogesprek en beveiligde digitale documenten."
+        },
+        {
+          "q": "Hoe plan ik een bezichtiging?",
+          "a": "Bel 800 PRESTIGE, stuur ons een bericht op WhatsApp of dien het aanvraagformulier hierboven in, en we nemen contact met u op om een privéafspraak in onze verkoopgalerie in Dubai Marina te plannen – of een virtuele rondleiding als u liever vanuit huis kijkt."
+        },
+        {
+          "q": "Ik ben makelaar – hoe registreer ik een klant?",
+          "a": "We verwelkomen geregistreerde makelaars en bieden een eenvoudig partnerproces. Stuur een e-mail naar enquiries{'@'}prestigeone.ae met uw RERA-gegevens en de informatie van uw klant om de lead te registreren; ons channelteam bevestigt vervolgens de voorwaarden en deelt het actuele aanbod en de commissiestructuur."
+        }
+      ]
+    },
+    "form": {
+      "fullName": "Volledige naam*",
+      "companyAgency": "Bedrijf / Makelaardij*",
+      "emailAddress": "E-mailadres*",
+      "phoneNumber": "Telefoonnummer*",
+      "reraOrn": "RERA- / ORN-nummer",
+      "country": "Land",
+      "message": "Bericht",
+      "submitting": "Bezig met verzenden…",
+      "register": "Registreren",
+      "errRequired": "Vul alle verplichte velden in die met een sterretje zijn gemarkeerd.",
+      "errInvalidEmail": "Voer een geldig e-mailadres in.",
+      "successRegistered": "Bedankt voor uw registratie. Ons team neemt binnenkort contact met u op.",
+      "errGeneric": "Er is iets misgegaan, mail ons op {email}"
+    }
   },
   "mdata": {
     "common": {
@@ -402,6 +462,51 @@
         "intro": "Deze marketingvoorwaarden leggen uit hoe Prestige One Developments met u communiceert, hoe ons merk en onze marketingmaterialen mogen worden gebruikt, en hoe u zich op elk moment kunt afmelden."
       },
       "eyebrow": "Juridisch"
+    },
+    "constr": {
+      "heroEyebrow": "Mediacentrum",
+      "heroTitle": "Bouwupdates",
+      "heroLead": "Vooruitgang vanaf de fundering – mijlpalen en nieuws van de bouwplaatsen van onze lopende projecten in de hele portefeuille.",
+      "introEyebrow": "Vooruitgang die u kunt volgen",
+      "introBody": "Een gebouw is niet beter dan de zorg die eraan wordt besteed. Daarom delen we de reis openlijk – van de eerste betonstort tot het laatste gevelpaneel. Elke update hieronder is een echte momentopname van een actieve Prestige One-bouwplaats, afgemeten aan een duidelijke opleveringsroadmap en bij elke mijlpaal onafhankelijk goedgekeurd.",
+      "empty": "Nog geen bouwupdates – kom binnenkort terug voor het laatste nieuws van onze bouwplaatsen.",
+      "ctaEyebrow": "Volgt u een project?",
+      "ctaTitle": "Ontvang mijlpaalupdates als eerste",
+      "ctaText": "Laat uw interesse blijken en we houden u op de hoogte terwijl uw toekomstige woning van fundering tot oplevering vordert.",
+      "ctaPrimary": "Interesse tonen",
+      "ctaSecondary": "Bekijk ontwikkelingen",
+      "seoTitle": "Bouwupdates | Prestige One",
+      "seoDesc": "Bouwmijlpalen en voortgang op locatie van Prestige One-projecten in heel Dubai."
+    },
+    "news": {
+      "heroEyebrow": "Mediacentrum",
+      "heroTitle": "Branchenieuws",
+      "heroLead": "Marktperspectief en analyse van de vastgoedmarkt in Dubai – de trends die bepalen hoe en waar mensen investeren.",
+      "introEyebrow": "De markt lezen",
+      "introBody": "De vastgoedmarkt van Dubai beloont wie haar begrijpt. Hier delen we de trends, fundamenten en verschuivingen die we het nauwlettendst volgen – van de belastingvoordelen die wereldwijd kapitaal aantrekken tot de opkomst van branded residences – zodat u met helderheid beslist in plaats van op gevoel.",
+      "empty": "Nog geen branchenieuws – kom binnenkort terug voor onze nieuwste marktinzichten.",
+      "ctaEyebrow": "Investeer met vertrouwen",
+      "ctaTitle": "Zet inzicht om in uw volgende stap",
+      "ctaText": "Ons team helpt u de markt te vertalen naar een beslissing – door de fundamenten van Dubai te koppelen aan het juiste Prestige One-adres voor u.",
+      "ctaPrimary": "Spreek met een adviseur",
+      "ctaSecondary": "Ontdek bestemmingen",
+      "seoTitle": "Branchenieuws | Prestige One",
+      "seoDesc": "Inzichten en analyse van de vastgoedmarkt in Dubai van Prestige One Developments."
+    },
+    "press": {
+      "heroEyebrow": "Mediacentrum",
+      "heroTitle": "Persberichten",
+      "heroLead": "Officiële aankondigingen van Prestige One – partnerschappen, lanceringen en mijlpalen die het bedrijf vormgeven.",
+      "introEyebrow": "Officiële aankondigingen",
+      "introBody": "Van wereldwijd eerste merkpartnerschappen tot grote investeringstoezeggingen – dit zijn de momenten die de groei van Prestige One bepalen, hier volledig en officieel gedeeld. Voor mediavragen of interviewverzoeken staat ons communicatieteam klaar om te helpen.",
+      "empty": "Nog geen persberichten – kom binnenkort terug voor onze nieuwste aankondigingen.",
+      "ctaEyebrow": "Media & pers",
+      "ctaTitle": "Werkt u aan een verhaal?",
+      "ctaText": "Neem contact op met ons communicatieteam voor persmateriaal, beeldmateriaal en interviews met de leiding van Prestige One.",
+      "ctaPrimary": "Neem contact op",
+      "ctaSecondary": "Bezoek het Mediacentrum",
+      "seoTitle": "Persberichten | Prestige One",
+      "seoDesc": "Officiële persaankondigingen en nieuws van Prestige One Developments."
     }
   }
 }

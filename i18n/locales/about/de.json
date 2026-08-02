@@ -5,7 +5,9 @@
       "subtitle": "Hinter jedem Ort steht ein Sinn",
       "headingLine1": "Wir bauen mit Sinn.",
       "headingLine2": "Wir gestalten fürs Leben.",
-      "desc": "Prestige One Developments ist ein in Dubai ansässiger Immobilienentwickler, der Wohn- und Gewerbeflächen schafft, die sich daran orientieren, wie Menschen leben, arbeiten und die Stadt erleben."
+      "desc": "Prestige One Developments ist ein in Dubai ansässiger Immobilienentwickler, der Wohn- und Gewerbeflächen schafft, die sich daran orientieren, wie Menschen leben, arbeiten und die Stadt erleben.",
+      "videoAria": "Unternehmenspräsentation von Prestige One Developments",
+      "videoFallback": "Ihr Browser unterstützt das Video-Tag nicht."
     },
     "legacy": {
       "eyebrow": "UNSER ERBE",
@@ -45,7 +47,9 @@
       "h2Title": "Milliardenschwer",
       "h2Label": "Portfolio in AED",
       "h3Title": "Gemeinschaft",
-      "h3Label": "Werteorientierte Führung"
+      "h3Label": "Werteorientierte Führung",
+      "role": "Gründer und CEO",
+      "highlightsAria": "Highlights des Gründers"
     },
     "leadership": {
       "eyebrow": "UNSERE FÜHRUNG",
@@ -92,6 +96,11 @@
       "lead": "Neue Projekte, neue Chancen und vieles mehr von Prestige One.",
       "exploreBtn": "Unsere Projekte entdecken",
       "contactBtn": "Kontakt aufnehmen"
+    },
+    "reviews": {
+      "contact": "Kontakt aufnehmen",
+      "ratingAria": "Google-Bewertung: 4.8 von 5, basierend auf mehr als 500 Rezensionen",
+      "caption": "Basierend auf über 500 Rezensionen"
     }
   }
 }

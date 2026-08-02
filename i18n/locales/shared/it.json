@@ -30,7 +30,67 @@
     "faqEyebrow": "Utile da sapere",
     "faqTitle": "Domande frequenti",
     "whatClientsSay": "Cosa dicono i nostri clienti",
-    "trustedToBuild": "Fiducia per costruire più di semplici strutture"
+    "trustedToBuild": "Fiducia per costruire più di semplici strutture",
+    "prev": "Precedente",
+    "next": "Successivo",
+    "contactCta": {
+      "eyebrow": "Mettiti in contatto",
+      "titleLine1": "Parliamo del",
+      "titleLine2": "tuo prossimo passo"
+    },
+    "getInTouch": "Mettiti in contatto",
+    "viewDevelopments": "Scopri i progetti",
+    "gallery": {
+      "paras": [
+        "La nostra galleria vendite si trova al 16° piano del Marina Plaza, nel cuore di Dubai Marina. È il posto migliore per vedere i nostri progetti prendere vita: modellini in scala, palette di materiali, interni campione e planimetrie interattive, tutto in un'unica sala.",
+        "Un appuntamento privato ti offre un consulente dedicato, tempo senza interruzioni per esplorare disponibilità e piani di pagamento e lo spazio per porre ogni domanda. Preferisci restare a distanza? Ti mostreremo tutto in una videochiamata e condivideremo gli stessi materiali in formato digitale."
+      ],
+      "points": [
+        "Office 1602-1604, Marina Plaza, Dubai Marina",
+        "Aperto sette giorni su sette, dalle 9 alle 19",
+        "Appuntamenti privati e virtuali disponibili",
+        "Un consulente dedicato per ogni richiesta"
+      ]
+    },
+    "faq": {
+      "items": [
+        {
+          "q": "Come funziona il processo di prenotazione?",
+          "a": "Una volta scelta la casa, la riserviamo con un modulo di prenotazione e un deposito iniziale, di norma una percentuale del prezzo di acquisto. Il tuo consulente prepara il contratto di compravendita (Sale and Purchase Agreement), ti guida nella registrazione presso il DLD e conferma il tuo piano di pagamento. L'intero processo è trasparente e di solito si completa in pochi giorni."
+        },
+        {
+          "q": "Quali piani di pagamento sono disponibili?",
+          "a": "La maggior parte dei nostri progetti offre piani di pagamento flessibili legati all'avanzamento dei lavori: in genere un deposito alla prenotazione, rate scaglionate durante la costruzione e un saldo finale alla consegna. Le condizioni esatte variano in base al progetto e cambiano con la disponibilità, quindi contatta il nostro team per conoscere il piano più aggiornato per la casa che ti interessa."
+        },
+        {
+          "q": "I compratori internazionali possono acquistare una casa Prestige One?",
+          "a": "Sì. I nostri progetti si trovano in zone freehold designate, quindi acquirenti di qualsiasi nazionalità possono possedere la propria casa a pieno titolo. Gli acquisti possono essere conclusi a distanza e gli investimenti idonei possono aprire un percorso verso la residenza negli EAU. Lavoriamo regolarmente con acquirenti esteri e possiamo organizzare tutto tramite videochiamata e documenti digitali sicuri."
+        },
+        {
+          "q": "Come organizzo una visita?",
+          "a": "Chiama 800 PRESTIGE, scrivici su WhatsApp o invia il modulo di richiesta qui sopra e ti contatteremo per fissare un appuntamento privato nella nostra galleria vendite a Dubai Marina, oppure un tour virtuale se preferisci vederlo da casa."
+        },
+        {
+          "q": "Sono un broker: come registro un cliente?",
+          "a": "Accogliamo i broker registrati e offriamo un processo di partnership semplice. Invia un'e-mail a enquiries{'@'}prestigeone.ae con i tuoi dati RERA e le informazioni del tuo cliente per registrare il lead; il nostro team canale confermerà le condizioni e condividerà l'inventario più recente e la struttura delle commissioni."
+        }
+      ]
+    },
+    "form": {
+      "fullName": "Nome completo*",
+      "companyAgency": "Azienda / Agenzia*",
+      "emailAddress": "Indirizzo e-mail*",
+      "phoneNumber": "Numero di telefono*",
+      "reraOrn": "Numero RERA / ORN",
+      "country": "Paese",
+      "message": "Messaggio",
+      "submitting": "Invio in corso…",
+      "register": "Registrati",
+      "errRequired": "Compila tutti i campi obbligatori contrassegnati da un asterisco.",
+      "errInvalidEmail": "Inserisci un indirizzo e-mail valido.",
+      "successRegistered": "Grazie per la registrazione. Il nostro team ti contatterà a breve.",
+      "errGeneric": "Qualcosa è andato storto, scrivici all'indirizzo {email}"
+    }
   },
   "mdata": {
     "common": {
@@ -402,6 +462,51 @@
         "intro": "I presenti termini di marketing spiegano come Prestige One Developments comunica con te, come possono essere utilizzati il nostro marchio e i nostri materiali di marketing e come puoi revocare il consenso in qualsiasi momento."
       },
       "eyebrow": "Note legali"
+    },
+    "constr": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Aggiornamenti sui lavori",
+      "heroLead": "Avanzamento dalle fondamenta: traguardi e notizie dai cantieri dei progetti in corso in tutto il nostro portfolio.",
+      "introEyebrow": "Un avanzamento che puoi seguire",
+      "introBody": "Un edificio vale quanto la cura riposta nel realizzarlo. Per questo condividiamo il percorso in modo aperto, dal primo getto di calcestruzzo all'ultimo pannello di facciata. Ogni aggiornamento qui sotto è un'istantanea reale da un cantiere Prestige One attivo, misurato rispetto a una chiara tabella di consegna e approvato in modo indipendente a ogni traguardo.",
+      "empty": "Ancora nessun aggiornamento sui lavori: torna presto per le ultime novità dai nostri cantieri.",
+      "ctaEyebrow": "Stai seguendo un progetto?",
+      "ctaTitle": "Ricevi per primo gli aggiornamenti sui traguardi",
+      "ctaText": "Registra il tuo interesse e ti terremo aggiornato mentre la tua futura casa procede dalle fondamenta alla consegna.",
+      "ctaPrimary": "Registra interesse",
+      "ctaSecondary": "Scopri i progetti",
+      "seoTitle": "Aggiornamenti sui lavori | Prestige One",
+      "seoDesc": "Traguardi di costruzione e avanzamento dei cantieri dei progetti Prestige One in tutta Dubai."
+    },
+    "news": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Notizie di settore",
+      "heroLead": "Prospettive di mercato e analisi sul settore immobiliare di Dubai: le tendenze che definiscono come e dove le persone investono.",
+      "introEyebrow": "Leggere il mercato",
+      "introBody": "Il mercato immobiliare di Dubai premia chi lo comprende. Qui condividiamo le tendenze, i fondamentali e i cambiamenti che seguiamo più da vicino, dai vantaggi fiscali che attirano capitali globali all'ascesa delle residenze a marchio, così da farti decidere con chiarezza anziché a intuito.",
+      "empty": "Ancora nessuna notizia di settore: torna presto per le nostre ultime analisi di mercato.",
+      "ctaEyebrow": "Investi con fiducia",
+      "ctaTitle": "Trasforma l'analisi nel tuo prossimo passo",
+      "ctaText": "Il nostro team può aiutarti a tradurre il mercato in una decisione, abbinando i fondamentali di Dubai all'indirizzo Prestige One giusto per te.",
+      "ctaPrimary": "Parla con un consulente",
+      "ctaSecondary": "Esplora le destinazioni",
+      "seoTitle": "Notizie di settore | Prestige One",
+      "seoDesc": "Analisi e prospettive sul mercato immobiliare di Dubai da Prestige One Developments."
+    },
+    "press": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "Comunicati stampa",
+      "heroLead": "Annunci ufficiali di Prestige One: partnership, lanci e traguardi che danno forma all'azienda.",
+      "introEyebrow": "Annunci ufficiali",
+      "introBody": "Dalle partnership di marca prime al mondo ai principali impegni di investimento, questi sono i momenti che definiscono la crescita di Prestige One, condivisi qui per intero e ufficialmente. Per richieste stampa o interviste, il nostro team comunicazione è pronto ad aiutarti.",
+      "empty": "Ancora nessun comunicato stampa: torna presto per i nostri ultimi annunci.",
+      "ctaEyebrow": "Media e stampa",
+      "ctaTitle": "Stai lavorando a un articolo?",
+      "ctaText": "Contatta il nostro team comunicazione per materiali stampa, immagini e interviste con la dirigenza di Prestige One.",
+      "ctaPrimary": "Contattaci",
+      "ctaSecondary": "Visita il Media Center",
+      "seoTitle": "Comunicati stampa | Prestige One",
+      "seoDesc": "Annunci stampa e notizie ufficiali da Prestige One Developments."
     }
   }
 }

@@ -43,10 +43,10 @@
               <span>
                 <svg-arrow-slide-prev />
               </span>
-              <span>Prev</span>
+              <span>{{ $t('sh.prev') }}</span>
             </button>
             <button class="coverflow-slider-next pr-100">
-              <span>Next</span>
+              <span>{{ $t('sh.next') }}</span>
               <span>
                 <svg-arrow-slide-next />
               </span>

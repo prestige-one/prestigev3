@@ -52,7 +52,11 @@
   },
   "menu": {
     "featuredProjects": "المشاريع المميزة",
-    "ourDestinations": "وجهاتنا"
+    "ourDestinations": "وجهاتنا",
+    "ourStory": "قصتنا",
+    "visionMission": "الرؤية والرسالة",
+    "ourLeadership": "قيادتنا",
+    "ourMilestones": "إنجازاتنا"
   },
   "contact": {
     "fullName": "الاسم الكامل",
@@ -62,7 +66,9 @@
     "phoneNumber": "رقم الهاتف",
     "phonePlaceholder": "أدخل رقم هاتفك",
     "howCanWeHelp": "كيف يمكننا مساعدتك؟",
-    "messagePlaceholder": "أخبرنا المزيد عن استفسارك"
+    "messagePlaceholder": "أخبرنا المزيد عن استفسارك",
+    "errRequired": "يرجى تعبئة جميع الحقول المطلوبة ببيانات صحيحة.",
+    "errGeneric": "حدث خطأ ما. يرجى مراسلتنا على {email} أو المحاولة مرة أخرى."
   },
   "language": {
     "label": "اللغة",

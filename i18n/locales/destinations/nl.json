@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Ontdek",
       "title": "Vind uw adres op de kaart",
-      "lead": "Beweeg door een meeslepend satellietbeeld van Dubai en zie waar elk Prestige One-project ligt - filter op wijk, tik op een markering en blader door de collectie."
+      "lead": "Beweeg door een meeslepend satellietbeeld van Dubai en zie waar elk Prestige One-project ligt - filter op wijk, tik op een markering en blader door de collectie.",
+      "developmentsLabel": "Projecten",
+      "filterAria": "Projecten filteren op gebied",
+      "legendAria": "Legenda van kaartmarkeringen",
+      "resetBearing": "Oriëntatie op noorden herstellen",
+      "zoomOut": "Uitzoomen",
+      "zoomIn": "Inzoomen",
+      "areaFallback": "Gebied",
+      "closeAria": "Projectdetails sluiten",
+      "projectFallback": "Project",
+      "floorsLabel": "Verdiepingen",
+      "districtLabel": "Wijk",
+      "exploreMore": "Meer ontdekken",
+      "prevAria": "Vorig project",
+      "nextAria": "Volgend project",
+      "filterAll": "Alle",
+      "loaderSubtitle": "Projecten in Dubai"
     },
     "card": {
       "count_one": "1 project",

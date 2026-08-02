@@ -5,7 +5,9 @@
       "subtitle": "Derrière chaque lieu, il y a une raison d'être",
       "headingLine1": "Nous bâtissons avec sens.",
       "headingLine2": "Nous créons pour la vie.",
-      "desc": "Prestige One Developments est un promoteur immobilier basé à Dubaï qui conçoit des espaces résidentiels et commerciaux pensés autour de la façon dont les gens vivent, travaillent et ressentent la ville."
+      "desc": "Prestige One Developments est un promoteur immobilier basé à Dubaï qui conçoit des espaces résidentiels et commerciaux pensés autour de la façon dont les gens vivent, travaillent et ressentent la ville.",
+      "videoAria": "Vitrine de l'entreprise Prestige One Developments",
+      "videoFallback": "Votre navigateur ne prend pas en charge la balise vidéo."
     },
     "legacy": {
       "eyebrow": "NOTRE HÉRITAGE",
@@ -45,7 +47,9 @@
       "h2Title": "Plusieurs milliards",
       "h2Label": "Portefeuille en AED",
       "h3Title": "Communauté",
-      "h3Label": "Leadership engagé"
+      "h3Label": "Leadership engagé",
+      "role": "Fondateur et PDG",
+      "highlightsAria": "Points clés du fondateur"
     },
     "leadership": {
       "eyebrow": "NOTRE DIRECTION",
@@ -92,6 +96,11 @@
       "lead": "De nouveaux développements, de nouvelles opportunités et bien plus encore à venir de Prestige One.",
       "exploreBtn": "Découvrir nos développements",
       "contactBtn": "Nous contacter"
+    },
+    "reviews": {
+      "contact": "Nous contacter",
+      "ratingAria": "Note Google : 4.8 sur 5, sur la base de plus de 500 avis",
+      "caption": "Sur la base de plus de 500 avis"
     }
   }
 }

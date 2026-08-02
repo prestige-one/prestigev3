@@ -52,7 +52,11 @@
   },
   "menu": {
     "featuredProjects": "Избранные проекты",
-    "ourDestinations": "Наши направления"
+    "ourDestinations": "Наши направления",
+    "ourStory": "Наша история",
+    "visionMission": "Видение и миссия",
+    "ourLeadership": "Наше руководство",
+    "ourMilestones": "Наши достижения"
   },
   "contact": {
     "fullName": "Полное имя",
@@ -62,7 +66,9 @@
     "phoneNumber": "Номер телефона",
     "phonePlaceholder": "Введите ваш номер телефона",
     "howCanWeHelp": "Чем мы можем помочь?",
-    "messagePlaceholder": "Расскажите подробнее о вашем запросе"
+    "messagePlaceholder": "Расскажите подробнее о вашем запросе",
+    "errRequired": "Пожалуйста, заполните все обязательные поля корректными данными.",
+    "errGeneric": "Что-то пошло не так. Напишите нам на {email} или попробуйте снова."
   },
   "language": {
     "label": "Язык",

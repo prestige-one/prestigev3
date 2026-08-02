@@ -4,10 +4,10 @@
       <!-- centered variant (main home page): just the headline and form,
            no map, no side-by-side grid - everything stacked and centered. -->
       <div v-if="centered" class="prestige-contact-centered">
-        <span class="prestige-contact-eyebrow">Get In Touch</span>
+        <span class="prestige-contact-eyebrow">{{ $t('sh.contactCta.eyebrow') }}</span>
         <h2 class="prestige-contact-title">
-          Let's Talk About<br>
-          Your Next Move
+          {{ $t('sh.contactCta.titleLine1') }}<br>
+          {{ $t('sh.contactCta.titleLine2') }}
         </h2>
 
         <div class="prestige-contact-form-card">
@@ -20,10 +20,10 @@
       <div v-else class="prestige-contact-grid">
         <!-- left column: heading, map -->
         <div class="prestige-contact-left">
-          <span class="prestige-contact-eyebrow">Get In Touch</span>
+          <span class="prestige-contact-eyebrow">{{ $t('sh.contactCta.eyebrow') }}</span>
           <h2 class="prestige-contact-title">
-            Let's Talk About<br>
-            Your Next Move
+            {{ $t('sh.contactCta.titleLine1') }}<br>
+            {{ $t('sh.contactCta.titleLine2') }}
           </h2>
 
           <div class="prestige-contact-map-box">

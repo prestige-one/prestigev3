@@ -88,7 +88,8 @@
       "eyebrow": "طلب مستند",
       "lead": "اترك بياناتك وسيرسل فريقنا {doc} الخاص بـ {project} مباشرة إلى بريدك الإلكتروني.",
       "requestAria": "طلب {doc}",
-      "close": "إغلاق"
+      "close": "إغلاق",
+      "prefillMessage": "أرغب في طلب {documentName} الخاص بـ {projectTitle}."
     }
   },
   "pdata": {

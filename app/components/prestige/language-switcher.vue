@@ -25,7 +25,7 @@
           @click="open = false"
         >
           <span class="lang-switch__name">{{ l.name }}</span>
-          <span class="lang-switch__abbr">{{ l.code.toUpperCase() }}</span>
+          <img class="lang-switch__flag" :src="`/assets/flags/${l.code}.svg`" :alt="l.code.toUpperCase()" width="24" height="18" loading="lazy">
         </NuxtLink>
       </li>
     </ul>
@@ -62,12 +62,13 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocClick));
 .lang-switch {
   position: relative;
   display: inline-block;
+  margin-right: 12px;
 }
 .lang-switch__btn {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 7px 12px;
+  padding: 2px 12px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 40px;
@@ -123,15 +124,22 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocClick));
 }
 .lang-switch__item:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
 .lang-switch__item.active { color: #fff; background: rgba(255, 255, 255, 0.1); }
-.lang-switch__abbr {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.5);
+.lang-switch__flag {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 18px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 /* RTL: flip menu anchoring so it stays within the header */
 :global([dir="rtl"]) .lang-switch__menu {
   right: auto;
   left: 0;
+}
+:global([dir="rtl"]) .lang-switch {
+  margin-right: 0;
+  margin-left: 12px;
 }
 </style>

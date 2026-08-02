@@ -88,7 +88,8 @@
       "eyebrow": "Richiedi documento",
       "lead": "Lascia i tuoi dati e il nostro team ti invierà {doc} di {project} direttamente nella tua casella di posta.",
       "requestAria": "Richiedi {doc}",
-      "close": "Chiudi"
+      "close": "Chiudi",
+      "prefillMessage": "Vorrei richiedere {documentName} per {projectTitle}."
     }
   },
   "pdata": {

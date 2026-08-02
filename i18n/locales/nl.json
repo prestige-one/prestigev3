@@ -52,7 +52,11 @@
   },
   "menu": {
     "featuredProjects": "Uitgelichte projecten",
-    "ourDestinations": "Onze bestemmingen"
+    "ourDestinations": "Onze bestemmingen",
+    "ourStory": "Ons verhaal",
+    "visionMission": "Visie en missie",
+    "ourLeadership": "Ons leiderschap",
+    "ourMilestones": "Onze mijlpalen"
   },
   "contact": {
     "fullName": "Volledige naam",
@@ -62,7 +66,9 @@
     "phoneNumber": "Telefoonnummer",
     "phonePlaceholder": "Voer uw telefoonnummer in",
     "howCanWeHelp": "Hoe kunnen we u helpen?",
-    "messagePlaceholder": "Vertel ons meer over uw aanvraag"
+    "messagePlaceholder": "Vertel ons meer over uw aanvraag",
+    "errRequired": "Vul alle verplichte velden in met geldige gegevens.",
+    "errGeneric": "Er is iets misgegaan. Mail ons op {email} of probeer het opnieuw."
   },
   "language": {
     "label": "Taal",

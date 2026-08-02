@@ -88,7 +88,8 @@
       "eyebrow": "Document aanvragen",
       "lead": "Laat uw gegevens achter en ons team stuurt {doc} voor {project} rechtstreeks naar uw inbox.",
       "requestAria": "{doc} aanvragen",
-      "close": "Sluiten"
+      "close": "Sluiten",
+      "prefillMessage": "Ik wil graag {documentName} voor {projectTitle} aanvragen."
     }
   },
   "pdata": {

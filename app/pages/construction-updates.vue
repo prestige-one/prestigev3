@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Media Center"
-              title="Construction Updates"
-              lead="Progress from the ground up - milestones and site news from developments underway across our portfolio."
+              :eyebrow="t('mdata.constr.heroEyebrow')"
+              :title="t('mdata.constr.heroTitle')"
+              :lead="t('mdata.constr.heroLead')"
               image="/assets/images/v2/pages/pages-internal-images/constructions/The-One-Construction-Update-1.webp"
             />
 
@@ -16,9 +16,9 @@
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-9">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Progress you can follow</span>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.constr.introEyebrow') }}</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>A building is only as good as the care that goes into making it. That is why we share the journey openly - from the first pour to the final façade panel. Each update below is a real snapshot from an active Prestige One site, measured against a clear delivery roadmap and independently signed off at every milestone.</p>
+                      <p>{{ t('mdata.constr.introBody') }}</p>
                     </div>
                   </div>
                 </div>
@@ -38,19 +38,19 @@
                   </div>
                 </div>
                 <p v-else class="prestige-prose text-center">
-                  No construction updates just yet - check back soon for the latest from our sites.
+                  {{ t('mdata.constr.empty') }}
                 </p>
               </div>
             </section>
 
             <prestige-cta-band
-              eyebrow="Following a development?"
-              title="Get milestone updates first"
-              text="Register your interest and we'll keep you posted as your future home moves from foundation to handover."
+              :eyebrow="t('mdata.constr.ctaEyebrow')"
+              :title="t('mdata.constr.ctaTitle')"
+              :text="t('mdata.constr.ctaText')"
               image="/assets/images/v2/news/Seaside_Building-1-scaled-2.webp"
-              primary-label="Register interest"
+              :primary-label="t('mdata.constr.ctaPrimary')"
               primary-to="/contact-us"
-              secondary-label="View developments"
+              :secondary-label="t('mdata.constr.ctaSecondary')"
               secondary-to="/projects"
             />
           </main>
@@ -64,11 +64,12 @@
 <script setup lang="ts">
 import { getArticlesByCategory } from "~/data/blog-data";
 
+const { t } = useI18n();
+
 definePageMeta({ layout: false });
 useSeoMeta({
-  title: "Construction Updates | Prestige One",
-  description:
-    "Construction milestones and site progress from Prestige One developments across Dubai.",
+  title: () => t("mdata.constr.seoTitle"),
+  description: () => t("mdata.constr.seoDesc"),
 });
 
 const items = getArticlesByCategory("construction");

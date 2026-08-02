@@ -24,7 +24,23 @@
     "map": {
       "eyebrow": "Explorar",
       "title": "Encuentra tu dirección en el mapa",
-      "lead": "Recorre una vista satelital envolvente de Dubái y descubre dónde se ubica cada desarrollo de Prestige One: filtra por distrito, toca un marcador y explora la colección."
+      "lead": "Recorre una vista satelital envolvente de Dubái y descubre dónde se ubica cada desarrollo de Prestige One: filtra por distrito, toca un marcador y explora la colección.",
+      "developmentsLabel": "Desarrollos",
+      "filterAria": "Filtrar desarrollos por zona",
+      "legendAria": "Leyenda de puntos de referencia del mapa",
+      "resetBearing": "Restablecer la orientación al norte",
+      "zoomOut": "Alejar",
+      "zoomIn": "Acercar",
+      "areaFallback": "Zona",
+      "closeAria": "Cerrar detalles del proyecto",
+      "projectFallback": "Proyecto",
+      "floorsLabel": "Plantas",
+      "districtLabel": "Distrito",
+      "exploreMore": "Descubre más",
+      "prevAria": "Proyecto anterior",
+      "nextAria": "Proyecto siguiente",
+      "filterAll": "Todos",
+      "loaderSubtitle": "Desarrollos en Dubái"
     },
     "card": {
       "count_one": "1 desarrollo",

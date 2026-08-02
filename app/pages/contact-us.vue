@@ -93,6 +93,8 @@
 <script setup lang="ts">
 import type { FaqItem } from "~/components/prestige/faq-accordion.vue";
 
+const { tm, rt } = useI18n();
+
 definePageMeta({ layout: false });
 useSeoMeta({
   title: "Contact Us | Prestige One",
@@ -100,40 +102,20 @@ useSeoMeta({
     "Get in touch with Prestige One - call 800 PRESTIGE, email enquiries@prestigeone.ae or visit our Dubai Marina sales gallery.",
 });
 
-const galleryParagraphs: string[] = [
-  "Our sales gallery sits on the 16th floor of Marina Plaza, in the heart of Dubai Marina. It's the best place to see our developments come to life - scale models, material palettes, sample interiors and interactive floor plans, all in one room.",
-  "A private appointment gives you a dedicated advisor, uninterrupted time to explore availability and payment plans, and the space to ask every question. Prefer to stay remote? We'll walk you through everything over a video call and share the same materials digitally.",
-];
+const galleryParagraphs = computed(() =>
+  (tm("sh.gallery.paras") as unknown[]).map((x) => rt(x as string)),
+);
 
-const galleryPoints: string[] = [
-  "Office 1602-1604, Marina Plaza, Dubai Marina",
-  "Open seven days a week, 9am to 7pm",
-  "Private and virtual appointments available",
-  "Dedicated advisor for every enquiry",
-];
+const galleryPoints = computed(() =>
+  (tm("sh.gallery.points") as unknown[]).map((x) => rt(x as string)),
+);
 
-const faqs: FaqItem[] = [
-  {
-    q: "How does the booking process work?",
-    a: "Once you've chosen a home, we reserve it with a booking form and an initial deposit - typically a percentage of the purchase price. Your advisor prepares the Sale and Purchase Agreement, guides you through the DLD registration, and confirms your payment schedule. The whole process is transparent and usually completed within a few days.",
-  },
-  {
-    q: "What payment plans are available?",
-    a: "Most of our developments offer flexible, construction-linked payment plans - commonly a deposit on booking, staged instalments through construction, and a final balance on handover. Exact terms vary by project and change with availability, so speak to our team for the latest plan on the home you're interested in.",
-  },
-  {
-    q: "Can international buyers purchase a Prestige One home?",
-    a: "Yes. Our developments are in designated freehold areas, so buyers of any nationality can own their home outright. Purchases can be completed remotely, and qualifying investments may open a pathway to UAE residency. We regularly work with overseas buyers and can arrange everything by video call and secure digital documents.",
-  },
-  {
-    q: "How do I arrange a viewing?",
-    a: "Call 800 PRESTIGE, message us on WhatsApp, or submit the enquiry form above and we'll be in touch to schedule a private appointment at our Dubai Marina sales gallery - or a virtual tour if you'd rather view from home.",
-  },
-  {
-    q: "I'm a broker - how do I register a client?",
-    a: "We welcome registered brokers and offer a straightforward partner process. Email enquiries@prestigeone.ae with your RERA details and your client's information to register the lead, and our channel team will confirm terms and share the latest inventory and commission structure.",
-  },
-];
+const faqs = computed<FaqItem[]>(() =>
+  (tm("sh.faq.items") as { q: string; a: string }[]).map((o) => ({
+    q: rt(o.q),
+    a: rt(o.a),
+  })),
+);
 
 usePrestigePage({ hero: false });
 </script>

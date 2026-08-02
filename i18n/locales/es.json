@@ -52,7 +52,11 @@
   },
   "menu": {
     "featuredProjects": "Proyectos destacados",
-    "ourDestinations": "Nuestros destinos"
+    "ourDestinations": "Nuestros destinos",
+    "ourStory": "Nuestra historia",
+    "visionMission": "Visión y misión",
+    "ourLeadership": "Nuestro liderazgo",
+    "ourMilestones": "Nuestros hitos"
   },
   "contact": {
     "fullName": "Nombre completo",
@@ -62,7 +66,9 @@
     "phoneNumber": "Número de teléfono",
     "phonePlaceholder": "Introduzca su número de teléfono",
     "howCanWeHelp": "¿Cómo podemos ayudarle?",
-    "messagePlaceholder": "Cuéntenos más sobre su consulta"
+    "messagePlaceholder": "Cuéntenos más sobre su consulta",
+    "errRequired": "Complete todos los campos obligatorios con datos válidos.",
+    "errGeneric": "Algo salió mal. Escríbanos a {email} o inténtelo de nuevo."
   },
   "language": {
     "label": "Idioma",

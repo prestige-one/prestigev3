@@ -88,7 +88,8 @@
       "eyebrow": "Запросить документ",
       "lead": "Оставьте свои данные, и наша команда отправит {doc} для {project} прямо на вашу почту.",
       "requestAria": "Запросить {doc}",
-      "close": "Закрыть"
+      "close": "Закрыть",
+      "prefillMessage": "Я хотел бы запросить {documentName} для {projectTitle}."
     }
   },
   "pdata": {

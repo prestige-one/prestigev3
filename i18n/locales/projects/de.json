@@ -88,7 +88,8 @@
       "eyebrow": "Dokument anfordern",
       "lead": "Hinterlassen Sie Ihre Daten und unser Team sendet Ihnen {doc} für {project} direkt in Ihr Postfach.",
       "requestAria": "{doc} anfordern",
-      "close": "Schließen"
+      "close": "Schließen",
+      "prefillMessage": "Ich möchte das {documentName} für {projectTitle} anfordern."
     }
   },
   "pdata": {
