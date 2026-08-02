@@ -2,9 +2,9 @@
   <section class="prestige-drives-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-drives-header">
-        <span class="prestige-drives-eyebrow">WHAT DRIVES US</span>
+        <span class="prestige-drives-eyebrow">{{ t('ap.drives.eyebrow') }}</span>
         <h2 class="prestige-drives-title tp_reveal_anim" data-delay="0.05">
-          Every Decision Starts With What Matters
+          {{ t('ap.drives.title') }}
         </h2>
       </header>
 
@@ -43,28 +43,30 @@ interface PrestigeDrivePrinciple {
   image: string;
 }
 
-const principles: PrestigeDrivePrinciple[] = [
+const { t } = useI18n();
+
+const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
-    title: "Made Around People",
-    description: "We think about how people live, work, connect, and enjoy every day.",
+    title: t("ap.drives.p1Title"),
+    description: t("ap.drives.p1Desc"),
     image: "/assets/images/v3/MADE-AROUND-PEOPLE.webp",
   },
   {
-    title: "Every Detail Has a Purpose",
-    description: "From location to layout and amenities, every choice is made for a reason.",
+    title: t("ap.drives.p2Title"),
+    description: t("ap.drives.p2Desc"),
     image: "/assets/images/v3/Every-Detail-Has-a-purpose.webp",
   },
   {
-    title: "Built to Last",
-    description: "We focus on quality, careful execution, and value that lasts beyond today.",
+    title: t("ap.drives.p3Title"),
+    description: t("ap.drives.p3Desc"),
     image: "/assets/images/v3/Built-on-Trust.webp",
   },
   {
-    title: "Always Thinking Ahead",
-    description: "We create for changing lifestyles, new possibilities, and the way people will live tomorrow.",
+    title: t("ap.drives.p4Title"),
+    description: t("ap.drives.p4Desc"),
     image: "/assets/images/v3/Always-Thinking-Ahead.webp",
   },
-];
+]);
 </script>
 
 <style scoped>

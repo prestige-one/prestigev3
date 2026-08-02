@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments is a premium real estate developer, redefining luxury living across Dubai's most prestigious destinations."
+    },
+    "hero": {
+      "headline1": "It All Starts Here",
+      "headline2": "We Build Homes People Love Living In",
+      "headline3": "That's Prestige One",
+      "mobileTitle": "We Build Homes People Love Living In",
+      "mobileSub": "That's Prestige One"
+    },
+    "developments": {
+      "title": "Our Developments",
+      "subtitle": "From vision to reality"
+    },
+    "upcoming": {
+      "title": "Upcoming Projects"
+    },
+    "whyUs": {
+      "title": "Why Prestige One",
+      "subtitle": "Built on Strong Principles",
+      "item1Title": "Where Opportunity Grows",
+      "item1Desc": "We choose well-connected locations that offer great lifestyles and lasting value",
+      "item2Title": "Designed Around Life",
+      "item2Desc": "Thoughtful homes that bring comfort, function, and everyday living together",
+      "item3Title": "Built on Trust",
+      "item3Desc": "In-house expertise, careful execution, and quality you can rely on",
+      "item4Title": "Connected to the World",
+      "item4Desc": "Decades of experience, strengthened by partnerships with globally recognized brands"
+    },
+    "whyDubai": {
+      "eyebrow": "WHY DUBAI",
+      "title": "A City Built for Growth",
+      "lead": "One of the world's most dynamic, secure and connected cities, Dubai offers the stability, lifestyle and returns that make ownership genuinely rewarding.",
+      "r1Title": "Tax-Free Ownership",
+      "r1Text": "No income tax and no annual property tax on residential real estate.",
+      "r2Title": "Strong Rental Yields",
+      "r2Text": "Among the highest gross rental returns of any major global city.",
+      "r3Title": "Golden Visa",
+      "r3Text": "Long-term residency for property investors and their families.",
+      "r4Title": "Safe & Stable",
+      "r4Text": "Consistently ranked among the safest cities in the world.",
+      "r5Title": "Globally Connected",
+      "r5Text": "Within an eight-hour flight of two-thirds of the world's population.",
+      "r6Title": "Freehold Ownership",
+      "r6Text": "Full foreign ownership across Dubai's freehold communities."
+    },
+    "stories": {
+      "eyebrow": "CLIENT STORIES",
+      "title": "Homes Handed Over. Stories That Stay.",
+      "lead": "From the first viewing to the moment they receive their keys, Prestige One owners become part of a growing community. Here are a few of their journeys, in their own words.",
+      "v1Name": "A Homeowner's Story",
+      "v1Project": "Prestige One",
+      "v2Name": "Handover Day",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "Receiving the Keys",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

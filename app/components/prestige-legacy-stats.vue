@@ -2,9 +2,9 @@
   <section class="prestige-legacy-area pt-40 pb-80">
     <div class="container container-1430 prestige-legacy-panel">
       <div class="prestige-legacy-header">
-        <span class="prestige-legacy-eyebrow">OUR LEGACY</span>
+        <span class="prestige-legacy-eyebrow">{{ t('ap.legacy.eyebrow') }}</span>
         <h2 class="prestige-legacy-title tp_reveal_anim" data-delay="0.05">
-          Decades of Experience. Built for What's Next
+          {{ t('ap.legacy.title') }}
         </h2>
       </div>
 
@@ -44,15 +44,17 @@ interface LegacyStat {
   thousands?: boolean;
 }
 
-const legacyStats: LegacyStat[] = [
-  { id: 1, value: 60, suffix: " Years", label: "Group Business Legacy" },
-  { id: 2, value: 19, suffix: " Years", label: "Dubai Real Estate Experience" },
-  { id: 3, value: 32, suffix: "+", label: "Projects in Development" },
-  { id: 4, value: 3500, suffix: "+", label: "Residential & Commercial Units", thousands: true },
-  { id: 5, value: 21, suffix: "+", label: "Destinations Worldwide" },
-];
+const { t } = useI18n();
 
-const countedValues = ref<number[]>(legacyStats.map(() => 0));
+const legacyStats = computed<LegacyStat[]>(() => [
+  { id: 1, value: 60, suffix: t("ap.legacy.yearsSuffix"), label: t("ap.legacy.stat1") },
+  { id: 2, value: 19, suffix: t("ap.legacy.yearsSuffix"), label: t("ap.legacy.stat2") },
+  { id: 3, value: 32, suffix: "+", label: t("ap.legacy.stat3") },
+  { id: 4, value: 3500, suffix: "+", label: t("ap.legacy.stat4"), thousands: true },
+  { id: 5, value: 21, suffix: "+", label: t("ap.legacy.stat5") },
+]);
+
+const countedValues = ref<number[]>(legacyStats.value.map(() => 0));
 const gridRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 let started = false;
@@ -60,7 +62,7 @@ let observer: IntersectionObserver | null = null;
 let animationFrameId: number | null = null;
 
 function formatValue(index: number) {
-  const stat = legacyStats[index];
+  const stat = legacyStats.value[index];
   const value = countedValues.value[index] ?? 0;
   return stat?.thousands ? value.toLocaleString("en-US") : value;
 }
@@ -77,7 +79,7 @@ function animateStats() {
     const progress = Math.min((now - startTime) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
 
-    legacyStats.forEach((stat, index) => {
+    legacyStats.value.forEach((stat, index) => {
       countedValues.value[index] = Math.round(stat.value * eased);
     });
 
@@ -93,7 +95,7 @@ onMounted(() => {
   if (!gridRef.value) return;
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    countedValues.value = legacyStats.map((stat) => stat.value);
+    countedValues.value = legacyStats.value.map((stat) => stat.value);
     isVisible.value = true;
     return;
   }

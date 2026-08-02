@@ -3,17 +3,17 @@
     <div class="container container-1430">
       <div class="prestige-next-inner">
         <h2 class="prestige-next-title tp_reveal_anim" data-delay="0.05">
-          The Vision Continues
+          {{ t('ap.next.title') }}
         </h2>
         <p class="prestige-next-lead tp_fade_anim" data-fade-from="bottom" data-fade-offset="24">
-          New developments, new opportunities, and more to come from Prestige One.
+          {{ t('ap.next.lead') }}
         </p>
         <div class="prestige-next-actions tp_fade_anim" data-fade-from="bottom" data-fade-offset="24" data-delay="0.1">
-          <nuxt-link to="/projects" class="prestige-next-btn prestige-next-btn--solid">
-            Explore Our Developments <span aria-hidden="true">→</span>
+          <nuxt-link :to="localePath('/projects')" class="prestige-next-btn prestige-next-btn--solid">
+            {{ t('ap.next.exploreBtn') }} <span aria-hidden="true">→</span>
           </nuxt-link>
-          <nuxt-link to="/contact-us" class="prestige-next-btn prestige-next-btn--ghost">
-            Get in Touch <span aria-hidden="true">→</span>
+          <nuxt-link :to="localePath('/contact-us')" class="prestige-next-btn prestige-next-btn--ghost">
+            {{ t('ap.next.contactBtn') }} <span aria-hidden="true">→</span>
           </nuxt-link>
         </div>
       </div>
@@ -21,7 +21,10 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+const localePath = useLocalePath();
+</script>
 
 <style scoped>
 .prestige-next-area {

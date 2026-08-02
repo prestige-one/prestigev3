@@ -2,11 +2,10 @@
   <section class="prestige-whydubai pt-120 pb-120">
     <div class="container container-1430">
       <header class="prestige-whydubai__head">
-        <span class="prestige-whydubai__eyebrow">WHY DUBAI</span>
-        <h2 class="prestige-whydubai__title prestige-text-paint">A City Built for Growth</h2>
+        <span class="prestige-whydubai__eyebrow">{{ $t('hp.whyDubai.eyebrow') }}</span>
+        <h2 class="prestige-whydubai__title prestige-text-paint">{{ $t('hp.whyDubai.title') }}</h2>
         <p class="prestige-whydubai__lead">
-          One of the world's most dynamic, secure and connected cities, Dubai offers
-          the stability, lifestyle and returns that make ownership genuinely rewarding.
+          {{ $t('hp.whyDubai.lead') }}
         </p>
       </header>
 
@@ -22,14 +21,16 @@
 </template>
 
 <script setup lang="ts">
-const reasons = [
-  { stat: "0%", title: "Tax-Free Ownership", text: "No income tax and no annual property tax on residential real estate." },
-  { stat: "6-8%", title: "Strong Rental Yields", text: "Among the highest gross rental returns of any major global city." },
-  { stat: "10-Yr", title: "Golden Visa", text: "Long-term residency for property investors and their families." },
-  { stat: "#1", title: "Safe & Stable", text: "Consistently ranked among the safest cities in the world." },
-  { stat: "8 Hrs", title: "Globally Connected", text: "Within an eight-hour flight of two-thirds of the world's population." },
-  { stat: "100%", title: "Freehold Ownership", text: "Full foreign ownership across Dubai's freehold communities." },
-];
+const { t } = useI18n();
+
+const reasons = computed(() => [
+  { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text") },
+  { stat: "6-8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
+  { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
+  { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
+  { stat: "8 Hrs", title: t("hp.whyDubai.r5Title"), text: t("hp.whyDubai.r5Text") },
+  { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text") },
+]);
 </script>
 
 <style scoped>

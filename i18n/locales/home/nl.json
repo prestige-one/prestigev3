@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments is een premium vastgoedontwikkelaar die luxueus wonen opnieuw definieert in de meest prestigieuze bestemmingen van Dubai."
+    },
+    "hero": {
+      "headline1": "Alles begint hier",
+      "headline2": "Wij bouwen huizen waar mensen graag wonen",
+      "headline3": "Dat is Prestige One",
+      "mobileTitle": "Wij bouwen huizen waar mensen graag wonen",
+      "mobileSub": "Dat is Prestige One"
+    },
+    "developments": {
+      "title": "Onze projecten",
+      "subtitle": "Van visie naar werkelijkheid"
+    },
+    "upcoming": {
+      "title": "Toekomstige projecten"
+    },
+    "whyUs": {
+      "title": "Waarom Prestige One",
+      "subtitle": "Gebouwd op sterke principes",
+      "item1Title": "Waar kansen groeien",
+      "item1Desc": "Wij kiezen goed bereikbare locaties die een prettige leefstijl en blijvende waarde bieden",
+      "item2Title": "Ontworpen rond het leven",
+      "item2Desc": "Doordachte woningen die comfort, functionaliteit en het dagelijks leven samenbrengen",
+      "item3Title": "Gebouwd op vertrouwen",
+      "item3Desc": "Eigen expertise, zorgvuldige uitvoering en kwaliteit waarop u kunt bouwen",
+      "item4Title": "Verbonden met de wereld",
+      "item4Desc": "Decennia aan ervaring, versterkt door partnerschappen met wereldwijd erkende merken"
+    },
+    "whyDubai": {
+      "eyebrow": "WAAROM DUBAI",
+      "title": "Een stad gebouwd om te groeien",
+      "lead": "Als een van de meest dynamische, veilige en best verbonden steden ter wereld biedt Dubai de stabiliteit, leefstijl en rendementen die eigendom werkelijk lonend maken.",
+      "r1Title": "Belastingvrij eigendom",
+      "r1Text": "Geen inkomstenbelasting en geen jaarlijkse onroerendezaakbelasting op woningen.",
+      "r2Title": "Sterke huurrendementen",
+      "r2Text": "Behoort tot de hoogste bruto huurrendementen van alle grote wereldsteden.",
+      "r3Title": "Golden Visa",
+      "r3Text": "Langdurig verblijf voor vastgoedinvesteerders en hun gezin.",
+      "r4Title": "Veilig en stabiel",
+      "r4Text": "Steevast gerangschikt onder de veiligste steden ter wereld.",
+      "r5Title": "Wereldwijd verbonden",
+      "r5Text": "Binnen een vlucht van acht uur van twee derde van de wereldbevolking.",
+      "r6Title": "Volledig eigendom",
+      "r6Text": "Volledig buitenlands eigendom in de freehold-gemeenschappen van Dubai."
+    },
+    "stories": {
+      "eyebrow": "VERHALEN VAN KLANTEN",
+      "title": "Sleutels overhandigd. Verhalen die blijven.",
+      "lead": "Van de eerste bezichtiging tot het moment van de sleuteloverdracht worden eigenaren van Prestige One deel van een groeiende gemeenschap. Hier zijn enkele van hun verhalen, in hun eigen woorden.",
+      "v1Name": "Het verhaal van een eigenaar",
+      "v1Project": "Prestige One",
+      "v2Name": "Dag van de sleuteloverdracht",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "De sleutels ontvangen",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

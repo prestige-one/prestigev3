@@ -7,10 +7,10 @@
             <h2
               class="prestige-developments-title prestige-text-paint prestige-load-title prestige-load-text-paint"
             >
-              About Us
+              {{ t('ap.hero.title') }}
             </h2>
             <p class="prestige-developments-subtitle prestige-load-subtitle">
-              Behind Every Place, There's a Purpose
+              {{ t('ap.hero.subtitle') }}
             </p>
           </div>
         </div>
@@ -40,8 +40,8 @@
               class="prestige-about-hero-heading tp_fade_anim"
               data-fade-from="bottom"
             >
-              We Build With Purpose.<br>
-              We Create For Life.
+              {{ t('ap.hero.headingLine1') }}<br>
+              {{ t('ap.hero.headingLine2') }}
             </h2>
             <p
               class="prestige-about-hero-desc tp_reveal_anim"
@@ -49,8 +49,7 @@
               data-duration="0.6"
               data-stagger="0.004"
             >
-              Prestige One Developments is a Dubai-based real estate developer creating residential
-              and commercial spaces shaped around how people live, work, and experience the city.
+              {{ t('ap.hero.desc') }}
             </p>
 
             <prestige-contact-review-actions
@@ -66,6 +65,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
 </script>
 
 <style scoped>

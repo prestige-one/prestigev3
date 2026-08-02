@@ -1,1 +1,80 @@
-{}
+{
+  "dp": {
+    "hero": {
+      "eyebrow": "Onze bestemmingen",
+      "title": "Toplocaties",
+      "lead": "Prestige One bouwt waar het leven op zijn best is - de waterkanten, gemeenschappen en oriëntatiepunten die Dubai en daarbuiten bepalen."
+    },
+    "feature": {
+      "eyebrow": "Waarom locatie ertoe doet",
+      "title": "Wij bouwen waar Dubai het best leeft",
+      "p1": "Een woning is nooit beter dan het leven eromheen. Die overtuiging leidt elke aankoop die we doen - voordat we ook maar één verdieping ontwerpen, vragen we ons af of een locatie een gemeenschap decennialang kan dragen, en niet alleen tijdens een openingsweekend.",
+      "p2": "Van de stranden van Dubai Islands tot de lagunes van Mohammed Bin Rashid City en de fairways van Dubai Sports City - elk Prestige One-adres wordt gekozen om hoe het aansluit op scholen, winkels, werk en het water - de alledaagse dingen die een plek de moeite waard maken om naar terug te keren.",
+      "point1": "Bestemmingen aan het water, in gemeenschappen en bij oriëntatiepunten door heel Dubai",
+      "point2": "Op enkele minuten van de metro, Sheikh Zayed Road en de luchthaven",
+      "point3": "Locaties gekozen op langdurige leefbaarheid en waarde",
+      "point4": "Buurten met scholen, winkels en vrije tijd binnen handbereik"
+    },
+    "stats": {
+      "destinations": "Bestemmingen",
+      "developments": "Projecten",
+      "investment": "Toegezegde investering",
+      "escrow": "Beschermd via escrow"
+    },
+    "map": {
+      "eyebrow": "Ontdek",
+      "title": "Vind uw adres op de kaart",
+      "lead": "Beweeg door een meeslepend satellietbeeld van Dubai en zie waar elk Prestige One-project ligt - filter op wijk, tik op een markering en blader door de collectie."
+    },
+    "card": {
+      "count_one": "1 project",
+      "count_other": "{n} projecten"
+    },
+    "cta": {
+      "eyebrow": "Vind uw adres",
+      "title": "Weet u niet waar te beginnen?",
+      "text": "Vertel ons hoe u wilt wonen en ons team wijst u de bestemmingen - en de projecten - die bij u passen. Van eerste investering tot thuis voor het leven.",
+      "primary": "Spreek met ons team",
+      "secondary": "Bekijk alle projecten"
+    },
+    "seo": {
+      "title": "Onze bestemmingen | Prestige One",
+      "description": "Ontdek de waterkanten, gemeenschappen en oriëntatiepunten van Dubai waar Prestige One bouwt - van Palm Jumeirah tot Dubai Islands."
+    },
+    "detail": {
+      "enquire": "Nu informeren",
+      "badge_new": "Nieuwe adressen op komst",
+      "area_eyebrow": "De omgeving",
+      "subareas_title": "Binnen de wijk",
+      "nearby_eyebrow": "In de buurt",
+      "nearby_title": "Wat er om u heen is",
+      "transport_eyebrow": "Onderweg",
+      "transport_title": "In elke richting verbonden",
+      "statement_eyebrow": "Toplocatie",
+      "essentials_eyebrow": "Dagelijkse essentials",
+      "essentials_title": "Levensbehoeften dichtbij",
+      "education": "Onderwijs",
+      "healthcare": "Zorg",
+      "worship": "Gebedshuizen",
+      "invest_eyebrow": "Waarom hier investeren",
+      "invest_title": "Een locatie die voor u werkt",
+      "devs_eyebrow": "Projecten hier",
+      "devs_title": "Prestige One in {name}",
+      "devs_empty": "Nieuwe Prestige One-projecten komen naar {name}. Toon uw interesse om als eerste te horen.",
+      "register": "Interesse tonen",
+      "faq_eyebrow": "Goed om te weten",
+      "faq_title": "Over {name}",
+      "faq": {
+        "q1": "Wat maakt {name} een fijne plek om te wonen?",
+        "q2": "Is {name} goed bereikbaar?",
+        "q3": "Wat is er in de buurt?",
+        "q4": "Waarom investeren in {name}?"
+      },
+      "cta_eyebrow": "Uw volgende adres",
+      "cta_title": "Maak van {name} uw thuis",
+      "cta_text": "Spreek met ons team over wonen in {name} - beschikbaarheid, prijzen en de projecten die het best passen bij hoe u wilt leven.",
+      "cta_secondary": "Ontdek alle bestemmingen",
+      "seo_title": "{name} | Prestige One bestemmingen"
+    }
+  }
+}

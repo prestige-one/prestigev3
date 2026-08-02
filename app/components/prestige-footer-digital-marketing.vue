@@ -31,7 +31,7 @@
                                 <li>
                                     <div class="prestige-footer-contact-row">
                                         <span class="prestige-footer-contact-icon"><svg-location-one /></span>
-                                        <span>Office 1602-1604, Marina Plaza, Dubai Marina, Dubai, UAE.</span>
+                                        <span>{{ $t('sh.address') }}</span>
                                     </div>
                                 </li>
                             </ul>
@@ -42,41 +42,41 @@
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-2 tp_fade_anim" data-delay=".4">
-                            <h4 class="dgm-footer-widget-title">Corporate</h4>
+                            <h4 class="dgm-footer-widget-title">{{ $t('footer.corporate') }}</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
-                                    <li><nuxt-link to="/broker-registration">Broker Registration</nuxt-link></li>
-                                    <li><nuxt-link to="/project-documents">Project Documents</nuxt-link></li>
-                                    <li><nuxt-link to="/invest">Invest in Prestige One</nuxt-link></li>
-                                    <li><nuxt-link to="/marketing-terms">Marketing Terms &amp; Conditions</nuxt-link></li>
-                                    <li><nuxt-link to="/csr">Corporate Social Responsibility</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration">{{ $t('sh.brokerRegistration') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/project-documents">{{ $t('sh.projectDocuments') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/invest">{{ $t('sh.invest') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/marketing-terms">{{ $t('sh.marketingTerms') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/csr">{{ $t('sh.csr') }}</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-2 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-3 tp_fade_anim" data-delay=".5">
-                            <h4 class="dgm-footer-widget-title">Media Center</h4>
+                            <h4 class="dgm-footer-widget-title">{{ $t('footer.mediaCenter') }}</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
-                                    <li><nuxt-link to="/construction-updates">Construction Updates</nuxt-link></li>
-                                    <li><nuxt-link to="/press-release">Press Release</nuxt-link></li>
-                                    <li><nuxt-link to="/blog">Blog Posts</nuxt-link></li>
-                                    <li><nuxt-link to="/industry-news">Industry News</nuxt-link></li>
-                                    <li><nuxt-link to="/media">FAQs</nuxt-link></li>
+                                    <li><nuxt-link to="/construction-updates">{{ $t('sh.constructionUpdates') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/press-release">{{ $t('sh.pressRelease') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/blog">{{ $t('sh.blogPosts') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/industry-news">{{ $t('sh.industryNews') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/media">{{ $t('sh.faqs') }}</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-4 z-index-1 tp_fade_anim" data-delay=".6">
-                            <h4 class="dgm-footer-widget-title">Newsletter</h4>
+                            <h4 class="dgm-footer-widget-title">{{ $t('footer.newsletter') }}</h4>
                             <div class="dgm-footer-widget-paragraph color-style mb-35">
-                                <p>Subscribe our newsletter to get the latest news and updates!</p>
+                                <p>{{ $t('footer.newsletterText') }}</p>
                             </div>
                             <div class="dgm-footer-widget-input p-relative">
                                 <form novalidate @submit.prevent="subscribe">
-                                    <input v-model="newsletterEmail" type="email" placeholder="Enter your email">
+                                    <input v-model="newsletterEmail" type="email" :placeholder="$t('footer.newsletterPlaceholder')">
                                     <span class="input-icon">
                                         <svg-email-one color-name="#A1A4AA" stroke-width="1.5"/>
                                     </span>
@@ -101,7 +101,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="tp-copyright-2-left text-center text-md-start z-index-1">
-                            <p>© {{new Date().getFullYear()}} Prestige One Developments. All Rights Reserved.</p>
+                            <p>© {{new Date().getFullYear()}} {{ $t('footer.brand') }} {{ $t('footer.rightsReserved') }}</p>
                         </div>
                     </div>
                     
@@ -109,8 +109,8 @@
                         <div class="tp-copyright-2-right">
                             <div class="tp-copyright-2-menu text-md-end text-center">
                                 <ul>
-                                    <li><nuxt-link to="/privacy-policy">Privacy Policy</nuxt-link></li>
-                                    <li><nuxt-link to="/terms-conditions">Terms and Conditions</nuxt-link></li>
+                                    <li><nuxt-link to="/privacy-policy">{{ $t('footer.privacyPolicy') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/terms-conditions">{{ $t('footer.termsConditions') }}</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
@@ -126,6 +126,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const newsletterEmail = ref("");
 const newsletterStatus = ref<"idle" | "submitting" | "success" | "error">("idle");
 const newsletterMsg = ref("");
@@ -133,7 +135,7 @@ const newsletterMsg = ref("");
 async function subscribe() {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail.value.trim())) {
     newsletterStatus.value = "error";
-    newsletterMsg.value = "Please enter a valid email address.";
+    newsletterMsg.value = t("sh.newsletterInvalidEmail");
     return;
   }
   newsletterStatus.value = "submitting";
@@ -148,7 +150,7 @@ async function subscribe() {
     newsletterEmail.value = "";
   } catch {
     newsletterStatus.value = "error";
-    newsletterMsg.value = "Something went wrong. Please try again.";
+    newsletterMsg.value = t("sh.newsletterError");
   }
 }
 </script>

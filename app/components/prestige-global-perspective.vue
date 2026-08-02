@@ -2,12 +2,12 @@
   <section class="prestige-global-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-global-header">
-        <span class="prestige-global-eyebrow">GLOBAL PERSPECTIVE</span>
+        <span class="prestige-global-eyebrow">{{ t('ap.global.eyebrow') }}</span>
         <h2 class="prestige-global-title tp_reveal_anim" data-delay="0.05">
-          Global Experience. A Dubai Focus
+          {{ t('ap.global.title') }}
         </h2>
         <p class="prestige-global-lead">
-          A wider perspective, shaping what we create in Dubai.
+          {{ t('ap.global.lead') }}
         </p>
       </header>
     </div>
@@ -23,7 +23,9 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
 
 <style scoped>
 .prestige-global-area {

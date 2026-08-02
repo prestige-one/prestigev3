@@ -60,14 +60,16 @@ const MAIN_TITLES = [
 ];
 const mainProjects = residentialDevelopments.filter((d) => MAIN_TITLES.includes(d.title));
 
+const { t } = useI18n();
+
 definePageMeta({
   layout: false,
 });
 useSeoMeta({
-  title: "Prestige One Developments",
-  ogTitle: "Prestige One Developments",
-  description: "Prestige One Developments is a premium real estate developer, redefining luxury living across Dubai's most prestigious destinations.",
-  ogDescription: "Prestige One Developments is a premium real estate developer, redefining luxury living across Dubai's most prestigious destinations.",
+  title: () => t("hp.seo.title"),
+  ogTitle: () => t("hp.seo.title"),
+  description: () => t("hp.seo.description"),
+  ogDescription: () => t("hp.seo.description"),
   ogImage: "/assets/images/v3/prestigeone_logo_oneline_dark-hr.svg",
   twitterCard: "summary_large_image",
 });

@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments ist ein Premium-Immobilienentwickler, der luxuriöses Wohnen in Dubais renommiertesten Lagen neu definiert."
+    },
+    "hero": {
+      "headline1": "Hier beginnt alles",
+      "headline2": "Wir schaffen Zuhause, in denen man gerne lebt",
+      "headline3": "Das ist Prestige One",
+      "mobileTitle": "Wir schaffen Zuhause, in denen man gerne lebt",
+      "mobileSub": "Das ist Prestige One"
+    },
+    "developments": {
+      "title": "Unsere Projekte",
+      "subtitle": "Von der Vision zur Wirklichkeit"
+    },
+    "upcoming": {
+      "title": "Kommende Projekte"
+    },
+    "whyUs": {
+      "title": "Warum Prestige One",
+      "subtitle": "Auf starken Prinzipien gebaut",
+      "item1Title": "Wo Chancen wachsen",
+      "item1Desc": "Wir wählen gut angebundene Lagen, die einen hohen Lebensstandard und bleibenden Wert bieten",
+      "item2Title": "Rund ums Leben gestaltet",
+      "item2Desc": "Durchdachte Wohnräume, die Komfort, Funktion und Alltag miteinander verbinden",
+      "item3Title": "Auf Vertrauen gebaut",
+      "item3Desc": "Eigene Expertise, sorgfältige Umsetzung und Qualität, auf die Sie sich verlassen können",
+      "item4Title": "Mit der Welt verbunden",
+      "item4Desc": "Jahrzehnte an Erfahrung, gestärkt durch Partnerschaften mit weltweit renommierten Marken"
+    },
+    "whyDubai": {
+      "eyebrow": "WARUM DUBAI",
+      "title": "Eine Stadt, geschaffen für Wachstum",
+      "lead": "Als eine der dynamischsten, sichersten und bestvernetzten Städte der Welt bietet Dubai die Stabilität, den Lebensstil und die Renditen, die Eigentum wirklich lohnend machen.",
+      "r1Title": "Steuerfreies Eigentum",
+      "r1Text": "Keine Einkommensteuer und keine jährliche Grundsteuer auf Wohnimmobilien.",
+      "r2Title": "Starke Mietrenditen",
+      "r2Text": "Unter den höchsten Bruttomietrenditen aller großen Metropolen weltweit.",
+      "r3Title": "Golden Visa",
+      "r3Text": "Langfristiger Aufenthalt für Immobilieninvestoren und ihre Familien.",
+      "r4Title": "Sicher und stabil",
+      "r4Text": "Regelmäßig unter den sichersten Städten der Welt gelistet.",
+      "r5Title": "Global vernetzt",
+      "r5Text": "Innerhalb eines Achtstundenflugs von zwei Dritteln der Weltbevölkerung.",
+      "r6Title": "Volleigentum",
+      "r6Text": "Uneingeschränktes ausländisches Eigentum in Dubais Freehold-Gemeinden."
+    },
+    "stories": {
+      "eyebrow": "KUNDENGESCHICHTEN",
+      "title": "Übergebene Zuhause. Geschichten, die bleiben.",
+      "lead": "Von der ersten Besichtigung bis zur Schlüsselübergabe werden Prestige-One-Eigentümer Teil einer wachsenden Gemeinschaft. Hier einige ihrer Wege, in ihren eigenen Worten.",
+      "v1Name": "Die Geschichte eines Eigentümers",
+      "v1Project": "Prestige One",
+      "v2Name": "Tag der Schlüsselübergabe",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "Die Schlüsselübergabe",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

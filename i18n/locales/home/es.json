@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments es un promotor inmobiliario de lujo que redefine la vida exclusiva en los destinos más prestigiosos de Dubái."
+    },
+    "hero": {
+      "headline1": "Todo comienza aquí",
+      "headline2": "Creamos hogares donde da gusto vivir",
+      "headline3": "Eso es Prestige One",
+      "mobileTitle": "Creamos hogares donde da gusto vivir",
+      "mobileSub": "Eso es Prestige One"
+    },
+    "developments": {
+      "title": "Nuestros proyectos",
+      "subtitle": "De la visión a la realidad"
+    },
+    "upcoming": {
+      "title": "Próximos proyectos"
+    },
+    "whyUs": {
+      "title": "Por qué Prestige One",
+      "subtitle": "Construida sobre principios sólidos",
+      "item1Title": "Donde crecen las oportunidades",
+      "item1Desc": "Elegimos ubicaciones bien conectadas que ofrecen un gran estilo de vida y un valor duradero",
+      "item2Title": "Diseñada en torno a la vida",
+      "item2Desc": "Hogares pensados que reúnen confort, funcionalidad y el día a día",
+      "item3Title": "Construida sobre la confianza",
+      "item3Desc": "Experiencia propia, ejecución cuidadosa y una calidad en la que puede confiar",
+      "item4Title": "Conectada con el mundo",
+      "item4Desc": "Décadas de experiencia, reforzadas por alianzas con marcas de reconocimiento mundial"
+    },
+    "whyDubai": {
+      "eyebrow": "POR QUÉ DUBÁI",
+      "title": "Una ciudad hecha para crecer",
+      "lead": "Como una de las ciudades más dinámicas, seguras y conectadas del mundo, Dubái ofrece la estabilidad, el estilo de vida y la rentabilidad que hacen que ser propietario sea realmente gratificante.",
+      "r1Title": "Propiedad libre de impuestos",
+      "r1Text": "Sin impuesto sobre la renta ni impuesto anual sobre bienes inmuebles residenciales.",
+      "r2Title": "Alta rentabilidad de alquiler",
+      "r2Text": "Entre las rentabilidades brutas por alquiler más altas de cualquier gran ciudad del mundo.",
+      "r3Title": "Visado Dorado",
+      "r3Text": "Residencia de larga duración para inversores inmobiliarios y sus familias.",
+      "r4Title": "Segura y estable",
+      "r4Text": "Clasificada de forma constante entre las ciudades más seguras del mundo.",
+      "r5Title": "Conectada globalmente",
+      "r5Text": "A menos de ocho horas de vuelo de dos tercios de la población mundial.",
+      "r6Title": "Plena propiedad",
+      "r6Text": "Plena propiedad extranjera en las comunidades freehold de Dubái."
+    },
+    "stories": {
+      "eyebrow": "HISTORIAS DE CLIENTES",
+      "title": "Hogares entregados. Historias que perduran.",
+      "lead": "Desde la primera visita hasta el momento de recibir las llaves, los propietarios de Prestige One pasan a formar parte de una comunidad en crecimiento. Estas son algunas de sus historias, en sus propias palabras.",
+      "v1Name": "La historia de un propietario",
+      "v1Project": "Prestige One",
+      "v2Name": "Día de la entrega",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "Recibir las llaves",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

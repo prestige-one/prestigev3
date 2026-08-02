@@ -2,9 +2,9 @@
   <section class="prestige-devyears-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-devyears-header">
-        <span class="prestige-devyears-eyebrow">OUR DEVELOPMENTS</span>
+        <span class="prestige-devyears-eyebrow">{{ t('ap.developments.eyebrow') }}</span>
         <h2 class="prestige-devyears-title tp_reveal_anim" data-delay="0.05">
-          Where Vision Shapes Addresses
+          {{ t('ap.developments.title') }}
         </h2>
       </header>
 
@@ -19,7 +19,7 @@
           <nuxt-link
             v-for="p in block.projects"
             :key="p.slug"
-            :to="`/projects/${p.slug}`"
+            :to="localePath(`/projects/${p.slug}`)"
             class="prestige-devyears-card tp_fade_anim"
             data-fade-from="bottom"
             data-fade-offset="24"
@@ -37,8 +37,8 @@
       </div>
 
       <div class="prestige-devyears-cta">
-        <nuxt-link to="/projects" class="prestige-devyears-explore">
-          Explore All Developments <span aria-hidden="true">→</span>
+        <nuxt-link :to="localePath('/projects')" class="prestige-devyears-explore">
+          {{ t('ap.developments.explore') }} <span aria-hidden="true">→</span>
         </nuxt-link>
       </div>
     </div>
@@ -48,6 +48,9 @@
 <script setup lang="ts">
 import residentialDevelopments from "~/data/residential-developments-data";
 import { slugify } from "~/data/projects";
+
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 // developments grouped into visual chapters by year (content plan section 08).
 // Titles map to the residential catalogue so each card reuses the real render.

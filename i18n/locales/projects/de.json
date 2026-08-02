@@ -1,1 +1,94 @@
-{}
+{
+  "pp": {
+    "hero": {
+      "eyebrow": "Unsere Projekte",
+      "title": "Willkommen in der Welt von Prestige",
+      "lead": "Entdecken Sie unsere Auswahl an Residenzen und Gewerbeadressen in Dubais renommiertesten Lagen."
+    },
+    "search": {
+      "placeholder": "Projekte nach Name oder Lage suchen…"
+    },
+    "categories": {
+      "all": "Alle Projekte",
+      "residential": "Wohnen",
+      "commercial": "Gewerbe",
+      "upcoming": "Demnächst"
+    },
+    "filters": {
+      "allDestinations": "Alle Lagen",
+      "destinationAria": "Nach Lage filtern"
+    },
+    "stats": {
+      "projects": "Projekte",
+      "destinations": "Lagen",
+      "countries": "Länder",
+      "freehold": "Eigentum"
+    },
+    "empty": "In dieser Kategorie gibt es noch keine Projekte - schauen Sie bald wieder vorbei.",
+    "cta": {
+      "eyebrow": "Unentschlossen?",
+      "title": "Finden wir die passende Adresse für Sie",
+      "text": "Sagen Sie uns, wonach Sie suchen, und unser Team findet die passenden Prestige One Projekte für Sie.",
+      "primary": "Sprechen Sie mit unserem Team",
+      "secondary": "Lagen entdecken"
+    },
+    "detail": {
+      "enquireNow": "Jetzt anfragen",
+      "overview": {
+        "eyebrow": "Überblick",
+        "title": "Leben in {name}"
+      },
+      "amenities": {
+        "eyebrow": "Annehmlichkeiten",
+        "title": "Alles vor Ihrer Tür",
+        "lead": "Sorgfältig ausgewählte Annehmlichkeiten, konzipiert für Komfort, Wohlbefinden und Alltagskomfort."
+      },
+      "gallery": {
+        "eyebrow": "Galerie",
+        "title": "Aus der Nähe betrachtet"
+      },
+      "location": {
+        "eyebrow": "Lage",
+        "title": "Perfekt gelegen in {location}",
+        "nearby": "In der Nähe",
+        "connectivity": "Anbindung",
+        "schools": "Schulen",
+        "healthcare": "Gesundheit"
+      },
+      "payment": {
+        "eyebrow": "Zahlungsplan",
+        "title": "Flexibel & transparent",
+        "note": "Richtwertplan - sprechen Sie mit unserem Team für die aktuellen Konditionen und Verfügbarkeiten."
+      },
+      "resources": {
+        "eyebrow": "Ressourcen",
+        "title": "Projektunterlagen",
+        "request": "Anfordern"
+      },
+      "faqTitle": "Gut zu wissen",
+      "related": {
+        "eyebrow": "Mehr entdecken",
+        "title": "Ähnliche Projekte"
+      },
+      "closing": {
+        "eyebrow": "Interesse anmelden",
+        "title": "Machen Sie {name} zu Ihrem Zuhause",
+        "text": "Sprechen Sie mit unserem Team über Grundrisse, Verfügbarkeit und die aktuellen Zahlungskonditionen.",
+        "primary": "Jetzt anfragen",
+        "secondary": "Alle Projekte ansehen"
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ"
+    },
+    "payment": {
+      "step": "Schritt"
+    },
+    "doc": {
+      "eyebrow": "Dokument anfordern",
+      "lead": "Hinterlassen Sie Ihre Daten und unser Team sendet Ihnen {doc} für {project} direkt in Ihr Postfach.",
+      "requestAria": "{doc} anfordern",
+      "close": "Schließen"
+    }
+  }
+}

@@ -14,7 +14,7 @@
             >
               <template #actions>
                 <span class="prestige-detail__badge">{{ project.status }}</span>
-                <nuxt-link to="/contact-us" class="prestige-btn">Enquire now</nuxt-link>
+                <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('pp.detail.enquireNow') }}</nuxt-link>
               </template>
             </prestige-page-hero>
 
@@ -32,8 +32,8 @@
 
             <!-- 2 · overview -->
             <prestige-feature-split
-              eyebrow="Overview"
-              :title="`Life at ${shortName}`"
+              :eyebrow="t('pp.detail.overview.eyebrow')"
+              :title="t('pp.detail.overview.title', { name: shortName })"
               :image="project.gallery[1] || project.hero"
               :paragraphs="project.overview"
               :points="project.highlights"
@@ -42,9 +42,9 @@
 
             <!-- 3 · amenities -->
             <prestige-amenities-grid
-              eyebrow="Amenities"
-              title="Everything at your doorstep"
-              lead="Thoughtfully curated amenities designed around comfort, wellbeing and everyday convenience."
+              :eyebrow="t('pp.detail.amenities.eyebrow')"
+              :title="t('pp.detail.amenities.title')"
+              :lead="t('pp.detail.amenities.lead')"
               :items="project.amenities"
             />
 
@@ -52,8 +52,8 @@
             <!-- 4 · gallery -->
             <section v-if="project.gallery.length" class="prestige-section">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Gallery</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">A closer look</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.gallery.eyebrow') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.gallery.title') }}</h2>
                 <div class="row">
                   <div
                     v-for="(img, i) in project.gallery"
@@ -75,13 +75,13 @@
               <div class="container container-1430">
                 <div class="row mb-40">
                   <div class="col-lg-9">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Location</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Perfectly placed in {{ project.location }}</h2>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.eyebrow') }}</span>
+                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
                   </div>
                 </div>
                 <div class="row gy-5">
                   <div v-if="nearby.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".2">Nearby</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.nearby') }}</h4>
                     <ul class="prestige-detail__poi prestige-detail__poi--stack tp_fade_anim" data-delay=".25">
                       <li v-for="(p, i) in nearby" :key="i">
                         <span class="prestige-detail__poi-name">{{ p.name }}</span>
@@ -90,19 +90,19 @@
                     </ul>
                   </div>
                   <div v-if="connectivity.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">Connectivity</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.connectivity') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
                       <li v-for="(c, i) in connectivity" :key="i">{{ c }}</li>
                     </ul>
                   </div>
                   <div v-if="schools.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">Schools</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">{{ t('pp.detail.location.schools') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
                       <li v-for="(s, i) in schools" :key="i">{{ s }}</li>
                     </ul>
                   </div>
                   <div v-if="hospitals.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">Healthcare</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">{{ t('pp.detail.location.healthcare') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
                       <li v-for="(h, i) in hospitals" :key="i">{{ h }}</li>
                     </ul>
@@ -116,9 +116,9 @@
               <div class="container container-1430">
                 <div class="row mb-40">
                   <div class="col-lg-8">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Payment plan</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Flexible &amp; transparent</h2>
-                    <p class="prestige-detail__note tp_fade_anim" data-delay=".4">Indicative plan - speak to our team for the latest terms and availability.</p>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.payment.eyebrow') }}</span>
+                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.payment.title') }}</h2>
+                    <p class="prestige-detail__note tp_fade_anim" data-delay=".4">{{ t('pp.detail.payment.note') }}</p>
                   </div>
                 </div>
                 <prestige-payment-wizard :steps="project.paymentPlan" />
@@ -128,8 +128,8 @@
             <!-- 7 · documents -->
             <section class="prestige-section--tight prestige-detail__docs">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Resources</span>
-                <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">Project documents</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.eyebrow') }}</span>
+                <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">{{ t('pp.detail.resources.title') }}</h2>
                 <div class="prestige-docgrid">
                   <button
                     v-for="(d, i) in project.documents"
@@ -147,7 +147,7 @@
                       </svg>
                     </span>
                     <span class="prestige-doccard__name">{{ d }}</span>
-                    <span class="prestige-doccard__cta">Request <i>→</i></span>
+                    <span class="prestige-doccard__cta">{{ t('pp.detail.resources.request') }} <i>→</i></span>
                   </button>
                 </div>
               </div>
@@ -161,13 +161,13 @@
             />
 
             <!-- 8 · FAQ -->
-            <prestige-faq-accordion title="Good to know" :items="faqs" />
+            <prestige-faq-accordion :title="t('pp.detail.faqTitle')" :items="faqs" />
 
             <!-- 9 · related -->
             <section v-if="related.length" class="prestige-section prestige-section--tight">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Explore more</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">Related developments</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.related.eyebrow') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.related.title') }}</h2>
                 <div class="row">
                   <div
                     v-for="rel in related"
@@ -183,14 +183,14 @@
 
             <!-- 10 · CTA + contact -->
             <prestige-cta-band
-              eyebrow="Register your interest"
-              :title="`Make ${shortName} home`"
-              text="Speak to our team for floor plans, availability and the latest payment terms."
+              :eyebrow="t('pp.detail.closing.eyebrow')"
+              :title="t('pp.detail.closing.title', { name: shortName })"
+              :text="t('pp.detail.closing.text')"
               :image="project.hero"
-              primary-label="Enquire now"
-              primary-to="/contact-us"
-              secondary-label="View all projects"
-              secondary-to="/projects"
+              :primary-label="t('pp.detail.closing.primary')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('pp.detail.closing.secondary')"
+              :secondary-to="localePath('/projects')"
             />
 
             <prestige-contact-form />
@@ -210,6 +210,9 @@ import { destinations } from "~/data/destinations-data";
 interface FaqItem { q: string; a: string }
 
 definePageMeta({ layout: false });
+
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));

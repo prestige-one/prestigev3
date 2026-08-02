@@ -5,10 +5,10 @@
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
             <h2 class="prestige-developments-title prestige-text-paint">
-              Why Prestige One
+              {{ $t('hp.whyUs.title') }}
             </h2>
             <p class="prestige-developments-subtitle">
-              Built on Strong Principles
+              {{ $t('hp.whyUs.subtitle') }}
             </p>
           </div>
         </div>
@@ -69,6 +69,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 interface WhyUsItem {
   id: number;
   number: string;
@@ -78,44 +80,40 @@ interface WhyUsItem {
   imagePosition: "left" | "right";
 }
 
-const whyUsData: WhyUsItem[] = [
+const whyUsData = computed<WhyUsItem[]>(() => [
   {
     id: 1,
     number: "01",
-    title: "Where Opportunity Grows",
-    description:
-      "We choose well-connected locations that offer great lifestyles and lasting value",
+    title: t("hp.whyUs.item1Title"),
+    description: t("hp.whyUs.item1Desc"),
     image: "/assets/images/v3/projects-map.webp",
     imagePosition: "left",
   },
   {
     id: 2,
     number: "02",
-    title: "Designed Around Life",
-    description:
-      "Thoughtful homes that bring comfort, function, and everyday living together",
+    title: t("hp.whyUs.item2Title"),
+    description: t("hp.whyUs.item2Desc"),
     image: "/assets/images/v3/Designed-for-Real-Living.webp",
     imagePosition: "right",
   },
   {
     id: 3,
     number: "03",
-    title: "Built on Trust",
-    description:
-      "In-house expertise, careful execution, and quality you can rely on",
+    title: t("hp.whyUs.item3Title"),
+    description: t("hp.whyUs.item3Desc"),
     image: "/assets/images/v3/Built-on-Trust.webp",
     imagePosition: "left",
   },
   {
     id: 4,
     number: "04",
-    title: "Connected to the World",
-    description:
-      "Decades of experience, strengthened by partnerships with globally recognized brands",
+    title: t("hp.whyUs.item4Title"),
+    description: t("hp.whyUs.item4Desc"),
     image: "/assets/images/v3/A-Global-Perspective.webp",
     imagePosition: "right",
   },
-];
+]);
 </script>
 
 <style scoped>

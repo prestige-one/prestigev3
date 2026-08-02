@@ -2,14 +2,14 @@
   <nuxt-link :to="`/projects/${project.slug}`" class="prestige-pcard">
     <div class="prestige-pcard__media">
       <img :src="project.image" :alt="project.title" loading="lazy">
-      <span v-if="soldOut" class="prestige-pcard__soldout">Sold Out</span>
+      <span v-if="soldOut" class="prestige-pcard__soldout">{{ $t('cta.soldOut') }}</span>
       <span v-else class="prestige-pcard__status">{{ project.status }}</span>
     </div>
     <div class="prestige-pcard__body">
       <span class="prestige-pcard__loc">{{ project.location }}</span>
       <h3 class="prestige-pcard__title">{{ project.title }}</h3>
       <span class="prestige-pcard__cta">
-        View Project <i class="prestige-pcard__arrow">→</i>
+        {{ $t('cta.viewProject') }} <i class="prestige-pcard__arrow">→</i>
       </span>
     </div>
   </nuxt-link>

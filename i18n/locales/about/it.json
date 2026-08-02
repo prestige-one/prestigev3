@@ -1,1 +1,97 @@
-{}
+{
+  "ap": {
+    "hero": {
+      "title": "Chi siamo",
+      "subtitle": "Dietro ogni luogo c'è uno scopo",
+      "headingLine1": "Costruiamo con uno scopo.",
+      "headingLine2": "Creiamo per la vita.",
+      "desc": "Prestige One Developments è uno sviluppatore immobiliare con sede a Dubai che crea spazi residenziali e commerciali pensati attorno al modo in cui le persone vivono, lavorano e vivono la città."
+    },
+    "legacy": {
+      "eyebrow": "LA NOSTRA EREDITÀ",
+      "title": "Decenni di esperienza. Costruiti per ciò che verrà",
+      "yearsSuffix": " anni",
+      "stat1": "Eredità imprenditoriale del gruppo",
+      "stat2": "Esperienza nell'immobiliare di Dubai",
+      "stat3": "Progetti in sviluppo",
+      "stat4": "Unità residenziali e commerciali",
+      "stat5": "Destinazioni nel mondo"
+    },
+    "drives": {
+      "eyebrow": "CIÒ CHE CI GUIDA",
+      "title": "Ogni decisione parte da ciò che conta",
+      "p1Title": "Pensato attorno alle persone",
+      "p1Desc": "Riflettiamo su come le persone vivono, lavorano, si connettono e godono ogni giorno.",
+      "p2Title": "Ogni dettaglio ha uno scopo",
+      "p2Desc": "Dalla posizione alla distribuzione e ai servizi, ogni scelta ha una ragione.",
+      "p3Title": "Costruito per durare",
+      "p3Desc": "Puntiamo sulla qualità, su un'esecuzione accurata e su un valore che dura oltre l'oggi.",
+      "p4Title": "Sempre proiettati in avanti",
+      "p4Desc": "Creiamo per stili di vita che cambiano, nuove possibilità e il modo in cui le persone vivranno domani."
+    },
+    "founder": {
+      "eyebrow": "Incontra il nostro fondatore e CEO",
+      "title": "Costruire la prossima era dell'abitare a Dubai",
+      "p1": "Con oltre 18 anni di esperienza nei mercati immobiliari di Dubai e internazionali, Ajmal Saifi ha imparato a vedere l'immobiliare oltre l'edificio stesso.",
+      "p2Lead": "Per lui, ogni progetto inizia con una domanda più profonda:",
+      "p2Strong": "cosa renderà questo luogo significativo per chi vi abita, oggi e tra molti anni?",
+      "p3": "È questo pensiero che ha plasmato Prestige One.",
+      "p4": "Il suo approccio unisce la posizione giusta, un design ponderato, un'esecuzione di qualità e una chiara comprensione di come le persone desiderano vivere. L'obiettivo non è semplicemente creare belle case, ma luoghi che appaiono curati, aggiungono valore alla vita quotidiana e restano rilevanti nel tempo.",
+      "p5Lead": "Mentre Prestige One continua a crescere, la visione di Ajmal resta chiara:",
+      "p5Strong": "costruire con uno scopo, tutelare la qualità e creare un nome di cui le persone si fidano per ciò che rappresenta.",
+      "quote": "«Il vero prestigio non si vede soltanto. Si sente, si vive e si ricorda.»",
+      "h1Title": "18+ anni",
+      "h1Label": "Esperienza internazionale",
+      "h2Title": "Miliardi",
+      "h2Label": "Portafoglio in AED",
+      "h3Title": "Comunità",
+      "h3Label": "Una leadership guidata dai valori"
+    },
+    "leadership": {
+      "eyebrow": "LA NOSTRA LEADERSHIP",
+      "title": "Guidati dall'esperienza",
+      "role1": "Vicepresidente",
+      "role2": "Fondatore e CEO"
+    },
+    "journey": {
+      "eyebrow": "IL NOSTRO PERCORSO",
+      "title": "Dall'esperienza alla creazione",
+      "prev": "Tappa precedente",
+      "next": "Tappa successiva",
+      "m1Title": "Fondamenta solide",
+      "m1Text": "Viene fondato il Prestige Holding Group, dando inizio a un percorso imprenditoriale costruito nel corso dei decenni.",
+      "m2Title": "L'ingresso nell'immobiliare di Dubai",
+      "m2Text": "Prestige entra nel mercato immobiliare di Dubai, aprendo un nuovo capitolo di investimenti e crescita.",
+      "m3Title": "Espansione in tutta Dubai",
+      "m3Text": "Prestige inizia a espandere i propri investimenti immobiliari nelle principali comunità di Dubai, costruendo un portafoglio in crescita in tutta la città.",
+      "m4Title": "Investire in ciò che verrà",
+      "m4Text": "Prestige si espande nell'acquisizione di terreni nelle comunità in piena proprietà di Dubai, aprendo la strada a futuri sviluppi.",
+      "m5Title": "Riconoscimento a Dubai",
+      "m5Text": "Ajmal Saifi viene riconosciuto dal Dubai Land Department come uno dei principali investitori immobiliari di Dubai.",
+      "m6Title": "Dall'investimento allo sviluppo",
+      "m6Text": "Prestige One apre un nuovo capitolo come sviluppatore, trasformando anni di esperienza sul mercato in progetti propri.",
+      "m7Title": "Costruire connessioni globali",
+      "m7Text": "Prestige One diventa il primo sponsor immobiliare regionale della Nazionale argentina.",
+      "m8Title": "Ampliare la presenza globale",
+      "m8Text": "Prestige One rafforza la propria presenza internazionale attraverso partnership riconosciute a livello mondiale, con Dubai al centro dei suoi sviluppi.",
+      "m9Title": "Dalla visione alla consegna",
+      "m9Text": "Prestige One raggiunge un traguardo importante con la consegna dei progetti, continuando a crescere attraverso nuovi sviluppi e partnership globali."
+    },
+    "developments": {
+      "eyebrow": "I NOSTRI SVILUPPI",
+      "title": "Dove la visione dà forma agli indirizzi",
+      "explore": "Esplora tutti gli sviluppi"
+    },
+    "global": {
+      "eyebrow": "PROSPETTIVA GLOBALE",
+      "title": "Esperienza globale. Un focus su Dubai",
+      "lead": "Una prospettiva più ampia, che dà forma a ciò che creiamo a Dubai."
+    },
+    "next": {
+      "title": "La visione continua",
+      "lead": "Nuovi sviluppi, nuove opportunità e molto altro in arrivo da Prestige One.",
+      "exploreBtn": "Esplora i nostri sviluppi",
+      "contactBtn": "Contattaci"
+    }
+  }
+}

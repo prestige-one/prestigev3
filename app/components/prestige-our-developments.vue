@@ -5,10 +5,10 @@
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
             <h2 class="prestige-developments-title prestige-text-paint">
-              Our Developments
+              {{ $t('hp.developments.title') }}
             </h2>
             <p class="prestige-developments-subtitle">
-              From vision to reality
+              {{ $t('hp.developments.subtitle') }}
             </p>
           </div>
         </div>

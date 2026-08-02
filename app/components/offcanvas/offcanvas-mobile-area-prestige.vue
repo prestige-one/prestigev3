@@ -7,7 +7,7 @@
         <nuxt-link href="/" class="pnav__logo" @click="$emit('close')">
           <img src="/assets/images/v3/prestigeone_logo_oneline_white-hr.svg" alt="Prestige One" width="175">
         </nuxt-link>
-        <button class="pnav__close" aria-label="Close menu" @click="$emit('close')">
+        <button class="pnav__close" :aria-label="$t('sh.closeMenu')" @click="$emit('close')">
           <span /><span />
         </button>
       </div>
@@ -24,7 +24,7 @@
             >
               <nuxt-link :to="item.link" @click="$emit('close')">
                 <span class="pnav__num">{{ String(i + 1).padStart(2, '0') }}</span>
-                <span class="pnav__label">{{ item.title }}</span>
+                <span class="pnav__label">{{ navKeys[i] ? $t(navKeys[i]) : item.title }}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -32,14 +32,14 @@
 
         <!-- quick links -->
         <ul class="pnav__quick">
-          <li v-for="q in quickLinks" :key="q.label">
-            <nuxt-link :to="q.to" @click="$emit('close')">{{ q.label }}</nuxt-link>
+          <li v-for="q in quickLinks" :key="q.key">
+            <nuxt-link :to="q.to" @click="$emit('close')">{{ $t(q.key) }}</nuxt-link>
           </li>
         </ul>
 
         <!-- contact -->
         <div class="pnav__contact">
-          <span class="pnav__cheading">Prestige One Developments</span>
+          <span class="pnav__cheading">{{ $t('footer.brand') }}</span>
           <a href="tel:80077378443" class="pnav__crow">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
             <span>800 PRESTIGE / 800 77378443</span>
@@ -50,13 +50,13 @@
           </a>
           <div class="pnav__crow">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <span>Office 1602-1604, Marina Plaza, Dubai Marina, Dubai, UAE.</span>
+            <span>{{ $t('sh.address') }}</span>
           </div>
         </div>
 
         <!-- follow us -->
         <div class="pnav__follow">
-          <span class="pnav__cheading">Follow Us</span>
+          <span class="pnav__cheading">{{ $t('footer.followUs') }}</span>
           <ul class="pnav__social">
             <li><a href="https://instagram.com/byprestigeone/" target="_blank" rel="noopener" aria-label="Instagram"><svg-social-instagram-two /></a></li>
             <li><a href="https://facebook.com/ByPrestigeOne/" target="_blank" rel="noopener" aria-label="Facebook"><svg-social-fb-three /></a></li>
@@ -75,12 +75,22 @@ import { primaryNav } from "../../data/menu-data-prestige";
 const props = defineProps<{ isOpen: boolean }>();
 defineEmits<{ close: [] }>();
 
+// primaryNav labels mapped by index to the shared nav.* translation keys.
+const navKeys = [
+  "nav.home",
+  "nav.projects",
+  "nav.destinations",
+  "nav.about",
+  "nav.media",
+  "nav.contact",
+];
+
 const quickLinks = [
-  { label: "Broker Registration", to: "/broker-registration" },
-  { label: "Construction Updates", to: "/construction-updates" },
-  { label: "Project Documents", to: "/project-documents" },
-  { label: "Press Release", to: "/press-release" },
-  { label: "Contact Us", to: "/contact-us" },
+  { key: "sh.brokerRegistration", to: "/broker-registration" },
+  { key: "sh.constructionUpdates", to: "/construction-updates" },
+  { key: "sh.projectDocuments", to: "/project-documents" },
+  { key: "sh.pressRelease", to: "/press-release" },
+  { key: "sh.contactUs", to: "/contact-us" },
 ];
 
 watch(

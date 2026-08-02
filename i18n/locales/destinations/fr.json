@@ -1,1 +1,80 @@
-{}
+{
+  "dp": {
+    "hero": {
+      "eyebrow": "Nos destinations",
+      "title": "Emplacements d'exception",
+      "lead": "Prestige One construit là où la vie s'épanouit le mieux - les fronts de mer, les communautés et les lieux emblématiques qui définissent Dubaï et au-delà."
+    },
+    "feature": {
+      "eyebrow": "Pourquoi l'emplacement compte",
+      "title": "Nous construisons là où Dubaï vit le mieux",
+      "p1": "Une résidence ne vaut jamais plus que la vie qui l'entoure. Cette conviction guide chacune de nos acquisitions - avant même de concevoir un seul plateau, nous nous demandons si un emplacement peut porter une communauté pendant des décennies, et non le seul week-end d'un lancement.",
+      "p2": "Des plages de Dubai Islands aux lagons de Mohammed Bin Rashid City et aux fairways de Dubai Sports City, chaque adresse Prestige One est choisie pour sa proximité aux écoles, aux commerces, au travail et à l'eau - ces gestes du quotidien qui donnent envie de revenir.",
+      "point1": "Des destinations en front de mer, communautaires et emblématiques à travers Dubaï",
+      "point2": "À quelques minutes du métro, de Sheikh Zayed Road et de l'aéroport",
+      "point3": "Des emplacements choisis pour leur qualité de vie et leur valeur à long terme",
+      "point4": "Des quartiers avec écoles, commerces et loisirs à portée de main"
+    },
+    "stats": {
+      "destinations": "Destinations",
+      "developments": "Projets",
+      "investment": "Investissement engagé",
+      "escrow": "Protégé par compte séquestre"
+    },
+    "map": {
+      "eyebrow": "Explorer",
+      "title": "Trouvez votre adresse sur la carte",
+      "lead": "Parcourez une vue satellite immersive de Dubaï et découvrez l'emplacement de chaque projet Prestige One - filtrez par quartier, appuyez sur un repère et parcourez la collection."
+    },
+    "card": {
+      "count_one": "1 projet",
+      "count_other": "{n} projets"
+    },
+    "cta": {
+      "eyebrow": "Trouvez votre adresse",
+      "title": "Vous ne savez pas par où commencer ?",
+      "text": "Dites-nous comment vous souhaitez vivre et notre équipe vous orientera vers les destinations - et les projets - qui vous conviennent. Du premier investissement à la résidence de toujours.",
+      "primary": "Parlez à notre équipe",
+      "secondary": "Voir tous les projets"
+    },
+    "seo": {
+      "title": "Nos destinations | Prestige One",
+      "description": "Explorez les fronts de mer, les communautés et les lieux emblématiques de Dubaï où Prestige One construit - de Palm Jumeirah à Dubai Islands."
+    },
+    "detail": {
+      "enquire": "Se renseigner",
+      "badge_new": "Nouvelles adresses à venir",
+      "area_eyebrow": "Le quartier",
+      "subareas_title": "Au sein du quartier",
+      "nearby_eyebrow": "À proximité",
+      "nearby_title": "Ce qui vous entoure",
+      "transport_eyebrow": "Se déplacer",
+      "transport_title": "Connecté dans toutes les directions",
+      "statement_eyebrow": "Emplacement d'exception",
+      "essentials_eyebrow": "L'essentiel du quotidien",
+      "essentials_title": "Les nécessités de la vie, à portée de main",
+      "education": "Éducation",
+      "healthcare": "Santé",
+      "worship": "Lieux de culte",
+      "invest_eyebrow": "Pourquoi investir ici",
+      "invest_title": "Un emplacement qui travaille pour vous",
+      "devs_eyebrow": "Les projets ici",
+      "devs_title": "Prestige One à {name}",
+      "devs_empty": "De nouveaux projets Prestige One arrivent à {name}. Manifestez votre intérêt pour être informé en premier.",
+      "register": "Manifester son intérêt",
+      "faq_eyebrow": "Bon à savoir",
+      "faq_title": "À propos de {name}",
+      "faq": {
+        "q1": "Qu'est-ce qui fait de {name} un lieu de vie agréable ?",
+        "q2": "{name} est-elle bien desservie ?",
+        "q3": "Qu'y a-t-il à proximité ?",
+        "q4": "Pourquoi investir à {name} ?"
+      },
+      "cta_eyebrow": "Votre prochaine adresse",
+      "cta_title": "Faites de {name} votre chez-vous",
+      "cta_text": "Parlez à notre équipe de la vie à {name} - disponibilités, prix et projets les mieux adaptés à votre mode de vie.",
+      "cta_secondary": "Explorer toutes les destinations",
+      "seo_title": "{name} | Destinations Prestige One"
+    }
+  }
+}

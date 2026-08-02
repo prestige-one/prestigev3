@@ -2,9 +2,9 @@
   <section class="prestige-journey-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-journey-header">
-        <span class="prestige-journey-eyebrow">OUR JOURNEY</span>
+        <span class="prestige-journey-eyebrow">{{ t('ap.journey.eyebrow') }}</span>
         <h2 class="prestige-journey-title tp_reveal_anim" data-delay="0.05">
-          From Experience to Creation
+          {{ t('ap.journey.title') }}
         </h2>
       </header>
 
@@ -26,10 +26,10 @@
         </div>
 
         <div class="prestige-journey-nav">
-          <button ref="prevBtn" class="prestige-journey-arrow" type="button" aria-label="Previous milestone">
+          <button ref="prevBtn" class="prestige-journey-arrow" type="button" :aria-label="t('ap.journey.prev')">
             <span aria-hidden="true">‹</span>
           </button>
-          <button ref="nextBtn" class="prestige-journey-arrow" type="button" aria-label="Next milestone">
+          <button ref="nextBtn" class="prestige-journey-arrow" type="button" :aria-label="t('ap.journey.next')">
             <span aria-hidden="true">›</span>
           </button>
         </div>
@@ -50,19 +50,21 @@ interface Milestone {
   image: string;
 }
 
+const { t } = useI18n();
+
 // Representative imagery drawn from the brand/project library - swap for real
 // archival photography per milestone when available.
-const milestones: Milestone[] = [
-  { year: "1967", title: "A Strong Foundation", text: "Prestige Holding Group is established, beginning a business journey built over decades.", image: "/assets/images/v2/locations/downtown-dubai.webp" },
-  { year: "2007", title: "Entering Dubai Real Estate", text: "Prestige enters Dubai's real estate market, beginning a new chapter of investment and growth.", image: "/assets/images/v2/our-destinations/dubai-maritime.webp" },
-  { year: "2009", title: "Expanding Across Dubai", text: "Prestige begins expanding its real estate investments across key Dubai communities, building a growing portfolio across the city.", image: "/assets/project-featured-images/sliders/waterway.webp" },
-  { year: "2018", title: "Investing in What Comes Next", text: "Prestige expands into land acquisitions across Dubai freehold communities, opening the way for future development.", image: "/assets/project-featured-images/sliders/berkeley-north.webp" },
-  { year: "2022", title: "Recognised in Dubai", text: "Ajmal Saifi is recognised by Dubai Land Department as one of Dubai's top property investors.", image: "/assets/images/v3/Built-on-Strong-Principles.webp" },
-  { year: "2023", title: "From Investment to Development", text: "Prestige One enters a new chapter as a developer, turning years of market experience into developments of its own.", image: "/assets/project-featured-images/sliders/vista.webp" },
-  { year: "2024", title: "Building Global Connections", text: "Prestige One becomes the first regional real estate sponsor of the Argentina National Team.", image: "/assets/images/v2/pages/AFA-sponsorship-1-1.webp" },
-  { year: "2025", title: "Expanding Global Presence", text: "Prestige One strengthens its international presence through globally recognised partnerships, with Dubai at the heart of its developments.", image: "/assets/project-featured-images/sliders/hilton-1.webp" },
-  { year: "2026", title: "From Vision to Delivery", text: "Prestige One reaches a major milestone with project handovers, while continuing to grow through new developments and global partnerships.", image: "/assets/project-featured-images/sliders/fauchon.webp" },
-];
+const milestones = computed<Milestone[]>(() => [
+  { year: "1967", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text"), image: "/assets/images/v2/locations/downtown-dubai.webp" },
+  { year: "2007", title: t("ap.journey.m2Title"), text: t("ap.journey.m2Text"), image: "/assets/images/v2/our-destinations/dubai-maritime.webp" },
+  { year: "2009", title: t("ap.journey.m3Title"), text: t("ap.journey.m3Text"), image: "/assets/project-featured-images/sliders/waterway.webp" },
+  { year: "2018", title: t("ap.journey.m4Title"), text: t("ap.journey.m4Text"), image: "/assets/project-featured-images/sliders/berkeley-north.webp" },
+  { year: "2022", title: t("ap.journey.m5Title"), text: t("ap.journey.m5Text"), image: "/assets/images/v3/Built-on-Strong-Principles.webp" },
+  { year: "2023", title: t("ap.journey.m6Title"), text: t("ap.journey.m6Text"), image: "/assets/project-featured-images/sliders/vista.webp" },
+  { year: "2024", title: t("ap.journey.m7Title"), text: t("ap.journey.m7Text"), image: "/assets/images/v2/pages/AFA-sponsorship-1-1.webp" },
+  { year: "2025", title: t("ap.journey.m8Title"), text: t("ap.journey.m8Text"), image: "/assets/project-featured-images/sliders/hilton-1.webp" },
+  { year: "2026", title: t("ap.journey.m9Title"), text: t("ap.journey.m9Text"), image: "/assets/project-featured-images/sliders/fauchon.webp" },
+]);
 
 const root = ref<HTMLElement | null>(null);
 const prevBtn = ref<HTMLElement | null>(null);

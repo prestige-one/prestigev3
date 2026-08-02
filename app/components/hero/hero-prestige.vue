@@ -19,21 +19,21 @@
     </div>
 
     <div class="prestige-hero-headline prestige-hero-headline-1">
-      <h2>It All Starts Here</h2>
+      <h2>{{ $t('hp.hero.headline1') }}</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-2">
-      <h2>We Build Homes People Love Living In</h2>
+      <h2>{{ $t('hp.hero.headline2') }}</h2>
     </div>
     <div class="prestige-hero-headline prestige-hero-headline-3">
-      <h2>That's Prestige One</h2>
+      <h2>{{ $t('hp.hero.headline3') }}</h2>
     </div>
 
     <!-- mobile-only static hero (the scroll-driven sequence above is
          desktop-only, >=992px) -->
     <div class="prestige-hero-mobile">
       <img class="prestige-hero-mobile-logo" src="/assets/images/v3/only-logo-light.webp" alt="Prestige One">
-      <h2 class="prestige-hero-mobile-title">We Build Homes People Love Living In</h2>
-      <span class="prestige-hero-mobile-sub">That's Prestige One</span>
+      <h2 class="prestige-hero-mobile-title">{{ $t('hp.hero.mobileTitle') }}</h2>
+      <span class="prestige-hero-mobile-sub">{{ $t('hp.hero.mobileSub') }}</span>
     </div>
   </div>
 </template>

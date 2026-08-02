@@ -6,27 +6,24 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Our Destinations"
-              title="Prime locations"
-              lead="Prestige One builds where life is best lived - the waterfronts, communities and landmarks that define Dubai and beyond."
+              :eyebrow="t('dp.hero.eyebrow')"
+              :title="t('dp.hero.title')"
+              :lead="t('dp.hero.lead')"
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
 
             <prestige-stat-band :stats="portfolioStats" />
 
             <prestige-feature-split
-              eyebrow="Why location matters"
-              title="We build where Dubai lives best"
+              :eyebrow="t('dp.feature.eyebrow')"
+              :title="t('dp.feature.title')"
               image="/assets/images/v2/locations/downtown-dubai.webp"
-              :paragraphs="[
-                'A home is only ever as good as the life around it. That belief guides every acquisition we make - before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.',
-                'From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.',
-              ]"
+              :paragraphs="[t('dp.feature.p1'), t('dp.feature.p2')]"
               :points="[
-                'Waterfront, community and landmark destinations across Dubai',
-                'Minutes from the metro, Sheikh Zayed Road and the airport',
-                'Locations selected for long-term liveability and value',
-                'Neighbourhoods with schools, retail and leisure at hand',
+                t('dp.feature.point1'),
+                t('dp.feature.point2'),
+                t('dp.feature.point3'),
+                t('dp.feature.point4'),
               ]"
               equal-height
             />
@@ -40,7 +37,7 @@
                     class="col-xl-4 col-lg-4 col-md-6 mb-50 tp_fade_anim"
                     data-delay=".2"
                   >
-                    <nuxt-link :to="`/destinations/${dest.slug}`" class="prestige-dest-card">
+                    <nuxt-link :to="localePath(`/destinations/${dest.slug}`)" class="prestige-dest-card">
                       <div class="prestige-dest-card__media">
                         <img :src="dest.image" :alt="dest.name" loading="lazy">
                         <div class="prestige-dest-card__veil" />
@@ -60,11 +57,10 @@
             <section class="prestige-mapsection">
               <div class="container container-1430">
                 <header class="prestige-mapsection__head">
-                  <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Explore</span>
-                  <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Find Your Address on the Map</h2>
+                  <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.map.eyebrow') }}</span>
+                  <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('dp.map.title') }}</h2>
                   <p class="prestige-mapsection__lead tp_fade_anim" data-delay=".4">
-                    Move across an immersive, satellite view of Dubai and see where every Prestige One
-                    development sits - filter by district, tap a marker and step through the collection.
+                    {{ t('dp.map.lead') }}
                   </p>
                 </header>
               </div>
@@ -76,14 +72,14 @@
             </section>
 
             <prestige-cta-band
-              eyebrow="Find your address"
-              title="Not sure where to begin?"
-              text="Tell us how you want to live and our team will point you to the destinations - and the developments - that fit. From first investment to forever home."
+              :eyebrow="t('dp.cta.eyebrow')"
+              :title="t('dp.cta.title')"
+              :text="t('dp.cta.text')"
               image="/assets/images/v2/locations/Meydan.webp"
-              primary-label="Speak to our team"
-              primary-to="/contact-us"
-              secondary-label="View all developments"
-              secondary-to="/projects"
+              :primary-label="t('dp.cta.primary')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('dp.cta.secondary')"
+              :secondary-to="localePath('/projects')"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -98,23 +94,26 @@ import { destinations, getProjectsForDestination, type Destination } from "~/dat
 import { getAllProjects } from "~/data/projects";
 
 definePageMeta({ layout: false });
+
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 useSeoMeta({
-  title: "Our Destinations | Prestige One",
-  description:
-    "Explore the Dubai waterfronts, communities and landmarks where Prestige One builds - from Palm Jumeirah to Dubai Islands.",
+  title: () => t("dp.seo.title"),
+  description: () => t("dp.seo.description"),
 });
 
 function countFor(dest: Destination) {
   const n = getProjectsForDestination(dest).length;
-  return n === 1 ? "1 development" : `${n} developments`;
+  return n === 1 ? t("dp.card.count_one", { n }) : t("dp.card.count_other", { n });
 }
 
-const portfolioStats: { value: string; label: string; col?: string }[] = [
-  { value: `${destinations.length}`, label: "Destinations", col: "col-lg-2 col-md-6" },
-  { value: `${getAllProjects().length}`, label: "Developments", col: "col-lg-3 col-md-6" },
-  { value: "AED 500M+", label: "Committed investment", col: "col-lg-4 col-md-6" },
-  { value: "100%", label: "Escrow-protected", col: "col-lg-3 col-md-6" },
-];
+const portfolioStats = computed<{ value: string; label: string; col?: string }[]>(() => [
+  { value: `${destinations.length}`, label: t("dp.stats.destinations"), col: "col-lg-2 col-md-6" },
+  { value: `${getAllProjects().length}`, label: t("dp.stats.developments"), col: "col-lg-3 col-md-6" },
+  { value: "AED 500M+", label: t("dp.stats.investment"), col: "col-lg-4 col-md-6" },
+  { value: "100%", label: t("dp.stats.escrow"), col: "col-lg-3 col-md-6" },
+]);
 
 usePrestigePage({ hero: false });
 </script>

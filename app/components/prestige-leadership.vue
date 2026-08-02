@@ -2,9 +2,9 @@
   <section class="prestige-leadership-area pt-40 pb-80">
     <div class="container container-1430">
       <header class="prestige-leadership-header">
-        <span class="prestige-leadership-eyebrow">OUR LEADERSHIP</span>
+        <span class="prestige-leadership-eyebrow">{{ t('ap.leadership.eyebrow') }}</span>
         <h2 class="prestige-leadership-title tp_reveal_anim" data-delay="0.05">
-          Guided by Experience
+          {{ t('ap.leadership.title') }}
         </h2>
       </header>
 
@@ -37,11 +37,13 @@ interface Leader {
   image: string;
 }
 
+const { t } = useI18n();
+
 // Management team as listed on prestigeone.ae (Meet the Management).
-const leaders: Leader[] = [
-  { name: "Sulaiman Saifi", role: "Vice Chairman", image: "/assets/images/v3/Sulaiman_Saifi-740x850-1.webp" },
-  { name: "Ajmal Saifi", role: "Founder & CEO", image: "/assets/images/v3/Ajmal-CEO-short-new-740x850-1.webp" },
-];
+const leaders = computed<Leader[]>(() => [
+  { name: "Sulaiman Saifi", role: t("ap.leadership.role1"), image: "/assets/images/v3/Sulaiman_Saifi-740x850-1.webp" },
+  { name: "Ajmal Saifi", role: t("ap.leadership.role2"), image: "/assets/images/v3/Ajmal-CEO-short-new-740x850-1.webp" },
+]);
 </script>
 
 <style scoped>

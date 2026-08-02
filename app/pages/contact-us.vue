@@ -6,44 +6,44 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Contact Us"
-              title="Get in touch"
-              lead="Speak with our team about our developments, investment opportunities or arranging a private viewing. We're here to help, seven days a week."
+              :eyebrow="$t('sh.contactUs')"
+              :title="$t('nav.getInTouch')"
+              :lead="$t('sh.contactHeroLead')"
               image="/assets/images/v2/locations/marina-plaza-investments.webp"
             >
               <template #actions>
-                <a href="tel:80077378443" class="prestige-btn">Call 800 PRESTIGE</a>
+                <a href="tel:80077378443" class="prestige-btn">{{ $t('sh.callPrestige') }}</a>
                 <a
                   href="https://wa.me/+971523412936"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="prestige-btn prestige-btn--ghost"
-                >Chat on WhatsApp</a>
+                >{{ $t('sh.chatOnWhatsapp') }}</a>
               </template>
             </prestige-page-hero>
 
             <!-- contact info cards -->
             <section class="prestige-section">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">How to reach us</span>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ $t('sh.howToReachUs') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">
-                  Talk to a real person
+                  {{ $t('sh.talkToRealPerson') }}
                 </h2>
                 <div class="row">
                   <div class="col-xl-3 col-md-6 mb-30 tp_fade_anim" data-delay=".2">
                     <div class="prestige-contact-card">
-                      <span class="prestige-contact-card__label">Call us</span>
+                      <span class="prestige-contact-card__label">{{ $t('sh.callUs') }}</span>
                       <a href="tel:80077378443" class="prestige-contact-card__value">800 PRESTIGE</a>
                       <a href="tel:80077378443" class="prestige-contact-card__sub">800 77378443</a>
                     </div>
                   </div>
                   <div class="col-xl-3 col-md-6 mb-30 tp_fade_anim" data-delay=".3">
                     <div class="prestige-contact-card">
-                      <span class="prestige-contact-card__label">Email us</span>
+                      <span class="prestige-contact-card__label">{{ $t('sh.emailUs') }}</span>
                       <a href="mailto:enquiries@prestigeone.ae" class="prestige-contact-card__value">
                         enquiries@prestigeone.ae
                       </a>
-                      <span class="prestige-contact-card__sub">We reply within one business day</span>
+                      <span class="prestige-contact-card__sub">{{ $t('sh.replyWithinDay') }}</span>
                     </div>
                   </div>
                   <div class="col-xl-3 col-md-6 mb-30 tp_fade_anim" data-delay=".4">
@@ -55,14 +55,14 @@
                         rel="noopener noreferrer"
                         class="prestige-contact-card__value"
                       >+971 52 341 2936</a>
-                      <span class="prestige-contact-card__sub">Message us any time</span>
+                      <span class="prestige-contact-card__sub">{{ $t('sh.messageAnyTime') }}</span>
                     </div>
                   </div>
                   <div class="col-xl-3 col-md-6 mb-30 tp_fade_anim" data-delay=".5">
                     <div class="prestige-contact-card">
-                      <span class="prestige-contact-card__label">Visit us</span>
+                      <span class="prestige-contact-card__label">{{ $t('sh.visitUs') }}</span>
                       <p class="prestige-contact-card__value prestige-contact-card__value--address">
-                        Office 1602-1604, Marina Plaza, Dubai Marina, Dubai, UAE.
+                        {{ $t('sh.address') }}
                       </p>
                     </div>
                   </div>
@@ -73,15 +73,15 @@
             <prestige-contact-form />
 
             <prestige-feature-split
-              eyebrow="Sales Gallery"
-              title="Visit our sales gallery"
+              :eyebrow="$t('sh.salesGallery')"
+              :title="$t('sh.visitSalesGallery')"
               image="/assets/images/v3/map-locations.webp"
               :paragraphs="galleryParagraphs"
               :points="galleryPoints"
               reverse
             />
 
-            <prestige-faq-accordion title="Frequently asked" eyebrow="Good to know" :items="faqs" />
+            <prestige-faq-accordion :title="$t('sh.faqTitle')" :eyebrow="$t('sh.faqEyebrow')" :items="faqs" />
           </main>
           <prestige-footer-digital-marketing />
         </div>

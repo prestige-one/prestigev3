@@ -6,18 +6,17 @@
         class="prestige-modal"
         role="dialog"
         aria-modal="true"
-        :aria-label="`Request ${documentName}`"
+        :aria-label="t('pp.doc.requestAria', { doc: documentName })"
         @click.self="close"
       >
         <div class="prestige-modal__dialog">
-          <button class="prestige-modal__close" type="button" aria-label="Close" @click="close">
+          <button class="prestige-modal__close" type="button" :aria-label="t('pp.doc.close')" @click="close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <span class="prestige-eyebrow">Request document</span>
+          <span class="prestige-eyebrow">{{ t('pp.doc.eyebrow') }}</span>
           <h3 class="prestige-modal__title">{{ documentName }}</h3>
           <p class="prestige-modal__lead">
-            Leave your details and our team will send the {{ documentName.toLowerCase() }}
-            for {{ projectTitle }} straight to your inbox.
+            {{ t('pp.doc.lead', { doc: documentName.toLowerCase(), project: projectTitle }) }}
           </p>
           <form-contact-prestige :prefill-message="prefillMessage" />
         </div>
@@ -34,6 +33,8 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{ (e: "close"): void }>();
+
+const { t } = useI18n();
 
 function close() {
   emit("close");

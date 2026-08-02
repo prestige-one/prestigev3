@@ -3,7 +3,7 @@
     <div class="container container-1430">
       <div class="row">
         <div class="col-xl-4 mb-40">
-          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
+          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow ?? t('pp.detail.amenities.eyebrow') }}</span>
           <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
           <p v-if="lead" class="prestige-prose tp_fade_anim" data-delay=".4" style="margin-top: 18px;">{{ lead }}</p>
         </div>
@@ -30,8 +30,10 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{ items: string[]; title: string; eyebrow?: string; lead?: string }>(),
-  { eyebrow: "Amenities", lead: "" },
+  { lead: "" },
 );
+
+const { t } = useI18n();
 </script>
 
 <style scoped>

@@ -1,1 +1,35 @@
-{}
+{
+  "sh": {
+    "brokerRegistration": "تسجيل الوسطاء",
+    "projectDocuments": "مستندات المشروع",
+    "invest": "استثمر في بريستيج ون",
+    "marketingTerms": "شروط وأحكام التسويق",
+    "csr": "المسؤولية الاجتماعية للشركات",
+    "constructionUpdates": "تحديثات البناء",
+    "pressRelease": "بيان صحفي",
+    "blogPosts": "مقالات المدونة",
+    "industryNews": "أخبار القطاع",
+    "faqs": "الأسئلة الشائعة",
+    "address": "مكتب 1602-1604، مارينا بلازا، دبي مارينا، دبي، الإمارات العربية المتحدة.",
+    "newsletterInvalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح.",
+    "newsletterError": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "contactUs": "تواصل معنا",
+    "closeMenu": "إغلاق القائمة",
+    "contactHeroLead": "تحدث مع فريقنا حول مشاريعنا وفرص الاستثمار أو ترتيب زيارة خاصة. نحن هنا لمساعدتك طوال أيام الأسبوع.",
+    "howToReachUs": "كيفية الوصول إلينا",
+    "talkToRealPerson": "تحدث إلى شخص حقيقي",
+    "callUs": "اتصل بنا",
+    "emailUs": "راسلنا عبر البريد الإلكتروني",
+    "visitUs": "قم بزيارتنا",
+    "replyWithinDay": "نرد خلال يوم عمل واحد",
+    "messageAnyTime": "راسلنا في أي وقت",
+    "callPrestige": "اتصل بـ 800 PRESTIGE",
+    "chatOnWhatsapp": "الدردشة عبر واتساب",
+    "salesGallery": "معرض المبيعات",
+    "visitSalesGallery": "قم بزيارة معرض المبيعات لدينا",
+    "faqEyebrow": "معلومات مفيدة",
+    "faqTitle": "الأسئلة المتكررة",
+    "whatClientsSay": "ماذا يقول عملاؤنا",
+    "trustedToBuild": "موثوقون لبناء ما هو أكثر من مجرد منشآت"
+  }
+}

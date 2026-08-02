@@ -1,1 +1,35 @@
-{}
+{
+  "sh": {
+    "brokerRegistration": "Makelaarsregistratie",
+    "projectDocuments": "Projectdocumenten",
+    "invest": "Investeer in Prestige One",
+    "marketingTerms": "Marketingvoorwaarden",
+    "csr": "Maatschappelijk verantwoord ondernemen",
+    "constructionUpdates": "Bouwupdates",
+    "pressRelease": "Persbericht",
+    "blogPosts": "Blogberichten",
+    "industryNews": "Sectornieuws",
+    "faqs": "Veelgestelde vragen",
+    "address": "Kantoor 1602-1604, Marina Plaza, Dubai Marina, Dubai, VAE.",
+    "newsletterInvalidEmail": "Voer een geldig e-mailadres in.",
+    "newsletterError": "Er is iets misgegaan. Probeer het opnieuw.",
+    "contactUs": "Neem contact op",
+    "closeMenu": "Menu sluiten",
+    "contactHeroLead": "Praat met ons team over onze projecten, investeringsmogelijkheden of het regelen van een privébezichtiging. Wij staan zeven dagen per week voor u klaar.",
+    "howToReachUs": "Hoe u ons bereikt",
+    "talkToRealPerson": "Spreek met een echt persoon",
+    "callUs": "Bel ons",
+    "emailUs": "Mail ons",
+    "visitUs": "Bezoek ons",
+    "replyWithinDay": "Wij reageren binnen één werkdag",
+    "messageAnyTime": "Stuur ons altijd een bericht",
+    "callPrestige": "Bel 800 PRESTIGE",
+    "chatOnWhatsapp": "Chat op WhatsApp",
+    "salesGallery": "Verkoopgalerie",
+    "visitSalesGallery": "Bezoek onze verkoopgalerie",
+    "faqEyebrow": "Goed om te weten",
+    "faqTitle": "Veelgestelde vragen",
+    "whatClientsSay": "Wat onze klanten zeggen",
+    "trustedToBuild": "Vertrouwd om meer dan alleen gebouwen te creëren"
+  }
+}

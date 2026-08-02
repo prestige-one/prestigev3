@@ -1,1 +1,35 @@
-{}
+{
+  "sh": {
+    "brokerRegistration": "Registro de brókers",
+    "projectDocuments": "Documentos del proyecto",
+    "invest": "Invierta en Prestige One",
+    "marketingTerms": "Términos y condiciones de marketing",
+    "csr": "Responsabilidad social corporativa",
+    "constructionUpdates": "Novedades de construcción",
+    "pressRelease": "Nota de prensa",
+    "blogPosts": "Entradas del blog",
+    "industryNews": "Noticias del sector",
+    "faqs": "Preguntas frecuentes",
+    "address": "Oficina 1602-1604, Marina Plaza, Dubai Marina, Dubái, EAU.",
+    "newsletterInvalidEmail": "Introduzca una dirección de correo electrónico válida.",
+    "newsletterError": "Algo salió mal. Inténtelo de nuevo.",
+    "contactUs": "Contáctenos",
+    "closeMenu": "Cerrar menú",
+    "contactHeroLead": "Hable con nuestro equipo sobre nuestros proyectos, oportunidades de inversión u organizar una visita privada. Estamos aquí para ayudarle los siete días de la semana.",
+    "howToReachUs": "Cómo contactarnos",
+    "talkToRealPerson": "Hable con una persona real",
+    "callUs": "Llámenos",
+    "emailUs": "Escríbanos",
+    "visitUs": "Visítenos",
+    "replyWithinDay": "Respondemos en un día hábil",
+    "messageAnyTime": "Escríbanos en cualquier momento",
+    "callPrestige": "Llamar al 800 PRESTIGE",
+    "chatOnWhatsapp": "Chatear por WhatsApp",
+    "salesGallery": "Galería de ventas",
+    "visitSalesGallery": "Visite nuestra galería de ventas",
+    "faqEyebrow": "Bueno saberlo",
+    "faqTitle": "Preguntas frecuentes",
+    "whatClientsSay": "Lo que dicen nuestros clientes",
+    "trustedToBuild": "La confianza para construir más que estructuras"
+  }
+}

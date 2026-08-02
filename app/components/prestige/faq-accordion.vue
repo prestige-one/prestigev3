@@ -3,7 +3,7 @@
     <div class="container container-1430">
       <div class="row">
         <div class="col-xl-4 mb-40">
-          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
+          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow ?? t('pp.faq.eyebrow') }}</span>
           <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
         </div>
         <div class="col-xl-8">
@@ -35,10 +35,9 @@ export interface FaqItem { q: string; a: string }
 </script>
 
 <script setup lang="ts">
-withDefaults(
-  defineProps<{ items: FaqItem[]; title: string; eyebrow?: string }>(),
-  { eyebrow: "FAQs" },
-);
+defineProps<{ items: FaqItem[]; title: string; eyebrow?: string }>();
+
+const { t } = useI18n();
 
 const openIndex = ref<number | null>(0);
 function toggle(i: number) {

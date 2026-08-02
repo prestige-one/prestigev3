@@ -1,1 +1,97 @@
-{}
+{
+  "ap": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "Behind Every Place, There's a Purpose",
+      "headingLine1": "We Build With Purpose.",
+      "headingLine2": "We Create For Life.",
+      "desc": "Prestige One Developments is a Dubai-based real estate developer creating residential and commercial spaces shaped around how people live, work, and experience the city."
+    },
+    "legacy": {
+      "eyebrow": "OUR LEGACY",
+      "title": "Decades of Experience. Built for What's Next",
+      "yearsSuffix": " Years",
+      "stat1": "Group Business Legacy",
+      "stat2": "Dubai Real Estate Experience",
+      "stat3": "Projects in Development",
+      "stat4": "Residential & Commercial Units",
+      "stat5": "Destinations Worldwide"
+    },
+    "drives": {
+      "eyebrow": "WHAT DRIVES US",
+      "title": "Every Decision Starts With What Matters",
+      "p1Title": "Made Around People",
+      "p1Desc": "We think about how people live, work, connect, and enjoy every day.",
+      "p2Title": "Every Detail Has a Purpose",
+      "p2Desc": "From location to layout and amenities, every choice is made for a reason.",
+      "p3Title": "Built to Last",
+      "p3Desc": "We focus on quality, careful execution, and value that lasts beyond today.",
+      "p4Title": "Always Thinking Ahead",
+      "p4Desc": "We create for changing lifestyles, new possibilities, and the way people will live tomorrow."
+    },
+    "founder": {
+      "eyebrow": "Meet Our Founder & CEO",
+      "title": "Building Dubai's Next Era of Living",
+      "p1": "With more than 18 years of experience across Dubai and international real estate markets, Ajmal Saifi has learned to see real estate beyond the building itself.",
+      "p2Lead": "For him, every development begins with a deeper question:",
+      "p2Strong": "what will make this place meaningful to the people who live there - today, and years from now?",
+      "p3": "That thinking shaped Prestige One.",
+      "p4": "His approach brings together the right location, thoughtful design, quality execution, and a clear understanding of how people want to live. The goal is not simply to create beautiful homes, but to create places that feel considered, add value to everyday life, and remain relevant over time.",
+      "p5Lead": "As Prestige One continues to grow, Ajmal's vision remains clear:",
+      "p5Strong": "to build with purpose, protect quality, and create a name people trust for what it stands for.",
+      "quote": "\"True prestige is not simply seen. It is felt, lived, and remembered.\"",
+      "h1Title": "18+ Years",
+      "h1Label": "Global Experience",
+      "h2Title": "Multi-Billion",
+      "h2Label": "AED Portfolio",
+      "h3Title": "Community",
+      "h3Label": "Driven Leadership"
+    },
+    "leadership": {
+      "eyebrow": "OUR LEADERSHIP",
+      "title": "Guided by Experience",
+      "role1": "Vice Chairman",
+      "role2": "Founder & CEO"
+    },
+    "journey": {
+      "eyebrow": "OUR JOURNEY",
+      "title": "From Experience to Creation",
+      "prev": "Previous milestone",
+      "next": "Next milestone",
+      "m1Title": "A Strong Foundation",
+      "m1Text": "Prestige Holding Group is established, beginning a business journey built over decades.",
+      "m2Title": "Entering Dubai Real Estate",
+      "m2Text": "Prestige enters Dubai's real estate market, beginning a new chapter of investment and growth.",
+      "m3Title": "Expanding Across Dubai",
+      "m3Text": "Prestige begins expanding its real estate investments across key Dubai communities, building a growing portfolio across the city.",
+      "m4Title": "Investing in What Comes Next",
+      "m4Text": "Prestige expands into land acquisitions across Dubai freehold communities, opening the way for future development.",
+      "m5Title": "Recognised in Dubai",
+      "m5Text": "Ajmal Saifi is recognised by Dubai Land Department as one of Dubai's top property investors.",
+      "m6Title": "From Investment to Development",
+      "m6Text": "Prestige One enters a new chapter as a developer, turning years of market experience into developments of its own.",
+      "m7Title": "Building Global Connections",
+      "m7Text": "Prestige One becomes the first regional real estate sponsor of the Argentina National Team.",
+      "m8Title": "Expanding Global Presence",
+      "m8Text": "Prestige One strengthens its international presence through globally recognised partnerships, with Dubai at the heart of its developments.",
+      "m9Title": "From Vision to Delivery",
+      "m9Text": "Prestige One reaches a major milestone with project handovers, while continuing to grow through new developments and global partnerships."
+    },
+    "developments": {
+      "eyebrow": "OUR DEVELOPMENTS",
+      "title": "Where Vision Shapes Addresses",
+      "explore": "Explore All Developments"
+    },
+    "global": {
+      "eyebrow": "GLOBAL PERSPECTIVE",
+      "title": "Global Experience. A Dubai Focus",
+      "lead": "A wider perspective, shaping what we create in Dubai."
+    },
+    "next": {
+      "title": "The Vision Continues",
+      "lead": "New developments, new opportunities, and more to come from Prestige One.",
+      "exploreBtn": "Explore Our Developments",
+      "contactBtn": "Get in Touch"
+    }
+  }
+}

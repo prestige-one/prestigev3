@@ -1,1 +1,94 @@
-{}
+{
+  "pp": {
+    "hero": {
+      "eyebrow": "Onze projecten",
+      "title": "Welkom in de wereld van Prestige",
+      "lead": "Ontdek onze collectie residenties en commerciële adressen in de meest prestigieuze bestemmingen van Dubai."
+    },
+    "search": {
+      "placeholder": "Zoek projecten op naam of locatie…"
+    },
+    "categories": {
+      "all": "Alle projecten",
+      "residential": "Wonen",
+      "commercial": "Commercieel",
+      "upcoming": "Binnenkort"
+    },
+    "filters": {
+      "allDestinations": "Alle bestemmingen",
+      "destinationAria": "Filteren op bestemming"
+    },
+    "stats": {
+      "projects": "Projecten",
+      "destinations": "Bestemmingen",
+      "countries": "Landen",
+      "freehold": "Vol eigendom"
+    },
+    "empty": "Nog geen projecten in deze categorie - kom binnenkort terug.",
+    "cta": {
+      "eyebrow": "Kunt u niet kiezen?",
+      "title": "Laten we het juiste adres voor u vinden",
+      "text": "Vertel ons waarnaar u op zoek bent en ons team matcht u met de Prestige One projecten die bij u passen.",
+      "primary": "Praat met ons team",
+      "secondary": "Ontdek bestemmingen"
+    },
+    "detail": {
+      "enquireNow": "Nu aanvragen",
+      "overview": {
+        "eyebrow": "Overzicht",
+        "title": "Leven in {name}"
+      },
+      "amenities": {
+        "eyebrow": "Voorzieningen",
+        "title": "Alles binnen handbereik",
+        "lead": "Zorgvuldig samengestelde voorzieningen, ontworpen rond comfort, welzijn en dagelijks gemak."
+      },
+      "gallery": {
+        "eyebrow": "Galerij",
+        "title": "Van dichterbij bekeken"
+      },
+      "location": {
+        "eyebrow": "Locatie",
+        "title": "Perfect gelegen in {location}",
+        "nearby": "In de buurt",
+        "connectivity": "Bereikbaarheid",
+        "schools": "Scholen",
+        "healthcare": "Zorg"
+      },
+      "payment": {
+        "eyebrow": "Betalingsplan",
+        "title": "Flexibel & transparant",
+        "note": "Indicatief plan - neem contact op met ons team voor de meest actuele voorwaarden en beschikbaarheid."
+      },
+      "resources": {
+        "eyebrow": "Documentatie",
+        "title": "Projectdocumenten",
+        "request": "Aanvragen"
+      },
+      "faqTitle": "Goed om te weten",
+      "related": {
+        "eyebrow": "Ontdek meer",
+        "title": "Vergelijkbare projecten"
+      },
+      "closing": {
+        "eyebrow": "Toon uw interesse",
+        "title": "Maak van {name} uw thuis",
+        "text": "Neem contact op met ons team voor plattegronden, beschikbaarheid en de meest actuele betalingsvoorwaarden.",
+        "primary": "Nu aanvragen",
+        "secondary": "Bekijk alle projecten"
+      }
+    },
+    "faq": {
+      "eyebrow": "Veelgestelde vragen"
+    },
+    "payment": {
+      "step": "Stap"
+    },
+    "doc": {
+      "eyebrow": "Document aanvragen",
+      "lead": "Laat uw gegevens achter en ons team stuurt {doc} voor {project} rechtstreeks naar uw inbox.",
+      "requestAria": "{doc} aanvragen",
+      "close": "Sluiten"
+    }
+  }
+}

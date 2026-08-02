@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments è uno sviluppatore immobiliare di lusso che ridefinisce l'abitare esclusivo nelle destinazioni più prestigiose di Dubai."
+    },
+    "hero": {
+      "headline1": "Tutto comincia qui",
+      "headline2": "Creiamo case in cui si ama vivere",
+      "headline3": "Questo è Prestige One",
+      "mobileTitle": "Creiamo case in cui si ama vivere",
+      "mobileSub": "Questo è Prestige One"
+    },
+    "developments": {
+      "title": "I nostri progetti",
+      "subtitle": "Dalla visione alla realtà"
+    },
+    "upcoming": {
+      "title": "Progetti in arrivo"
+    },
+    "whyUs": {
+      "title": "Perché Prestige One",
+      "subtitle": "Costruita su principi solidi",
+      "item1Title": "Dove crescono le opportunità",
+      "item1Desc": "Scegliamo località ben collegate, capaci di offrire uno stile di vita eccellente e un valore duraturo",
+      "item2Title": "Pensata attorno alla vita",
+      "item2Desc": "Case studiate nei dettagli, che uniscono comfort, funzionalità e vita quotidiana",
+      "item3Title": "Costruita sulla fiducia",
+      "item3Desc": "Competenze interne, esecuzione accurata e una qualità su cui poter contare",
+      "item4Title": "Connessa al mondo",
+      "item4Desc": "Decenni di esperienza, rafforzati da partnership con marchi di fama internazionale"
+    },
+    "whyDubai": {
+      "eyebrow": "PERCHÉ DUBAI",
+      "title": "Una città costruita per crescere",
+      "lead": "Tra le città più dinamiche, sicure e connesse al mondo, Dubai offre la stabilità, lo stile di vita e i rendimenti che rendono l'acquisto davvero conveniente.",
+      "r1Title": "Proprietà esentasse",
+      "r1Text": "Nessuna imposta sul reddito né imposta annuale sugli immobili residenziali.",
+      "r2Title": "Rendimenti locativi elevati",
+      "r2Text": "Tra i più alti rendimenti locativi lordi di qualsiasi grande città del mondo.",
+      "r3Title": "Golden Visa",
+      "r3Text": "Residenza di lungo periodo per gli investitori immobiliari e le loro famiglie.",
+      "r4Title": "Sicura e stabile",
+      "r4Text": "Costantemente tra le città più sicure al mondo.",
+      "r5Title": "Connessa a livello globale",
+      "r5Text": "A meno di otto ore di volo da due terzi della popolazione mondiale.",
+      "r6Title": "Piena proprietà",
+      "r6Text": "Piena proprietà per gli stranieri nelle comunità freehold di Dubai."
+    },
+    "stories": {
+      "eyebrow": "STORIE DEI CLIENTI",
+      "title": "Case consegnate. Storie che restano.",
+      "lead": "Dalla prima visita al momento della consegna delle chiavi, i proprietari Prestige One entrano a far parte di una comunità in crescita. Ecco alcuni dei loro percorsi, raccontati con parole loro.",
+      "v1Name": "La storia di un proprietario",
+      "v1Project": "Prestige One",
+      "v2Name": "Giorno della consegna",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "La consegna delle chiavi",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

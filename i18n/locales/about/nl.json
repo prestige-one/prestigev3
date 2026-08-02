@@ -1,1 +1,97 @@
-{}
+{
+  "ap": {
+    "hero": {
+      "title": "Over ons",
+      "subtitle": "Achter elke plek schuilt een doel",
+      "headingLine1": "We bouwen met een doel.",
+      "headingLine2": "We creëren voor het leven.",
+      "desc": "Prestige One Developments is een in Dubai gevestigde vastgoedontwikkelaar die woon- en commerciële ruimtes creëert, gevormd rond hoe mensen leven, werken en de stad ervaren."
+    },
+    "legacy": {
+      "eyebrow": "ONZE ERFENIS",
+      "title": "Decennia aan ervaring. Gebouwd voor wat komt",
+      "yearsSuffix": " jaar",
+      "stat1": "Zakelijke erfenis van de groep",
+      "stat2": "Ervaring in vastgoed in Dubai",
+      "stat3": "Projecten in ontwikkeling",
+      "stat4": "Woon- en commerciële eenheden",
+      "stat5": "Bestemmingen wereldwijd"
+    },
+    "drives": {
+      "eyebrow": "WAT ONS DRIJFT",
+      "title": "Elke beslissing begint bij wat telt",
+      "p1Title": "Gemaakt rond mensen",
+      "p1Desc": "We denken na over hoe mensen elke dag leven, werken, verbinden en genieten.",
+      "p2Title": "Elk detail heeft een doel",
+      "p2Desc": "Van locatie tot indeling en voorzieningen: elke keuze wordt met een reden gemaakt.",
+      "p3Title": "Gebouwd om te blijven",
+      "p3Desc": "We richten ons op kwaliteit, zorgvuldige uitvoering en waarde die verder reikt dan vandaag.",
+      "p4Title": "Altijd vooruitdenkend",
+      "p4Desc": "We creëren voor veranderende leefstijlen, nieuwe mogelijkheden en de manier waarop mensen morgen zullen leven."
+    },
+    "founder": {
+      "eyebrow": "Maak kennis met onze oprichter en CEO",
+      "title": "Bouwen aan Dubai's volgende tijdperk van wonen",
+      "p1": "Met meer dan 18 jaar ervaring op de vastgoedmarkten van Dubai en daarbuiten heeft Ajmal Saifi geleerd vastgoed te zien voorbij het gebouw zelf.",
+      "p2Lead": "Voor hem begint elke ontwikkeling met een diepere vraag:",
+      "p2Strong": "wat maakt deze plek betekenisvol voor de mensen die er wonen — vandaag en over vele jaren?",
+      "p3": "Dat denken gaf vorm aan Prestige One.",
+      "p4": "Zijn aanpak brengt de juiste locatie, doordacht ontwerp, hoogwaardige uitvoering en een helder begrip van hoe mensen willen wonen samen. Het doel is niet alleen om mooie woningen te creëren, maar plekken die doordacht aanvoelen, waarde toevoegen aan het dagelijks leven en relevant blijven in de tijd.",
+      "p5Lead": "Terwijl Prestige One blijft groeien, blijft Ajmals visie helder:",
+      "p5Strong": "bouwen met een doel, kwaliteit bewaken en een naam creëren die mensen vertrouwen om waar hij voor staat.",
+      "quote": "„Ware prestige wordt niet alleen gezien. Het wordt gevoeld, geleefd en onthouden.”",
+      "h1Title": "18+ jaar",
+      "h1Label": "Internationale ervaring",
+      "h2Title": "Miljarden",
+      "h2Label": "Portefeuille in AED",
+      "h3Title": "Gemeenschap",
+      "h3Label": "Waardegedreven leiderschap"
+    },
+    "leadership": {
+      "eyebrow": "ONZE LEIDING",
+      "title": "Geleid door ervaring",
+      "role1": "Vicevoorzitter",
+      "role2": "Oprichter en CEO"
+    },
+    "journey": {
+      "eyebrow": "ONZE REIS",
+      "title": "Van ervaring naar creatie",
+      "prev": "Vorige mijlpaal",
+      "next": "Volgende mijlpaal",
+      "m1Title": "Een sterk fundament",
+      "m1Text": "Prestige Holding Group wordt opgericht en begint een zakelijke reis die over decennia is opgebouwd.",
+      "m2Title": "Toetreding tot Dubai's vastgoedmarkt",
+      "m2Text": "Prestige betreedt de vastgoedmarkt van Dubai en begint een nieuw hoofdstuk van investering en groei.",
+      "m3Title": "Uitbreiding door heel Dubai",
+      "m3Text": "Prestige begint zijn vastgoedinvesteringen uit te breiden naar belangrijke wijken in Dubai en bouwt een groeiende portefeuille door de hele stad op.",
+      "m4Title": "Investeren in wat komt",
+      "m4Text": "Prestige breidt uit naar grondaankopen in de freehold-gemeenschappen van Dubai en effent de weg voor toekomstige ontwikkeling.",
+      "m5Title": "Erkenning in Dubai",
+      "m5Text": "Ajmal Saifi wordt door het Dubai Land Department erkend als een van Dubai's belangrijkste vastgoedinvesteerders.",
+      "m6Title": "Van investering naar ontwikkeling",
+      "m6Text": "Prestige One begint een nieuw hoofdstuk als ontwikkelaar en zet jarenlange marktervaring om in eigen ontwikkelingen.",
+      "m7Title": "Wereldwijde verbindingen bouwen",
+      "m7Text": "Prestige One wordt de eerste regionale vastgoedsponsor van het Argentijnse nationale elftal.",
+      "m8Title": "Wereldwijde aanwezigheid vergroten",
+      "m8Text": "Prestige One versterkt zijn internationale aanwezigheid via wereldwijd erkende partnerschappen, met Dubai in het hart van zijn ontwikkelingen.",
+      "m9Title": "Van visie naar oplevering",
+      "m9Text": "Prestige One bereikt een belangrijke mijlpaal met projectopleveringen en blijft groeien door nieuwe ontwikkelingen en wereldwijde partnerschappen."
+    },
+    "developments": {
+      "eyebrow": "ONZE ONTWIKKELINGEN",
+      "title": "Waar visie adressen vormgeeft",
+      "explore": "Alle ontwikkelingen ontdekken"
+    },
+    "global": {
+      "eyebrow": "MONDIAAL PERSPECTIEF",
+      "title": "Wereldwijde ervaring. Een focus op Dubai",
+      "lead": "Een breder perspectief dat vormgeeft aan wat we in Dubai creëren."
+    },
+    "next": {
+      "title": "De visie gaat door",
+      "lead": "Nieuwe ontwikkelingen, nieuwe kansen en meer op komst van Prestige One.",
+      "exploreBtn": "Ontdek onze ontwikkelingen",
+      "contactBtn": "Neem contact op"
+    }
+  }
+}

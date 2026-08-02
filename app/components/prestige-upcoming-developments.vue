@@ -5,7 +5,7 @@
         <div class="col-xl-8">
           <div class="prestige-developments-title-box text-center">
             <h2 class="prestige-developments-title prestige-text-paint">
-              Upcoming Projects
+              {{ $t('hp.upcoming.title') }}
             </h2>
             <img
               src="/assets/images/v3/slogan.png"

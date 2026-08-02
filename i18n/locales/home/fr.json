@@ -1,1 +1,62 @@
-{}
+{
+  "hp": {
+    "seo": {
+      "title": "Prestige One Developments",
+      "description": "Prestige One Developments est un promoteur immobilier haut de gamme qui redéfinit l'art de vivre de luxe dans les destinations les plus prestigieuses de Dubaï."
+    },
+    "hero": {
+      "headline1": "Tout commence ici",
+      "headline2": "Nous créons des demeures où il fait bon vivre",
+      "headline3": "C'est ça, Prestige One",
+      "mobileTitle": "Nous créons des demeures où il fait bon vivre",
+      "mobileSub": "C'est ça, Prestige One"
+    },
+    "developments": {
+      "title": "Nos réalisations",
+      "subtitle": "De la vision à la réalité"
+    },
+    "upcoming": {
+      "title": "Projets à venir"
+    },
+    "whyUs": {
+      "title": "Pourquoi Prestige One",
+      "subtitle": "Fondée sur des principes solides",
+      "item1Title": "Là où naissent les opportunités",
+      "item1Desc": "Nous choisissons des emplacements bien desservis, offrant un art de vivre d'exception et une valeur durable",
+      "item2Title": "Pensée pour la vie",
+      "item2Desc": "Des demeures réfléchies qui allient confort, fonctionnalité et vie au quotidien",
+      "item3Title": "Bâtie sur la confiance",
+      "item3Desc": "Une expertise interne, une exécution soignée et une qualité sur laquelle vous pouvez compter",
+      "item4Title": "Ouverte sur le monde",
+      "item4Desc": "Des décennies d'expérience, renforcées par des partenariats avec des marques de renommée mondiale"
+    },
+    "whyDubai": {
+      "eyebrow": "POURQUOI DUBAÏ",
+      "title": "Une ville faite pour grandir",
+      "lead": "Parmi les villes les plus dynamiques, les plus sûres et les mieux connectées au monde, Dubaï offre la stabilité, l'art de vivre et les rendements qui font de la propriété un véritable atout.",
+      "r1Title": "Propriété sans impôts",
+      "r1Text": "Aucun impôt sur le revenu ni taxe foncière annuelle sur l'immobilier résidentiel.",
+      "r2Title": "Rendements locatifs élevés",
+      "r2Text": "Parmi les rendements locatifs bruts les plus élevés de toutes les grandes villes du monde.",
+      "r3Title": "Visa Golden",
+      "r3Text": "Résidence longue durée pour les investisseurs immobiliers et leur famille.",
+      "r4Title": "Sûre et stable",
+      "r4Text": "Régulièrement classée parmi les villes les plus sûres au monde.",
+      "r5Title": "Connectée au monde",
+      "r5Text": "À moins de huit heures de vol des deux tiers de la population mondiale.",
+      "r6Title": "Pleine propriété",
+      "r6Text": "Pleine propriété étrangère dans les communautés en freehold de Dubaï."
+    },
+    "stories": {
+      "eyebrow": "TÉMOIGNAGES CLIENTS",
+      "title": "Des clés remises. Des histoires qui restent.",
+      "lead": "De la première visite à la remise des clés, les propriétaires Prestige One rejoignent une communauté grandissante. Voici quelques-uns de leurs parcours, dans leurs propres mots.",
+      "v1Name": "L'histoire d'un propriétaire",
+      "v1Project": "Prestige One",
+      "v2Name": "Jour de remise des clés",
+      "v2Project": "Vista by Prestige One",
+      "v3Name": "La remise des clés",
+      "v3Project": "Vista by Prestige One"
+    }
+  }
+}

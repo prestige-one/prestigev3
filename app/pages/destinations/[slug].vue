@@ -12,8 +12,8 @@
               :image="dest.image"
             >
               <template #actions>
-                <span class="prestige-detail__badge">{{ areaProjects.length ? developmentsBadge : 'New addresses coming' }}</span>
-                <nuxt-link to="/contact-us" class="prestige-btn">Enquire now</nuxt-link>
+                <span class="prestige-detail__badge">{{ areaProjects.length ? developmentsBadge : t('dp.detail.badge_new') }}</span>
+                <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('dp.detail.enquire') }}</nuxt-link>
               </template>
             </prestige-page-hero>
 
@@ -22,14 +22,14 @@
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-7 col-lg-7 mb-40">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">The area</span>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.area_eyebrow') }}</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3">
                       <p v-for="(para, i) in dest.about" :key="i">{{ para }}</p>
                     </div>
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5">
                     <div v-if="dest.subAreas?.length" class="prestige-dest-sub tp_fade_anim" data-delay=".4">
-                      <h4 class="prestige-detail__mini">Within the district</h4>
+                      <h4 class="prestige-detail__mini">{{ t('dp.detail.subareas_title') }}</h4>
                       <ul>
                         <li v-for="(s, i) in dest.subAreas" :key="i"><span class="prestige-detail__dot" />{{ s }}</li>
                       </ul>
@@ -50,8 +50,8 @@
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-40">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Nearby</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">What's around you</h2>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.nearby_eyebrow') }}</span>
+                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('dp.detail.nearby_title') }}</h2>
                   </div>
                   <div class="col-xl-8">
                     <ul class="prestige-detail__poi prestige-dest-poi tp_fade_anim" data-delay=".3">
@@ -69,8 +69,8 @@
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-30">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Getting around</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Connected in every direction</h2>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.transport_eyebrow') }}</span>
+                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('dp.detail.transport_title') }}</h2>
                   </div>
                   <div class="col-xl-8">
                     <ul class="prestige-detail__conn tp_fade_anim" data-delay=".3">
@@ -83,7 +83,7 @@
 
             <!-- cinematic interlude -->
             <prestige-statement-band
-              eyebrow="Prime location"
+              :eyebrow="t('dp.detail.statement_eyebrow')"
               :text="dest.intro"
               :image="dest.image"
             />
@@ -91,23 +91,23 @@
             <!-- 5 · essentials -->
             <section class="prestige-section">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Everyday essentials</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">Life's necessities, close by</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.essentials_eyebrow') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.essentials_title') }}</h2>
                 <div class="row">
                   <div class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">Education</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">{{ t('dp.detail.education') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
                       <li v-for="(e, i) in dest.education" :key="i">{{ e }}</li>
                     </ul>
                   </div>
                   <div class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">Healthcare</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">{{ t('dp.detail.healthcare') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
                       <li v-for="(h, i) in dest.healthcare" :key="i">{{ h }}</li>
                     </ul>
                   </div>
                   <div v-if="dest.worship?.length" class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">Places of worship</h4>
+                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">{{ t('dp.detail.worship') }}</h4>
                     <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
                       <li v-for="(w, i) in dest.worship" :key="i">{{ w }}</li>
                     </ul>
@@ -119,8 +119,8 @@
             <!-- 6 · investment -->
             <section class="prestige-section prestige-dest-invest">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Why invest here</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">A location that works for you</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.invest_eyebrow') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.invest_title') }}</h2>
                 <div class="row">
                   <div
                     v-for="(inv, i) in dest.investment"
@@ -140,8 +140,8 @@
             <!-- 7 · developments -->
             <section v-if="areaProjects.length" class="prestige-section prestige-section--tight">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Developments here</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">Prestige One in {{ dest.name }}</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.devs_eyebrow') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.devs_title', { name: dest.name }) }}</h2>
                 <div class="row">
                   <div
                     v-for="p in areaProjects"
@@ -156,24 +156,24 @@
             </section>
             <section v-else class="prestige-section prestige-section--tight text-center">
               <div class="container container-1430">
-                <p class="prestige-prose">New Prestige One developments are coming to {{ dest.name }}. Register your interest to hear first.</p>
-                <nuxt-link to="/contact-us" class="prestige-btn mt-20">Register interest</nuxt-link>
+                <p class="prestige-prose">{{ t('dp.detail.devs_empty', { name: dest.name }) }}</p>
+                <nuxt-link :to="localePath('/contact-us')" class="prestige-btn mt-20">{{ t('dp.detail.register') }}</nuxt-link>
               </div>
             </section>
 
             <!-- 8 · FAQ -->
-            <prestige-faq-accordion eyebrow="Good to know" :title="`About ${dest.name}`" :items="faqs" />
+            <prestige-faq-accordion :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
 
             <!-- 9 · CTA + contact -->
             <prestige-cta-band
-              eyebrow="Your next address"
-              :title="`Make ${dest.name} home`"
-              :text="`Speak to our team about living in ${dest.name} - availability, pricing and the developments best suited to how you want to live.`"
+              :eyebrow="t('dp.detail.cta_eyebrow')"
+              :title="t('dp.detail.cta_title', { name: dest.name })"
+              :text="t('dp.detail.cta_text', { name: dest.name })"
               :image="dest.image"
-              primary-label="Enquire now"
-              primary-to="/contact-us"
-              secondary-label="Explore all destinations"
-              secondary-to="/destinations"
+              :primary-label="t('dp.detail.enquire')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('dp.detail.cta_secondary')"
+              :secondary-to="localePath('/destinations')"
             />
             <prestige-contact-form />
           </main>
@@ -191,6 +191,9 @@ interface FaqItem { q: string; a: string }
 
 definePageMeta({ layout: false });
 
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 
@@ -201,21 +204,21 @@ if (!dest.value) {
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
 const developmentsBadge = computed(() => {
   const n = areaProjects.value.length;
-  return n === 1 ? "1 development" : `${n} developments`;
+  return n === 1 ? t("dp.card.count_one", { n }) : t("dp.card.count_other", { n });
 });
 
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;
   return [
-    { q: `What makes ${d.name} a good place to live?`, a: `${d.about[0]}` },
-    { q: `Is ${d.name} well connected?`, a: `${d.transport.slice(0, 2).join(". ")}.` },
-    { q: `What's nearby?`, a: `${d.attractions.slice(0, 3).map((a) => `${a.name} (${a.time})`).join(", ")} and more.` },
-    { q: `Why invest in ${d.name}?`, a: `${d.investment.slice(0, 3).join("; ")}.` },
+    { q: t("dp.detail.faq.q1", { name: d.name }), a: `${d.about[0]}` },
+    { q: t("dp.detail.faq.q2", { name: d.name }), a: `${d.transport.slice(0, 2).join(". ")}.` },
+    { q: t("dp.detail.faq.q3"), a: `${d.attractions.slice(0, 3).map((a) => `${a.name} (${a.time})`).join(", ")} and more.` },
+    { q: t("dp.detail.faq.q4", { name: d.name }), a: `${d.investment.slice(0, 3).join("; ")}.` },
   ];
 });
 
 useSeoMeta({
-  title: () => `${dest.value?.name} | Prestige One Destinations`,
+  title: () => t("dp.detail.seo_title", { name: dest.value?.name ?? "" }),
   description: () => dest.value?.intro,
   ogImage: () => dest.value?.image,
 });

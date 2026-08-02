@@ -1,1 +1,80 @@
-{}
+{
+  "dp": {
+    "hero": {
+      "eyebrow": "Our Destinations",
+      "title": "Prime locations",
+      "lead": "Prestige One builds where life is best lived - the waterfronts, communities and landmarks that define Dubai and beyond."
+    },
+    "feature": {
+      "eyebrow": "Why location matters",
+      "title": "We build where Dubai lives best",
+      "p1": "A home is only ever as good as the life around it. That belief guides every acquisition we make - before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.",
+      "p2": "From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.",
+      "point1": "Waterfront, community and landmark destinations across Dubai",
+      "point2": "Minutes from the metro, Sheikh Zayed Road and the airport",
+      "point3": "Locations selected for long-term liveability and value",
+      "point4": "Neighbourhoods with schools, retail and leisure at hand"
+    },
+    "stats": {
+      "destinations": "Destinations",
+      "developments": "Developments",
+      "investment": "Committed investment",
+      "escrow": "Escrow-protected"
+    },
+    "map": {
+      "eyebrow": "Explore",
+      "title": "Find Your Address on the Map",
+      "lead": "Move across an immersive, satellite view of Dubai and see where every Prestige One development sits - filter by district, tap a marker and step through the collection."
+    },
+    "card": {
+      "count_one": "1 development",
+      "count_other": "{n} developments"
+    },
+    "cta": {
+      "eyebrow": "Find your address",
+      "title": "Not sure where to begin?",
+      "text": "Tell us how you want to live and our team will point you to the destinations - and the developments - that fit. From first investment to forever home.",
+      "primary": "Speak to our team",
+      "secondary": "View all developments"
+    },
+    "seo": {
+      "title": "Our Destinations | Prestige One",
+      "description": "Explore the Dubai waterfronts, communities and landmarks where Prestige One builds - from Palm Jumeirah to Dubai Islands."
+    },
+    "detail": {
+      "enquire": "Enquire now",
+      "badge_new": "New addresses coming",
+      "area_eyebrow": "The area",
+      "subareas_title": "Within the district",
+      "nearby_eyebrow": "Nearby",
+      "nearby_title": "What's around you",
+      "transport_eyebrow": "Getting around",
+      "transport_title": "Connected in every direction",
+      "statement_eyebrow": "Prime location",
+      "essentials_eyebrow": "Everyday essentials",
+      "essentials_title": "Life's necessities, close by",
+      "education": "Education",
+      "healthcare": "Healthcare",
+      "worship": "Places of worship",
+      "invest_eyebrow": "Why invest here",
+      "invest_title": "A location that works for you",
+      "devs_eyebrow": "Developments here",
+      "devs_title": "Prestige One in {name}",
+      "devs_empty": "New Prestige One developments are coming to {name}. Register your interest to hear first.",
+      "register": "Register interest",
+      "faq_eyebrow": "Good to know",
+      "faq_title": "About {name}",
+      "faq": {
+        "q1": "What makes {name} a good place to live?",
+        "q2": "Is {name} well connected?",
+        "q3": "What's nearby?",
+        "q4": "Why invest in {name}?"
+      },
+      "cta_eyebrow": "Your next address",
+      "cta_title": "Make {name} home",
+      "cta_text": "Speak to our team about living in {name} - availability, pricing and the developments best suited to how you want to live.",
+      "cta_secondary": "Explore all destinations",
+      "seo_title": "{name} | Prestige One Destinations"
+    }
+  }
+}

@@ -7,7 +7,7 @@
       :data-delay="0.2 + i * 0.1"
     >
       <div class="prestige-pw__chevron">
-        <span class="prestige-pw__index">Step {{ i + 1 }}</span>
+        <span class="prestige-pw__index">{{ t('pp.payment.step') }} {{ i + 1 }}</span>
         <span class="prestige-pw__value">{{ step.value }}</span>
         <span class="prestige-pw__label">{{ step.label }}</span>
       </div>
@@ -19,6 +19,8 @@
 import type { PaymentMilestone } from "~/data/projects";
 
 defineProps<{ steps: PaymentMilestone[] }>();
+
+const { t } = useI18n();
 </script>
 
 <style scoped>

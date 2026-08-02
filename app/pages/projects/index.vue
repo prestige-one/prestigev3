@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Our Developments"
-              title="Welcome to the World of Prestige"
-              lead="Explore our collection of residences and commercial addresses across Dubai's most prestigious destinations."
+              :eyebrow="t('pp.hero.eyebrow')"
+              :title="t('pp.hero.title')"
+              :lead="t('pp.hero.lead')"
               image="/assets/images/v3/projects-hero-cover.webp"
             />
 
@@ -21,7 +21,7 @@
                 <!-- search -->
                 <div class="prestige-search">
                   <svg class="prestige-search__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-                  <input v-model="search" type="search" placeholder="Search projects by name or location…">
+                  <input v-model="search" type="search" :placeholder="t('pp.search.placeholder')">
                 </div>
 
                 <!-- filter tabs -->
@@ -33,7 +33,7 @@
                     :class="{ active: activeCategory === cat.key }"
                     @click="setCategory(cat.key)"
                   >
-                    {{ cat.label }}
+                    {{ t('pp.categories.' + cat.key) }}
                     <span class="prestige-filter__count">{{ countFor(cat.key) }}</span>
                   </button>
                 </div>
@@ -42,9 +42,9 @@
                 <div class="prestige-dest">
                   <div class="prestige-dest__select">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                    <select v-model="activeLocation" aria-label="Filter by destination">
+                    <select v-model="activeLocation" :aria-label="t('pp.filters.destinationAria')">
                       <option v-for="loc in locations" :key="loc" :value="loc">
-                        {{ loc === 'All' ? 'All Destinations' : loc }}
+                        {{ loc === 'All' ? t('pp.filters.allDestinations') : loc }}
                       </option>
                     </select>
                     <svg class="prestige-dest__caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg>
@@ -65,20 +65,20 @@
                 </div>
 
                 <p v-if="!filtered.length" class="prestige-prose text-center mt-40">
-                  No projects in this category yet - check back soon.
+                  {{ t('pp.empty') }}
                 </p>
               </div>
             </section>
 
             <prestige-cta-band
-              eyebrow="Can't decide?"
-              title="Let's find the right address for you"
-              text="Tell us what you're looking for and our team will match you with the Prestige One developments that fit."
+              :eyebrow="t('pp.cta.eyebrow')"
+              :title="t('pp.cta.title')"
+              :text="t('pp.cta.text')"
               image="/assets/project-featured-images/sliders/luxury-canal.webp"
-              primary-label="Talk to our team"
-              primary-to="/contact-us"
-              secondary-label="Explore destinations"
-              secondary-to="/destinations"
+              :primary-label="t('pp.cta.primary')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('pp.cta.secondary')"
+              :secondary-to="localePath('/destinations')"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -132,12 +132,15 @@ const orderIndex = (slug: string) => {
 };
 const all = [...getAllProjects()].sort((a, b) => orderIndex(a.slug) - orderIndex(b.slug));
 
-const portfolioStats = [
-  { value: "24+", label: "Projects" },
-  { value: "21+", label: "Destinations" },
-  { value: "7", label: "Countries" },
-  { value: "100%", label: "Freehold" },
-];
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+const portfolioStats = computed(() => [
+  { value: "24+", label: t("pp.stats.projects") },
+  { value: "21+", label: t("pp.stats.destinations") },
+  { value: "7", label: t("pp.stats.countries") },
+  { value: "100%", label: t("pp.stats.freehold") },
+]);
 
 // destination (location) filter
 const locations = ["All", ...Array.from(new Set(all.map((p) => p.location)))];

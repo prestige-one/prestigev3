@@ -1,1 +1,35 @@
-{}
+{
+  "sh": {
+    "brokerRegistration": "Broker Registration",
+    "projectDocuments": "Project Documents",
+    "invest": "Invest in Prestige One",
+    "marketingTerms": "Marketing Terms & Conditions",
+    "csr": "Corporate Social Responsibility",
+    "constructionUpdates": "Construction Updates",
+    "pressRelease": "Press Release",
+    "blogPosts": "Blog Posts",
+    "industryNews": "Industry News",
+    "faqs": "FAQs",
+    "address": "Office 1602-1604, Marina Plaza, Dubai Marina, Dubai, UAE.",
+    "newsletterInvalidEmail": "Please enter a valid email address.",
+    "newsletterError": "Something went wrong. Please try again.",
+    "contactUs": "Contact Us",
+    "closeMenu": "Close menu",
+    "contactHeroLead": "Speak with our team about our developments, investment opportunities or arranging a private viewing. We're here to help, seven days a week.",
+    "howToReachUs": "How to reach us",
+    "talkToRealPerson": "Talk to a real person",
+    "callUs": "Call us",
+    "emailUs": "Email us",
+    "visitUs": "Visit us",
+    "replyWithinDay": "We reply within one business day",
+    "messageAnyTime": "Message us any time",
+    "callPrestige": "Call 800 PRESTIGE",
+    "chatOnWhatsapp": "Chat on WhatsApp",
+    "salesGallery": "Sales Gallery",
+    "visitSalesGallery": "Visit our sales gallery",
+    "faqEyebrow": "Good to know",
+    "faqTitle": "Frequently asked",
+    "whatClientsSay": "What our clients say",
+    "trustedToBuild": "Trusted to build more than structures"
+  }
+}

@@ -1,1 +1,94 @@
-{}
+{
+  "pp": {
+    "hero": {
+      "eyebrow": "Nuestros proyectos",
+      "title": "Bienvenido al mundo de Prestige",
+      "lead": "Explore nuestra colección de residencias y espacios comerciales en los destinos más prestigiosos de Dubái."
+    },
+    "search": {
+      "placeholder": "Busque proyectos por nombre o ubicación…"
+    },
+    "categories": {
+      "all": "Todos los proyectos",
+      "residential": "Residencial",
+      "commercial": "Comercial",
+      "upcoming": "Próximamente"
+    },
+    "filters": {
+      "allDestinations": "Todos los destinos",
+      "destinationAria": "Filtrar por destino"
+    },
+    "stats": {
+      "projects": "Proyectos",
+      "destinations": "Destinos",
+      "countries": "Países",
+      "freehold": "Plena propiedad"
+    },
+    "empty": "Aún no hay proyectos en esta categoría - vuelva pronto.",
+    "cta": {
+      "eyebrow": "¿No se decide?",
+      "title": "Encontremos la dirección perfecta para usted",
+      "text": "Cuéntenos qué busca y nuestro equipo le recomendará los proyectos de Prestige One que mejor se adapten a usted.",
+      "primary": "Hable con nuestro equipo",
+      "secondary": "Explorar destinos"
+    },
+    "detail": {
+      "enquireNow": "Solicitar información",
+      "overview": {
+        "eyebrow": "Descripción general",
+        "title": "La vida en {name}"
+      },
+      "amenities": {
+        "eyebrow": "Comodidades",
+        "title": "Todo a su alcance",
+        "lead": "Comodidades cuidadosamente seleccionadas, diseñadas en torno al confort, el bienestar y la comodidad del día a día."
+      },
+      "gallery": {
+        "eyebrow": "Galería",
+        "title": "Una mirada más cercana"
+      },
+      "location": {
+        "eyebrow": "Ubicación",
+        "title": "Perfectamente ubicado en {location}",
+        "nearby": "Cerca",
+        "connectivity": "Conectividad",
+        "schools": "Colegios",
+        "healthcare": "Sanidad"
+      },
+      "payment": {
+        "eyebrow": "Plan de pago",
+        "title": "Flexible y transparente",
+        "note": "Plan indicativo - consulte a nuestro equipo las condiciones y la disponibilidad más recientes."
+      },
+      "resources": {
+        "eyebrow": "Recursos",
+        "title": "Documentos del proyecto",
+        "request": "Solicitar"
+      },
+      "faqTitle": "Información útil",
+      "related": {
+        "eyebrow": "Descubra más",
+        "title": "Proyectos relacionados"
+      },
+      "closing": {
+        "eyebrow": "Registre su interés",
+        "title": "Haga de {name} su hogar",
+        "text": "Hable con nuestro equipo para conocer los planos, la disponibilidad y las condiciones de pago más recientes.",
+        "primary": "Solicitar información",
+        "secondary": "Ver todos los proyectos"
+      }
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes"
+    },
+    "payment": {
+      "step": "Paso"
+    },
+    "doc": {
+      "eyebrow": "Solicitar documento",
+      "lead": "Déjenos sus datos y nuestro equipo le enviará {doc} de {project} directamente a su correo.",
+      "requestAria": "Solicitar {doc}",
+      "close": "Cerrar"
+    }
+  }
+}

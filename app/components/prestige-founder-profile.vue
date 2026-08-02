@@ -30,32 +30,25 @@
           data-duration="0.8"
         >
           <div class="prestige-founder-copy">
-            <span class="prestige-founder-eyebrow">Meet Our Founder &amp; CEO</span>
+            <span class="prestige-founder-eyebrow">{{ t('ap.founder.eyebrow') }}</span>
             <h2 class="prestige-founder-title tp_reveal_anim" data-delay="0.05">
-              Building Dubai's Next Era of Living
+              {{ t('ap.founder.title') }}
             </h2>
 
             <div class="prestige-founder-description">
+              <p>{{ t('ap.founder.p1') }}</p>
               <p>
-                With more than 18 years of experience across Dubai and international real estate markets,
-                Ajmal Saifi has learned to see real estate beyond the building itself.
+                {{ t('ap.founder.p2Lead') }}
+                <strong>{{ t('ap.founder.p2Strong') }}</strong>
               </p>
+              <p>{{ t('ap.founder.p3') }}</p>
+              <p>{{ t('ap.founder.p4') }}</p>
               <p>
-                For him, every development begins with a deeper question:
-                <strong>what will make this place meaningful to the people who live there - today, and years from now?</strong>
-              </p>
-              <p>That thinking shaped Prestige One.</p>
-              <p>
-                His approach brings together the right location, thoughtful design, quality execution, and a clear
-                understanding of how people want to live. The goal is not simply to create beautiful homes, but to
-                create places that feel considered, add value to everyday life, and remain relevant over time.
-              </p>
-              <p>
-                As Prestige One continues to grow, Ajmal's vision remains clear:
-                <strong>to build with purpose, protect quality, and create a name people trust for what it stands for.</strong>
+                {{ t('ap.founder.p5Lead') }}
+                <strong>{{ t('ap.founder.p5Strong') }}</strong>
               </p>
               <blockquote>
-                "True prestige is not simply seen. It is felt, lived, and remembered."
+                {{ t('ap.founder.quote') }}
               </blockquote>
             </div>
           </div>
@@ -80,11 +73,13 @@ interface PrestigeFounderHighlight {
   label: string;
 }
 
-const highlights: PrestigeFounderHighlight[] = [
-  { icon: "fa-solid fa-award", title: "18+ Years", label: "Global Experience" },
-  { icon: "fa-solid fa-building", title: "Multi-Billion", label: "AED Portfolio" },
-  { icon: "fa-solid fa-handshake", title: "Community", label: "Driven Leadership" },
-];
+const { t } = useI18n();
+
+const highlights = computed<PrestigeFounderHighlight[]>(() => [
+  { icon: "fa-solid fa-award", title: t("ap.founder.h1Title"), label: t("ap.founder.h1Label") },
+  { icon: "fa-solid fa-building", title: t("ap.founder.h2Title"), label: t("ap.founder.h2Label") },
+  { icon: "fa-solid fa-handshake", title: t("ap.founder.h3Title"), label: t("ap.founder.h3Label") },
+]);
 </script>
 
 <style scoped>

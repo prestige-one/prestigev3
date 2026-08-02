@@ -3,8 +3,8 @@
     <div class="container container-1430">
       <div class="row justify-content-center text-center mb-60">
         <div class="col-xl-8">
-          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">What our clients say</span>
-          <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Trusted to build more than structures</h2>
+          <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ $t('sh.whatClientsSay') }}</span>
+          <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ $t('sh.trustedToBuild') }}</h2>
         </div>
       </div>
       <div class="row">

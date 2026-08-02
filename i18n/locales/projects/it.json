@@ -1,1 +1,94 @@
-{}
+{
+  "pp": {
+    "hero": {
+      "eyebrow": "I nostri progetti",
+      "title": "Benvenuti nel mondo di Prestige",
+      "lead": "Scopri la nostra collezione di residenze e spazi commerciali nelle destinazioni più prestigiose di Dubai."
+    },
+    "search": {
+      "placeholder": "Cerca progetti per nome o località…"
+    },
+    "categories": {
+      "all": "Tutti i progetti",
+      "residential": "Residenziale",
+      "commercial": "Commerciale",
+      "upcoming": "Prossimamente"
+    },
+    "filters": {
+      "allDestinations": "Tutte le destinazioni",
+      "destinationAria": "Filtra per destinazione"
+    },
+    "stats": {
+      "projects": "Progetti",
+      "destinations": "Destinazioni",
+      "countries": "Paesi",
+      "freehold": "Piena proprietà"
+    },
+    "empty": "Ancora nessun progetto in questa categoria - torna presto.",
+    "cta": {
+      "eyebrow": "Indeciso?",
+      "title": "Troviamo l'indirizzo giusto per te",
+      "text": "Dicci cosa stai cercando e il nostro team ti proporrà i progetti Prestige One più adatti a te.",
+      "primary": "Parla con il nostro team",
+      "secondary": "Esplora le destinazioni"
+    },
+    "detail": {
+      "enquireNow": "Richiedi informazioni",
+      "overview": {
+        "eyebrow": "Panoramica",
+        "title": "La vita a {name}"
+      },
+      "amenities": {
+        "eyebrow": "Servizi",
+        "title": "Tutto a portata di mano",
+        "lead": "Servizi selezionati con cura, pensati per il comfort, il benessere e la praticità di ogni giorno."
+      },
+      "gallery": {
+        "eyebrow": "Galleria",
+        "title": "Uno sguardo più da vicino"
+      },
+      "location": {
+        "eyebrow": "Posizione",
+        "title": "Perfettamente collocato a {location}",
+        "nearby": "Nelle vicinanze",
+        "connectivity": "Collegamenti",
+        "schools": "Scuole",
+        "healthcare": "Sanità"
+      },
+      "payment": {
+        "eyebrow": "Piano di pagamento",
+        "title": "Flessibile e trasparente",
+        "note": "Piano indicativo - contatta il nostro team per le condizioni e la disponibilità più aggiornate."
+      },
+      "resources": {
+        "eyebrow": "Risorse",
+        "title": "Documenti del progetto",
+        "request": "Richiedi"
+      },
+      "faqTitle": "Utile da sapere",
+      "related": {
+        "eyebrow": "Scopri di più",
+        "title": "Progetti correlati"
+      },
+      "closing": {
+        "eyebrow": "Registra il tuo interesse",
+        "title": "Fai di {name} la tua casa",
+        "text": "Contatta il nostro team per planimetrie, disponibilità e le condizioni di pagamento più aggiornate.",
+        "primary": "Richiedi informazioni",
+        "secondary": "Vedi tutti i progetti"
+      }
+    },
+    "faq": {
+      "eyebrow": "Domande frequenti"
+    },
+    "payment": {
+      "step": "Fase"
+    },
+    "doc": {
+      "eyebrow": "Richiedi documento",
+      "lead": "Lascia i tuoi dati e il nostro team ti invierà {doc} di {project} direttamente nella tua casella di posta.",
+      "requestAria": "Richiedi {doc}",
+      "close": "Chiudi"
+    }
+  }
+}

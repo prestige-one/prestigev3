@@ -2,12 +2,10 @@
   <section class="prestige-stories pt-120 pb-120">
     <div class="container container-1430">
       <header class="prestige-stories__head">
-        <span class="prestige-stories__eyebrow">CLIENT STORIES</span>
-        <h2 class="prestige-stories__title prestige-text-paint">Homes Handed Over. Stories That Stay.</h2>
+        <span class="prestige-stories__eyebrow">{{ $t('hp.stories.eyebrow') }}</span>
+        <h2 class="prestige-stories__title prestige-text-paint">{{ $t('hp.stories.title') }}</h2>
         <p class="prestige-stories__lead">
-          From the first viewing to the moment they receive their keys, Prestige One
-          owners become part of a growing community. Here are a few of their journeys,
-          in their own words.
+          {{ $t('hp.stories.lead') }}
         </p>
       </header>
 
@@ -35,11 +33,13 @@
 </template>
 
 <script setup lang="ts">
-const videos = [
-  { name: "A Homeowner's Story", project: "Prestige One", video: "/assets/videos/handover-1.mp4", poster: "/assets/videos/handover-1-poster.jpg" },
-  { name: "Handover Day", project: "Vista by Prestige One", video: "/assets/videos/handover-2.mp4", poster: "/assets/videos/handover-2-poster.jpg" },
-  { name: "Receiving the Keys", project: "Vista by Prestige One", video: "/assets/videos/handover-3.mp4", poster: "/assets/videos/handover-3-poster.jpg" },
-];
+const { t } = useI18n();
+
+const videos = computed(() => [
+  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/handover-1.mp4", poster: "/assets/videos/handover-1-poster.jpg" },
+  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/handover-2.mp4", poster: "/assets/videos/handover-2-poster.jpg" },
+  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/handover-3.mp4", poster: "/assets/videos/handover-3-poster.jpg" },
+]);
 </script>
 
 <style scoped>

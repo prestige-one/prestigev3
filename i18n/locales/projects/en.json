@@ -1,1 +1,94 @@
-{}
+{
+  "pp": {
+    "hero": {
+      "eyebrow": "Our Developments",
+      "title": "Welcome to the World of Prestige",
+      "lead": "Explore our collection of residences and commercial addresses across Dubai's most prestigious destinations."
+    },
+    "search": {
+      "placeholder": "Search projects by name or location…"
+    },
+    "categories": {
+      "all": "All Projects",
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "upcoming": "Upcoming"
+    },
+    "filters": {
+      "allDestinations": "All Destinations",
+      "destinationAria": "Filter by destination"
+    },
+    "stats": {
+      "projects": "Projects",
+      "destinations": "Destinations",
+      "countries": "Countries",
+      "freehold": "Freehold"
+    },
+    "empty": "No projects in this category yet - check back soon.",
+    "cta": {
+      "eyebrow": "Can't decide?",
+      "title": "Let's find the right address for you",
+      "text": "Tell us what you're looking for and our team will match you with the Prestige One developments that fit.",
+      "primary": "Talk to our team",
+      "secondary": "Explore destinations"
+    },
+    "detail": {
+      "enquireNow": "Enquire now",
+      "overview": {
+        "eyebrow": "Overview",
+        "title": "Life at {name}"
+      },
+      "amenities": {
+        "eyebrow": "Amenities",
+        "title": "Everything at your doorstep",
+        "lead": "Thoughtfully curated amenities designed around comfort, wellbeing and everyday convenience."
+      },
+      "gallery": {
+        "eyebrow": "Gallery",
+        "title": "A closer look"
+      },
+      "location": {
+        "eyebrow": "Location",
+        "title": "Perfectly placed in {location}",
+        "nearby": "Nearby",
+        "connectivity": "Connectivity",
+        "schools": "Schools",
+        "healthcare": "Healthcare"
+      },
+      "payment": {
+        "eyebrow": "Payment plan",
+        "title": "Flexible & transparent",
+        "note": "Indicative plan - speak to our team for the latest terms and availability."
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "title": "Project documents",
+        "request": "Request"
+      },
+      "faqTitle": "Good to know",
+      "related": {
+        "eyebrow": "Explore more",
+        "title": "Related developments"
+      },
+      "closing": {
+        "eyebrow": "Register your interest",
+        "title": "Make {name} home",
+        "text": "Speak to our team for floor plans, availability and the latest payment terms.",
+        "primary": "Enquire now",
+        "secondary": "View all projects"
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQs"
+    },
+    "payment": {
+      "step": "Step"
+    },
+    "doc": {
+      "eyebrow": "Request document",
+      "lead": "Leave your details and our team will send the {doc} for {project} straight to your inbox.",
+      "requestAria": "Request {doc}",
+      "close": "Close"
+    }
+  }
+}
