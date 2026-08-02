@@ -5,7 +5,7 @@
         <div
           v-for="(s, i) in stats"
           :key="i"
-          class="mb-30 tp_fade_anim"
+          class="tp_fade_anim"
           :class="s.col || 'col-lg-3 col-md-6'"
           data-delay=".2"
         >
@@ -29,13 +29,16 @@ defineProps<{ stats: Stat[] }>();
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+.prestige-statband .row {
+  row-gap: 30px;
+}
 .prestige-statband__item {
   text-align: center;
 }
 .prestige-statband__value {
   display: block;
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(40px, 5vw, 45px);
   font-weight: 700;
   letter-spacing: -1px;
   line-height: 1;

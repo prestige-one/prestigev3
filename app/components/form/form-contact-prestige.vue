@@ -99,6 +99,21 @@ async function onSubmit() {
   opacity: 1;
 }
 
+.tp-contact-form-input input,
+.tp-contact-form-input textarea {
+  color: #fff;
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.tp-contact-form-input input:focus,
+.tp-contact-form-input textarea:focus {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
 /* white pill send button with dark arrow circle (matches the mock) */
 .prestige-send {
   display: flex;

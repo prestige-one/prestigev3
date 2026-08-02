@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-developments-area pb-120">
+  <section class="prestige-developments-area pb-20">
     <div class="container container-1430">
       <div class="row justify-content-center">
         <div class="col-xl-8">

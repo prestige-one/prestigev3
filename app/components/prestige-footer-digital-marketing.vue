@@ -19,7 +19,10 @@
                                 <li>
                                     <a href="tel:80077378443">
                                         <span class="prestige-footer-contact-icon"><svg-phone-one /></span>
-                                        <span>800 PRESTIGE / 800 77378443</span>
+                                        <span class="prestige-footer-phone-lines">
+                                            <span>800 PRESTIGE</span>
+                                            <span>800 77378443</span>
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
@@ -191,6 +194,10 @@ async function subscribe() {
    the theme's own hover state (_footer-2.scss, .dgm-footer-widget-social a)
    is a lime green-yellow (--tp-common-green-regular / #C1ED00); swap it
    for a white pill with dark icons instead. */
+.prestige-dgm-footer :deep(.dgm-footer-widget-social a) {
+  color: rgb(255, 255, 255);
+}
+
 .prestige-dgm-footer :deep(.dgm-footer-widget-social a:hover) {
   color: #111013;
   border-color: #fff;
@@ -240,6 +247,12 @@ async function subscribe() {
 
 .prestige-footer-contact li > a:hover {
   color: #fff;
+}
+
+.prestige-footer-phone-lines {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
 }
 
 .prestige-footer-contact-icon {

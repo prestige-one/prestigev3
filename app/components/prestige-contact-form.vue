@@ -56,7 +56,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 .prestige-contact-area {
   background-color: #0e0e12;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  padding-top: 270px;
+  padding-top: 100px;
   padding-bottom: 50px;
 }
 
@@ -150,7 +150,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 
 .prestige-contact-centered .prestige-contact-form-card {
   width: 100%;
-  max-width: 1080px;
+  max-width: 880px;
 }
 .agntix-dark .tp-contact-form-input input:focus, .agntix-dark .tp-contact-form-input textarea:focus {
 	border-color: #5A5A5A;

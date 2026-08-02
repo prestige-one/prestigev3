@@ -5,7 +5,7 @@
         class="row"
         :class="[reverse ? 'flex-row-reverse' : '', equalHeight ? 'align-items-stretch' : 'align-items-center']"
       >
-        <div class="col-lg-6 mb-40" :class="{ 'd-flex': equalHeight }">
+        <div class="col-lg-6 mb-40" :class="equalHeight ? 'd-flex mb-lg-0' : ''">
           <div class="prestige-fsplit__media tp_fade_anim" :class="{ 'is-fill': equalHeight }" data-delay=".2">
             <img :src="image" :alt="title" loading="lazy">
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-whydubai pt-120 pb-120">
+  <section class="prestige-whydubai pt-140 pb-80">
     <div class="container container-1430">
       <header class="prestige-whydubai__head">
         <span class="prestige-whydubai__eyebrow">{{ $t('hp.whyDubai.eyebrow') }}</span>
@@ -27,9 +27,9 @@ const reasons = computed(() => [
   { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text") },
   { stat: "6-8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
   { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
-  { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
-  { stat: "8 Hrs", title: t("hp.whyDubai.r5Title"), text: t("hp.whyDubai.r5Text") },
   { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text") },
+  { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
+  { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text") },
 ]);
 </script>
 

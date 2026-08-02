@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-stories pt-120 pb-120">
+  <section class="prestige-stories pt-80 pb-120">
     <div class="container container-1430">
       <header class="prestige-stories__head">
         <span class="prestige-stories__eyebrow">{{ $t('hp.stories.eyebrow') }}</span>
@@ -14,13 +14,29 @@
           <div class="prestige-stories__media">
             <video
               class="prestige-stories__video"
-              controls
               playsinline
               preload="metadata"
               :poster="v.poster"
+              tabindex="0"
+              :aria-label="`${v.name} — play or pause video`"
+              @click="toggleVideo"
+              @keydown.enter.prevent="toggleVideo"
+              @keydown.space.prevent="toggleVideo"
+              @play="playingIndex = i"
+              @pause="clearPlayingIndex(i)"
+              @ended="clearPlayingIndex(i)"
             >
               <source :src="v.video" type="video/mp4">
             </video>
+            <span
+              v-show="playingIndex !== i"
+              class="prestige-stories__play"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M8.25 5.35v13.3L18.5 12 8.25 5.35Z" />
+              </svg>
+            </span>
           </div>
           <div class="prestige-stories__meta">
             <h3 class="prestige-stories__name">{{ v.name }}</h3>
@@ -34,12 +50,28 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const playingIndex = ref<number | null>(null);
 
 const videos = computed(() => [
-  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/handover-1.mp4", poster: "/assets/videos/handover-1-poster.jpg" },
-  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/handover-2.mp4", poster: "/assets/videos/handover-2-poster.jpg" },
-  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/handover-3.mp4", poster: "/assets/videos/handover-3-poster.jpg" },
+  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/handover-1.mp4", poster: "/assets/images/v3/residence.jpeg" },
+  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/handover-2.mp4", poster: "/assets/images/v3/vista-1.jpeg" },
+  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/handover-3.mp4", poster: "/assets/images/v3/vista-2.jpg" },
 ]);
+
+function toggleVideo(event: MouseEvent | KeyboardEvent) {
+  const video = event.currentTarget as HTMLVideoElement | null;
+  if (!video) return;
+
+  if (video.paused) {
+    void video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function clearPlayingIndex(index: number) {
+  if (playingIndex.value === index) playingIndex.value = null;
+}
 </script>
 
 <style scoped>
@@ -75,6 +107,10 @@ const videos = computed(() => [
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 1.8vw, 26px);
+  width: 100%;
+}
+.prestige-stories__card {
+  min-width: 0;
 }
 .prestige-stories__media {
   position: relative;
@@ -85,11 +121,38 @@ const videos = computed(() => [
   overflow: hidden;
   background: #0d0e12;
 }
+.prestige-stories__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: clamp(52px, 4.5vw, 68px);
+  height: clamp(52px, 4.5vw, 68px);
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(7, 9, 13, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  place-items: center;
+}
+.prestige-stories__play svg {
+  width: 28%;
+  height: 28%;
+  margin-left: 5%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
 .prestige-stories__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 .prestige-stories__meta { padding: 16px 4px 0; text-align: center; }
 .prestige-stories__name {

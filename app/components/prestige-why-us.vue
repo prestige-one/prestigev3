@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-why-us-area pt-120 pb-120">
+  <section class="prestige-why-us-area pt-80 pb-140">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-8">
@@ -110,7 +110,7 @@ const whyUsData = computed<WhyUsItem[]>(() => [
     number: "04",
     title: t("hp.whyUs.item4Title"),
     description: t("hp.whyUs.item4Desc"),
-    image: "/assets/images/v3/A-Global-Perspective.webp",
+    image: "/assets/images/v3/connected.jpeg",
     imagePosition: "right",
   },
 ]);

@@ -101,7 +101,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
 
 .prestige-drives-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(14px, 1.6vw, 22px);
 }
 
@@ -140,12 +140,12 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   right: 0;
   bottom: 0;
   left: 0;
-  padding: clamp(26px, 4vw, 44px);
+  padding: clamp(20px, 4vw, 35px);
 }
 
 .prestige-drives-card-title {
   margin: 0 0 12px;
-  font-size: clamp(23px, 2.3vw, 27px);
+  font-size: clamp(18px, 2.3vw, 20px);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.3px;

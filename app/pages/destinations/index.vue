@@ -151,6 +151,10 @@ usePrestigePage({ hero: false });
 }
 </style>
 <style scoped>
+:deep(.prestige-fsplit .prestige-heading) {
+  font-size: clamp(26px, 3.2vw, 35px);
+}
+
 .prestige-dest-card {
   display: block;
   color: #fff;

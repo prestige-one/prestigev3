@@ -44,8 +44,16 @@
             <prestige-amenities-grid
               :eyebrow="t('pp.detail.amenities.eyebrow')"
               :title="t('pp.detail.amenities.title')"
+              heading-class="prestige-detail__amenities-heading"
               :lead="t('pp.detail.amenities.lead')"
               :items="amenities"
+            />
+
+            <!-- cinematic interlude -->
+            <prestige-statement-band
+              eyebrow="The Prestige One difference"
+              :text="heroLead"
+              :image="project.gallery[2] || project.gallery[0] || project.hero"
             />
 
 
@@ -340,6 +348,18 @@ function requestDocument(doc: { raw: string; label: string }) {
 :deep(.prestige-heading) {
   font-size: clamp(34px, 4.4vw, 40px);
 }
+.prestige-page :deep(.prestige-fsplit .prestige-heading) {
+  font-size: clamp(18px, 4.4vw, 22px);
+}
+.prestige-page :deep(.prestige-detail__amenities-heading) {
+  font-size: clamp(20px, 3.2vw, 25px);
+}
+.prestige-page :deep(.pstate__veil) {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.58));
+}
+.prestige-page :deep(.pstate__text) {
+  font-size: clamp(25px, 4vw, 30px);
+}
 
 /* project documents as cards */
 .prestige-docgrid {
@@ -419,7 +439,7 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-detail__fact-value {
   display: block;
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(18px, 2.2vw, 20px);
   color: #fff;
   line-height: 1.2;
 }
