@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "destinations": "Destinations",
+    "virtualTour": "Virtual Tour",
+    "media": "Media",
+    "contact": "Contact",
+    "getInTouch": "Get in touch"
+  },
+  "cta": {
+    "enquireNow": "Enquire now",
+    "viewProject": "View Project",
+    "exploreAllProjects": "Explore all projects",
+    "viewAllProjects": "View all projects",
+    "viewAllDestinations": "View all destinations",
+    "exploreAllDevelopments": "Explore all developments",
+    "sendMessage": "Send Message",
+    "sending": "Sending…",
+    "readMore": "Read more",
+    "learnMore": "Learn more",
+    "request": "Request",
+    "nowSelling": "Now Selling",
+    "soldOut": "Sold Out",
+    "comingSoon": "Coming Soon"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Follow Us",
+    "corporate": "Corporate",
+    "popularAreas": "Popular Areas",
+    "mediaCenter": "Media Center",
+    "newsletter": "Newsletter",
+    "newsletterText": "Subscribe our newsletter to get the latest news and updates!",
+    "newsletterPlaceholder": "Enter your email",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "rightsReserved": "All Rights Reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms and Conditions"
+  },
+  "home": {
+    "ourDevelopments": "Our Developments",
+    "upcomingProjects": "Upcoming Projects",
+    "whyPrestigeOne": "Why Prestige One",
+    "whyDubai": "Why Dubai",
+    "clientStories": "Client Stories",
+    "getInTouch": "Get In Touch",
+    "letsTalk": "Let's Talk About Your Next Move"
+  },
+  "menu": {
+    "featuredProjects": "Featured projects",
+    "ourDestinations": "Our destinations"
+  },
+  "contact": {
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailAddress": "Email address",
+    "emailPlaceholder": "Enter your email address",
+    "phoneNumber": "Phone number",
+    "phonePlaceholder": "Enter your phone number",
+    "howCanWeHelp": "How Can We Help You?",
+    "messagePlaceholder": "Tell us more about your inquiry"
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  }
+}

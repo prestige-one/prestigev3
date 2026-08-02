@@ -1,0 +1,242 @@
+export interface DubaiMapProject {
+  id: number;
+  name: string;
+  area: string;
+  floors: number;
+  lng: number;
+  lat: number;
+  desc: string;
+  url: string;
+  image: string;
+}
+
+export interface DubaiMapLandmark {
+  name: string;
+  type: "landmark" | "metro" | "airport" | "leisure" | "business";
+  lng: number;
+  lat: number;
+}
+
+export const DUBAI_MAP_CONFIG = {
+  satelliteTiles: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  vectorTilesUrl: "https://tiles.openfreemap.org/planet",
+  center: [55.24, 25.13] as [number, number],
+  overviewBearing: 0,
+  overviewPitch: 58,
+  overviewMinZoom: 11.2,
+  focusZoom: 13.4,
+  focusPitch: 56,
+  ringsKm: [1, 3, 5],
+};
+
+export const DUBAI_MAP_PROJECTS: DubaiMapProject[] = [
+  {
+    id: 1,
+    name: "FAUCHON Résidences",
+    area: "Jumeirah Gardens City",
+    floors: 40,
+    lng: 55.282,
+    lat: 25.229,
+    desc: "Prestige One Developments and FAUCHON Hospitality unite in Jumeirah Gardens City, bringing French art de vivre to refined skyline residences.",
+    url: "/projects/fauchon-residences",
+    image: "/assets/images/v2/project-featured-images/fauchon/fauchon-banner.webp",
+  },
+  {
+    id: 2,
+    name: "Sanctuary",
+    area: "Meydan Horizon",
+    floors: 25,
+    lng: 55.2985,
+    lat: 25.1672,
+    desc: "A balanced Dubai lifestyle where modern residences and commercial spaces come together in Meydan Horizon.",
+    url: "/projects/sanctuary",
+    image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-aprtment.webp",
+  },
+  {
+    id: 3,
+    name: "Hilton Residences",
+    area: "Dubai Maritime City",
+    floors: 45,
+    lng: 55.283,
+    lat: 25.256,
+    desc: "Life at Hilton Residences by Prestige One is a considered balance of elegance, hospitality and ease.",
+    url: "/projects/hilton-residences-dubai-maritime-city",
+    image: "/assets/images/v2/project-featured-images/hilton/HILTON-NIGHT-VIEW-1.webp",
+  },
+  {
+    id: 4,
+    name: "Berkeley Square North",
+    area: "JVC",
+    floors: 12,
+    lng: 55.2062,
+    lat: 25.0602,
+    desc: "A distinctive Jumeirah Village Circle address inspired by London's classic architecture and clean contemporary lines.",
+    url: "/projects/berkeley-square-north",
+    image: "/assets/images/v2/project-featured-images/berkeley/Berkeley-Square-North.webp",
+  },
+  {
+    id: 5,
+    name: "Berkeley Square South",
+    area: "JVC",
+    floors: 12,
+    lng: 55.2112,
+    lat: 25.0558,
+    desc: "Elegant, beautifully considered living positioned within Jumeirah Village Circle.",
+    url: "/projects/berkeley-square-south",
+    image: "/assets/images/v2/project-featured-images/berkeley/Berkeley-Square-South.webp",
+  },
+  {
+    id: 6,
+    name: "Luxury Canal Residences",
+    area: "Dubai Islands",
+    floors: 15,
+    lng: 55.3282,
+    lat: 25.2972,
+    desc: "Canal-front residences that capture the rhythm of the waves and a new expression of waterfront living.",
+    url: "/projects/luxury-canal-residences",
+    image: "/assets/images/v2/project-featured-images/luxury-canal/luxury-canal.webp",
+  },
+  {
+    id: 7,
+    name: "Coastal Haven",
+    area: "Dubai Islands",
+    floors: 15,
+    lng: 55.2854,
+    lat: 25.3121,
+    desc: "A new era of coastal living in Dubai Islands with refined waterfront residences.",
+    url: "/projects/coastal-haven",
+    image: "/assets/images/v2/project-featured-images/coastal-haven/Coastal-Haven.webp",
+  },
+  {
+    id: 8,
+    name: "The Boulevard",
+    area: "DLRC",
+    floors: 18,
+    lng: 55.36,
+    lat: 25.099,
+    desc: "Bold and ambitious boulevard living at the centre of Dubai Land Residence Complex.",
+    url: "/projects/the-boulevard-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/boulevard/boulevard.webp",
+  },
+  {
+    id: 9,
+    name: "Parkway",
+    area: "Meydan Horizon",
+    floors: 33,
+    lng: 55.315,
+    lat: 25.1605,
+    desc: "A nature-inspired sanctuary in Meydan Horizon, shaped around greenery and calm.",
+    url: "/projects/parkway-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/parkway/parkway.webp",
+  },
+  {
+    id: 10,
+    name: "Golf Residences",
+    area: "Dubai Sports City",
+    floors: 23,
+    lng: 55.2201,
+    lat: 25.0428,
+    desc: "Contemporary residences designed for active family living in Dubai Sports City.",
+    url: "/projects/golf-residences-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/golf/The-Place-Banner.webp",
+  },
+  {
+    id: 11,
+    name: "The One",
+    area: "Barsha Heights",
+    floors: 15,
+    lng: 55.178,
+    lat: 25.099,
+    desc: "A commercial hub in Barsha Heights designed for modern businesses and visionaries.",
+    url: "/projects/the-one-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/one/the-one.webp",
+  },
+  {
+    id: 12,
+    name: "Seaside",
+    area: "Dubai Islands",
+    floors: 13,
+    lng: 55.283,
+    lat: 25.3105,
+    desc: "A relaxed waterfront retreat along the sea in Dubai Islands.",
+    url: "/projects/seaside-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/seaside/seaside-featured-image.webp",
+  },
+  {
+    id: 13,
+    name: "The Waterway",
+    area: "Meydan Horizon",
+    floors: 20,
+    lng: 55.314,
+    lat: 25.162,
+    desc: "Waterfront homes in Meydan Horizon that bring the flow and calm of water to everyday life.",
+    url: "/projects/the-waterway-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/waterway/Waterway-pic-2.webp",
+  },
+  {
+    id: 14,
+    name: "Vista",
+    area: "Dubai Sports City",
+    floors: 16,
+    lng: 55.2243,
+    lat: 25.0401,
+    desc: "Sleek architecture and panoramic golf views in the heart of Dubai Sports City.",
+    url: "/projects/vista-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/vista/vista.webp",
+  },
+  {
+    id: 15,
+    name: "The Residence",
+    area: "JVC",
+    floors: 6,
+    lng: 55.2015,
+    lat: 25.0682,
+    desc: "Modern luxury in an intimate, boutique low-rise setting in Jumeirah Village Circle.",
+    url: "/projects/the-residence-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/residence/THE-RESIDENCE.webp",
+  },
+  {
+    id: 16,
+    name: "Luxe Villa",
+    area: "Palm Jumeirah",
+    floors: 3,
+    lng: 55.1372,
+    lat: 25.1132,
+    desc: "An exceptional private villa where prestige flows as naturally as the tide.",
+    url: "/projects/luxe-villa-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/luxe-villa/luxe-villas.webp",
+  },
+  {
+    id: 17,
+    name: "Seascape Villa",
+    area: "Palm Jumeirah",
+    floors: 3,
+    lng: 55.141,
+    lat: 25.11,
+    desc: "A private escape into luxury where the serene embrace of the sea welcomes you home.",
+    url: "/projects/seascape-villa-by-prestige-one",
+    image: "/assets/images/v2/project-featured-images/seascape/seascape.webp",
+  },
+];
+
+export const DUBAI_MAP_LANDMARK_TYPES = {
+  landmark: { color: "#e8b44a", label: "Landmark" },
+  metro: { color: "#3ecf8e", label: "Metro" },
+  airport: { color: "#e8734a", label: "Airport" },
+  leisure: { color: "#c07ae0", label: "Leisure" },
+  business: { color: "#5aa9e6", label: "Business" },
+} as const;
+
+export const DUBAI_MAP_LANDMARKS: DubaiMapLandmark[] = [
+  { name: "Burj Khalifa", type: "landmark", lng: 55.2744, lat: 25.1972 },
+  { name: "Burj Al Arab", type: "landmark", lng: 55.1853, lat: 25.1412 },
+  { name: "Museum of the Future", type: "landmark", lng: 55.282, lat: 25.2196 },
+  { name: "Atlantis, The Palm", type: "leisure", lng: 55.117, lat: 25.1304 },
+  { name: "The Dubai Mall", type: "leisure", lng: 55.2796, lat: 25.1975 },
+  { name: "Dubai Marina", type: "leisure", lng: 55.14, lat: 25.0805 },
+  { name: "Dubai Intl Airport", type: "airport", lng: 55.3644, lat: 25.2532 },
+  { name: "DIFC", type: "business", lng: 55.282, lat: 25.211 },
+  { name: "Business Bay", type: "business", lng: 55.265, lat: 25.186 },
+  { name: "Burj Khalifa Metro", type: "metro", lng: 55.28, lat: 25.202 },
+  { name: "DMCC Metro", type: "metro", lng: 55.1428, lat: 25.068 },
+];

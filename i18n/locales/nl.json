@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "projects": "Projecten",
+    "destinations": "Bestemmingen",
+    "virtualTour": "Virtuele rondleiding",
+    "media": "Media",
+    "contact": "Contact",
+    "getInTouch": "Neem contact op"
+  },
+  "cta": {
+    "enquireNow": "Nu informeren",
+    "viewProject": "Bekijk project",
+    "exploreAllProjects": "Ontdek alle projecten",
+    "viewAllProjects": "Bekijk alle projecten",
+    "viewAllDestinations": "Bekijk alle bestemmingen",
+    "exploreAllDevelopments": "Ontdek alle ontwikkelingen",
+    "sendMessage": "Bericht verzenden",
+    "sending": "Verzenden…",
+    "readMore": "Lees meer",
+    "learnMore": "Meer weten",
+    "request": "Aanvragen",
+    "nowSelling": "Nu te koop",
+    "soldOut": "Uitverkocht",
+    "comingSoon": "Binnenkort"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Volg ons",
+    "corporate": "Bedrijf",
+    "popularAreas": "Populaire gebieden",
+    "mediaCenter": "Mediacentrum",
+    "newsletter": "Nieuwsbrief",
+    "newsletterText": "Abonneer u op onze nieuwsbrief voor het laatste nieuws en updates!",
+    "newsletterPlaceholder": "Voer uw e-mail in",
+    "phone": "Telefoon",
+    "email": "E-mail",
+    "address": "Adres",
+    "rightsReserved": "Alle rechten voorbehouden.",
+    "privacyPolicy": "Privacybeleid",
+    "termsConditions": "Algemene voorwaarden"
+  },
+  "home": {
+    "ourDevelopments": "Onze ontwikkelingen",
+    "upcomingProjects": "Aankomende projecten",
+    "whyPrestigeOne": "Waarom Prestige One",
+    "whyDubai": "Waarom Dubai",
+    "clientStories": "Klantverhalen",
+    "getInTouch": "Neem contact op",
+    "letsTalk": "Laten we praten over uw volgende stap"
+  },
+  "menu": {
+    "featuredProjects": "Uitgelichte projecten",
+    "ourDestinations": "Onze bestemmingen"
+  },
+  "contact": {
+    "fullName": "Volledige naam",
+    "fullNamePlaceholder": "Voer uw volledige naam in",
+    "emailAddress": "E-mailadres",
+    "emailPlaceholder": "Voer uw e-mailadres in",
+    "phoneNumber": "Telefoonnummer",
+    "phonePlaceholder": "Voer uw telefoonnummer in",
+    "howCanWeHelp": "Hoe kunnen we u helpen?",
+    "messagePlaceholder": "Vertel ons meer over uw aanvraag"
+  },
+  "language": {
+    "label": "Taal",
+    "select": "Taal selecteren"
+  }
+}

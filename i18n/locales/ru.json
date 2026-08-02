@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "О нас",
+    "projects": "Проекты",
+    "destinations": "Направления",
+    "virtualTour": "Виртуальный тур",
+    "media": "Медиа",
+    "contact": "Контакты",
+    "getInTouch": "Связаться с нами"
+  },
+  "cta": {
+    "enquireNow": "Оставить заявку",
+    "viewProject": "Смотреть проект",
+    "exploreAllProjects": "Все проекты",
+    "viewAllProjects": "Смотреть все проекты",
+    "viewAllDestinations": "Смотреть все направления",
+    "exploreAllDevelopments": "Все объекты",
+    "sendMessage": "Отправить сообщение",
+    "sending": "Отправка…",
+    "readMore": "Читать далее",
+    "learnMore": "Подробнее",
+    "request": "Запросить",
+    "nowSelling": "В продаже",
+    "soldOut": "Продано",
+    "comingSoon": "Скоро"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Мы в соцсетях",
+    "corporate": "Компания",
+    "popularAreas": "Популярные районы",
+    "mediaCenter": "Медиацентр",
+    "newsletter": "Рассылка",
+    "newsletterText": "Подпишитесь на нашу рассылку, чтобы получать последние новости и обновления!",
+    "newsletterPlaceholder": "Введите ваш e-mail",
+    "phone": "Телефон",
+    "email": "Электронная почта",
+    "address": "Адрес",
+    "rightsReserved": "Все права защищены.",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsConditions": "Условия и положения"
+  },
+  "home": {
+    "ourDevelopments": "Наши объекты",
+    "upcomingProjects": "Будущие проекты",
+    "whyPrestigeOne": "Почему Prestige One",
+    "whyDubai": "Почему Дубай",
+    "clientStories": "Истории клиентов",
+    "getInTouch": "Связаться с нами",
+    "letsTalk": "Обсудим ваш следующий шаг"
+  },
+  "menu": {
+    "featuredProjects": "Избранные проекты",
+    "ourDestinations": "Наши направления"
+  },
+  "contact": {
+    "fullName": "Полное имя",
+    "fullNamePlaceholder": "Введите ваше полное имя",
+    "emailAddress": "Электронная почта",
+    "emailPlaceholder": "Введите ваш e-mail",
+    "phoneNumber": "Номер телефона",
+    "phonePlaceholder": "Введите ваш номер телефона",
+    "howCanWeHelp": "Чем мы можем помочь?",
+    "messagePlaceholder": "Расскажите подробнее о вашем запросе"
+  },
+  "language": {
+    "label": "Язык",
+    "select": "Выберите язык"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "destinations": "Destinations",
+    "virtualTour": "Visite virtuelle",
+    "media": "Médias",
+    "contact": "Contact",
+    "getInTouch": "Nous contacter"
+  },
+  "cta": {
+    "enquireNow": "Demander maintenant",
+    "viewProject": "Voir le projet",
+    "exploreAllProjects": "Explorer tous les projets",
+    "viewAllProjects": "Voir tous les projets",
+    "viewAllDestinations": "Voir toutes les destinations",
+    "exploreAllDevelopments": "Explorer tous les développements",
+    "sendMessage": "Envoyer le message",
+    "sending": "Envoi…",
+    "readMore": "Lire la suite",
+    "learnMore": "En savoir plus",
+    "request": "Demander",
+    "nowSelling": "En vente",
+    "soldOut": "Épuisé",
+    "comingSoon": "Bientôt disponible"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Suivez-nous",
+    "corporate": "Entreprise",
+    "popularAreas": "Zones populaires",
+    "mediaCenter": "Espace média",
+    "newsletter": "Newsletter",
+    "newsletterText": "Abonnez-vous à notre newsletter pour recevoir les dernières actualités et mises à jour !",
+    "newsletterPlaceholder": "Saisissez votre e-mail",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "address": "Adresse",
+    "rightsReserved": "Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsConditions": "Conditions générales"
+  },
+  "home": {
+    "ourDevelopments": "Nos développements",
+    "upcomingProjects": "Projets à venir",
+    "whyPrestigeOne": "Pourquoi Prestige One",
+    "whyDubai": "Pourquoi Dubaï",
+    "clientStories": "Témoignages clients",
+    "getInTouch": "Nous contacter",
+    "letsTalk": "Parlons de votre prochain projet"
+  },
+  "menu": {
+    "featuredProjects": "Projets en vedette",
+    "ourDestinations": "Nos destinations"
+  },
+  "contact": {
+    "fullName": "Nom complet",
+    "fullNamePlaceholder": "Saisissez votre nom complet",
+    "emailAddress": "Adresse e-mail",
+    "emailPlaceholder": "Saisissez votre adresse e-mail",
+    "phoneNumber": "Numéro de téléphone",
+    "phonePlaceholder": "Saisissez votre numéro de téléphone",
+    "howCanWeHelp": "Comment pouvons-nous vous aider ?",
+    "messagePlaceholder": "Parlez-nous de votre demande"
+  },
+  "language": {
+    "label": "Langue",
+    "select": "Choisir la langue"
+  }
+}

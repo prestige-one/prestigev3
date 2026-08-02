@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "projects": "Progetti",
+    "destinations": "Destinazioni",
+    "virtualTour": "Tour virtuale",
+    "media": "Media",
+    "contact": "Contatti",
+    "getInTouch": "Contattaci"
+  },
+  "cta": {
+    "enquireNow": "Richiedi ora",
+    "viewProject": "Vedi progetto",
+    "exploreAllProjects": "Esplora tutti i progetti",
+    "viewAllProjects": "Vedi tutti i progetti",
+    "viewAllDestinations": "Vedi tutte le destinazioni",
+    "exploreAllDevelopments": "Esplora tutti gli sviluppi",
+    "sendMessage": "Invia messaggio",
+    "sending": "Invio in corso…",
+    "readMore": "Leggi di più",
+    "learnMore": "Scopri di più",
+    "request": "Richiedi",
+    "nowSelling": "In vendita",
+    "soldOut": "Esaurito",
+    "comingSoon": "Prossimamente"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Seguici",
+    "corporate": "Azienda",
+    "popularAreas": "Zone popolari",
+    "mediaCenter": "Centro media",
+    "newsletter": "Newsletter",
+    "newsletterText": "Iscriviti alla nostra newsletter per ricevere le ultime notizie e gli aggiornamenti!",
+    "newsletterPlaceholder": "Inserisci la tua email",
+    "phone": "Telefono",
+    "email": "Email",
+    "address": "Indirizzo",
+    "rightsReserved": "Tutti i diritti riservati.",
+    "privacyPolicy": "Informativa sulla privacy",
+    "termsConditions": "Termini e condizioni"
+  },
+  "home": {
+    "ourDevelopments": "I nostri sviluppi",
+    "upcomingProjects": "Progetti in arrivo",
+    "whyPrestigeOne": "Perché Prestige One",
+    "whyDubai": "Perché Dubai",
+    "clientStories": "Storie dei clienti",
+    "getInTouch": "Contattaci",
+    "letsTalk": "Parliamo del tuo prossimo passo"
+  },
+  "menu": {
+    "featuredProjects": "Progetti in evidenza",
+    "ourDestinations": "Le nostre destinazioni"
+  },
+  "contact": {
+    "fullName": "Nome completo",
+    "fullNamePlaceholder": "Inserisci il tuo nome completo",
+    "emailAddress": "Indirizzo email",
+    "emailPlaceholder": "Inserisci il tuo indirizzo email",
+    "phoneNumber": "Numero di telefono",
+    "phonePlaceholder": "Inserisci il tuo numero di telefono",
+    "howCanWeHelp": "Come possiamo aiutarti?",
+    "messagePlaceholder": "Raccontaci di più sulla tua richiesta"
+  },
+  "language": {
+    "label": "Lingua",
+    "select": "Seleziona lingua"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "projects": "المشاريع",
+    "destinations": "الوجهات",
+    "virtualTour": "جولة افتراضية",
+    "media": "الإعلام",
+    "contact": "اتصل بنا",
+    "getInTouch": "تواصل معنا"
+  },
+  "cta": {
+    "enquireNow": "استفسر الآن",
+    "viewProject": "عرض المشروع",
+    "exploreAllProjects": "استكشف جميع المشاريع",
+    "viewAllProjects": "عرض جميع المشاريع",
+    "viewAllDestinations": "عرض جميع الوجهات",
+    "exploreAllDevelopments": "استكشف جميع المشاريع العقارية",
+    "sendMessage": "إرسال الرسالة",
+    "sending": "جارٍ الإرسال…",
+    "readMore": "اقرأ المزيد",
+    "learnMore": "اعرف المزيد",
+    "request": "طلب",
+    "nowSelling": "متاح للبيع الآن",
+    "soldOut": "نفدت الكمية",
+    "comingSoon": "قريباً"
+  },
+  "footer": {
+    "brand": "بريستيج ون للتطوير العقاري",
+    "followUs": "تابعنا",
+    "corporate": "الشركة",
+    "popularAreas": "المناطق الشهيرة",
+    "mediaCenter": "المركز الإعلامي",
+    "newsletter": "النشرة الإخبارية",
+    "newsletterText": "اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات!",
+    "newsletterPlaceholder": "أدخل بريدك الإلكتروني",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "rightsReserved": "جميع الحقوق محفوظة.",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsConditions": "الشروط والأحكام"
+  },
+  "home": {
+    "ourDevelopments": "مشاريعنا العقارية",
+    "upcomingProjects": "المشاريع القادمة",
+    "whyPrestigeOne": "لماذا بريستيج ون",
+    "whyDubai": "لماذا دبي",
+    "clientStories": "قصص عملائنا",
+    "getInTouch": "تواصل معنا",
+    "letsTalk": "لنتحدث عن خطوتك القادمة"
+  },
+  "menu": {
+    "featuredProjects": "المشاريع المميزة",
+    "ourDestinations": "وجهاتنا"
+  },
+  "contact": {
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "أدخل اسمك الكامل",
+    "emailAddress": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "phoneNumber": "رقم الهاتف",
+    "phonePlaceholder": "أدخل رقم هاتفك",
+    "howCanWeHelp": "كيف يمكننا مساعدتك؟",
+    "messagePlaceholder": "أخبرنا المزيد عن استفسارك"
+  },
+  "language": {
+    "label": "اللغة",
+    "select": "اختر اللغة"
+  }
+}

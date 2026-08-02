@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "projects": "Projekte",
+    "destinations": "Standorte",
+    "virtualTour": "Virtuelle Tour",
+    "media": "Medien",
+    "contact": "Kontakt",
+    "getInTouch": "Kontakt aufnehmen"
+  },
+  "cta": {
+    "enquireNow": "Jetzt anfragen",
+    "viewProject": "Projekt ansehen",
+    "exploreAllProjects": "Alle Projekte entdecken",
+    "viewAllProjects": "Alle Projekte ansehen",
+    "viewAllDestinations": "Alle Standorte ansehen",
+    "exploreAllDevelopments": "Alle Entwicklungen entdecken",
+    "sendMessage": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "readMore": "Mehr lesen",
+    "learnMore": "Mehr erfahren",
+    "request": "Anfragen",
+    "nowSelling": "Jetzt im Verkauf",
+    "soldOut": "Ausverkauft",
+    "comingSoon": "Demnächst"
+  },
+  "footer": {
+    "brand": "Prestige One Developments",
+    "followUs": "Folgen Sie uns",
+    "corporate": "Unternehmen",
+    "popularAreas": "Beliebte Gegenden",
+    "mediaCenter": "Medienzentrum",
+    "newsletter": "Newsletter",
+    "newsletterText": "Abonnieren Sie unseren Newsletter, um die neuesten Nachrichten und Updates zu erhalten!",
+    "newsletterPlaceholder": "E-Mail eingeben",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "rightsReserved": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsConditions": "Allgemeine Geschäftsbedingungen"
+  },
+  "home": {
+    "ourDevelopments": "Unsere Projekte",
+    "upcomingProjects": "Kommende Projekte",
+    "whyPrestigeOne": "Warum Prestige One",
+    "whyDubai": "Warum Dubai",
+    "clientStories": "Kundenstimmen",
+    "getInTouch": "Kontakt aufnehmen",
+    "letsTalk": "Sprechen wir über Ihren nächsten Schritt"
+  },
+  "menu": {
+    "featuredProjects": "Ausgewählte Projekte",
+    "ourDestinations": "Unsere Standorte"
+  },
+  "contact": {
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+    "emailAddress": "E-Mail-Adresse",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "phoneNumber": "Telefonnummer",
+    "phonePlaceholder": "Geben Sie Ihre Telefonnummer ein",
+    "howCanWeHelp": "Wie können wir Ihnen helfen?",
+    "messagePlaceholder": "Erzählen Sie uns mehr über Ihre Anfrage"
+  },
+  "language": {
+    "label": "Sprache",
+    "select": "Sprache auswählen"
+  }
+}
