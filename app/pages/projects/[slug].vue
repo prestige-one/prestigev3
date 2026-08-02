@@ -114,21 +114,14 @@
             <!-- 6 · payment plan -->
             <section class="prestige-section prestige-section--tight prestige-detail__pp">
               <div class="container container-1430">
-                <div class="row">
-                  <div class="col-lg-5 mb-40">
+                <div class="row mb-40">
+                  <div class="col-lg-8">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Payment plan</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Flexible &amp; transparent</h2>
                     <p class="prestige-detail__note tp_fade_anim" data-delay=".4">Indicative plan - speak to our team for the latest terms and availability.</p>
                   </div>
-                  <div class="col-lg-6 offset-lg-1">
-                    <div class="prestige-detail__plan tp_fade_anim" data-delay=".3">
-                      <div v-for="(m, i) in project.paymentPlan" :key="i" class="prestige-detail__plan-row">
-                        <span class="prestige-detail__plan-label">{{ m.label }}</span>
-                        <span class="prestige-detail__plan-value">{{ m.value }}</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
+                <prestige-payment-wizard :steps="project.paymentPlan" />
               </div>
             </section>
 
@@ -137,14 +130,35 @@
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Resources</span>
                 <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">Project documents</h2>
-                <div class="prestige-detail__docrows tp_fade_anim" data-delay=".35">
-                  <nuxt-link v-for="(d, i) in project.documents" :key="i" to="/contact-us" class="prestige-detail__docrow">
-                    <span>{{ d }}</span>
-                    <span class="prestige-detail__docget">Request <i>→</i></span>
-                  </nuxt-link>
+                <div class="prestige-docgrid">
+                  <button
+                    v-for="(d, i) in project.documents"
+                    :key="i"
+                    type="button"
+                    class="prestige-doccard tp_fade_anim"
+                    :data-delay="0.3 + i * 0.07"
+                    @click="requestDocument(d)"
+                  >
+                    <span class="prestige-doccard__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                        <path d="M6 2h8l4 4v16H6z" stroke-linejoin="round" />
+                        <path d="M14 2v4h4" stroke-linejoin="round" />
+                        <path d="M9 12h6M9 16h6" stroke-linecap="round" />
+                      </svg>
+                    </span>
+                    <span class="prestige-doccard__name">{{ d }}</span>
+                    <span class="prestige-doccard__cta">Request <i>→</i></span>
+                  </button>
                 </div>
               </div>
             </section>
+
+            <prestige-doc-request-modal
+              :open="docModalOpen"
+              :document-name="activeDocument"
+              :project-title="shortName"
+              @close="docModalOpen = false"
+            />
 
             <!-- 8 · FAQ -->
             <prestige-faq-accordion title="Good to know" :items="faqs" />
@@ -205,7 +219,7 @@ if (!project.value) {
   throw createError({ statusCode: 404, statusMessage: "Project not found", fatal: true });
 }
 
-const shortName = computed(() => project.value!.title.split(" by ")[0]);
+const shortName = computed(() => project.value!.title.split(" by ")[0] ?? project.value!.title);
 
 // The destination this project sits in - used to fill location facts (nearby
 // drive times, connectivity, schools, hospitals) with real, researched data
@@ -247,6 +261,25 @@ useSeoMeta({
 });
 
 usePrestigePage({ hero: false });
+
+// Document-request modal: opening a document card pops the contact form
+// pre-noted with the requested document and fires a KPI event.
+const docModalOpen = ref(false);
+const activeDocument = ref("");
+
+function trackDocumentRequest(documentName: string) {
+  if (import.meta.server) return;
+  const payload = { event: "document_request", document: documentName, project: slug.value };
+  const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+  if (w.dataLayer) w.dataLayer.push(payload);
+  else console.info("[kpi] document_request", payload);
+}
+
+function requestDocument(documentName: string) {
+  activeDocument.value = documentName;
+  docModalOpen.value = true;
+  trackDocumentRequest(documentName);
+}
 </script>
 
 <style scoped>
@@ -257,6 +290,55 @@ usePrestigePage({ hero: false });
 /* all main section headings on the detail page share one size */
 :deep(.prestige-heading) {
   font-size: clamp(34px, 4.4vw, 40px);
+}
+
+/* project documents as cards */
+.prestige-docgrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.prestige-doccard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 30px 26px 26px;
+  min-height: 200px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+.prestige-doccard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px);
+}
+.prestige-doccard__icon { width: 34px; height: 34px; color: rgba(255, 255, 255, 0.85); }
+.prestige-doccard__icon svg { width: 100%; height: 100%; }
+.prestige-doccard__name {
+  margin-top: auto;
+  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.2;
+}
+.prestige-doccard__cta {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+.prestige-doccard:hover .prestige-doccard__cta { color: #fff; }
+.prestige-doccard__cta i { font-style: normal; }
+@media (max-width: 991.98px) { .prestige-docgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 479.98px) {
+  .prestige-docgrid { grid-template-columns: 1fr; }
+  .prestige-doccard { min-height: 0; }
 }
 .prestige-detail__badge {
   display: inline-flex;

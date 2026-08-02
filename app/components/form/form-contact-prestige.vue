@@ -46,8 +46,9 @@
 <script setup lang="ts">
 import { countries, getFlagEmoji } from "~/data/countries-data";
 
+const props = defineProps<{ prefillMessage?: string }>();
 const selectedCountry = ref("AE");
-const form = reactive({ name: "", email: "", phone: "", message: "" });
+const form = reactive({ name: "", email: "", phone: "", message: props.prefillMessage ?? "" });
 const status = ref<"idle" | "submitting" | "success" | "error">("idle");
 const responseMsg = ref("");
 
