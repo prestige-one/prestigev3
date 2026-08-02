@@ -3,37 +3,37 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Full name</label>
-          <input v-model="form.name" name="name" type="text" placeholder="Enter your full name">
+          <label>{{ $t('contact.fullName') }}</label>
+          <input v-model="form.name" name="name" type="text" :placeholder="$t('contact.fullNamePlaceholder')">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
-          <label>Email address</label>
-          <input v-model="form.email" name="email" type="email" placeholder="Enter your email address">
+          <label>{{ $t('contact.emailAddress') }}</label>
+          <input v-model="form.email" name="email" type="email" :placeholder="$t('contact.emailPlaceholder')">
         </div>
       </div>
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
-          <label>Phone number</label>
+          <label>{{ $t('contact.phoneNumber') }}</label>
           <div class="prestige-phone-field">
             <select v-model="selectedCountry" name="phone_country" class="prestige-phone-code">
               <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
                 {{ getFlagEmoji(country.iso2) }} {{ country.dial }}
               </option>
             </select>
-            <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number" placeholder="Enter your phone number">
+            <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number" :placeholder="$t('contact.phonePlaceholder')">
           </div>
         </div>
       </div>
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
-          <label>How Can We Help You?</label>
-          <textarea v-model="form.message" name="message" placeholder="Tell us more about your inquiry" />
+          <label>{{ $t('contact.howCanWeHelp') }}</label>
+          <textarea v-model="form.message" name="message" :placeholder="$t('contact.messagePlaceholder')" />
         </div>
         <div class="tp-contact-form-btn">
           <button class="prestige-send" type="submit" :disabled="status === 'submitting'">
-            <span class="prestige-send__label">{{ status === 'submitting' ? 'Sending…' : 'Send Message' }}</span>
+            <span class="prestige-send__label">{{ status === 'submitting' ? $t('cta.sending') : $t('cta.sendMessage') }}</span>
             <span class="prestige-send__arrow" aria-hidden="true">→</span>
           </button>
           <p v-if="responseMsg" class="ajax-response mt-5" :class="`is-${status}`">{{ responseMsg }}</p>

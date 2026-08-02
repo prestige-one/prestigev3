@@ -23,8 +23,8 @@
                                 <prestige-language-switcher class="prestige-header-lang" />
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
                                     <div class="prestige-getintouch">
-                                        <nuxt-link href="/contact-us" class="prestige-getintouch__text">
-                                            Get in touch
+                                        <nuxt-link :to="localePath('/contact-us')" class="prestige-getintouch__text">
+                                            {{ $t('nav.getInTouch') }}
                                         </nuxt-link>
                                         <nuxt-link href="https://wa.me/+971523412936" target="_blank" rel="noopener" class="prestige-getintouch__wa" aria-label="WhatsApp">
                                             <svg-social-whatsapp-three />
@@ -61,6 +61,7 @@
 
 <script setup lang="ts">
 const openMobileOffcanvas = ref(false);
+const localePath = useLocalePath();
 </script>
 
 <style scoped>

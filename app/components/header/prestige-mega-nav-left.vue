@@ -1,11 +1,11 @@
 <template>
   <div class="lnv" @mouseleave="scheduleClose">
     <ul class="lnv__top">
-      <li><nuxt-link to="/" @click="close">Home</nuxt-link></li>
+      <li><nuxt-link :to="localePath('/')" @click="close">{{ $t('nav.home') }}</nuxt-link></li>
 
       <!-- ABOUT US -->
       <li class="lnv__has" :class="{ active: active === 'about' }" @mouseenter="open('about')">
-        <nuxt-link to="/about-us" @click="close">About Us</nuxt-link>
+        <nuxt-link :to="localePath('/about-us')" @click="close">{{ $t('nav.about') }}</nuxt-link>
         <div
           class="lnv__dd"
           :class="{ open: active === 'about' }"
@@ -22,14 +22,14 @@
 
       <!-- PROJECTS -->
       <li class="lnv__has" :class="{ active: active === 'projects' }" @mouseenter="open('projects')">
-        <nuxt-link to="/projects" @click="close">Projects</nuxt-link>
+        <nuxt-link :to="localePath('/projects')" @click="close">{{ $t('nav.projects') }}</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
           :class="{ open: active === 'projects' }"
           @mouseenter="cancelClose"
           @mouseleave="scheduleClose"
         >
-          <span class="lnv__label">Featured projects</span>
+          <span class="lnv__label">{{ $t('menu.featuredProjects') }}</span>
           <ul class="lnv__cards">
             <li v-for="p in featuredProjects" :key="p.slug">
               <nuxt-link :to="`/projects/${p.slug}`" class="lnv__card" @click="close">
@@ -38,20 +38,20 @@
               </nuxt-link>
             </li>
           </ul>
-          <nuxt-link to="/projects" class="lnv__viewall" @click="close">View all projects →</nuxt-link>
+          <nuxt-link :to="localePath('/projects')" class="lnv__viewall" @click="close">{{ $t('cta.viewAllProjects') }} →</nuxt-link>
         </div>
       </li>
 
       <!-- DESTINATIONS -->
       <li class="lnv__has" :class="{ active: active === 'destinations' }" @mouseenter="open('destinations')">
-        <nuxt-link to="/destinations" @click="close">Destinations</nuxt-link>
+        <nuxt-link :to="localePath('/destinations')" @click="close">{{ $t('nav.destinations') }}</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
           :class="{ open: active === 'destinations' }"
           @mouseenter="cancelClose"
           @mouseleave="scheduleClose"
         >
-          <span class="lnv__label">Our destinations</span>
+          <span class="lnv__label">{{ $t('menu.ourDestinations') }}</span>
           <ul class="lnv__cards">
             <li v-for="d in featuredDestinations" :key="d.slug">
               <nuxt-link :to="`/destinations/${d.slug}`" class="lnv__card" @click="close">
@@ -60,11 +60,11 @@
               </nuxt-link>
             </li>
           </ul>
-          <nuxt-link to="/destinations" class="lnv__viewall" @click="close">View all destinations →</nuxt-link>
+          <nuxt-link :to="localePath('/destinations')" class="lnv__viewall" @click="close">{{ $t('cta.viewAllDestinations') }} →</nuxt-link>
         </div>
       </li>
 
-      <li><nuxt-link to="/virtual-tour" @click="close">Virtual Tour</nuxt-link></li>
+      <li><nuxt-link :to="localePath('/virtual-tour')" @click="close">{{ $t('nav.virtualTour') }}</nuxt-link></li>
     </ul>
   </div>
 </template>
@@ -72,6 +72,8 @@
 <script setup lang="ts">
 import { destinations } from "~/data/destinations-data";
 import { getAllProjects } from "~/data/projects";
+
+const localePath = useLocalePath();
 
 const active = ref<"about" | "projects" | "destinations" | null>(null);
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
