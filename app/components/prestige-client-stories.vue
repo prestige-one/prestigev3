@@ -73,9 +73,8 @@ const videos = [
 }
 .prestige-stories__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 320px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 1.8vw, 26px);
-  justify-content: center;
 }
 .prestige-stories__media {
   position: relative;

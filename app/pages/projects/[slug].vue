@@ -48,12 +48,6 @@
               :items="project.amenities"
             />
 
-            <!-- cinematic interlude -->
-            <prestige-statement-band
-              eyebrow="The Prestige One difference"
-              :text="project.tagline"
-              :image="project.gallery[2] || project.gallery[0] || project.hero"
-            />
 
             <!-- 4 · gallery -->
             <section v-if="project.gallery.length" class="prestige-section">
@@ -260,7 +254,8 @@ usePrestigePage({ hero: false });
 :deep(.prestige-hero-band__title) {
   font-size: clamp(34px, 4.4vw, 40px);
 }
-:deep(.prestige-fsplit .prestige-heading) {
+/* all main section headings on the detail page share one size */
+:deep(.prestige-heading) {
   font-size: clamp(34px, 4.4vw, 40px);
 }
 .prestige-detail__badge {

@@ -9,7 +9,7 @@
               eyebrow="Our Developments"
               title="Welcome to the World of Prestige"
               lead="Explore our collection of residences and commercial addresses across Dubai's most prestigious destinations."
-              image="/assets/images/v3/projects-hero-skyline.webp"
+              image="/assets/images/v3/projects-hero-cover.webp"
             />
 
             <prestige-stat-band :stats="portfolioStats" />

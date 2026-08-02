@@ -78,6 +78,14 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+/* uniform field border colour */
+.tp-contact-form-input input,
+.tp-contact-form-input textarea,
+.prestige-phone-number,
+.prestige-phone-code {
+  border: 1px solid #484646;
+}
+
 /* left-aligned labels + lighter placeholder text */
 .tp-contact-form-input label {
   display: block;
