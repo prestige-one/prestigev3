@@ -9,17 +9,17 @@
       </div>
       <div class="row">
         <div
-          v-for="(t, i) in items"
+          v-for="(item, i) in items"
           :key="i"
           class="col-lg-4 col-md-6 mb-30 tp_fade_anim"
           data-delay=".2"
         >
           <div class="prestige-tst__card">
             <span class="prestige-tst__quote">&ldquo;</span>
-            <p class="prestige-tst__text">{{ t.quote }}</p>
+            <p class="prestige-tst__text">{{ item.quote }}</p>
             <div class="prestige-tst__by">
-              <span class="prestige-tst__name">{{ t.name }}</span>
-              <span class="prestige-tst__role">{{ t.role }}</span>
+              <span class="prestige-tst__name">{{ item.label }}</span>
+              <span class="prestige-tst__role">{{ item.project }}</span>
             </div>
           </div>
         </div>
@@ -29,27 +29,27 @@
 </template>
 
 <script setup lang="ts">
-interface Testimonial { quote: string; name: string; role: string }
+// Quote + role/label are translated (mdata.testimonials); the project/location
+// stays literal. Resolved reactively so it re-renders on locale switch.
+const { tm, rt } = useI18n();
 
 // TODO(content): replace with real, approved client testimonials.
 // Illustrative placeholders - attributed by role/context, not real individuals.
-const items: Testimonial[] = [
-  {
-    quote: "From the first viewing to handover, the team made everything feel considered. The finish quality genuinely exceeded what we expected.",
-    name: "Homeowner",
-    role: "Berkeley Square, JVC",
-  },
-  {
-    quote: "As an overseas investor I needed transparency and speed. The process was seamless and the location has already appreciated well.",
-    name: "NRI Investor",
-    role: "Dubai Islands",
-  },
-  {
-    quote: "What sets Prestige One apart is the attention to how you actually live in a space - the layouts and amenities are thought through.",
-    name: "Business Owner",
-    role: "Hilton Residences, Maritime City",
-  },
+const projects: string[] = [
+  "Berkeley Square, JVC",
+  "Dubai Islands",
+  "Hilton Residences, Maritime City",
 ];
+
+const items = computed(() =>
+  (tm("mdata.testimonials") as { quote: unknown; label: unknown }[]).map(
+    (item, i) => ({
+      quote: rt(item.quote as string),
+      label: rt(item.label as string),
+      project: projects[i] ?? "",
+    }),
+  ),
+);
 </script>
 
 <style scoped>

@@ -76,5 +76,238 @@
       "cta_secondary": "Explorar todos los destinos",
       "seo_title": "{name} | Destinos Prestige One"
     }
+  },
+  "ddata": {
+    "d": {
+      "dubai-islands": {
+        "intro": "Un archipiélago de vida frente al mar a minutos de la ciudad.",
+        "about": [
+          "Dubai Islands es un destino frente al mar magistralmente diseñado: un conjunto de cinco islas (Deira Island, Dream Island, Island Central, Marina Island y Hills Island) que redibuja el litoral norte del emirato con playas, marinas y resorts.",
+          "Combina la vida isleña relajada con una auténtica conexión urbana: Downtown, los zocos históricos y el aeropuerto internacional de Dubái están todos a poca distancia en coche, mientras que 20 kilómetros de playas y una creciente colección de resorts quedan a tu puerta."
+        ],
+        "transport": [
+          "Bien conectada a través de Sheikh Zayed Road y Al Khail Road",
+          "Ampliaciones de metro previstas y rutas de autobús dedicadas",
+          "Marinas con taxis acuáticos y servicios de ferry",
+          "16 minutos al aeropuerto internacional de Dubái"
+        ],
+        "investment": [
+          "Rara vida frente al mar en la costa norte de Dubái",
+          "Fuerte demanda de alquiler impulsada por el turismo",
+          "Valores inmobiliarios al alza a medida que madura el distrito",
+          "A minutos de Downtown y del aeropuerto",
+          "Gran inversión en infraestructura en marcha",
+          "Diseño insular sostenible y planificado"
+        ],
+        "highlights": ["20 km de playas", "Marinas y resorts", "A minutos de Deira y del aeropuerto"]
+      },
+      "mohammed-bin-rashid-city": {
+        "intro": "Un distrito central y verde en torno al estilo de vida de Meydan.",
+        "about": [
+          "Mohammed Bin Rashid City (MBR City) es un desarrollo maestro emblemático de AED 30 billion situado en el corazón verde de Dubái, envuelto en una de las mayores lagunas de cristal artificiales del mundo y entrelazado con parques, paseos y el estilo de vida de Meydan.",
+          "Enmarcada por tres de las arterias clave de la ciudad —Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) y Al Khail Road (E44)—, coloca Downtown, DIFC y el Dubai Mall a cinco minutos de distancia sin renunciar a la calma de las lagunas y los espacios verdes abiertos.",
+          "Es donde toman forma varias de las direcciones Meydan Horizon de Prestige One, equilibrando naturaleza, conectividad y valor duradero en uno de los distritos centrales más codiciados de Dubái."
+        ],
+        "transport": [
+          "Delimitada por Sheikh Mohammed Bin Zayed Road, Sheikh Zayed Road y Al Khail Road",
+          "Business Bay Metro Station a minutos, con una nueva estación de metro de Meydan prevista",
+          "Acceso directo en 5 minutos a Downtown Dubai y DIFC",
+          "16 minutos al aeropuerto internacional de Dubái"
+        ],
+        "investment": [
+          "Posición central entre Downtown, DIFC y Meydan",
+          "Plan maestro de AED 30 billion respaldado por el gobierno",
+          "Entorno de laguna de cristal y zonas verdes que otorga un valor premium",
+          "Fuerte rentabilidad de alquiler desde una dirección central privilegiada",
+          "A cinco minutos del Burj Khalifa y del Dubai Mall",
+          "Inversión continua en infraestructura y estilo de vida"
+        ],
+        "highlights": ["Lagunas de cristal y parques", "A minutos de Downtown", "Hipódromo y golf de Meydan"]
+      },
+      "dubai-sports-city": {
+        "intro": "Una comunidad activa y familiar construida en torno al deporte.",
+        "about": [
+          "Dubai Sports City es una comunidad concebida para la vida activa: golf de campeonato, estadios internacionales y academias de primer nivel entrelazados con barrios peatonales y familiares a lo largo de Mohammed Bin Zayed Road.",
+          "Desde el Dubai International Cricket Stadium y el Dubai Autodrome hasta el campo de golf The Els Club, el deporte marca la vida diaria aquí, mientras que colegios, clínicas y comercios mantienen la comunidad totalmente autosuficiente.",
+          "Las residencias de Prestige One aquí están diseñadas para ese ritmo de vida, con vistas panorámicas al golf y comodidades que mantienen cada día en movimiento."
+        ],
+        "transport": [
+          "Situada a lo largo de Mohammed Bin Zayed Road (E311)",
+          "Fácil acceso a Sheikh Zayed Road y Al Khail Road",
+          "Múltiples rutas de autobús y conexiones de metro cercanas",
+          "Servicios de Uber, Careem y taxi por toda la comunidad"
+        ],
+        "investment": [
+          "Comunidad de estilo de vida concebida a medida con fuerte demanda de usuario final",
+          "Oferta diversa, desde apartamentos hasta villas con vistas al golf",
+          "Alta rentabilidad de alquiler y revalorización constante del capital",
+          "Creciente demanda de expatriados y familias",
+          "Acceso directo por autopista a toda la ciudad",
+          "Apoyo del gobierno y plan maestro comunitario a largo plazo"
+        ],
+        "highlights": ["Campo de golf de campeonato", "Academias y estadios deportivos", "Comunidad familiar"]
+      },
+      "jumeirah-village-circle": {
+        "intro": "Una de las comunidades más queridas y mejor conectadas de Dubái.",
+        "about": [
+          "Jumeirah Village Circle (JVC) es una comunidad autosuficiente de 811-hectare formada por villas, adosados y apartamentos que rodean parques ajardinados: una de las direcciones más populares de Dubái por su combinación de valor, sentido de comunidad y conectividad.",
+          "Viviendas de influencia mediterránea y árabe conviven con edificios bajos contemporáneos, con Circle Mall, colegios y comercios dentro de la comunidad y Al Khail Road conectando a los residentes con el resto de la ciudad en minutos.",
+          "Las residencias Berkeley Square de inspiración londinense de Prestige One y sus edificios bajos boutique tienen su hogar en JVC."
+        ],
+        "transport": [
+          "Acceso directo a Al Khail Road (E44) y Sheikh Mohammed Bin Zayed Road (E311)",
+          "Ruta de autobús J01 que conecta con Mall of the Emirates y los distritos vecinos",
+          "Estaciones de metro Al Furjan y The Gardens a minutos",
+          "25 minutos al aeropuerto internacional de Dubái"
+        ],
+        "investment": [
+          "Una de las comunidades de propiedad libre más demandadas de Dubái",
+          "Rentabilidad de alquiler y ocupación sólidas y constantes",
+          "Ubicación central con gran conectividad por carretera y metro",
+          "Oferta diversa, de estudios a villas, adaptada a cada presupuesto",
+          "Diseño centrado en la comunidad con parques y comercios",
+          "Trayectoria probada de revalorización del capital"
+        ],
+        "highlights": ["Parques centrales ajardinados", "Colegios y comercios al alcance", "Fácil acceso a Al Khail Road"]
+      },
+      "palm-jumeirah": {
+        "intro": "La dirección sobre el agua más reconocible del mundo.",
+        "about": [
+          "Palm Jumeirah no necesita presentación: la mayor isla artificial de la tierra, un tronco central de 2km que se abre en 17 fronds y queda envuelto por un creciente protector, jalonado de playas privadas y resorts emblemáticos.",
+          "Es una de las direcciones costeras más exclusivas del mundo, hogar de Atlantis, del mirador The View y de Aquaventure Waterpark, y aun así a poca distancia en coche de Dubai Marina y Downtown.",
+          "Las villas insignia de Prestige One aquí son un estudio del prestigio frente al mar, donde el mar define cada aspecto de la vida."
+        ],
+        "transport": [
+          "Sistema sin conductor Palm Monorail desde Palm Gateway hasta Atlantis",
+          "Conexiones del Dubai Tram en la entrada del tronco",
+          "Proximidad estratégica a Sheikh Zayed Road",
+          "Servicios de taxi y de transporte con conductor por toda la isla"
+        ],
+        "investment": [
+          "La dirección frente al mar más icónica y prestigiosa del mundo",
+          "Sólida rentabilidad de alquiler impulsada por la demanda de lujo y vacacional",
+          "Escasa oferta frente a la playa que protege el valor a largo plazo",
+          "Resorts, restauración y ocio emblemáticos a la puerta",
+          "Mercado inmobiliario resiliente y de primer nivel",
+          "Vistas al mar y al horizonte sin igual"
+        ],
+        "highlights": ["Playas privadas", "Resorts y restauración emblemáticos", "Vistas al mar sin igual"]
+      },
+      "barsha-heights": {
+        "intro": "Un distrito central y práctico para los negocios junto al metro.",
+        "about": [
+          "Barsha Heights (antes Tecom) es un distrito de uso mixto bien conectado, con edificios residenciales, oficinas corporativas, apartamentos con servicios y hoteles, situado junto a Sheikh Zayed Road y a minutos de Dubai Internet y Media Cities.",
+          "Delimitado por Al Hessa Street (D61) y conectado con Al Khail Road, cuenta con varias estaciones de metro y ofrece una rara dirección central tanto para vivir como para hacer negocios a precios accesibles.",
+          "The One de Prestige One se alza aquí como un llamativo desarrollo de vocación comercial en el centro de todo."
+        ],
+        "transport": [
+          "Junto a Sheikh Zayed Road (E11) con acceso a Al Khail Road (E44)",
+          "Servido por las estaciones de metro Mall of the Emirates, Mashreq y Dubai Internet City",
+          "A minutos de los polos empresariales Dubai Internet City y Media City",
+          "Amplia cobertura de autobús y de transporte con conductor"
+        ],
+        "investment": [
+          "Ubicación central y bien conectada por transporte en Sheikh Zayed Road",
+          "Fuerte rentabilidad de alquiler por la demanda del distrito empresarial",
+          "Atractivo de uso mixto para inquilinos, propietarios y empresas",
+          "Precios de entrada accesibles para una zona privilegiada",
+          "A pie de tres estaciones de metro",
+          "Potencial constante de revalorización del capital"
+        ],
+        "highlights": ["Sobre la línea de metro", "Junto a Sheikh Zayed Road", "Mezcla empresarial y residencial"]
+      },
+      "dubai-maritime-city": {
+        "intro": "Una península concebida a medida entre Port Rashid y Drydocks.",
+        "about": [
+          "Dubai Maritime City es una península frente al mar concebida a medida, situada entre el histórico Port Rashid y el mar abierto: una dirección costera de 360-degree que se alza cerca del corazón del Dubái antiguo y del nuevo.",
+          "Con Sheikh Rashid Road conectándola directamente con la ciudad, los residentes están a minutos del Dubai Frame, City Walk y el Gold Souk, y a poca distancia en coche de Downtown, DIFC y el aeropuerto.",
+          "Es hogar de Hilton Residences de Prestige One, que aporta vida de marca frente al mar al distrito."
+        ],
+        "transport": [
+          "Acceso fluido por Sheikh Rashid Road hacia el núcleo de la ciudad",
+          "A minutos de la terminal de cruceros de Port Rashid y de Deira",
+          "15 minutos al aeropuerto internacional de Dubái",
+          "Amarres de marina previstos, transporte acuático y corredores mejorados"
+        ],
+        "investment": [
+          "Escaso suelo frente al mar de 360-degree que impulsa la demanda",
+          "Fuerte revalorización del capital a medida que se desarrolla el distrito",
+          "Ubicación central cerca de Downtown, DIFC y el aeropuerto",
+          "Atractivo de residencia de marca para inquilinos e inversores",
+          "Plan maestro centrado en la sostenibilidad con marinas mejoradas",
+          "Proximidad al crecimiento de cruceros y ocio de Port Rashid"
+        ],
+        "highlights": ["Entorno frente al mar de 360°", "Cerca de Port Rashid y Deira", "Residencias de marca"]
+      },
+      "dlrc": {
+        "intro": "Una comunidad residencial de rápido crecimiento y orientada al valor.",
+        "about": [
+          "Dubai Land Residence Complex (DLRC) es una comunidad de propiedad libre y autosuficiente que abarca unos 14 million square feet dentro de la extensa visión de Dubailand: una dirección orientada al valor que ofrece desde estudios hasta adosados y parcelas de terreno a lo largo del eje de Al Ain Road.",
+          "Anclada por conjuntos como Skycourts, Queue Point y los vecinos Liwan y The Villa, ofrece espacio, zonas verdes y comodidades comunitarias con acceso rápido a Emirates Road y a las atracciones más amplias de Dubailand.",
+          "The Boulevard de Prestige One aporta a la comunidad una vida de bulevar audaz y repleta de comodidades."
+        ],
+        "transport": [
+          "Situada sobre el eje de Al Ain Road (E66) con acceso a Emirates Road",
+          "Autobús RTA Bus 30 que conecta la comunidad con el Dubai Metro",
+          "Estación de metro propuesta bajo el Dubai's 2040 Urban Master Plan",
+          "Unos 20 minutos a Downtown Dubai y Business Bay"
+        ],
+        "investment": [
+          "Propiedad libre abierta a todas las nacionalidades",
+          "Algunos de los precios de entrada más asequibles de Dubái",
+          "Fuerte rentabilidad de alquiler de inquilinos que buscan valor",
+          "Ampliación de metro prevista que impulsará la accesibilidad y el valor",
+          "A minutos de las principales atracciones de ocio de Dubailand",
+          "Desarrollo continuo en un corredor de rápido crecimiento"
+        ],
+        "highlights": ["Vida orientada al valor", "Trazado verde y de baja densidad", "Acceso rápido a Emirates Road"]
+      },
+      "jumeirah-garden-city": {
+        "intro": "Un distrito urbano central a un paso de la costa.",
+        "about": [
+          "Jumeirah Garden City es un distrito central de regeneración en Al Satwa, situado justo junto a Sheikh Zayed Road entre Downtown Dubai, DIFC y la costa de Jumeirah: uno de los rincones más peatonales y conectados de la ciudad.",
+          "Los residentes están a unos cinco minutos del Museum of the Future, del Dubai Mall y del Trade Centre, con City Walk y Jumeirah Beach a la puerta y dos estaciones de metro a minutos.",
+          "Un destino que Prestige One sigue de cerca a medida que crece hasta convertirse en una mezcla de vida residencial, comercial y de negocios."
+        ],
+        "transport": [
+          "Situada justo junto a Sheikh Zayed Road (E11)",
+          "Estaciones de metro World Trade Centre y Emirates Towers a minutos",
+          "Rutas de autobús y calles peatonales por todo el distrito",
+          "13 minutos al aeropuerto internacional de Dubái"
+        ],
+        "investment": [
+          "Ubicación central privilegiada entre Downtown, DIFC y Jumeirah",
+          "Oferta limitada que sostiene una fuerte demanda de alquiler",
+          "Distrito de regeneración urbana peatonal y de uso mixto",
+          "A un paso de la costa y del estilo de vida de City Walk",
+          "Infraestructura en marcha que impulsa la revalorización del capital",
+          "A 13 minutos del aeropuerto internacional"
+        ],
+        "highlights": ["Ubicación en el centro de Dubái", "A un paso de la costa", "Distrito urbano y peatonal"]
+      },
+      "majan-city": {
+        "intro": "Una comunidad emergente de Dubailand en pleno auge.",
+        "about": [
+          "Majan es una comunidad de rápida emergencia dentro de Dubailand, situada junto a Sheikh Mohammed Bin Zayed Road (E311): un rincón tranquilo, verde y de buen precio de la ciudad que limita con el frondoso barrio de Al Barari.",
+          "Ofrece acceso rápido a Dubai Silicon Oasis y Arabian Ranches, y queda a minutos de las atracciones estrella de Dubailand, entre ellas Global Village, IMG Worlds of Adventure y los Miracle and Butterfly Gardens.",
+          "Es donde toma forma el próximo Vista Hub de Prestige One."
+        ],
+        "transport": [
+          "Situada junto a Sheikh Mohammed Bin Zayed Road (E311)",
+          "Conexiones rápidas con Dubai Silicon Oasis y Arabian Ranches",
+          "18 minutos al aeropuerto internacional de Dubái",
+          "Rutas de autobús y transporte con conductor que sirven el corredor de Dubailand"
+        ],
+        "investment": [
+          "Dirección emergente de Dubailand con fuerte potencial de crecimiento",
+          "Precios de entrada atractivos y propiedad libre",
+          "Vida verde y de baja densidad junto a Al Barari",
+          "Desarrollo continuo que impulsa el valor futuro",
+          "A minutos de las principales atracciones de Dubailand",
+          "Acceso directo por la autopista E311 a toda la ciudad"
+        ],
+        "highlights": ["Dirección emergente de Dubailand", "Verde y de baja densidad", "Fuerte potencial de crecimiento"]
+      }
+    }
   }
 }

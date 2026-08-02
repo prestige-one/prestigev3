@@ -90,5 +90,120 @@
       "requestAria": "طلب {doc}",
       "close": "إغلاق"
     }
+  },
+  "pdata": {
+    "p": {
+      "vista-by-prestige-one": { "tagline": "مساكن عصرية مصمَّمة حول إطلالات بانورامية." },
+      "the-residence-by-prestige-one": { "tagline": "سكن بوتيكي بتصميم مدروس." },
+      "waterway-by-prestige-one": { "tagline": "حياة هادئة مستوحاة من الماء." },
+      "seaside-by-prestige-one": { "tagline": "ملاذ هادئ على الواجهة المائية." },
+      "parkway-by-prestige-one": { "tagline": "حياة مستوحاة من الطبيعة، مصمَّمة من أجل التوازن." },
+      "the-one-by-prestige-one": { "tagline": "مساحات عمل عصرية لمحترفي اليوم." },
+      "the-boulevard-by-prestige-one": { "tagline": "حياة حضرية جريئة لأنماط الحياة العصرية." },
+      "coastal-haven-by-prestige-one": { "tagline": "حياة ساحلية بإطلالات خلّابة على الخليج." },
+      "luxury-canal-residences-by-prestige-one": { "tagline": "حياة على الواجهة المائية مستوحاة من إيقاع Dubai Islands." },
+      "palm-villa-by-prestige-one": { "tagline": "حياة حصرية، مصمَّمة من أجل الخصوصية." },
+      "luxe-villa-by-prestige-one": { "tagline": "حياة الفلل الخاصة بأناقة خالدة." },
+      "berkeley-square-north": { "tagline": "عمارة خالدة مستوحاة من الحياة اللندنية." },
+      "berkeley-square-south": { "tagline": "حيث تشكِّل المساحات المفتوحة تفاصيل الحياة اليومية." },
+      "hilton-residences-dubai-maritime-city": {
+        "tagline": "حياة على الواجهة المائية مستوحاة من أسلوب حياة Hilton.",
+        "overview": [
+          "الحياة في Hilton Residences by Prestige One توازن بين الأناقة والراحة - أحد أبرز المعالم التي تتشكّل في Dubai Maritime City.",
+          "تصميم لا تشوبه شائبة، تُثريه مرافق مدروسة ويعلي من شأنه اسم Hilton الموثوق، ليقدّم حياة راقية بعلامة تجارية على الواجهة المائية فوق شبه جزيرة يحيط بها البحر، مع إطلالات واسعة على المرفأ وأفق دبي.",
+          "تتنوّع المساكن من شقق مدروسة بغرفة وغرفتين نوم إلى دوبلكسات واسعة، كلٌّ منها مُنفَّذ وفق معايير العلامة الفندقية."
+        ],
+        "highlights": [
+          "مساكن بعلامة تجارية تُدار وفق معايير ضيافة Hilton",
+          "حياة على الواجهة المائية في شبه جزيرة Dubai Maritime City",
+          "مسبح لا متناهٍ بإطلالة بانورامية، وسينما خارجية، ومرافق على طراز المنتجعات",
+          "شقق بغرفة وغرفتين نوم بالإضافة إلى دوبلكسات مميّزة"
+        ]
+      },
+      "sanctuary-residences-by-prestige-one": {
+        "tagline": "إطلالات بانورامية على البحيرة تطل على محمية رأس الخور الطبيعية.",
+        "overview": [
+          "يقدّم Sanctuary by Prestige One نمطًا أكثر توازنًا للحياة في دبي ضمن Meydan - مساكن ومساحات تجارية مدروسة تنتظم حول الهدوء والمساحات الخضراء والتواصل."
+        ],
+        "highlights": [
+          "السكني والتجاري في مجتمع واحد متوازن",
+          "في قلب Meydan",
+          "مصمَّم حول الرفاهية وتيسير الحياة اليومية"
+        ]
+      },
+      "fauchon-residences-by-prestige-one": {
+        "tagline": "حياة مستوحاة من باريس مع أسلوب FAUCHON الأيقوني.",
+        "overview": [
+          "تقدّم FAUCHON Résidences فنّ العيش الخاص بالدار الباريسية العريقة إلى دبي - مساكن بعلامة تجارية تصوغ فيها الأناقة الفرنسية كل تفصيل.",
+          "من التصاميم الداخلية المنتقاة إلى فنون الطهي المميّزة، تدور الحياة في FAUCHON حول الراحة والطابع الخاص والرفاهية اليومية."
+        ],
+        "highlights": [
+          "أول مساكن بعلامة FAUCHON التجارية في المنطقة",
+          "تصاميم داخلية وخدمات بروح فنّ العيش الباريسي",
+          "فنون الطهي المميّزة من FAUCHON على عتبة داركم"
+        ]
+      },
+      "golf-residences-by-prestige-one": { "tagline": "إطلالات غير محجوبة على ملعب الغولف، كل يوم." },
+      "seascape-villa": { "tagline": "ملاذ خاص على شاطئ البحر." },
+      "the-one": { "tagline": "مركز تجاري ضمن مشروع G+14 لافت للأنظار." },
+      "sanctuary-hive": { "tagline": "مساحات تجارية مثالية للشركات الباحثة عن الظهور وسهولة الوصول." },
+      "vista-hub": { "tagline": "معلم جديد يتشكّل في Majan City." },
+      "prestige-seaside": { "tagline": "أول عنوان لـ Prestige One على الساحل اليوناني." },
+      "prestige-square": { "tagline": "معلم جديد من Prestige One يتشكّل - قريبًا." }
+    },
+    "amenities": {
+      "infinity-swimming-pool": "مسبح لا متناهٍ",
+      "state-of-the-art-fitness-centre": "مركز لياقة بدنية بأحدث التجهيزات",
+      "landscaped-podium-gardens": "حدائق منسّقة على المنصة",
+      "24-7-concierge-security": "خدمة كونسيرج وأمن على مدار الساعة",
+      "covered-resident-parking": "مواقف مغطاة للسكان",
+      "children-s-play-area": "منطقة ألعاب للأطفال",
+      "residents-lounge-co-working": "صالة للسكان ومساحة عمل مشتركة",
+      "retail-dining-on-the-doorstep": "متاجر ومطاعم على عتبة الدار",
+      "infinity-skyline-pool": "مسبح لا متناهٍ بإطلالة بانورامية",
+      "outdoor-cinema": "سينما خارجية",
+      "fitness-centre": "مركز لياقة بدنية",
+      "running-track": "مضمار للجري",
+      "multi-sports-court": "ملعب متعدد الرياضات",
+      "bbq-deck": "منطقة شواء",
+      "outdoor-kids-play-area": "منطقة ألعاب خارجية للأطفال",
+      "indoor-play-area": "منطقة ألعاب داخلية",
+      "juice-bar": "بار عصائر"
+    },
+    "payment": {
+      "on-booking": "عند الحجز",
+      "during-construction": "أثناء الإنشاء",
+      "on-handover": "عند التسليم"
+    },
+    "docs": {
+      "brochure": "الكتيّب",
+      "floor-plans": "المخططات الطابقية",
+      "payment-plan": "خطة الدفع",
+      "fact-sheet": "ورقة الحقائق"
+    },
+    "status": {
+      "now-selling": "متاح للبيع الآن",
+      "commercial": "تجاري",
+      "coming-soon": "قريبًا"
+    },
+    "faq": {
+      "q": {
+        "location": "أين يقع {name}؟",
+        "payment": "ما هي خطة الدفع؟",
+        "amenities": "ما المرافق المتوفرة؟",
+        "schools": "هل توجد مدارس ومرافق صحية قريبة؟",
+        "developer": "من هو المطوّر وما هي حالة المشروع؟"
+      },
+      "a": {
+        "location": "يقع {title} في {location}{nearby}.",
+        "locationItem": "يبعد {name} نحو {time}",
+        "locationJoin": "، و",
+        "payment": "تتوفر خطة مرنة - عادةً {plan}. الشروط استرشادية؛ تواصل مع فريقنا للاطلاع على أحدثها.",
+        "paymentItem": "{value} {label}",
+        "amenities": "يستمتع السكان بـ {list} والمزيد.",
+        "schools": "نعم - {list} في متناول اليد بسهولة.",
+        "developer": "{title} من تطوير Prestige One وهو حاليًا {status}. سجّل اهتمامك لمعرفة التوافر والأسعار."
+      }
+    }
   }
 }

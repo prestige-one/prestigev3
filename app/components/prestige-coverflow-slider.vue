@@ -30,7 +30,7 @@
                         </NuxtLink>
                       </h4>
                       <p class="coverflow-slider-description">
-                        {{ item.description }}
+                        {{ caption(item) }}
                       </p>
                     </div>
                   </div>
@@ -66,6 +66,17 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import type { DevelopmentSlide } from "../data/residential-developments-data";
+import { slugify } from "~/data/projects";
+
+const { t, te } = useI18n();
+
+// Slide caption (tagline) resolved from the `pdata` locale namespace, keyed by
+// the project's slug, falling back to the original English description so the
+// slider stays populated even if a key is missing. Reactive on locale switch.
+function caption(item: DevelopmentSlide) {
+  const k = `pdata.p.${slugify(item.title)}.tagline`;
+  return te(k) ? t(k) : item.description;
+}
 
 const props = withDefaults(
   defineProps<{

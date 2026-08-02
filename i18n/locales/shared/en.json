@@ -31,5 +31,341 @@
     "faqTitle": "Frequently asked",
     "whatClientsSay": "What our clients say",
     "trustedToBuild": "Trusted to build more than structures"
+  },
+  "mdata": {
+    "common": {
+      "speakAdvisor": "Speak to an advisor",
+      "viewDevelopments": "View developments",
+      "aboutPrestige": "About Prestige One",
+      "contactUs": "Contact us",
+      "getInTouch": "Get in touch",
+      "bookViewing": "Book a viewing",
+      "bookPrivateViewing": "Book a private viewing",
+      "viewAllProjects": "View all projects",
+      "exploreDevelopments": "Explore developments",
+      "readTheBlog": "Read the blog",
+      "requestDocument": "Request document",
+      "readTheStory": "Read the story",
+      "takeTheTour": "Take the tour",
+      "lastUpdated": "Last updated"
+    },
+    "categories": {
+      "blog": "Blog",
+      "construction": "Construction Updates",
+      "press": "Press Releases",
+      "industry": "Industry News"
+    },
+    "testimonials": [
+      { "quote": "From the first viewing to handover, the team made everything feel considered. The finish quality genuinely exceeded what we expected.", "label": "Homeowner" },
+      { "quote": "As an overseas investor I needed transparency and speed. The process was seamless and the location has already appreciated well.", "label": "NRI Investor" },
+      { "quote": "What sets Prestige One apart is the attention to how you actually live in a space - the layouts and amenities are thought through.", "label": "Business Owner" }
+    ],
+    "invest": {
+      "heroEyebrow": "Investments",
+      "heroTitle": "Invest in Prestige One",
+      "heroLead": "Own a share of Dubai's most dynamic real-estate market - backed by a trusted developer, strong returns and one of the most investor-friendly cities in the world.",
+      "whyEyebrow": "Why Dubai",
+      "whyTitle": "A market built for growth",
+      "whyParas": [
+        "Dubai has established itself as one of the world's premier destinations for property investment - combining some of the strongest rental yields of any global city with consistent capital appreciation and the security of a mature, transparent, well-regulated market.",
+        "Investors benefit from tax-free ownership, freehold titles and residency pathways, all within a city renowned for its safety, connectivity and world-class lifestyle. A stable currency pegged to the US dollar and a growing population of high earners keep demand for quality homes consistently ahead of supply.",
+        "With flexible, construction-linked payment plans, entering the market has never been more accessible - you can secure a home today and pay in staged instalments as it is built."
+      ],
+      "statYieldsValue": "Up to 8%",
+      "statYieldsLabel": "Rental yields",
+      "statTaxValue": "0%",
+      "statTaxLabel": "Property tax",
+      "statOwnershipValue": "Freehold",
+      "statOwnershipLabel": "Ownership",
+      "statPlansValue": "Flexible",
+      "statPlansLabel": "Payment plans",
+      "whyUsEyebrow": "Why Prestige One",
+      "whyUsTitle": "Invest alongside a trusted developer",
+      "whyUsParas": [
+        "An investment is only as sound as the developer behind it. Prestige One is part of a group with more than two decades of experience across construction, hospitality and real estate - depth that translates into projects delivered to standard, on quality, and built to hold their value.",
+        "Our branded partnerships with globally recognised names such as Hilton and FAUCHON Paris add a layer of demand that ordinary developments can't match. Branded residences command premium rents and resale interest, and our prime locations keep occupancy high."
+      ],
+      "whyUsPoints": [
+        "Group with a 25-year delivery track record",
+        "Branded residences with Hilton and FAUCHON Paris",
+        "Prime, well-connected addresses across Dubai",
+        "Hospitality-grade management that protects rental value"
+      ],
+      "howEyebrow": "How it works",
+      "howTitle": "From enquiry to keys",
+      "howParas": [
+        "Investing with us is refreshingly straightforward. Tell us your goals and budget, and your advisor will shortlist the homes and payment plans that fit - whether you're after rental income, capital growth or a home to eventually move into.",
+        "From there we handle the detail: reservation, the Sale and Purchase Agreement, DLD registration and a clear payment schedule. The entire process can be completed remotely, and we stay with you through construction, handover and, if you wish, leasing and management."
+      ],
+      "howPoints": [
+        "1. Share your goals and budget with an advisor",
+        "2. Shortlist homes and choose a payment plan",
+        "3. Reserve, sign the SPA and register with the DLD",
+        "4. Pay in staged instalments through construction",
+        "5. Take handover - we can lease and manage it for you"
+      ],
+      "faqEyebrow": "FAQs",
+      "faqTitle": "Investor questions",
+      "faqs": [
+        { "q": "What kind of rental yield can I expect?", "a": "Well-located Dubai apartments commonly deliver gross rental yields in the region of 6-8%, among the highest of any major global city. Branded residences and prime addresses tend to sit at the stronger end of that range thanks to premium demand. Actual returns depend on the unit, location and management, so we'll model realistic figures for any home you're considering." },
+        { "q": "Do I really pay no tax on my property?", "a": "Dubai levies no annual property tax and no capital gains tax on residential real estate, and rental income is not personally taxed. You'll pay a one-time Dubai Land Department registration fee (typically 4%) at purchase. This tax-friendly structure is a major reason net yields here outperform many other global markets." },
+        { "q": "Can foreigners own property outright?", "a": "Yes. Our developments sit in designated freehold zones, where buyers of any nationality can own the property and the land it stands on outright, in perpetuity. Ownership is registered with the Dubai Land Department and gives you full rights to live in, lease or resell your home." },
+        { "q": "Does buying property give me UAE residency?", "a": "Qualifying property investments can open a pathway to UAE residency, including the long-term Golden Visa for eligible investments. Requirements and thresholds are set by the government and can change, so we'll connect you with the right guidance for your situation as part of the buying process." },
+        { "q": "How do off-plan payment plans work?", "a": "Most of our homes are sold on construction-linked plans: a deposit on booking, a series of instalments tied to build milestones, and a final balance on handover. This spreads the cost over the construction period and lets you secure today's price. Exact terms vary by project and availability - your advisor will share the current plan." }
+      ],
+      "ctaEyebrow": "Start your investment journey",
+      "ctaTitle": "Let's talk returns",
+      "ctaText": "Speak with our investment team to explore available opportunities, payment plans and projected returns across the Prestige One portfolio."
+    },
+    "csr": {
+      "heroEyebrow": "Our Commitment",
+      "heroTitle": "Corporate Social Responsibility",
+      "heroLead": "Building responsibly means looking beyond the buildings - to the communities we serve and the environment we share.",
+      "introEyebrow": "Our Commitment",
+      "introTitle": "Development with purpose",
+      "introParas": [
+        "At Prestige One, responsibility is built into everything we create. We believe that great developments should give back - enriching the communities around them and treading lightly on the environment they inhabit.",
+        "From energy-efficient design and considered material choices to public realm that genuinely brings people together, our approach is practical, measurable and long-term. We hold ourselves to the same high standard in our social and environmental impact as we do in our architecture, so that every project leaves a positive legacy well beyond handover.",
+        "Our commitment is organised around three pillars: sustainability, community and responsible building. Together they shape how we choose sites, how we design, how we build and how we operate the places we deliver."
+      ],
+      "p1Eyebrow": "Pillar 01",
+      "p1Title": "Sustainability",
+      "p1Paras": [
+        "Sustainability at Prestige One starts at the drawing board. We design for the climate we build in - orienting buildings to reduce solar gain, specifying high-performance glazing and insulation, and choosing efficient systems that cut energy and water use over the whole life of a development.",
+        "We favour responsibly sourced materials, design out waste on site, and integrate landscaping and shade that lower the urban heat around our buildings. The goal is simple: homes that cost less to run, last longer, and place a lighter demand on the resources of the city."
+      ],
+      "p1Points": [
+        "Energy-efficient design, glazing and building systems",
+        "Responsibly sourced, durable materials",
+        "Water-wise landscaping and reduced heat island effect",
+        "Construction practices that design out waste"
+      ],
+      "p2Eyebrow": "Pillar 02",
+      "p2Title": "Community",
+      "p2Paras": [
+        "A building is only as good as the life that happens around it. We design generous shared spaces - landscaped courtyards, walkable ground floors, gathering areas and amenities - that turn residents into neighbours and developments into genuine communities.",
+        "Beyond our own sites, we invest in the neighbourhoods we build in and support local initiatives that improve everyday life. We prioritise local partners and talent, and we design public realm that stays open, active and welcoming long after the last home is sold."
+      ],
+      "p2Points": [
+        "Generous shared and public spaces in every scheme",
+        "Support for local initiatives and neighbourhood life",
+        "Local partners, suppliers and talent prioritised",
+        "Walkable, welcoming ground floors and courtyards"
+      ],
+      "p3Eyebrow": "Pillar 03",
+      "p3Title": "Responsible Building",
+      "p3Paras": [
+        "Responsible building means uncompromising standards where it matters most - safety, ethics and lasting quality. We hold our contractors to strict health-and-safety practices, fair labour standards and transparent conduct on every site we run.",
+        "That discipline carries through to the finished home. Rigorous quality control, honest specifications and thorough handover checks mean the residence you buy is the residence you receive - built to endure, and backed by a developer that stands behind its work."
+      ],
+      "p3Points": [
+        "Strict health, safety and fair-labour standards on site",
+        "Transparent, ethical conduct with every partner",
+        "Rigorous quality control and honest specifications",
+        "Homes built to endure, backed after handover"
+      ],
+      "statPillarsValue": "3",
+      "statPillarsLabel": "Pillars of commitment",
+      "statFreeholdValue": "100%",
+      "statFreeholdLabel": "Freehold, well-regulated sites",
+      "statYearsValue": "25+",
+      "statYearsLabel": "Years of responsible delivery",
+      "statSafetyValue": "0",
+      "statSafetyLabel": "Compromises on safety",
+      "ctaEyebrow": "Build with purpose",
+      "ctaTitle": "A partner that gives back",
+      "ctaText": "Learn more about the principles behind Prestige One, or talk to our team about the values that shape every home we deliver."
+    },
+    "tour": {
+      "heroEyebrow": "Experience",
+      "heroTitle": "Virtual Tour",
+      "heroLead": "Step inside our landmark residences from anywhere in the world. Explore each development through an immersive, cinematic tour.",
+      "introEyebrow": "The Tour",
+      "introTitle": "See it before you visit",
+      "introParas": [
+        "A home is something you feel long before you sign for it. Our virtual tours are built to give you that feeling from wherever you are - the sweep of a skyline view, the flow between living and dining, the quality of light through a floor-to-ceiling window.",
+        "Each film below moves through a signature Prestige One development. Watch at your own pace, share it with family, and shortlist the residences that speak to you. When you're ready, our team will pick up exactly where the tour leaves off - with floor plans, availability and a private appointment."
+      ],
+      "whyEyebrow": "Why Virtual",
+      "whyTitle": "Experience before you visit",
+      "whyParas": [
+        "Not everyone can be in Dubai this week - and the best homes rarely wait. A virtual tour closes that gap, letting you explore a residence in genuine detail from another city or another continent, at any hour that suits you.",
+        "It's also the smartest way to shortlist. Compare layouts side by side, revisit the views that matter, and involve everyone in the decision before booking a single flight. By the time you visit in person, you already know exactly what you've come to see."
+      ],
+      "whyPoints": [
+        "Tour from anywhere, on any device, any time of day",
+        "Compare developments and layouts before you travel",
+        "Share with family and advisors in a single link",
+        "Arrive at your viewing already shortlisted and informed"
+      ],
+      "ctaEyebrow": "Ready for the real thing?",
+      "ctaTitle": "From screen to sales gallery",
+      "ctaText": "A virtual tour is the perfect first step. When a residence catches your eye, our team will arrange a private viewing and walk you through floor plans, pricing and payment terms."
+    },
+    "broker": {
+      "heroEyebrow": "Partners",
+      "heroTitle": "Broker Registration",
+      "heroLead": "Partner with Prestige One and offer your clients access to Dubai's most sought-after residences, with dedicated support and competitive commissions.",
+      "introEyebrow": "Become a Partner",
+      "introTitle": "Register your agency",
+      "introParas": [
+        "We work closely with a trusted network of real-estate professionals to bring our developments to discerning buyers around the world. Registering as a partner gives your agency direct access to inventory, marketing materials and a dedicated broker relations team.",
+        "Complete the form below and our partnerships team will be in touch to finalise your registration and share the latest availability."
+      ]
+    },
+    "docs": {
+      "heroEyebrow": "Resources",
+      "heroTitle": "Project Documents",
+      "heroLead": "Access brochures, floor plans and payment plans for our flagship developments. Documents are shared on request through our team.",
+      "intro": "Below is a selection of documents available for our flagship residences. As these materials contain detailed pricing and unit information, they are shared directly by our sales team. Request any document and we'll send it over promptly.",
+      "docBrochure": "Brochure",
+      "docFloorPlans": "Floor Plans",
+      "docPaymentPlan": "Payment Plan",
+      "docMasterPlan": "Master Plan"
+    },
+    "media": {
+      "heroEyebrow": "Media Center",
+      "heroTitle": "News & Updates",
+      "heroLead": "The latest from Prestige One - construction milestones, press announcements, market insight and stories from the communities we build.",
+      "featured": "Featured",
+      "latest": "Latest",
+      "recentUpdates": "Recent updates",
+      "insideEyebrow": "Inside Prestige One",
+      "insideTitle": "Built in the open",
+      "insideParas": [
+        "We believe the story of a home should not begin on handover day. From groundbreaking ceremonies to façade milestones, we share the progress of our developments openly - so buyers can watch their future address take shape, floor by floor.",
+        "Alongside construction news, our Media Center brings you the partnerships and market perspective that shape how we build: the brands we work with, the investments we make, and the fundamentals that keep Dubai at the forefront of global real estate."
+      ],
+      "insidePoints": [
+        "Regular construction updates from active sites",
+        "Official announcements and brand partnerships",
+        "Market insight on investing in Dubai",
+        "Design thinking behind every Prestige One home"
+      ],
+      "exploreEyebrow": "Explore the Media Center",
+      "exploreTitle": "Browse by category",
+      "ctaEyebrow": "Stay in the loop",
+      "ctaTitle": "Never miss a milestone",
+      "ctaText": "Register your interest to receive construction updates, launch news and market insight from Prestige One - straight from the source."
+    },
+    "blog": {
+      "heroEyebrow": "Blog",
+      "heroTitle": "Insights & Stories",
+      "heroLead": "Perspectives on design, investment and living well in Dubai - from the team shaping Prestige One's communities.",
+      "introEyebrow": "Notes from Prestige One",
+      "introTitle": "More than a place to live",
+      "introParas": [
+        "Buying a home is one of the biggest decisions most people ever make - and one of the most personal. These pages are where we share what we have learned along the way, from the design choices that make a space feel like home to the practical realities of investing in Dubai.",
+        "No jargon, no hard sell. Just honest perspective from the people who design, build and stand behind every Prestige One address."
+      ],
+      "introPoints": [
+        "Guidance for first-time and seasoned buyers",
+        "The thinking behind how we design homes",
+        "Clear-eyed views on the Dubai market",
+        "Stories from the communities we build"
+      ],
+      "statArticlesLabel": "Articles & stories",
+      "statTopicsValue": "4",
+      "statTopicsLabel": "Topics we cover",
+      "statTaxValue": "0%",
+      "statTaxLabel": "Property tax in Dubai",
+      "statInHouseValue": "100%",
+      "statInHouseLabel": "Written in-house",
+      "allArticles": "All articles",
+      "latestReading": "Latest reading",
+      "ctaEyebrow": "Let's talk",
+      "ctaTitle": "Have a question we haven't answered?",
+      "ctaText": "Whether you are weighing your first purchase or adding to a portfolio, our team is happy to help you think it through - no obligation.",
+      "posts": {
+        "construction-update-fauchon-residences": {
+          "title": "Construction Update: FAUCHON Résidences by Prestige One",
+          "excerpt": "Structural works advance on schedule as FAUCHON Résidences rises floor by floor, bringing Parisian art de vivre to Dubai."
+        },
+        "seaside-construction-progress": {
+          "title": "Seaside by Prestige One - Construction Progress",
+          "excerpt": "The Seaside building reaches a key structural milestone as waterfront residences move toward handover."
+        },
+        "the-one-construction-milestone": {
+          "title": "The One - Construction Milestone",
+          "excerpt": "The One reaches a defining construction milestone as it advances toward becoming a landmark address."
+        },
+        "first-hilton-branded-residences-uae": {
+          "title": "First Hilton Branded Residences to Debut in the UAE with Prestige One",
+          "excerpt": "Prestige One partners with Hilton to bring the first Hilton branded residences to the UAE at Dubai Maritime City."
+        },
+        "prestige-one-argentina-national-team-sponsorship": {
+          "title": "Prestige One Named Exclusive Real Estate Regional Sponsor of the Argentina National Team",
+          "excerpt": "Prestige One becomes the exclusive regional real estate sponsor of the Argentina National Team, uniting two symbols of ambition and excellence."
+        },
+        "prestige-one-aed-500-million-investment": {
+          "title": "Prestige One Announces AED 500 Million Investment",
+          "excerpt": "Prestige One commits AED 500 million to expand its development pipeline and accelerate delivery across Dubai."
+        },
+        "coastal-haven-groundbreaking-ceremony": {
+          "title": "Coastal Haven Groundbreaking Ceremony",
+          "excerpt": "Prestige One marks the official groundbreaking of Coastal Haven, a serene waterfront community in the making."
+        },
+        "prestige-one-al-shafar-partnership-signing": {
+          "title": "Prestige One & Al Shafar Partnership Signing",
+          "excerpt": "Prestige One and Al Shafar formalise a strategic partnership to strengthen construction delivery and quality."
+        },
+        "why-dubai-remains-top-property-investment-destination": {
+          "title": "Why Dubai Remains a Top Destination for Property Investment",
+          "excerpt": "A closer look at the fundamentals that keep Dubai at the forefront of global real estate investment."
+        },
+        "branded-residences-fastest-growing-segment": {
+          "title": "Branded Residences: The Fastest-Growing Segment in Dubai Real Estate",
+          "excerpt": "Why branded residences have become the standout segment in Dubai's property market - and what buyers should know."
+        },
+        "buyers-guide-off-plan-property-dubai": {
+          "title": "A Buyer's Guide to Off-Plan Property in Dubai",
+          "excerpt": "Everything a first-time buyer should understand about purchasing off-plan property in Dubai with confidence."
+        },
+        "designing-homes-people-love-prestige-one-philosophy": {
+          "title": "Designing Homes People Love Living In: The Prestige One Philosophy",
+          "excerpt": "A look inside the design philosophy that shapes every Prestige One home - from the first sketch to the finished space."
+        }
+      }
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "headings": {
+          "Introduction": "Introduction",
+          "Information We Collect": "Information We Collect",
+          "How We Use Your Information": "How We Use Your Information",
+          "Cookies": "Cookies",
+          "Data Sharing": "Data Sharing",
+          "Data Security": "Data Security",
+          "Your Rights": "Your Rights",
+          "Contact Us": "Contact Us"
+        }
+      },
+      "terms": {
+        "title": "Terms & Conditions",
+        "headings": {
+          "Acceptance of Terms": "Acceptance of Terms",
+          "Use of the Website": "Use of the Website",
+          "Intellectual Property": "Intellectual Property",
+          "Property Information Disclaimer": "Property Information Disclaimer",
+          "Third-Party Links": "Third-Party Links",
+          "Limitation of Liability": "Limitation of Liability",
+          "Governing Law": "Governing Law",
+          "Contact Us": "Contact Us"
+        }
+      },
+      "marketing": {
+        "title": "Marketing Terms & Conditions",
+        "headings": {
+          "Scope": "Scope",
+          "Consent to Communications": "Consent to Communications",
+          "Broker & Agent Marketing": "Broker & Agent Marketing",
+          "Use of Brand Assets": "Use of Brand Assets",
+          "Accuracy of Marketing Materials": "Accuracy of Marketing Materials",
+          "Opt-Out": "Opt-Out",
+          "Contact Us": "Contact Us"
+        }
+      }
+    }
   }
 }

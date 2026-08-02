@@ -6,27 +6,19 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Blog"
-              title="Insights & Stories"
-              lead="Perspectives on design, investment and living well in Dubai - from the team shaping Prestige One's communities."
+              :eyebrow="t('mdata.blog.heroEyebrow')"
+              :title="t('mdata.blog.heroTitle')"
+              :lead="t('mdata.blog.heroLead')"
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
 
             <!-- intro -->
             <prestige-feature-split
-              eyebrow="Notes from Prestige One"
-              title="More than a place to live"
+              :eyebrow="t('mdata.blog.introEyebrow')"
+              :title="t('mdata.blog.introTitle')"
               image="/assets/images/v3/Designed-for-Real-Living.webp"
-              :paragraphs="[
-                'Buying a home is one of the biggest decisions most people ever make - and one of the most personal. These pages are where we share what we have learned along the way, from the design choices that make a space feel like home to the practical realities of investing in Dubai.',
-                'No jargon, no hard sell. Just honest perspective from the people who design, build and stand behind every Prestige One address.',
-              ]"
-              :points="[
-                'Guidance for first-time and seasoned buyers',
-                'The thinking behind how we design homes',
-                'Clear-eyed views on the Dubai market',
-                'Stories from the communities we build',
-              ]"
+              :paragraphs="introParas"
+              :points="introPoints"
             />
 
             <prestige-stat-band :stats="blogStats" />
@@ -34,8 +26,8 @@
             <!-- article grid -->
             <section class="prestige-section prestige-section--tight">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">All articles</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">Latest reading</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.blog.allArticles') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('mdata.blog.latestReading') }}</h2>
                 <div class="row">
                   <div
                     v-for="article in allArticles"
@@ -50,14 +42,14 @@
             </section>
 
             <prestige-cta-band
-              eyebrow="Let's talk"
-              title="Have a question we haven't answered?"
-              text="Whether you are weighing your first purchase or adding to a portfolio, our team is happy to help you think it through - no obligation."
+              :eyebrow="t('mdata.blog.ctaEyebrow')"
+              :title="t('mdata.blog.ctaTitle')"
+              :text="t('mdata.blog.ctaText')"
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
-              primary-label="Get in touch"
-              primary-to="/contact-us"
-              secondary-label="Explore developments"
-              secondary-to="/projects"
+              :primary-label="t('mdata.common.getInTouch')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('mdata.common.exploreDevelopments')"
+              :secondary-to="localePath('/projects')"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -68,7 +60,10 @@
 </template>
 
 <script setup lang="ts">
-import { getAllArticles } from "~/data/blog-data";
+import { getAllArticles, type Article } from "~/data/blog-data";
+
+const { t, tm, rt, te } = useI18n();
+const localePath = useLocalePath();
 
 definePageMeta({ layout: false });
 useSeoMeta({
@@ -77,14 +72,32 @@ useSeoMeta({
     "Insights and stories on design, investment and living well in Dubai from Prestige One Developments.",
 });
 
-const allArticles = getAllArticles();
+// Localize title/excerpt from mdata with fallback to the English data.
+function localizeArticle(a: Article): Article {
+  const base = `mdata.blog.posts.${a.slug}`;
+  return {
+    ...a,
+    title: te(`${base}.title`) ? t(`${base}.title`) : a.title,
+    excerpt: te(`${base}.excerpt`) ? t(`${base}.excerpt`) : a.excerpt,
+  };
+}
 
-const blogStats: { value: string; label: string }[] = [
-  { value: `${allArticles.length}`, label: "Articles & stories" },
-  { value: "4", label: "Topics we cover" },
-  { value: "0%", label: "Property tax in Dubai" },
-  { value: "100%", label: "Written in-house" },
-];
+const sourceArticles = getAllArticles();
+const allArticles = computed(() => sourceArticles.map(localizeArticle));
+
+const introParas = computed(() =>
+  (tm("mdata.blog.introParas") as unknown[]).map((m) => rt(m as string)),
+);
+const introPoints = computed(() =>
+  (tm("mdata.blog.introPoints") as unknown[]).map((m) => rt(m as string)),
+);
+
+const blogStats = computed<{ value: string; label: string }[]>(() => [
+  { value: `${sourceArticles.length}`, label: t("mdata.blog.statArticlesLabel") },
+  { value: t("mdata.blog.statTopicsValue"), label: t("mdata.blog.statTopicsLabel") },
+  { value: t("mdata.blog.statTaxValue"), label: t("mdata.blog.statTaxLabel") },
+  { value: t("mdata.blog.statInHouseValue"), label: t("mdata.blog.statInHouseLabel") },
+]);
 
 usePrestigePage({ hero: false });
 </script>

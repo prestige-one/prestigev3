@@ -8,12 +8,12 @@
             <prestige-page-hero
               :eyebrow="project.location"
               :title="project.title"
-              :lead="project.tagline"
+              :lead="heroLead"
               :image="project.hero"
               :video="project.video"
             >
               <template #actions>
-                <span class="prestige-detail__badge">{{ project.status }}</span>
+                <span class="prestige-detail__badge">{{ statusLabel }}</span>
                 <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('pp.detail.enquireNow') }}</nuxt-link>
               </template>
             </prestige-page-hero>
@@ -35,8 +35,8 @@
               :eyebrow="t('pp.detail.overview.eyebrow')"
               :title="t('pp.detail.overview.title', { name: shortName })"
               :image="project.gallery[1] || project.hero"
-              :paragraphs="project.overview"
-              :points="project.highlights"
+              :paragraphs="overview"
+              :points="highlights"
               equal-height
             />
 
@@ -45,7 +45,7 @@
               :eyebrow="t('pp.detail.amenities.eyebrow')"
               :title="t('pp.detail.amenities.title')"
               :lead="t('pp.detail.amenities.lead')"
-              :items="project.amenities"
+              :items="amenities"
             />
 
 
@@ -121,7 +121,7 @@
                     <p class="prestige-detail__note tp_fade_anim" data-delay=".4">{{ t('pp.detail.payment.note') }}</p>
                   </div>
                 </div>
-                <prestige-payment-wizard :steps="project.paymentPlan" />
+                <prestige-payment-wizard :steps="paymentPlan" />
               </div>
             </section>
 
@@ -132,7 +132,7 @@
                 <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">{{ t('pp.detail.resources.title') }}</h2>
                 <div class="prestige-docgrid">
                   <button
-                    v-for="(d, i) in project.documents"
+                    v-for="(d, i) in documents"
                     :key="i"
                     type="button"
                     class="prestige-doccard tp_fade_anim"
@@ -146,7 +146,7 @@
                         <path d="M9 12h6M9 16h6" stroke-linecap="round" />
                       </svg>
                     </span>
-                    <span class="prestige-doccard__name">{{ d }}</span>
+                    <span class="prestige-doccard__name">{{ d.label }}</span>
                     <span class="prestige-doccard__cta">{{ t('pp.detail.resources.request') }} <i>→</i></span>
                   </button>
                 </div>
@@ -204,14 +204,14 @@
 </template>
 
 <script setup lang="ts">
-import { getProjectBySlug, getAllProjects } from "~/data/projects";
+import { getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
 import { destinations } from "~/data/destinations-data";
 
 interface FaqItem { q: string; a: string }
 
 definePageMeta({ layout: false });
 
-const { t } = useI18n();
+const { t, tm, rt, te } = useI18n();
 const localePath = useLocalePath();
 
 const route = useRoute();
@@ -223,6 +223,39 @@ if (!project.value) {
 }
 
 const shortName = computed(() => project.value!.title.split(" by ")[0] ?? project.value!.title);
+
+// Per-project marketing copy resolved from the `pdata` locale namespace, each
+// falling back to the original (English) project data when a key is absent so
+// nothing ever renders blank. Keyed by slug / slugified label to stay in sync
+// with the data files without calling t() inside them.
+const pKey = computed(() => `pdata.p.${slug.value}`);
+
+const heroLead = computed(() => {
+  const k = `${pKey.value}.tagline`;
+  return te(k) ? t(k) : project.value!.tagline;
+});
+
+const overview = computed<string[]>(() => {
+  const raw = tm(`${pKey.value}.overview`) as unknown[];
+  return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.overview;
+});
+
+const highlights = computed<string[]>(() => {
+  const raw = tm(`${pKey.value}.highlights`) as unknown[];
+  return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.highlights;
+});
+
+function tAmenity(a: string) { const k = `pdata.amenities.${slugify(a)}`; return te(k) ? t(k) : a; }
+function tPayment(l: string) { const k = `pdata.payment.${slugify(l)}`; return te(k) ? t(k) : l; }
+function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? t(k) : d; }
+
+const amenities = computed(() => project.value!.amenities.map(tAmenity));
+const paymentPlan = computed(() => project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
+const documents = computed(() => project.value!.documents.map((d) => ({ raw: d, label: tDoc(d) })));
+const statusLabel = computed(() => {
+  const k = `pdata.status.${slugify(project.value!.status)}`;
+  return te(k) ? t(k) : project.value!.status;
+});
 
 // The destination this project sits in - used to fill location facts (nearby
 // drive times, connectivity, schools, hospitals) with real, researched data
@@ -245,21 +278,34 @@ const related = computed(() => {
 
 const faqs = computed<FaqItem[]>(() => {
   const p = project.value!;
+  // Answers are translated via `pdata.faq.a.*` with the data (names, times,
+  // %, place names) kept as interpolated placeholders; each falls back to
+  // English through the locale fallback chain.
+  const nearbyItems = nearby.value
+    .slice(0, 2)
+    .map((n) => t("pdata.faq.a.locationItem", { name: n.name, time: n.time }));
+  const nearby2 = nearbyItems.length ? `. ${nearbyItems.join(t("pdata.faq.a.locationJoin"))}` : "";
+  const plan = p.paymentPlan
+    .map((m) => t("pdata.faq.a.paymentItem", { value: m.value, label: tPayment(m.label) }))
+    .join(", ");
+  const amenList = amenities.value.slice(0, 5).join(", ");
+
   const items: FaqItem[] = [
-    { q: `Where is ${shortName.value} located?`, a: `${p.title} is located in ${p.location}${nearby.value.length ? `. ${nearby.value.slice(0, 2).map((n) => `${n.name} is around ${n.time} away`).join(", and ")}` : ""}.` },
-    { q: "What is the payment plan?", a: `A flexible plan is available - typically ${p.paymentPlan.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(", ")}. Terms are indicative; contact our team for the latest.` },
-    { q: "What amenities are included?", a: `Residents enjoy ${p.amenities.slice(0, 5).join(", ").toLowerCase()} and more.` },
+    { q: t("pdata.faq.q.location", { name: shortName.value }), a: t("pdata.faq.a.location", { title: p.title, location: p.location, nearby: nearby2 }) },
+    { q: t("pdata.faq.q.payment"), a: t("pdata.faq.a.payment", { plan }) },
+    { q: t("pdata.faq.q.amenities"), a: t("pdata.faq.a.amenities", { list: amenList }) },
   ];
   if (schools.value.length || hospitals.value.length) {
-    items.push({ q: "Are schools and healthcare nearby?", a: `Yes - ${[...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ")} are within easy reach.` });
+    const list = [...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ");
+    items.push({ q: t("pdata.faq.q.schools"), a: t("pdata.faq.a.schools", { list }) });
   }
-  items.push({ q: "Who is the developer and what is the status?", a: `${p.title} is developed by Prestige One and is currently ${p.status.toLowerCase()}. Register your interest for availability and pricing.` });
+  items.push({ q: t("pdata.faq.q.developer"), a: t("pdata.faq.a.developer", { title: p.title, status: statusLabel.value }) });
   return items;
 });
 
 useSeoMeta({
   title: () => `${project.value?.title} | Prestige One`,
-  description: () => project.value?.tagline,
+  description: () => heroLead.value,
   ogImage: () => project.value?.hero,
 });
 
@@ -278,10 +324,10 @@ function trackDocumentRequest(documentName: string) {
   else console.info("[kpi] document_request", payload);
 }
 
-function requestDocument(documentName: string) {
-  activeDocument.value = documentName;
+function requestDocument(doc: { raw: string; label: string }) {
+  activeDocument.value = doc.label;
   docModalOpen.value = true;
-  trackDocumentRequest(documentName);
+  trackDocumentRequest(doc.raw);
 }
 </script>
 

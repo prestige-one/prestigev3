@@ -8,7 +8,7 @@
             <prestige-page-hero
               :eyebrow="dest.region"
               :title="dest.name"
-              :lead="dest.intro"
+              :lead="dIntro"
               :image="dest.image"
             >
               <template #actions>
@@ -24,7 +24,7 @@
                   <div class="col-xl-7 col-lg-7 mb-40">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.area_eyebrow') }}</span>
                     <div class="prestige-prose tp_fade_anim" data-delay=".3">
-                      <p v-for="(para, i) in dest.about" :key="i">{{ para }}</p>
+                      <p v-for="(para, i) in dAbout" :key="i">{{ para }}</p>
                     </div>
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5">
@@ -35,7 +35,7 @@
                       </ul>
                     </div>
                     <ul class="prestige-dest-highlights tp_fade_anim" data-delay=".45">
-                      <li v-for="(h, i) in dest.highlights" :key="i"><span class="prestige-detail__dot" />{{ h }}</li>
+                      <li v-for="(h, i) in dHighlights" :key="i"><span class="prestige-detail__dot" />{{ h }}</li>
                     </ul>
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                   </div>
                   <div class="col-xl-8">
                     <ul class="prestige-detail__conn tp_fade_anim" data-delay=".3">
-                      <li v-for="(t, i) in dest.transport" :key="i"><span class="prestige-detail__dot" />{{ t }}</li>
+                      <li v-for="(t, i) in dTransport" :key="i"><span class="prestige-detail__dot" />{{ t }}</li>
                     </ul>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
             <!-- cinematic interlude -->
             <prestige-statement-band
               :eyebrow="t('dp.detail.statement_eyebrow')"
-              :text="dest.intro"
+              :text="dIntro"
               :image="dest.image"
             />
 
@@ -123,7 +123,7 @@
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.invest_title') }}</h2>
                 <div class="row">
                   <div
-                    v-for="(inv, i) in dest.investment"
+                    v-for="(inv, i) in dInvestment"
                     :key="i"
                     class="col-xl-4 col-md-6 mb-30 tp_fade_anim"
                     data-delay=".2"
@@ -191,7 +191,7 @@ interface FaqItem { q: string; a: string }
 
 definePageMeta({ layout: false });
 
-const { t } = useI18n();
+const { t, tm, te, rt, locale } = useI18n();
 const localePath = useLocalePath();
 
 const route = useRoute();
@@ -200,6 +200,32 @@ const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 if (!dest.value) {
   throw createError({ statusCode: 404, statusMessage: "Destination not found", fatal: true });
 }
+
+// --- translated per-destination prose (ddata namespace) with English-data fallback ---
+// Data lives in i18n/locales/destinations/<code>.json under `ddata.d.<slug>`.
+// t()/tm() can't run inside the data module, so resolve reactively here.
+function ddKey(sub: string): string {
+  return `ddata.d.${dest.value?.slug ?? ""}.${sub}`;
+}
+function ddScalar(sub: string, fallback: string): string {
+  void locale.value; // re-run on locale switch
+  const key = ddKey(sub);
+  return te(key) ? t(key) : fallback;
+}
+function ddArray(sub: string, fallback: string[]): string[] {
+  void locale.value; // re-run on locale switch
+  const key = ddKey(sub);
+  if (!te(key)) return fallback;
+  const raw = tm(key) as unknown[];
+  if (!Array.isArray(raw) || raw.length === 0) return fallback;
+  return raw.map((item) => (typeof item === "string" ? item : rt(item as never)));
+}
+
+const dIntro = computed(() => ddScalar("intro", dest.value?.intro ?? ""));
+const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
+const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
+const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
+const dHighlights = computed(() => ddArray("highlights", dest.value?.highlights ?? []));
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
 const developmentsBadge = computed(() => {
@@ -210,16 +236,16 @@ const developmentsBadge = computed(() => {
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;
   return [
-    { q: t("dp.detail.faq.q1", { name: d.name }), a: `${d.about[0]}` },
-    { q: t("dp.detail.faq.q2", { name: d.name }), a: `${d.transport.slice(0, 2).join(". ")}.` },
+    { q: t("dp.detail.faq.q1", { name: d.name }), a: `${dAbout.value[0] ?? d.about[0]}` },
+    { q: t("dp.detail.faq.q2", { name: d.name }), a: `${dTransport.value.slice(0, 2).join(". ")}.` },
     { q: t("dp.detail.faq.q3"), a: `${d.attractions.slice(0, 3).map((a) => `${a.name} (${a.time})`).join(", ")} and more.` },
-    { q: t("dp.detail.faq.q4", { name: d.name }), a: `${d.investment.slice(0, 3).join("; ")}.` },
+    { q: t("dp.detail.faq.q4", { name: d.name }), a: `${dInvestment.value.slice(0, 3).join("; ")}.` },
   ];
 });
 
 useSeoMeta({
   title: () => t("dp.detail.seo_title", { name: dest.value?.name ?? "" }),
-  description: () => dest.value?.intro,
+  description: () => dIntro.value,
   ogImage: () => dest.value?.image,
 });
 

@@ -31,5 +31,365 @@
     "faqTitle": "Veelgestelde vragen",
     "whatClientsSay": "Wat onze klanten zeggen",
     "trustedToBuild": "Vertrouwd om meer dan alleen gebouwen te creëren"
+  },
+  "mdata": {
+    "common": {
+      "speakAdvisor": "Spreek met een adviseur",
+      "viewDevelopments": "Bekijk ontwikkelingen",
+      "aboutPrestige": "Over Prestige One",
+      "contactUs": "Neem contact op",
+      "getInTouch": "Neem contact met ons op",
+      "bookViewing": "Plan een bezichtiging",
+      "bookPrivateViewing": "Plan een privébezichtiging",
+      "viewAllProjects": "Bekijk alle projecten",
+      "exploreDevelopments": "Ontdek ontwikkelingen",
+      "readTheBlog": "Lees de blog",
+      "requestDocument": "Document aanvragen",
+      "readTheStory": "Lees het verhaal",
+      "takeTheTour": "Maak de rondleiding",
+      "lastUpdated": "Laatst bijgewerkt"
+    },
+    "categories": {
+      "blog": "Blog",
+      "construction": "Bouwupdates",
+      "press": "Persberichten",
+      "industry": "Branchenieuws"
+    },
+    "testimonials": [
+      {
+        "quote": "Van de eerste bezichtiging tot de oplevering zorgde het team ervoor dat alles doordacht aanvoelde. De afwerkingskwaliteit overtrof werkelijk onze verwachtingen.",
+        "label": "Woningeigenaar"
+      },
+      {
+        "quote": "Als buitenlandse investeerder had ik behoefte aan transparantie en snelheid. Het proces verliep naadloos en de locatie is al goed in waarde gestegen.",
+        "label": "NRI-investeerder"
+      },
+      {
+        "quote": "Wat Prestige One onderscheidt, is de aandacht voor hoe u daadwerkelijk in een ruimte leeft - de indelingen en voorzieningen zijn tot in detail doordacht.",
+        "label": "Ondernemer"
+      }
+    ],
+    "invest": {
+      "heroEyebrow": "Investeringen",
+      "heroTitle": "Investeer in Prestige One",
+      "heroLead": "Bezit een aandeel in de meest dynamische vastgoedmarkt van Dubai - gesteund door een vertrouwde ontwikkelaar, sterke rendementen en een van de meest investeerdersvriendelijke steden ter wereld.",
+      "whyEyebrow": "Waarom Dubai",
+      "whyTitle": "Een markt gebouwd voor groei",
+      "whyParas": [
+        "Dubai heeft zich gevestigd als een van 's werelds meest vooraanstaande bestemmingen voor vastgoedinvesteringen - waar enkele van de sterkste huurrendementen van welke wereldstad dan ook samengaan met een consistente waardestijging en de zekerheid van een volwassen, transparante en goed gereguleerde markt.",
+        "Investeerders profiteren van belastingvrij eigendom, freehold-eigendomstitels en verblijfstrajecten, alles binnen een stad die bekendstaat om haar veiligheid, connectiviteit en levensstijl van wereldklasse. Een stabiele munt die gekoppeld is aan de US dollar en een groeiende bevolking van grootverdieners houden de vraag naar kwaliteitswoningen consequent hoger dan het aanbod.",
+        "Met flexibele, aan de bouw gekoppelde betalingsregelingen is toetreding tot de markt nog nooit zo toegankelijk geweest - u kunt vandaag een woning veiligstellen en in gefaseerde termijnen betalen naarmate deze wordt gebouwd."
+      ],
+      "statYieldsValue": "Tot 8%",
+      "statYieldsLabel": "Huurrendementen",
+      "statTaxValue": "0%",
+      "statTaxLabel": "Onroerendezaakbelasting",
+      "statOwnershipValue": "Freehold",
+      "statOwnershipLabel": "Eigendom",
+      "statPlansValue": "Flexibel",
+      "statPlansLabel": "Betalingsregelingen",
+      "whyUsEyebrow": "Waarom Prestige One",
+      "whyUsTitle": "Investeer samen met een vertrouwde ontwikkelaar",
+      "whyUsParas": [
+        "Een investering is slechts zo solide als de ontwikkelaar erachter. Prestige One maakt deel uit van een groep met meer dan twee decennia ervaring in bouw, hospitality en vastgoed - een diepgang die zich vertaalt in projecten die volgens de norm en met kwaliteit worden opgeleverd, en die gebouwd zijn om hun waarde te behouden.",
+        "Onze merkpartnerschappen met wereldwijd erkende namen zoals Hilton en FAUCHON Paris voegen een laag van vraag toe die gewone ontwikkelingen niet kunnen evenaren. Branded residences realiseren premiumhuren en wederverkoopinteresse, en onze toplocaties houden de bezettingsgraad hoog."
+      ],
+      "whyUsPoints": [
+        "Groep met een staat van dienst van 25 jaar in oplevering",
+        "Branded residences met Hilton en FAUCHON Paris",
+        "Prime, goed verbonden adressen door heel Dubai",
+        "Beheer op hospitality-niveau dat de huurwaarde beschermt"
+      ],
+      "howEyebrow": "Hoe het werkt",
+      "howTitle": "Van aanvraag tot sleutels",
+      "howParas": [
+        "Investeren bij ons is verfrissend eenvoudig. Vertel ons uw doelen en budget, en uw adviseur stelt een selectie samen van de woningen en betalingsregelingen die passen - of u nu op zoek bent naar huurinkomsten, waardegroei of een woning om uiteindelijk in te trekken.",
+        "Vanaf daar nemen wij de details voor onze rekening: de reservering, de Sale and Purchase Agreement, de DLD-registratie en een duidelijk betalingsschema. Het volledige proces kan op afstand worden voltooid, en wij blijven bij u gedurende de bouw, de oplevering en, indien gewenst, de verhuur en het beheer."
+      ],
+      "howPoints": [
+        "1. Deel uw doelen en budget met een adviseur",
+        "2. Maak een selectie van woningen en kies een betalingsregeling",
+        "3. Reserveer, onderteken de SPA en registreer bij de DLD",
+        "4. Betaal in gefaseerde termijnen tijdens de bouw",
+        "5. Neem de oplevering af - wij kunnen de verhuur en het beheer voor u verzorgen"
+      ],
+      "faqEyebrow": "Veelgestelde vragen",
+      "faqTitle": "Vragen van investeerders",
+      "faqs": [
+        {
+          "q": "Welk huurrendement kan ik verwachten?",
+          "a": "Goed gelegen appartementen in Dubai leveren doorgaans bruto huurrendementen op in de orde van 6-8%, tot de hoogste van welke grote wereldstad dan ook. Branded residences en prime adressen bevinden zich doorgaans aan de sterkere kant van dat bereik dankzij de premiumvraag. De werkelijke rendementen hangen af van de unit, de locatie en het beheer, dus wij stellen realistische cijfers op voor elke woning die u overweegt."
+        },
+        {
+          "q": "Betaal ik echt geen belasting over mijn woning?",
+          "a": "Dubai heft geen jaarlijkse onroerendezaakbelasting en geen vermogenswinstbelasting op residentieel vastgoed, en huurinkomsten worden niet persoonlijk belast. U betaalt bij aankoop een eenmalige registratiekosten van het Dubai Land Department (doorgaans 4%). Deze belastingvriendelijke structuur is een belangrijke reden waarom de nettorendementen hier beter presteren dan in veel andere wereldwijde markten."
+        },
+        {
+          "q": "Kunnen buitenlanders volledig eigenaar worden van vastgoed?",
+          "a": "Ja. Onze ontwikkelingen bevinden zich in aangewezen freehold-zones, waar kopers van elke nationaliteit het vastgoed en de grond waarop het staat volledig en eeuwigdurend in eigendom kunnen hebben. Het eigendom wordt geregistreerd bij het Dubai Land Department en geeft u volledige rechten om in uw woning te wonen, deze te verhuren of door te verkopen."
+        },
+        {
+          "q": "Krijg ik met de aankoop van vastgoed een verblijfsvergunning voor de UAE?",
+          "a": "Kwalificerende vastgoedinvesteringen kunnen een traject openen naar een verblijfsvergunning voor de UAE, waaronder het langlopende Golden Visa voor in aanmerking komende investeringen. De vereisten en drempels worden vastgesteld door de overheid en kunnen wijzigen, dus wij brengen u als onderdeel van het aankoopproces in contact met de juiste begeleiding voor uw situatie."
+        },
+        {
+          "q": "Hoe werken off-plan betalingsregelingen?",
+          "a": "De meeste van onze woningen worden verkocht op aan de bouw gekoppelde regelingen: een aanbetaling bij boeking, een reeks termijnen gekoppeld aan bouwmijlpalen, en een laatste saldo bij oplevering. Dit spreidt de kosten over de bouwperiode en stelt u in staat de prijs van vandaag veilig te stellen. De exacte voorwaarden variëren per project en beschikbaarheid - uw adviseur deelt de actuele regeling met u."
+        }
+      ],
+      "ctaEyebrow": "Begin uw investeringsreis",
+      "ctaTitle": "Laten we over rendementen praten",
+      "ctaText": "Spreek met ons investeringsteam om beschikbare kansen, betalingsregelingen en verwachte rendementen binnen het portfolio van Prestige One te verkennen."
+    },
+    "csr": {
+      "heroEyebrow": "Onze toewijding",
+      "heroTitle": "Maatschappelijk verantwoord ondernemen",
+      "heroLead": "Verantwoord bouwen betekent verder kijken dan de gebouwen - naar de gemeenschappen die we dienen en het milieu dat we delen.",
+      "introEyebrow": "Onze toewijding",
+      "introTitle": "Ontwikkeling met een doel",
+      "introParas": [
+        "Bij Prestige One is verantwoordelijkheid verweven in alles wat we creëren. Wij geloven dat grootse ontwikkelingen iets moeten teruggeven - de gemeenschappen eromheen verrijken en het milieu waarin zij zich bevinden zo min mogelijk belasten.",
+        "Van energiezuinig ontwerp en doordachte materiaalkeuzes tot openbare ruimte die mensen werkelijk samenbrengt, onze aanpak is praktisch, meetbaar en langetermijngericht. Wij houden onszelf aan dezelfde hoge norm op het gebied van onze maatschappelijke en milieu-impact als in onze architectuur, zodat elk project een positieve nalatenschap achterlaat die tot ver na de oplevering reikt.",
+        "Onze toewijding is georganiseerd rond drie pijlers: duurzaamheid, gemeenschap en verantwoord bouwen. Samen bepalen zij hoe we locaties kiezen, hoe we ontwerpen, hoe we bouwen en hoe we de plaatsen die we opleveren beheren."
+      ],
+      "p1Eyebrow": "Pijler 01",
+      "p1Title": "Duurzaamheid",
+      "p1Paras": [
+        "Duurzaamheid begint bij Prestige One aan de tekentafel. Wij ontwerpen voor het klimaat waarin we bouwen - gebouwen oriënteren om zonnewarmte te beperken, hoogwaardige beglazing en isolatie specificeren, en efficiënte systemen kiezen die het energie- en waterverbruik over de gehele levensduur van een ontwikkeling verlagen.",
+        "Wij geven de voorkeur aan verantwoord ingekochte materialen, ontwerpen afval op de bouwplaats weg, en integreren groenvoorziening en schaduw die de stedelijke hitte rond onze gebouwen verminderen. Het doel is eenvoudig: woningen die goedkoper zijn in het gebruik, langer meegaan en een lichtere aanslag doen op de hulpbronnen van de stad."
+      ],
+      "p1Points": [
+        "Energiezuinig ontwerp, beglazing en gebouwsystemen",
+        "Verantwoord ingekochte, duurzame materialen",
+        "Waterbewuste groenvoorziening en verminderd hitte-eilandeffect",
+        "Bouwmethoden die afval wegontwerpen"
+      ],
+      "p2Eyebrow": "Pijler 02",
+      "p2Title": "Gemeenschap",
+      "p2Paras": [
+        "Een gebouw is slechts zo goed als het leven dat zich eromheen afspeelt. Wij ontwerpen ruime gedeelde ruimtes - aangelegde binnenhoven, beloopbare begane grondniveaus, ontmoetingsplekken en voorzieningen - die bewoners tot buren maken en ontwikkelingen tot echte gemeenschappen.",
+        "Naast onze eigen locaties investeren we in de buurten waarin we bouwen en steunen we lokale initiatieven die het dagelijks leven verbeteren. Wij geven prioriteit aan lokale partners en talent, en we ontwerpen openbare ruimte die nog lang na de verkoop van de laatste woning open, levendig en uitnodigend blijft."
+      ],
+      "p2Points": [
+        "Ruime gedeelde en openbare ruimtes in elk project",
+        "Ondersteuning van lokale initiatieven en buurtleven",
+        "Prioriteit voor lokale partners, leveranciers en talent",
+        "Beloopbare, uitnodigende begane grondniveaus en binnenhoven"
+      ],
+      "p3Eyebrow": "Pijler 03",
+      "p3Title": "Verantwoord bouwen",
+      "p3Paras": [
+        "Verantwoord bouwen betekent compromisloze normen waar het er het meest toe doet - veiligheid, ethiek en blijvende kwaliteit. Wij houden onze aannemers aan strikte gezondheids- en veiligheidsmaatregelen, eerlijke arbeidsnormen en transparant gedrag op elke bouwplaats die we beheren.",
+        "Die discipline loopt door tot in de voltooide woning. Rigoureuze kwaliteitscontrole, eerlijke specificaties en grondige opleveringscontroles betekenen dat de residentie die u koopt de residentie is die u ontvangt - gebouwd om te blijven, en gesteund door een ontwikkelaar die achter zijn werk staat."
+      ],
+      "p3Points": [
+        "Strikte gezondheids-, veiligheids- en eerlijke arbeidsnormen op de bouwplaats",
+        "Transparant, ethisch gedrag met elke partner",
+        "Rigoureuze kwaliteitscontrole en eerlijke specificaties",
+        "Woningen gebouwd om te blijven, gesteund na oplevering"
+      ],
+      "statPillarsValue": "3",
+      "statPillarsLabel": "Pijlers van toewijding",
+      "statFreeholdValue": "100%",
+      "statFreeholdLabel": "Freehold, goed gereguleerde locaties",
+      "statYearsValue": "25+",
+      "statYearsLabel": "Jaren van verantwoorde oplevering",
+      "statSafetyValue": "0",
+      "statSafetyLabel": "Compromissen op veiligheid",
+      "ctaEyebrow": "Bouw met een doel",
+      "ctaTitle": "Een partner die teruggeeft",
+      "ctaText": "Kom meer te weten over de principes achter Prestige One, of spreek met ons team over de waarden die elke woning die we opleveren vormgeven."
+    },
+    "tour": {
+      "heroEyebrow": "Beleving",
+      "heroTitle": "Virtuele rondleiding",
+      "heroLead": "Stap onze markante residenties binnen, waar ook ter wereld u zich bevindt. Ontdek elke ontwikkeling via een meeslepende, cinematografische rondleiding.",
+      "introEyebrow": "De rondleiding",
+      "introTitle": "Zie het voordat u langskomt",
+      "introParas": [
+        "Een woning is iets wat u voelt lang voordat u ervoor tekent. Onze virtuele rondleidingen zijn gemaakt om u dat gevoel te geven waar u ook bent - de weidsheid van een skylinezicht, de overgang tussen wonen en eten, de kwaliteit van het licht door een raam van vloer tot plafond.",
+        "Elke film hieronder voert u door een kenmerkende ontwikkeling van Prestige One. Bekijk in uw eigen tempo, deel met familie, en maak een selectie van de residenties die u aanspreken. Wanneer u er klaar voor bent, pakt ons team precies op waar de rondleiding eindigt - met plattegronden, beschikbaarheid en een persoonlijke afspraak."
+      ],
+      "whyEyebrow": "Waarom virtueel",
+      "whyTitle": "Beleef het voordat u langskomt",
+      "whyParas": [
+        "Niet iedereen kan deze week in Dubai zijn - en de beste woningen wachten zelden. Een virtuele rondleiding overbrugt die kloof en laat u een residentie in werkelijk detail verkennen vanuit een andere stad of een ander continent, op elk moment dat u uitkomt.",
+        "Het is ook de slimste manier om een selectie te maken. Vergelijk indelingen naast elkaar, bekijk de uitzichten die ertoe doen opnieuw, en betrek iedereen bij de beslissing voordat u ook maar één vlucht boekt. Tegen de tijd dat u persoonlijk langskomt, weet u al precies wat u komt bekijken."
+      ],
+      "whyPoints": [
+        "Rondleiding vanaf elke locatie, op elk apparaat, op elk moment van de dag",
+        "Vergelijk ontwikkelingen en indelingen voordat u reist",
+        "Deel met familie en adviseurs via één enkele link",
+        "Kom aan bij uw bezichtiging, al met een selectie en goed geïnformeerd"
+      ],
+      "ctaEyebrow": "Klaar voor het echte werk?",
+      "ctaTitle": "Van scherm naar verkoopgalerij",
+      "ctaText": "Een virtuele rondleiding is de perfecte eerste stap. Wanneer een residentie uw aandacht trekt, regelt ons team een privébezichtiging en leidt u door plattegronden, prijzen en betalingsvoorwaarden."
+    },
+    "broker": {
+      "heroEyebrow": "Partners",
+      "heroTitle": "Makelaarsregistratie",
+      "heroLead": "Word partner van Prestige One en bied uw klanten toegang tot de meest gewilde residenties van Dubai, met toegewijde ondersteuning en competitieve commissies.",
+      "introEyebrow": "Word partner",
+      "introTitle": "Registreer uw agentschap",
+      "introParas": [
+        "Wij werken nauw samen met een vertrouwd netwerk van vastgoedprofessionals om onze ontwikkelingen onder de aandacht te brengen van veeleisende kopers over de hele wereld. Registreren als partner geeft uw agentschap directe toegang tot de voorraad, marketingmaterialen en een toegewijd team voor makelaarsrelaties.",
+        "Vul het onderstaande formulier in en ons partnerschapsteam neemt contact met u op om uw registratie af te ronden en de nieuwste beschikbaarheid te delen."
+      ]
+    },
+    "docs": {
+      "heroEyebrow": "Bronnen",
+      "heroTitle": "Projectdocumenten",
+      "heroLead": "Krijg toegang tot brochures, plattegronden en betalingsregelingen voor onze vlaggenschipontwikkelingen. Documenten worden op verzoek via ons team gedeeld.",
+      "intro": "Hieronder vindt u een selectie van documenten die beschikbaar zijn voor onze vlaggenschipresidenties. Aangezien deze materialen gedetailleerde prijs- en unitinformatie bevatten, worden ze rechtstreeks door ons verkoopteam gedeeld. Vraag een document aan en wij sturen het u direct toe.",
+      "docBrochure": "Brochure",
+      "docFloorPlans": "Plattegronden",
+      "docPaymentPlan": "Betalingsregeling",
+      "docMasterPlan": "Masterplan"
+    },
+    "media": {
+      "heroEyebrow": "Mediacentrum",
+      "heroTitle": "Nieuws & updates",
+      "heroLead": "Het laatste van Prestige One - bouwmijlpalen, persaankondigingen, marktinzicht en verhalen uit de gemeenschappen die we bouwen.",
+      "featured": "Uitgelicht",
+      "latest": "Nieuwste",
+      "recentUpdates": "Recente updates",
+      "insideEyebrow": "Binnen Prestige One",
+      "insideTitle": "Bouwen in alle openheid",
+      "insideParas": [
+        "Wij geloven dat het verhaal van een woning niet op de dag van oplevering zou moeten beginnen. Van eerstesteenleggingen tot gevelmijlpalen, wij delen de voortgang van onze ontwikkelingen openlijk - zodat kopers hun toekomstige adres verdieping voor verdieping vorm zien krijgen.",
+        "Naast bouwnieuws brengt ons Mediacentrum u de partnerschappen en het marktperspectief die bepalen hoe we bouwen: de merken waarmee we werken, de investeringen die we doen, en de fundamenten die Dubai vooraan houden in het wereldwijde vastgoed."
+      ],
+      "insidePoints": [
+        "Regelmatige bouwupdates van actieve locaties",
+        "Officiële aankondigingen en merkpartnerschappen",
+        "Marktinzicht over investeren in Dubai",
+        "Ontwerpvisie achter elke woning van Prestige One"
+      ],
+      "exploreEyebrow": "Ontdek het Mediacentrum",
+      "exploreTitle": "Blader per categorie",
+      "ctaEyebrow": "Blijf op de hoogte",
+      "ctaTitle": "Mis nooit een mijlpaal",
+      "ctaText": "Registreer uw interesse om bouwupdates, lanceringsnieuws en marktinzicht van Prestige One te ontvangen - rechtstreeks van de bron."
+    },
+    "blog": {
+      "heroEyebrow": "Blog",
+      "heroTitle": "Inzichten & verhalen",
+      "heroLead": "Perspectieven op ontwerp, investeren en goed leven in Dubai - van het team dat de gemeenschappen van Prestige One vormgeeft.",
+      "introEyebrow": "Notities van Prestige One",
+      "introTitle": "Meer dan een plek om te wonen",
+      "introParas": [
+        "Een woning kopen is een van de grootste beslissingen die de meeste mensen ooit nemen - en een van de meest persoonlijke. Op deze pagina's delen we wat we onderweg hebben geleerd, van de ontwerpkeuzes die een ruimte tot een thuis maken tot de praktische realiteit van investeren in Dubai.",
+        "Geen vakjargon, geen opdringerige verkooppraat. Alleen een eerlijk perspectief van de mensen die elk adres van Prestige One ontwerpen, bouwen en erachter staan."
+      ],
+      "introPoints": [
+        "Begeleiding voor zowel starters als ervaren kopers",
+        "De gedachte achter hoe wij woningen ontwerpen",
+        "Heldere visies op de markt van Dubai",
+        "Verhalen uit de gemeenschappen die we bouwen"
+      ],
+      "statArticlesLabel": "Artikelen & verhalen",
+      "statTopicsValue": "4",
+      "statTopicsLabel": "Onderwerpen die we behandelen",
+      "statTaxValue": "0%",
+      "statTaxLabel": "Onroerendezaakbelasting in Dubai",
+      "statInHouseValue": "100%",
+      "statInHouseLabel": "In eigen huis geschreven",
+      "allArticles": "Alle artikelen",
+      "latestReading": "Nieuwste leesvoer",
+      "ctaEyebrow": "Laten we praten",
+      "ctaTitle": "Heeft u een vraag die we niet hebben beantwoord?",
+      "ctaText": "Of u nu uw eerste aankoop overweegt of uw portfolio uitbreidt, ons team helpt u graag om het door te denken - geheel vrijblijvend.",
+      "posts": {
+        "construction-update-fauchon-residences": {
+          "title": "Bouwupdate: FAUCHON Résidences by Prestige One",
+          "excerpt": "De constructiewerkzaamheden vorderen volgens schema terwijl FAUCHON Résidences verdieping voor verdieping verrijst en het Parijse art de vivre naar Dubai brengt."
+        },
+        "seaside-construction-progress": {
+          "title": "Seaside by Prestige One - Bouwvoortgang",
+          "excerpt": "Het gebouw Seaside bereikt een belangrijke constructiemijlpaal terwijl de residenties aan het water richting oplevering gaan."
+        },
+        "the-one-construction-milestone": {
+          "title": "The One - Bouwmijlpaal",
+          "excerpt": "The One bereikt een bepalende bouwmijlpaal op weg om een markant adres te worden."
+        },
+        "first-hilton-branded-residences-uae": {
+          "title": "Eerste Hilton Branded Residences maken hun debuut in de UAE met Prestige One",
+          "excerpt": "Prestige One werkt samen met Hilton om de eerste Hilton branded residences naar de UAE te brengen in Dubai Maritime City."
+        },
+        "prestige-one-argentina-national-team-sponsorship": {
+          "title": "Prestige One benoemd tot exclusieve regionale vastgoedsponsor van het Argentina National Team",
+          "excerpt": "Prestige One wordt de exclusieve regionale vastgoedsponsor van het Argentina National Team en verenigt twee symbolen van ambitie en excellentie."
+        },
+        "prestige-one-aed-500-million-investment": {
+          "title": "Prestige One kondigt investering van AED 500 Million aan",
+          "excerpt": "Prestige One committeert AED 500 million om zijn ontwikkelingspijplijn uit te breiden en de oplevering in heel Dubai te versnellen."
+        },
+        "coastal-haven-groundbreaking-ceremony": {
+          "title": "Eerstesteenlegging van Coastal Haven",
+          "excerpt": "Prestige One markeert de officiële eerstesteenlegging van Coastal Haven, een serene gemeenschap aan het water in wording."
+        },
+        "prestige-one-al-shafar-partnership-signing": {
+          "title": "Ondertekening partnerschap Prestige One & Al Shafar",
+          "excerpt": "Prestige One en Al Shafar formaliseren een strategisch partnerschap om de bouwoplevering en kwaliteit te versterken."
+        },
+        "why-dubai-remains-top-property-investment-destination": {
+          "title": "Waarom Dubai een topbestemming blijft voor vastgoedinvesteringen",
+          "excerpt": "Een nadere blik op de fundamenten die Dubai vooraan houden in de wereldwijde vastgoedinvesteringen."
+        },
+        "branded-residences-fastest-growing-segment": {
+          "title": "Branded Residences: het snelst groeiende segment in het vastgoed van Dubai",
+          "excerpt": "Waarom branded residences het opvallendste segment in de vastgoedmarkt van Dubai zijn geworden - en wat kopers moeten weten."
+        },
+        "buyers-guide-off-plan-property-dubai": {
+          "title": "Een kopersgids voor off-plan vastgoed in Dubai",
+          "excerpt": "Alles wat een starter zou moeten begrijpen over het met vertrouwen kopen van off-plan vastgoed in Dubai."
+        },
+        "designing-homes-people-love-prestige-one-philosophy": {
+          "title": "Woningen ontwerpen waarin mensen graag leven: de filosofie van Prestige One",
+          "excerpt": "Een blik in de ontwerpfilosofie die elke woning van Prestige One vormgeeft - van de eerste schets tot de voltooide ruimte."
+        }
+      }
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacybeleid",
+        "headings": {
+          "Introduction": "Inleiding",
+          "Information We Collect": "Informatie die wij verzamelen",
+          "How We Use Your Information": "Hoe wij uw informatie gebruiken",
+          "Cookies": "Cookies",
+          "Data Sharing": "Gegevensdeling",
+          "Data Security": "Gegevensbeveiliging",
+          "Your Rights": "Uw rechten",
+          "Contact Us": "Neem contact op"
+        }
+      },
+      "terms": {
+        "title": "Algemene voorwaarden",
+        "headings": {
+          "Acceptance of Terms": "Aanvaarding van de voorwaarden",
+          "Use of the Website": "Gebruik van de website",
+          "Intellectual Property": "Intellectueel eigendom",
+          "Property Information Disclaimer": "Disclaimer vastgoedinformatie",
+          "Third-Party Links": "Links van derden",
+          "Limitation of Liability": "Beperking van aansprakelijkheid",
+          "Governing Law": "Toepasselijk recht",
+          "Contact Us": "Neem contact op"
+        }
+      },
+      "marketing": {
+        "title": "Marketingvoorwaarden",
+        "headings": {
+          "Scope": "Reikwijdte",
+          "Consent to Communications": "Toestemming voor communicatie",
+          "Broker & Agent Marketing": "Marketing door makelaars en agenten",
+          "Use of Brand Assets": "Gebruik van merkmiddelen",
+          "Accuracy of Marketing Materials": "Nauwkeurigheid van marketingmaterialen",
+          "Opt-Out": "Afmelden",
+          "Contact Us": "Neem contact op"
+        }
+      }
+    }
   }
 }

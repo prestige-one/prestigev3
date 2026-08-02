@@ -6,18 +6,18 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Media Center"
-              title="News & Updates"
-              lead="The latest from Prestige One - construction milestones, press announcements, market insight and stories from the communities we build."
+              :eyebrow="t('mdata.media.heroEyebrow')"
+              :title="t('mdata.media.heroTitle')"
+              :lead="t('mdata.media.heroLead')"
               image="/assets/images/v2/news/2K6A3227-scaled.webp"
             />
 
             <!-- featured -->
             <section v-if="featured" class="prestige-section">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Featured</span>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.media.featured') }}</span>
                 <nuxt-link
-                  :to="`/blog/${featured.slug}`"
+                  :to="localePath(`/blog/${featured.slug}`)"
                   class="prestige-feature tp_fade_anim"
                   data-delay=".3"
                 >
@@ -26,13 +26,13 @@
                   </div>
                   <div class="prestige-feature__body">
                     <div class="prestige-feature__meta">
-                      <span class="prestige-feature__cat">{{ categoryLabel(featured.category) }}</span>
+                      <span class="prestige-feature__cat">{{ catLabel(featured.category) }}</span>
                       <span class="prestige-feature__dot">·</span>
                       <span>{{ formatDate(featured.date) }}</span>
                     </div>
                     <h2 class="prestige-feature__title">{{ featured.title }}</h2>
                     <p class="prestige-feature__excerpt">{{ featured.excerpt }}</p>
-                    <span class="prestige-btn prestige-btn--ghost">Read the story<span>→</span></span>
+                    <span class="prestige-btn prestige-btn--ghost">{{ t('mdata.common.readTheStory') }}<span>→</span></span>
                   </div>
                 </nuxt-link>
               </div>
@@ -41,8 +41,8 @@
             <!-- latest grid -->
             <section class="prestige-section prestige-section--tight">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Latest</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">Recent updates</h2>
+                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.media.latest') }}</span>
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('mdata.media.recentUpdates') }}</h2>
                 <div class="row">
                   <div
                     v-for="article in latest"
@@ -58,19 +58,11 @@
 
             <!-- inside prestige one -->
             <prestige-feature-split
-              eyebrow="Inside Prestige One"
-              title="Built in the open"
+              :eyebrow="t('mdata.media.insideEyebrow')"
+              :title="t('mdata.media.insideTitle')"
               image="/assets/images/v2/news/website-banner-collage-01-scaled.webp"
-              :paragraphs="[
-                'We believe the story of a home should not begin on handover day. From groundbreaking ceremonies to façade milestones, we share the progress of our developments openly - so buyers can watch their future address take shape, floor by floor.',
-                'Alongside construction news, our Media Center brings you the partnerships and market perspective that shape how we build: the brands we work with, the investments we make, and the fundamentals that keep Dubai at the forefront of global real estate.',
-              ]"
-              :points="[
-                'Regular construction updates from active sites',
-                'Official announcements and brand partnerships',
-                'Market insight on investing in Dubai',
-                'Design thinking behind every Prestige One home',
-              ]"
+              :paragraphs="insideParas"
+              :points="insidePoints"
               reverse
             />
 
@@ -79,18 +71,18 @@
               <div class="container container-1430">
                 <div class="row align-items-center">
                   <div class="col-xl-5 col-lg-5 mb-30">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Explore the Media Center</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">Browse by category</h2>
+                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.media.exploreEyebrow') }}</span>
+                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('mdata.media.exploreTitle') }}</h2>
                   </div>
                   <div class="col-xl-7 col-lg-7">
                     <div class="prestige-quicklinks__row tp_fade_anim" data-delay=".4">
                       <nuxt-link
                         v-for="cat in categories"
                         :key="cat.key"
-                        :to="cat.route"
+                        :to="localePath(cat.route)"
                         class="prestige-btn prestige-btn--ghost"
                       >
-                        {{ cat.label }}
+                        {{ catLabel(cat.key) }}
                       </nuxt-link>
                     </div>
                   </div>
@@ -99,14 +91,14 @@
             </section>
 
             <prestige-cta-band
-              eyebrow="Stay in the loop"
-              title="Never miss a milestone"
-              text="Register your interest to receive construction updates, launch news and market insight from Prestige One - straight from the source."
+              :eyebrow="t('mdata.media.ctaEyebrow')"
+              :title="t('mdata.media.ctaTitle')"
+              :text="t('mdata.media.ctaText')"
               image="/assets/images/v2/news/2K6A3227-scaled.webp"
-              primary-label="Get in touch"
-              primary-to="/contact-us"
-              secondary-label="Read the blog"
-              secondary-to="/blog"
+              :primary-label="t('mdata.common.getInTouch')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('mdata.common.readTheBlog')"
+              :secondary-to="localePath('/blog')"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -120,9 +112,13 @@
 import {
   getAllArticles,
   getArticlesByCategory,
-  categoryLabel,
   categories,
+  type Article,
+  type ArticleCategory,
 } from "~/data/blog-data";
+
+const { t, tm, rt, te } = useI18n();
+const localePath = useLocalePath();
 
 definePageMeta({ layout: false });
 useSeoMeta({
@@ -131,10 +127,38 @@ useSeoMeta({
     "News, construction updates, press releases and market insight from Prestige One Developments.",
 });
 
-const featured = getArticlesByCategory("press")[0];
-const latest = getAllArticles()
-  .filter((a) => a.slug !== featured?.slug)
-  .slice(0, 6);
+// Localize an article's title/excerpt from mdata, falling back to the English
+// data. Resolved reactively so cards re-render on locale switch.
+function localizeArticle(a: Article): Article {
+  const base = `mdata.blog.posts.${a.slug}`;
+  return {
+    ...a,
+    title: te(`${base}.title`) ? t(`${base}.title`) : a.title,
+    excerpt: te(`${base}.excerpt`) ? t(`${base}.excerpt`) : a.excerpt,
+  };
+}
+
+function catLabel(key: ArticleCategory): string {
+  return te(`mdata.categories.${key}`) ? t(`mdata.categories.${key}`) : key;
+}
+
+const featuredSource = getArticlesByCategory("press")[0];
+const featured = computed(() =>
+  featuredSource ? localizeArticle(featuredSource) : undefined,
+);
+const latest = computed(() =>
+  getAllArticles()
+    .filter((a) => a.slug !== featuredSource?.slug)
+    .slice(0, 6)
+    .map(localizeArticle),
+);
+
+const insideParas = computed(() =>
+  (tm("mdata.media.insideParas") as unknown[]).map((m) => rt(m as string)),
+);
+const insidePoints = computed(() =>
+  (tm("mdata.media.insidePoints") as unknown[]).map((m) => rt(m as string)),
+);
 
 function formatDate(date: string): string {
   return new Date(date).toLocaleDateString("en-GB", {

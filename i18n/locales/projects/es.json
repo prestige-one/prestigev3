@@ -90,5 +90,120 @@
       "requestAria": "Solicitar {doc}",
       "close": "Cerrar"
     }
+  },
+  "pdata": {
+    "p": {
+      "vista-by-prestige-one": { "tagline": "Residencias contemporáneas diseñadas en torno a vistas panorámicas." },
+      "the-residence-by-prestige-one": { "tagline": "Un hogar boutique con un diseño cuidado." },
+      "waterway-by-prestige-one": { "tagline": "Una vida serena inspirada en el agua." },
+      "seaside-by-prestige-one": { "tagline": "Un tranquilo refugio junto al mar." },
+      "parkway-by-prestige-one": { "tagline": "Una vida inspirada en la naturaleza, diseñada para el equilibrio." },
+      "the-one-by-prestige-one": { "tagline": "Espacios de trabajo modernos para los profesionales de hoy." },
+      "the-boulevard-by-prestige-one": { "tagline": "Una vida urbana audaz para estilos de vida modernos." },
+      "coastal-haven-by-prestige-one": { "tagline": "Vida costera con impresionantes vistas al Golfo." },
+      "luxury-canal-residences-by-prestige-one": { "tagline": "Vida junto al agua inspirada en el ritmo de Dubai Islands." },
+      "palm-villa-by-prestige-one": { "tagline": "Una vida exclusiva, diseñada para la privacidad." },
+      "luxe-villa-by-prestige-one": { "tagline": "Vida en villa privada con una elegancia atemporal." },
+      "berkeley-square-north": { "tagline": "Arquitectura atemporal inspirada en el estilo de vida londinense." },
+      "berkeley-square-south": { "tagline": "Donde los espacios abiertos dan forma al día a día." },
+      "hilton-residences-dubai-maritime-city": {
+        "tagline": "Vida junto al agua inspirada en el estilo de vida Hilton.",
+        "overview": [
+          "La vida en Hilton Residences by Prestige One es un equilibrio entre elegancia y sencillez, uno de los referentes más emblemáticos que toman forma en Dubai Maritime City.",
+          "Un diseño impecable, enriquecido con cuidadas comodidades y realzado por el prestigio del nombre Hilton, trae la vida de marca junto al agua a una península rodeada por el mar, con amplias vistas al puerto y al perfil urbano de Dubái.",
+          "Las residencias abarcan desde cuidados apartamentos de uno y dos dormitorios hasta amplios dúplex, cada uno acabado según los estándares de la marca hotelera."
+        ],
+        "highlights": [
+          "Residencias de marca gestionadas según los estándares de hospitalidad de Hilton",
+          "Vida junto al agua en la península de Dubai Maritime City",
+          "Piscina infinita panorámica, cine al aire libre y comodidades de resort",
+          "Apartamentos de uno y dos dormitorios y dúplex exclusivos"
+        ]
+      },
+      "sanctuary-residences-by-prestige-one": {
+        "tagline": "Vistas panorámicas a la laguna con vistas a la Reserva Natural de Ras Al Khor.",
+        "overview": [
+          "Sanctuary by Prestige One propone una forma más equilibrada de vivir Dubái en Meydan - residencias y cuidados espacios comerciales dispuestos en torno a la calma, el verde y la conexión."
+        ],
+        "highlights": [
+          "Residencial y comercial en una comunidad equilibrada",
+          "En el corazón de Meydan",
+          "Diseñado en torno al bienestar y la comodidad cotidiana"
+        ]
+      },
+      "fauchon-residences-by-prestige-one": {
+        "tagline": "Una vida de inspiración parisina con el icónico estilo FAUCHON.",
+        "overview": [
+          "FAUCHON Résidences trae a Dubái el art de vivre de la célebre maison parisina - residencias de marca donde la elegancia francesa moldea cada detalle.",
+          "Desde interiores cuidados hasta una gastronomía única, la vida en FAUCHON gira en torno al confort, el carácter y el lujo cotidiano."
+        ],
+        "highlights": [
+          "Las primeras residencias de marca FAUCHON de la región",
+          "Interiores y servicios con el auténtico art de vivre parisino",
+          "La gastronomía característica de FAUCHON a un paso de tu puerta"
+        ]
+      },
+      "golf-residences-by-prestige-one": { "tagline": "Vistas ininterrumpidas al campo de golf, cada día." },
+      "seascape-villa": { "tagline": "Un refugio privado junto al mar." },
+      "the-one": { "tagline": "Un centro comercial dentro de un llamativo desarrollo G+14." },
+      "sanctuary-hive": { "tagline": "Espacios comerciales ideales para empresas que buscan visibilidad y conectividad." },
+      "vista-hub": { "tagline": "Un nuevo referente que toma forma en Majan City." },
+      "prestige-seaside": { "tagline": "La primera dirección de Prestige One en la costa griega." },
+      "prestige-square": { "tagline": "Un nuevo referente de Prestige One toma forma - próximamente." }
+    },
+    "amenities": {
+      "infinity-swimming-pool": "Piscina infinita",
+      "state-of-the-art-fitness-centre": "Gimnasio de última generación",
+      "landscaped-podium-gardens": "Jardines paisajísticos en el podio",
+      "24-7-concierge-security": "Conserjería y seguridad 24/7",
+      "covered-resident-parking": "Aparcamiento cubierto para residentes",
+      "children-s-play-area": "Zona de juegos infantil",
+      "residents-lounge-co-working": "Sala para residentes y coworking",
+      "retail-dining-on-the-doorstep": "Tiendas y restaurantes a pie de calle",
+      "infinity-skyline-pool": "Piscina infinita panorámica",
+      "outdoor-cinema": "Cine al aire libre",
+      "fitness-centre": "Gimnasio",
+      "running-track": "Pista de running",
+      "multi-sports-court": "Pista multideporte",
+      "bbq-deck": "Zona de barbacoa",
+      "outdoor-kids-play-area": "Zona de juegos infantil al aire libre",
+      "indoor-play-area": "Zona de juegos cubierta",
+      "juice-bar": "Bar de zumos"
+    },
+    "payment": {
+      "on-booking": "En la reserva",
+      "during-construction": "Durante la construcción",
+      "on-handover": "En la entrega"
+    },
+    "docs": {
+      "brochure": "Folleto",
+      "floor-plans": "Planos",
+      "payment-plan": "Plan de pago",
+      "fact-sheet": "Ficha técnica"
+    },
+    "status": {
+      "now-selling": "En venta",
+      "commercial": "Comercial",
+      "coming-soon": "Próximamente"
+    },
+    "faq": {
+      "q": {
+        "location": "¿Dónde se encuentra {name}?",
+        "payment": "¿Cuál es el plan de pago?",
+        "amenities": "¿Qué comodidades incluye?",
+        "schools": "¿Hay colegios y servicios de salud cerca?",
+        "developer": "¿Quién es el promotor y cuál es el estado?"
+      },
+      "a": {
+        "location": "{title} se encuentra en {location}{nearby}.",
+        "locationItem": "{name} está a unos {time}",
+        "locationJoin": " y ",
+        "payment": "Hay disponible un plan flexible - normalmente {plan}. Las condiciones son orientativas; contacta con nuestro equipo para conocer las más recientes.",
+        "paymentItem": "{value} {label}",
+        "amenities": "Los residentes disfrutan de {list} y mucho más.",
+        "schools": "Sí - {list} están a poca distancia.",
+        "developer": "{title} está desarrollado por Prestige One y actualmente está {status}. Registra tu interés para conocer disponibilidad y precios."
+      }
+    }
   }
 }

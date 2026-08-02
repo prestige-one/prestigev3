@@ -90,5 +90,120 @@
       "requestAria": "{doc} aanvragen",
       "close": "Sluiten"
     }
+  },
+  "pdata": {
+    "p": {
+      "vista-by-prestige-one": { "tagline": "Eigentijdse residenties, ontworpen rond panoramische uitzichten." },
+      "the-residence-by-prestige-one": { "tagline": "Boutiquewonen met doordacht ontwerp." },
+      "waterway-by-prestige-one": { "tagline": "Sereen wonen, geïnspireerd door het water." },
+      "seaside-by-prestige-one": { "tagline": "Een rustgevend toevluchtsoord aan het water." },
+      "parkway-by-prestige-one": { "tagline": "Door de natuur geïnspireerd wonen, ontworpen voor balans." },
+      "the-one-by-prestige-one": { "tagline": "Moderne werkplekken voor de professionals van vandaag." },
+      "the-boulevard-by-prestige-one": { "tagline": "Gedurfd stedelijk wonen voor een moderne levensstijl." },
+      "coastal-haven-by-prestige-one": { "tagline": "Kustwonen met adembenemend uitzicht over de Golf." },
+      "luxury-canal-residences-by-prestige-one": { "tagline": "Wonen aan het water, geïnspireerd door het ritme van Dubai Islands." },
+      "palm-villa-by-prestige-one": { "tagline": "Exclusief wonen, ontworpen voor privacy." },
+      "luxe-villa-by-prestige-one": { "tagline": "Privé villawonen met tijdloze elegantie." },
+      "berkeley-square-north": { "tagline": "Tijdloze architectuur, geïnspireerd door het Londense wonen." },
+      "berkeley-square-south": { "tagline": "Waar open ruimtes het dagelijks leven vormgeven." },
+      "hilton-residences-dubai-maritime-city": {
+        "tagline": "Wonen aan het water, geïnspireerd door de Hilton-levensstijl.",
+        "overview": [
+          "Het leven in de Hilton Residences by Prestige One is een balans tussen elegantie en gemak - een van de meest bepalende bakens die vorm krijgen in Dubai Maritime City.",
+          "Onberispelijk design, verrijkt met doordachte voorzieningen en verheven door de vertrouwde naam Hilton, brengt merkgebonden wonen aan het water naar een door zee omringd schiereiland, met weidse uitzichten over de haven en de skyline van Dubai.",
+          "De residenties variëren van doordachte appartementen met één en twee slaapkamers tot ruime duplexen, elk afgewerkt volgens de standaarden van het hotelmerk."
+        ],
+        "highlights": [
+          "Merkresidenties, beheerd volgens de gastvrijheidsstandaarden van Hilton",
+          "Wonen aan het water op het schiereiland Dubai Maritime City",
+          "Panoramisch infinity-zwembad, openluchtbioscoop en resortvoorzieningen",
+          "Appartementen met één en twee slaapkamers plus signature-duplexen"
+        ]
+      },
+      "sanctuary-residences-by-prestige-one": {
+        "tagline": "Panoramisch uitzicht over de lagune, met zicht op het natuurreservaat Ras Al Khor.",
+        "overview": [
+          "Sanctuary by Prestige One staat voor een evenwichtigere manier van wonen in Dubai, in Meydan - residenties en doordachte commerciële ruimtes, geordend rond rust, groen en verbinding."
+        ],
+        "highlights": [
+          "Wonen en commercie in één evenwichtige community",
+          "In het hart van Meydan",
+          "Ontworpen rond welzijn en alledaags gemak"
+        ]
+      },
+      "fauchon-residences-by-prestige-one": {
+        "tagline": "Parijs geïnspireerd wonen met de iconische FAUCHON-levensstijl.",
+        "overview": [
+          "FAUCHON Résidences brengt de art de vivre van het vermaarde Parijse huis naar Dubai - merkresidenties waar Franse elegantie elk detail bepaalt.",
+          "Van zorgvuldig samengestelde interieurs tot signature-gastronomie: het leven bij FAUCHON draait om comfort, karakter en alledaagse luxe."
+        ],
+        "highlights": [
+          "De eerste FAUCHON-merkresidenties in de regio",
+          "Interieurs en diensten in de Parijse art de vivre",
+          "De signature-gastronomie van FAUCHON voor uw deur"
+        ]
+      },
+      "golf-residences-by-prestige-one": { "tagline": "Onbelemmerd uitzicht op de golfbaan, elke dag." },
+      "seascape-villa": { "tagline": "Een privé toevluchtsoord aan zee." },
+      "the-one": { "tagline": "Een commercieel knooppunt binnen een markant G+14-project." },
+      "sanctuary-hive": { "tagline": "Commerciële ruimtes, ideaal voor bedrijven die zichtbaarheid en bereikbaarheid zoeken." },
+      "vista-hub": { "tagline": "Een nieuw baken dat vorm krijgt in Majan City." },
+      "prestige-seaside": { "tagline": "Het eerste adres van Prestige One aan de Griekse kust." },
+      "prestige-square": { "tagline": "Een nieuw baken van Prestige One krijgt vorm - binnenkort beschikbaar." }
+    },
+    "amenities": {
+      "infinity-swimming-pool": "Infinity-zwembad",
+      "state-of-the-art-fitness-centre": "Ultramodern fitnesscentrum",
+      "landscaped-podium-gardens": "Aangelegde podiumtuinen",
+      "24-7-concierge-security": "Conciërge en beveiliging 24/7",
+      "covered-resident-parking": "Overdekte parkeerplaats voor bewoners",
+      "children-s-play-area": "Speelplaats voor kinderen",
+      "residents-lounge-co-working": "Bewonerslounge en co-working",
+      "retail-dining-on-the-doorstep": "Winkels en horeca voor de deur",
+      "infinity-skyline-pool": "Panoramisch infinity-zwembad",
+      "outdoor-cinema": "Openluchtbioscoop",
+      "fitness-centre": "Fitnesscentrum",
+      "running-track": "Hardlooppiste",
+      "multi-sports-court": "Multisportveld",
+      "bbq-deck": "Barbecueterras",
+      "outdoor-kids-play-area": "Buitenspeelplaats voor kinderen",
+      "indoor-play-area": "Overdekte speelruimte",
+      "juice-bar": "Sapbar"
+    },
+    "payment": {
+      "on-booking": "Bij reservering",
+      "during-construction": "Tijdens de bouw",
+      "on-handover": "Bij oplevering"
+    },
+    "docs": {
+      "brochure": "Brochure",
+      "floor-plans": "Plattegronden",
+      "payment-plan": "Betalingsplan",
+      "fact-sheet": "Factsheet"
+    },
+    "status": {
+      "now-selling": "Nu te koop",
+      "commercial": "Commercieel",
+      "coming-soon": "Binnenkort beschikbaar"
+    },
+    "faq": {
+      "q": {
+        "location": "Waar ligt {name}?",
+        "payment": "Wat is het betalingsplan?",
+        "amenities": "Welke voorzieningen zijn inbegrepen?",
+        "schools": "Zijn er scholen en zorg in de buurt?",
+        "developer": "Wie is de ontwikkelaar en wat is de status?"
+      },
+      "a": {
+        "location": "{title} ligt in {location}{nearby}.",
+        "locationItem": "{name} ligt op ongeveer {time}",
+        "locationJoin": " en ",
+        "payment": "Er is een flexibel plan beschikbaar - doorgaans {plan}. De voorwaarden zijn indicatief; neem contact op met ons team voor de meest actuele informatie.",
+        "paymentItem": "{value} {label}",
+        "amenities": "Bewoners genieten van {list} en meer.",
+        "schools": "Ja - {list} zijn eenvoudig bereikbaar.",
+        "developer": "{title} wordt ontwikkeld door Prestige One en is momenteel {status}. Toon uw interesse voor beschikbaarheid en prijzen."
+      }
+    }
   }
 }

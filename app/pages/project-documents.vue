@@ -6,9 +6,9 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              eyebrow="Resources"
-              title="Project Documents"
-              lead="Access brochures, floor plans and payment plans for our flagship developments. Documents are shared on request through our team."
+              :eyebrow="t('mdata.docs.heroEyebrow')"
+              :title="t('mdata.docs.heroTitle')"
+              :lead="t('mdata.docs.heroLead')"
               image="/assets/project-featured-images/sliders/boulevard.webp"
             />
 
@@ -17,12 +17,7 @@
                 <div class="row">
                   <div class="col-xl-8">
                     <div class="prestige-prose tp_fade_anim" data-delay=".2">
-                      <p>
-                        Below is a selection of documents available for our flagship residences. As
-                        these materials contain detailed pricing and unit information, they are shared
-                        directly by our sales team. Request any document and we'll send it over
-                        promptly.
-                      </p>
+                      <p>{{ t('mdata.docs.intro') }}</p>
                     </div>
                   </div>
                 </div>
@@ -37,8 +32,8 @@
                   <ul class="prestige-docs__list">
                     <li v-for="doc in project.documents" :key="doc" class="prestige-docs__row">
                       <span class="prestige-docs__doc">{{ doc }}</span>
-                      <NuxtLink to="/contact-us" class="prestige-docs__request">
-                        Request document
+                      <NuxtLink :to="localePath('/contact-us')" class="prestige-docs__request">
+                        {{ t('mdata.common.requestDocument') }}
                       </NuxtLink>
                     </li>
                   </ul>
@@ -59,6 +54,9 @@ interface DocumentGroup {
   documents: string[];
 }
 
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 definePageMeta({ layout: false });
 useSeoMeta({
   title: "Project Documents | Prestige One",
@@ -66,13 +64,19 @@ useSeoMeta({
     "Request brochures, floor plans, payment plans and master plans for Prestige One's flagship Dubai developments.",
 });
 
-const documents = ["Brochure", "Floor Plans", "Payment Plan", "Master Plan"];
+// Generic document labels are translated; project/brand names stay literal.
+const documents = computed(() => [
+  t("mdata.docs.docBrochure"),
+  t("mdata.docs.docFloorPlans"),
+  t("mdata.docs.docPaymentPlan"),
+  t("mdata.docs.docMasterPlan"),
+]);
 
-const documentGroups: DocumentGroup[] = [
-  { name: "Hilton Residences", documents },
-  { name: "FAUCHON Résidences", documents },
-  { name: "Sanctuary Residences", documents },
-];
+const documentGroups = computed<DocumentGroup[]>(() => [
+  { name: "Hilton Residences", documents: documents.value },
+  { name: "FAUCHON Résidences", documents: documents.value },
+  { name: "Sanctuary Residences", documents: documents.value },
+]);
 
 usePrestigePage({ hero: false });
 </script>
