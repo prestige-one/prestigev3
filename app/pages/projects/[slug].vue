@@ -37,6 +37,7 @@
               :image="project.gallery[1] || project.hero"
               :paragraphs="project.overview"
               :points="project.highlights"
+              equal-height
             />
 
             <!-- 3 · amenities -->
