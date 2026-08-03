@@ -38,7 +38,7 @@ import { legalBodies } from "~/data/i18n-bodies";
 const doc: LegalDoc = getLegalDoc("terms-conditions")!;
 const legalKey = "terms";
 
-const { t, te, locale, getLocaleMessage } = useI18n();
+const { t, te, locale } = useI18n();
 
 definePageMeta({ layout: false });
 useSeoMeta({
@@ -46,20 +46,13 @@ useSeoMeta({
   description: doc.intro,
 });
 
-// Raw (uncompiled) locale-message lookup by dotted path - lets the full legal
-// body HTML (which contains email addresses and markup) skip vue-i18n's
-// interpolation compiler. Reactive on locale switch, English data fallback.
-function rawMsg(path: string): string | undefined {
-  void locale.value;
-  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
-  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
-  return typeof val === "string" && val ? val : undefined;
-}
-
 const title = computed(() =>
   te(`mdata.legal.${legalKey}.title`) ? t(`mdata.legal.${legalKey}.title`) : doc.title,
 );
-const intro = computed(() => rawMsg(`mdata.legal.${legalKey}.intro`) ?? doc.intro);
+const intro = computed(() => {
+  const k = `mdata.legal.${legalKey}.intro`;
+  return te(k) ? t(k) : doc.intro;
+});
 // Body HTML lives in the plain data module (not the locale JSON) - full markup
 // with email @ breaks vue-i18n's message precompiler. English data fallback.
 const body = computed(() => legalBodies[locale.value]?.[legalKey] ?? doc.body);

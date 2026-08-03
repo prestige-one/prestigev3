@@ -84,7 +84,7 @@ import { blogBodies } from "~/data/i18n-bodies";
 
 definePageMeta({ layout: false });
 
-const { t, te, locale, getLocaleMessage } = useI18n();
+const { t, te, locale } = useI18n();
 const localePath = useLocalePath();
 
 const route = useRoute();
@@ -95,20 +95,19 @@ if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: "Article not found", fatal: true });
 }
 
-// Raw (uncompiled) locale-message lookup by dotted path - used for the article
-// body/title/excerpt so large HTML strings (emails, markup) skip vue-i18n's
-// interpolation compiler. Falls back to the English data value; reactive on
-// locale switch.
-function rawMsg(path: string): string | undefined {
-  void locale.value;
-  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
-  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
-  return typeof val === "string" && val ? val : undefined;
-}
-
+// Title/excerpt are plain compiler-safe strings, resolved via t()/te() (which
+// reads the merged namespaced group locale files) with English fallback. The
+// body HTML lives in the plain data module (blogBodies) because its markup +
+// email "@" cannot pass through the vue-i18n message compiler.
 const postKey = computed(() => `mdata.blog.posts.${slug.value}`);
-const articleTitle = computed(() => rawMsg(`${postKey.value}.title`) ?? article.value?.title ?? "");
-const articleExcerpt = computed(() => rawMsg(`${postKey.value}.excerpt`) ?? article.value?.excerpt ?? "");
+const articleTitle = computed(() => {
+  const k = `${postKey.value}.title`;
+  return te(k) ? t(k) : article.value?.title ?? "";
+});
+const articleExcerpt = computed(() => {
+  const k = `${postKey.value}.excerpt`;
+  return te(k) ? t(k) : article.value?.excerpt ?? "";
+});
 // Body HTML lives in the plain data module (not the locale JSON) - full markup
 // with email @ breaks vue-i18n's message precompiler. Fall back to the English
 // source body.

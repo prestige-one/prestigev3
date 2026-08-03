@@ -21,22 +21,20 @@ import { categoryLabel, type Article } from "../../data/blog-data";
 
 const props = defineProps<{ article: Article }>();
 
-const { t, te, locale, getLocaleMessage } = useI18n();
+const { t, te } = useI18n();
 
-// Raw (uncompiled) locale-message lookup by dotted path - used for article
-// title/excerpt so translated copy is pulled without running large strings
-// through vue-i18n's interpolation compiler. Falls back to the English data
-// value. Reactive on locale switch (references locale.value).
-function rawMsg(path: string): string | undefined {
-  void locale.value;
-  const msg = getLocaleMessage(locale.value) as Record<string, unknown>;
-  const val = path.split(".").reduce<unknown>((o, k) => (o == null ? undefined : (o as Record<string, unknown>)[k]), msg);
-  return typeof val === "string" && val ? val : undefined;
-}
-
+// Article title/excerpt are plain compiler-safe strings, so resolve them via
+// vue-i18n's normal t()/te() (which correctly reads the merged, namespaced
+// group locale files), falling back to the English data value.
 const postKey = computed(() => `mdata.blog.posts.${props.article.slug}`);
-const title = computed(() => rawMsg(`${postKey.value}.title`) ?? props.article.title);
-const excerpt = computed(() => rawMsg(`${postKey.value}.excerpt`) ?? props.article.excerpt);
+const title = computed(() => {
+  const k = `${postKey.value}.title`;
+  return te(k) ? t(k) : props.article.title;
+});
+const excerpt = computed(() => {
+  const k = `${postKey.value}.excerpt`;
+  return te(k) ? t(k) : props.article.excerpt;
+});
 const catLabel = computed(() => {
   const k = `mdata.categories.${props.article.category}`;
   return te(k) ? t(k) : categoryLabel(props.article.category);
