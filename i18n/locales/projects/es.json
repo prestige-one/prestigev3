@@ -94,20 +94,34 @@
   },
   "pdata": {
     "p": {
-      "vista-by-prestige-one": { "tagline": "Residencias contemporáneas diseñadas en torno a vistas panorámicas." },
-      "the-residence-by-prestige-one": { "tagline": "Un hogar boutique con un diseño cuidado." },
-      "waterway-by-prestige-one": { "tagline": "Una vida serena inspirada en el agua." },
-      "seaside-by-prestige-one": { "tagline": "Un tranquilo refugio junto al mar." },
-      "parkway-by-prestige-one": { "tagline": "Una vida inspirada en la naturaleza, diseñada para el equilibrio." },
-      "the-one-by-prestige-one": { "tagline": "Espacios de trabajo modernos para los profesionales de hoy." },
-      "the-boulevard-by-prestige-one": { "tagline": "Una vida urbana audaz para estilos de vida modernos." },
-      "coastal-haven-by-prestige-one": { "tagline": "Vida costera con impresionantes vistas al Golfo." },
-      "luxury-canal-residences-by-prestige-one": { "tagline": "Vida junto al agua inspirada en el ritmo de Dubai Islands." },
-      "palm-villa-by-prestige-one": { "tagline": "Una vida exclusiva, diseñada para la privacidad." },
-      "luxe-villa-by-prestige-one": { "tagline": "Vida en villa privada con una elegancia atemporal." },
-      "berkeley-square-north": { "tagline": "Arquitectura atemporal inspirada en el estilo de vida londinense." },
-      "berkeley-square-south": { "tagline": "Donde los espacios abiertos dan forma al día a día." },
+      "vista-by-prestige-one": {
+        "name": "Vista", "tagline": "Residencias contemporáneas diseñadas en torno a vistas panorámicas." },
+      "the-residence-by-prestige-one": {
+        "name": "La Residencia", "tagline": "Un hogar boutique con un diseño cuidado." },
+      "waterway-by-prestige-one": {
+        "name": "Vía de Agua", "tagline": "Una vida serena inspirada en el agua." },
+      "seaside-by-prestige-one": {
+        "name": "Costa", "tagline": "Un tranquilo refugio junto al mar." },
+      "parkway-by-prestige-one": {
+        "name": "Parkway", "tagline": "Una vida inspirada en la naturaleza, diseñada para el equilibrio." },
+      "the-one-by-prestige-one": {
+        "name": "The One", "tagline": "Espacios de trabajo modernos para los profesionales de hoy." },
+      "the-boulevard-by-prestige-one": {
+        "name": "El Bulevar", "tagline": "Una vida urbana audaz para estilos de vida modernos." },
+      "coastal-haven-by-prestige-one": {
+        "name": "Refugio Costero", "tagline": "Vida costera con impresionantes vistas al Golfo." },
+      "luxury-canal-residences-by-prestige-one": {
+        "name": "Residencias del Canal de Lujo", "tagline": "Vida junto al agua inspirada en el ritmo de Dubai Islands." },
+      "palm-villa-by-prestige-one": {
+        "name": "Villa Palm", "tagline": "Una vida exclusiva, diseñada para la privacidad." },
+      "luxe-villa-by-prestige-one": {
+        "name": "Villa Luxe", "tagline": "Vida en villa privada con una elegancia atemporal." },
+      "berkeley-square-north": {
+        "name": "Berkeley Square Norte", "tagline": "Arquitectura atemporal inspirada en el estilo de vida londinense." },
+      "berkeley-square-south": {
+        "name": "Berkeley Square Sur", "tagline": "Donde los espacios abiertos dan forma al día a día." },
       "hilton-residences-dubai-maritime-city": {
+        "name": "Residencias Hilton Dubai Maritime City",
         "tagline": "Vida junto al agua inspirada en el estilo de vida Hilton.",
         "overview": [
           "La vida en Hilton Residences by Prestige One es un equilibrio entre elegancia y sencillez, uno de los referentes más emblemáticos que toman forma en Dubai Maritime City.",
@@ -122,6 +136,7 @@
         ]
       },
       "sanctuary-residences-by-prestige-one": {
+        "name": "Residencias del Santuario",
         "tagline": "Vistas panorámicas a la laguna con vistas a la Reserva Natural de Ras Al Khor.",
         "overview": [
           "Sanctuary by Prestige One propone una forma más equilibrada de vivir Dubái en Meydan - residencias y cuidados espacios comerciales dispuestos en torno a la calma, el verde y la conexión."
@@ -133,6 +148,7 @@
         ]
       },
       "fauchon-residences-by-prestige-one": {
+        "name": "Residencias FAUCHON",
         "tagline": "Una vida de inspiración parisina con el icónico estilo FAUCHON.",
         "overview": [
           "FAUCHON Résidences trae a Dubái el art de vivre de la célebre maison parisina - residencias de marca donde la elegancia francesa moldea cada detalle.",
@@ -144,13 +160,20 @@
           "La gastronomía característica de FAUCHON a un paso de tu puerta"
         ]
       },
-      "golf-residences-by-prestige-one": { "tagline": "Vistas ininterrumpidas al campo de golf, cada día." },
-      "seascape-villa": { "tagline": "Un refugio privado junto al mar." },
-      "the-one": { "tagline": "Un centro comercial dentro de un llamativo desarrollo G+14." },
-      "sanctuary-hive": { "tagline": "Espacios comerciales ideales para empresas que buscan visibilidad y conectividad." },
-      "vista-hub": { "tagline": "Un nuevo referente que toma forma en Majan City." },
-      "prestige-seaside": { "tagline": "La primera dirección de Prestige One en la costa griega." },
-      "prestige-square": { "tagline": "Un nuevo referente de Prestige One toma forma - próximamente." }
+      "golf-residences-by-prestige-one": {
+        "name": "Residencias del Golf", "tagline": "Vistas ininterrumpidas al campo de golf, cada día." },
+      "seascape-villa": {
+        "name": "Villa Seascape", "tagline": "Un refugio privado junto al mar." },
+      "the-one": {
+        "name": "The One", "tagline": "Un centro comercial dentro de un llamativo desarrollo G+14." },
+      "sanctuary-hive": {
+        "name": "Sanctuary Hive", "tagline": "Espacios comerciales ideales para empresas que buscan visibilidad y conectividad." },
+      "vista-hub": {
+        "name": "Vista Hub", "tagline": "Un nuevo referente que toma forma en Majan City." },
+      "prestige-seaside": {
+        "name": "Prestige Costa", "tagline": "La primera dirección de Prestige One en la costa griega." },
+      "prestige-square": {
+        "name": "Prestige Square", "tagline": "Un nuevo referente de Prestige One toma forma - próximamente." }
     },
     "amenities": {
       "infinity-swimming-pool": "Piscina infinita",

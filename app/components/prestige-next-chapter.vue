@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-next-area pt-40 pb-80">
+  <section class="prestige-next-area pt-80 pb-80">
     <div class="container container-1430">
       <div class="prestige-next-inner">
         <h2 class="prestige-next-title tp_reveal_anim" data-delay="0.05">

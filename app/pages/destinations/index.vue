@@ -43,7 +43,7 @@
                         <div class="prestige-dest-card__veil" />
                         <div class="prestige-dest-card__body">
                           <span class="prestige-dest-card__region">{{ dest.region }}</span>
-                          <h3 class="prestige-dest-card__name">{{ dest.name }}</h3>
+                          <h3 class="prestige-dest-card__name">{{ dName(dest) }}</h3>
                           <span class="prestige-dest-card__count">{{ countFor(dest) }}</span>
                         </div>
                       </div>
@@ -97,6 +97,7 @@ definePageMeta({ layout: false });
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { dName } = useLocalizedNames();
 
 useSeoMeta({
   title: () => t("dp.seo.title"),

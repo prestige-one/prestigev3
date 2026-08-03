@@ -94,20 +94,34 @@
   },
   "pdata": {
     "p": {
-      "vista-by-prestige-one": { "tagline": "Eigentijdse residenties, ontworpen rond panoramische uitzichten." },
-      "the-residence-by-prestige-one": { "tagline": "Boutiquewonen met doordacht ontwerp." },
-      "waterway-by-prestige-one": { "tagline": "Sereen wonen, geïnspireerd door het water." },
-      "seaside-by-prestige-one": { "tagline": "Een rustgevend toevluchtsoord aan het water." },
-      "parkway-by-prestige-one": { "tagline": "Door de natuur geïnspireerd wonen, ontworpen voor balans." },
-      "the-one-by-prestige-one": { "tagline": "Moderne werkplekken voor de professionals van vandaag." },
-      "the-boulevard-by-prestige-one": { "tagline": "Gedurfd stedelijk wonen voor een moderne levensstijl." },
-      "coastal-haven-by-prestige-one": { "tagline": "Kustwonen met adembenemend uitzicht over de Golf." },
-      "luxury-canal-residences-by-prestige-one": { "tagline": "Wonen aan het water, geïnspireerd door het ritme van Dubai Islands." },
-      "palm-villa-by-prestige-one": { "tagline": "Exclusief wonen, ontworpen voor privacy." },
-      "luxe-villa-by-prestige-one": { "tagline": "Privé villawonen met tijdloze elegantie." },
-      "berkeley-square-north": { "tagline": "Tijdloze architectuur, geïnspireerd door het Londense wonen." },
-      "berkeley-square-south": { "tagline": "Waar open ruimtes het dagelijks leven vormgeven." },
+      "vista-by-prestige-one": {
+        "name": "Vista", "tagline": "Eigentijdse residenties, ontworpen rond panoramische uitzichten." },
+      "the-residence-by-prestige-one": {
+        "name": "De Residentie", "tagline": "Boutiquewonen met doordacht ontwerp." },
+      "waterway-by-prestige-one": {
+        "name": "Waterweg", "tagline": "Sereen wonen, geïnspireerd door het water." },
+      "seaside-by-prestige-one": {
+        "name": "Aan Zee", "tagline": "Een rustgevend toevluchtsoord aan het water." },
+      "parkway-by-prestige-one": {
+        "name": "Parkway", "tagline": "Door de natuur geïnspireerd wonen, ontworpen voor balans." },
+      "the-one-by-prestige-one": {
+        "name": "The One", "tagline": "Moderne werkplekken voor de professionals van vandaag." },
+      "the-boulevard-by-prestige-one": {
+        "name": "De Boulevard", "tagline": "Gedurfd stedelijk wonen voor een moderne levensstijl." },
+      "coastal-haven-by-prestige-one": {
+        "name": "Kusthaven", "tagline": "Kustwonen met adembenemend uitzicht over de Golf." },
+      "luxury-canal-residences-by-prestige-one": {
+        "name": "Luxe Kanaalresidenties", "tagline": "Wonen aan het water, geïnspireerd door het ritme van Dubai Islands." },
+      "palm-villa-by-prestige-one": {
+        "name": "Palm Villa", "tagline": "Exclusief wonen, ontworpen voor privacy." },
+      "luxe-villa-by-prestige-one": {
+        "name": "Luxe Villa", "tagline": "Privé villawonen met tijdloze elegantie." },
+      "berkeley-square-north": {
+        "name": "Berkeley Square Noord", "tagline": "Tijdloze architectuur, geïnspireerd door het Londense wonen." },
+      "berkeley-square-south": {
+        "name": "Berkeley Square Zuid", "tagline": "Waar open ruimtes het dagelijks leven vormgeven." },
       "hilton-residences-dubai-maritime-city": {
+        "name": "Hilton Residenties Dubai Maritime City",
         "tagline": "Wonen aan het water, geïnspireerd door de Hilton-levensstijl.",
         "overview": [
           "Het leven in de Hilton Residences by Prestige One is een balans tussen elegantie en gemak - een van de meest bepalende bakens die vorm krijgen in Dubai Maritime City.",
@@ -122,6 +136,7 @@
         ]
       },
       "sanctuary-residences-by-prestige-one": {
+        "name": "Sanctuary Residenties",
         "tagline": "Panoramisch uitzicht over de lagune, met zicht op het natuurreservaat Ras Al Khor.",
         "overview": [
           "Sanctuary by Prestige One staat voor een evenwichtigere manier van wonen in Dubai, in Meydan - residenties en doordachte commerciële ruimtes, geordend rond rust, groen en verbinding."
@@ -133,6 +148,7 @@
         ]
       },
       "fauchon-residences-by-prestige-one": {
+        "name": "FAUCHON Residenties",
         "tagline": "Parijs geïnspireerd wonen met de iconische FAUCHON-levensstijl.",
         "overview": [
           "FAUCHON Résidences brengt de art de vivre van het vermaarde Parijse huis naar Dubai - merkresidenties waar Franse elegantie elk detail bepaalt.",
@@ -144,13 +160,20 @@
           "De signature-gastronomie van FAUCHON voor uw deur"
         ]
       },
-      "golf-residences-by-prestige-one": { "tagline": "Onbelemmerd uitzicht op de golfbaan, elke dag." },
-      "seascape-villa": { "tagline": "Een privé toevluchtsoord aan zee." },
-      "the-one": { "tagline": "Een commercieel knooppunt binnen een markant G+14-project." },
-      "sanctuary-hive": { "tagline": "Commerciële ruimtes, ideaal voor bedrijven die zichtbaarheid en bereikbaarheid zoeken." },
-      "vista-hub": { "tagline": "Een nieuw baken dat vorm krijgt in Majan City." },
-      "prestige-seaside": { "tagline": "Het eerste adres van Prestige One aan de Griekse kust." },
-      "prestige-square": { "tagline": "Een nieuw baken van Prestige One krijgt vorm - binnenkort beschikbaar." }
+      "golf-residences-by-prestige-one": {
+        "name": "Golfresidenties", "tagline": "Onbelemmerd uitzicht op de golfbaan, elke dag." },
+      "seascape-villa": {
+        "name": "Seascape Villa", "tagline": "Een privé toevluchtsoord aan zee." },
+      "the-one": {
+        "name": "The One", "tagline": "Een commercieel knooppunt binnen een markant G+14-project." },
+      "sanctuary-hive": {
+        "name": "Sanctuary Hive", "tagline": "Commerciële ruimtes, ideaal voor bedrijven die zichtbaarheid en bereikbaarheid zoeken." },
+      "vista-hub": {
+        "name": "Vista Hub", "tagline": "Een nieuw baken dat vorm krijgt in Majan City." },
+      "prestige-seaside": {
+        "name": "Prestige Aan Zee", "tagline": "Het eerste adres van Prestige One aan de Griekse kust." },
+      "prestige-square": {
+        "name": "Prestige Square", "tagline": "Een nieuw baken van Prestige One krijgt vorm - binnenkort beschikbaar." }
     },
     "amenities": {
       "infinity-swimming-pool": "Infinity-zwembad",

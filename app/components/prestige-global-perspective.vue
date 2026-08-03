@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-global-area pt-40 pb-80">
+  <section class="prestige-global-area pt-80 pb-0">
     <div class="container container-1430">
       <header class="prestige-global-header">
         <span class="prestige-global-eyebrow">{{ t('ap.global.eyebrow') }}</span>

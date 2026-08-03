@@ -94,20 +94,34 @@
   },
   "pdata": {
     "p": {
-      "vista-by-prestige-one": { "tagline": "مساكن عصرية مصمَّمة حول إطلالات بانورامية." },
-      "the-residence-by-prestige-one": { "tagline": "سكن بوتيكي بتصميم مدروس." },
-      "waterway-by-prestige-one": { "tagline": "حياة هادئة مستوحاة من الماء." },
-      "seaside-by-prestige-one": { "tagline": "ملاذ هادئ على الواجهة المائية." },
-      "parkway-by-prestige-one": { "tagline": "حياة مستوحاة من الطبيعة، مصمَّمة من أجل التوازن." },
-      "the-one-by-prestige-one": { "tagline": "مساحات عمل عصرية لمحترفي اليوم." },
-      "the-boulevard-by-prestige-one": { "tagline": "حياة حضرية جريئة لأنماط الحياة العصرية." },
-      "coastal-haven-by-prestige-one": { "tagline": "حياة ساحلية بإطلالات خلّابة على الخليج." },
-      "luxury-canal-residences-by-prestige-one": { "tagline": "حياة على الواجهة المائية مستوحاة من إيقاع Dubai Islands." },
-      "palm-villa-by-prestige-one": { "tagline": "حياة حصرية، مصمَّمة من أجل الخصوصية." },
-      "luxe-villa-by-prestige-one": { "tagline": "حياة الفلل الخاصة بأناقة خالدة." },
-      "berkeley-square-north": { "tagline": "عمارة خالدة مستوحاة من الحياة اللندنية." },
-      "berkeley-square-south": { "tagline": "حيث تشكِّل المساحات المفتوحة تفاصيل الحياة اليومية." },
+      "vista-by-prestige-one": {
+        "name": "فيستا", "tagline": "مساكن عصرية مصمَّمة حول إطلالات بانورامية." },
+      "the-residence-by-prestige-one": {
+        "name": "المسكن", "tagline": "سكن بوتيكي بتصميم مدروس." },
+      "waterway-by-prestige-one": {
+        "name": "الممر المائي", "tagline": "حياة هادئة مستوحاة من الماء." },
+      "seaside-by-prestige-one": {
+        "name": "ساحل", "tagline": "ملاذ هادئ على الواجهة المائية." },
+      "parkway-by-prestige-one": {
+        "name": "باركواي", "tagline": "حياة مستوحاة من الطبيعة، مصمَّمة من أجل التوازن." },
+      "the-one-by-prestige-one": {
+        "name": "الواحد", "tagline": "مساحات عمل عصرية لمحترفي اليوم." },
+      "the-boulevard-by-prestige-one": {
+        "name": "الجادة", "tagline": "حياة حضرية جريئة لأنماط الحياة العصرية." },
+      "coastal-haven-by-prestige-one": {
+        "name": "الملاذ الساحلي", "tagline": "حياة ساحلية بإطلالات خلّابة على الخليج." },
+      "luxury-canal-residences-by-prestige-one": {
+        "name": "مساكن القناة الفاخرة", "tagline": "حياة على الواجهة المائية مستوحاة من إيقاع Dubai Islands." },
+      "palm-villa-by-prestige-one": {
+        "name": "فيلا النخيل", "tagline": "حياة حصرية، مصمَّمة من أجل الخصوصية." },
+      "luxe-villa-by-prestige-one": {
+        "name": "فيلا لوكس", "tagline": "حياة الفلل الخاصة بأناقة خالدة." },
+      "berkeley-square-north": {
+        "name": "بيركلي سكوير الشمالية", "tagline": "عمارة خالدة مستوحاة من الحياة اللندنية." },
+      "berkeley-square-south": {
+        "name": "بيركلي سكوير الجنوبية", "tagline": "حيث تشكِّل المساحات المفتوحة تفاصيل الحياة اليومية." },
       "hilton-residences-dubai-maritime-city": {
+        "name": "مساكن هيلتون، مدينة دبي الملاحية",
         "tagline": "حياة على الواجهة المائية مستوحاة من أسلوب حياة Hilton.",
         "overview": [
           "الحياة في Hilton Residences by Prestige One توازن بين الأناقة والراحة - أحد أبرز المعالم التي تتشكّل في Dubai Maritime City.",
@@ -122,6 +136,7 @@
         ]
       },
       "sanctuary-residences-by-prestige-one": {
+        "name": "مساكن الملاذ",
         "tagline": "إطلالات بانورامية على البحيرة تطل على محمية رأس الخور الطبيعية.",
         "overview": [
           "يقدّم Sanctuary by Prestige One نمطًا أكثر توازنًا للحياة في دبي ضمن Meydan - مساكن ومساحات تجارية مدروسة تنتظم حول الهدوء والمساحات الخضراء والتواصل."
@@ -133,6 +148,7 @@
         ]
       },
       "fauchon-residences-by-prestige-one": {
+        "name": "مساكن فوشون",
         "tagline": "حياة مستوحاة من باريس مع أسلوب FAUCHON الأيقوني.",
         "overview": [
           "تقدّم FAUCHON Résidences فنّ العيش الخاص بالدار الباريسية العريقة إلى دبي - مساكن بعلامة تجارية تصوغ فيها الأناقة الفرنسية كل تفصيل.",
@@ -144,13 +160,20 @@
           "فنون الطهي المميّزة من FAUCHON على عتبة داركم"
         ]
       },
-      "golf-residences-by-prestige-one": { "tagline": "إطلالات غير محجوبة على ملعب الغولف، كل يوم." },
-      "seascape-villa": { "tagline": "ملاذ خاص على شاطئ البحر." },
-      "the-one": { "tagline": "مركز تجاري ضمن مشروع G+14 لافت للأنظار." },
-      "sanctuary-hive": { "tagline": "مساحات تجارية مثالية للشركات الباحثة عن الظهور وسهولة الوصول." },
-      "vista-hub": { "tagline": "معلم جديد يتشكّل في Majan City." },
-      "prestige-seaside": { "tagline": "أول عنوان لـ Prestige One على الساحل اليوناني." },
-      "prestige-square": { "tagline": "معلم جديد من Prestige One يتشكّل - قريبًا." }
+      "golf-residences-by-prestige-one": {
+        "name": "مساكن الغولف", "tagline": "إطلالات غير محجوبة على ملعب الغولف، كل يوم." },
+      "seascape-villa": {
+        "name": "فيلا سيسكيب", "tagline": "ملاذ خاص على شاطئ البحر." },
+      "the-one": {
+        "name": "الواحد", "tagline": "مركز تجاري ضمن مشروع G+14 لافت للأنظار." },
+      "sanctuary-hive": {
+        "name": "خلية الملاذ", "tagline": "مساحات تجارية مثالية للشركات الباحثة عن الظهور وسهولة الوصول." },
+      "vista-hub": {
+        "name": "مركز فيستا", "tagline": "معلم جديد يتشكّل في Majan City." },
+      "prestige-seaside": {
+        "name": "بريستيج ساحل", "tagline": "أول عنوان لـ Prestige One على الساحل اليوناني." },
+      "prestige-square": {
+        "name": "بريستيج سكوير", "tagline": "معلم جديد من Prestige One يتشكّل - قريبًا." }
     },
     "amenities": {
       "infinity-swimming-pool": "مسبح لا متناهٍ",

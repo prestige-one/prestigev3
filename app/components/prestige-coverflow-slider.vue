@@ -25,7 +25,7 @@
                     <div class="coverflow-slider-content text-center">
                       <h4 class="coverflow-slider-title-sm">
                         <NuxtLink class="tp-line-white" :to="item.href">
-                          {{ item.title }}
+                          {{ pNameFromTitle(item.title) }}
                           <div class="coverflow-slider-location">[{{ item.location }}]</div>
                         </NuxtLink>
                       </h4>
@@ -69,6 +69,7 @@ import type { DevelopmentSlide } from "../data/residential-developments-data";
 import { slugify } from "~/data/projects";
 
 const { t, te } = useI18n();
+const { pNameFromTitle } = useLocalizedNames();
 
 // Slide caption (tagline) resolved from the `pdata` locale namespace, keyed by
 // the project's slug, falling back to the original English description so the

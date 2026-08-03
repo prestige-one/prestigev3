@@ -7,7 +7,7 @@
           <main v-if="project" class="prestige-page">
             <prestige-page-hero
               :eyebrow="project.location"
-              :title="project.title"
+              :title="pName(project)"
               :lead="heroLead"
               :image="project.hero"
               :video="project.video"
@@ -220,6 +220,7 @@ interface FaqItem { q: string; a: string }
 definePageMeta({ layout: false });
 
 const { t, tm, rt, te } = useI18n();
+const { pName } = useLocalizedNames();
 const localePath = useLocalePath();
 
 const route = useRoute();

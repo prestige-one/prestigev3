@@ -94,19 +94,58 @@
   },
   "pdata": {
     "p": {
-      "vista-by-prestige-one": { "tagline": "Contemporary residences designed around panoramic views." },
-      "the-residence-by-prestige-one": { "tagline": "Boutique living with thoughtful design." },
-      "waterway-by-prestige-one": { "tagline": "Serene living inspired by the water." },
-      "seaside-by-prestige-one": { "tagline": "A peaceful waterfront retreat." },
-      "parkway-by-prestige-one": { "tagline": "Nature-inspired living designed for balance." },
-      "the-one-by-prestige-one": { "tagline": "Modern workspaces for today's professionals." },
-      "the-boulevard-by-prestige-one": { "tagline": "Bold urban living for modern lifestyles." },
-      "coastal-haven-by-prestige-one": { "tagline": "Coastal living with breathtaking Gulf views." },
-      "luxury-canal-residences-by-prestige-one": { "tagline": "Waterfront living inspired by the rhythm of Dubai Islands." },
-      "palm-villa-by-prestige-one": { "tagline": "Exclusive living, designed for privacy." },
-      "luxe-villa-by-prestige-one": { "tagline": "Private villa living with timeless elegance." },
-      "berkeley-square-north": { "tagline": "Timeless architecture inspired by London living." },
-      "berkeley-square-south": { "tagline": "Where open spaces shape everyday living." },
+      "vista-by-prestige-one": {
+        "tagline": "Contemporary residences designed around panoramic views.",
+        "name": "Vista"
+      },
+      "the-residence-by-prestige-one": {
+        "tagline": "Boutique living with thoughtful design.",
+        "name": "The Residence"
+      },
+      "waterway-by-prestige-one": {
+        "tagline": "Serene living inspired by the water.",
+        "name": "Waterway"
+      },
+      "seaside-by-prestige-one": {
+        "tagline": "A peaceful waterfront retreat.",
+        "name": "Seaside"
+      },
+      "parkway-by-prestige-one": {
+        "tagline": "Nature-inspired living designed for balance.",
+        "name": "Parkway"
+      },
+      "the-one-by-prestige-one": {
+        "tagline": "Modern workspaces for today's professionals.",
+        "name": "The One"
+      },
+      "the-boulevard-by-prestige-one": {
+        "tagline": "Bold urban living for modern lifestyles.",
+        "name": "The Boulevard"
+      },
+      "coastal-haven-by-prestige-one": {
+        "tagline": "Coastal living with breathtaking Gulf views.",
+        "name": "Coastal Haven"
+      },
+      "luxury-canal-residences-by-prestige-one": {
+        "tagline": "Waterfront living inspired by the rhythm of Dubai Islands.",
+        "name": "Luxury Canal Residences"
+      },
+      "palm-villa-by-prestige-one": {
+        "tagline": "Exclusive living, designed for privacy.",
+        "name": "Palm Villa"
+      },
+      "luxe-villa-by-prestige-one": {
+        "tagline": "Private villa living with timeless elegance.",
+        "name": "Luxe Villa"
+      },
+      "berkeley-square-north": {
+        "tagline": "Timeless architecture inspired by London living.",
+        "name": "Berkeley Square North"
+      },
+      "berkeley-square-south": {
+        "tagline": "Where open spaces shape everyday living.",
+        "name": "Berkeley Square South"
+      },
       "hilton-residences-dubai-maritime-city": {
         "tagline": "Waterfront living inspired by the Hilton way of life.",
         "overview": [
@@ -119,7 +158,8 @@
           "Waterfront living on the Dubai Maritime City peninsula",
           "Infinity skyline pool, outdoor cinema and resort amenities",
           "One- and two-bedroom apartments plus signature duplexes"
-        ]
+        ],
+        "name": "Hilton Residences Dubai Maritime City"
       },
       "sanctuary-residences-by-prestige-one": {
         "tagline": "Panoramic lagoon views overlooking Ras Al Khor Wildlife Sanctuary.",
@@ -130,7 +170,8 @@
           "Residential and commercial in one balanced community",
           "Set in the heart of Meydan",
           "Designed around wellbeing and everyday convenience"
-        ]
+        ],
+        "name": "Sanctuary Residences"
       },
       "fauchon-residences-by-prestige-one": {
         "tagline": "Parisian-inspired living with the iconic FAUCHON lifestyle.",
@@ -142,15 +183,37 @@
           "The first FAUCHON branded residences in the region",
           "Parisian art-de-vivre interiors and services",
           "Signature FAUCHON gastronomy on your doorstep"
-        ]
+        ],
+        "name": "FAUCHON Résidences"
       },
-      "golf-residences-by-prestige-one": { "tagline": "Uninterrupted golf course views, every day." },
-      "seascape-villa": { "tagline": "A private escape by the sea." },
-      "the-one": { "tagline": "A commercial hub within a striking G+14 development." },
-      "sanctuary-hive": { "tagline": "Commercial spaces ideal for businesses seeking visibility and connectivity." },
-      "vista-hub": { "tagline": "A new landmark taking shape in Majan City." },
-      "prestige-seaside": { "tagline": "Prestige One's first address on the Greek coast." },
-      "prestige-square": { "tagline": "A new Prestige One landmark taking shape - coming soon." }
+      "golf-residences-by-prestige-one": {
+        "tagline": "Uninterrupted golf course views, every day.",
+        "name": "Golf Residences"
+      },
+      "seascape-villa": {
+        "tagline": "A private escape by the sea.",
+        "name": "Seascape Villa"
+      },
+      "the-one": {
+        "tagline": "A commercial hub within a striking G+14 development.",
+        "name": "The One"
+      },
+      "sanctuary-hive": {
+        "tagline": "Commercial spaces ideal for businesses seeking visibility and connectivity.",
+        "name": "Sanctuary Hive"
+      },
+      "vista-hub": {
+        "tagline": "A new landmark taking shape in Majan City.",
+        "name": "Vista Hub"
+      },
+      "prestige-seaside": {
+        "tagline": "Prestige One's first address on the Greek coast.",
+        "name": "Prestige Seaside"
+      },
+      "prestige-square": {
+        "tagline": "A new Prestige One landmark taking shape - coming soon.",
+        "name": "Prestige Square"
+      }
     },
     "amenities": {
       "infinity-swimming-pool": "Infinity swimming pool",

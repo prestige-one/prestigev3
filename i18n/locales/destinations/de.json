@@ -96,6 +96,7 @@
   "ddata": {
     "d": {
       "dubai-islands": {
+        "name": "Dubai Islands",
         "intro": "Ein Archipel des Strandlebens, nur wenige Minuten von der Stadt entfernt.",
         "about": [
           "Dubai Islands ist eine meisterhaft gestaltete Wasserfront-Destination - eine Ansammlung von fünf Inseln (Deira Island, Dream Island, Island Central, Marina Island und Hills Island), die mit Stränden, Marinas und Resorts die nördliche Küstenlinie des Emirats neu formen.",
@@ -118,6 +119,7 @@
         "highlights": ["20 km Strände", "Marinas & Resorts", "Minuten von Deira & dem Flughafen"]
       },
       "mohammed-bin-rashid-city": {
+        "name": "Mohammed Bin Rashid City",
         "intro": "Ein grüner, zentraler Bezirk rund um den Meydan-Lifestyle.",
         "about": [
           "Mohammed Bin Rashid City (MBR City) ist ein wegweisendes Masterprojekt im Wert von AED 30 billion im grünen Herzen Dubais, das sich um eine der weltweit größten künstlichen Kristalllagunen erstreckt und von Parks, Promenaden und dem Meydan-Lifestyle durchzogen ist.",
@@ -141,6 +143,7 @@
         "highlights": ["Kristalllagunen & Parks", "Minuten von Downtown", "Meydan-Rennbahn & Golf"]
       },
       "dubai-sports-city": {
+        "name": "Dubai Sports City",
         "intro": "Eine aktive, familienorientierte Community rund um den Sport.",
         "about": [
           "Dubai Sports City ist eine eigens für aktives Leben geschaffene Community - Championship-Golf, internationale Stadien und Weltklasse-Akademien, eingebettet in fußläufige, familienfreundliche Nachbarschaften entlang der Mohammed Bin Zayed Road.",
@@ -164,6 +167,7 @@
         "highlights": ["Championship-Golfplatz", "Sportakademien & Stadien", "Familienfreundliche Community"]
       },
       "jumeirah-village-circle": {
+        "name": "Jumeirah Village Circle",
         "intro": "Eine der beliebtesten und bestangebundenen Communitys Dubais.",
         "about": [
           "Jumeirah Village Circle (JVC) ist eine autarke Community von 811-hectare mit Villen, Reihenhäusern und Apartments rund um angelegte Parks - eine der beliebtesten Adressen Dubais durch ihre Mischung aus Wert, Gemeinschaftsgefühl und Anbindung.",
@@ -187,6 +191,7 @@
         "highlights": ["Angelegte zentrale Parks", "Schulen & Einzelhandel in Reichweite", "Einfacher Zugang zur Al Khail Road"]
       },
       "palm-jumeirah": {
+        "name": "Palm Jumeirah",
         "intro": "Die weltweit bekannteste Adresse am Wasser.",
         "about": [
           "Palm Jumeirah braucht keine Vorstellung - die größte künstliche Insel der Welt, ein 2km langer zentraler Stamm, der sich in 17 fronds auffächert und von einer schützenden Sichel umschlossen wird, gesäumt von Privatstränden und ikonischen Resorts.",
@@ -210,6 +215,7 @@
         "highlights": ["Privatstrände", "Ikonische Resorts & Gastronomie", "Unvergleichlicher Meerblick"]
       },
       "barsha-heights": {
+        "name": "Barsha Heights",
         "intro": "Ein zentraler, geschäftsfreundlicher Bezirk an der Metro.",
         "about": [
           "Barsha Heights (ehemals Tecom) ist ein gut angebundener, gemischt genutzter Bezirk mit Wohngebäuden, Firmenbüros, Serviced Apartments und Hotels, direkt an der Sheikh Zayed Road und nur wenige Minuten von Dubai Internet City und Media City entfernt.",
@@ -233,6 +239,7 @@
         "highlights": ["An der Metrolinie", "An der Sheikh Zayed Road", "Mix aus Gewerbe & Wohnen"]
       },
       "dubai-maritime-city": {
+        "name": "Dubai Maritime City",
         "intro": "Eine eigens geschaffene Halbinsel zwischen Port Rashid und Drydocks.",
         "about": [
           "Dubai Maritime City ist eine eigens geschaffene Wasserfront-Halbinsel zwischen dem historischen Port Rashid und dem offenen Meer - eine 360-degree-Küstenadresse, die nahe dem Herzen des alten wie des neuen Dubai emporwächst.",
@@ -256,6 +263,7 @@
         "highlights": ["360°-Wasserfrontlage", "Nahe Port Rashid & Deira", "Markenresidenzen"]
       },
       "dlrc": {
+        "name": "Dubai Land Residence Complex",
         "intro": "Eine schnell wachsende, wertorientierte Wohn-Community.",
         "about": [
           "Dubai Land Residence Complex (DLRC) ist eine autarke Freehold-Community von rund 14 million square feet innerhalb der weitläufigen Vision von Dubailand - eine wertorientierte Adresse mit Studios bis Reihenhäusern und Grundstücken entlang der Achse der Al Ain Road.",
@@ -279,6 +287,7 @@
         "highlights": ["Wertorientiertes Wohnen", "Grüne Anlage mit geringer Dichte", "Schneller Zugang zur Emirates Road"]
       },
       "jumeirah-garden-city": {
+        "name": "Jumeirah Garden City",
         "intro": "Ein zentraler Stadtbezirk, nur Momente von der Küste entfernt.",
         "about": [
           "Jumeirah Garden City ist ein zentraler Regenerationsbezirk in Al Satwa, direkt an der Sheikh Zayed Road zwischen Downtown Dubai, DIFC und der Jumeirah-Küste gelegen - eine der fußläufigsten und bestangebundenen Ecken der Stadt.",
@@ -302,6 +311,7 @@
         "highlights": ["Zentrale Lage in Dubai", "Wenige Schritte von der Küste", "Urbaner, fußläufiger Bezirk"]
       },
       "majan-city": {
+        "name": "Majan City",
         "intro": "Eine aufstrebende Dubailand-Community im Aufwind.",
         "about": [
           "Majan ist eine schnell aufstrebende Community innerhalb von Dubailand, direkt an der Sheikh Mohammed Bin Zayed Road (E311) gelegen - eine ruhige, grüne und preislich attraktive Ecke der Stadt, die an die üppige Nachbarschaft Al Barari grenzt.",

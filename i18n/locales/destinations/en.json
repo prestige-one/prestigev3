@@ -115,7 +115,12 @@
           "Major ongoing infrastructure investment",
           "Sustainable, master-planned island design"
         ],
-        "highlights": ["20km of beaches", "Marinas & resorts", "Minutes from Deira & the airport"]
+        "highlights": [
+          "20km of beaches",
+          "Marinas & resorts",
+          "Minutes from Deira & the airport"
+        ],
+        "name": "Dubai Islands"
       },
       "mohammed-bin-rashid-city": {
         "intro": "A green, central district around the Meydan lifestyle.",
@@ -138,7 +143,12 @@
           "Five minutes from Burj Khalifa and the Dubai Mall",
           "Continuous infrastructure and lifestyle investment"
         ],
-        "highlights": ["Crystal lagoons & parks", "Minutes from Downtown", "Meydan racecourse & golf"]
+        "highlights": [
+          "Crystal lagoons & parks",
+          "Minutes from Downtown",
+          "Meydan racecourse & golf"
+        ],
+        "name": "Mohammed Bin Rashid City"
       },
       "dubai-sports-city": {
         "intro": "An active, family-focused community built around sport.",
@@ -161,7 +171,12 @@
           "Direct highway access across the city",
           "Government support and long-term community masterplan"
         ],
-        "highlights": ["Championship golf course", "Sports academies & stadiums", "Family-friendly community"]
+        "highlights": [
+          "Championship golf course",
+          "Sports academies & stadiums",
+          "Family-friendly community"
+        ],
+        "name": "Dubai Sports City"
       },
       "jumeirah-village-circle": {
         "intro": "One of Dubai's most loved, well-connected communities.",
@@ -184,7 +199,12 @@
           "Community-focused design with parks and retail",
           "Proven track record of capital appreciation"
         ],
-        "highlights": ["Landscaped central parks", "Schools & retail within reach", "Easy access to Al Khail Road"]
+        "highlights": [
+          "Landscaped central parks",
+          "Schools & retail within reach",
+          "Easy access to Al Khail Road"
+        ],
+        "name": "Jumeirah Village Circle"
       },
       "palm-jumeirah": {
         "intro": "The world's most recognisable address on the water.",
@@ -207,7 +227,12 @@
           "Resilient, blue-chip real estate market",
           "Unrivalled sea and skyline views"
         ],
-        "highlights": ["Private beaches", "Landmark resorts & dining", "Unrivalled sea views"]
+        "highlights": [
+          "Private beaches",
+          "Landmark resorts & dining",
+          "Unrivalled sea views"
+        ],
+        "name": "Palm Jumeirah"
       },
       "barsha-heights": {
         "intro": "A central, business-friendly district by the metro.",
@@ -230,7 +255,12 @@
           "Walking distance to three metro stations",
           "Steady capital appreciation potential"
         ],
-        "highlights": ["On the metro line", "Beside Sheikh Zayed Road", "Business & residential mix"]
+        "highlights": [
+          "On the metro line",
+          "Beside Sheikh Zayed Road",
+          "Business & residential mix"
+        ],
+        "name": "Barsha Heights"
       },
       "dubai-maritime-city": {
         "intro": "A purpose-built peninsula between Port Rashid and Drydocks.",
@@ -253,7 +283,12 @@
           "Sustainability-focused masterplan with upgraded marinas",
           "Proximity to Port Rashid's cruise and leisure growth"
         ],
-        "highlights": ["360° waterfront setting", "Close to Port Rashid & Deira", "Branded residences"]
+        "highlights": [
+          "360° waterfront setting",
+          "Close to Port Rashid & Deira",
+          "Branded residences"
+        ],
+        "name": "Dubai Maritime City"
       },
       "dlrc": {
         "intro": "A fast-growing, value-driven residential community.",
@@ -276,7 +311,12 @@
           "Minutes from Dubailand's major leisure attractions",
           "Continuous development in a fast-growing corridor"
         ],
-        "highlights": ["Value-driven living", "Green, low-density layout", "Quick access to Emirates Road"]
+        "highlights": [
+          "Value-driven living",
+          "Green, low-density layout",
+          "Quick access to Emirates Road"
+        ],
+        "name": "Dubai Land Residence Complex"
       },
       "jumeirah-garden-city": {
         "intro": "A central urban district moments from the coast.",
@@ -299,7 +339,12 @@
           "Ongoing infrastructure driving capital appreciation",
           "13 minutes from the international airport"
         ],
-        "highlights": ["Central Dubai location", "Steps from the coast", "Urban, walkable district"]
+        "highlights": [
+          "Central Dubai location",
+          "Steps from the coast",
+          "Urban, walkable district"
+        ],
+        "name": "Jumeirah Garden City"
       },
       "majan-city": {
         "intro": "An emerging Dubailand community on the rise.",
@@ -322,7 +367,12 @@
           "Minutes from Dubailand's major attractions",
           "Direct E311 highway access across the city"
         ],
-        "highlights": ["Emerging Dubailand address", "Green & low-density", "Strong growth potential"]
+        "highlights": [
+          "Emerging Dubailand address",
+          "Green & low-density",
+          "Strong growth potential"
+        ],
+        "name": "Majan City"
       }
     }
   }

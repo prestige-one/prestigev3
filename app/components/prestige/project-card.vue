@@ -7,7 +7,7 @@
     </div>
     <div class="prestige-pcard__body">
       <span class="prestige-pcard__loc">{{ project.location }}</span>
-      <h3 class="prestige-pcard__title">{{ project.title }}</h3>
+      <h3 class="prestige-pcard__title">{{ pName(project) }}</h3>
       <span class="prestige-pcard__cta">
         {{ $t('cta.viewProject') }} <i class="prestige-pcard__arrow">→</i>
       </span>
@@ -19,6 +19,7 @@
 import type { Project } from "../../data/projects";
 
 const props = defineProps<{ project: Project }>();
+const { pName } = useLocalizedNames();
 
 const SOLD_OUT = new Set(["vista-by-prestige-one", "the-residence-by-prestige-one"]);
 const soldOut = computed(() => SOLD_OUT.has(props.project.slug));

@@ -7,7 +7,7 @@
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
               :eyebrow="dest.region"
-              :title="dest.name"
+              :title="dName(dest)"
               :lead="dIntro"
               :image="dest.image"
             >
@@ -193,6 +193,7 @@ definePageMeta({ layout: false });
 
 const { t, tm, te, rt, locale } = useI18n();
 const localePath = useLocalePath();
+const { dName } = useLocalizedNames();
 
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));

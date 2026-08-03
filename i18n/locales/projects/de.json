@@ -94,20 +94,34 @@
   },
   "pdata": {
     "p": {
-      "vista-by-prestige-one": { "tagline": "Zeitgemäße Residenzen, gestaltet rund um Panoramablicke." },
-      "the-residence-by-prestige-one": { "tagline": "Boutique-Wohnen mit durchdachtem Design." },
-      "waterway-by-prestige-one": { "tagline": "Ruhiges Wohnen, inspiriert vom Wasser." },
-      "seaside-by-prestige-one": { "tagline": "Ein friedliches Refugium am Wasser." },
-      "parkway-by-prestige-one": { "tagline": "Von der Natur inspiriertes Wohnen, gestaltet für Balance." },
-      "the-one-by-prestige-one": { "tagline": "Moderne Arbeitswelten für die Fachkräfte von heute." },
-      "the-boulevard-by-prestige-one": { "tagline": "Markantes urbanes Wohnen für moderne Lebensstile." },
-      "coastal-haven-by-prestige-one": { "tagline": "Küstenwohnen mit atemberaubendem Blick auf den Golf." },
-      "luxury-canal-residences-by-prestige-one": { "tagline": "Wohnen am Wasser, inspiriert vom Rhythmus der Dubai Islands." },
-      "palm-villa-by-prestige-one": { "tagline": "Exklusives Wohnen, gestaltet für Privatsphäre." },
-      "luxe-villa-by-prestige-one": { "tagline": "Privates Villenwohnen von zeitloser Eleganz." },
-      "berkeley-square-north": { "tagline": "Zeitlose Architektur, inspiriert vom Londoner Wohnstil." },
-      "berkeley-square-south": { "tagline": "Wo offene Räume den Alltag prägen." },
+      "vista-by-prestige-one": {
+        "name": "Vista", "tagline": "Zeitgemäße Residenzen, gestaltet rund um Panoramablicke." },
+      "the-residence-by-prestige-one": {
+        "name": "Die Residenz", "tagline": "Boutique-Wohnen mit durchdachtem Design." },
+      "waterway-by-prestige-one": {
+        "name": "Wasserweg", "tagline": "Ruhiges Wohnen, inspiriert vom Wasser." },
+      "seaside-by-prestige-one": {
+        "name": "Küste", "tagline": "Ein friedliches Refugium am Wasser." },
+      "parkway-by-prestige-one": {
+        "name": "Parkway", "tagline": "Von der Natur inspiriertes Wohnen, gestaltet für Balance." },
+      "the-one-by-prestige-one": {
+        "name": "The One", "tagline": "Moderne Arbeitswelten für die Fachkräfte von heute." },
+      "the-boulevard-by-prestige-one": {
+        "name": "Der Boulevard", "tagline": "Markantes urbanes Wohnen für moderne Lebensstile." },
+      "coastal-haven-by-prestige-one": {
+        "name": "Küstenrefugium", "tagline": "Küstenwohnen mit atemberaubendem Blick auf den Golf." },
+      "luxury-canal-residences-by-prestige-one": {
+        "name": "Luxuriöse Kanalresidenzen", "tagline": "Wohnen am Wasser, inspiriert vom Rhythmus der Dubai Islands." },
+      "palm-villa-by-prestige-one": {
+        "name": "Palm Villa", "tagline": "Exklusives Wohnen, gestaltet für Privatsphäre." },
+      "luxe-villa-by-prestige-one": {
+        "name": "Luxe Villa", "tagline": "Privates Villenwohnen von zeitloser Eleganz." },
+      "berkeley-square-north": {
+        "name": "Berkeley Square Nord", "tagline": "Zeitlose Architektur, inspiriert vom Londoner Wohnstil." },
+      "berkeley-square-south": {
+        "name": "Berkeley Square Süd", "tagline": "Wo offene Räume den Alltag prägen." },
       "hilton-residences-dubai-maritime-city": {
+        "name": "Hilton Residenzen Dubai Maritime City",
         "tagline": "Wohnen am Wasser, inspiriert vom Hilton Lebensgefühl.",
         "overview": [
           "Das Leben in den Hilton Residences by Prestige One vereint Eleganz und Leichtigkeit - eines der prägendsten Wahrzeichen, das in Dubai Maritime City Gestalt annimmt.",
@@ -122,6 +136,7 @@
         ]
       },
       "sanctuary-residences-by-prestige-one": {
+        "name": "Sanctuary Residenzen",
         "tagline": "Panoramablick auf die Lagune mit Blick auf das Naturschutzgebiet Ras Al Khor.",
         "overview": [
           "Sanctuary by Prestige One steht für eine ausgewogenere Art des Dubai-Wohnens in Meydan - Residenzen und durchdachte Gewerbeflächen, angeordnet rund um Ruhe, Grün und Verbundenheit."
@@ -133,6 +148,7 @@
         ]
       },
       "fauchon-residences-by-prestige-one": {
+        "name": "FAUCHON Residenzen",
         "tagline": "Wohnen im Pariser Stil mit dem ikonischen FAUCHON Lebensgefühl.",
         "overview": [
           "FAUCHON Résidences bringt das Art de vivre des traditionsreichen Pariser Hauses nach Dubai - Markenresidenzen, in denen französische Eleganz jedes Detail prägt.",
@@ -144,13 +160,20 @@
           "Die charakteristische FAUCHON-Gastronomie direkt vor Ihrer Tür"
         ]
       },
-      "golf-residences-by-prestige-one": { "tagline": "Ungestörter Blick auf den Golfplatz, jeden Tag." },
-      "seascape-villa": { "tagline": "Ein privater Rückzugsort am Meer." },
-      "the-one": { "tagline": "Ein Geschäftszentrum in einem markanten G+14-Projekt." },
-      "sanctuary-hive": { "tagline": "Gewerbeflächen, ideal für Unternehmen, die Sichtbarkeit und Anbindung suchen." },
-      "vista-hub": { "tagline": "Ein neues Wahrzeichen, das in Majan City Gestalt annimmt." },
-      "prestige-seaside": { "tagline": "Prestige Ones erste Adresse an der griechischen Küste." },
-      "prestige-square": { "tagline": "Ein neues Wahrzeichen von Prestige One nimmt Gestalt an - demnächst verfügbar." }
+      "golf-residences-by-prestige-one": {
+        "name": "Golf-Residenzen", "tagline": "Ungestörter Blick auf den Golfplatz, jeden Tag." },
+      "seascape-villa": {
+        "name": "Seascape Villa", "tagline": "Ein privater Rückzugsort am Meer." },
+      "the-one": {
+        "name": "The One", "tagline": "Ein Geschäftszentrum in einem markanten G+14-Projekt." },
+      "sanctuary-hive": {
+        "name": "Sanctuary Hive", "tagline": "Gewerbeflächen, ideal für Unternehmen, die Sichtbarkeit und Anbindung suchen." },
+      "vista-hub": {
+        "name": "Vista Hub", "tagline": "Ein neues Wahrzeichen, das in Majan City Gestalt annimmt." },
+      "prestige-seaside": {
+        "name": "Prestige Küste", "tagline": "Prestige Ones erste Adresse an der griechischen Küste." },
+      "prestige-square": {
+        "name": "Prestige Square", "tagline": "Ein neues Wahrzeichen von Prestige One nimmt Gestalt an - demnächst verfügbar." }
     },
     "amenities": {
       "infinity-swimming-pool": "Infinity-Pool",

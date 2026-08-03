@@ -34,7 +34,7 @@
             <li v-for="p in featuredProjects" :key="p.slug">
               <nuxt-link :to="`/projects/${p.slug}`" class="lnv__card" @click="close">
                 <span class="lnv__thumb"><img :src="p.image" :alt="p.title" loading="lazy"></span>
-                <span class="lnv__cardname">{{ p.title.split(' by ')[0] }}</span>
+                <span class="lnv__cardname">{{ pName(p) }}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -56,7 +56,7 @@
             <li v-for="d in featuredDestinations" :key="d.slug">
               <nuxt-link :to="`/destinations/${d.slug}`" class="lnv__card" @click="close">
                 <span class="lnv__thumb"><img :src="d.image" :alt="d.name" loading="lazy"></span>
-                <span class="lnv__cardname">{{ d.name }}</span>
+                <span class="lnv__cardname">{{ dName(d) }}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -74,6 +74,7 @@ import { destinations } from "~/data/destinations-data";
 import { getAllProjects } from "~/data/projects";
 
 const localePath = useLocalePath();
+const { pName, dName } = useLocalizedNames();
 
 const active = ref<"about" | "projects" | "destinations" | null>(null);
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
