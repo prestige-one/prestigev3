@@ -15,7 +15,7 @@
             <video
               class="prestige-stories__video"
               playsinline
-              preload="metadata"
+              preload="none"
               :poster="v.poster"
               tabindex="0"
               :aria-label="`${v.name} — play or pause video`"
@@ -53,9 +53,10 @@ const { t } = useI18n();
 const playingIndex = ref<number | null>(null);
 
 const videos = computed(() => [
-  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/handover-1.mp4", poster: "/assets/images/v3/residence.jpeg" },
-  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/handover-2.mp4", poster: "/assets/images/v3/vista-1.jpeg" },
-  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/handover-3.mp4", poster: "/assets/images/v3/vista-2.jpg" },
+  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/story-1.mp4", poster: "/assets/videos/story-1.webp" },
+  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/story-2.mp4", poster: "/assets/videos/story-2.webp" },
+  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/story-3.mp4", poster: "/assets/videos/story-3.webp" },
+  { name: t("hp.stories.v4Name"), project: t("hp.stories.v4Project"), video: "/assets/videos/story-4.mp4", poster: "/assets/videos/story-4.webp" },
 ]);
 
 function toggleVideo(event: MouseEvent | KeyboardEvent) {
@@ -105,7 +106,7 @@ function clearPlayingIndex(index: number) {
 }
 .prestige-stories__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(16px, 1.8vw, 26px);
   width: 100%;
 }
@@ -130,12 +131,12 @@ function clearPlayingIndex(index: number) {
   height: clamp(52px, 4.5vw, 68px);
   pointer-events: none;
   color: rgba(255, 255, 255, 0.92);
-  background: rgba(7, 9, 13, 0.68);
+  background: rgba(7, 9, 13, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
   transform: translate(-50%, -50%);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1px);
   place-items: center;
 }
 .prestige-stories__play svg {
@@ -168,7 +169,10 @@ function clearPlayingIndex(index: number) {
   color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
+  .prestige-stories__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 575.98px) {
   .prestige-stories__grid { grid-template-columns: minmax(0, 320px); }
 }
 </style>

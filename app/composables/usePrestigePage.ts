@@ -10,10 +10,14 @@ export interface PrestigePageOptions {
   hero?: boolean;
   /** header offset passed to the pinned portfolio/scale-stack animation */
   portfolioOffset?: number;
+  /** run the theme's pinned two-column process panels (default: false) */
+  panelPins?: boolean;
+  /** pixel offset used when process panels pin below the header */
+  panelPinOffset?: number;
 }
 
 export function usePrestigePage(options: PrestigePageOptions = {}) {
-  const { hero = true, portfolioOffset = 80 } = options;
+  const { hero = true, portfolioOffset = 80, panelPins = false, panelPinOffset = 80 } = options;
 
   onMounted(async () => {
     const { gsap } = await import("gsap");
@@ -44,6 +48,7 @@ export function usePrestigePage(options: PrestigePageOptions = {}) {
       revealAnimation();
       zoomAnimation();
       portfolioAnimation(portfolioOffset);
+      if (panelPins) panelPin(panelPinOffset);
       // recalculate trigger positions once everything is laid out
       ScrollTrigger.refresh();
     }

@@ -27,7 +27,7 @@ export function panelAnimation() {
   });
 }
 
-export function panelPin() {
+export function panelPin(topOffset = 80) {
   const pr = gsap.matchMedia();
 
   pr.add("(min-width: 1199px)", () => {
@@ -42,7 +42,7 @@ export function panelPin() {
           trigger: section,
           pin: section,
           scrub: 1,
-          start: 'top 10%',
+          start: `top ${topOffset}px`,
           end: "bottom 99%",
           endTrigger: panelPinArea,
           pinSpacing: false,

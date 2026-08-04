@@ -2,14 +2,25 @@
   <header>
     <div class="tp-header-10-main header-transparent">
         <!-- header area start -->
-        <div id="header-sticky" class="tp-header-10-area prestige-header-eleven tp-header-blur sticky-black-bg tp-header-10-sticky">
+        <div
+            id="header-sticky"
+            ref="headerRoot"
+            class="tp-header-10-area prestige-header-eleven tp-header-10-sticky"
+            :class="{ 'prestige-header-eleven--light': isLightHeader }"
+        >
             <div class="container container-1430">
-                <div class="tp-header-10-wrapper mt-30">
+                <div class="tp-header-10-wrapper">
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-4 col-6">
                             <div class="tp-header-10-logo">
                                 <nuxt-link href="/">
-                                  <img src="/assets/images/v3/prestigeone_logo_oneline_white-hr.svg" alt="Prestige One" width="220">
+                                  <img
+                                    :src="isLightHeader
+                                      ? '/assets/images/v3/prestigeone_logo_oneline_dark-hr.svg'
+                                      : '/assets/images/v3/prestigeone_logo_oneline_white-hr.svg'"
+                                    alt="Prestige One"
+                                    width="220"
+                                  >
                                 </nuxt-link>
                             </div>
                         </div>
@@ -62,26 +73,95 @@
 <script setup lang="ts">
 const openMobileOffcanvas = ref(false);
 const localePath = useLocalePath();
+const route = useRoute();
+const headerRoot = ref<HTMLElement | null>(null);
+const isLightHeader = ref(false);
+
+let transitionTarget: HTMLElement | null = null;
+let updateFrame = 0;
+
+function resolveTransitionTarget() {
+  transitionTarget = document.querySelector<HTMLElement>("#smooth-content main > :first-child")
+    || document.querySelector<HTMLElement>("main > :first-child");
+}
+
+function updateHeaderState() {
+  updateFrame = 0;
+  if (!transitionTarget?.isConnected) resolveTransitionTarget();
+
+  if (!transitionTarget) {
+    isLightHeader.value = window.scrollY > 80;
+    return;
+  }
+
+  const headerHeight = headerRoot.value?.offsetHeight || 64;
+  isLightHeader.value = transitionTarget.getBoundingClientRect().bottom <= headerHeight;
+}
+
+function scheduleHeaderUpdate() {
+  if (updateFrame) return;
+  updateFrame = window.requestAnimationFrame(updateHeaderState);
+}
+
+async function refreshTransitionTarget() {
+  await nextTick();
+  transitionTarget = null;
+  window.requestAnimationFrame(updateHeaderState);
+}
+
+onMounted(() => {
+  resolveTransitionTarget();
+  updateHeaderState();
+  window.addEventListener("scroll", scheduleHeaderUpdate, { passive: true });
+  window.addEventListener("resize", scheduleHeaderUpdate, { passive: true });
+});
+
+watch(() => route.fullPath, refreshTransitionTarget);
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", scheduleHeaderUpdate);
+  window.removeEventListener("resize", scheduleHeaderUpdate);
+  if (updateFrame) window.cancelAnimationFrame(updateFrame);
+});
 </script>
 
 <style scoped>
-/* permanently fixed dark header (matches header-ten) with the new
-   left-aligned compact-dropdown nav. */
 .prestige-header-eleven {
   position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
   z-index: 20;
-  background: transparent !important;
-}
-.prestige-header-eleven :deep(.tp-header-10-wrapper) {
-  border-radius: 60px !important;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 10, 0.28) !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  background: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
-/* "Get in touch" - plain white text link + green WhatsApp, no white pill */
+
+.prestige-header-eleven :deep(.tp-header-10-wrapper) {
+  min-height: 64px;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.prestige-header-eleven :deep(.tp-header-10-logo img) {
+  display: block;
+  width: min(190px, 100%);
+  height: auto;
+}
+
+.prestige-header-eleven :deep(.tp-header-10-right) {
+  min-height: 64px;
+}
+
 .prestige-header-eleven :deep(.prestige-getintouch) {
   display: inline-flex;
   align-items: center;
@@ -98,8 +178,84 @@ const localePath = useLocalePath();
 .prestige-header-eleven :deep(.prestige-getintouch__wa) {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   font-size: 30px;
   color: #25D366;
+}
+
+.prestige-header-eleven :deep(.tp-offcanvas-open-btn) {
+  display: inline-flex;
+  width: 26px;
+  height: 30px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.prestige-header-eleven :deep(.tp-offcanvas-open-btn i) {
+  display: block;
+  width: 22px !important;
+  height: 1.5px !important;
+  margin: 0 !important;
+  background: #fff !important;
+  transition: background-color 0.35s ease;
+}
+
+.prestige-header-eleven--light {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 8px 24px rgba(18, 20, 25, 0.08);
+}
+
+.prestige-header-eleven--light :deep(.lnv__top > li > a),
+.prestige-header-eleven--light :deep(.prestige-getintouch__text) {
+  color: #111216;
+}
+
+.prestige-header-eleven--light :deep(.lang-switch__btn) {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: rgba(0, 0, 0, 0.035);
+  color: #111216;
+}
+
+.prestige-header-eleven--light :deep(.lang-switch__btn:hover) {
+  border-color: rgba(0, 0, 0, 0.24);
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.prestige-header-eleven--light :deep(.tp-offcanvas-open-btn i) {
+  background: #111216 !important;
+}
+
+@media (max-width: 1199.98px) {
+  .prestige-header-eleven :deep(.tp-header-10-wrapper),
+  .prestige-header-eleven :deep(.tp-header-10-right) {
+    min-height: 60px;
+  }
+
+  .prestige-header-eleven :deep(.tp-header-10-logo img) {
+    width: min(176px, 100%);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .prestige-header-eleven :deep(.tp-header-10-wrapper) {
+    padding: 0 2px !important;
+  }
+
+  .prestige-header-eleven :deep(.tp-header-10-logo img) {
+    width: min(154px, 100%);
+  }
+
+  .prestige-header-eleven :deep(.tp-header-10-offcanvas) {
+    margin-left: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prestige-header-eleven,
+  .prestige-header-eleven :deep(.tp-offcanvas-open-btn i) {
+    transition: none;
+  }
 }
 </style>

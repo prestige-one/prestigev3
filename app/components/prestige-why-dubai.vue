@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-whydubai pt-140 pb-80">
+  <section class="prestige-whydubai pt-200 pb-80">
     <div class="container container-1430">
       <header class="prestige-whydubai__head">
         <span class="prestige-whydubai__eyebrow">{{ $t('hp.whyDubai.eyebrow') }}</span>
@@ -11,7 +11,12 @@
 
       <div class="prestige-whydubai__grid">
         <article v-for="(r, i) in reasons" :key="i" class="prestige-whydubai__card tp_fade_anim" :data-delay="i * 0.06">
-          <span class="prestige-whydubai__stat">{{ r.stat }}</span>
+          <span
+            class="prestige-whydubai__stat"
+            :class="{ 'prestige-whydubai__stat--compact': r.compact }"
+          >
+            {{ r.stat }}
+          </span>
           <h3 class="prestige-whydubai__cardtitle">{{ r.title }}</h3>
           <p class="prestige-whydubai__text">{{ r.text }}</p>
         </article>
@@ -21,16 +26,29 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
+const { locale, t } = useI18n();
 
-const reasons = computed(() => [
-  { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text") },
-  { stat: "6-8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
-  { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
-  { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text") },
-  { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
-  { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text") },
-]);
+const reasons = computed(() => {
+  if (locale.value === "en") {
+    return [
+      { stat: "2–10 Years", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text"), compact: true },
+      { stat: "100%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
+      { stat: "0%", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
+      { stat: "Protected Investments", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text"), compact: true },
+      { stat: "#1", title: t("hp.whyDubai.r5Title"), text: t("hp.whyDubai.r5Text") },
+      { stat: "Global Hub", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text"), compact: true },
+    ];
+  }
+
+  return [
+    { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text") },
+    { stat: "6-8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
+    { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
+    { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text") },
+    { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
+    { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text") },
+  ];
+});
 </script>
 
 <style scoped>
@@ -77,7 +95,7 @@ const reasons = computed(() => [
   display: block;
   margin-bottom: 16px;
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(34px, 3.6vw, 50px);
+  font-size: clamp(34px, 3.6vw, 35px);
   font-weight: 700;
   letter-spacing: -1px;
   line-height: 1;
@@ -88,6 +106,12 @@ const reasons = computed(() => [
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);
 }
+.prestige-whydubai__stat--compact {
+  max-width: 100%;
+  font-size: clamp(25px, 2.45vw, 33px);
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+}
 .prestige-whydubai__cardtitle {
   margin: 0 0 10px;
   font-size: clamp(18px, 1.6vw, 22px);
@@ -96,7 +120,7 @@ const reasons = computed(() => [
 }
 .prestige-whydubai__text {
   margin: 0;
-  font-size: 14.5px;
+  font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.64);
 }

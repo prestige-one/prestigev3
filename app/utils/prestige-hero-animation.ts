@@ -28,11 +28,17 @@ export function prestigeHeroAnimation() {
     const NEXT_OVERLAP = 0.2; // next headline starts this long after current exit begins
 
     const HEADLINES_START = 3.0;
-    const totalHeadlineTime = headlines.reduce((cursor, _, index) => {
-      const exitStart = cursor + HEADLINE_ENTER + HEADLINE_HOLD;
+    const stepTimes = [1.3]; // logo fully revealed
+    let stepCursor = HEADLINES_START;
+
+    headlines.forEach((_, index) => {
+      stepTimes.push(stepCursor + HEADLINE_ENTER);
+      const exitStart = stepCursor + HEADLINE_ENTER + HEADLINE_HOLD;
       const isLast = index === headlines.length - 1;
-      return isLast ? exitStart + HEADLINE_EXIT : exitStart + NEXT_OVERLAP;
-    }, HEADLINES_START);
+      stepCursor = isLast ? exitStart + HEADLINE_EXIT : exitStart + NEXT_OVERLAP;
+    });
+
+    const totalHeadlineTime = stepCursor;
 
     // scroll-distance-per-timeline-second - was 76 (≈9 viewport heights for
     // the full sequence), which meant the logo and headlines only arrived
@@ -45,11 +51,23 @@ export function prestigeHeroAnimation() {
         trigger: hero,
         start: "top top",
         end: `+=${Math.round(totalHeadlineTime * SCROLL_DISTANCE_PER_SECOND)}%`,
-        scrub: 1,
+        scrub: 0.35,
         pin: true,
         anticipatePin: 1,
+        snap: {
+          snapTo: "labelsDirectional",
+          delay: 0.04,
+          duration: { min: 0.22, max: 0.48 },
+          ease: "power2.inOut",
+        },
       },
     });
+
+    tl.addLabel("prestigeHeroInitial", 0);
+    stepTimes.forEach((time, index) => {
+      tl.addLabel(`prestigeHeroStep${index + 1}`, time);
+    });
+    tl.addLabel("prestigeHeroComplete", totalHeadlineTime);
 
     // intro copy fades right away, logo rises from the bottom and settles
     // in clearly visible (opacity 0.55, scale 1) - then, instead of

@@ -78,10 +78,10 @@ defineEmits<{ close: [] }>();
 // primaryNav labels mapped by index to the shared nav.* translation keys.
 const navKeys = [
   "nav.home",
+  "nav.about",
   "nav.projects",
   "nav.destinations",
-  "nav.about",
-  "nav.media",
+  "nav.brokerregistration",
   "nav.contact",
 ];
 
@@ -193,7 +193,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 10px 0;
+  padding: 6px 0;
   color: #f2f2f2;
   transition: color 0.3s ease, padding-left 0.3s ease;
 }
@@ -205,7 +205,7 @@ onBeforeUnmount(() => {
 }
 .pnav__label {
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(17px, 5vw, 20px);
+  font-size: clamp(17px, 5vw, 17px);
   font-weight: 400;
   line-height: 1.1;
 }

@@ -7,6 +7,16 @@ import gsap from "gsap";
  * when the user scrolls back up, exactly like the hero sentences do.
  */
 export function prestigeDevelopmentsReveal() {
+  function revealTrigger(element: HTMLElement) {
+    const sectionTrigger = element.closest<HTMLElement>("[data-prestige-reveal-trigger]");
+
+    return {
+      trigger: sectionTrigger ?? element,
+      start: sectionTrigger ? "top 92%" : "top 85%",
+      end: sectionTrigger ? "top 45%" : "top 40%",
+    };
+  }
+
   const loadPaintElements = document.querySelectorAll<HTMLElement>(".prestige-load-text-paint");
   const loadTitles = document.querySelectorAll<HTMLElement>(".prestige-load-title");
   const loadSubtitles = document.querySelectorAll<HTMLElement>(".prestige-load-subtitle");
@@ -54,13 +64,15 @@ export function prestigeDevelopmentsReveal() {
   );
 
   elements.forEach((el) => {
+    const reveal = revealTrigger(el);
+
     gsap.to(el, {
       backgroundPositionX: "0%",
       ease: "none",
       scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        end: "top 40%",
+        trigger: reveal.trigger,
+        start: reveal.start,
+        end: reveal.end,
         scrub: true,
       },
     });
@@ -75,6 +87,8 @@ export function prestigeDevelopmentsReveal() {
     ".prestige-developments-title:not(.prestige-load-title)"
   );
   titles.forEach((title) => {
+    const reveal = revealTrigger(title);
+
     gsap.fromTo(
       title,
       { scale: 0.75 },
@@ -82,9 +96,9 @@ export function prestigeDevelopmentsReveal() {
         scale: 1,
         ease: "none",
         scrollTrigger: {
-          trigger: title,
-          start: "top 85%",
-          end: "top 40%",
+          trigger: reveal.trigger,
+          start: reveal.start,
+          end: reveal.end,
           scrub: true,
         },
       }

@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-why-us-area pt-80 pb-140">
+  <section class="prestige-why-us-area pt-80 pb-180">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-8">
@@ -160,7 +160,7 @@ const whyUsData = computed<WhyUsItem[]>(() => [
 }
 
 .prestige-developments-title {
-  font-size: clamp(28px, 4.5vw, 52px);
+  font-size: clamp(28px, 4.5vw, 45px);
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 16px;

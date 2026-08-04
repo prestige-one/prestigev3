@@ -52,18 +52,16 @@ interface Milestone {
 
 const { t } = useI18n();
 
-// Representative imagery drawn from the brand/project library - swap for real
-// archival photography per milestone when available.
 const milestones = computed<Milestone[]>(() => [
-  { year: "1967", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text"), image: "/assets/images/v2/locations/downtown-dubai.webp" },
-  { year: "2007", title: t("ap.journey.m2Title"), text: t("ap.journey.m2Text"), image: "/assets/images/v2/our-destinations/dubai-maritime.webp" },
-  { year: "2009", title: t("ap.journey.m3Title"), text: t("ap.journey.m3Text"), image: "/assets/project-featured-images/sliders/waterway.webp" },
-  { year: "2018", title: t("ap.journey.m4Title"), text: t("ap.journey.m4Text"), image: "/assets/project-featured-images/sliders/berkeley-north.webp" },
-  { year: "2022", title: t("ap.journey.m5Title"), text: t("ap.journey.m5Text"), image: "/assets/images/v3/Built-on-Strong-Principles.webp" },
-  { year: "2023", title: t("ap.journey.m6Title"), text: t("ap.journey.m6Text"), image: "/assets/project-featured-images/sliders/vista.webp" },
-  { year: "2024", title: t("ap.journey.m7Title"), text: t("ap.journey.m7Text"), image: "/assets/images/v2/pages/AFA-sponsorship-1-1.webp" },
-  { year: "2025", title: t("ap.journey.m8Title"), text: t("ap.journey.m8Text"), image: "/assets/project-featured-images/sliders/hilton-1.webp" },
-  { year: "2026", title: t("ap.journey.m9Title"), text: t("ap.journey.m9Text"), image: "/assets/project-featured-images/sliders/fauchon.webp" },
+  { year: "1967", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text"), image: "/assets/images/v3/timeline/saifi-group.webp" },
+  { year: "2007", title: t("ap.journey.m2Title"), text: t("ap.journey.m2Text"), image: "/assets/images/v3/timeline/2007.webp" },
+  { year: "2009", title: t("ap.journey.m3Title"), text: t("ap.journey.m3Text"), image: "/assets/images/v3/timeline/2009-expanding.webp" },
+  { year: "2018", title: t("ap.journey.m4Title"), text: t("ap.journey.m4Text"), image: "/assets/images/v3/timeline/2018-invest.webp" },
+  { year: "2022", title: t("ap.journey.m5Title"), text: t("ap.journey.m5Text"), image: "/assets/images/v3/timeline/2022-recognized.webp" },
+  { year: "2023", title: t("ap.journey.m6Title"), text: t("ap.journey.m6Text"), image: "/assets/images/v3/timeline/2023.webp" },
+  { year: "2024", title: t("ap.journey.m7Title"), text: t("ap.journey.m7Text"), image: "/assets/images/v3/timeline/2024-sponsor.webp" },
+  { year: "2025", title: t("ap.journey.m8Title"), text: t("ap.journey.m8Text"), image: "/assets/images/v3/timeline/2025-global.webp" },
+  { year: "2026", title: t("ap.journey.m9Title"), text: t("ap.journey.m9Text"), image: "/assets/images/v3/timeline/2026.webp" },
 ]);
 
 const root = ref<HTMLElement | null>(null);
