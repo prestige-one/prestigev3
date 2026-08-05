@@ -15,7 +15,7 @@
             <!-- about us hero area end -->
 
             <!-- legacy & credibility area start -->
-            <div id="our-story" class="prestige-anchor"><prestige-legacy-stats /></div>
+            <div id="our-story" class="prestige-anchor prestige-about-us-legacy"><prestige-legacy-stats /></div>
             <!-- legacy & credibility area end -->
 
              <!-- founder and CEO area start -->
@@ -116,3 +116,15 @@ onMounted(async () => {
   }
 });
 </script>
+
+<style scoped>
+.prestige-about-us-legacy :deep(.prestige-legacy-copy) {
+  max-width: 390px;
+}
+
+.prestige-about-us-legacy :deep(.prestige-legacy-title) {
+  max-width: 380px;
+  font-size: clamp(48px, 4.2vw, 55px);
+}
+
+</style>

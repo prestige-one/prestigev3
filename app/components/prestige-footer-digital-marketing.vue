@@ -48,7 +48,6 @@
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.corporate') }}</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
-                                    <li><nuxt-link to="/broker-registration">{{ $t('sh.brokerRegistration') }}</nuxt-link></li>
                                     <li><nuxt-link to="/broker-registration?type=uae-company">UAE Company Registration</nuxt-link></li>
                                     <li><nuxt-link to="/broker-registration?type=uae-individual">UAE Individual Registration</nuxt-link></li>
                                     <li><nuxt-link to="/broker-registration?type=international-company">International Company Registration</nuxt-link></li>
@@ -114,8 +113,8 @@
                         <div class="tp-copyright-2-right">
                             <div class="tp-copyright-2-menu text-md-end text-center">
                                 <ul>
-                                    <li class="prestige-copyright-moved-link"><nuxt-link to="/marketing-terms">{{ $t('sh.marketingTerms') }}</nuxt-link></li>
                                     <li><nuxt-link to="/privacy-policy">{{ $t('footer.privacyPolicy') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/marketing-terms">{{ $t('sh.marketingTerms') }}</nuxt-link></li>
                                     <li><nuxt-link to="/terms-conditions">{{ $t('footer.termsConditions') }}</nuxt-link></li>
                                 </ul>
                             </div>
@@ -302,10 +301,6 @@ async function subscribe() {
   width: 100%;
 }
 
-.dgm-footer-col-2 .dgm-footer-widget-menu ul li a {
-  font-size: 14px;
-}
-
 .dgm-footer-widget-input .input-button span svg {
 	color: #FFF;
 }
@@ -316,8 +311,8 @@ async function subscribe() {
 .prestige-newsletter-msg.is-success { color: #7ee2a0; }
 .prestige-newsletter-msg.is-error { color: #ff9a9a; }
 
-.prestige-dgm-footer :deep(.tp-copyright-2-right .prestige-copyright-moved-link a) {
-  font-size: 13px;
+.prestige-dgm-footer .dgm-footer-widget-paragraph p {
+  font-size: 16px;
 }
 
 .prestige-dgm-footer :deep(.dgm-footer-widget-menu a:hover),

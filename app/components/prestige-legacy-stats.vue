@@ -1,6 +1,6 @@
 <template>
   <section class="prestige-legacy-area" aria-labelledby="prestige-legacy-title">
-    <div class="prestige-legacy-shell">
+    <div class="prestige-legacy-shell container container-1430">
       <header class="prestige-legacy-copy">
         <span class="prestige-legacy-eyebrow">{{ t("ap.legacy.eyebrow") }}</span>
         <h2
@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
   display: grid;
   grid-template-columns: minmax(250px, 0.85fr) minmax(370px, 1.15fr) minmax(430px, 1.1fr);
   align-items: center;
-  width: min(calc(100% - 72px), 1580px);
+  width: 100%;
   min-height: clamp(560px, 40vw, 650px);
   margin: 0 auto;
 }
@@ -239,8 +239,8 @@ onBeforeUnmount(() => {
   position: relative;
   z-index: 1;
   display: block;
-  width: 82%;
-  max-width: 460px;
+  width: 100%;
+  max-width: none;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
@@ -404,7 +404,7 @@ onBeforeUnmount(() => {
 @media (max-width: 1199.98px) {
   .prestige-legacy-shell {
     grid-template-columns: minmax(230px, 0.8fr) minmax(320px, 1fr) minmax(380px, 1.15fr);
-    width: min(calc(100% - 48px), 1120px);
+    width: 100%;
   }
 
   .prestige-legacy-title {
@@ -428,7 +428,7 @@ onBeforeUnmount(() => {
 
   .prestige-legacy-shell {
     grid-template-columns: minmax(240px, 0.8fr) minmax(340px, 1.2fr);
-    width: min(calc(100% - 40px), 850px);
+    width: 100%;
   }
 
   .prestige-legacy-metrics {
@@ -453,7 +453,7 @@ onBeforeUnmount(() => {
 
   .prestige-legacy-shell {
     display: block;
-    width: min(calc(100% - 30px), 560px);
+    width: 100%;
     min-height: auto;
   }
 

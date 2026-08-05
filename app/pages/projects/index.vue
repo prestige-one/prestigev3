@@ -10,6 +10,7 @@
               :title="t('pp.hero.title')"
               :lead="t('pp.hero.lead')"
               image="/assets/images/v3/projects-hero-cover.webp"
+              media-position="center top"
             />
 
             <prestige-stat-band :stats="portfolioStats" />

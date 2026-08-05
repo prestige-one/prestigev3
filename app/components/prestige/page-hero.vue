@@ -9,8 +9,14 @@
         loop
         playsinline
         :poster="image"
+        :style="mediaPosition ? { objectPosition: mediaPosition } : undefined"
       />
-      <img v-else-if="image" :src="image" :alt="title">
+      <img
+        v-else-if="image"
+        :src="image"
+        :alt="title"
+        :style="mediaPosition ? { objectPosition: mediaPosition } : undefined"
+      >
     </div>
     <div class="prestige-hero-band__veil" />
     <div ref="inner" class="prestige-hero-band__inner container container-1430">
@@ -36,6 +42,7 @@ defineProps<{
   image?: string;
   video?: string;
   short?: boolean;
+  mediaPosition?: string;
 }>();
 
 const root = ref<HTMLElement | null>(null);
