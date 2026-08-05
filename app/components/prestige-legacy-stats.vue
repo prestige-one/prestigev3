@@ -303,7 +303,7 @@ onBeforeUnmount(() => {
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: -36px;
+  left: -34px;
   width: 19px;
   height: 19px;
   border: 2px solid #dce6ed;
@@ -343,18 +343,21 @@ onBeforeUnmount(() => {
   background: transparent;
 }
 
-.prestige-legacy-number[data-v-02453eca] {
-	font-family: "Google Sans", "Google Sans Fallback: Arial", sans-serif;
-	font-size: clamp(60px, 5vw, 60px);
-	font-weight: 400;
-	line-height: 0.8;
-	letter-spacing: -4px;
-	color: transparent;
-	background: linear-gradient(180deg, #ffffff 0%, #ccd8df 45%, #f7fbfd 70%, #9aaab5 100%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke: 0.4px rgba(247, 252, 255, 0.8);
+.prestige-legacy-number {
+  display: inline-block;
+  padding-right: 0.08em;
+  margin-right: -0.08em;
+  font-family: "Google Sans", "Google Sans Fallback: Arial", sans-serif;
+  font-size: clamp(60px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -4px;
+  color: transparent;
+  background: linear-gradient(180deg, #ffffff 0%, #ccd8df 45%, #f7fbfd 70%, #9aaab5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.4px rgba(247, 252, 255, 0.8);
 }
 
 .prestige-legacy-suffix {

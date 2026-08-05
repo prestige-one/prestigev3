@@ -49,9 +49,10 @@
                             <div class="dgm-footer-widget-menu">
                                 <ul>
                                     <li><nuxt-link to="/broker-registration">{{ $t('sh.brokerRegistration') }}</nuxt-link></li>
-                                    <li><nuxt-link to="/project-documents">{{ $t('sh.projectDocuments') }}</nuxt-link></li>
-                                    <li><nuxt-link to="/invest">{{ $t('sh.invest') }}</nuxt-link></li>
-                                    <li><nuxt-link to="/marketing-terms">{{ $t('sh.marketingTerms') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration?type=uae-company">UAE Company Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration?type=uae-individual">UAE Individual Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration?type=international-company">International Company Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration?type=international-individual">International Individual Registration</nuxt-link></li>
                                     <li><nuxt-link to="/csr">{{ $t('sh.csr') }}</nuxt-link></li>
                                 </ul>
                             </div>
@@ -62,6 +63,7 @@
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.mediaCenter') }}</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
+                                    <li><nuxt-link to="/project-documents">{{ $t('sh.projectDocuments') }}</nuxt-link></li>
                                     <li><nuxt-link to="/construction-updates">{{ $t('sh.constructionUpdates') }}</nuxt-link></li>
                                     <li><nuxt-link to="/press-release">{{ $t('sh.pressRelease') }}</nuxt-link></li>
                                     <li><nuxt-link to="/blog">{{ $t('sh.blogPosts') }}</nuxt-link></li>
@@ -102,16 +104,17 @@
         <div class="tp-copyright-2-area tp-copyright-2-border">
             <div class="container container-1430">
                 <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-4">
                         <div class="tp-copyright-2-left text-center text-md-start z-index-1">
                             <p>© {{new Date().getFullYear()}} {{ $t('footer.brand') }} {{ $t('footer.rightsReserved') }}</p>
                         </div>
                     </div>
                     
-                    <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="col-xl-8 col-lg-8 col-md-8">
                         <div class="tp-copyright-2-right">
                             <div class="tp-copyright-2-menu text-md-end text-center">
                                 <ul>
+                                    <li class="prestige-copyright-moved-link"><nuxt-link to="/marketing-terms">{{ $t('sh.marketingTerms') }}</nuxt-link></li>
                                     <li><nuxt-link to="/privacy-policy">{{ $t('footer.privacyPolicy') }}</nuxt-link></li>
                                     <li><nuxt-link to="/terms-conditions">{{ $t('footer.termsConditions') }}</nuxt-link></li>
                                 </ul>
@@ -298,6 +301,11 @@ async function subscribe() {
 .dgm-footer-widget-menu ul li a:hover::after {
   width: 100%;
 }
+
+.dgm-footer-col-2 .dgm-footer-widget-menu ul li a {
+  font-size: 14px;
+}
+
 .dgm-footer-widget-input .input-button span svg {
 	color: #FFF;
 }
@@ -307,4 +315,19 @@ async function subscribe() {
 }
 .prestige-newsletter-msg.is-success { color: #7ee2a0; }
 .prestige-newsletter-msg.is-error { color: #ff9a9a; }
+
+.prestige-dgm-footer :deep(.tp-copyright-2-right .prestige-copyright-moved-link a) {
+  font-size: 13px;
+}
+
+.prestige-dgm-footer :deep(.dgm-footer-widget-menu a:hover),
+.prestige-dgm-footer :deep(.tp-copyright-2-right a:hover) {
+  color: #fff !important;
+}
+
+.prestige-dgm-footer :deep(.dgm-footer-widget-input input:focus) {
+  border-color: #fff !important;
+  outline: none;
+  box-shadow: 0 0 0 1px #fff;
+}
 </style>

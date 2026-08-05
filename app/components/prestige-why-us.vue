@@ -174,6 +174,30 @@ const whyUsData = computed<WhyUsItem[]>(() => [
   color: #fff;
 }
 
+/* Match the soft aurora glow used behind the Our Developments heading. */
+.prestige-developments-title-box {
+  position: relative;
+}
+
+.prestige-developments-title-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 90vw);
+  height: 320px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 65% 35%,
+      rgba(120, 210, 255, 0.32),
+      transparent 60%
+    ),
+    radial-gradient(circle at 32% 68%, rgba(255, 140, 210, 0.24), transparent 60%);
+  filter: blur(60px);
+}
+
 /* text-paint reveal - same technique as the hero's 3 sentences: a gradient
    text-clip swept via backgroundPositionX. Driven by a scrub ScrollTrigger
    (see prestige-developments-reveal.ts) so it plays forward on scroll down

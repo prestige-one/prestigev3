@@ -32,7 +32,7 @@
             <!-- our leadership area end -->
 
             <!-- our journey / timeline area start -->
-            <div id="milestones" class="prestige-anchor"><prestige-our-journey /></div>
+            <div id="milestones" class="prestige-anchor"><prestige-journey-scroll /></div>
             <!-- our journey / timeline area end -->
 
             <!-- our developments (by year) area start -->
