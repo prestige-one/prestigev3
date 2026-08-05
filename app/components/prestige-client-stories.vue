@@ -98,6 +98,20 @@ function clearPlayingIndex(index: number) {
   text-transform: uppercase;
   color: #fff;
 }
+
+.prestige-text-paint {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 50%,
+    rgba(255, 255, 255, 0.32) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .prestige-stories__lead {
   margin: 0;
   font-size: clamp(15px, 1.2vw, 17px);

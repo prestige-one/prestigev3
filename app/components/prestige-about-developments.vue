@@ -33,6 +33,15 @@
               </div>
             </div>
           </nuxt-link>
+
+          <article
+            v-if="block.comingSoon"
+            class="prestige-devyears-coming-soon tp_fade_anim"
+            data-fade-from="bottom"
+            data-fade-offset="24"
+          >
+            <span>COMING SOON</span>
+          </article>
         </div>
       </div>
 
@@ -89,6 +98,7 @@ const bySlideTitle = new Map(residentialDevelopments.map((s) => [s.title, s]));
 
 const developmentsByYear = YEARS.map((block) => ({
   year: block.year,
+  comingSoon: block.year === "2026",
   projects: block.titles
     .map((title) => {
       const slide = bySlideTitle.get(title);
@@ -217,6 +227,25 @@ const developmentsByYear = YEARS.map((block) => ({
   color: #fff;
 }
 
+.prestige-devyears-coming-soon {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(153, 188, 211, 0.08), transparent 54%), linear-gradient(145deg, #45464b, #0b0b0d);
+}
+
+.prestige-devyears-coming-soon span {
+  font-size: clamp(14px, 1.25vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
 .prestige-devyears-cta {
   margin-top: clamp(20px, 3vw, 40px);
   text-align: center;
@@ -233,6 +262,7 @@ const developmentsByYear = YEARS.map((block) => ({
   text-transform: uppercase;
   color: #fff;
   transition: background 0.3s ease, transform 0.3s ease;
+  background: radial-gradient(circle at 50% 42%, rgba(153, 188, 211, 0.08), transparent 54%), linear-gradient(145deg, #555556, #040406);
 }
 .prestige-devyears-explore span { transition: transform 0.3s ease; }
 .prestige-devyears-explore:hover { background: rgba(255, 255, 255, 0.08); color: #fff; transform: translateY(-2px); }

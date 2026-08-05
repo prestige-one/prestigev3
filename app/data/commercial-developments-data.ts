@@ -11,7 +11,7 @@ const commercialDevelopments: DevelopmentSlide[] = [
   },
   {
     id: 2,
-    image: "/assets/project-featured-images/sliders/sanctuary.webp",
+    image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-hive-2.webp",
     title: "Sanctuary Hive",
     location: "Meydan Horizon",
     description: "Commercial spaces ideal for businesses seeking visibility and connectivity.",

@@ -18,13 +18,14 @@
             <div id="our-story" class="prestige-anchor"><prestige-legacy-stats /></div>
             <!-- legacy & credibility area end -->
 
+             <!-- founder and CEO area start -->
+            <prestige-founder-profile />
+            <!-- founder and CEO area end -->
+
             <!-- what drives us area start -->
             <div id="vision" class="prestige-anchor"><prestige-drives-us /></div>
             <!-- what drives us area end -->
 
-            <!-- founder and CEO area start -->
-            <prestige-founder-profile />
-            <!-- founder and CEO area end -->
 
             <!-- our leadership area start -->
             <div id="leadership" class="prestige-anchor"><prestige-leadership /></div>

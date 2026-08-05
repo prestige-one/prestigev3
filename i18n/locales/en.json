@@ -23,6 +23,7 @@
     "request": "Request",
     "nowSelling": "Now Selling",
     "soldOut": "Sold Out",
+    "handedOver": "Handed Over",
     "comingSoon": "Coming Soon"
   },
   "footer": {

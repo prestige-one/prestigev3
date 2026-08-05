@@ -78,11 +78,27 @@ const headerRoot = ref<HTMLElement | null>(null);
 const isLightHeader = ref(false);
 
 let transitionTarget: HTMLElement | null = null;
+let transitionAtTargetStart = false;
 let updateFrame = 0;
 
 function resolveTransitionTarget() {
-  transitionTarget = document.querySelector<HTMLElement>("#smooth-content main > :first-child")
-    || document.querySelector<HTMLElement>("main > :first-child");
+  const main = document.querySelector<HTMLElement>("#smooth-content main")
+    || document.querySelector<HTMLElement>("main");
+  const hero = main?.querySelector<HTMLElement>(".prestige-hero") || null;
+
+  // The homepage hero is pinned by GSAP, so its own bounding rectangle does
+  // not reliably represent the end of the hero scroll sequence. The next
+  // section is a stable boundary before and after GSAP inserts its pin spacer.
+  if (hero?.nextElementSibling instanceof HTMLElement) {
+    transitionTarget = hero.nextElementSibling;
+    transitionAtTargetStart = true;
+    return;
+  }
+
+  transitionTarget = main?.firstElementChild instanceof HTMLElement
+    ? main.firstElementChild
+    : null;
+  transitionAtTargetStart = false;
 }
 
 function updateHeaderState() {
@@ -95,7 +111,10 @@ function updateHeaderState() {
   }
 
   const headerHeight = headerRoot.value?.offsetHeight || 64;
-  isLightHeader.value = transitionTarget.getBoundingClientRect().bottom <= headerHeight;
+  const targetRect = transitionTarget.getBoundingClientRect();
+  isLightHeader.value = transitionAtTargetStart
+    ? targetRect.top <= headerHeight
+    : targetRect.bottom <= headerHeight;
 }
 
 function scheduleHeaderUpdate() {
@@ -156,6 +175,13 @@ onBeforeUnmount(() => {
   display: block;
   width: min(190px, 100%);
   height: auto;
+  transition: opacity 0.35s ease;
+}
+
+.prestige-header-eleven :deep(.lnv__top > li > a),
+.prestige-header-eleven :deep(.prestige-getintouch__text),
+.prestige-header-eleven :deep(.lang-switch__btn) {
+  transition: color 0.35s ease, border-color 0.35s ease, background-color 0.35s ease, opacity 0.25s ease;
 }
 
 .prestige-header-eleven :deep(.tp-header-10-right) {

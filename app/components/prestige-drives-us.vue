@@ -25,7 +25,6 @@
             loading="lazy"
             decoding="async"
           >
-          <div class="prestige-drives-overlay"></div>
           <div class="prestige-drives-content">
             <h3 class="prestige-drives-card-title">{{ principle.title }}</h3>
             <p class="prestige-drives-description">{{ principle.description }}</p>
@@ -59,12 +58,12 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p3Title"),
     description: t("ap.drives.p3Desc"),
-    image: "/assets/images/v3/Built-on-Trust.webp",
+    image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-residential-exterior-view.webp",
   },
   {
     title: t("ap.drives.p4Title"),
     description: t("ap.drives.p4Desc"),
-    image: "/assets/images/v3/Always-Thinking-Ahead.webp",
+    image: "/assets/images/v3/Designed-Around-Life-3.webp",
   },
 ]);
 </script>
@@ -114,8 +113,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   isolation: isolate;
 }
 
-.prestige-drives-image,
-.prestige-drives-overlay {
+.prestige-drives-image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -127,20 +125,23 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.prestige-drives-overlay {
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 20%, rgba(0, 0, 0, 0.88) 100%),
-    linear-gradient(120deg, transparent 38%, rgba(0, 0, 0, 0.28));
-}
-
 .prestige-drives-content {
   position: absolute;
   z-index: 2;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: clamp(20px, 4vw, 35px);
+  padding:
+    clamp(88px, 9vw, 132px)
+    clamp(20px, 4vw, 35px)
+    clamp(20px, 4vw, 35px);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.66) 34%,
+    rgba(0, 0, 0, 0.2) 72%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .prestige-drives-card-title {

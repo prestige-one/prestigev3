@@ -2,8 +2,7 @@
   <nuxt-link :to="`/projects/${project.slug}`" class="prestige-pcard">
     <div class="prestige-pcard__media">
       <img :src="project.image" :alt="project.title" loading="lazy">
-      <span v-if="soldOut" class="prestige-pcard__soldout">{{ $t('cta.soldOut') }}</span>
-      <span v-else class="prestige-pcard__status">{{ project.status }}</span>
+      <span v-if="handedOver" class="prestige-pcard__handedover">{{ $t('cta.handedOver') }}</span>
     </div>
     <div class="prestige-pcard__body">
       <span class="prestige-pcard__loc">{{ project.location }}</span>
@@ -21,8 +20,8 @@ import type { Project } from "../../data/projects";
 const props = defineProps<{ project: Project }>();
 const { pName } = useLocalizedNames();
 
-const SOLD_OUT = new Set(["vista-by-prestige-one", "the-residence-by-prestige-one"]);
-const soldOut = computed(() => SOLD_OUT.has(props.project.slug));
+const HANDED_OVER = new Set(["vista-by-prestige-one", "the-residence-by-prestige-one"]);
+const handedOver = computed(() => HANDED_OVER.has(props.project.slug));
 </script>
 
 <style scoped>
@@ -47,38 +46,8 @@ const soldOut = computed(() => SOLD_OUT.has(props.project.slug));
 .prestige-pcard:hover .prestige-pcard__media img {
   transform: scale(1.06);
 }
-.prestige-pcard__status {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 7px 14px 7px 12px;
-  border-radius: 40px;
-  color: #fff;
-  background: linear-gradient(135deg, #10b56a, #0c8f52);
-  box-shadow: 0 8px 22px rgba(16, 181, 106, 0.38);
-}
-.prestige-pcard__status::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #fff;
-  animation: pcardPulse 1.8s ease-out infinite;
-}
-@keyframes pcardPulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); }
-  70% { box-shadow: 0 0 0 7px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
-/* distinctive SOLD OUT badge */
-.prestige-pcard__soldout {
+/* completed-development badge */
+.prestige-pcard__handedover {
   position: absolute;
   top: 16px;
   left: 16px;

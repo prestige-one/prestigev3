@@ -23,6 +23,7 @@
     "request": "Demander",
     "nowSelling": "En vente",
     "soldOut": "Épuisé",
+    "handedOver": "Livré",
     "comingSoon": "Bientôt disponible"
   },
   "footer": {

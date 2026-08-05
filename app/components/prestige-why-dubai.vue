@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-whydubai pt-200 pb-80">
+  <section class="prestige-whydubai pt-120 pb-80">
     <div class="container container-1430">
       <header class="prestige-whydubai__head">
         <span class="prestige-whydubai__eyebrow">{{ $t('hp.whyDubai.eyebrow') }}</span>
@@ -74,6 +74,23 @@ const reasons = computed(() => {
   text-transform: uppercase;
   color: #fff;
 }
+
+/* Shared scroll-painted headline treatment used by the other main
+   homepage section titles. prestigeDevelopmentsReveal animates the
+   background position as this heading enters the viewport. */
+.prestige-text-paint {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 50%,
+    rgba(255, 255, 255, 0.32) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .prestige-whydubai__lead {
   margin: 0;
   font-size: clamp(15px, 1.2vw, 17px);

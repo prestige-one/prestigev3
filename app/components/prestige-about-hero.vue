@@ -20,6 +20,7 @@
         <div class="col-xl-6">
           <div class="prestige-about-hero-thumb anim-zoomin">
             <video
+              ref="aboutVideo"
               class="prestige-about-hero-video"
               src="/assets/videos/company-showcase.mp4"
               :aria-label="t('ap.hero.videoAria')"
@@ -27,7 +28,9 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="auto"
+              @canplay="ensureAboutVideoPlayback"
+              @loadeddata="ensureAboutVideoPlayback"
             >
               {{ t('ap.hero.videoFallback') }}
             </video>
@@ -66,6 +69,65 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const aboutVideo = ref<HTMLVideoElement | null>(null);
+
+const MAX_PLAYBACK_RETRIES = 4;
+let playbackRetries = 0;
+let playbackRetryTimer: number | undefined;
+
+function clearPlaybackRetry() {
+  if (playbackRetryTimer === undefined) return;
+  window.clearTimeout(playbackRetryTimer);
+  playbackRetryTimer = undefined;
+}
+
+function schedulePlaybackRetry() {
+  if (playbackRetries >= MAX_PLAYBACK_RETRIES || playbackRetryTimer !== undefined) return;
+
+  playbackRetries += 1;
+  playbackRetryTimer = window.setTimeout(() => {
+    playbackRetryTimer = undefined;
+    void ensureAboutVideoPlayback();
+  }, 250 * playbackRetries);
+}
+
+async function ensureAboutVideoPlayback() {
+  const video = aboutVideo.value;
+  if (!video?.isConnected || document.visibilityState === "hidden") return;
+
+  // Set both properties explicitly for Safari/iOS and browsers restoring a
+  // cached page, where the markup attributes alone can occasionally be lost.
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+
+  try {
+    await video.play();
+    playbackRetries = 0;
+    clearPlaybackRetry();
+  } catch {
+    schedulePlaybackRetry();
+  }
+}
+
+function resumeAboutVideo() {
+  if (document.visibilityState !== "visible") return;
+  playbackRetries = 0;
+  void ensureAboutVideoPlayback();
+}
+
+onMounted(async () => {
+  await nextTick();
+  void ensureAboutVideoPlayback();
+  document.addEventListener("visibilitychange", resumeAboutVideo);
+  window.addEventListener("pageshow", resumeAboutVideo);
+});
+
+onBeforeUnmount(() => {
+  clearPlaybackRetry();
+  document.removeEventListener("visibilitychange", resumeAboutVideo);
+  window.removeEventListener("pageshow", resumeAboutVideo);
+});
 </script>
 
 <style scoped>

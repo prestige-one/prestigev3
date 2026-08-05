@@ -94,7 +94,7 @@ const whyUsData = computed<WhyUsItem[]>(() => [
     number: "02",
     title: t("hp.whyUs.item2Title"),
     description: t("hp.whyUs.item2Desc"),
-    image: "/assets/images/v3/Designed-for-Real-Living.webp",
+    image: "/assets/images/v3/Designed-for-Real-Living-2.webp",
     imagePosition: "right",
   },
   {

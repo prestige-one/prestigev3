@@ -1,48 +1,22 @@
 <template>
   <div>
-    <!-- Begin magic cursor -->
     <common-magic-cursor />
-    <!-- End magic cursor -->
     <nuxt-layout name="layout-home4">
-
       <div id="smooth-wrapper">
         <div id="smooth-content">
-
           <main>
-
-            <!-- hero area start (autoplay background video hero, no scroll-scrub) -->
             <hero-prestige />
-            <!-- hero area end -->
-
-            <!-- our developments area start (only the 3 main projects) -->
-            <prestige-our-developments :slides="mainProjects" />
-            <!-- our developments area end -->
-
-            <!-- upcoming developments area start -->
-            <prestige-upcoming-developments />
-            <!-- upcoming developments area end -->
-
-            <!-- why prestige one area start -->
-            <prestige-why-us />
-            <!-- why prestige one area end -->
-
-            <!-- why dubai area start -->
+            <prestige-home5-how-we-work />
             <prestige-why-dubai />
-            <!-- why dubai area end -->
 
-            <!-- client handover stories area start -->
+            <prestige-our-developments :slides="mainProjects" />
+            <prestige-upcoming-developments />
+
             <prestige-client-stories />
-            <!-- client handover stories area end -->
-
-            <!-- contact form area start (centered single-column variant) -->
             <prestige-contact-form centered />
-            <!-- contact form area end -->
-
           </main>
 
-          <!-- footer area start -->
           <prestige-footer-digital-marketing />
-          <!-- footer area end -->
         </div>
       </div>
     </nuxt-layout>
@@ -52,19 +26,19 @@
 <script setup lang="ts">
 import residentialDevelopments from "~/data/residential-developments-data";
 
-// homepage features only the 3 main (flagship) projects in the developments slider
 const MAIN_TITLES = [
-  "FAUCHON Résidences by Prestige One",
+  "FAUCHON RÃ©sidences by Prestige One",
   "Hilton Residences Dubai Maritime City",
   "Sanctuary Residences by Prestige One",
 ];
-const mainProjects = residentialDevelopments.filter((d) => MAIN_TITLES.includes(d.title));
+const mainProjects = residentialDevelopments.filter((development) => MAIN_TITLES.includes(development.title));
 
 const { t } = useI18n();
 
 definePageMeta({
   layout: false,
 });
+
 useSeoMeta({
   title: () => t("hp.seo.title"),
   ogTitle: () => t("hp.seo.title"),
@@ -74,6 +48,5 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-// shared GSAP + scroll-smooth + reveal bootstrap (see usePrestigePage)
-usePrestigePage();
+usePrestigePage({ panelPins: true, panelPinOffset: 80 });
 </script>

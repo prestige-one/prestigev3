@@ -15,7 +15,7 @@
     <!-- full-bleed map -->
     <div class="prestige-global-map tp_fade_anim" data-fade-from="bottom" data-fade-offset="30">
       <img
-        src="/assets/images/v3/timeline/location-map-updated.webp"
+        src="/assets/images/v3/timeline/location-map-2.webp"
         alt="Prestige One global perspective"
         loading="lazy"
       >
@@ -56,7 +56,7 @@ const { t } = useI18n();
 }
 .prestige-global-header {
   max-width: 760px;
-  margin: 0 auto clamp(40px, 5vw, 60px);
+  margin: 0 auto clamp(40px, 5vw, 80px);
   text-align: center;
 }
 .prestige-global-eyebrow {

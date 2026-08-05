@@ -204,8 +204,8 @@ const highlights = computed<PrestigeFounderHighlight[]>(() => [
 }
 
 .prestige-founder-description strong {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.96);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .prestige-founder-description blockquote {
