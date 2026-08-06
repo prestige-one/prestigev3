@@ -87,7 +87,7 @@ const FEATURED_SLUGS = [
   "sanctuary-residences-by-prestige-one",
   "golf-residences-by-prestige-one",
   "seaside-by-prestige-one",
-  "seascape-villa",
+  "the-boulevard-by-prestige-one",
 ];
 const projectBySlug = new Map(menuProjects.map((p) => [p.slug, p]));
 const featuredProjects = FEATURED_SLUGS.map((s) => projectBySlug.get(s)).filter(

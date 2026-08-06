@@ -21,11 +21,23 @@ export function usePrestigePage(options: PrestigePageOptions = {}) {
 
   onMounted(async () => {
     const { gsap } = await import("gsap");
-    const { ScrollTrigger, ScrollToPlugin } = await import("gsap/all");
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    const { ScrollSmoother, ScrollTrigger, ScrollToPlugin } = await import("gsap/all");
+    gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin);
 
     // smooth scroll
     await useScrollSmooth();
+
+    // Native hash jumps do not account for the transformed smooth-scroll
+    // content, so route anchors need to use the active smoother instance.
+    const hashId = decodeURIComponent(window.location.hash.slice(1));
+    const hashTarget = hashId ? document.getElementById(hashId) : null;
+    if (hashTarget) {
+      requestAnimationFrame(() => {
+        const smoother = ScrollSmoother.get();
+        if (smoother) smoother.scrollTo(hashTarget, false, "top top");
+        else hashTarget.scrollIntoView({ block: "start" });
+      });
+    }
 
     // distortion / webgl hover images
     distortionImg();

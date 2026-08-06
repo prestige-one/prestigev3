@@ -61,7 +61,7 @@
                     class="col-xl-4 col-lg-4 col-md-6 mb-50 tp_fade_anim"
                     data-delay=".2"
                   >
-                    <prestige-project-card :project="project" />
+                    <prestige-project-card :project="project" show-description show-coming-soon />
                   </div>
                 </div>
 
@@ -110,6 +110,7 @@ const router = useRouter();
 const ORDER = [
   "fauchon-residences-by-prestige-one",
   "sanctuary-residences-by-prestige-one",
+  "sanctuary-hive-by-prestige-one",
   "hilton-residences-dubai-maritime-city",
   "berkeley-square-north",
   "berkeley-square-south",

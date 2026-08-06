@@ -4,7 +4,7 @@ const upcomingDevelopments: DevelopmentSlide[] = [
   {
     id: 1,
     image: "/assets/project-featured-images/vista-hub/vista-hub--blur.webp",
-    title: "Vista Hub",
+    title: "Vista Hub by Prestige One",
     location: "Majan City",
     description: "A new landmark taking shape in Majan City.",
     href: "#",

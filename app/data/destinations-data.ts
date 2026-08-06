@@ -301,7 +301,7 @@ export const destinations: Destination[] = [
     slug: "barsha-heights",
     name: "Barsha Heights",
     region: "Connected · Dubai",
-    image: `${OD}/barsha-heights.webp`,
+    image: `${OD}/barsha-v3.webp`,
     intro: "A central, business-friendly district by the metro.",
     about: [
       "Barsha Heights (formerly Tecom) is a well-connected mixed-use district of residential buildings, corporate offices, serviced apartments and hotels, sitting beside Sheikh Zayed Road and minutes from Dubai Internet and Media Cities.",

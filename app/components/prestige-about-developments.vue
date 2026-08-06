@@ -61,50 +61,38 @@ import { slugify } from "~/data/projects";
 const { t } = useI18n();
 const localePath = useLocalePath();
 
-// developments grouped into visual chapters by year (content plan section 08).
-// Titles map to the residential catalogue so each card reuses the real render.
-const YEARS: { year: string; titles: string[] }[] = [
+// Developments grouped into visual chapters by year (content plan section 08).
+// Stable project IDs let title changes flow directly from the shared catalogue.
+const YEARS: { year: string; projectIds: number[] }[] = [
   {
     year: "2023",
-    titles: ["Vista by Prestige One", "The Residence by Prestige One"],
+    projectIds: [1, 2],
   },
   {
     year: "2024",
-    titles: [
-      "Waterway by Prestige One",
-      "Seaside by Prestige One",
-      "Golf Residences by Prestige One",
-      "Parkway by Prestige One",
-      "The One by Prestige One",
-    ],
+    projectIds: [3, 4, 18, 6, 7],
   },
   {
     year: "2025",
-    titles: [
-      "The Boulevard by Prestige One",
-      "Coastal Haven by Prestige One",
-      "Luxury Canal Residences by Prestige One",
-      "Berkeley Square North",
-      "Hilton Residences Dubai Maritime City",
-    ],
+    projectIds: [8, 9, 10, 13, 15],
   },
   {
     year: "2026",
-    titles: ["Sanctuary Residences by Prestige One", "FAUCHON Résidences by Prestige One"],
+    projectIds: [16, 17],
   },
 ];
 
-const bySlideTitle = new Map(residentialDevelopments.map((s) => [s.title, s]));
+const byProjectId = new Map(residentialDevelopments.map((project) => [project.id, project]));
 
 const developmentsByYear = YEARS.map((block) => ({
   year: block.year,
   comingSoon: block.year === "2026",
-  projects: block.titles
-    .map((title) => {
-      const slide = bySlideTitle.get(title);
+  projects: block.projectIds
+    .map((projectId) => {
+      const slide = byProjectId.get(projectId);
       if (!slide) return null;
       return {
-        name: slide.title.replace(/\s+by Prestige One$/i, ""),
+        name: slide.title,
         location: slide.location,
         image: slide.image,
         slug: slugify(slide.title),
@@ -215,7 +203,6 @@ const developmentsByYear = YEARS.map((block) => ({
   font-size: clamp(15px, 1.2vw, 18px);
   font-weight: 600;
   letter-spacing: 0.3px;
-  text-transform: uppercase;
   color: #fff;
 }
 .prestige-devyears-loc {

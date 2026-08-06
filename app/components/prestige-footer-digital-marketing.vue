@@ -67,7 +67,6 @@
                                     <li><nuxt-link to="/press-release">{{ $t('sh.pressRelease') }}</nuxt-link></li>
                                     <li><nuxt-link to="/blog">{{ $t('sh.blogPosts') }}</nuxt-link></li>
                                     <li><nuxt-link to="/industry-news">{{ $t('sh.industryNews') }}</nuxt-link></li>
-                                    <li><nuxt-link to="/media">{{ $t('sh.faqs') }}</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>

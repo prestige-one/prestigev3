@@ -13,33 +13,26 @@
       </div>
 
       <div class="pnav__scroll">
-        <!-- primary menu 01–06 -->
+        <!-- primary menu 01–07 -->
         <nav class="pnav__nav">
           <ul>
             <li
-              v-for="(item, i) in primaryNav"
-              :key="item.id"
+              v-for="(item, i) in sidebarNav"
+              :key="item.to"
               class="pnav__item"
               :style="{ '--i': i }"
             >
-              <nuxt-link :to="item.link" @click="$emit('close')">
+              <nuxt-link :to="item.to" @click="$emit('close')">
                 <span class="pnav__num">{{ String(i + 1).padStart(2, '0') }}</span>
-                <span class="pnav__label">{{ navKeys[i] ? $t(navKeys[i]) : item.title }}</span>
+                <span class="pnav__label">{{ $t(item.key) }}</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
 
-        <!-- quick links -->
-        <ul class="pnav__quick">
-          <li v-for="q in quickLinks" :key="q.key">
-            <nuxt-link :to="q.to" @click="$emit('close')">{{ $t(q.key) }}</nuxt-link>
-          </li>
-        </ul>
-
         <!-- contact -->
         <div class="pnav__contact">
-          <span class="pnav__cheading">{{ $t('footer.brand') }}</span>
+          <span class="pnav__cheading">CONNECT WITH PRESTIGE ONE</span>
           <a href="tel:80077378443" class="pnav__crow">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
             <span>800 PRESTIGE / 800 77378443</span>
@@ -70,28 +63,18 @@
 </template>
 
 <script setup lang="ts">
-import { primaryNav } from "../../data/menu-data-prestige";
-
 const props = defineProps<{ isOpen: boolean }>();
 defineEmits<{ close: [] }>();
 
-// primaryNav labels mapped by index to the shared nav.* translation keys.
-const navKeys = [
-  "nav.home",
-  "nav.about",
-  "nav.projects",
-  "nav.destinations",
-  "nav.brokerregistration",
-  "nav.contact",
-];
-
-const quickLinks = [
+const sidebarNav = [
+  { key: "nav.home", to: "/" },
+  { key: "nav.about", to: "/about-us" },
   { key: "sh.brokerRegistration", to: "/broker-registration" },
-  { key: "sh.constructionUpdates", to: "/construction-updates" },
   { key: "sh.projectDocuments", to: "/project-documents" },
-  { key: "sh.pressRelease", to: "/press-release" },
   { key: "sh.contactUs", to: "/contact-us" },
-];
+  { key: "sh.pressRelease", to: "/press-release" },
+  { key: "sh.faqs", to: "/contact-us#faqs" },
+] as const;
 
 watch(
   () => props.isOpen,
@@ -209,23 +192,6 @@ onBeforeUnmount(() => {
   font-weight: 400;
   line-height: 1.1;
 }
-
-/* quick / utility links */
-.pnav__quick {
-  list-style: none;
-  margin: 22px 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-}
-.pnav__quick a {
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.55);
-  transition: color 0.25s ease;
-}
-.pnav__quick a:hover { color: #fff; }
 
 /* thumbnail groups */
 .pnav__group { margin-top: 30px; }

@@ -53,7 +53,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p2Title"),
     description: t("ap.drives.p2Desc"),
-    image: "/assets/images/v3/Every-Detail-Has-a-purpose.webp",
+    image: "/assets/images/v3/The-Luxe-Villas-Majlis.jpg",
   },
   {
     title: t("ap.drives.p3Title"),

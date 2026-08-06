@@ -81,7 +81,7 @@
               reverse
             />
 
-            <prestige-faq-accordion :title="$t('sh.faqTitle')" :eyebrow="$t('sh.faqEyebrow')" :items="faqs" />
+            <prestige-faq-accordion id="faqs" :title="$t('sh.faqTitle')" :eyebrow="$t('sh.faqEyebrow')" :items="faqs" />
           </main>
           <prestige-footer-digital-marketing />
         </div>

@@ -86,23 +86,6 @@ export const primaryNav: NavItem[] = [
   },
   {
     id: 5,
-    title: "Media",
-    link: "/media",
-    pluseIncon: true,
-    media: {
-      type: "image",
-      src: "/assets/images/v2/news/Seaside_Building-1-scaled-2.webp",
-      caption: "News & Updates",
-    },
-    submenus: [
-      { title: "Blog", link: "/blog" },
-      { title: "Construction Updates", link: "/construction-updates" },
-      { title: "Press Release", link: "/press-release" },
-      { title: "Industry News", link: "/industry-news" },
-    ],
-  },
-  {
-    id: 6,
     title: "Contact",
     link: "/contact-us",
     media: {

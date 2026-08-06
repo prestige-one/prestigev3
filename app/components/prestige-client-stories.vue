@@ -135,6 +135,8 @@ function clearPlayingIndex(index: number) {
   border-radius: 14px;
   overflow: hidden;
   background: #0d0e12;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0);
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
 }
 .prestige-stories__play {
   position: absolute;
@@ -150,6 +152,7 @@ function clearPlayingIndex(index: number) {
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
   transform: translate(-50%, -50%);
+  transition: background-color 300ms ease, border-color 300ms ease, transform 300ms ease;
   backdrop-filter: blur(1px);
   place-items: center;
 }
@@ -168,6 +171,25 @@ function clearPlayingIndex(index: number) {
   object-fit: cover;
   display: block;
   cursor: pointer;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .prestige-stories__card:hover .prestige-stories__media {
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+    transform: translateY(-4px);
+  }
+
+  .prestige-stories__card:hover .prestige-stories__video {
+    transform: scale(1.025);
+  }
+
+  .prestige-stories__card:hover .prestige-stories__play {
+    background: rgba(7, 9, 13, 0.5);
+    border-color: rgba(255, 255, 255, 0.48);
+    transform: translate(-50%, -50%) scale(1.06);
+  }
 }
 .prestige-stories__meta { padding: 16px 4px 0; text-align: center; }
 .prestige-stories__name {
@@ -188,5 +210,13 @@ function clearPlayingIndex(index: number) {
 }
 @media (max-width: 575.98px) {
   .prestige-stories__grid { grid-template-columns: minmax(0, 320px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prestige-stories__media,
+  .prestige-stories__play,
+  .prestige-stories__video {
+    transition: none;
+  }
 }
 </style>

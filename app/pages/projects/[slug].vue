@@ -49,34 +49,13 @@
               :items="amenities"
             />
 
-            <!-- cinematic interlude -->
-            <prestige-statement-band
-              eyebrow="The Prestige One difference"
-              :text="heroLead"
-              :image="project.gallery[2] || project.gallery[0] || project.hero"
-            />
-
-
             <!-- 4 · gallery -->
-            <section v-if="project.gallery.length" class="prestige-section">
-              <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.gallery.eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.gallery.title') }}</h2>
-                <div class="row">
-                  <div
-                    v-for="(img, i) in project.gallery"
-                    :key="i"
-                    class="mb-30 tp_fade_anim"
-                    :class="i % 3 === 0 ? 'col-xl-8 col-lg-8' : 'col-xl-4 col-lg-4 col-md-6'"
-                    data-delay=".2"
-                  >
-                    <div class="prestige-detail__shot">
-                      <img :src="img" :alt="`${project.title} - view ${i + 1}`" loading="lazy">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-project-gallery
+              :images="project.gallery"
+              :eyebrow="t('pp.detail.gallery.eyebrow')"
+              :title="t('pp.detail.gallery.title')"
+              :project-title="pName(project)"
+            />
 
             <!-- 5 · location & nearby -->
             <section class="prestige-section prestige-detail__loc">
@@ -87,35 +66,8 @@
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
                   </div>
                 </div>
-                <div class="row gy-5">
-                  <div v-if="nearby.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.nearby') }}</h4>
-                    <ul class="prestige-detail__poi prestige-detail__poi--stack tp_fade_anim" data-delay=".25">
-                      <li v-for="(p, i) in nearby" :key="i">
-                        <span class="prestige-detail__poi-name">{{ p.name }}</span>
-                        <span class="prestige-detail__poi-time">{{ p.time }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div v-if="connectivity.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.connectivity') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
-                      <li v-for="(c, i) in connectivity" :key="i">{{ c }}</li>
-                    </ul>
-                  </div>
-                  <div v-if="schools.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">{{ t('pp.detail.location.schools') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
-                      <li v-for="(s, i) in schools" :key="i">{{ s }}</li>
-                    </ul>
-                  </div>
-                  <div v-if="hospitals.length" class="col-lg-3 col-sm-6">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">{{ t('pp.detail.location.healthcare') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
-                      <li v-for="(h, i) in hospitals" :key="i">{{ h }}</li>
-                    </ul>
-                  </div>
-                </div>
+                <prestige-location-distance-slider v-if="distanceSlides.length" :slides="distanceSlides" />
+                <prestige-location-info-grid :groups="locationInfoGroups" />
               </div>
             </section>
 
@@ -214,6 +166,7 @@
 <script setup lang="ts">
 import { getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
 import { destinations } from "~/data/destinations-data";
+import { getProjectDistanceSlides } from "~/data/project-distance-slides";
 
 interface FaqItem { q: string; a: string }
 
@@ -259,6 +212,7 @@ function tPayment(l: string) { const k = `pdata.payment.${slugify(l)}`; return t
 function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? t(k) : d; }
 
 const amenities = computed(() => project.value!.amenities.map(tAmenity));
+const distanceSlides = computed(() => getProjectDistanceSlides(slug.value));
 const paymentPlan = computed(() => project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
 const documents = computed(() => project.value!.documents.map((d) => ({ raw: d, label: tDoc(d) })));
 const statusLabel = computed(() => {
@@ -267,16 +221,19 @@ const statusLabel = computed(() => {
 });
 
 // The destination this project sits in - used to fill location facts (nearby
-// drive times, connectivity, schools, hospitals) with real, researched data
+// drive times, schools and hospitals) with real, researched data
 // instead of generic guesses. The project's own values win when present.
 const areaDest = computed(() => {
   const loc = project.value!.location.toLowerCase();
   return destinations.find((d) => d.match.some((m) => loc.includes(m.toLowerCase())));
 });
 const nearby = computed(() => (project.value!.nearby.length ? project.value!.nearby : areaDest.value?.attractions ?? []));
-const connectivity = computed(() => (project.value!.connectivity.length ? project.value!.connectivity : areaDest.value?.transport ?? []));
 const schools = computed(() => (project.value!.schools.length ? project.value!.schools : areaDest.value?.education ?? []));
 const hospitals = computed(() => (project.value!.hospitals.length ? project.value!.hospitals : areaDest.value?.healthcare ?? []));
+const locationInfoGroups = computed(() => [
+  { key: "schools", title: t("pp.detail.location.schools"), items: schools.value },
+  { key: "healthcare", title: t("pp.detail.location.healthcare"), items: hospitals.value },
+].filter((group) => group.items.length));
 
 const related = computed(() => {
   const p = project.value!;
@@ -353,15 +310,8 @@ function requestDocument(doc: { raw: string; label: string }) {
   font-size: clamp(18px, 4.4vw, 22px);
 }
 .prestige-page :deep(.prestige-detail__amenities-heading) {
-  font-size: clamp(20px, 3.2vw, 25px);
+  font-size: clamp(38px, 4vw, 56px);
 }
-.prestige-page :deep(.pstate__veil) {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.58));
-}
-.prestige-page :deep(.pstate__text) {
-  font-size: clamp(25px, 4vw, 30px);
-}
-
 /* project documents as cards */
 .prestige-docgrid {
   display: grid;
@@ -429,6 +379,9 @@ function requestDocument(doc: { raw: string; label: string }) {
   padding-top: 40px;
   padding-bottom: 20px;
 }
+.prestige-detail__loc {
+  background: #000;
+}
 .prestige-detail__fact-label {
   display: block;
   font-size: 12px;
@@ -443,81 +396,6 @@ function requestDocument(doc: { raw: string; label: string }) {
   font-size: clamp(18px, 2.2vw, 20px);
   color: #fff;
   line-height: 1.2;
-}
-.prestige-detail__shot {
-  overflow: hidden;
-  border-radius: 6px;
-  aspect-ratio: 3 / 2;
-  background: #101013;
-}
-.prestige-detail__shot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.prestige-detail__shot:hover img { transform: scale(1.05); }
-
-.prestige-detail__mini {
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--tp-common-gold, #ffffff);
-  margin-bottom: 16px;
-}
-.prestige-detail__poi,
-.prestige-detail__list,
-.prestige-detail__conn {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.prestige-detail__conn { border-top: 1px solid rgba(255, 255, 255, 0.12); }
-.prestige-detail__conn li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.82);
-}
-.prestige-detail__poi li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.82);
-}
-.prestige-detail__poi-time { color: var(--tp-common-gold, #ffffff); white-space: nowrap; }
-.prestige-detail__poi--stack li {
-  display: block;
-  padding: 12px 0;
-}
-.prestige-detail__poi--stack .prestige-detail__poi-name {
-  display: block;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 15px;
-}
-.prestige-detail__poi--stack .prestige-detail__poi-time {
-  display: block;
-  margin-top: 3px;
-  font-size: 13px;
-}
-.prestige-detail__list li {
-  padding: 9px 0;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.72);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.prestige-detail__dot {
-  flex: 0 0 auto;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--tp-common-gold, #ffffff);
 }
 .prestige-detail__plan {
   border-top: 1px solid rgba(255, 255, 255, 0.12);

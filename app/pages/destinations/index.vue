@@ -9,7 +9,7 @@
               :eyebrow="t('dp.hero.eyebrow')"
               :title="t('dp.hero.title')"
               :lead="t('dp.hero.lead')"
-              image="/assets/images/v2/our-destinations/palm-jumeira.webp"
+              image="/assets/images/v3/our-destinations/Landing-Cover.webp"
             />
 
             <prestige-stat-band :stats="portfolioStats" />

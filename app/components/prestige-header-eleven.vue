@@ -208,12 +208,22 @@ onBeforeUnmount(() => {
   color: #25D366;
 }
 
+.prestige-header-eleven :deep(.tp-header-10-offcanvas),
+.prestige-header-eleven :deep(.tp-header-bar) {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .prestige-header-eleven :deep(.tp-offcanvas-open-btn) {
-  display: inline-flex;
+  display: flex;
   width: 26px;
   height: 30px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   padding: 0;
 }
@@ -221,8 +231,15 @@ onBeforeUnmount(() => {
 .prestige-header-eleven :deep(.tp-offcanvas-open-btn i) {
   display: block;
   width: 22px !important;
-  height: 1.5px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  height: 2px !important;
+  min-height: 2px !important;
+  max-height: 2px !important;
+  flex: 0 0 2px;
   margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0;
   background: #fff !important;
   transition: background-color 0.35s ease;
 }
