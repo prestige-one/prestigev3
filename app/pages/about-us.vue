@@ -112,6 +112,7 @@ onMounted(async () => {
       fadeAnimation();
       revealAnimation();
       zoomAnimation();
+      ScrollTrigger.refresh();
     });
   }
 });
@@ -124,7 +125,7 @@ onMounted(async () => {
 
 .prestige-about-us-legacy :deep(.prestige-legacy-title) {
   max-width: 380px;
-  font-size: clamp(48px, 4.2vw, 55px);
+  font-size: clamp(15px, 1.35vw, 20px);
 }
 
 </style>

@@ -4,11 +4,11 @@
       <!-- centered variant (main home page): just the headline and form,
            no map, no side-by-side grid - everything stacked and centered. -->
       <div v-if="centered" class="prestige-contact-centered">
-        <span class="prestige-contact-eyebrow">{{ $t('sh.contactCta.eyebrow') }}</span>
-        <h2 class="prestige-contact-title">
-          {{ $t('sh.contactCta.titleLine1') }}<br>
-          {{ $t('sh.contactCta.titleLine2') }}
-        </h2>
+        <prestige-section-heading
+          class="prestige-contact-heading"
+          :title="$t('sh.contactCta.eyebrow')"
+          :subtitle="$t('sh.contactCta.subtitle')"
+        />
 
         <div class="prestige-contact-form-card">
           <form-contact-prestige />
@@ -20,11 +20,12 @@
       <div v-else class="prestige-contact-grid">
         <!-- left column: heading, map -->
         <div class="prestige-contact-left">
-          <span class="prestige-contact-eyebrow">{{ $t('sh.contactCta.eyebrow') }}</span>
-          <h2 class="prestige-contact-title">
-            {{ $t('sh.contactCta.titleLine1') }}<br>
-            {{ $t('sh.contactCta.titleLine2') }}
-          </h2>
+          <prestige-section-heading
+            class="prestige-contact-heading"
+            align="left"
+            :title="$t('sh.contactCta.eyebrow')"
+            :subtitle="$t('sh.contactCta.subtitle')"
+          />
 
           <div class="prestige-contact-map-box">
             <iframe
@@ -79,34 +80,8 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 .prestige-contact-form-field label {
   text-align: left;
 }
-.prestige-contact-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 22px;
-}
-
-.prestige-contact-eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 1px;
-  margin-right: 14px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.prestige-contact-title {
-  font-weight: 600;
-  font-size: clamp(24px, 2.4vw, 36px);
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-  margin: 0 0 24px;
+.prestige-contact-heading {
+  margin-bottom: 28px;
 }
 
 /* ---- map ---- */
@@ -140,17 +115,13 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   text-align: center;
 }
 
-.prestige-contact-centered .prestige-contact-eyebrow::before {
-  display: none;
-}
-
-.prestige-contact-centered .prestige-contact-title {
+.prestige-contact-centered .prestige-contact-heading {
   margin-bottom: 36px;
 }
 
 .prestige-contact-centered .prestige-contact-form-card {
   width: 100%;
-  max-width: 880px;
+  max-width: 760px;
 }
 .agntix-dark .tp-contact-form-input input:focus, .agntix-dark .tp-contact-form-input textarea:focus {
 	border-color: #5A5A5A;
@@ -159,7 +130,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 
 .prestige-contact-form-card {
   position: relative;
-  padding: 30px 80px;
+  padding: 28px 56px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));

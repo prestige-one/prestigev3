@@ -2,12 +2,11 @@
   <section class="prestige-next-area pt-80 pb-80">
     <div class="container container-1430">
       <div class="prestige-next-inner">
-        <h2 class="prestige-next-title tp_reveal_anim" data-delay="0.05">
-          {{ t('ap.next.title') }}
-        </h2>
-        <p class="prestige-next-lead tp_fade_anim" data-fade-from="bottom" data-fade-offset="24">
-          {{ t('ap.next.lead') }}
-        </p>
+        <prestige-section-heading
+          class="prestige-next-heading"
+          :title="t('ap.next.title')"
+          :subtitle="t('ap.next.lead')"
+        />
         <div class="prestige-next-actions tp_fade_anim" data-fade-from="bottom" data-fade-offset="24" data-delay="0.1">
           <nuxt-link :to="localePath('/projects')" class="prestige-next-btn prestige-next-btn--solid">
             {{ t('ap.next.exploreBtn') }} <span aria-hidden="true">→</span>
@@ -54,20 +53,8 @@ const localePath = useLocalePath();
   margin: 0 auto;
   text-align: center;
 }
-.prestige-next-title {
-  margin: 0 0 22px;
-  font-size: clamp(25px, 2.3vw, 40px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1px;
-  color: #fff;
-}
-.prestige-next-lead {
-  margin: 0 auto 40px;
-  max-width: 560px;
-  font-size: clamp(15px, 1.3vw, 19px);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
+.prestige-next-heading {
+  margin-bottom: 40px;
 }
 .prestige-next-actions {
   display: flex;

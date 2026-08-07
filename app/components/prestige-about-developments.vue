@@ -1,12 +1,11 @@
 <template>
-  <section class="prestige-devyears-area pt-40 pb-80">
+  <section class="prestige-devyears-area pt-80 pb-100">
     <div class="container container-1430">
-      <header class="prestige-devyears-header">
-        <span class="prestige-devyears-eyebrow">{{ t('ap.developments.eyebrow') }}</span>
-        <h2 class="prestige-devyears-title tp_reveal_anim" data-delay="0.05">
-          {{ t('ap.developments.title') }}
-        </h2>
-      </header>
+      <prestige-section-heading
+        class="prestige-devyears-header"
+        :title="t('ap.developments.eyebrow')"
+        :subtitle="t('ap.developments.title')"
+      />
 
       <div
         v-for="block in developmentsByYear"
@@ -55,41 +54,45 @@
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments from "~/data/residential-developments-data";
+import residentialDevelopments, { type DevelopmentSlide } from "~/data/residential-developments-data";
+import commercialDevelopments from "~/data/commercial-developments-data";
 import { slugify } from "~/data/projects";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
 
 // Developments grouped into visual chapters by year (content plan section 08).
-// Stable project IDs let title changes flow directly from the shared catalogue.
-const YEARS: { year: string; projectIds: number[] }[] = [
+// Namespaced catalogue keys keep residential and commercial IDs collision-free.
+const YEARS: { year: string; projectKeys: string[] }[] = [
   {
     year: "2023",
-    projectIds: [1, 2],
+    projectKeys: ["residential:1", "residential:2"],
   },
   {
     year: "2024",
-    projectIds: [3, 4, 18, 6, 7],
+    projectKeys: ["residential:3", "residential:4", "residential:18", "residential:6", "residential:7"],
   },
   {
     year: "2025",
-    projectIds: [8, 9, 10, 13, 15],
+    projectKeys: ["residential:8", "residential:9", "residential:10", "residential:14", "residential:13", "residential:15"],
   },
   {
     year: "2026",
-    projectIds: [16, 17],
+    projectKeys: ["residential:16", "commercial:2", "residential:17"],
   },
 ];
 
-const byProjectId = new Map(residentialDevelopments.map((project) => [project.id, project]));
+const byProjectKey = new Map<string, DevelopmentSlide>([
+  ...residentialDevelopments.map((project) => [`residential:${project.id}`, project] as const),
+  ...commercialDevelopments.map((project) => [`commercial:${project.id}`, project] as const),
+]);
 
 const developmentsByYear = YEARS.map((block) => ({
   year: block.year,
   comingSoon: block.year === "2026",
-  projects: block.projectIds
-    .map((projectId) => {
-      const slide = byProjectId.get(projectId);
+  projects: block.projectKeys
+    .map((projectKey) => {
+      const slide = byProjectKey.get(projectKey);
       if (!slide) return null;
       return {
         name: slide.title,
@@ -110,23 +113,6 @@ const developmentsByYear = YEARS.map((block) => ({
   margin: 0 auto clamp(50px, 6vw, 80px);
   text-align: center;
 }
-.prestige-devyears-eyebrow {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.55);
-}
-.prestige-devyears-title {
-  margin: 0 auto;
-  font-size: clamp(25px, 2.3vw, 40px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1px;
-  color: #fff;
-}
-
 /* one chapter per year: big year marker on the left, project renders on the right */
 .prestige-devyears-block {
   display: grid;
@@ -143,8 +129,8 @@ const developmentsByYear = YEARS.map((block) => ({
   font-weight: 700;
   line-height: 1;
   letter-spacing: -1px;
-  color: transparent;
-  background: linear-gradient(
+  color: #fff;
+  /*background: linear-gradient(
     180deg,
     #f8fcff 0%,
     #b7cad7 22%,
@@ -157,7 +143,7 @@ const developmentsByYear = YEARS.map((block) => ({
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);
+  -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);*/
 }
 .prestige-devyears-grid {
   display: grid;

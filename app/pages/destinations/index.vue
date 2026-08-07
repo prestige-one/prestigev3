@@ -12,8 +12,6 @@
               image="/assets/images/v3/our-destinations/Landing-Cover.webp"
             />
 
-            <prestige-stat-band :stats="portfolioStats" />
-
             <prestige-feature-split
               :eyebrow="t('dp.feature.eyebrow')"
               :title="t('dp.feature.title')"
@@ -91,7 +89,6 @@
 
 <script setup lang="ts">
 import { destinations, getProjectsForDestination, type Destination } from "~/data/destinations-data";
-import { getAllProjects } from "~/data/projects";
 
 definePageMeta({ layout: false });
 
@@ -108,13 +105,6 @@ function countFor(dest: Destination) {
   const n = getProjectsForDestination(dest).length;
   return n === 1 ? t("dp.card.count_one", { n }) : t("dp.card.count_other", { n });
 }
-
-const portfolioStats = computed<{ value: string; label: string; col?: string }[]>(() => [
-  { value: `${destinations.length}`, label: t("dp.stats.destinations"), col: "col-lg-2 col-md-6" },
-  { value: `${getAllProjects().length}`, label: t("dp.stats.developments"), col: "col-lg-3 col-md-6" },
-  { value: "AED 500M+", label: t("dp.stats.investment"), col: "col-lg-4 col-md-6" },
-  { value: "100%", label: t("dp.stats.escrow"), col: "col-lg-3 col-md-6" },
-]);
 
 usePrestigePage({ hero: false });
 </script>

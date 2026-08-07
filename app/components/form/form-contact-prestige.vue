@@ -1,5 +1,5 @@
 <template>
-  <form id="contact-form" method="POST" novalidate @submit.prevent="onSubmit">
+  <form id="prestige-contact-form" method="POST" novalidate @submit.prevent="onSubmit">
     <div class="row">
       <div class="col-lg-6">
         <div class="tp-contact-form-input mb-20">
@@ -29,7 +29,7 @@
       <div class="col-lg-12">
         <div class="tp-contact-form-input mb-20">
           <label>{{ $t('contact.howCanWeHelp') }}</label>
-          <textarea v-model="form.message" name="message" :placeholder="$t('contact.messagePlaceholder')" />
+          <textarea v-model="form.message" name="message" />
         </div>
         <div class="tp-contact-form-btn">
           <button class="prestige-send" type="submit" :disabled="status === 'submitting'">
@@ -109,6 +109,12 @@ async function onSubmit() {
   transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
+.tp-contact-form-input textarea {
+  height: 96px;
+  min-height: 96px;
+  resize: vertical;
+}
+
 .tp-contact-form-input input:focus,
 .tp-contact-form-input textarea:focus {
   background: #1f1f1f;
@@ -117,11 +123,13 @@ async function onSubmit() {
 
 /* white pill send button with dark arrow circle (matches the mock) */
 .prestige-send {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px 8px 8px 30px;
+  justify-content: center;
+  width: 50%;
+  margin-inline: auto;
+  padding: 20px 10px;
   border: none;
   border-radius: 60px;
   background: #fff;
@@ -135,6 +143,8 @@ async function onSubmit() {
 .prestige-send:hover { background: #efefef; transform: translateY(-2px); }
 .prestige-send:disabled { opacity: 0.6; cursor: default; transform: none; }
 .prestige-send__arrow {
+  position: absolute;
+  right: 8px;
   flex: 0 0 auto;
   width: 44px;
   height: 44px;
@@ -190,6 +200,10 @@ async function onSubmit() {
 
   .prestige-phone-number {
     flex-basis: 100%;
+  }
+
+  .prestige-send {
+    width: 100%;
   }
 }
 </style>

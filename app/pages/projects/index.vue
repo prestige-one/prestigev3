@@ -13,8 +13,6 @@
               media-position="center top"
             />
 
-            <prestige-stat-band :stats="portfolioStats" />
-
             <section class="prestige-section">
               <div class="container container-1430">
                 <!-- filter toolbar: search | project types | destinations -->
@@ -72,7 +70,6 @@
             </section>
 
             <prestige-cta-band
-              :eyebrow="t('pp.cta.eyebrow')"
               :title="t('pp.cta.title')"
               :text="t('pp.cta.text')"
               image="/assets/project-featured-images/sliders/luxury-canal.webp"
@@ -136,13 +133,6 @@ const all = [...getAllProjects()].sort((a, b) => orderIndex(a.slug) - orderIndex
 
 const { t } = useI18n();
 const localePath = useLocalePath();
-
-const portfolioStats = computed(() => [
-  { value: "24+", label: t("pp.stats.projects") },
-  { value: "21+", label: t("pp.stats.destinations") },
-  { value: "7", label: t("pp.stats.countries") },
-  { value: "100%", label: t("pp.stats.freehold") },
-]);
 
 // destination (location) filter
 const locations = ["All", ...Array.from(new Set(all.map((p) => p.location)))];

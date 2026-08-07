@@ -1,11 +1,14 @@
 <template>
   <div class="prestige-contact-review-actions">
-    <NuxtLink to="/#contact" class="prestige-contact-review-actions__contact">
+    <NuxtLink :to="localePath('/contact-us')" class="prestige-contact-review-actions__contact">
       {{ $t('ap.reviews.contact') }}
     </NuxtLink>
 
-    <div
+    <a
       class="prestige-contact-review-actions__rating"
+      href="https://g.page/r/CaiDjnU_tlznEAE/review"
+      target="_blank"
+      rel="noopener noreferrer"
       :aria-label="$t('ap.reviews.ratingAria')"
     >
       <img
@@ -19,9 +22,13 @@
         </span>
         <span class="prestige-contact-review-actions__caption">{{ $t('ap.reviews.caption') }}</span>
       </div>
-    </div>
+    </a>
   </div>
 </template>
+
+<script setup lang="ts">
+const localePath = useLocalePath();
+</script>
 
 <style scoped>
 .prestige-contact-review-actions {
@@ -70,6 +77,18 @@
   min-width: 241px;
   padding: 0 25px;
   gap: 15px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.prestige-contact-review-actions__rating:hover {
+  background: #efefef;
+  transform: translateY(-2px);
+}
+
+.prestige-contact-review-actions__rating:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 3px;
 }
 
 .prestige-contact-review-actions__google {

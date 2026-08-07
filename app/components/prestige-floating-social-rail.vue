@@ -15,9 +15,6 @@
         <span class="prestige-social-rail__tooltip">{{ social.name }}</span>
       </a>
     </nav>
-
-    <span class="prestige-social-rail__line" aria-hidden="true" />
-    <span class="prestige-social-rail__follow" aria-hidden="true">FOLLOW US</span>
   </aside>
 </template>
 
@@ -42,7 +39,7 @@ const socialLinks = [
 <style scoped>
 .prestige-social-rail {
 	position: fixed;
-	top: 50%;
+	bottom: -5%;
 	left: 0;
 	z-index: 18;
 	display: flex;

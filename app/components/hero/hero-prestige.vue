@@ -99,7 +99,7 @@
 }
 
 .prestige-hero-logo img {
-  width: min(260px, 26vw);
+  width: min(190px, 25vw);
   height: auto;
 }
 

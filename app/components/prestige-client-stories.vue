@@ -1,16 +1,14 @@
 <template>
   <section class="prestige-stories pt-80 pb-120">
     <div class="container container-1430">
-      <header class="prestige-stories__head">
-        <span class="prestige-stories__eyebrow">{{ $t('hp.stories.eyebrow') }}</span>
-        <h2 class="prestige-stories__title prestige-text-paint">{{ $t('hp.stories.title') }}</h2>
-        <p class="prestige-stories__lead">
-          {{ $t('hp.stories.lead') }}
-        </p>
-      </header>
+      <prestige-section-heading
+        class="prestige-stories__head"
+        :title="$t('hp.stories.eyebrow')"
+        :subtitle="$t('hp.stories.title')"
+      />
 
       <div class="prestige-stories__grid">
-        <article v-for="(v, i) in videos" :key="i" class="prestige-stories__card tp_fade_anim" :data-delay="i * 0.08">
+        <article v-for="(v, i) in videos" :key="v.name" class="prestige-stories__card">
           <div class="prestige-stories__media">
             <video
               class="prestige-stories__video"
@@ -40,7 +38,6 @@
           </div>
           <div class="prestige-stories__meta">
             <h3 class="prestige-stories__name">{{ v.name }}</h3>
-            <span class="prestige-stories__project">{{ v.project }}</span>
           </div>
         </article>
       </div>
@@ -53,10 +50,10 @@ const { t } = useI18n();
 const playingIndex = ref<number | null>(null);
 
 const videos = computed(() => [
-  { name: t("hp.stories.v1Name"), project: t("hp.stories.v1Project"), video: "/assets/videos/story-1.mp4", poster: "/assets/videos/story-1.webp" },
-  { name: t("hp.stories.v2Name"), project: t("hp.stories.v2Project"), video: "/assets/videos/story-2.mp4", poster: "/assets/videos/story-2.webp" },
-  { name: t("hp.stories.v3Name"), project: t("hp.stories.v3Project"), video: "/assets/videos/story-3.mp4", poster: "/assets/videos/story-3.webp" },
-  { name: t("hp.stories.v4Name"), project: t("hp.stories.v4Project"), video: "/assets/videos/story-4.mp4", poster: "/assets/videos/story-4.webp" },
+  { name: t("hp.stories.v1Name"), video: "/assets/videos/story-1.mp4", poster: "/assets/videos/story-1.webp" },
+  { name: t("hp.stories.v2Name"), video: "/assets/videos/story-2.mp4", poster: "/assets/videos/story-2.webp" },
+  { name: t("hp.stories.v3Name"), video: "/assets/videos/story-3.mp4", poster: "/assets/videos/story-3.webp" },
+  { name: t("hp.stories.v4Name"), video: "/assets/videos/story-4.mp4", poster: "/assets/videos/story-4.webp" },
 ]);
 
 function toggleVideo(event: MouseEvent | KeyboardEvent) {
@@ -77,46 +74,7 @@ function clearPlayingIndex(index: number) {
 
 <style scoped>
 .prestige-stories__head {
-  max-width: 760px;
-  margin: 0 auto clamp(44px, 5vw, 66px);
-  text-align: center;
-}
-.prestige-stories__eyebrow {
-  display: block;
-  margin-bottom: 16px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.5);
-}
-.prestige-stories__title {
-  margin: 0 0 18px;
-  font-size: clamp(24px, 2.6vw, 40px);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.prestige-text-paint {
-  background-image: linear-gradient(
-    to right,
-    #ffffff 50%,
-    rgba(255, 255, 255, 0.32) 50%
-  );
-  background-size: 200% 100%;
-  background-position-x: 100%;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.prestige-stories__lead {
-  margin: 0;
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: clamp(44px, 5vw, 66px);
 }
 .prestige-stories__grid {
   display: grid;
@@ -198,13 +156,6 @@ function clearPlayingIndex(index: number) {
   font-weight: 500;
   color: #fff;
 }
-.prestige-stories__project {
-  font-size: 12.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-}
-
 @media (max-width: 991.98px) {
   .prestige-stories__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

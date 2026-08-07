@@ -95,7 +95,7 @@ onMounted(() => {
 }
 .prestige-journey-header {
   position: relative;
-  margin: 0 auto clamp(34px, 4vw, 52px);
+  margin: 0 auto clamp(34px, 4vw, 55px);
   text-align: center;
 }
 .prestige-journey-eyebrow {

@@ -1,12 +1,11 @@
 <template>
-  <section class="prestige-journey-scroll-area pt-40 pb-80">
+  <section class="prestige-journey-scroll-area pt-80 pb-100">
     <div class="container container-1430">
-      <header class="prestige-journey-scroll-header">
-        <span class="prestige-journey-scroll-eyebrow">{{ t('ap.journey.eyebrow') }}</span>
-        <h2 class="prestige-journey-scroll-title tp_reveal_anim" data-delay="0.05">
-          {{ t('ap.journey.title') }}
-        </h2>
-      </header>
+      <prestige-section-heading
+        class="prestige-journey-scroll-header"
+        :title="t('ap.journey.eyebrow')"
+        :subtitle="t('ap.journey.title')"
+      />
 
       <ol ref="timeline" class="prestige-journey-scroll-timeline">
         <span class="prestige-journey-scroll-line" aria-hidden="true" />
@@ -59,17 +58,25 @@ const milestones = computed<PrestigeJourneyMilestone[]>(() => [
 ]);
 
 let animationContext: { revert: () => void } | null = null;
+let refreshFrame = 0;
+let isUnmounted = false;
 
 onMounted(async () => {
   await nextTick();
 
-  const timelineElement = timeline.value;
-  const progressElement = progressLine.value;
-  if (!timelineElement || !progressElement) return;
-
   const { gsap } = await import("gsap");
   const { ScrollTrigger } = await import("gsap/all");
   gsap.registerPlugin(ScrollTrigger);
+
+  // Child components mount before the page creates ScrollSmoother. Waiting two
+  // frames ensures every trigger measures against the final smooth-scroll setup.
+  await new Promise<void>((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+  });
+
+  const timelineElement = timeline.value;
+  const progressElement = progressLine.value;
+  if (isUnmounted || !timelineElement || !progressElement) return;
 
   animationContext = gsap.context(() => {
     gsap.fromTo(
@@ -95,16 +102,19 @@ onMounted(async () => {
           trigger: item,
           start: "top 68%",
           end: "bottom 32%",
-          toggleClass: "is-active",
+          onToggle: (self) => item.classList.toggle("is-active", self.isActive),
+          onRefresh: (self) => item.classList.toggle("is-active", self.isActive),
           invalidateOnRefresh: true,
         });
       });
   }, timelineElement);
 
-  ScrollTrigger.refresh();
+  refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
 });
 
 onBeforeUnmount(() => {
+  isUnmounted = true;
+  cancelAnimationFrame(refreshFrame);
   animationContext?.revert();
   animationContext = null;
 });
@@ -120,24 +130,6 @@ onBeforeUnmount(() => {
   position: relative;
   margin: 0 auto clamp(58px, 7vw, 94px);
   text-align: center;
-}
-
-.prestige-journey-scroll-eyebrow {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.prestige-journey-scroll-title {
-  margin: 0 auto;
-  font-size: clamp(25px, 2.3vw, 40px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1px;
-  color: #fff;
 }
 
 .prestige-journey-scroll-timeline {

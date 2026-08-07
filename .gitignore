@@ -50,3 +50,6 @@ next-env.d.ts
 .superpowers/
 CLAUDE.md
 .claude/worktrees/
+
+# Large local hero source video (kept outside GitHub)
+public/assets/videos/Hero Video V3(new1).mp4

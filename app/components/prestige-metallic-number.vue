@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <style scoped>
-.prestige-metallic-number {
+/*.prestige-metallic-number {
   display: inline-block;
   font-family: "Google Sans", sans-serif;
   font-weight: 700;
@@ -31,5 +31,14 @@ defineProps<{
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px rgba(231, 244, 252, 0.92);
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
+}*/
+.prestige-metallic-number[data-v-1ca9d645] {
+	display: inline-block;
+	font-family: "Google Sans", sans-serif;
+	font-weight: 700;
+	line-height: 0.9;
+	letter-spacing: -0.055em;
+	color: white;
+	filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
 }
 </style>

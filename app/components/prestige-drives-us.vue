@@ -1,12 +1,11 @@
 <template>
-  <section class="prestige-drives-area pt-40 pb-80">
+  <section class="prestige-drives-area pt-100 pb-80">
     <div class="container container-1430">
-      <header class="prestige-drives-header">
-        <span class="prestige-drives-eyebrow">{{ t('ap.drives.eyebrow') }}</span>
-        <h2 class="prestige-drives-title tp_reveal_anim" data-delay="0.05">
-          {{ t('ap.drives.title') }}
-        </h2>
-      </header>
+      <prestige-section-heading
+        class="prestige-drives-header"
+        :title="t('ap.drives.eyebrow')"
+        :subtitle="t('ap.drives.title')"
+      />
 
       <div class="prestige-drives-grid">
         <article
@@ -58,7 +57,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p3Title"),
     description: t("ap.drives.p3Desc"),
-    image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-residential-exterior-view.webp",
+    image: "/assets/images/v2/project-featured-images/hilton/hilton-v5.webp",
   },
   {
     title: t("ap.drives.p4Title"),
@@ -75,26 +74,6 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
 
 .prestige-drives-header {
   margin: 0 auto clamp(48px, 6vw, 72px);
-  text-align: center;
-}
-
-.prestige-drives-eyebrow {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.prestige-drives-title {
-  margin: 0 auto;
-  font-size: clamp(25px, 2.3vw, 40px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1px;
-  color: #fff;
   text-align: center;
 }
 
@@ -175,10 +154,6 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
 
   .prestige-drives-header {
     margin-bottom: 36px;
-  }
-
-  .prestige-drives-title {
-    font-size: clamp(30px, 9vw, 42px);
   }
 
   .prestige-drives-grid {

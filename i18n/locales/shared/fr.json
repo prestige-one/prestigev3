@@ -35,8 +35,7 @@
     "next": "Suivant",
     "contactCta": {
       "eyebrow": "Contactez-nous",
-      "titleLine1": "Parlons de",
-      "titleLine2": "votre prochain projet"
+      "subtitle": "Partagez vos coordonnées et notre équipe vous contactera sous peu."
     },
     "getInTouch": "Entrer en contact",
     "viewDevelopments": "Voir les projets",

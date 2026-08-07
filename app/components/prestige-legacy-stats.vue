@@ -5,10 +5,7 @@
         <span class="prestige-legacy-eyebrow">{{ t("ap.legacy.eyebrow") }}</span>
         <h2
           id="prestige-legacy-title"
-          class="prestige-legacy-title tp_reveal_anim"
-          data-delay="0.05"
-          data-duration="1.1"
-          data-stagger="0.025"
+          class="prestige-legacy-title"
         >
           {{ t("ap.legacy.title") }}
         </h2>
@@ -147,7 +144,7 @@ onBeforeUnmount(() => {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(76px, 6vw, 95px) 0;
+  padding: clamp(65px, 6vw, 65px) 0;
   background: #000;
 }
 
@@ -179,24 +176,25 @@ onBeforeUnmount(() => {
 }
 
 .prestige-legacy-eyebrow {
-  display: block;
-  margin-bottom: clamp(30px, 3vw, 46px);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 8px;
-  color: rgba(255, 255, 255, 0.88);
-  text-transform: uppercase;
+	display: block;
+	margin-bottom: 22px;
+	font-size: clamp(35px, 6vw, 45px);
+	font-weight: 400;
+	line-height: 1.05;
+	letter-spacing: 0px;
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
 }
 
 .prestige-legacy-title {
   max-width: 430px;
   margin: 0;
-  font-size: clamp(48px, 4.2vw, 70px);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -2.3px;
+  font-size: clamp(15px, 1.35vw, 20px);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 4px;
   color: #f5f6f7;
+  text-transform: uppercase;
 }
 
 .prestige-legacy-copy-line {
@@ -284,7 +282,8 @@ onBeforeUnmount(() => {
   --prestige-legacy-delay: 0ms;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(185px, 0.85fr) minmax(30px, 0.2fr) minmax(170px, 1fr);
+  grid-template-columns: minmax(100px, 115px) minmax(170px, 1fr);
+  column-gap: 10px;
   align-items: center;
   min-height: clamp(112px, 9vw, 148px);
   opacity: 0;
@@ -335,11 +334,12 @@ onBeforeUnmount(() => {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
   align-items: baseline;
   justify-self: start;
-  min-width: 118px;
-  padding: 4px 14px 4px 0;
+  min-width: 0;
+  padding: 4px 0;
+  white-space: nowrap;
   background: transparent;
 }
 
@@ -348,7 +348,7 @@ onBeforeUnmount(() => {
   padding-right: 0.08em;
   margin-right: -0.08em;
   font-family: "Google Sans", "Google Sans Fallback: Arial", sans-serif;
-  font-size: clamp(60px, 5vw, 60px);
+  font-size: clamp(30px, 5vw, 40px);
   font-weight: 400;
   line-height: 0.8;
   letter-spacing: -4px;
@@ -364,16 +364,15 @@ onBeforeUnmount(() => {
   align-self: end;
   margin: 0 0 -1px 4px;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(35px, 3vw, 48px);
+  font-size: clamp(30px, 3vw, 38px);
   font-weight: 300;
   line-height: 1;
   color: rgba(236, 242, 246, 0.9);
 }
 
 .prestige-legacy-unit {
-  grid-column: 1 / -1;
-  margin-top: 12px;
-  padding-left: 8px;
+  margin-left: 6px;
+  padding-left: 0;
   font-size: clamp(18px, 1.45vw, 25px);
   font-weight: 300;
   line-height: 1;
@@ -381,7 +380,7 @@ onBeforeUnmount(() => {
 }
 
 .prestige-legacy-metric-line {
-  display: block;
+  display: none;
   height: 1px;
   background: linear-gradient(90deg, rgba(220, 231, 239, 0.72), rgba(220, 231, 239, 0.18));
 }
@@ -389,7 +388,7 @@ onBeforeUnmount(() => {
 .prestige-legacy-label {
   position: relative;
   z-index: 1;
-  max-width: 220px;
+  max-width: 250px;
   margin: 0;
   padding-left: 18px;
   font-size: clamp(12px, 1vw, 15px);
@@ -408,11 +407,12 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-title {
-    font-size: clamp(42px, 4.3vw, 56px);
+    font-size: clamp(15px, 1.35vw, 20px);
   }
 
   .prestige-legacy-metric {
-    grid-template-columns: minmax(160px, 0.8fr) minmax(24px, 0.18fr) minmax(155px, 1fr);
+    grid-template-columns: 110px minmax(155px, 1fr);
+    column-gap: 8px;
   }
 
   .prestige-legacy-label {
@@ -438,11 +438,12 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-metric {
-    grid-template-columns: minmax(165px, 0.75fr) minmax(50px, 0.25fr) minmax(210px, 1fr);
+    grid-template-columns: 120px minmax(210px, 1fr);
+    column-gap: 10px;
   }
 
   .prestige-legacy-number {
-    font-size: clamp(76px, 11vw, 96px);
+    font-size: clamp(30px, 5vw, 40px);
   }
 }
 
@@ -462,16 +463,16 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-eyebrow {
-    margin-bottom: 24px;
-    font-size: 11px;
-    letter-spacing: 6px;
+    margin-bottom: 18px;
+    font-size: clamp(35px, 6vw, 40px);
+    letter-spacing: -1.5px;
   }
 
   .prestige-legacy-title {
     max-width: 340px;
-    font-size: clamp(40px, 12vw, 55px);
-    line-height: 1.12;
-    letter-spacing: -1.5px;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 2.5px;
   }
 
   .prestige-legacy-copy-line {
@@ -494,7 +495,8 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-metric {
-    grid-template-columns: minmax(105px, 0.65fr) minmax(18px, 0.15fr) minmax(130px, 1fr);
+    grid-template-columns: 100px minmax(130px, 1fr);
+    column-gap: 8px;
     min-height: 118px;
   }
 
@@ -505,22 +507,22 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-number-wrap {
-    min-width: 100px;
-    padding-right: 8px;
+    min-width: 0;
+    padding-right: 0;
   }
 
   .prestige-legacy-number {
-    font-size: clamp(58px, 17vw, 76px);
+    font-size: clamp(30px, 5vw, 40px);
     letter-spacing: -3px;
   }
 
   .prestige-legacy-suffix {
-    font-size: clamp(28px, 8vw, 38px);
+    font-size: clamp(30px, 3vw, 38px);
   }
 
   .prestige-legacy-unit {
-    margin-top: 8px;
-    padding-left: 4px;
+    margin-top: 0;
+    padding-left: 0;
     font-size: 16px;
   }
 

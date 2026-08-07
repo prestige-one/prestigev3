@@ -61,9 +61,10 @@
 
 <script setup lang="ts">
 import Swiper from "swiper";
-import { Navigation, EffectCoverflow, Autoplay, Keyboard } from "swiper/modules";
+import { Navigation, EffectCoverflow, EffectFade, Autoplay, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import type { DevelopmentSlide } from "../data/residential-developments-data";
 import { slugify } from "~/data/projects";
@@ -169,13 +170,15 @@ onMounted(() => {
   // as 6000px - a known-flaky combo. A fixed height sized generously for
   // the tallest caption is far more predictable.)
   const coverflowTextSlider = new Swiper(textEl, {
-    modules: [Keyboard],
-    spaceBetween: 30,
+    modules: [Keyboard, EffectFade],
     slidesPerView: 1,
-    direction: "vertical",
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
     loop: props.loop,
     allowTouchMove: false,
-    speed: 1500,
+    speed: 650,
   });
 
   // Sync the caption swiper to the image swiper's real (non-looped) index.
@@ -188,9 +191,9 @@ onMounted(() => {
   // every breakpoint.
   coverflowThumbSlider.on("slideChange", () => {
     if (props.loop) {
-      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 1500);
+      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 650);
     } else {
-      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, 1500);
+      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, 650);
     }
   });
 });

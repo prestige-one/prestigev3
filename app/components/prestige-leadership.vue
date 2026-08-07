@@ -1,12 +1,11 @@
 <template>
-  <section class="prestige-leadership-area pt-40 pb-80">
+  <section class="prestige-leadership-area pt-80 pb-100">
     <div class="container container-1430">
-      <header class="prestige-leadership-header">
-        <span class="prestige-leadership-eyebrow">{{ t('ap.leadership.eyebrow') }}</span>
-        <h2 class="prestige-leadership-title tp_reveal_anim" data-delay="0.05">
-          {{ t('ap.leadership.title') }}
-        </h2>
-      </header>
+      <prestige-section-heading
+        class="prestige-leadership-header"
+        :title="t('ap.leadership.eyebrow')"
+        :subtitle="t('ap.leadership.title')"
+      />
 
       <div class="prestige-leadership-grid">
         <article
@@ -54,23 +53,6 @@ const leaders = computed<Leader[]>(() => [
   margin: 0 auto clamp(46px, 6vw, 70px);
   text-align: center;
 }
-.prestige-leadership-eyebrow {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.55);
-}
-.prestige-leadership-title {
-  margin: 0 auto;
-  font-size: clamp(25px, 2.3vw, 40px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1px;
-  color: #fff;
-}
-
 /* two wide horizontal cards fill the row so there's no dead space at the sides */
 .prestige-leadership-grid {
   display: grid;

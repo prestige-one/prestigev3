@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-about-hero-area pt-200 pb-120">
+  <section class="prestige-about-hero-area pt-180 pb-120">
     <div class="container container-1430">
       <div class="row justify-content-center">
         <div class="col-xl-8">
@@ -185,7 +185,7 @@ onBeforeUnmount(() => {
 /* ---- About Us intro row ---- */
 
 .prestige-about-hero-row {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .prestige-about-hero-thumb {

@@ -1,24 +1,42 @@
 <template>
-  <section class="prestige-whydubai pt-120 pb-80">
+  <section class="prestige-whydubai">
     <div class="container container-1430">
-      <header class="prestige-whydubai__head">
-        <span class="prestige-whydubai__eyebrow">{{ $t('hp.whyDubai.eyebrow') }}</span>
-        <h2 class="prestige-whydubai__title prestige-text-paint">{{ $t('hp.whyDubai.title') }}</h2>
-        <p class="prestige-whydubai__lead">
-          {{ $t('hp.whyDubai.lead') }}
-        </p>
-      </header>
+      <prestige-section-heading
+        class="prestige-whydubai__head"
+        :title="$t('hp.whyDubai.eyebrow')"
+        :subtitle="$t('hp.whyDubai.title')"
+        :description="$t('hp.whyDubai.lead')"
+      />
 
       <div class="prestige-whydubai__grid">
-        <article v-for="(r, i) in reasons" :key="i" class="prestige-whydubai__card tp_fade_anim" :data-delay="i * 0.06">
-          <span
-            class="prestige-whydubai__stat"
-            :class="{ 'prestige-whydubai__stat--compact': r.compact }"
-          >
-            {{ r.stat }}
-          </span>
-          <h3 class="prestige-whydubai__cardtitle">{{ r.title }}</h3>
-          <p class="prestige-whydubai__text">{{ r.text }}</p>
+        <article
+          v-for="reason in reasons"
+          :key="reason.title"
+          class="prestige-whydubai__card"
+        >
+          <figure class="prestige-whydubai__media">
+            <img
+              class="prestige-whydubai__image"
+              :src="reason.image"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+
+          <div class="prestige-whydubai__content">
+            <span class="prestige-whydubai__icon">
+              <prestige-dubai-reason-icon :name="reason.icon" />
+            </span>
+            <span
+              class="prestige-whydubai__stat"
+              :class="{ 'prestige-whydubai__stat--compact': reason.compact }"
+            >
+              {{ reason.stat }}
+            </span>
+            <p class="prestige-whydubai__text">{{ reason.text }}</p>
+            <h3 class="prestige-whydubai__cardtitle">{{ reason.title }}</h3>
+          </div>
         </article>
       </div>
     </div>
@@ -26,126 +44,238 @@
 </template>
 
 <script setup lang="ts">
+interface PrestigeDubaiReason {
+  stat: string;
+  title: string;
+  text: string;
+  image: string;
+  icon: "visa" | "ownership" | "tax" | "protect" | "safe" | "global";
+  compact?: boolean;
+}
+
 const { locale, t } = useI18n();
 
-const reasons = computed(() => {
+const reasonImages = [
+  "/assets/images/v3/home/visa.webp",
+  "/assets/images/v3/home/ownership.webp",
+  "/assets/images/v3/home/tax.webp",
+  "/assets/images/v3/home/protect.webp",
+  "/assets/images/v3/home/safe.webp",
+  "/assets/images/v3/home/global.webp",
+] as const;
+
+const reasons = computed<PrestigeDubaiReason[]>(() => {
   if (locale.value === "en") {
     return [
-      { stat: "2–10 Years", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text"), compact: true },
-      { stat: "100%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
-      { stat: "0%", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
-      { stat: "Protected Investments", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text"), compact: true },
-      { stat: "#1", title: t("hp.whyDubai.r5Title"), text: t("hp.whyDubai.r5Text") },
-      { stat: "Global Hub", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text"), compact: true },
+      {
+        stat: "Build Your Future in Dubai",
+        text: "2-10 Year Golden Visa",
+        title: "Long-term residency for you and your family.",
+        image: reasonImages[0],
+        icon: "visa",
+        compact: true,
+      },
+      {
+        stat: "Own Without Limits",
+        text: "100% Freehold Ownership",
+        title: "Full ownership in Dubai's designated freehold communities.",
+        image: reasonImages[1],
+        icon: "ownership",
+        compact: true,
+      },
+      {
+        stat: "Keep More of What You Earn",
+        text: "0% Property Tax",
+        title: "No annual property tax on residential real estate.",
+        image: reasonImages[2],
+        icon: "tax",
+        compact: true,
+      },
+      {
+        stat: "Invest with Confidence",
+        text: "Government-Regulated Escrow Accounts",
+        title: "Your investment is protected every step of the way.",
+        image: reasonImages[3],
+        icon: "protect",
+        compact: true,
+      },
+      {
+        stat: "Live with Peace of Mind",
+        text: "#1 Safe & Stable",
+        title: "One of the world's safest places to live and invest.",
+        image: reasonImages[4],
+        icon: "safe",
+        compact: true,
+      },
+      {
+        stat: "Stay Connected to the World",
+        text: "Global Hub",
+        title: "Where business, people, and opportunity come together.",
+        image: reasonImages[5],
+        icon: "global",
+        compact: true,
+      },
     ];
   }
 
   return [
-    { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text") },
-    { stat: "6-8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text") },
-    { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text") },
-    { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text") },
-    { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text") },
-    { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text") },
+    { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text"), image: reasonImages[0], icon: "visa" },
+    { stat: "6–8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text"), image: reasonImages[1], icon: "ownership" },
+    { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text"), image: reasonImages[2], icon: "tax" },
+    { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text"), image: reasonImages[3], icon: "protect" },
+    { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text"), image: reasonImages[4], icon: "safe" },
+    { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text"), image: reasonImages[5], icon: "global" },
   ];
 });
 </script>
 
 <style scoped>
+.prestige-whydubai {
+  padding: clamp(92px, 9vw, 130px) 0 clamp(90px, 8vw, 120px);
+  background: #0e0e12;
+}
+
 .prestige-whydubai__head {
-  max-width: 720px;
-  margin: 0 auto clamp(44px, 5vw, 66px);
-  text-align: center;
-}
-.prestige-whydubai__eyebrow {
-  display: block;
-  margin-bottom: 16px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.5);
-}
-.prestige-whydubai__title {
-  margin: 0 0 18px;
-  font-size: clamp(24px, 2.6vw, 40px);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
+  margin-bottom: clamp(44px, 5vw, 66px);
 }
 
-/* Shared scroll-painted headline treatment used by the other main
-   homepage section titles. prestigeDevelopmentsReveal animates the
-   background position as this heading enters the viewport. */
-.prestige-text-paint {
-  background-image: linear-gradient(
-    to right,
-    #ffffff 50%,
-    rgba(255, 255, 255, 0.32) 50%
-  );
-  background-size: 200% 100%;
-  background-position-x: 100%;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.prestige-whydubai__lead {
-  margin: 0;
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.62);
-}
 .prestige-whydubai__grid {
+  --prestige-whydubai-card-gap: clamp(14px, 1.6vw, 22px);
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.6vw, 22px);
-}
-.prestige-whydubai__card {
-  padding: clamp(26px, 3vw, 40px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008));
-}
-.prestige-whydubai__stat {
-  display: block;
-  margin-bottom: 16px;
-  font-family: "Google Sans", sans-serif;
-  font-size: clamp(34px, 3.6vw, 35px);
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 1;
-  color: transparent;
-  background: linear-gradient(180deg, #f8fcff 0%, #b7cad7 22%, #819bab 23%, #edf8ff 46%, #7896aa 47%, #eaf6ff 79%, #9bb4c5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(232, 245, 253, 0.9);
-}
-.prestige-whydubai__stat--compact {
-  max-width: 100%;
-  font-size: clamp(25px, 2.45vw, 33px);
-  line-height: 1.12;
-  letter-spacing: -0.5px;
-}
-.prestige-whydubai__cardtitle {
-  margin: 0 0 10px;
-  font-size: clamp(18px, 1.6vw, 22px);
-  font-weight: 500;
-  color: #fff;
-}
-.prestige-whydubai__text {
-  margin: 0;
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.64);
+  row-gap: var(--prestige-whydubai-card-gap);
+  column-gap: var(--prestige-whydubai-card-gap);
 }
 
-@media (max-width: 991.98px) {
-  .prestige-whydubai__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.prestige-whydubai__card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #18191e 0%, #111216 100%);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.18);
+  transition: border-color 350ms ease, box-shadow 350ms ease, transform 350ms ease;
 }
+
+.prestige-whydubai__media {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  margin: 0;
+  overflow: hidden;
+  background: #0d0e11;
+}
+
+.prestige-whydubai__media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, transparent 54%, rgba(8, 9, 12, 0.28));
+  pointer-events: none;
+}
+
+.prestige-whydubai__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.prestige-whydubai__content {
+  position: relative;
+  display: flex;
+  min-height: 165px;
+  padding: 34px clamp(22px, 2vw, 28px) 22px;
+  flex: 1;
+  flex-direction: column;
+}
+
+.prestige-whydubai__icon {
+  position: absolute;
+  top: -26px;
+  right: clamp(22px, 2.2vw, 32px);
+  display: grid;
+  width: 52px;
+  height: 52px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #292b31, #141519);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.08);
+  place-items: center;
+}
+
+.prestige-whydubai__stat {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Google Sans", sans-serif;
+  font-size: clamp(34px, 3.1vw, 48px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #fff;
+}
+
+.prestige-whydubai__stat--compact {
+  font-size: clamp(20px, 6vw, 25px);
+  line-height: 1.12;
+}
+
+.prestige-whydubai__cardtitle {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #ffffffa6;
+}
+
+.prestige-whydubai__text {
+  margin: 0 0 7px;
+  font-size: clamp(15px, 1.35vw, 20px);
+  line-height: 1.55;
+  color: rgb(255, 255, 255);
+}
+
+@media (hover: hover) {
+  .prestige-whydubai__card:hover {
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 30px 66px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .prestige-whydubai__card:hover .prestige-whydubai__image {
+    transform: scale(1.045);
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .prestige-whydubai__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 575.98px) {
-  .prestige-whydubai__grid { grid-template-columns: 1fr; }
+  .prestige-whydubai__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prestige-whydubai__content {
+    min-height: 0;
+    padding: 34px 20px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prestige-whydubai__image {
+    transition: none;
+  }
+
+  .prestige-whydubai__card {
+    transition: none;
+  }
 }
 </style>

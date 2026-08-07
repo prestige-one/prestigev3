@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-founder-area pb-140">
+  <section class="prestige-founder-area pb-120">
     <div class="container container-1430">
       <div class="prestige-founder-layout">
         <figure
@@ -30,10 +30,12 @@
           data-duration="0.8"
         >
           <div class="prestige-founder-copy">
-            <span class="prestige-founder-eyebrow">{{ t('ap.founder.eyebrow') }}</span>
-            <h2 class="prestige-founder-title tp_reveal_anim" data-delay="0.05">
-              {{ t('ap.founder.title') }}
-            </h2>
+            <prestige-section-heading
+              class="prestige-founder-heading"
+              :title="t('ap.founder.eyebrow')"
+              :subtitle="t('ap.founder.title')"
+              align="left"
+            />
 
             <div class="prestige-founder-description">
               <p>{{ t('ap.founder.p1') }}</p>
@@ -174,26 +176,8 @@ const highlights = computed<PrestigeFounderHighlight[]>(() => [
   flex: 1;
 }
 
-.prestige-founder-eyebrow {
-  display: inline-flex;
-  padding: 9px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.prestige-founder-title {
-  margin: 18px 0 16px;
-  font-size: clamp(24px, 2.2vw, 32px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.8px;
-  color: #fff;
+.prestige-founder-heading {
+  margin-bottom: 18px;
 }
 
 .prestige-founder-description p {
