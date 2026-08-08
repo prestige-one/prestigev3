@@ -11,28 +11,27 @@
           <main>
 
             <!-- about us hero area start -->
-            <prestige-about-hero />
+            <div id="our-story" class="prestige-anchor"><prestige-about-hero /></div>
             <!-- about us hero area end -->
 
             <!-- legacy & credibility area start -->
-            <div id="our-story" class="prestige-anchor prestige-about-us-legacy"><prestige-legacy-stats /></div>
+            <div class="prestige-about-us-legacy"><prestige-legacy-stats /></div>
             <!-- legacy & credibility area end -->
 
-             <!-- founder and CEO area start -->
-            <prestige-founder-profile />
+            <!-- founder and CEO area start -->
+            <div id="about-ceo" class="prestige-anchor"><prestige-founder-profile /></div>
             <!-- founder and CEO area end -->
-
-            <!-- what drives us area start -->
-            <div id="vision" class="prestige-anchor"><prestige-drives-us /></div>
-            <!-- what drives us area end -->
-
 
             <!-- our leadership area start -->
             <div id="leadership" class="prestige-anchor"><prestige-leadership /></div>
             <!-- our leadership area end -->
 
+            <!-- what drives us area start -->
+            <div id="what-drives-us" class="prestige-anchor"><prestige-drives-us /></div>
+            <!-- what drives us area end -->
+
             <!-- our journey / timeline area start -->
-            <div id="milestones" class="prestige-anchor"><prestige-journey-scroll /></div>
+            <div id="our-journey" class="prestige-anchor"><prestige-journey-scroll /></div>
             <!-- our journey / timeline area end -->
 
             <!-- our developments (by year) area start -->
@@ -40,7 +39,7 @@
             <!-- our developments (by year) area end -->
 
             <!-- global perspective area start -->
-            <prestige-global-perspective />
+            <div id="global-perspective" class="prestige-anchor"><prestige-global-perspective /></div>
             <!-- global perspective area end -->
 
             <!-- the next chapter / closing CTA area start -->

@@ -26,7 +26,9 @@
 </template>
 
 <script setup lang="ts">
-import commercialDevelopments from "../data/commercial-developments-data";
+import { getProjectSlidesByCategory } from "~/data/projects";
+
+const commercialDevelopments = getProjectSlidesByCategory("commercial");
 </script>
 
 <style scoped>

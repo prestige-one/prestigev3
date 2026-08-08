@@ -34,6 +34,7 @@
     },
     "detail": {
       "enquireNow": "Richiedi informazioni",
+      "registerInterest": "Registra il tuo interesse",
       "overview": {
         "eyebrow": "Panoramica",
         "title": "La vita a {name}"

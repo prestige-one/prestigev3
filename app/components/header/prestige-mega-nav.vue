@@ -179,9 +179,11 @@ const menuDestinations = destinations.slice(0, 9);
 
 const aboutLinks = [
   { label: "Our Story", to: "/about-us#our-story" },
-  { label: "Vision & Mission", to: "/about-us#vision" },
+  { label: "About CEO", to: "/about-us#about-ceo" },
   { label: "Our Leadership", to: "/about-us#leadership" },
-  { label: "Our Milestones", to: "/about-us#milestones" },
+  { label: "What Drives Us", to: "/about-us#what-drives-us" },
+  { label: "Our Journey", to: "/about-us#our-journey" },
+  { label: "Global Perspective", to: "/about-us#global-perspective" },
 ];
 
 const projectTypes = [
@@ -207,7 +209,7 @@ function scheduleClose() {
   cancelClose();
   closeTimer = setTimeout(() => {
     active.value = null;
-  }, 320);
+  }, 500);
 }
 function close() {
   cancelClose();

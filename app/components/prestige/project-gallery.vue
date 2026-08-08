@@ -179,9 +179,10 @@ onBeforeUnmount(() => {
 <style scoped>
 .prestige-pgallery { overflow: hidden; }
 .prestige-pgallery__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 1.6vw, 24px);
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: clamp(14px, 1.6vw, 24px);
+	margin-top: 20px;
 }
 .prestige-pgallery__tile {
   position: relative;

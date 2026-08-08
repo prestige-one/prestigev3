@@ -131,7 +131,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
 <style scoped>
 .prestige-whydubai {
-  padding: clamp(92px, 9vw, 130px) 0 clamp(90px, 8vw, 120px);
+  padding: clamp(92px, 9vw, 100px) 0 clamp(90px, 8vw, 120px);
   background: #0e0e12;
 }
 
@@ -150,6 +150,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
 .prestige-whydubai__card {
   position: relative;
+  isolation: isolate;
   display: flex;
   min-width: 0;
   overflow: hidden;
@@ -163,6 +164,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
 .prestige-whydubai__media {
   position: relative;
+  z-index: 0;
   aspect-ratio: 2 / 1;
   margin: 0;
   overflow: hidden;
@@ -187,6 +189,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
 .prestige-whydubai__content {
   position: relative;
+  z-index: 1;
   display: flex;
   min-height: 165px;
   padding: 34px clamp(22px, 2vw, 28px) 22px;
@@ -196,6 +199,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
 .prestige-whydubai__icon {
   position: absolute;
+  z-index: 2;
   top: -26px;
   right: clamp(22px, 2.2vw, 32px);
   display: grid;
@@ -206,7 +210,12 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
   border-radius: 50%;
   background: linear-gradient(145deg, #292b31, #141519);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.08);
+  overflow: visible;
   place-items: center;
+}
+
+.prestige-whydubai__icon :deep(svg) {
+  overflow: visible;
 }
 
 .prestige-whydubai__stat {
@@ -228,7 +237,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 .prestige-whydubai__cardtitle {
   margin: 0;
   font-size: clamp(14px, 1.1vw, 16px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.25;
   color: #ffffffa6;
 }

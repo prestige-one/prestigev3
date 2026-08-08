@@ -13,7 +13,7 @@
               :video="project.video"
             >
               <template #actions>
-                <span class="prestige-detail__badge">{{ statusLabel }}</span>
+                <a href="#" class="prestige-detail__badge">{{ t('pp.detail.registerInterest') }}</a>
                 <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('pp.detail.enquireNow') }}</nuxt-link>
               </template>
             </prestige-page-hero>
@@ -34,7 +34,7 @@
             <prestige-feature-split
               :eyebrow="t('pp.detail.overview.eyebrow')"
               :title="t('pp.detail.overview.title', { name: shortName })"
-              :image="project.gallery[1] || project.hero"
+              :image="project.introImage || project.gallery[1] || project.hero"
               :paragraphs="overview"
               :points="highlights"
               equal-height
@@ -42,6 +42,7 @@
 
             <!-- 3 · amenities -->
             <prestige-amenities-grid
+              class="prestige-detail-heading--swapped"
               :eyebrow="t('pp.detail.amenities.eyebrow')"
               :title="t('pp.detail.amenities.title')"
               heading-class="prestige-detail__amenities-heading"
@@ -51,6 +52,7 @@
 
             <!-- 4 · gallery -->
             <prestige-project-gallery
+              class="prestige-detail-heading--swapped"
               :images="project.gallery"
               :eyebrow="t('pp.detail.gallery.eyebrow')"
               :title="t('pp.detail.gallery.title')"
@@ -58,7 +60,7 @@
             />
 
             <!-- 5 · location & nearby -->
-            <section class="prestige-section prestige-detail__loc">
+            <section class="prestige-section prestige-detail__loc prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row mb-40">
                   <div class="col-lg-9">
@@ -72,7 +74,7 @@
             </section>
 
             <!-- 6 · payment plan -->
-            <section class="prestige-section prestige-section--tight prestige-detail__pp">
+            <section class="prestige-section prestige-section--tight prestige-detail__pp prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row mb-40">
                   <div class="col-lg-8">
@@ -86,7 +88,7 @@
             </section>
 
             <!-- 7 · documents -->
-            <section class="prestige-section--tight prestige-detail__docs">
+            <section class="prestige-section--tight prestige-detail__docs prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.eyebrow') }}</span>
                 <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">{{ t('pp.detail.resources.title') }}</h2>
@@ -121,10 +123,10 @@
             />
 
             <!-- 8 · FAQ -->
-            <prestige-faq-accordion :title="t('pp.detail.faqTitle')" :items="faqs" />
+            <prestige-faq-accordion class="prestige-detail-heading--swapped" :title="t('pp.detail.faqTitle')" :items="faqs" />
 
             <!-- 9 · related -->
-            <section v-if="related.length" class="prestige-section prestige-section--tight">
+            <section v-if="related.length" class="prestige-section prestige-section--tight prestige-detail__related">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.related.eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.related.title') }}</h2>
@@ -312,6 +314,16 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-page :deep(.prestige-detail__amenities-heading) {
   font-size: clamp(38px, 4vw, 56px);
 }
+.prestige-detail__pp .row.mb-40 {
+  margin-bottom: 20px !important;
+}
+.prestige-detail__docs .prestige-heading {
+  margin-bottom: 24px !important;
+}
+.prestige-detail__related .prestige-heading {
+  margin-bottom: 13px !important;
+  font-size: clamp(25px, 4.4vw, 30px);
+}
 /* project documents as cards */
 .prestige-docgrid {
   display: grid;
@@ -371,6 +383,12 @@ function requestDocument(doc: { raw: string; label: string }) {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: #fff;
+}
+.prestige-detail__badge:hover,
+.prestige-detail__badge:focus-visible {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 .prestige-detail__facts {

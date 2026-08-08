@@ -24,14 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments from "~/data/residential-developments-data";
+import { getActiveProjectSlides } from "~/data/projects";
 
-const MAIN_TITLES = [
-  "FAUCHON RÃ©sidences by Prestige One",
-  "Hilton Residences Dubai Maritime City",
-  "Sanctuary Residences by Prestige One",
-];
-const mainProjects = residentialDevelopments.filter((development) => MAIN_TITLES.includes(development.title));
+const mainProjects = getActiveProjectSlides();
 
 const { t } = useI18n();
 

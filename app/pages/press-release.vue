@@ -12,7 +12,7 @@
               image="/assets/images/v2/press-releases/First-Hilton-branded-residences-to-debut-in-UAE-with-Prestige-One.webp"
             />
 
-            <section class="prestige-section--tight">
+            <section class="prestige-section--tight prestige-press-intro">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-9">
@@ -25,7 +25,7 @@
               </div>
             </section>
 
-            <section class="prestige-section prestige-section--tight">
+            <section class="prestige-section prestige-section--tight prestige-press-grid">
               <div class="container container-1430">
                 <div v-if="items.length" class="row">
                   <div
@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { getArticlesByCategory } from "~/data/blog-data";
+import { getEditorialArticles } from "~/data/editorial-data";
 
 const { t } = useI18n();
 
@@ -72,7 +72,17 @@ useSeoMeta({
   description: () => t("mdata.press.seoDesc"),
 });
 
-const items = getArticlesByCategory("press");
+const items = getEditorialArticles("press");
 
 usePrestigePage({ hero: false });
 </script>
+
+<style scoped>
+.prestige-press-intro {
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.prestige-press-grid {
+  padding-top: 0;
+}
+</style>

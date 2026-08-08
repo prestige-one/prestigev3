@@ -103,33 +103,7 @@ useSeoMeta({
 type CatKey = ProjectCategory | "all";
 const route = useRoute();
 const router = useRouter();
-// display order - latest / flagship first, the three villas last
-const ORDER = [
-  "fauchon-residences-by-prestige-one",
-  "sanctuary-residences-by-prestige-one",
-  "sanctuary-hive-by-prestige-one",
-  "hilton-residences-dubai-maritime-city",
-  "berkeley-square-north",
-  "berkeley-square-south",
-  "luxury-canal-residences-by-prestige-one",
-  "coastal-haven-by-prestige-one",
-  "the-boulevard-by-prestige-one",
-  "parkway-by-prestige-one",
-  "golf-residences-by-prestige-one",
-  "the-one-by-prestige-one",
-  "seaside-by-prestige-one",
-  "waterway-by-prestige-one",
-  "vista-by-prestige-one",
-  "the-residence-by-prestige-one",
-  "luxe-villa-by-prestige-one",
-  "seascape-villa",
-  "palm-villa-by-prestige-one",
-];
-const orderIndex = (slug: string) => {
-  const i = ORDER.indexOf(slug);
-  return i === -1 ? ORDER.length + 1 : i;
-};
-const all = [...getAllProjects()].sort((a, b) => orderIndex(a.slug) - orderIndex(b.slug));
+const all = getAllProjects();
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -190,7 +164,7 @@ usePrestigePage({ hero: false });
   max-width: 340px;
   padding: 11px 20px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.34);
   background: rgba(255, 255, 255, 0.03);
 }
 .prestige-search__icon { color: rgba(255, 255, 255, 0.5); flex: 0 0 auto; }
@@ -220,9 +194,9 @@ usePrestigePage({ hero: false });
   gap: 10px;
   padding: 11px 42px 11px 18px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.34);
   background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
 }
 .prestige-dest__select > svg:first-child { flex: 0 0 auto; color: rgba(255, 255, 255, 0.5); }
 .prestige-dest__select select {
@@ -254,9 +228,9 @@ usePrestigePage({ hero: false });
   gap: 8px;
   padding: 11px 22px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: #00000026;
+  color: rgb(255, 255, 255);
   font-size: 14px;
   letter-spacing: 0.04em;
   transition: 0.3s;

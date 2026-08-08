@@ -48,10 +48,10 @@
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.corporate') }}</h4>
                             <div class="dgm-footer-widget-menu">
                                 <ul>
-                                    <li><nuxt-link to="/broker-registration?type=uae-company">UAE Company Registration</nuxt-link></li>
-                                    <li><nuxt-link to="/broker-registration?type=uae-individual">UAE Individual Registration</nuxt-link></li>
-                                    <li><nuxt-link to="/broker-registration?type=international-company">International Company Registration</nuxt-link></li>
-                                    <li><nuxt-link to="/broker-registration?type=international-individual">International Individual Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration/uae-company">UAE Company Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration/uae-individual">UAE Individual Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration/international-company">International Company Registration</nuxt-link></li>
+                                    <li><nuxt-link to="/broker-registration/international-individual">International Individual Registration</nuxt-link></li>
                                     <li><nuxt-link to="/csr">{{ $t('sh.csr') }}</nuxt-link></li>
                                 </ul>
                             </div>

@@ -55,12 +55,12 @@ function toggle(i: number) {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 26px 0;
+  padding: 26px 0 15px;
   background: transparent;
   text-align: left;
   color: #fff;
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(20px, 2.4vw, 28px);
+  font-size: clamp(18px, 2.4vw, 20px);
 }
 .prestige-faq__icon {
   position: relative;
@@ -93,11 +93,11 @@ function toggle(i: number) {
   opacity: 1;
 }
 .prestige-faq__a p {
-  padding: 0 0 26px;
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.72);
-  max-width: 760px;
+	padding: 0 0 26px;
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.72);
+	max-width: 760px;
 }
 </style>

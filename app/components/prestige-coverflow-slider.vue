@@ -14,8 +14,6 @@
                 </div>
               </div>
             </div>
-            <div class="coverflow-slider-edge-fade coverflow-slider-edge-fade-left" />
-            <div class="coverflow-slider-edge-fade coverflow-slider-edge-fade-right" />
           </div>
           <div class="coverflow-slider-text-wrap">
             <div class="swiper-container coverflow-slider-text-active fix">
@@ -66,8 +64,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import type { DevelopmentSlide } from "../data/residential-developments-data";
-import { slugify } from "~/data/projects";
+import { slugify, type DevelopmentSlide } from "~/data/projects";
 
 const { t, te } = useI18n();
 const { pNameFromTitle } = useLocalizedNames();
@@ -106,13 +103,14 @@ const sliderRoot = ref<HTMLElement | null>(null);
 // entirely when loop is off (e.g. the commercial section only has 2 real
 // projects, so it just shows those 2 as-is rather than padding them out).
 const MIN_LOOP_SLIDES = 14;
+const CAPTION_FADE_MS = 1200;
 const loopSlides = computed(() => {
   const base = props.slides;
   if (!props.loop) return base;
   const repeatCount = Math.max(2, Math.ceil(MIN_LOOP_SLIDES / base.length));
   return Array.from({ length: repeatCount })
     .flatMap(() => base)
-    .map((item, index) => ({ ...item, id: index + 1 }));
+    .map((item, index) => ({ ...item, id: `${item.id}-${index + 1}` }));
 });
 
 onMounted(() => {
@@ -178,7 +176,7 @@ onMounted(() => {
     },
     loop: props.loop,
     allowTouchMove: false,
-    speed: 650,
+    speed: CAPTION_FADE_MS,
   });
 
   // Sync the caption swiper to the image swiper's real (non-looped) index.
@@ -191,9 +189,9 @@ onMounted(() => {
   // every breakpoint.
   coverflowThumbSlider.on("slideChange", () => {
     if (props.loop) {
-      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, 650);
+      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, CAPTION_FADE_MS);
     } else {
-      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, 650);
+      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, CAPTION_FADE_MS);
     }
   });
 });
@@ -276,40 +274,6 @@ onMounted(() => {
 .coverflow-slider-wrap {
   position: relative;
   height: 380px;
-}
-
-/* fades the coverflow's outermost slides into the page's solid black
-   background (main.scss sets body { background-color: #000 }) instead of
-   letting them hard-crop at the section edge - paired with the narrower
-   max-width below (~5 slides' worth) so only 5 cards ever read as fully
-   visible per side-trim request. */
-.coverflow-slider-edge-fade {
-  /* removed the black side overlays so the left/right slides show fully
-     (no dark wash over them) */
-  display: none;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: min(320px, 24vw);
-  /* Swiper's coverflow effect assigns each .swiper-slide its own inline
-     z-index (highest at the center slide, stepping down outward) which
-     can run well into the double digits with this many loop-cloned
-     slides - a low z-index here just rendered underneath them. */
-  z-index: 999;
-  pointer-events: none;
-}
-
-/* solid for the outer half, only fading through the inner half - a fade
-   starting at 0% opacity right away left the outermost sliver of the
-   cropped 6th/7th slide still half-visible instead of fully hidden. */
-.coverflow-slider-edge-fade-left {
-  left: 0;
-  background: linear-gradient(to right, #000 0%, #000 55%, rgba(0, 0, 0, 0) 100%);
-}
-
-.coverflow-slider-edge-fade-right {
-  right: 0;
-  background: linear-gradient(to left, #000 0%, #000 55%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* caps how many coverflow cards can occupy the visible row at once -

@@ -3,13 +3,16 @@
     <div class="prestige-hero-band__media">
       <video
         v-if="video"
+        ref="videoRef"
         :src="video"
         autoplay
         muted
         loop
         playsinline
+        preload="auto"
         :poster="image"
         :style="mediaPosition ? { objectPosition: mediaPosition } : undefined"
+        @canplay="playVideo"
       />
       <img
         v-else-if="image"
@@ -47,11 +50,23 @@ defineProps<{
 
 const root = ref<HTMLElement | null>(null);
 const inner = ref<HTMLElement | null>(null);
+const videoRef = ref<HTMLVideoElement | null>(null);
+
+function playVideo() {
+  const element = videoRef.value;
+  if (!element) return;
+  element.muted = true;
+  void element.play().catch(() => {
+    // The muted autoplay attributes handle supported browsers; a rejected
+    // promise simply means the browser requires direct user interaction.
+  });
+}
 
 // layered parallax: the hero copy drifts up and fades as the hero scrolls
 // away, at a different rate than the ken-burns image behind it - depth.
 onMounted(async () => {
   if (import.meta.server) return;
+  playVideo();
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!root.value || !inner.value) return;
   const { gsap } = await import("gsap");

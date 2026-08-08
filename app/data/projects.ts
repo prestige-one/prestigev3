@@ -1,18 +1,23 @@
-// Unified project catalogue for the Prestige One site.
+// Single source of truth for every Prestige One project.
 //
-// Normalizes the residential / commercial / upcoming slide data into a single
-// `Project` shape with a slug, category, status and detail fields, and exposes
-// lookup helpers used by /projects and /projects/[slug].
+// Add, remove, reorder, or edit projects in PROJECT_CATALOGUE below. Homepage
+// sliders, the projects listing, navigation, and project detail pages all read
+// from this file through the selectors exported at the bottom.
 //
 // Detail content (galleries, specs, overview) is enriched per-project where we
 // have real assets; anything missing falls back to sensible defaults derived
 // from the card data and is marked TODO(content) for a later copy pass.
 
-import residentialDevelopments, { type DevelopmentSlide } from "./residential-developments-data";
-import commercialDevelopments from "./commercial-developments-data";
-import upcomingDevelopments from "./upcoming-developments-data";
-
 export type ProjectCategory = "residential" | "commercial" | "upcoming";
+
+export interface DevelopmentSlide {
+  id: string;
+  image: string;
+  title: string;
+  location: string;
+  description: string;
+  href: string;
+}
 
 export interface ProjectSpec {
   label: string;
@@ -39,6 +44,7 @@ export interface Project {
   description: string;
   image: string; // card / slider image
   hero: string; // large hero image
+  introImage?: string;
   gallery: string[];
   overview: string[];
   highlights: string[];
@@ -50,12 +56,13 @@ export interface Project {
   schools: string[];
   hospitals: string[];
   documents: string[];
-  video?: string;
+  video: string;
 }
 
 interface ProjectEnrichment {
   status?: string;
   hero?: string;
+  introImage?: string;
   gallery?: string[];
   overview?: string[];
   highlights?: string[];
@@ -67,7 +74,10 @@ interface ProjectEnrichment {
   schools?: string[];
   hospitals?: string[];
   documents?: string[];
-  video?: string;
+}
+
+interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
+  category: ProjectCategory;
 }
 
 // Sensible, brand-plausible defaults so every project detail page reads as a
@@ -104,6 +114,214 @@ export function slugify(input: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+// Catalogue order is also the Projects listing order. Upcoming projects stay
+// at the bottom, while active residential and commercial projects populate the
+// homepage "Our Developments" slider in this same order.
+const PROJECT_CATALOGUE: ProjectSource[] = [
+  {
+    id: "fauchon-residences",
+    image: "/assets/project-featured-images/sliders/fauchon.webp",
+    title: "FAUCHON Résidences by Prestige One",
+    location: "Jumeirah Garden City",
+    description: "Parisian-inspired living with the iconic FAUCHON lifestyle.",
+    category: "residential",
+  },
+  {
+    id: "sanctuary-residences",
+    image: "/assets/project-featured-images/sliders/sanctuary.webp",
+    title: "Sanctuary Residences by Prestige One",
+    location: "Meydan Horizon",
+    description: "Panoramic lagoon views overlooking Ras Al Khor Wildlife Sanctuary.",
+    category: "residential",
+  },
+  {
+    id: "sanctuary-hive",
+    image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-hive-2.webp",
+    title: "Sanctuary Hive by Prestige One",
+    location: "Meydan Horizon",
+    description: "Commercial spaces ideal for businesses seeking visibility and connectivity.",
+    category: "commercial",
+  },
+  {
+    id: "hilton-residences",
+    image: "/assets/project-featured-images/sliders/hilton-1.webp",
+    title: "Hilton Residences Dubai Maritime City",
+    location: "Dubai Maritime City",
+    description: "Waterfront living inspired by the Hilton way of life.",
+    category: "residential",
+  },
+  {
+    id: "berkeley-square-north",
+    image: "/assets/project-featured-images/sliders/berkeley-north.webp",
+    title: "Berkeley Square North",
+    location: "Jumeirah Village Circle",
+    description: "Timeless architecture inspired by London living.",
+    category: "residential",
+  },
+  {
+    id: "berkeley-square-south",
+    image: "/assets/project-featured-images/sliders/berkeley-south.webp",
+    title: "Berkeley Square South",
+    location: "Jumeirah Village Circle",
+    description: "Where open spaces shape everyday living.",
+    category: "residential",
+  },
+  {
+    id: "luxury-canal-residences",
+    image: "/assets/project-featured-images/sliders/luxury-canal.webp",
+    title: "Luxury Canal Residences by Prestige One",
+    location: "Dubai Islands",
+    description: "Waterfront living inspired by the rhythm of Dubai Islands.",
+    category: "residential",
+  },
+  {
+    id: "coastal-haven",
+    image: "/assets/project-featured-images/sliders/coastal-heaven.webp",
+    title: "Coastal Haven by Prestige One",
+    location: "Dubai Islands",
+    description: "Coastal living with breathtaking Gulf views.",
+    category: "residential",
+  },
+  {
+    id: "the-boulevard",
+    image: "/assets/project-featured-images/sliders/boulevard.webp",
+    title: "The Boulevard by Prestige One",
+    location: "DLRC",
+    description: "Bold urban living for modern lifestyles.",
+    category: "residential",
+  },
+  {
+    id: "parkway",
+    image: "/assets/project-featured-images/sliders/parkway.webp",
+    title: "Parkway by Prestige One",
+    location: "Meydan Horizon",
+    description: "Nature-inspired living designed for balance.",
+    category: "residential",
+  },
+  {
+    id: "golf-residences",
+    image: "/assets/project-featured-images/sliders/golf-1.webp",
+    title: "Golf Residences by Prestige One",
+    location: "Dubai Sports City",
+    description: "Uninterrupted golf course views, every day.",
+    category: "residential",
+  },
+  {
+    id: "the-one",
+    image: "/assets/project-featured-images/sliders/the-one-1.webp",
+    title: "The One by Prestige One",
+    location: "Barsha Heights",
+    description: "A commercial hub within a striking G+14 development.",
+    category: "commercial",
+  },
+  {
+    id: "seaside",
+    image: "/assets/project-featured-images/sliders/seaside.webp",
+    title: "Seaside by Prestige One",
+    location: "Dubai Islands",
+    description: "A peaceful waterfront retreat.",
+    category: "residential",
+  },
+  {
+    id: "waterway",
+    image: "/assets/project-featured-images/sliders/waterway.webp",
+    title: "Waterway by Prestige One",
+    location: "Meydan Horizon",
+    description: "Serene living inspired by the water.",
+    category: "residential",
+  },
+  {
+    id: "vista",
+    image: "/assets/project-featured-images/sliders/vista.webp",
+    title: "Vista by Prestige One",
+    location: "Dubai Sports City",
+    description: "Contemporary residences designed around panoramic views.",
+    category: "residential",
+  },
+  {
+    id: "the-residence",
+    image: "/assets/project-featured-images/sliders/residence.webp",
+    title: "The Residence by Prestige One",
+    location: "Jumeirah Village Circle",
+    description: "Boutique living with thoughtful design.",
+    category: "residential",
+  },
+  {
+    id: "luxe-villa",
+    image: "/assets/project-featured-images/sliders/luxe-villa.webp",
+    title: "Luxe Villa by Prestige One",
+    location: "Palm Jumeirah",
+    description: "Private villa living with timeless elegance.",
+    category: "residential",
+  },
+  {
+    id: "seascape-villa",
+    image: "/assets/project-featured-images/sliders/seascape-1.webp",
+    title: "Seascape Villa",
+    location: "Palm Jumeirah",
+    description: "A private escape by the sea.",
+    category: "residential",
+  },
+  {
+    id: "palm-villa",
+    image: "/assets/project-featured-images/palm-villa/Palm-Jumierah-Villa.webp",
+    title: "Palm Villa by Prestige One",
+    location: "Palm Jumeirah",
+    description: "Exclusive living, designed for privacy.",
+    category: "residential",
+  },
+  {
+    id: "vista-hub",
+    image: "/assets/project-featured-images/vista-hub/vista-hub--blur.webp",
+    title: "Vista Hub by Prestige One",
+    location: "Majan City",
+    description: "A new landmark taking shape in Majan City.",
+    category: "upcoming",
+  },
+  {
+    id: "prestige-seaside",
+    image: "/assets/project-featured-images/prestige-seaside/glyfada-blur.webp",
+    title: "Prestige Seaside",
+    location: "Greece",
+    description: "Prestige One's first address on the Greek coast.",
+    category: "upcoming",
+  },
+  {
+    id: "prestige-square",
+    image: "/assets/project-featured-images/prestige-square/prestige-square--blur.webp",
+    title: "Prestige Square",
+    location: "Dubai",
+    description: "A new Prestige One landmark taking shape - coming soon.",
+    category: "upcoming",
+  },
+];
+
+const PROJECT_VIDEO_ROOT = "/assets/images/v2/project-features-videos";
+const PROJECT_HERO_VIDEO_BY_ID: Record<string, string> = {
+  "fauchon-residences": `${PROJECT_VIDEO_ROOT}/v3/Fauchon.mp4`,
+  "sanctuary-residences": `${PROJECT_VIDEO_ROOT}/v3/Sanctuary.mp4`,
+  "sanctuary-hive": `${PROJECT_VIDEO_ROOT}/teaser-hive.mp4`,
+  "hilton-residences": `${PROJECT_VIDEO_ROOT}/v3/Hilton.mp4`,
+  "berkeley-square-north": `${PROJECT_VIDEO_ROOT}/v3/Berkeley.mp4`,
+  "berkeley-square-south": `${PROJECT_VIDEO_ROOT}/v3/Berkeley.mp4`,
+  "luxury-canal-residences": `${PROJECT_VIDEO_ROOT}/v2-Teaser-Luxury-Canal.mp4`,
+  "coastal-haven": `${PROJECT_VIDEO_ROOT}/v3/Coastal.mp4`,
+  "the-boulevard": `${PROJECT_VIDEO_ROOT}/v2-Teaser-Video_The-Boulevard.mp4`,
+  "parkway": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-Parkway.mp4`,
+  "golf-residences": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-Golf.mp4`,
+  "the-one": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-One.mp4`,
+  "seaside": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The_SEASIDE.mp4`,
+  "waterway": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-Waterway.mp4`,
+  "vista": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-VISTA.mp4`,
+  "the-residence": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-RESIDENCE.mp4`,
+  "luxe-villa": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
+  "seascape-villa": `${PROJECT_VIDEO_ROOT}/v2-Teaser-Video_Seascape.mp4`,
+  "palm-villa": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
+  "vista-hub": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-VISTA.mp4`,
+  "prestige-seaside": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The_SEASIDE.mp4`,
+  "prestige-square": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
+};
+
 const V2 = "/assets/images/v2/project-featured-images";
 
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
@@ -111,7 +329,6 @@ const V2 = "/assets/images/v2/project-featured-images";
 const enrichment: Record<string, ProjectEnrichment> = {
   "hilton-residences-dubai-maritime-city": {
     status: "Now Selling",
-    video: "/assets/images/v2/project-features-videos/v3/Hilton.mp4",
     hero: `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
     gallery: [
       `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
@@ -158,8 +375,8 @@ const enrichment: Record<string, ProjectEnrichment> = {
   },
   "fauchon-residences-by-prestige-one": {
     status: "Now Selling",
-    video: "/assets/images/v2/project-features-videos/v3/Fauchon-v3.mp4",
     hero: `${V2}/fauchon/fauchon-banner.webp`,
+    introImage: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
     gallery: [
       `${V2}/fauchon/fauchon-banner.webp`,
       `${V2}/fauchon/fauchon-day-view.webp`,
@@ -183,7 +400,6 @@ const enrichment: Record<string, ProjectEnrichment> = {
   },
   "sanctuary-residences-by-prestige-one": {
     status: "Now Selling",
-    video: "/assets/images/v2/project-features-videos/v3/Sanctuary.mp4",
     hero: `${V2}/sanctuary/sanctuary-residential-exterior-view.webp`,
     gallery: [
       `${V2}/sanctuary/sanctuary-residential-exterior-view.webp`,
@@ -211,8 +427,12 @@ const CATEGORY_DEFAULT_STATUS: Record<ProjectCategory, string> = {
 
 // and the "closer look" grid always lead with the building.
 const GAL = "/assets/project-galleries";
+const FAUCHON_V3_GALLERY = "/assets/images/v3/project-amenities/fauchon/v3/gallery";
+function galleryAt(root: string, files: string[]): string[] {
+  return files.map((file) => `${root}/${file}`);
+}
 function gal(slug: string, files: string[]): string[] {
-  return files.map((f) => `${GAL}/${slug}/${f}`);
+  return galleryAt(`${GAL}/${slug}`, files);
 }
 const galleryData: Record<string, string[]> = {
   "berkeley-square-north": gal("berkeley-square-north", [
@@ -242,15 +462,23 @@ const galleryData: Record<string, string[]> = {
     "03-gym-scaled.webp",
     "04-kids-play-area-scaled.webp",
   ]),
-  "fauchon-residences-by-prestige-one": gal("fauchon-residences-by-prestige-one", [
-    "fauchon-banner.webp",
-    "fauchon-day-view.webp",
-    "fauchon-ext-2.webp",
-    "fauchon-ext-3.webp",
-    "fauchon-dining.webp",
-    "fauchon-bedroom.webp",
-    "fauchon-bathroom.webp",
-    "fauchon-banner-x.webp",
+  "fauchon-residences-by-prestige-one": galleryAt(FAUCHON_V3_GALLERY, [
+    "01-exterior-building.webp",
+    "02-exterior-pool.webp",
+    "04-exterior-rooftop-dining.webp",
+    "05-exterior-skyline-terrace.webp",
+    "06-exterior-private-pool.webp",
+    "07-exterior-gym.webp",
+    "08-amenity-reception.webp",
+    "09-amenity-lift-lobby.webp",
+    "12-amenity-multipurpose-hall.webp",
+    "13-amenity-lounge.webp",
+    "14-amenity-residents-lounge.webp",
+    "15-room-living-one.webp",
+    "16-room-living-two.webp",
+    "18-room-dining.webp",
+    "19-room-bedroom.webp",
+    "20-room-bathroom.webp",
   ]),
   "golf-residences-by-prestige-one": gal("golf-residences-by-prestige-one", [
     "the-place-banner.webp",
@@ -366,7 +594,8 @@ const galleryData: Record<string, string[]> = {
   ]),
 };
 
-function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project {
+function toProject(slide: ProjectSource): Project {
+  const { category } = slide;
   const slug = slugify(slide.title);
   const e = enrichment[slug] ?? {};
   // real gallery (from copied renders) drives both the gallery and the cover
@@ -382,6 +611,7 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     description: slide.description,
     image: slide.image,
     hero,
+    introImage: e.introImage,
     gallery: realGallery ?? e.gallery ?? [hero],
     overview:
       e.overview ?? [
@@ -410,30 +640,11 @@ function toProject(slide: DevelopmentSlide, category: ProjectCategory): Project 
     schools: e.schools ?? [],
     hospitals: e.hospitals ?? [],
     documents: e.documents ?? DEFAULT_DOCUMENTS,
-    video: e.video,
+    video: PROJECT_HERO_VIDEO_BY_ID[slide.id] ?? `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
   };
 }
 
-// Build the catalogue. Residential first (the marquee list), then commercial &
-// upcoming. De-dupe by slug (The One / Sanctuary Hive appear in both the
-// residential list and the commercial list - keep the residential card but the
-// commercial category wins if only commercial defines it).
-const bySlug = new Map<string, Project>();
-
-for (const s of residentialDevelopments) {
-  const p = toProject(s, "residential");
-  if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
-}
-for (const s of commercialDevelopments) {
-  const p = toProject(s, "commercial");
-  bySlug.set(p.slug, { ...bySlug.get(p.slug), ...p, category: "commercial" });
-}
-for (const s of upcomingDevelopments) {
-  const p = toProject(s, "upcoming");
-  if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
-}
-
-export const projects: Project[] = Array.from(bySlug.values());
+export const projects: Project[] = PROJECT_CATALOGUE.map(toProject);
 
 export function getAllProjects(): Project[] {
   return projects;
@@ -441,6 +652,27 @@ export function getAllProjects(): Project[] {
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {
   return projects.filter((p) => p.category === category);
+}
+
+function toDevelopmentSlide(project: Project): DevelopmentSlide {
+  return {
+    id: project.slug,
+    image: project.image,
+    title: project.title,
+    location: project.location,
+    description: project.description,
+    href: `/projects/${project.slug}`,
+  };
+}
+
+export function getProjectSlidesByCategory(category: ProjectCategory): DevelopmentSlide[] {
+  return getProjectsByCategory(category).map(toDevelopmentSlide);
+}
+
+export function getActiveProjectSlides(): DevelopmentSlide[] {
+  return projects
+    .filter((project) => project.category !== "upcoming")
+    .map(toDevelopmentSlide);
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

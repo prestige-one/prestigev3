@@ -40,17 +40,17 @@ const principles = computed<PrestigePrinciple[]>(() => [
   {
     title: t("hp.whyUs.item1Title"),
     description: t("hp.whyUs.item1Desc"),
-    image: "/assets/images/v3/projects-map.webp",
+    image: "/assets/images/v3/prestige-one-where-opportunity-grows.webp",
   },
   {
     title: t("hp.whyUs.item2Title"),
     description: t("hp.whyUs.item2Desc"),
-    image: "/assets/images/v3/Designed-Around-Life.webp",
+    image: "/assets/images/v3/Designed-Around-Life-5.webp",
   },
   {
     title: t("hp.whyUs.item3Title"),
     description: t("hp.whyUs.item3Desc"),
-    image: "/assets/images/v3/connected-to-the-world.webp",
+    image: "/assets/images/v3/Built-on-Trust-5.webp",
   },
   {
     title: t("hp.whyUs.item4Title"),
@@ -63,7 +63,7 @@ const principles = computed<PrestigePrinciple[]>(() => [
 <style scoped>
 .prestige-home5-work {
   position: relative;
-  padding: clamp(92px, 9vw, 145px) 0 clamp(100px, 10vw, 160px);
+  padding: clamp(92px, 9vw, 145px) 0 clamp(100px, 10vw, 100px);
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background:

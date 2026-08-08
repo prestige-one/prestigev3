@@ -80,8 +80,8 @@ withDefaults(
 }
 .prestige-amen__lead {
   max-width: 360px;
-  margin: 28px 0 0;
-  font-size: clamp(16px, 1.25vw, 19px);
+  margin: 20px 0 0;
+  font-size: clamp(13px, 1.25vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.68);
 }

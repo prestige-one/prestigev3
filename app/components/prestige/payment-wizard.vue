@@ -46,15 +46,24 @@ const { t } = useI18n();
   justify-content: center;
   min-height: 150px;
   padding: 26px 30px 26px 44px;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   overflow: hidden;
   transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
 }
+.prestige-pw__step:nth-child(1) .prestige-pw__chevron {
+  background: rgba(255, 255, 255, 0.11);
+}
+.prestige-pw__step:nth-child(2) .prestige-pw__chevron {
+  background: rgba(255, 255, 255, 0.065);
+}
+.prestige-pw__step:nth-child(n + 3) .prestige-pw__chevron {
+  background: rgba(255, 255, 255, 0.025);
+}
 .prestige-pw__step:hover .prestige-pw__chevron {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.55);
   transform: translateY(-4px);
 }
 .prestige-pw__index {

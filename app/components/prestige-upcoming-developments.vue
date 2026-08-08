@@ -24,7 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import upcomingDevelopments from "../data/upcoming-developments-data";
+import { getProjectSlidesByCategory } from "~/data/projects";
+
+const upcomingDevelopments = getProjectSlidesByCategory("upcoming");
 </script>
 
 <style scoped>

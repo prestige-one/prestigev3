@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { getAllArticles, type Article } from "~/data/blog-data";
+import { getEditorialArticles, type EditorialArticle } from "~/data/editorial-data";
 
 const { t, tm, rt, te } = useI18n();
 const localePath = useLocalePath();
@@ -73,7 +73,7 @@ useSeoMeta({
 });
 
 // Localize title/excerpt from mdata with fallback to the English data.
-function localizeArticle(a: Article): Article {
+function localizeArticle(a: EditorialArticle): EditorialArticle {
   const base = `mdata.blog.posts.${a.slug}`;
   return {
     ...a,
@@ -82,7 +82,7 @@ function localizeArticle(a: Article): Article {
   };
 }
 
-const sourceArticles = getAllArticles();
+const sourceArticles = getEditorialArticles("blog");
 const allArticles = computed(() => sourceArticles.map(localizeArticle));
 
 const introParas = computed(() =>

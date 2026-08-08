@@ -6,6 +6,8 @@
         <div id="smooth-content">
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
+              class="prestige-destination-detail-hero"
+              :class="{ 'prestige-destination-detail-hero--centered': dest.slug === 'dubai-maritime-city' }"
               :eyebrow="dest.region"
               :title="dName(dest)"
               :lead="dIntro"
@@ -18,7 +20,7 @@
             </prestige-page-hero>
 
             <!-- 1 · about + sub-areas -->
-            <section class="prestige-section">
+            <section class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-7 col-lg-7 mb-40">
@@ -43,10 +45,10 @@
             </section>
 
             <!-- 2 · key stats -->
-            <prestige-stat-band :stats="dest.stats" />
+            <prestige-stat-band class="prestige-destination-statband" :stats="dest.stats" />
 
             <!-- 3 · nearby attractions -->
-            <section class="prestige-section">
+            <section class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-40">
@@ -65,7 +67,7 @@
             </section>
 
             <!-- 4 · connectivity -->
-            <section class="prestige-section--tight prestige-dest-band">
+            <section class="prestige-section--tight prestige-dest-band prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-30">
@@ -74,7 +76,7 @@
                   </div>
                   <div class="col-xl-8">
                     <ul class="prestige-detail__conn tp_fade_anim" data-delay=".3">
-                      <li v-for="(t, i) in dTransport" :key="i"><span class="prestige-detail__dot" />{{ t }}</li>
+                      <li v-for="(transport, i) in dTransport" :key="i"><span class="prestige-detail__dot" />{{ transport }}</li>
                     </ul>
                   </div>
                 </div>
@@ -89,7 +91,7 @@
             />
 
             <!-- 5 · essentials -->
-            <section class="prestige-section">
+            <section class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.essentials_eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.essentials_title') }}</h2>
@@ -117,7 +119,7 @@
             </section>
 
             <!-- 6 · investment -->
-            <section class="prestige-section prestige-dest-invest">
+            <section class="prestige-section prestige-dest-invest prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.invest_eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.invest_title') }}</h2>
@@ -138,7 +140,7 @@
             </section>
 
             <!-- 7 · developments -->
-            <section v-if="areaProjects.length" class="prestige-section prestige-section--tight">
+            <section v-if="areaProjects.length" class="prestige-section prestige-section--tight prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.devs_eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.devs_title', { name: dest.name }) }}</h2>
@@ -162,7 +164,7 @@
             </section>
 
             <!-- 8 · FAQ -->
-            <prestige-faq-accordion :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
+            <prestige-faq-accordion class="prestige-detail-heading--swapped" :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
 
             <!-- 9 · CTA + contact -->
             <prestige-cta-band
@@ -254,6 +256,34 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+.prestige-destination-detail-hero {
+  align-items: flex-end;
+}
+.prestige-destination-detail-hero--centered {
+  align-items: center;
+}
+:deep(.prestige-destination-detail-hero--centered .prestige-hero-band__inner) {
+  padding-top: clamp(110px, 15vh, 170px);
+  padding-bottom: clamp(60px, 9vh, 110px);
+}
+:deep(.prestige-destination-detail-hero .row) {
+  justify-content: center;
+  text-align: center;
+}
+:deep(.prestige-destination-detail-hero .col-xl-9) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+:deep(.prestige-destination-detail-hero .prestige-hero-band__lead) {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+:deep(.prestige-destination-detail-hero .prestige-hero-band__actions) {
+  justify-content: center;
+}
+
 .prestige-detail__badge {
   display: inline-flex;
   align-items: center;
@@ -266,6 +296,14 @@ usePrestigePage({ hero: false });
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
+}
+.prestige-page :deep(.prestige-destination-statband .prestige-statband__value) {
+  color: #fff;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 0;
 }
 .prestige-detail__mini {
   font-size: 13px;

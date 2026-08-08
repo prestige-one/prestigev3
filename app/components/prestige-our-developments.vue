@@ -34,13 +34,13 @@
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments, { type DevelopmentSlide } from "../data/residential-developments-data";
+import { getActiveProjectSlides, type DevelopmentSlide } from "~/data/projects";
 
 // optional override - pages can pass a curated subset (e.g. home-4 shows only
 // the main projects); defaults to the full residential list.
 const props = defineProps<{ slides?: DevelopmentSlide[] }>();
 const displaySlides = computed(() =>
-  props.slides && props.slides.length ? props.slides : residentialDevelopments,
+  props.slides && props.slides.length ? props.slides : getActiveProjectSlides(),
 );
 </script>
 

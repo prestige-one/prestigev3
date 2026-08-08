@@ -119,6 +119,31 @@ onBeforeUnmount(() => {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.45);
 }
+.prestige-modal__close span {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  font-size: 0;
+}
+.prestige-modal__close span::before,
+.prestige-modal__close span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+}
+.prestige-modal__close span::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.prestige-modal__close span::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 .prestige-modal__title {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
   font-size: clamp(28px, 4vw, 38px);

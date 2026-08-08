@@ -54,51 +54,45 @@
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments, { type DevelopmentSlide } from "~/data/residential-developments-data";
-import commercialDevelopments from "~/data/commercial-developments-data";
-import { slugify } from "~/data/projects";
+import { getAllProjects } from "~/data/projects";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
 
-// Developments grouped into visual chapters by year (content plan section 08).
-// Namespaced catalogue keys keep residential and commercial IDs collision-free.
-const YEARS: { year: string; projectKeys: string[] }[] = [
+// Timeline presentation order. Project content comes from the shared catalogue.
+const YEARS: { year: string; projectSlugs: string[] }[] = [
   {
     year: "2023",
-    projectKeys: ["residential:1", "residential:2"],
+    projectSlugs: ["vista-by-prestige-one", "the-residence-by-prestige-one"],
   },
   {
     year: "2024",
-    projectKeys: ["residential:3", "residential:4", "residential:18", "residential:6", "residential:7"],
+    projectSlugs: ["waterway-by-prestige-one", "seaside-by-prestige-one", "golf-residences-by-prestige-one", "parkway-by-prestige-one", "the-one-by-prestige-one"],
   },
   {
     year: "2025",
-    projectKeys: ["residential:8", "residential:9", "residential:10", "residential:14", "residential:13", "residential:15"],
+    projectSlugs: ["the-boulevard-by-prestige-one", "coastal-haven-by-prestige-one", "luxury-canal-residences-by-prestige-one", "berkeley-square-south", "berkeley-square-north", "hilton-residences-dubai-maritime-city"],
   },
   {
     year: "2026",
-    projectKeys: ["residential:16", "commercial:2", "residential:17"],
+    projectSlugs: ["sanctuary-residences-by-prestige-one", "sanctuary-hive-by-prestige-one", "fauchon-residences-by-prestige-one"],
   },
 ];
 
-const byProjectKey = new Map<string, DevelopmentSlide>([
-  ...residentialDevelopments.map((project) => [`residential:${project.id}`, project] as const),
-  ...commercialDevelopments.map((project) => [`commercial:${project.id}`, project] as const),
-]);
+const byProjectSlug = new Map(getAllProjects().map((project) => [project.slug, project]));
 
 const developmentsByYear = YEARS.map((block) => ({
   year: block.year,
   comingSoon: block.year === "2026",
-  projects: block.projectKeys
-    .map((projectKey) => {
-      const slide = byProjectKey.get(projectKey);
-      if (!slide) return null;
+  projects: block.projectSlugs
+    .map((projectSlug) => {
+      const project = byProjectSlug.get(projectSlug);
+      if (!project) return null;
       return {
-        name: slide.title,
-        location: slide.location,
-        image: slide.image,
-        slug: slugify(slide.title),
+        name: project.title,
+        location: project.location,
+        image: project.image,
+        slug: project.slug,
       };
     })
     .filter((p): p is NonNullable<typeof p> => Boolean(p)),

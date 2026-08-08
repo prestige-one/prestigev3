@@ -97,9 +97,11 @@ const featuredDestinations = destinations.slice(0, 6);
 
 const aboutLinks = [
   { key: "menu.ourStory", to: "/about-us#our-story" },
-  { key: "menu.visionMission", to: "/about-us#vision" },
+  { key: "menu.aboutCeo", to: "/about-us#about-ceo" },
   { key: "menu.ourLeadership", to: "/about-us#leadership" },
-  { key: "menu.ourMilestones", to: "/about-us#milestones" },
+  { key: "menu.whatDrivesUs", to: "/about-us#what-drives-us" },
+  { key: "menu.ourJourney", to: "/about-us#our-journey" },
+  { key: "menu.globalPerspective", to: "/about-us#global-perspective" },
 ];
 
 function open(key: "about" | "projects" | "destinations") {
@@ -116,7 +118,7 @@ function scheduleClose() {
   cancelClose();
   closeTimer = setTimeout(() => {
     active.value = null;
-  }, 300);
+  }, 500);
 }
 function close() {
   cancelClose();
@@ -192,6 +194,17 @@ onBeforeUnmount(cancelClose);
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+/* Keep the dropdown available for the complete pointer path from its trigger
+   into the panel. This CSS state is a safety net for the JS hover intent and
+   also keeps keyboard focus within the same interaction region. */
+@media (hover: hover) {
+  .lnv__has:hover > .lnv__dd,
+  .lnv__has:focus-within > .lnv__dd {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 /* transparent hover bridge up to the nav item (kept inside the panel's own
    stacking scope so it never overlays sibling menu items) */

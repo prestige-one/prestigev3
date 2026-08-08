@@ -310,7 +310,26 @@ function finishLoader() {
   }, 900);
 }
 
+function preloadProjectImages() {
+  const sources = [...new Set(DUBAI_MAP_PROJECTS.map((project) => project.image))];
+  return Promise.allSettled(
+    sources.map((source) => new Promise<void>((resolve) => {
+      const image = new Image();
+      const timeout = window.setTimeout(resolve, 8000);
+      const finish = () => {
+        window.clearTimeout(timeout);
+        resolve();
+      };
+      image.onload = finish;
+      image.onerror = finish;
+      image.src = source;
+      if (image.complete) finish();
+    })),
+  );
+}
+
 onMounted(async () => {
+  const projectImagesReady = preloadProjectImages();
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   await nextTick();
   if (!mapRef.value || cancelled) return;
@@ -380,7 +399,7 @@ onMounted(async () => {
     zoom.value = map.getZoom();
   });
 
-  map.on("load", () => {
+  map.on("load", async () => {
     if (!map) return;
     map.addSource("project-rings", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
     map.addLayer({
@@ -426,12 +445,14 @@ onMounted(async () => {
     fitProjects(DUBAI_MAP_PROJECTS, true);
     window.clearInterval(loaderTimer);
     baseZoom.value = map?.getZoom() || 9.3;
+    await projectImagesReady;
+    if (cancelled) return;
     finishLoader();
   });
 
   window.setTimeout(() => {
     if (!loaderDone.value) finishLoader();
-  }, 7000);
+  }, 9000);
 });
 
 onBeforeUnmount(() => {

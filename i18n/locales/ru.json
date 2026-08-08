@@ -55,9 +55,11 @@
     "featuredProjects": "Избранные проекты",
     "ourDestinations": "Наши направления",
     "ourStory": "Наша история",
-    "visionMission": "Видение и миссия",
+    "aboutCeo": "О генеральном директоре",
     "ourLeadership": "Наше руководство",
-    "ourMilestones": "Наши достижения"
+    "whatDrivesUs": "Что нами движет",
+    "ourJourney": "Наш путь",
+    "globalPerspective": "Глобальный взгляд"
   },
   "contact": {
     "fullName": "Полное имя",

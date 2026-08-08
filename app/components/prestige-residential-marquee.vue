@@ -57,9 +57,11 @@
 </template>
 
 <script setup lang="ts">
-import residentialDevelopments from "../data/residential-developments-data";
+import { getProjectSlidesByCategory } from "~/data/projects";
 
 withDefaults(defineProps<{ hideTitle?: boolean }>(), { hideTitle: false });
+
+const residentialDevelopments = getProjectSlidesByCategory("residential");
 
 // split the project list in half - one half per row - so the same
 // project never appears in both rows at once (it used to be the full

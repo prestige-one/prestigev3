@@ -47,7 +47,6 @@ withDefaults(defineProps<{
   font-family: "Google Sans", sans-serif;
   font-size: clamp(35px, 6vw, 40px);
   font-weight: 500;
-  line-height: 1.05;
   letter-spacing: -0.045em;
 }
 

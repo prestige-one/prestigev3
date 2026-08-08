@@ -1,14 +1,15 @@
 {
   "dp": {
     "hero": {
-      "eyebrow": "Our Destinations",
-      "title": "Prime locations",
-      "lead": "Prestige One builds where life is best lived - the waterfronts, communities and landmarks that define Dubai and beyond."
+      "eyebrow": "Destinations",
+      "title": "The Right Place Changes Everything",
+      "lead": "Discover the places we choose, and what we create within them",
+      "cta": "Explore Destinations"
     },
     "feature": {
-      "eyebrow": "Why location matters",
-      "title": "We build where Dubai lives best",
-      "p1": "A home is only ever as good as the life around it. That belief guides every acquisition we make - before we design a single floor plate, we ask whether a location can carry a community for decades, not just a launch weekend.",
+      "eyebrow": "Location Matters",
+      "title": "It's More Than an Address",
+      "p1": "The right location shapes more than where you live. It shapes how you live, what surrounds you, and the value your home can hold over time. That’s why we choose well-connected destinations with vibrant communities and room to grow.",
       "p2": "From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.",
       "point1": "Waterfront, community and landmark destinations across Dubai",
       "point2": "Minutes from the metro, Sheikh Zayed Road and the airport",
@@ -47,10 +48,10 @@
       "count_other": "{n} developments"
     },
     "cta": {
-      "eyebrow": "Find your address",
-      "title": "Not sure where to begin?",
-      "text": "Tell us how you want to live and our team will point you to the destinations - and the developments - that fit. From first investment to forever home.",
-      "primary": "Speak to our team",
+      "eyebrow": "Discover What’s Next",
+      "title": "From the Right Location to the Right Home.",
+      "text": "Explore Prestige One developments across Dubai.",
+      "primary": "Explore Our Developments →",
       "secondary": "View all developments"
     },
     "seo": {

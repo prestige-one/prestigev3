@@ -34,6 +34,7 @@
     },
     "detail": {
       "enquireNow": "Enquire now",
+      "registerInterest": "Register for interest",
       "overview": {
         "eyebrow": "Overview",
         "title": "Life at {name}"
@@ -45,7 +46,7 @@
       },
       "gallery": {
         "eyebrow": "Gallery",
-        "title": "A closer look"
+        "title": "Explore every detail of exceptional living"
       },
       "location": {
         "eyebrow": "Location",
@@ -65,7 +66,7 @@
         "title": "Project documents",
         "request": "Request"
       },
-      "faqTitle": "Good to know",
+      "faqTitle": "Quick Answers for Common Questions",
       "related": {
         "eyebrow": "Explore more",
         "title": "Related developments"

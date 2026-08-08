@@ -32,10 +32,10 @@
           <textarea v-model="form.message" name="message" />
         </div>
         <div class="tp-contact-form-btn">
-          <button class="prestige-send" type="submit" :disabled="status === 'submitting'">
-            <span class="prestige-send__label">{{ status === 'submitting' ? $t('cta.sending') : $t('cta.sendMessage') }}</span>
-            <span class="prestige-send__arrow" aria-hidden="true">→</span>
-          </button>
+          <prestige-submit-button
+            :label="status === 'submitting' ? $t('cta.sending') : $t('cta.sendMessage')"
+            :disabled="status === 'submitting'"
+          />
           <p v-if="responseMsg" class="ajax-response mt-5" :class="`is-${status}`">{{ responseMsg }}</p>
         </div>
       </div>
@@ -121,42 +121,6 @@ async function onSubmit() {
   border-color: rgba(255, 255, 255, 0.42);
 }
 
-/* white pill send button with dark arrow circle (matches the mock) */
-.prestige-send {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  margin-inline: auto;
-  padding: 20px 10px;
-  border: none;
-  border-radius: 60px;
-  background: #fff;
-  color: #0b0b0d;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-.prestige-send:hover { background: #efefef; transform: translateY(-2px); }
-.prestige-send:disabled { opacity: 0.6; cursor: default; transform: none; }
-.prestige-send__arrow {
-  position: absolute;
-  right: 8px;
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #0b0b0d;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
 .ajax-response {
   font-size: 14px;
 }
@@ -200,10 +164,6 @@ async function onSubmit() {
 
   .prestige-phone-number {
     flex-basis: 100%;
-  }
-
-  .prestige-send {
-    width: 100%;
   }
 }
 </style>
