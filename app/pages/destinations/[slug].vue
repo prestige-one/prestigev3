@@ -7,11 +7,12 @@
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
               class="prestige-destination-detail-hero"
-              :class="{ 'prestige-destination-detail-hero--centered': dest.slug === 'dubai-maritime-city' }"
-              :eyebrow="dest.region"
-              :title="dName(dest)"
-              :lead="dIntro"
+              :class="{ 'prestige-destination-detail-hero--centered': isDubaiMaritimeCity }"
+              :eyebrow="isDubaiMaritimeCity ? 'DUBAI MARITIME CITY' : dest.region"
+              :title="isDubaiMaritimeCity ? 'Waterfront Living, Close to the Heart of Dubai' : dName(dest)"
+              :lead="isDubaiMaritimeCity ? undefined : dIntro"
               :image="dest.image"
+              :show-actions="!isDubaiMaritimeCity"
             >
               <template #actions>
                 <span class="prestige-detail__badge">{{ areaProjects.length ? developmentsBadge : t('dp.detail.badge_new') }}</span>
@@ -199,6 +200,7 @@ const { dName } = useLocalizedNames();
 
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
+const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
 
 if (!dest.value) {
   throw createError({ statusCode: 404, statusMessage: "Destination not found", fatal: true });

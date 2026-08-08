@@ -5,7 +5,7 @@
 
       <!-- ABOUT US -->
       <li class="lnv__has" :class="{ active: active === 'about' }" @mouseenter="open('about')">
-        <nuxt-link :to="localePath('/about-us')" @click="close">{{ $t('nav.about') }}</nuxt-link>
+        <nuxt-link :to="localePath('/about-us')" @click.prevent="goToAboutTop">{{ $t('nav.about') }}</nuxt-link>
         <div
           class="lnv__dd"
           :class="{ open: active === 'about' }"
@@ -74,6 +74,7 @@ import { destinations } from "~/data/destinations-data";
 import { getAllProjects } from "~/data/projects";
 
 const localePath = useLocalePath();
+const router = useRouter();
 const { pName, dName } = useLocalizedNames();
 
 const active = ref<"about" | "projects" | "destinations" | null>(null);
@@ -93,7 +94,10 @@ const projectBySlug = new Map(menuProjects.map((p) => [p.slug, p]));
 const featuredProjects = FEATURED_SLUGS.map((s) => projectBySlug.get(s)).filter(
   (p): p is NonNullable<typeof p> => Boolean(p),
 );
-const featuredDestinations = destinations.slice(0, 6);
+const menuDestinations = destinations.filter(
+  (destination) => destination.slug !== "mohammed-bin-rashid-city",
+);
+const featuredDestinations = menuDestinations.slice(0, 6);
 
 const aboutLinks = [
   { key: "menu.ourStory", to: "/about-us#our-story" },
@@ -123,6 +127,20 @@ function scheduleClose() {
 function close() {
   cancelClose();
   active.value = null;
+}
+
+async function goToAboutTop() {
+  close();
+  const target = localePath("/about-us");
+  if (router.currentRoute.value.fullPath !== target) await router.push(target);
+  await nextTick();
+
+  const { ScrollSmoother } = await import("gsap/all");
+  requestAnimationFrame(() => {
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(0, false);
+    else window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
 }
 onBeforeUnmount(cancelClose);
 </script>

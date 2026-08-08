@@ -28,7 +28,7 @@
           <span v-if="eyebrow" class="prestige-hero-band__eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
           <h1 class="prestige-hero-band__title tp_fade_anim" data-delay=".3">{{ title }}</h1>
           <p v-if="lead" class="prestige-hero-band__lead tp_fade_anim" data-delay=".45">{{ lead }}</p>
-          <div v-if="$slots.actions" class="prestige-hero-band__actions tp_fade_anim" data-delay=".55">
+          <div v-if="showActions && $slots.actions" class="prestige-hero-band__actions tp_fade_anim" data-delay=".55">
             <slot name="actions" />
           </div>
         </div>
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   title: string;
   eyebrow?: string;
   lead?: string;
@@ -46,7 +46,10 @@ defineProps<{
   video?: string;
   short?: boolean;
   mediaPosition?: string;
-}>();
+  showActions?: boolean;
+}>(), {
+  showActions: true,
+});
 
 const root = ref<HTMLElement | null>(null);
 const inner = ref<HTMLElement | null>(null);

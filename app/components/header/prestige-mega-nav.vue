@@ -175,11 +175,13 @@ const newProjects = NEW_PROJECT_SLUGS.map((s) => projectBySlug.get(s)).filter(
 );
 const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
 // destinations menu: show a trimmed set of 9 (rest via "view all")
-const menuDestinations = destinations.slice(0, 9);
+const menuDestinations = destinations
+  .filter((destination) => destination.slug !== "mohammed-bin-rashid-city")
+  .slice(0, 9);
 
 const aboutLinks = [
   { label: "Our Story", to: "/about-us#our-story" },
-  { label: "About CEO", to: "/about-us#about-ceo" },
+  { label: "Our Founder & CEO", to: "/about-us#about-ceo" },
   { label: "Our Leadership", to: "/about-us#leadership" },
   { label: "What Drives Us", to: "/about-us#what-drives-us" },
   { label: "Our Journey", to: "/about-us#our-journey" },

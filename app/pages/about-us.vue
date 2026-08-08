@@ -62,6 +62,28 @@
 definePageMeta({
   layout: false,
 });
+const route = useRoute();
+
+async function scrollToAboutSection(hash = route.hash) {
+  if (!import.meta.client || !hash) return;
+  await nextTick();
+
+  const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+  if (!target) return;
+
+  const { ScrollSmoother } = await import("gsap/all");
+  requestAnimationFrame(() => {
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(target, false, "top top");
+    else target.scrollIntoView({ block: "start", behavior: "auto" });
+  });
+}
+
+watch(
+  () => route.hash,
+  (hash) => void scrollToAboutSection(hash),
+);
+
 useSeoMeta({
   title: "About Us - Prestige One Developments",
   ogTitle: "About Us - Prestige One Developments",
@@ -79,6 +101,7 @@ onMounted(async () => {
   // use scroll smooth
   await useScrollSmooth();
   await nextTick();
+  await scrollToAboutSection();
   prestigeDevelopmentsReveal();
 
   const imagesLoaded = (await import('imagesloaded')).default;
@@ -112,6 +135,7 @@ onMounted(async () => {
       revealAnimation();
       zoomAnimation();
       ScrollTrigger.refresh();
+      void scrollToAboutSection();
     });
   }
 });

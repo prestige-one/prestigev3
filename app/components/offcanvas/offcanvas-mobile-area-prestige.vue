@@ -22,7 +22,7 @@
               class="pnav__item"
               :style="{ '--i': i }"
             >
-              <nuxt-link :to="item.to" @click="$emit('close')">
+              <nuxt-link :to="item.to" @click="item.to === '/about-us' ? goToAboutTop($event) : $emit('close')">
                 <span class="pnav__num">{{ String(i + 1).padStart(2, '0') }}</span>
                 <span class="pnav__label">{{ $t(item.key) }}</span>
               </nuxt-link>
@@ -64,7 +64,8 @@
 
 <script setup lang="ts">
 const props = defineProps<{ isOpen: boolean }>();
-defineEmits<{ close: [] }>();
+const emit = defineEmits<{ close: [] }>();
+const router = useRouter();
 
 const sidebarNav = [
   { key: "nav.home", to: "/" },
@@ -75,6 +76,20 @@ const sidebarNav = [
   { key: "sh.pressRelease", to: "/press-release" },
   { key: "sh.faqs", to: "/contact-us#faqs" },
 ] as const;
+
+async function goToAboutTop(event: MouseEvent) {
+  event.preventDefault();
+  emit("close");
+  if (router.currentRoute.value.fullPath !== "/about-us") await router.push("/about-us");
+  await nextTick();
+
+  const { ScrollSmoother } = await import("gsap/all");
+  requestAnimationFrame(() => {
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(0, false);
+    else window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
+}
 
 watch(
   () => props.isOpen,
