@@ -52,17 +52,17 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p2Title"),
     description: t("ap.drives.p2Desc"),
-    image: "/assets/images/v3/The-Luxe-Villas-Majlis.jpg",
+    image: "/assets/images/v3/the-vista-construction-updates-march-2026-PONE7898-1.webp",
   },
   {
     title: t("ap.drives.p3Title"),
     description: t("ap.drives.p3Desc"),
-    image: "/assets/images/v2/project-featured-images/hilton/hilton-v5.webp",
+    image: "/assets/images/v3/built-to-last-mc.webp",
   },
   {
     title: t("ap.drives.p4Title"),
     description: t("ap.drives.p4Desc"),
-    image: "/assets/images/v3/Designed-Around-Life-3.webp",
+    image: "/assets/images/v3/residence-ahead.webp",
   },
 ]);
 </script>
