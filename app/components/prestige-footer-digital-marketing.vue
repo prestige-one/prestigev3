@@ -1,5 +1,5 @@
 <template>
-  <footer class="prestige-dgm-footer">
+  <footer class="prestige-dgm-footer" @click.capture="handleFooterNavigation">
 
     <div class="dgm-footer-bg p-relative">
 
@@ -131,10 +131,35 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const router = useRouter();
 
 const newsletterEmail = ref("");
 const newsletterStatus = ref<"idle" | "submitting" | "success" | "error">("idle");
 const newsletterMsg = ref("");
+
+async function handleFooterNavigation(event: MouseEvent) {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  const target = event.target as HTMLElement | null;
+  const link = target?.closest<HTMLAnchorElement>("a[href]");
+  if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+
+  const href = link.getAttribute("href");
+  if (!href || !href.startsWith("/") || href.startsWith("//") || href.includes("#")) return;
+
+  event.preventDefault();
+  await router.push(href);
+  await nextTick();
+
+  const { ScrollSmoother } = await import("gsap/all");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const smoother = ScrollSmoother.get();
+      if (smoother) smoother.scrollTo(0, false);
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+  });
+}
 
 async function subscribe() {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail.value.trim())) {

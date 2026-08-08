@@ -51,7 +51,7 @@ export const destinationListing: DestinationListingItem[] = [
   },
   {
     slug: "majan-city",
-    title: "Majan",
+    title: "Majan City",
     tagline: "A Growing Destination with Opportunity Ahead.",
   },
   {

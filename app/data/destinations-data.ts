@@ -492,7 +492,7 @@ export const destinations: Destination[] = [
     image: `${OD}/Majan-city.webp`,
     intro: "An emerging Dubailand community on the rise.",
     about: [
-      "Majan is a fast-emerging community within Dubailand, set off Sheikh Mohammed Bin Zayed Road (E311) - a calm, green and well-priced corner of the city bordering the lush Al Barari neighbourhood.",
+      "Majan City is a fast-emerging community within Dubailand, set off Sheikh Mohammed Bin Zayed Road (E311) - a calm, green and well-priced corner of the city bordering the lush Al Barari neighbourhood.",
       "It offers quick access to Dubai Silicon Oasis and Arabian Ranches, and sits minutes from Dubailand's headline attractions including Global Village, IMG Worlds of Adventure and the Miracle and Butterfly Gardens.",
       "It is where Prestige One's upcoming Vista Hub is taking shape.",
     ],
@@ -522,7 +522,7 @@ export const destinations: Destination[] = [
       "Dr. Kamkar Medical & Physiotherapy Centre",
       "Mediclinic Parkview Hospital",
     ],
-    worship: ["Community mosques within Majan and Al Barari"],
+    worship: ["Community mosques within Majan City and Al Barari"],
     investment: [
       "Emerging Dubailand address with strong growth potential",
       "Attractive entry prices and freehold ownership",
@@ -532,7 +532,7 @@ export const destinations: Destination[] = [
       "Direct E311 highway access across the city",
     ],
     highlights: ["Emerging Dubailand address", "Green & low-density", "Strong growth potential"],
-    match: ["Majan"],
+    match: ["Majan City"],
   },
 ];
 

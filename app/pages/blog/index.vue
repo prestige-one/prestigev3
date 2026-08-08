@@ -24,7 +24,7 @@
             <prestige-stat-band :stats="blogStats" />
 
             <!-- article grid -->
-            <section class="prestige-section prestige-section--tight">
+            <section class="prestige-section prestige-section--tight prestige-editorial-grid">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.blog.allArticles') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('mdata.blog.latestReading') }}</h2>

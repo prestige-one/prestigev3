@@ -25,7 +25,7 @@
               </div>
             </section>
 
-            <section class="prestige-section prestige-section--tight prestige-industry-news-grid">
+            <section class="prestige-section prestige-section--tight prestige-editorial-grid">
               <div class="container container-1430">
                 <div v-if="items.length" class="row">
                   <div
@@ -78,20 +78,3 @@ const items = getEditorialArticles("industry");
 usePrestigePage({ hero: false });
 </script>
 
-<style scoped>
-:deep(.prestige-industry-news-grid .prestige-acard) {
-  border: 1px solid #252424;
-}
-
-:deep(.prestige-industry-news-grid .prestige-acard__media) {
-  border-radius: 6px 6px 0 0;
-}
-
-:deep(.prestige-industry-news-grid .prestige-acard__body) {
-  padding: 20px 25px 15px;
-}
-
-:deep(.prestige-industry-news-grid .prestige-acard__title) {
-  font-size: 22px;
-}
-</style>

@@ -25,7 +25,7 @@
               </div>
             </section>
 
-            <section class="prestige-section prestige-section--tight prestige-press-grid">
+            <section class="prestige-section prestige-section--tight prestige-press-grid prestige-editorial-grid">
               <div class="container container-1430">
                 <div v-if="items.length" class="row">
                   <div

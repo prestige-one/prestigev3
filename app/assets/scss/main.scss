@@ -218,3 +218,81 @@ body {
 	/* keep any full-bleed fixed backgrounds from janking on mobile */
 	.prestige-hero-band__media { transform: none; }
 }
+/* Shared listing-card treatment from the Industry News page. */
+.prestige-editorial-grid .prestige-acard {
+  border: 1px solid #252424;
+}
+
+.prestige-editorial-grid .prestige-acard .prestige-acard__media {
+  border-radius: 6px 6px 0 0;
+}
+
+.prestige-editorial-grid .prestige-acard .prestige-acard__body {
+  padding: 24px;
+}
+
+.prestige-editorial-grid .prestige-acard .prestige-acard__title {
+  font-size: 22px;
+}
+
+/* Project document listing and detail hubs, ported from PrestigeV2. */
+.po-project-docs-page-hero .row { justify-content: center; text-align: center; }
+.po-project-docs-page-hero .col-xl-9 { display: flex; flex-direction: column; align-items: center; }
+.po-project-docs-page-hero .prestige-hero-band__lead { margin-right: auto; margin-left: auto; text-align: center; }
+
+.po-project-docs-section {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 9vw, 6.5rem);
+  background: #000;
+}
+.po-project-docs-list { max-width: 900px; margin: 0 auto; padding: 0; list-style: none; }
+.po-project-docs-item { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.po-project-docs-item:first-child { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.po-project-docs-link {
+  display: flex; align-items: center; gap: 1rem; margin: 0 -0.5rem; padding: 1rem 0.75rem;
+  border-radius: 8px; color: #fff; text-decoration: none;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+.po-project-docs-link:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+.po-project-docs-thumb-wrap {
+  flex-shrink: 0; width: 200px; height: 130px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; background: #000;
+}
+.po-project-docs-thumb { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+.po-project-docs-link:hover .po-project-docs-thumb { transform: scale(1.04); }
+.po-project-docs-title { flex: 1; min-width: 0; font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; }
+.po-project-docs-cta {
+  display: inline-flex; flex-shrink: 0; align-items: center; gap: 0.45rem; padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.88); color: rgba(255, 255, 255, 0.88);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: letter-spacing 0.3s ease, border-color 0.25s ease;
+}
+.po-project-docs-link:hover .po-project-docs-cta { border-color: transparent; letter-spacing: 0.16em; }
+.po-project-docs-cta svg { display: block; transition: transform 0.28s ease; }
+.po-project-docs-link:hover .po-project-docs-cta svg { transform: translate(2px, -2px); }
+
+.po-project-docs-hub-body { padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(4rem, 9vw, 6rem); background: #000; }
+.po-project-docs-hub-prose { max-width: 720px; margin: 0 auto; color: #fff; font-size: 16px; line-height: 1.7; }
+.po-project-docs-hub-prose p {
+  color: #fff;
+  font-size: 16px;
+}
+.po-project-docs-hub-prose h2 { margin: 2rem 0 0.75rem; color: #fff; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; letter-spacing: 0.06em; }
+.po-project-docs-hub-prose h2:first-child { margin-top: 0; }
+.po-project-docs-hub-prose p { margin: 0 0 1rem; }
+.po-project-docs-hub-prose a { color: #d4b06a; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.po-project-docs-hub-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin-top: clamp(1.5rem, 4vw, 2rem); }
+.po-project-docs-hub-pdf-btn {
+  display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem;
+  border: 1px solid #fff; border-radius: 8px; background: #fff; color: #0e0e0e !important;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none !important;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+.po-project-docs-hub-pdf-btn:hover { border-color: rgba(255, 255, 255, 0.85); background: transparent; color: #fff !important; transform: translateY(-1px); }
+.po-project-docs-hub-back-link { color: rgba(255, 255, 255, 0.88) !important; font-size: 0.9rem; white-space: nowrap; }
+
+@media (max-width: 575px) {
+  .po-project-docs-thumb-wrap { width: 88px; height: 56px; }
+  .po-project-docs-link { gap: 0.75rem; padding: 0.85rem 0.5rem; }
+  .po-project-docs-cta { font-size: 0.72rem; }
+  .po-project-docs-cta span { display: none; }
+}
