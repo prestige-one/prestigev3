@@ -1,6 +1,7 @@
 <template>
   <main class="prestige-page">
     <prestige-page-hero
+      class="prestige-editorial-detail-hero"
       :eyebrow="categoryLabel"
       :title="article.title"
       :lead="article.excerpt"
@@ -107,6 +108,21 @@ const moreStories = computed(() =>
 </script>
 
 <style scoped>
+.prestige-editorial-detail-hero :deep(.prestige-hero-band__inner .row) {
+  justify-content: center;
+}
+.prestige-editorial-detail-hero :deep(.prestige-hero-band__inner .col-xl-9) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.prestige-editorial-detail-hero :deep(.prestige-hero-band__lead) {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 .prestige-editorial__meta {
   display: flex;
   align-items: center;

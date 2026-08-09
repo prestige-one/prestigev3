@@ -6,6 +6,7 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
+              class="prestige-projects-hero"
               :eyebrow="t('pp.hero.eyebrow')"
               :title="t('pp.hero.title')"
               :lead="t('pp.hero.lead')"
@@ -148,6 +149,20 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+.prestige-projects-hero :deep(.prestige-hero-band__inner .row) {
+  justify-content: center;
+}
+.prestige-projects-hero :deep(.prestige-hero-band__inner .col-xl-9) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.prestige-projects-hero :deep(.prestige-hero-band__lead) {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
 /* one-line toolbar: search | project types | destinations dropdown */
 .prestige-toolbar {
   display: flex;

@@ -13,7 +13,7 @@
               image="/assets/images/v3/our-destinations/Landing-Cover.webp"
             >
               <template #actions>
-                <a class="prestige-destinations-hero__link" href="#prestige-destinations-grid">
+                <a class="prestige-destinations-hero__link" href="#prestige-destinations-grid" @click.prevent="scrollToDestinations">
                   <span>{{ t('dp.hero.cta') }}</span>
                   <span aria-hidden="true">&#8595;</span>
                 </a>
@@ -87,6 +87,29 @@ const destinationCards = destinationListing.flatMap((item) => {
   const destination = getDestinationBySlug(item.slug);
   return destination ? [{ ...item, image: destination.image }] : [];
 });
+
+async function scrollToDestinations() {
+  const target = document.getElementById("prestige-destinations-grid");
+  if (!target) return;
+
+  const { ScrollSmoother, ScrollTrigger } = await import("gsap/all");
+  ScrollTrigger.refresh();
+  const smoother = ScrollSmoother.get();
+
+  if (smoother) {
+    smoother.scrollTo(target, true, "top top");
+  } else {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // Keep scrubbed text-paint reveals synchronized throughout programmatic
+  // anchor scrolling, including browsers that emit fewer native scroll events.
+  const updateUntil = window.setInterval(() => ScrollTrigger.update(), 50);
+  window.setTimeout(() => {
+    window.clearInterval(updateUntil);
+    ScrollTrigger.refresh();
+  }, 1400);
+}
 
 useSeoMeta({
   title: () => t("dp.seo.title"),

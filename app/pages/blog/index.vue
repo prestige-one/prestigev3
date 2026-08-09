@@ -6,22 +6,12 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
+              class="prestige-listing-hero"
               :eyebrow="t('mdata.blog.heroEyebrow')"
               :title="t('mdata.blog.heroTitle')"
               :lead="t('mdata.blog.heroLead')"
               image="/assets/images/v2/our-destinations/palm-jumeira.webp"
             />
-
-            <!-- intro -->
-            <prestige-feature-split
-              :eyebrow="t('mdata.blog.introEyebrow')"
-              :title="t('mdata.blog.introTitle')"
-              image="/assets/images/v3/Designed-for-Real-Living.webp"
-              :paragraphs="introParas"
-              :points="introPoints"
-            />
-
-            <prestige-stat-band :stats="blogStats" />
 
             <!-- article grid -->
             <section class="prestige-section prestige-section--tight prestige-editorial-grid">
@@ -62,7 +52,7 @@
 <script setup lang="ts">
 import { getEditorialArticles, type EditorialArticle } from "~/data/editorial-data";
 
-const { t, tm, rt, te } = useI18n();
+const { t, te } = useI18n();
 const localePath = useLocalePath();
 
 definePageMeta({ layout: false });
@@ -84,20 +74,6 @@ function localizeArticle(a: EditorialArticle): EditorialArticle {
 
 const sourceArticles = getEditorialArticles("blog");
 const allArticles = computed(() => sourceArticles.map(localizeArticle));
-
-const introParas = computed(() =>
-  (tm("mdata.blog.introParas") as unknown[]).map((m) => rt(m as string)),
-);
-const introPoints = computed(() =>
-  (tm("mdata.blog.introPoints") as unknown[]).map((m) => rt(m as string)),
-);
-
-const blogStats = computed<{ value: string; label: string }[]>(() => [
-  { value: `${sourceArticles.length}`, label: t("mdata.blog.statArticlesLabel") },
-  { value: t("mdata.blog.statTopicsValue"), label: t("mdata.blog.statTopicsLabel") },
-  { value: t("mdata.blog.statTaxValue"), label: t("mdata.blog.statTaxLabel") },
-  { value: t("mdata.blog.statInHouseValue"), label: t("mdata.blog.statInHouseLabel") },
-]);
 
 usePrestigePage({ hero: false });
 </script>

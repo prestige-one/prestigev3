@@ -6,6 +6,7 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
+              class="prestige-listing-hero"
               :eyebrow="t('mdata.press.heroEyebrow')"
               :title="t('mdata.press.heroTitle')"
               :lead="t('mdata.press.heroLead')"

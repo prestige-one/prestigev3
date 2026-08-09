@@ -21,29 +21,16 @@
             </prestige-page-hero>
 
             <!-- 1 · about + sub-areas -->
-            <section class="prestige-section prestige-detail-heading--swapped">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-7 col-lg-7 mb-40">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.area_eyebrow') }}</span>
-                    <div class="prestige-prose tp_fade_anim" data-delay=".3">
-                      <p v-for="(para, i) in dAbout" :key="i">{{ para }}</p>
-                    </div>
-                  </div>
-                  <div class="col-xl-4 offset-xl-1 col-lg-5">
-                    <div v-if="dest.subAreas?.length" class="prestige-dest-sub tp_fade_anim" data-delay=".4">
-                      <h4 class="prestige-detail__mini">{{ t('dp.detail.subareas_title') }}</h4>
-                      <ul>
-                        <li v-for="(s, i) in dest.subAreas" :key="i"><span class="prestige-detail__dot" />{{ s }}</li>
-                      </ul>
-                    </div>
-                    <ul class="prestige-dest-highlights tp_fade_anim" data-delay=".45">
-                      <li v-for="(h, i) in dHighlights" :key="i"><span class="prestige-detail__dot" />{{ h }}</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-feature-split
+              class="prestige-destination-overview"
+              :eyebrow="destinationOverviewEyebrow"
+              :title="destinationOverviewTitle"
+              :image="dest.image"
+              :paragraphs="destinationOverviewParagraphs"
+              :points="[]"
+              equal-height
+              reverse
+            />
 
             <!-- 2 · key stats -->
             <prestige-stat-band class="prestige-destination-statband" :stats="dest.stats" />
@@ -201,6 +188,9 @@ const { dName } = useLocalizedNames();
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
+const maritimeOverview = [
+  "Set along Dubai’s coastline, Dubai Maritime City brings together sea views, city connectivity, and modern urban living. Its unique setting offers the calm of life by the water while keeping Dubai’s key destinations within easy reach.",
+];
 
 if (!dest.value) {
   throw createError({ statusCode: 404, statusMessage: "Destination not found", fatal: true });
@@ -231,6 +221,13 @@ const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
 const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
 const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
 const dHighlights = computed(() => ddArray("highlights", dest.value?.highlights ?? []));
+const destinationOverviewEyebrow = computed(() => `About ${dName(dest.value!)}`);
+const destinationOverviewTitle = computed(() =>
+  isDubaiMaritimeCity.value ? "Where the Waterfront Meets the City." : `Experience ${dName(dest.value!)}`
+);
+const destinationOverviewParagraphs = computed(() =>
+  isDubaiMaritimeCity.value ? maritimeOverview : dAbout.value
+);
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
 const developmentsBadge = computed(() => {
@@ -284,6 +281,13 @@ usePrestigePage({ hero: false });
 }
 :deep(.prestige-destination-detail-hero .prestige-hero-band__actions) {
   justify-content: center;
+}
+:deep(.prestige-destination-overview .col-lg-6:last-child) {
+  display: flex;
+  align-items: center;
+}
+:deep(.prestige-destination-overview .prestige-fsplit__body) {
+  width: 100%;
 }
 
 .prestige-detail__badge {

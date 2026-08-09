@@ -71,13 +71,21 @@ const formattedDate = computed(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  border-radius: 10px;
+  background: #1f1f1f;
   color: #fff;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.prestige-acard:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-5px);
 }
 .prestige-acard__media {
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  border-radius: 6px;
   background: #101013;
 }
 .prestige-acard__media img {
@@ -90,7 +98,7 @@ const formattedDate = computed(() => {
   transform: scale(1.06);
 }
 .prestige-acard__body {
-  padding: 20px 4px 0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;

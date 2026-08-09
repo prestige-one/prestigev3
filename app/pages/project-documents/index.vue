@@ -10,7 +10,7 @@
               eyebrow="Prestige One Developments"
               title="Project Documents"
               lead="Access project-specific documents and resources. Select a development below to view available materials on our official portal."
-              image="/assets/project-featured-images/sliders/boulevard.webp"
+              image="/assets/images/v3/project-doc.webp"
             />
 
             <section class="po-project-docs-section">

@@ -6,6 +6,7 @@
         <div id="smooth-content">
           <main v-if="project" class="prestige-page">
             <prestige-page-hero
+              class="prestige-project-detail-hero"
               :eyebrow="project.location"
               :title="pName(project)"
               :lead="heroLead"
@@ -301,6 +302,31 @@ function requestDocument(doc: { raw: string; label: string }) {
 
 <style scoped>
 /* project detail page: larger hero + intro (overview) heading */
+.prestige-project-detail-hero {
+  align-items: center;
+}
+:deep(.prestige-project-detail-hero .prestige-hero-band__inner) {
+  padding-top: clamp(110px, 15vh, 170px);
+  padding-bottom: clamp(60px, 9vh, 110px);
+}
+:deep(.prestige-project-detail-hero .row) {
+  justify-content: center;
+  text-align: center;
+}
+:deep(.prestige-project-detail-hero .col-xl-9) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+:deep(.prestige-project-detail-hero .prestige-hero-band__lead) {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+:deep(.prestige-project-detail-hero .prestige-hero-band__actions) {
+  width: 100%;
+  justify-content: center;
+}
 :deep(.prestige-hero-band__title) {
   font-size: clamp(34px, 4.4vw, 40px);
 }

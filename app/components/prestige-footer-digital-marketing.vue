@@ -52,7 +52,7 @@
                                     <li><nuxt-link to="/broker-registration/uae-individual">UAE Individual Registration</nuxt-link></li>
                                     <li><nuxt-link to="/broker-registration/international-company">International Company Registration</nuxt-link></li>
                                     <li><nuxt-link to="/broker-registration/international-individual">International Individual Registration</nuxt-link></li>
-                                    <li><nuxt-link to="/csr">{{ $t('sh.csr') }}</nuxt-link></li>
+                                    <li><nuxt-link to="/corporate-social-responsibility">{{ $t('sh.csr') }}</nuxt-link></li>
                                 </ul>
                             </div>
                         </div>
