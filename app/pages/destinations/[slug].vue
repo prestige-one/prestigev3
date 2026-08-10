@@ -22,7 +22,10 @@
 
             <!-- 1 · about + sub-areas -->
             <prestige-feature-split
-              class="prestige-destination-overview"
+              :class="[
+                'prestige-destination-overview',
+                { 'prestige-destination-overview--maritime': isDubaiMaritimeCity },
+              ]"
               :eyebrow="destinationOverviewEyebrow"
               :title="destinationOverviewTitle"
               :image="dest.image"
@@ -33,10 +36,19 @@
             />
 
             <!-- 2 · key stats -->
-            <prestige-stat-band class="prestige-destination-statband" :stats="dest.stats" />
+            <section v-if="isDubaiMaritimeCity" class="prestige-maritime-distance">
+              <div class="container container-1430">
+                <img
+                  src="/assets/images/v3/maritime-distance.webp"
+                  alt="Travel times from Dubai Maritime City to Dubai Frame, Downtown Dubai and DXB Airport"
+                  loading="lazy"
+                >
+              </div>
+            </section>
+            <prestige-stat-band v-else class="prestige-destination-statband" :stats="dest.stats" />
 
             <!-- 3 · nearby attractions -->
-            <section class="prestige-section prestige-detail-heading--swapped">
+            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-40">
@@ -55,7 +67,7 @@
             </section>
 
             <!-- 4 · connectivity -->
-            <section class="prestige-section--tight prestige-dest-band prestige-detail-heading--swapped">
+            <section v-if="!isDubaiMaritimeCity" class="prestige-section--tight prestige-dest-band prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row">
                   <div class="col-xl-4 mb-30">
@@ -72,14 +84,25 @@
             </section>
 
             <!-- cinematic interlude -->
+            <prestige-cta-band
+              v-if="isDubaiMaritimeCity"
+              class="prestige-destination-cta--maritime"
+              eyebrow="PRESTIGE ONE IN DUBAI MARITIME CITY"
+              title="Meet Hilton Residences"
+              text="Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality."
+              image="/assets/images/v3/hilton-full.webp"
+              primary-label="Explore Hilton Residences →"
+              :primary-to="localePath('/projects/hilton-residences-dubai-maritime-city')"
+            />
             <prestige-statement-band
+              v-else
               :eyebrow="t('dp.detail.statement_eyebrow')"
               :text="dIntro"
               :image="dest.image"
             />
 
             <!-- 5 · essentials -->
-            <section class="prestige-section prestige-detail-heading--swapped">
+            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.essentials_eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.essentials_title') }}</h2>
@@ -107,7 +130,7 @@
             </section>
 
             <!-- 6 · investment -->
-            <section class="prestige-section prestige-dest-invest prestige-detail-heading--swapped">
+            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-dest-invest prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.invest_eyebrow') }}</span>
                 <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.invest_title') }}</h2>
@@ -128,11 +151,16 @@
             </section>
 
             <!-- 7 · developments -->
-            <section v-if="areaProjects.length" class="prestige-section prestige-section--tight prestige-detail-heading--swapped">
+            <section
+              v-if="areaProjects.length && !isDubaiMaritimeCity"
+              class="prestige-section prestige-section--tight prestige-detail-heading--swapped"
+            >
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.devs_eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.devs_title', { name: dest.name }) }}</h2>
-                <div class="row">
+                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">
+                  {{ t('dp.detail.devs_title', { name: dest.name }) }}
+                </h2>
+                <div class="row justify-content-center">
                   <div
                     v-for="p in areaProjects"
                     :key="p.slug"
@@ -144,7 +172,7 @@
                 </div>
               </div>
             </section>
-            <section v-else class="prestige-section prestige-section--tight text-center">
+            <section v-else-if="!isDubaiMaritimeCity" class="prestige-section prestige-section--tight text-center">
               <div class="container container-1430">
                 <p class="prestige-prose">{{ t('dp.detail.devs_empty', { name: dest.name }) }}</p>
                 <nuxt-link :to="localePath('/contact-us')" class="prestige-btn mt-20">{{ t('dp.detail.register') }}</nuxt-link>
@@ -156,14 +184,16 @@
 
             <!-- 9 · CTA + contact -->
             <prestige-cta-band
-              :eyebrow="t('dp.detail.cta_eyebrow')"
-              :title="t('dp.detail.cta_title', { name: dest.name })"
-              :text="t('dp.detail.cta_text', { name: dest.name })"
+              v-if="!isDubaiMaritimeCity"
+              :class="{ 'prestige-destination-cta--maritime': isDubaiMaritimeCity }"
+              :eyebrow="isDubaiMaritimeCity ? 'PRESTIGE ONE IN DUBAI MARITIME CITY' : t('dp.detail.cta_eyebrow')"
+              :title="isDubaiMaritimeCity ? 'Meet Hilton Residences' : t('dp.detail.cta_title', { name: dest.name })"
+              :text="isDubaiMaritimeCity ? 'Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality.' : t('dp.detail.cta_text', { name: dest.name })"
               :image="dest.image"
-              :primary-label="t('dp.detail.enquire')"
-              :primary-to="localePath('/contact-us')"
-              :secondary-label="t('dp.detail.cta_secondary')"
-              :secondary-to="localePath('/destinations')"
+              :primary-label="isDubaiMaritimeCity ? 'Explore Hilton Residences →' : t('dp.detail.enquire')"
+              :primary-to="isDubaiMaritimeCity ? localePath('/projects/hilton-residences-dubai-maritime-city') : localePath('/contact-us')"
+              :secondary-label="isDubaiMaritimeCity ? '' : t('dp.detail.cta_secondary')"
+              :secondary-to="isDubaiMaritimeCity ? '' : localePath('/destinations')"
             />
             <prestige-contact-form />
           </main>
@@ -220,10 +250,9 @@ const dIntro = computed(() => ddScalar("intro", dest.value?.intro ?? ""));
 const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
 const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
 const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
-const dHighlights = computed(() => ddArray("highlights", dest.value?.highlights ?? []));
 const destinationOverviewEyebrow = computed(() => `About ${dName(dest.value!)}`);
 const destinationOverviewTitle = computed(() =>
-  isDubaiMaritimeCity.value ? "Where the Waterfront Meets the City." : `Experience ${dName(dest.value!)}`
+  isDubaiMaritimeCity.value ? "Where the Waterfront Meets the City" : `Experience ${dName(dest.value!)}`
 );
 const destinationOverviewParagraphs = computed(() =>
   isDubaiMaritimeCity.value ? maritimeOverview : dAbout.value
@@ -289,7 +318,22 @@ usePrestigePage({ hero: false });
 :deep(.prestige-destination-overview .prestige-fsplit__body) {
   width: 100%;
 }
-
+:deep(.prestige-destination-overview--maritime .prestige-heading) {
+  font-size: clamp(34px, 4.4vw, 35px);
+}
+.prestige-maritime-distance {
+  padding: clamp(45px, 6vw, 80px) 0;
+  background: #08090b;
+}
+.prestige-maritime-distance img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+:deep(.prestige-destination-cta--maritime .prestige-heading) {
+  font-size: clamp(25px, 4.4vw, 30px);
+}
 .prestige-detail__badge {
   display: inline-flex;
   align-items: center;

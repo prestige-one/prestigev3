@@ -85,7 +85,7 @@ interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
 // indicative - refine per project in a later content pass.
 const DEFAULT_AMENITIES = [
   "Infinity swimming pool",
-  "State-of-the-art fitness centre",
+  "Prestige One Fitness",
   "Landscaped podium gardens",
   "24/7 concierge & security",
   "Covered resident parking",
@@ -358,12 +358,11 @@ const enrichment: Record<string, ProjectEnrichment> = {
     amenities: [
       "Infinity skyline pool",
       "Outdoor cinema",
-      "Fitness centre",
+      "Prestige One Fitness",
       "Running track",
       "Multi-sports court",
       "BBQ deck",
       "Outdoor kids' play area",
-      "Indoor play area",
       "Juice bar",
     ],
     nearby: [
@@ -648,6 +647,10 @@ export const projects: Project[] = PROJECT_CATALOGUE.map(toProject);
 
 export function getAllProjects(): Project[] {
   return projects;
+}
+
+export function getAmenityDisplayName(amenity: string): string {
+  return /fitness|gym/i.test(amenity) ? "Prestige One Fitness" : amenity;
 }
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {

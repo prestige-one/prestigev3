@@ -4,7 +4,7 @@
     <nuxt-layout name="layout-one">
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <prestige-editorial-article-page :article="article" :articles="articles" />
+          <prestige-editorial-article-page class="prestige-blog-detail" :article="article" :articles="articles" />
           <prestige-footer-digital-marketing />
         </div>
       </div>
@@ -13,13 +13,13 @@
 </template>
 
 <script setup lang="ts">
-import { getEditorialArticle, getEditorialArticles } from "~/data/editorial-data";
+import { getEditorialArticle, getEditorialArticles, type EditorialArticle } from "~/data/editorial-data";
 
 definePageMeta({ layout: false });
 
 const route = useRoute();
 const slug = String(route.params.slug ?? "");
-const articles = getEditorialArticles("blog");
+const articles: EditorialArticle[] = getEditorialArticles("blog");
 const article = getEditorialArticle("blog", slug);
 
 if (!article) {
@@ -33,3 +33,9 @@ useSeoMeta({
 });
 usePrestigePage({ hero: false });
 </script>
+
+<style scoped>
+:deep(.prestige-blog-detail .prestige-editorial__body h2) {
+  font-size: clamp(20px, 3vw, 23px);
+}
+</style>

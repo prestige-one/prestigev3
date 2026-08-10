@@ -13,20 +13,13 @@
               image="/assets/images/v2/news/sales-gallery-1-scaled.webp"
             />
 
-            <section class="prestige-section--tight">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-9">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.news.introEyebrow') }}</span>
-                    <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>{{ t('mdata.news.introBody') }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-listing-intro
+              :title="t('mdata.news.introEyebrow')"
+              :text="t('mdata.news.introBody')"
+              uppercase
+            />
 
-            <section class="prestige-section prestige-section--tight prestige-editorial-grid">
+            <section class="prestige-section prestige-section--tight prestige-editorial-grid prestige-editorial-grid--after-intro">
               <div class="container container-1430">
                 <div v-if="items.length" class="row">
                   <div
@@ -63,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { getEditorialArticles } from "~/data/editorial-data";
+import { getEditorialArticles, type EditorialArticle } from "~/data/editorial-data";
 
 const { t } = useI18n();
 
@@ -74,7 +67,7 @@ useSeoMeta({
 });
 
 // Source articles are migrated from Prestige v2 and retain their original order.
-const items = getEditorialArticles("industry");
+const items: EditorialArticle[] = getEditorialArticles("industry");
 
 usePrestigePage({ hero: false });
 </script>

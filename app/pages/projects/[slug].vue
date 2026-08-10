@@ -89,10 +89,9 @@
             </section>
 
             <!-- 7 · documents -->
-            <section class="prestige-section--tight prestige-detail__docs prestige-detail-heading--swapped">
+            <section class="prestige-section--tight prestige-detail__docs">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.eyebrow') }}</span>
-                <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".3">{{ t('pp.detail.resources.title') }}</h2>
+                <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.title') }}</h2>
                 <div class="prestige-docgrid">
                   <button
                     v-for="(d, i) in documents"
@@ -167,7 +166,7 @@
 </template>
 
 <script setup lang="ts">
-import { getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
+import { getAmenityDisplayName, getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
 import { destinations } from "~/data/destinations-data";
 import { getProjectDistanceSlides } from "~/data/project-distance-slides";
 
@@ -210,7 +209,13 @@ const highlights = computed<string[]>(() => {
   return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.highlights;
 });
 
-function tAmenity(a: string) { const k = `pdata.amenities.${slugify(a)}`; return te(k) ? t(k) : a; }
+function tAmenity(a: string) {
+  const displayName = getAmenityDisplayName(a);
+  if (displayName !== a) return displayName;
+
+  const k = `pdata.amenities.${slugify(displayName)}`;
+  return te(k) ? t(k) : displayName;
+}
 function tPayment(l: string) { const k = `pdata.payment.${slugify(l)}`; return te(k) ? t(k) : l; }
 function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? t(k) : d; }
 
@@ -335,7 +340,7 @@ function requestDocument(doc: { raw: string; label: string }) {
   font-size: clamp(34px, 4.4vw, 40px);
 }
 .prestige-page :deep(.prestige-fsplit .prestige-heading) {
-  font-size: clamp(18px, 4.4vw, 22px);
+  font-size: clamp(25px, 4.4vw, 30px);
 }
 .prestige-page :deep(.prestige-detail__amenities-heading) {
   font-size: clamp(38px, 4vw, 56px);
@@ -345,6 +350,7 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 .prestige-detail__docs .prestige-heading {
   margin-bottom: 24px !important;
+  font-size: clamp(34px, 4.4vw, 35px);
 }
 .prestige-detail__related .prestige-heading {
   margin-bottom: 13px !important;

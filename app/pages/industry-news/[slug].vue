@@ -13,13 +13,13 @@
 </template>
 
 <script setup lang="ts">
-import { getEditorialArticle, getEditorialArticles } from "~/data/editorial-data";
+import { getEditorialArticle, getEditorialArticles, type EditorialArticle } from "~/data/editorial-data";
 
 definePageMeta({ layout: false });
 
 const route = useRoute();
 const slug = String(route.params.slug ?? "");
-const articles = getEditorialArticles("industry");
+const articles: EditorialArticle[] = getEditorialArticles("industry");
 const article = getEditorialArticle("industry", slug);
 
 if (!article) {

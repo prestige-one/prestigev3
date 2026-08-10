@@ -131,7 +131,7 @@ export const DUBAI_MAP_PROJECTS: DubaiMapProject[] = [
   },
   {
     id: 10,
-    name: "Golf Residences",
+    name: "Golf Residences by Prestige One",
     area: "Dubai Sports City",
     floors: 23,
     lng: 55.2201,

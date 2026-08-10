@@ -10,21 +10,14 @@
               :eyebrow="t('mdata.press.heroEyebrow')"
               :title="t('mdata.press.heroTitle')"
               :lead="t('mdata.press.heroLead')"
-              image="/assets/images/v2/press-releases/First-Hilton-branded-residences-to-debut-in-UAE-with-Prestige-One.webp"
+              image="/assets/images/v3/press.webp"
             />
 
-            <section class="prestige-section--tight prestige-press-intro">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-9">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.press.introEyebrow') }}</span>
-                    <div class="prestige-prose tp_fade_anim" data-delay=".3" style="margin-top: 18px;">
-                      <p>{{ t('mdata.press.introBody') }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <prestige-listing-intro
+              :title="t('mdata.press.introEyebrow')"
+              :text="t('mdata.press.introBody')"
+              uppercase
+            />
 
             <section class="prestige-section prestige-section--tight prestige-press-grid prestige-editorial-grid">
               <div class="container container-1430">
@@ -48,11 +41,9 @@
               :eyebrow="t('mdata.press.ctaEyebrow')"
               :title="t('mdata.press.ctaTitle')"
               :text="t('mdata.press.ctaText')"
-              image="/assets/images/v2/press-releases/First-Hilton-branded-residences-to-debut-in-UAE-with-Prestige-One.webp"
+              image="/assets/images/v3/press.webp"
               :primary-label="t('mdata.press.ctaPrimary')"
               primary-to="/contact-us"
-              :secondary-label="t('mdata.press.ctaSecondary')"
-              secondary-to="/media"
             />
           </main>
           <prestige-footer-digital-marketing />
@@ -79,10 +70,6 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
-.prestige-press-intro {
-  padding-bottom: clamp(24px, 3vw, 40px);
-}
-
 .prestige-press-grid {
   padding-top: 0;
 }

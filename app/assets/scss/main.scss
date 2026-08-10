@@ -92,7 +92,7 @@ body {
 .prestige-hero-band__veil {
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0.9) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 20%, rgba(0, 0, 0, 0.9) 100%);
 }
 .prestige-hero-band__inner {
 	position: relative;
@@ -221,6 +221,10 @@ body {
 /* Shared listing-card treatment from the Industry News page. */
 .prestige-editorial-grid .prestige-acard {
   border: 1px solid #252424;
+}
+
+.prestige-editorial-grid--after-intro {
+	padding-top: 0;
 }
 
 /* Shared centered hero treatment for editorial listing pages. */

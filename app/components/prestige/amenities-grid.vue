@@ -67,7 +67,11 @@ withDefaults(
   gap: clamp(52px, 6vw, 96px);
 }
 .prestige-amen__intro {
+  display: flex;
   max-width: 390px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 .prestige-amen__title {
   margin: 14px 0 0;

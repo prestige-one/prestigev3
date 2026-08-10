@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xl-4 mb-40">
           <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow ?? t('pp.faq.eyebrow') }}</span>
-          <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
+          <h2 v-if="title" class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
         </div>
         <div class="col-xl-8">
           <div

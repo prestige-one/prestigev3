@@ -44,12 +44,14 @@ const { t } = useI18n();
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   min-height: 150px;
   padding: 26px 30px 26px 44px;
   background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(124, 120, 120, 0.4);
   border-radius: 6px;
   overflow: hidden;
+  text-align: center;
   transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
 }
 .prestige-pw__step:nth-child(1) .prestige-pw__chevron {
@@ -63,7 +65,7 @@ const { t } = useI18n();
 }
 .prestige-pw__step:hover .prestige-pw__chevron {
   background: rgba(255, 255, 255, 0.13);
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(124, 120, 120, 0.4);
   transform: translateY(-4px);
 }
 .prestige-pw__index {
@@ -101,18 +103,31 @@ const { t } = useI18n();
      left-to-right like a stepper. First step is flush on the left. */
   .prestige-pw__chevron {
     border-radius: 0;
+    border-right-color: transparent;
+    border-left-color: transparent;
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%);
+    padding-right: 48px;
     padding-left: 48px;
   }
   .prestige-pw__step:first-child .prestige-pw__chevron {
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+    padding-right: 34px;
     padding-left: 34px;
+    border-left-color: rgba(124, 120, 120, 0.4);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+  }
+  .prestige-pw__step:last-child .prestige-pw__chevron {
+    filter: drop-shadow(1px 0 0 rgba(124, 120, 120, 0.4));
   }
   .prestige-pw__step:hover .prestige-pw__chevron {
     transform: translateY(0);
     z-index: 2;
+    border-right-color: transparent;
+    border-left-color: transparent;
+  }
+  .prestige-pw__step:first-child:hover .prestige-pw__chevron {
+    border-left-color: rgba(124, 120, 120, 0.4);
   }
 }
 </style>

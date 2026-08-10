@@ -6,18 +6,21 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
-              class="prestige-listing-hero"
+              class="prestige-listing-hero prestige-blog-listing-hero"
               :eyebrow="t('mdata.blog.heroEyebrow')"
               :title="t('mdata.blog.heroTitle')"
               :lead="t('mdata.blog.heroLead')"
-              image="/assets/images/v2/our-destinations/palm-jumeira.webp"
+              image="/assets/images/v3/dubai-skyline-view.webp"
+            />
+
+            <prestige-listing-intro
+              :eyebrow="t('mdata.blog.allArticles')"
+              :title="t('mdata.blog.latestReading')"
             />
 
             <!-- article grid -->
-            <section class="prestige-section prestige-section--tight prestige-editorial-grid">
+            <section class="prestige-section prestige-section--tight prestige-editorial-grid prestige-editorial-grid--after-intro">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('mdata.blog.allArticles') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('mdata.blog.latestReading') }}</h2>
                 <div class="row">
                   <div
                     v-for="article in allArticles"
@@ -72,8 +75,21 @@ function localizeArticle(a: EditorialArticle): EditorialArticle {
   };
 }
 
-const sourceArticles = getEditorialArticles("blog");
+const sourceArticles: EditorialArticle[] = getEditorialArticles("blog");
 const allArticles = computed(() => sourceArticles.map(localizeArticle));
 
 usePrestigePage({ hero: false });
 </script>
+
+<style scoped>
+:deep(.prestige-blog-listing-hero .prestige-hero-band__eyebrow) {
+  font-size: clamp(25px, 4.4vw, 35px);
+  line-height: 1.1;
+}
+
+:deep(.prestige-blog-listing-hero .prestige-hero-band__title) {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+</style>
