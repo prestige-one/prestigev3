@@ -186,8 +186,12 @@ onBeforeUnmount(() => {
 
 .prestige-journey-scroll-year :deep(.prestige-metallic-number) {
   font-size: clamp(43px, 4.5vw, 45px);
+  font-weight: 700;
   line-height: 1;
   letter-spacing: -2px;
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: #fff;
 }
 
 .prestige-journey-scroll-marker {

@@ -47,6 +47,13 @@
             </section>
             <prestige-stat-band v-else class="prestige-destination-statband" :stats="dest.stats" />
 
+            <prestige-destination-timeline
+              v-if="isDubaiMaritimeCity"
+              :items="destinationTimelineItems"
+              :interval="5600"
+              pin-first
+            />
+
             <!-- 3 · nearby attractions -->
             <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
               <div class="container container-1430">
@@ -206,6 +213,7 @@
 
 <script setup lang="ts">
 import { getDestinationBySlug, getProjectsForDestination } from "~/data/destinations-data";
+import { getDestinationTimelineItems } from "~/data/destination-timeline-data";
 
 interface FaqItem { q: string; a: string }
 
@@ -218,6 +226,7 @@ const { dName } = useLocalizedNames();
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
+const destinationTimelineItems = computed(() => getDestinationTimelineItems(dest.value?.slug ?? ""));
 const maritimeOverview = [
   "Set along Dubai’s coastline, Dubai Maritime City brings together sea views, city connectivity, and modern urban living. Its unique setting offers the calm of life by the water while keeping Dubai’s key destinations within easy reach.",
 ];
