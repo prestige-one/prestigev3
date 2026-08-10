@@ -182,6 +182,8 @@ onBeforeUnmount(() => {
   padding: 0 34px 0 0;
   line-height: 1;
   text-align: right;
+  color: #fff !important;
+  font-weight: bold;
 }
 
 .prestige-journey-scroll-year :deep(.prestige-metallic-number) {
