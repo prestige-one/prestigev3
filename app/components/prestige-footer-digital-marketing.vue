@@ -391,6 +391,10 @@ async function subscribe() {
     text-align: center;
   }
 
+  .prestige-footer-contact-row {
+    align-items: center;
+  }
+
   .prestige-dgm-footer .dgm-footer-widget-title {
     margin-bottom: 18px;
   }

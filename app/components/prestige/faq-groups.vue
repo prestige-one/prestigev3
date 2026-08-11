@@ -82,10 +82,10 @@ function toggle(groupIndex: number, itemIndex: number) {
 }
 
 .prestige-faqgroups__title {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   color: #fff;
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(20px, 3vw, 28px);
   font-weight: 500;
   line-height: 1.15;
 }
@@ -106,7 +106,7 @@ function toggle(groupIndex: number, itemIndex: number) {
 .prestige-faqgroups__question {
   display: flex;
   width: 100%;
-  padding: 24px 4px;
+  padding: 18px 4px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -114,7 +114,7 @@ function toggle(groupIndex: number, itemIndex: number) {
   background: transparent;
   color: #fff;
   font-family: "Google Sans", sans-serif;
-  font-size: clamp(17px, 1.55vw, 21px);
+  font-size: clamp(15px, 1.55vw, 18px);
   font-weight: 400;
   line-height: 1.4;
   text-align: left;
@@ -175,7 +175,7 @@ function toggle(groupIndex: number, itemIndex: number) {
 .prestige-faqgroups__answer ol {
   max-width: 900px;
   color: rgba(255, 255, 255, 0.68);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -193,21 +193,22 @@ function toggle(groupIndex: number, itemIndex: number) {
   margin-top: 5px;
 }
 
+.prestige-faqgroups__answer li {
+  color: #fff;
+}
+
 @media (max-width: 575.98px) {
   .prestige-faqgroups__group + .prestige-faqgroups__group {
     margin-top: 42px;
   }
 
   .prestige-faqgroups__title {
-    margin-bottom: 12px;
-    font-size: 22px;
-    text-align: center;
+    text-align: left;
   }
 
   .prestige-faqgroups__question {
-    padding: 20px 0;
+    padding: 15px 0;
     gap: 16px;
-    font-size: 17px;
   }
 
   .prestige-faqgroups__answer p {
