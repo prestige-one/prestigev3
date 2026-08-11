@@ -183,7 +183,7 @@
             </section>
 
             <!-- 8 · FAQ -->
-            <prestige-faq-accordion class="prestige-detail-heading--swapped" :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
+            <prestige-faq-accordion class="prestige-detail-heading--swapped prestige-destination-faq" :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
 
             <!-- 9 · CTA + contact -->
             <prestige-cta-band
@@ -320,6 +320,9 @@ usePrestigePage({ hero: false });
 }
 :deep(.prestige-heading) {
   font-size: clamp(34px, 4.4vw, 40px);
+}
+.prestige-destination-faq :deep(.prestige-faq__row:first-child .prestige-faq__q) {
+  padding-top: 0;
 }
 .prestige-page :deep(.prestige-fsplit .prestige-heading) {
   font-size: clamp(25px, 4.4vw, 30px);
