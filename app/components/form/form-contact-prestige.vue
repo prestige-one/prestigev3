@@ -106,7 +106,14 @@ async function onSubmit() {
   background: #1f1f1f;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
   transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.tp-contact-form-input input {
+  height: 50px;
+  min-height: 50px;
 }
 
 .tp-contact-form-input textarea {
@@ -139,7 +146,8 @@ async function onSubmit() {
 .prestige-phone-code {
   flex: 0 0 auto;
   width: 110px;
-  height: 60px;
+  height: 50px;
+  min-height: 50px;
   padding: 0 10px;
   border-radius: 8px;
   background: #1f1f1f;
