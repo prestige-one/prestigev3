@@ -449,7 +449,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 767.98px) {
   .prestige-legacy-area {
-    padding: 80px 0;
+    padding: 48px 0 42px;
   }
 
   .prestige-legacy-shell {
@@ -459,7 +459,9 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-copy {
+    margin: 0 auto;
     padding-right: 0;
+    text-align: center;
   }
 
   .prestige-legacy-eyebrow {
@@ -470,13 +472,14 @@ onBeforeUnmount(() => {
 
   .prestige-legacy-title {
     max-width: 340px;
-    font-size: 15px;
+    margin: 0 auto;
+    font-size: 14px;
     line-height: 1.7;
     letter-spacing: 2.5px;
   }
 
   .prestige-legacy-copy-line {
-    margin-top: 30px;
+    margin: 30px auto 0;
   }
 
   .prestige-legacy-artwork {
@@ -512,7 +515,7 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-number {
-    font-size: clamp(30px, 5vw, 40px);
+    font-size: clamp(34px, 5vw, 40px);
     letter-spacing: -3px;
   }
 
@@ -528,7 +531,7 @@ onBeforeUnmount(() => {
 
   .prestige-legacy-label {
     padding-left: 10px;
-    font-size: 10px;
+    font-size: 15px;
     line-height: 1.55;
     letter-spacing: 1.6px;
   }

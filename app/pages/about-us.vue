@@ -151,4 +151,20 @@ onMounted(async () => {
   font-size: clamp(15px, 1.35vw, 20px);
 }
 
+@media (max-width: 767.98px) {
+  main :deep(.prestige-section-heading__title),
+  .prestige-about-us-legacy :deep(.prestige-legacy-eyebrow) {
+    font-size: 28px;
+  }
+
+  .prestige-about-us-legacy :deep(.prestige-legacy-copy) {
+    max-width: 100%;
+  }
+
+  .prestige-about-us-legacy :deep(.prestige-legacy-title) {
+    max-width: 340px;
+    font-size: 14px;
+  }
+}
+
 </style>

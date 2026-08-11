@@ -84,6 +84,11 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   margin-bottom: 28px;
 }
 
+.prestige-contact-heading :deep(.prestige-section-heading__title) {
+  color: #fff;
+  background: none;
+}
+
 /* ---- map ---- */
 
 .prestige-contact-map-box {
@@ -172,6 +177,16 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 }
 
 @media (max-width: 575.98px) {
+  .prestige-contact-area {
+    padding-top: 56px;
+  }
+
+  .prestige-contact-left .prestige-contact-heading {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
   .prestige-contact-form-card {
     padding: 20px;
   }

@@ -88,4 +88,14 @@ const upcomingDevelopments = getProjectSlidesByCategory("upcoming");
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+@media (max-width: 575.98px) {
+  .prestige-developments-area {
+    padding-block: 0;
+  }
+
+  .prestige-developments-slogan {
+    margin-bottom: 28px;
+  }
+}
 </style>

@@ -265,7 +265,7 @@ onBeforeUnmount(() => {
   z-index: 3;
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0.94);
   filter: saturate(0.96) brightness(0.9);
 }
 

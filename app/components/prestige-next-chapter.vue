@@ -90,5 +90,15 @@ const localePath = useLocalePath();
     padding-top: 100px;
     padding-bottom: 110px;
   }
+
+  .prestige-next-actions {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .prestige-next-btn {
+    justify-content: center;
+    width: min(100%, 280px);
+  }
 }
 </style>

@@ -78,4 +78,21 @@ const secondaryLabelText = computed(() => props.secondaryLabel || t("sh.viewDeve
 @media (max-width: 991px) {
   .prestige-ctaband { background-attachment: scroll; }
 }
+
+@media (max-width: 767.98px) {
+  .prestige-ctaband {
+    padding: 64px 0;
+  }
+
+  .prestige-ctaband .prestige-heading {
+    font-size: clamp(22px, 3.2vw, 44px);
+    font-weight: 500;
+    line-height: 1.12;
+  }
+
+  .prestige-ctaband__text {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
 </style>

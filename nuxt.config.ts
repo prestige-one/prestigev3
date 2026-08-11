@@ -5,6 +5,13 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/test-utils', "@nuxt/image", "@nuxtjs/i18n"],
 
+  // Keep startup independent of external font-provider requests. The branded
+  // typefaces are already bundled under app/assets/fonts, while the existing
+  // Google Fonts import can load opportunistically in the browser.
+  fonts: {
+    provider: 'local',
+  },
+
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',

@@ -173,6 +173,16 @@ usePrestigePage({ hero: false });
   color: #fff;
 }
 
+@media (max-width: 767.98px) {
+  :deep(.prestige-destinations-hero .prestige-hero-band__inner) {
+    padding-bottom: 44px;
+  }
+
+  :deep(.prestige-destinations-hero .prestige-hero-band__title) {
+    font-size: clamp(25px, 7vw, 40px);
+  }
+}
+
 </style>
 <style scoped>
 :deep(.prestige-fsplit .prestige-heading) {
@@ -195,9 +205,9 @@ usePrestigePage({ hero: false });
 }
 .prestige-dest-card__media {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #101013;
 }
 .prestige-dest-card__media img {
@@ -223,6 +233,7 @@ usePrestigePage({ hero: false });
   bottom: 0;
   padding: 26px;
   z-index: 2;
+  text-align: center;
 }
 .prestige-dest-card__name {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
@@ -234,7 +245,7 @@ usePrestigePage({ hero: false });
 }
 .prestige-dest-card__tagline {
   max-width: 360px;
-  margin: 0;
+  margin: 0 auto;
   color: rgba(255, 255, 255, 0.74);
   font-size: 14px;
   line-height: 1.5;

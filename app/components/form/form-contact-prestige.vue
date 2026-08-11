@@ -155,15 +155,18 @@ async function onSubmit() {
 
 @media (max-width: 575.98px) {
   .prestige-phone-field {
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
   }
 
   .prestige-phone-code {
-    width: 100%;
+    width: 92px;
+    padding-inline: 7px;
+    font-size: 14px;
   }
 
   .prestige-phone-number {
-    flex-basis: 100%;
+    flex: 1 1 auto;
   }
 }
 </style>

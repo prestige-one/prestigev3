@@ -123,6 +123,13 @@ const moreStories = computed(() =>
   text-align: center;
 }
 
+@media (max-width: 767.98px) {
+  .prestige-editorial-detail-hero :deep(.prestige-hero-band__inner) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
 .prestige-editorial__meta {
   display: flex;
   align-items: center;

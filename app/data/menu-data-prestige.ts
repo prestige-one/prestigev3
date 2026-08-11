@@ -50,6 +50,7 @@ export const primaryNav: NavItem[] = [
     },
     submenus: [
       { title: "All Projects", link: "/projects" },
+      { title: "Project Locations", link: "/project-locations" },
       { title: "Residential", link: "/projects?category=residential" },
       { title: "Commercial", link: "/projects?category=commercial" },
       { title: "Upcoming", link: "/projects?category=upcoming" },

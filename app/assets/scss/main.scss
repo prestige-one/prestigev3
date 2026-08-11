@@ -255,6 +255,18 @@ body {
 	text-align: center;
 }
 
+@media (max-width: 767.98px) {
+	.prestige-listing-hero .prestige-hero-band__title,
+	.prestige-projects-hero .prestige-hero-band__title {
+		font-size: clamp(25px, 7vw, 40px);
+	}
+
+	.prestige-listing-hero .prestige-hero-band__inner,
+	.prestige-projects-hero .prestige-hero-band__inner {
+		padding-bottom: 44px;
+	}
+}
+
 .prestige-editorial-grid .prestige-acard .prestige-acard__media {
   border-radius: 6px 6px 0 0;
 }

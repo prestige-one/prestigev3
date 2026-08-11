@@ -253,8 +253,8 @@ onBeforeUnmount(() => {
 
 @media (max-width: 767.98px) {
   .prestige-journey-scroll-area {
-    padding-top: 70px;
-    padding-bottom: 90px;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
 
   .prestige-journey-scroll-header {

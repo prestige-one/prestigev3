@@ -268,6 +268,14 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 }
 
 @media (max-width: 575.98px) {
+  .prestige-whydubai {
+    padding-block: 56px 48px;
+  }
+
+  .prestige-whydubai__head {
+    margin-bottom: 36px;
+  }
+
   .prestige-whydubai__grid {
     grid-template-columns: 1fr;
   }
@@ -275,6 +283,7 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
   .prestige-whydubai__content {
     min-height: 0;
     padding: 34px 20px 22px;
+    text-align: center;
   }
 }
 

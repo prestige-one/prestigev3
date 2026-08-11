@@ -63,8 +63,8 @@
             <!-- 5 · location & nearby -->
             <section class="prestige-section prestige-detail__loc prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <div class="row mb-40">
-                  <div class="col-lg-9">
+                <div class="row mb-40 prestige-detail__heading-row">
+                  <div class="col-lg-9 prestige-detail__heading-column">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.eyebrow') }}</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
                   </div>
@@ -77,8 +77,8 @@
             <!-- 6 · payment plan -->
             <section class="prestige-section prestige-section--tight prestige-detail__pp prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <div class="row mb-40">
-                  <div class="col-lg-8">
+                <div class="row mb-40 prestige-detail__heading-row">
+                  <div class="col-lg-8 prestige-detail__heading-column">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.payment.eyebrow') }}</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.payment.title') }}</h2>
                     <p class="prestige-detail__note tp_fade_anim" data-delay=".4">{{ t('pp.detail.payment.note') }}</p>
@@ -365,11 +365,11 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-doccard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   padding: 30px 26px 26px;
   min-height: 200px;
-  text-align: left;
+  text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.02);
@@ -499,6 +499,106 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-detail__docget i { font-style: normal; }
 
 @media (max-width: 575.98px) {
-  .prestige-detail__fact-value { font-size: 20px; }
+  :deep(.prestige-project-detail-hero .prestige-hero-band__inner) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  :deep(.prestige-project-detail-hero .prestige-hero-band__title) {
+    font-size: clamp(25px, 7vw, 40px);
+  }
+
+  :deep(.prestige-project-detail-hero .prestige-hero-band__actions) {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  :deep(.prestige-project-detail-hero .prestige-hero-band__actions > *) {
+    justify-content: center;
+    width: min(100%, 240px);
+    height: 56px;
+    min-height: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .prestige-detail__facts .row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .prestige-detail__fact-value {
+    font-size: 20px;
+  }
+
+  :deep(.prestige-heading),
+  .prestige-page :deep(.prestige-fsplit .prestige-heading) {
+    font-size: 28px !important;
+    line-height: 1.15;
+  }
+
+  .prestige-page .prestige-detail-heading--swapped :deep(.prestige-heading),
+  .prestige-page .prestige-detail-heading--swapped :deep(.prestige-amen__title) {
+    font-size: 17px !important;
+    line-height: 1.4;
+  }
+
+  .prestige-page :deep(.prestige-fsplit__body),
+  .prestige-page :deep(.prestige-amen__intro) {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .prestige-page :deep(.prestige-amen__intro) {
+    align-items: center;
+  }
+
+  .prestige-page :deep(.prestige-amen__lead),
+  .prestige-page :deep(.prestige-fsplit .prestige-prose),
+  .prestige-detail__note {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .prestige-page :deep(.prestige-amen__lead) {
+    max-width: 100%;
+  }
+
+  .prestige-page :deep(.prestige-fsplit__points) {
+    text-align: left;
+  }
+
+  .prestige-page :deep(.prestige-fsplit .prestige-prose) {
+    text-align: left;
+  }
+
+  .prestige-detail-heading--swapped :deep(.prestige-eyebrow),
+  .prestige-detail-heading--swapped :deep(.prestige-heading),
+  .prestige-detail__docs .prestige-heading,
+  .prestige-detail__related .prestige-eyebrow,
+  .prestige-detail__related .prestige-heading {
+    display: block;
+    text-align: center;
+  }
+
+  .prestige-detail__heading-row {
+    justify-content: center;
+  }
+
+  .prestige-detail__heading-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .prestige-detail__note {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .prestige-page :deep(.prestige-contact-heading .prestige-section-heading__title) {
+    font-size: 28px;
+  }
 }
 </style>

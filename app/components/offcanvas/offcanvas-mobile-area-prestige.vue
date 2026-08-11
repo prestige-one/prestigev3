@@ -55,6 +55,8 @@
             <li><a href="https://facebook.com/ByPrestigeOne/" target="_blank" rel="noopener" aria-label="Facebook"><svg-social-fb-three /></a></li>
             <li><a href="https://linkedin.com/company/byprestigeone/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg-social-linkedin-three /></a></li>
             <li><a href="https://wa.me/+971523412936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg-social-whatsapp-three /></a></li>
+            <li><a href="https://x.com/ByPrestigeOne" target="_blank" rel="noopener" aria-label="X"><svg-social-x /></a></li>
+            <li><a href="https://www.youtube.com/@byprestigeone" target="_blank" rel="noopener" aria-label="YouTube"><svg-social-youtube /></a></li>
           </ul>
         </div>
       </div>
@@ -70,11 +72,11 @@ const router = useRouter();
 const sidebarNav = [
   { key: "nav.home", to: "/" },
   { key: "nav.about", to: "/about-us" },
-  { key: "sh.brokerRegistration", to: "/broker-registration" },
-  { key: "sh.projectDocuments", to: "/project-documents" },
+  { key: "nav.projects", to: "/projects" },
+  { key: "nav.destinations", to: "/destinations" },
   { key: "sh.contactUs", to: "/contact-us" },
   { key: "sh.pressRelease", to: "/press-release" },
-  { key: "sh.faqs", to: "/contact-us#faqs" },
+  { key: "sh.faqs", to: "/faqs" },
 ] as const;
 
 async function goToAboutTop(event: MouseEvent) {
@@ -266,7 +268,7 @@ onBeforeUnmount(() => {
 a.pnav__crow:hover { color: #fff; }
 
 .pnav__follow { margin-top: 30px; }
-.pnav__social { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
+.pnav__social { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; }
 .pnav__social a {
   width: 42px;
   height: 42px;

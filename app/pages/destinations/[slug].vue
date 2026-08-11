@@ -36,23 +36,19 @@
             />
 
             <!-- 2 · key stats -->
-            <section v-if="isDubaiMaritimeCity" class="prestige-maritime-distance">
-              <div class="container container-1430">
-                <img
-                  src="/assets/images/v3/maritime-distance.webp"
-                  alt="Travel times from Dubai Maritime City to Dubai Frame, Downtown Dubai and DXB Airport"
-                  loading="lazy"
-                >
-              </div>
-            </section>
-            <prestige-stat-band v-else class="prestige-destination-statband" :stats="dest.stats" />
-
-            <prestige-destination-timeline
-              v-if="isDubaiMaritimeCity"
-              :items="destinationTimelineItems"
-              :interval="5600"
-              pin-first
+            <prestige-stat-band
+              v-if="!isDubaiMaritimeCity"
+              class="prestige-destination-statband"
+              :stats="dest.stats"
             />
+
+            <section v-if="isDubaiMaritimeCity" class="prestige-maritime-distance">
+              <img
+                :src="maritimeDistanceImage"
+                alt="Travel times from Dubai Maritime City to key Dubai destinations"
+                loading="lazy"
+              >
+            </section>
 
             <!-- 3 · nearby attractions -->
             <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
@@ -213,7 +209,6 @@
 
 <script setup lang="ts">
 import { getDestinationBySlug, getProjectsForDestination } from "~/data/destinations-data";
-import { getDestinationTimelineItems } from "~/data/destination-timeline-data";
 
 interface FaqItem { q: string; a: string }
 
@@ -224,9 +219,9 @@ const localePath = useLocalePath();
 const { dName } = useLocalizedNames();
 
 const route = useRoute();
+const maritimeDistanceImage = "/assets/images/v3/maritime-distance.webp";
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
-const destinationTimelineItems = computed(() => getDestinationTimelineItems(dest.value?.slug ?? ""));
 const maritimeOverview = [
   "Set along Dubai’s coastline, Dubai Maritime City brings together sea views, city connectivity, and modern urban living. Its unique setting offers the calm of life by the water while keeping Dubai’s key destinations within easy reach.",
 ];
@@ -320,25 +315,35 @@ usePrestigePage({ hero: false });
 :deep(.prestige-destination-detail-hero .prestige-hero-band__actions) {
   justify-content: center;
 }
+:deep(.prestige-destination-detail-hero .prestige-hero-band__title) {
+  font-size: clamp(34px, 4.4vw, 40px);
+}
+:deep(.prestige-heading) {
+  font-size: clamp(34px, 4.4vw, 40px);
+}
+.prestige-page :deep(.prestige-fsplit .prestige-heading) {
+  font-size: clamp(25px, 4.4vw, 30px);
+}
+.prestige-maritime-distance {
+  width: 100%;
+  padding: 0 0 clamp(40px, 6vw, 80px);
+  border: 0;
+  background: #000;
+}
+
+.prestige-maritime-distance img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+}
 :deep(.prestige-destination-overview .col-lg-6:last-child) {
   display: flex;
   align-items: center;
 }
 :deep(.prestige-destination-overview .prestige-fsplit__body) {
   width: 100%;
-}
-:deep(.prestige-destination-overview--maritime .prestige-heading) {
-  font-size: clamp(34px, 4.4vw, 35px);
-}
-.prestige-maritime-distance {
-  padding: clamp(45px, 6vw, 80px) 0;
-  background: #08090b;
-}
-.prestige-maritime-distance img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
 :deep(.prestige-destination-cta--maritime .prestige-heading) {
   font-size: clamp(25px, 4.4vw, 30px);
@@ -459,5 +464,37 @@ usePrestigePage({ hero: false });
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
+}
+
+@media (max-width: 575.98px) {
+  :deep(.prestige-destination-detail-hero .prestige-hero-band__inner) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  :deep(.prestige-destination-detail-hero .prestige-hero-band__title) {
+    font-size: clamp(25px, 7vw, 40px);
+  }
+
+  :deep(.prestige-heading),
+  .prestige-page :deep(.prestige-fsplit .prestige-heading) {
+    font-size: 28px !important;
+    line-height: 1.15;
+  }
+
+  .prestige-page .prestige-detail-heading--swapped :deep(.prestige-heading) {
+    font-size: 17px !important;
+    line-height: 1.4;
+  }
+
+  .prestige-detail-heading--swapped :deep(.prestige-eyebrow),
+  .prestige-detail-heading--swapped :deep(.prestige-heading) {
+    display: block;
+    text-align: center;
+  }
+
+  .prestige-page :deep(.prestige-contact-heading .prestige-section-heading__title) {
+    font-size: 28px;
+  }
 }
 </style>

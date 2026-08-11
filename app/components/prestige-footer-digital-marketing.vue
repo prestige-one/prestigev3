@@ -7,7 +7,7 @@
         <div class="dgm-footer-area pt-100 pb-60">
             <div class="container container-1430">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-6 mb-40">
+                    <div class="prestige-footer-column prestige-footer-column--brand col-xl-3 col-lg-3 col-md-6 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-1 z-index-1 tp_fade_anim" data-delay=".3">
                             <div class="dgm-footer-logo mb-15">
                                 <nuxt-link href="/">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 mb-40">
+                    <div class="prestige-footer-column prestige-footer-column--corporate col-xl-3 col-lg-3 col-md-3 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-2 tp_fade_anim" data-delay=".4">
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.corporate') }}</h4>
                             <div class="dgm-footer-widget-menu">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-2 mb-40">
+                    <div class="prestige-footer-column prestige-footer-column--media col-xl-3 col-lg-3 col-md-2 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-3 tp_fade_anim" data-delay=".5">
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.mediaCenter') }}</h4>
                             <div class="dgm-footer-widget-menu">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 mb-40">
+                    <div class="prestige-footer-column prestige-footer-column--newsletter col-xl-3 col-lg-3 col-md-6 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-4 z-index-1 tp_fade_anim" data-delay=".6">
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.newsletter') }}</h4>
                             <div class="dgm-footer-widget-paragraph color-style mb-35">
@@ -222,6 +222,8 @@ async function subscribe() {
    for a white pill with dark icons instead. */
 .prestige-dgm-footer :deep(.dgm-footer-widget-social a) {
   color: rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .prestige-dgm-footer :deep(.dgm-footer-widget-social a:hover) {
@@ -260,7 +262,7 @@ async function subscribe() {
 .prestige-footer-contact-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   color: #afb2b8;
   font-size: 15px;
   line-height: 1.5;
@@ -348,5 +350,57 @@ async function subscribe() {
   border-color: #fff !important;
   outline: none;
   box-shadow: 0 0 0 1px #fff;
+}
+
+@media (max-width: 575.98px) {
+  .prestige-dgm-footer :deep(.dgm-footer-area) {
+    padding-top: 70px;
+    padding-bottom: 20px;
+  }
+
+  .dgm-footer-col-1 {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .dgm-footer-logo {
+    text-align: center;
+  }
+
+  .prestige-footer-slogan {
+    margin: 10px auto 0;
+  }
+
+  .dgm-footer-col-2,
+  .dgm-footer-col-3,
+  .dgm-footer-col-4 {
+    padding-inline: 22px;
+  }
+
+  .prestige-footer-contact {
+    align-items: center;
+  }
+
+  .prestige-footer-contact li {
+    width: 100%;
+  }
+
+  .prestige-footer-contact li > a,
+  .prestige-footer-contact-row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .prestige-dgm-footer .dgm-footer-widget-title {
+    margin-bottom: 18px;
+  }
+
+  .prestige-footer-column--newsletter {
+    margin-bottom: 0 !important;
+  }
+
+  .prestige-dgm-footer .tp-copyright-2-left p {
+    margin-bottom: 16px;
+  }
 }
 </style>

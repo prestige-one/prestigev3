@@ -139,10 +139,12 @@ const socialLinks = [
 
 @media (max-width: 767.98px) {
   .prestige-social-rail {
-    top: 52%;
+    top: auto;
+    bottom: max(12px, env(safe-area-inset-bottom));
     width: 44px;
     padding: 8px 5px;
     border-radius: 0 11px 11px 0;
+    transform: none;
   }
 
   .prestige-social-rail__links { gap: 1px; }

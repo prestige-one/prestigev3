@@ -114,4 +114,15 @@ const displaySlides = computed(() =>
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+@media (max-width: 575.98px) {
+  .prestige-developments-area {
+    padding-top: 56px;
+    padding-bottom: 0;
+  }
+
+  .prestige-developments-subtitle {
+    margin-bottom: 26px;
+  }
+}
 </style>

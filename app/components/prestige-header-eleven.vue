@@ -31,7 +31,22 @@
                         </div>
                         <div class="col-xl-3 col-lg-8 col-6">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
-                                <prestige-language-switcher class="prestige-header-lang" />
+                                <prestige-language-switcher class="prestige-header-lang d-none d-sm-block" />
+                                <nuxt-link
+                                    :to="localePath('/contact-us')"
+                                    class="prestige-header-mobile-contact d-sm-none"
+                                >
+                                    {{ $t('nav.getInTouch') }}
+                                </nuxt-link>
+                                <a
+                                    href="https://wa.me/+971523412936"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="prestige-header-mobile-wa d-sm-none"
+                                    aria-label="Contact Prestige One on WhatsApp"
+                                >
+                                    <svg-social-whatsapp-three />
+                                </a>
                                 <div class="tp-header-10-btn-box d-none d-sm-flex">
                                     <div class="prestige-getintouch">
                                         <nuxt-link :to="localePath('/contact-us')" class="prestige-getintouch__text">
@@ -208,6 +223,43 @@ onBeforeUnmount(() => {
   color: #25D366;
 }
 
+.prestige-header-mobile-wa {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  color: #25d366;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.prestige-header-mobile-wa :deep(svg) {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.prestige-header-mobile-contact {
+  display: inline-flex;
+  min-height: 34px;
+  padding: 7px 20px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
 .prestige-header-eleven :deep(.tp-header-10-offcanvas),
 .prestige-header-eleven :deep(.tp-header-bar) {
   display: flex;
@@ -266,6 +318,11 @@ onBeforeUnmount(() => {
   background: rgba(0, 0, 0, 0.07);
 }
 
+.prestige-header-eleven--light .prestige-header-mobile-contact {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #111216;
+}
+
 .prestige-header-eleven--light :deep(.tp-offcanvas-open-btn i) {
   background: #111216 !important;
 }
@@ -282,16 +339,32 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 575.98px) {
+  .prestige-header-eleven > .container {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
   .prestige-header-eleven :deep(.tp-header-10-wrapper) {
     padding: 0 2px !important;
   }
 
   .prestige-header-eleven :deep(.tp-header-10-logo img) {
-    width: min(154px, 100%);
+    width: 160px;
+    max-width: none;
   }
 
   .prestige-header-eleven :deep(.tp-header-10-offcanvas) {
-    margin-left: 12px !important;
+    margin-left: 3px !important;
+  }
+
+  .prestige-header-mobile-wa {
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 374.98px) {
+  .prestige-header-eleven :deep(.tp-header-10-logo img) {
+    width: 150px;
   }
 }
 

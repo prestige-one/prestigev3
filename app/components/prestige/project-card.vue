@@ -176,4 +176,14 @@ const comingSoon = computed(() => props.showComingSoon && props.project.category
 .prestige-pcard:hover .prestige-pcard__arrow {
   transform: translateX(5px);
 }
+
+@media (max-width: 767.98px) {
+  .prestige-pcard__body {
+    text-align: center;
+  }
+
+  .prestige-pcard__description {
+    margin-bottom: 8px;
+  }
+}
 </style>

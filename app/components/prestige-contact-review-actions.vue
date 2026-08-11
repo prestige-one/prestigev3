@@ -120,13 +120,18 @@ const localePath = useLocalePath();
 
 @media (max-width: 575.98px) {
   .prestige-contact-review-actions {
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
   }
 
-  .prestige-contact-review-actions__contact,
+  .prestige-contact-review-actions__contact {
+    width: min(100%, 241px);
+    min-width: 0;
+  }
+
   .prestige-contact-review-actions__rating {
-    width: 100%;
+    width: min(100%, 241px);
+    min-width: 0;
   }
 
   .prestige-contact-review-actions__rating {

@@ -92,4 +92,10 @@ usePrestigePage({ hero: false });
   font-size: 20px;
   line-height: 1.25;
 }
+
+@media (max-width: 767.98px) {
+  :deep(.prestige-blog-listing-hero .prestige-hero-band__title) {
+    font-size: clamp(25px, 7vw, 40px);
+  }
+}
 </style>

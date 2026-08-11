@@ -36,9 +36,6 @@
               </svg>
             </span>
           </div>
-          <div class="prestige-stories__meta">
-            <h3 class="prestige-stories__name">{{ v.name }}</h3>
-          </div>
         </article>
       </div>
     </div>
@@ -149,18 +146,24 @@ function clearPlayingIndex(index: number) {
     transform: translate(-50%, -50%) scale(1.06);
   }
 }
-.prestige-stories__meta { padding: 16px 4px 0; text-align: center; }
-.prestige-stories__name {
-  margin: 0 0 4px;
-  font-size: clamp(16px, 1.4vw, 19px);
-  font-weight: 500;
-  color: #fff;
-}
 @media (max-width: 991.98px) {
   .prestige-stories__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 575.98px) {
-  .prestige-stories__grid { grid-template-columns: minmax(0, 320px); }
+  .prestige-stories {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .prestige-stories__head {
+    margin-bottom: 34px;
+  }
+
+  .prestige-stories__grid { grid-template-columns: minmax(0, 1fr); }
+
+  .prestige-stories__media {
+    aspect-ratio: 4 / 5;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -134,10 +134,11 @@ const principles = computed<PrestigePrinciple[]>(() => [
 }
 
 @media (max-width: 575.98px) {
-  .prestige-home5-work { padding-block: 82px 96px; }
+  .prestige-home5-work { padding-block: 72px 48px; }
   .prestige-home5-work__heading { margin-bottom: 38px; }
   .prestige-home5-work__grid { grid-template-columns: 1fr; gap: 24px; }
-  .prestige-home5-work__content { padding: 18px 2px 4px; }
+  .prestige-home5-work__content { padding: 18px 2px 4px; text-align: center; }
+  .prestige-home5-work__content h3 { margin-bottom: 0; font-size: clamp(20px, 1.45vw, 22px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -47,10 +47,10 @@
               {{ t('ap.hero.headingLine2') }}
             </h2>
             <p
-              class="prestige-about-hero-desc tp_reveal_anim"
+              class="prestige-about-hero-desc tp_fade_anim"
+              data-fade-from="bottom"
               data-delay="0.05"
               data-duration="0.6"
-              data-stagger="0.004"
             >
               {{ t('ap.hero.desc') }}
             </p>
@@ -233,12 +233,23 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 767.98px) {
+  .prestige-about-hero-area {
+    padding-top: 110px;
+    padding-bottom: 48px;
+  }
+
   .prestige-about-hero-row {
-    margin-top: 36px;
+    margin-top: 0;
   }
 
   .prestige-about-hero-heading {
-    font-size: clamp(22px, 6vw, 25px);
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .prestige-about-hero-desc {
+    font-size: 14px;
+    text-wrap: pretty;
   }
 }
 </style>

@@ -3,7 +3,9 @@ import gsap from "gsap";
 export function prestigeHeroAnimation() {
   const mm = gsap.matchMedia();
 
-  mm.add("(min-width: 992px)", () => {
+  // Use one scroll-driven story on every viewport. Responsive differences
+  // belong in the component styles so mobile and desktop stay in sync.
+  mm.add("(min-width: 0px)", () => {
     const hero = document.querySelector(".prestige-hero");
     const intro = document.querySelector(".prestige-hero-content");
     const logo = document.querySelector(".prestige-hero-logo");

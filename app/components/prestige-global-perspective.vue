@@ -67,8 +67,18 @@ const { t } = useI18n();
 
 @media (max-width: 767.98px) {
   .prestige-global-area {
-    padding-top: 100px;
+    padding-top: 45px;
     padding-bottom: 100px;
+  }
+
+  .prestige-global-header {
+    margin-bottom: 28px;
+  }
+
+  .prestige-global-map img {
+    width: 170%;
+    max-width: none;
+    margin-left: -13%;
   }
 }
 </style>

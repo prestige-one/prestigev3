@@ -180,7 +180,7 @@ const developmentsByYear = YEARS.map((block) => ({
 }
 .prestige-devyears-name {
   margin: 0 0 4px;
-  font-size: clamp(15px, 1.2vw, 18px);
+  font-size: clamp(18px, 1.2vw, 18px);
   font-weight: 600;
   letter-spacing: 0.3px;
   color: #fff;
@@ -237,8 +237,8 @@ const developmentsByYear = YEARS.map((block) => ({
 
 @media (max-width: 767.98px) {
   .prestige-devyears-area {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
   .prestige-devyears-block {
     grid-template-columns: 1fr;
@@ -247,9 +247,14 @@ const developmentsByYear = YEARS.map((block) => ({
   }
   .prestige-devyears-year {
     position: static;
+    text-align: center;
   }
   .prestige-devyears-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .prestige-devyears-meta {
+    text-align: center;
   }
 }
 </style>

@@ -156,6 +156,16 @@ const pad = (value: number) => String(value).padStart(2, "0");
   transform: translate(2px, -2px);
 }
 
+.prestige-loc-info__icon,
+.prestige-loc-info__heading span,
+.prestige-loc-info__heading h3,
+.prestige-loc-info__list li,
+.prestige-loc-info__number,
+.prestige-loc-info__name,
+.prestige-loc-info__arrow {
+  color: #fff;
+}
+
 @media (max-width: 767.98px) {
   .prestige-loc-info { grid-template-columns: 1fr; }
   .prestige-loc-info__card { padding: 24px 18px; }

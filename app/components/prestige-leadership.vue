@@ -109,8 +109,8 @@ const leaders = computed<Leader[]>(() => [
 
 @media (max-width: 767.98px) {
   .prestige-leadership-area {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
   .prestige-leadership-grid {
     grid-template-columns: 1fr;

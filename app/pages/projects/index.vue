@@ -233,9 +233,40 @@ usePrestigePage({ hero: false });
 }
 
 @media (max-width: 767.98px) {
+  .prestige-toolbar {
+    justify-content: center;
+  }
   .prestige-search { max-width: none; flex-basis: 100%; }
-  .prestige-dest { margin-left: 0; }
+  .prestige-filter {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .prestige-filter__btn {
+    width: 100%;
+    justify-content: center;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .prestige-dest {
+    width: 100%;
+    margin-left: 0;
+  }
   .prestige-dest__select { width: 100%; }
+  .prestige-dest__select > svg:first-child,
+  .prestige-dest__caret {
+    z-index: 2;
+    pointer-events: none;
+  }
+  .prestige-dest__select select {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 42px;
+    cursor: pointer;
+  }
 }
 .prestige-filter__btn {
   display: inline-flex;

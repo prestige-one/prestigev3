@@ -148,8 +148,8 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
 
 @media (max-width: 767.98px) {
   .prestige-drives-area {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
 
   .prestige-drives-header {
@@ -159,6 +159,14 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   .prestige-drives-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .prestige-drives-content {
+    text-align: center;
+  }
+
+  .prestige-drives-description {
+    margin-inline: auto;
   }
 }
 

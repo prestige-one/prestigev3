@@ -279,8 +279,12 @@ const highlights = computed<PrestigeFounderHighlight[]>(() => [
 }
 
 @media (max-width: 575.98px) {
+  .prestige-founder-area {
+    padding-bottom: 45px;
+  }
+
   .prestige-founder-layout {
-    padding-top: 80px;
+    padding-top: 45px;
   }
 
   .prestige-founder-portrait-panel,
