@@ -97,10 +97,18 @@ const projectBySlug = new Map(menuProjects.map((p) => [p.slug, p]));
 const featuredProjects = FEATURED_SLUGS.map((s) => projectBySlug.get(s)).filter(
   (p): p is NonNullable<typeof p> => Boolean(p),
 );
-const menuDestinations = destinations.filter(
-  (destination) => destination.slug !== "mohammed-bin-rashid-city",
+const FEATURED_DESTINATION_SLUGS = [
+  "dubai-maritime-city",
+  "dubai-islands",
+  "dubai-sports-city",
+  "jumeirah-village-circle",
+  "palm-jumeirah",
+  "barsha-heights",
+];
+const destinationBySlug = new Map(destinations.map((destination) => [destination.slug, destination]));
+const featuredDestinations = FEATURED_DESTINATION_SLUGS.map((slug) => destinationBySlug.get(slug)).filter(
+  (destination): destination is NonNullable<typeof destination> => Boolean(destination),
 );
-const featuredDestinations = menuDestinations.slice(0, 6);
 
 const aboutLinks = [
   { key: "menu.ourStory", to: "/about-us#our-story" },
