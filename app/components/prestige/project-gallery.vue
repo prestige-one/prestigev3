@@ -6,7 +6,7 @@
 
       <div class="prestige-pgallery__grid">
         <button
-          v-for="(image, index) in images"
+          v-for="(image, index) in visibleImages"
           :key="`${image}-${index}`"
           type="button"
           class="prestige-pgallery__tile tp_fade_anim"
@@ -25,6 +25,17 @@
           </span>
         </button>
       </div>
+
+      <button
+        v-if="hasMoreImages"
+        type="button"
+        class="prestige-pgallery__more"
+        :aria-expanded="expanded"
+        @click="expanded = !expanded"
+      >
+        <span>{{ expanded ? 'View less' : 'View more' }}</span>
+        <span class="prestige-pgallery__more-mark" aria-hidden="true">{{ expanded ? '−' : '+' }}</span>
+      </button>
     </div>
 
     <Teleport to="body">
@@ -106,6 +117,7 @@ const props = defineProps<{
 }>();
 
 const isOpen = ref(false);
+const expanded = ref(false);
 const activeIndex = ref(0);
 const closeButton = ref<HTMLButtonElement | null>(null);
 const thumbsTrack = ref<HTMLElement | null>(null);
@@ -114,7 +126,13 @@ let previousHtmlOverflow = "";
 let previousBodyOverflow = "";
 
 const activeImage = computed(() => props.images[activeIndex.value] ?? "");
+const hasMoreImages = computed(() => props.images.length > 4);
+const visibleImages = computed(() => expanded.value ? props.images : props.images.slice(0, 4));
 const pad = (value: number) => String(value).padStart(2, "0");
+
+watch(() => props.images, () => {
+  expanded.value = false;
+});
 
 function openGallery(index: number, event: MouseEvent) {
   activeIndex.value = index;
@@ -236,6 +254,37 @@ onBeforeUnmount(() => {
 .prestige-pgallery__tile:hover .prestige-pgallery__tile-open,
 .prestige-pgallery__tile:focus-visible .prestige-pgallery__tile-open { opacity: 1; transform: translateY(0); }
 .prestige-pgallery__tile:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.prestige-pgallery__more {
+  display: flex;
+  min-width: 154px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 28px auto 0;
+  padding: 10px 20px;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+.prestige-pgallery__more-mark {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+}
+.prestige-pgallery__more:hover,
+.prestige-pgallery__more:focus-visible {
+  border-color: hsla(0, 0%, 100%, 0.52);
+  background: hsla(0, 0%, 100%, 0.06);
+  outline: none;
+}
 
 .prestige-pgallery__lightbox {
   position: fixed;

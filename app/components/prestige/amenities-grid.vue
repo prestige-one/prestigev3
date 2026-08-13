@@ -15,14 +15,24 @@
             class="prestige-amen__item tp_fade_anim"
             :data-delay="0.2 + (i % 4) * 0.07"
           >
-            <prestige-amenity-icon :label="a" :index="i" />
-            <span class="prestige-amen__num">{{ String(i + 1).padStart(2, '0') }}</span>
-            <span class="prestige-amen__label">{{ a }}</span>
-            <span
-              v-if="i < items.length - 1 && (i + 1) % 4 !== 0"
-              class="prestige-amen__connector"
-              aria-hidden="true"
-            />
+            <span class="prestige-amen__media">
+              <NuxtImg
+                v-if="images[i]"
+                class="prestige-amen__image"
+                :src="images[i]"
+                :alt="a"
+                width="240"
+                height="160"
+                sizes="50vw sm:180px lg:220px"
+                format="webp"
+                quality="74"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span class="prestige-amen__copy">
+              <span class="prestige-amen__label">{{ a }}</span>
+            </span>
           </article>
         </div>
       </div>
@@ -32,8 +42,8 @@
 
 <script setup lang="ts">
 withDefaults(
-  defineProps<{ items: string[]; title: string; eyebrow: string; lead?: string; headingClass?: string }>(),
-  { lead: "", headingClass: "" },
+  defineProps<{ items: string[]; images?: string[]; title: string; eyebrow: string; lead?: string; headingClass?: string }>(),
+  { images: () => [], lead: "", headingClass: "" },
 );
 
 </script>
@@ -89,68 +99,65 @@ withDefaults(
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.68);
 }
-.prestige-amen__connector {
-	display: none !important;
-}
 .prestige-amen__grid {
-  --prestige-amen-gap: clamp(14px, 2vw, 30px);
+  --prestige-amen-gap: clamp(12px, 1.4vw, 20px);
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: var(--prestige-amen-gap);
-  row-gap: clamp(48px, 5vw, 72px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--prestige-amen-gap);
 }
 .prestige-amen__item {
   position: relative;
-  display: flex;
-  min-width: 0;
-  min-height: 205px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
-  text-align: center;
+  gap: 0;
+  min-width: 0;
+  min-height: 116px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 10px;
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.035), hsla(0, 0%, 100%, 0.012));
+  text-align: left;
   color: rgba(255, 255, 255, 0.86);
+  transition: border-color 240ms ease, background-color 240ms ease, transform 240ms ease;
 }
-.prestige-amen__item :deep(.prestige-amen-icon) {
-  margin-bottom: 10px;
-}
-.prestige-amen__num {
+.prestige-amen__media {
   display: block;
-  margin-bottom: 11px;
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.92);
-  font-variant-numeric: tabular-nums;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 9px 0 0 9px;
+  background: rgba(255, 255, 255, 0.035);
+}
+.prestige-amen__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.prestige-amen__copy {
+  display: block;
+  min-width: 0;
+  padding: clamp(14px, 1.5vw, 22px);
 }
 .prestige-amen__label {
   display: block;
-  max-width: 190px;
-  font-size: clamp(14px, 1.12vw, 17px);
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.88);
+  max-width: 180px;
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
 }
-.prestige-amen__connector {
-  position: absolute;
-  top: 98px;
-  left: calc(50% + 44px);
-  width: calc(100% + var(--prestige-amen-gap) - 88px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 22%, rgba(255, 255, 255, 0.3) 78%, transparent 100%);
-}
-.prestige-amen__connector::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  content: "";
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 4px #fff, 0 0 12px rgba(255, 255, 255, 0.9);
-  transform: translate(-50%, -50%);
-}
-.prestige-amen-icon {
-	width: 65px;
-	height: 65px;
+@media (hover: hover) and (pointer: fine) {
+  .prestige-amen__item:hover {
+    border-color: hsla(0, 0%, 100%, 0.18);
+    background: hsla(0, 0%, 100%, 0.045);
+    transform: translateY(-2px);
+  }
+  .prestige-amen__item:hover .prestige-amen__image {
+    transform: scale(1.045);
+  }
 }
 @media (max-width: 1199.98px) {
   .prestige-amen__layout {
@@ -169,18 +176,16 @@ withDefaults(
     padding: 82px 0;
   }
   .prestige-amen__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 38px 18px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .prestige-amen__item {
-    min-height: 185px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 96px;
+    padding: 0;
   }
-  .prestige-amen__connector {
-    display: none;
-  }
-  .prestige-amen__item :deep(.prestige-amen-icon) {
-    width: 68px;
-    height: 68px;
+  .prestige-amen__label {
+    max-width: none;
   }
 }
 </style>

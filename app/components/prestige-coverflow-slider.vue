@@ -9,7 +9,13 @@
               <div class="swiper-wrapper">
                 <div v-for="item in loopSlides" :key="item.id" class="swiper-slide">
                   <div class="coverflow-slider-item">
-                    <img :src="item.image" :alt="item.title">
+                    <img
+                      :src="item.image"
+                      :alt="item.title"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    >
                   </div>
                 </div>
               </div>
@@ -93,25 +99,25 @@ const props = withDefaults(
 
 const sliderRoot = ref<HTMLElement | null>(null);
 
-// Swiper's loop mode needs roughly twice as many slides as can be visible
-// at once to loop reliably (the demo used 11 for the same reason) -
-// duplicate the real project list enough times to clear that. Bumped up
-// from 8 to cover ultra-wide viewports too: slide width is now a fixed
-// px value (see .coverflow-slider-active .swiper-slide below) rather than
-// container-width ÷ slidesPerView, so a very wide screen can fit more
-// slides at once than the old 4-per-view cap ever allowed. Skipped
-// entirely when loop is off (e.g. the commercial section only has 2 real
-// projects, so it just shows those 2 as-is rather than padding them out).
-const MIN_LOOP_SLIDES = 14;
-const CAPTION_FADE_MS = 1200;
+// Swiper needs enough slides around the active card for a seamless loop.
+// Only short collections are padded; the full catalogue is already long
+// enough and duplicating it would decode and paint unnecessary images.
+const MIN_LOOP_SLIDES = 10;
+const SLIDE_SPEED_MS = 850;
+const CAPTION_FADE_MS = 400;
 const loopSlides = computed(() => {
   const base = props.slides;
-  if (!props.loop) return base;
-  const repeatCount = Math.max(2, Math.ceil(MIN_LOOP_SLIDES / base.length));
+  if (!props.loop || !base.length) return base;
+  const repeatCount = Math.max(1, Math.ceil(MIN_LOOP_SLIDES / base.length));
   return Array.from({ length: repeatCount })
     .flatMap(() => base)
     .map((item, index) => ({ ...item, id: `${item.id}-${index + 1}` }));
 });
+
+let coverflowThumbSlider: Swiper | null = null;
+let coverflowTextSlider: Swiper | null = null;
+let visibilityObserver: IntersectionObserver | null = null;
+let visibilityHandler: (() => void) | null = null;
 
 onMounted(() => {
   // This component can appear more than once on a page (residential +
@@ -137,15 +143,22 @@ onMounted(() => {
   // slidesPerView number. Fixed pixel widths make every slider's cards
   // the same size everywhere, independent of both slide count and
   // container width.
-  const coverflowThumbSlider = new Swiper(thumbEl, {
+  const thumbSlider = new Swiper(thumbEl, {
     loop: props.loop,
     effect: "coverflow",
     modules: [Navigation, EffectCoverflow, Autoplay, Keyboard],
-    speed: 1500,
+    speed: SLIDE_SPEED_MS,
     slidesPerView: "auto",
     spaceBetween: 0,
     centeredSlides: true,
     grabCursor: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
     keyboard: {
       enabled: true,
     },
@@ -153,6 +166,7 @@ onMounted(() => {
       ? {
           delay: 2500,
           disableOnInteraction: false,
+          waitForTransition: true,
         }
       : false,
     navigation: {
@@ -167,7 +181,7 @@ onMounted(() => {
   // absolutely-positioned wrapper it made Swiper miscompute slide height
   // as 6000px - a known-flaky combo. A fixed height sized generously for
   // the tallest caption is far more predictable.)
-  const coverflowTextSlider = new Swiper(textEl, {
+  const textSlider = new Swiper(textEl, {
     modules: [Keyboard, EffectFade],
     slidesPerView: 1,
     effect: "fade",
@@ -187,13 +201,55 @@ onMounted(() => {
   // caption stuck on whichever slide happened to sit under the initial
   // progress value. Driving it by realIndex instead stays correct at
   // every breakpoint.
-  coverflowThumbSlider.on("slideChange", () => {
+  thumbSlider.on("slideChange", () => {
     if (props.loop) {
-      coverflowTextSlider.slideToLoop(coverflowThumbSlider.realIndex, CAPTION_FADE_MS);
+      textSlider.slideToLoop(thumbSlider.realIndex, CAPTION_FADE_MS);
     } else {
-      coverflowTextSlider.slideTo(coverflowThumbSlider.activeIndex, CAPTION_FADE_MS);
+      textSlider.slideTo(thumbSlider.activeIndex, CAPTION_FADE_MS);
     }
   });
+
+  coverflowThumbSlider = thumbSlider;
+  coverflowTextSlider = textSlider;
+
+  // Only run the 3D autoplay while this slider is near the viewport. The
+  // homepage contains two coverflows, so animating both at once wastes paint
+  // and GPU work without changing anything the visitor can currently see.
+  if (props.autoplay && "IntersectionObserver" in window) {
+    const syncAutoplay = (isVisible: boolean) => {
+      if (thumbSlider.destroyed) return;
+
+      if (isVisible && !document.hidden) {
+        thumbSlider.autoplay.start();
+      } else {
+        thumbSlider.autoplay.stop();
+      }
+    };
+
+    thumbSlider.autoplay.stop();
+    visibilityObserver = new IntersectionObserver(
+      ([entry]) => syncAutoplay(Boolean(entry?.isIntersecting)),
+      { rootMargin: "120px 0px", threshold: 0.08 },
+    );
+    visibilityObserver.observe(root);
+
+    visibilityHandler = () => {
+      const rect = root.getBoundingClientRect();
+      syncAutoplay(rect.bottom >= -120 && rect.top <= window.innerHeight + 120);
+    };
+    document.addEventListener("visibilitychange", visibilityHandler, { passive: true });
+  }
+});
+
+onBeforeUnmount(() => {
+  visibilityObserver?.disconnect();
+  if (visibilityHandler) document.removeEventListener("visibilitychange", visibilityHandler);
+  coverflowTextSlider?.destroy(true, true);
+  coverflowThumbSlider?.destroy(true, true);
+  visibilityObserver = null;
+  visibilityHandler = null;
+  coverflowTextSlider = null;
+  coverflowThumbSlider = null;
 });
 </script>
 
@@ -232,6 +288,13 @@ onMounted(() => {
    tilt still has a little breathing room and doesn't clip. */
 .coverflow-slider-active {
   padding: 20px 0;
+  contain: layout paint;
+}
+
+.coverflow-slider-active .swiper-wrapper,
+.coverflow-slider-active .swiper-slide {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* fixed slide width for the image (thumb) swiper only - paired with

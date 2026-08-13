@@ -65,10 +65,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 70px;
-  /* the left column (heading + map) is naturally shorter than the form
-     card - center them against each other instead of top-aligning, so the
-     shorter side doesn't just leave dead space below it. */
-  align-items: center;
+  align-items: stretch;
 }
 
 /* ---- left column ---- */
@@ -76,6 +73,16 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 .prestige-contact-left {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+.prestige-contact-right {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+}
+.prestige-contact-right .prestige-contact-form-card {
+  height: 100%;
 }
 .prestige-contact-form-field label {
   text-align: left;
@@ -93,8 +100,9 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 
 .prestige-contact-map-box {
   position: relative;
+  flex: 1 1 auto;
   width: 100%;
-  height: 360px;
+  min-height: 360px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -135,6 +143,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
 
 .prestige-contact-form-card {
   position: relative;
+  width: 100%;
   padding: 28px 56px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -172,7 +181,15 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   }
 
   .prestige-contact-map-box {
+    flex: none;
     height: 300px;
+    min-height: 0;
+  }
+
+  .prestige-contact-left,
+  .prestige-contact-right,
+  .prestige-contact-form-card {
+    height: auto;
   }
 }
 

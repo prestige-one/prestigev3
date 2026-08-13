@@ -471,8 +471,8 @@ export const destinations: Destination[] = [
       "Bus routes and pedestrian-friendly streets throughout",
       "13 minutes to Dubai International Airport",
     ],
-    education: ["Al Shorouq Private School", "Wasl School", "Al Ittihad Private School"],
-    healthcare: ["Iranian Hospital, Al Satwa", "Medcare Hospital Al Safa", "Aster Clinic, Emirates Towers"],
+    education: ["Jumeira Baccalaureate School", "Horizon English School", "Jumeirah English Speaking School"],
+    healthcare: ["Aster Clinic, Emirates Towers", "Medcare Hospital Al Safa", "Iranian Hospital, Al Satwa"],
     worship: ["Satwa Grand Mosque", "Khadri Mosque", "Obai Bin Kaab Mosque"],
     investment: [
       "Prime central location between Downtown, DIFC and Jumeirah",

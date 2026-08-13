@@ -50,12 +50,15 @@ export interface Project {
   highlights: string[];
   specs: ProjectSpec[];
   amenities: string[];
+  amenityImages: string[];
   paymentPlan: PaymentMilestone[];
   connectivity: string[];
   nearby: ProjectPOI[];
   schools: string[];
   hospitals: string[];
   documents: string[];
+  closingTitle?: string;
+  closingImage?: string;
   video: string;
 }
 
@@ -68,16 +71,22 @@ interface ProjectEnrichment {
   highlights?: string[];
   specs?: ProjectSpec[];
   amenities?: string[];
+  amenityImages?: string[];
   paymentPlan?: PaymentMilestone[];
   connectivity?: string[];
   nearby?: ProjectPOI[];
   schools?: string[];
   hospitals?: string[];
   documents?: string[];
+  closingTitle?: string;
+  closingImage?: string;
 }
 
 interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
   category: ProjectCategory;
+  brand?: string;
+  configuration?: string;
+  unitTypes?: string;
 }
 
 // Sensible, brand-plausible defaults so every project detail page reads as a
@@ -122,9 +131,12 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     id: "fauchon-residences",
     image: "/assets/project-featured-images/sliders/fauchon.webp",
     title: "FAUCHON Résidences by Prestige One",
-    location: "Jumeirah Garden City",
+    location: "Jumeirah Garden City, Dubai",
     description: "Parisian-inspired living with the iconic FAUCHON lifestyle.",
     category: "residential",
+    brand: "FAUCHON Paris",
+    configuration: "G+2P+8+R",
+    unitTypes: "Studio, 1-Bedroom,\n2-Bedroom, 3-Bedroom",
   },
   {
     id: "sanctuary-residences",
@@ -133,6 +145,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Meydan Horizon",
     description: "Panoramic lagoon views overlooking Ras Al Khor Wildlife Sanctuary.",
     category: "residential",
+    configuration: "B+G+2P+20+R",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "sanctuary-hive",
@@ -149,6 +163,9 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Maritime City",
     description: "Waterfront living inspired by the Hilton way of life.",
     category: "residential",
+    brand: "Hilton",
+    configuration: "G+2P+33+R",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom, Penthouses",
   },
   {
     id: "berkeley-square-north",
@@ -157,6 +174,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Jumeirah Village Circle",
     description: "Timeless architecture inspired by London living.",
     category: "residential",
+    configuration: "2B+G+5+Roof",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "berkeley-square-south",
@@ -165,6 +184,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Jumeirah Village Circle",
     description: "Where open spaces shape everyday living.",
     category: "residential",
+    configuration: "2B+G+5+Roof",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "luxury-canal-residences",
@@ -173,6 +194,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Islands",
     description: "Waterfront living inspired by the rhythm of Dubai Islands.",
     category: "residential",
+    configuration: "G+2P+12",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom, Penthouse",
   },
   {
     id: "coastal-haven",
@@ -181,6 +204,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Islands",
     description: "Coastal living with breathtaking Gulf views.",
     category: "residential",
+    configuration: "G+2P+12",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom, Penthouse",
   },
   {
     id: "the-boulevard",
@@ -189,6 +214,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "DLRC",
     description: "Bold urban living for modern lifestyles.",
     category: "residential",
+    configuration: "G+2P+16+R",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom",
   },
   {
     id: "parkway",
@@ -197,6 +224,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Meydan Horizon",
     description: "Nature-inspired living designed for balance.",
     category: "residential",
+    configuration: "G+4P+30",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "golf-residences",
@@ -205,6 +234,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Sports City",
     description: "Uninterrupted golf course views, every day.",
     category: "residential",
+    configuration: "G+3P+19+R",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "the-one",
@@ -213,6 +244,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Barsha Heights",
     description: "A commercial hub within a striking G+14 development.",
     category: "commercial",
+    configuration: "3B+G+14+R",
   },
   {
     id: "seaside",
@@ -221,6 +253,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Islands",
     description: "A peaceful waterfront retreat.",
     category: "residential",
+    configuration: "G+2P+10",
+    unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "waterway",
@@ -229,6 +263,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Meydan Horizon",
     description: "Serene living inspired by the water.",
     category: "residential",
+    configuration: "G+3P+16+R",
+    unitTypes: "1-Bedroom, 2-Bedroom",
   },
   {
     id: "vista",
@@ -237,6 +273,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Sports City",
     description: "Contemporary residences designed around panoramic views.",
     category: "residential",
+    configuration: "G+2P+14+R",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "the-residence",
@@ -245,6 +283,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Jumeirah Village Circle",
     description: "Boutique living with thoughtful design.",
     category: "residential",
+    configuration: "G+5",
+    unitTypes: "Studio, 1-Bedroom, 2-Bedroom",
   },
   {
     id: "luxe-villa",
@@ -253,6 +293,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Palm Jumeirah",
     description: "Private villa living with timeless elegance.",
     category: "residential",
+    configuration: "G+2",
+    unitTypes: "Villa",
   },
   {
     id: "seascape-villa",
@@ -269,6 +311,8 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Palm Jumeirah",
     description: "Exclusive living, designed for privacy.",
     category: "residential",
+    configuration: "G+2",
+    unitTypes: "Villa",
   },
   {
     id: "vista-hub",
@@ -349,12 +393,6 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Infinity skyline pool, outdoor cinema and resort amenities",
       "One- and two-bedroom apartments plus signature duplexes",
     ],
-    specs: [
-      { label: "Type", value: "Branded Residences" },
-      { label: "Location", value: "Dubai Maritime City" },
-      { label: "Configurations", value: "1 & 2 Bed · Duplexes" },
-      { label: "Status", value: "Now Selling" },
-    ],
     amenities: [
       "Infinity skyline pool",
       "Outdoor cinema",
@@ -376,6 +414,8 @@ const enrichment: Record<string, ProjectEnrichment> = {
     status: "Now Selling",
     hero: `${V2}/fauchon/fauchon-banner.webp`,
     introImage: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
+    closingTitle: "Live the FAUCHON art de vivre",
+    closingImage: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
     gallery: [
       `${V2}/fauchon/fauchon-banner.webp`,
       `${V2}/fauchon/fauchon-day-view.webp`,
@@ -386,15 +426,9 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "From curated interiors to signature gastronomy, life at FAUCHON is designed around comfort, character and everyday luxury.",
     ],
     highlights: [
-      "The first FAUCHON branded residences in the region",
-      "Parisian art-de-vivre interiors and services",
+      "The first FAUCHON branded residences in the world.",
+      "Parisian art-de-vivre life-styles and interiors.",
       "Signature FAUCHON gastronomy on your doorstep",
-    ],
-    specs: [
-      { label: "Type", value: "Branded Residences" },
-      { label: "Location", value: "Dubai" },
-      { label: "Brand", value: "FAUCHON Paris" },
-      { label: "Status", value: "Now Selling" },
     ],
   },
   "sanctuary-residences-by-prestige-one": {
@@ -593,6 +627,30 @@ const galleryData: Record<string, string[]> = {
   ]),
 };
 
+const AMENITY_RENDER_PATTERNS: Array<[RegExp, RegExp]> = [
+  [/pool|swim|spa/i, /pool|spa|oasis/i],
+  [/fitness|gym/i, /fitness|gym/i],
+  [/garden|landscap|podium/i, /garden|terrace|podium|landscap/i],
+  [/concierge|security|reception/i, /reception|lobby|entrance|arrival/i],
+  [/parking|garage/i, /parking|garage|building|exterior/i],
+  [/play|children|kids/i, /kids|play|multipurpose/i],
+  [/lounge|co-working|coworking/i, /residents-lounge|lounge|majlis/i],
+  [/retail|dining|shop/i, /dining|rooftop|retail|kitchen/i],
+  [/cinema|theatre|theater/i, /cinema|theatre|theater/i],
+  [/running|jogging|track/i, /outdoor|gym|exterior/i],
+  [/sports|court|padel|tennis/i, /sports|court|gym|exterior/i],
+  [/bbq|barbecue|grill/i, /bbq|grill|rooftop|dining/i],
+];
+
+function resolveAmenityImages(amenities: string[], gallery: string[]): string[] {
+  if (!gallery.length) return [];
+
+  return amenities.map((amenity, index) => {
+    const pattern = AMENITY_RENDER_PATTERNS.find(([labelPattern]) => labelPattern.test(amenity))?.[1];
+    return gallery.find((image) => pattern?.test(image)) ?? gallery[index % gallery.length]!;
+  });
+}
+
 function toProject(slide: ProjectSource): Project {
   const { category } = slide;
   const slug = slugify(slide.title);
@@ -600,6 +658,8 @@ function toProject(slide: ProjectSource): Project {
   // real gallery (from copied renders) drives both the gallery and the cover
   const realGallery = galleryData[slug];
   const hero = realGallery ? realGallery[0]! : (e.hero ?? slide.image);
+  const projectGallery = realGallery ?? e.gallery ?? [hero];
+  const amenities = e.amenities ?? DEFAULT_AMENITIES;
   return {
     slug,
     title: slide.title,
@@ -611,7 +671,7 @@ function toProject(slide: ProjectSource): Project {
     image: slide.image,
     hero,
     introImage: e.introImage,
-    gallery: realGallery ?? e.gallery ?? [hero],
+    gallery: projectGallery,
     overview:
       e.overview ?? [
         slide.description,
@@ -627,18 +687,21 @@ function toProject(slide: ProjectSource): Project {
       ],
     specs:
       e.specs ?? [
-        { label: "Type", value: category === "commercial" ? "Commercial" : category === "upcoming" ? "Upcoming" : "Residential" },
         { label: "Location", value: slide.location },
-        { label: "Developer", value: "Prestige One" },
-        { label: "Status", value: e.status ?? CATEGORY_DEFAULT_STATUS[category] },
+        { label: "Brand", value: slide.brand ?? "Prestige One" },
+        { label: "Configuration", value: slide.configuration ?? "Contact for Details" },
+        { label: "Unit Types", value: slide.unitTypes ?? "Contact for Details" },
       ],
-    amenities: e.amenities ?? DEFAULT_AMENITIES,
+    amenities,
+    amenityImages: e.amenityImages ?? resolveAmenityImages(amenities, projectGallery),
     paymentPlan: e.paymentPlan ?? DEFAULT_PAYMENT_PLAN,
     connectivity: e.connectivity ?? [],
     nearby: e.nearby ?? [],
     schools: e.schools ?? [],
     hospitals: e.hospitals ?? [],
     documents: e.documents ?? DEFAULT_DOCUMENTS,
+    closingTitle: e.closingTitle,
+    closingImage: e.closingImage,
     video: PROJECT_HERO_VIDEO_BY_ID[slide.id] ?? `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
   };
 }

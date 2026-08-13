@@ -31,7 +31,10 @@
                         </div>
                         <div class="col-xl-3 col-lg-8 col-6">
                             <div class="tp-header-10-right d-flex align-items-center justify-content-end">
-                                <prestige-language-switcher class="prestige-header-lang d-none d-sm-block" />
+                                <prestige-language-switcher
+                                    v-if="showLanguageSwitcher"
+                                    class="prestige-header-lang d-none d-sm-block"
+                                />
                                 <nuxt-link
                                     :to="localePath('/contact-us')"
                                     class="prestige-header-mobile-contact d-sm-none"
@@ -87,6 +90,8 @@
 
 <script setup lang="ts">
 const openMobileOffcanvas = ref(false);
+// Temporary header setting: switch back to true to restore language selection.
+const showLanguageSwitcher = false;
 const localePath = useLocalePath();
 const route = useRoute();
 const headerRoot = ref<HTMLElement | null>(null);

@@ -40,12 +40,12 @@ const principles = computed<PrestigePrinciple[]>(() => [
   {
     title: t("hp.whyUs.item1Title"),
     description: t("hp.whyUs.item1Desc"),
-    image: "/assets/images/v3/prestige-one-where-opportunity-grows.webp",
+    image: "/assets/images/v3/Where-Opportunity-Grows.webp",
   },
   {
     title: t("hp.whyUs.item2Title"),
     description: t("hp.whyUs.item2Desc"),
-    image: "/assets/images/v3/Designed-Around-Life-5.webp",
+    image: "/assets/images/v3/Designed-Around-Life-8.webp",
   },
   {
     title: t("hp.whyUs.item3Title"),

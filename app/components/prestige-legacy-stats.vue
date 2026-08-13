@@ -14,7 +14,7 @@
 
       <figure class="prestige-legacy-artwork anim-zoomin">
         <img
-          src="/assets/images/v3/60yrs-2.webp"
+          src="/assets/images/v3/60yrs-plus.webp"
           width="560"
           height="700"
           alt="60 years of group business legacy"
@@ -67,7 +67,7 @@ interface LegacyStat {
 const { t } = useI18n();
 
 const legacyStats = computed<LegacyStat[]>(() => [
-  { id: 1, value: 19, unit: t("ap.legacy.yearsSuffix").trim(), label: t("ap.legacy.stat2") },
+  { id: 1, value: 20, unit: t("ap.legacy.yearsSuffix").trim(), label: t("ap.legacy.stat2") },
   { id: 2, value: 32, suffix: "+", label: t("ap.legacy.stat3") },
   { id: 3, value: 3500, suffix: "+", label: t("ap.legacy.stat4"), thousands: true },
   { id: 4, value: 21, suffix: "+", label: t("ap.legacy.stat5") },

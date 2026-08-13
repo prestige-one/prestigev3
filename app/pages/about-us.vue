@@ -87,8 +87,8 @@ watch(
 useSeoMeta({
   title: "About Us - Prestige One Developments",
   ogTitle: "About Us - Prestige One Developments",
-  description: "Nearly 60 years as a business group and 19 years shaping Dubai real estate - learn about Prestige One Developments' story, legacy, and credibility.",
-  ogDescription: "Nearly 60 years as a business group and 19 years shaping Dubai real estate - learn about Prestige One Developments' story, legacy, and credibility.",
+  description: "Nearly 60 years as a business group and 20 years shaping Dubai real estate - learn about Prestige One Developments' story, legacy, and credibility.",
+  ogDescription: "Nearly 60 years as a business group and 20 years shaping Dubai real estate - learn about Prestige One Developments' story, legacy, and credibility.",
   ogImage: "/assets/images/v3/prestigeone_logo_oneline_dark-hr.svg",
   twitterCard: "summary_large_image",
 });

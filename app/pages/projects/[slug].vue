@@ -22,10 +22,16 @@
             <!-- 1 · quick facts -->
             <section class="prestige-section--tight prestige-detail__facts">
               <div class="container container-1430">
-                <div class="row">
-                  <div v-for="spec in project.specs" :key="spec.label" class="col-lg-3 col-6 mb-20">
-                    <span class="prestige-detail__fact-label">{{ spec.label }}</span>
-                    <span class="prestige-detail__fact-value">{{ spec.value }}</span>
+                <div class="prestige-detail__facts-grid">
+                  <div v-for="spec in project.specs" :key="spec.label" class="prestige-detail__fact">
+                    <prestige-project-fact-icon :name="spec.label" />
+                    <span class="prestige-detail__fact-copy">
+                      <span class="prestige-detail__fact-label">{{ spec.label }}</span>
+                      <span
+                        class="prestige-detail__fact-value"
+                        :class="{ 'prestige-detail__fact-value--fixed-lines': spec.value.includes('\n') }"
+                      >{{ spec.value }}</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -49,6 +55,7 @@
               heading-class="prestige-detail__amenities-heading"
               :lead="t('pp.detail.amenities.lead')"
               :items="amenities"
+              :images="project.amenityImages"
             />
 
             <!-- 4 · gallery -->
@@ -146,9 +153,9 @@
             <!-- 10 · CTA + contact -->
             <prestige-cta-band
               :eyebrow="t('pp.detail.closing.eyebrow')"
-              :title="t('pp.detail.closing.title', { name: shortName })"
+              :title="project.closingTitle || t('pp.detail.closing.title', { name: shortName })"
               :text="t('pp.detail.closing.text')"
-              :image="project.hero"
+              :image="project.closingImage || project.hero"
               :primary-label="t('pp.detail.closing.primary')"
               :primary-to="localePath('/contact-us')"
               :secondary-label="t('pp.detail.closing.secondary')"
@@ -424,28 +431,59 @@ function requestDocument(doc: { raw: string; label: string }) {
   color: #fff;
 }
 .prestige-detail__facts {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding: 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+  background: #0e0e12;
+}
+.prestige-detail__facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  background: #0e0e12;
+}
+.prestige-detail__fact {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 110px;
+  min-width: 0;
+  padding: 12px clamp(18px, 2vw, 30px);
+  border-right: 1px solid hsla(0, 0%, 100%, 0.08);
+}
+.prestige-detail__fact:last-child {
+  border-right: 0;
+}
+.prestige-detail__fact-copy {
+  display: block;
+  min-width: 0;
 }
 .prestige-detail__loc {
   background: #000;
 }
 .prestige-detail__fact-label {
   display: block;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  margin-bottom: 7px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 8px;
 }
 .prestige-detail__fact-value {
   display: block;
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(18px, 2.2vw, 20px);
+  font-size: clamp(16px, 1.35vw, 17px);
+  font-weight: 500;
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.32;
+  white-space: pre-line;
+  text-wrap: balance;
+}
+.prestige-detail__fact-value--fixed-lines {
+  white-space: pre;
 }
 .prestige-detail__plan {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -498,6 +536,26 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 .prestige-detail__docget i { font-style: normal; }
 
+@media (max-width: 991.98px) {
+  .prestige-detail__facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prestige-detail__fact {
+    border-right: 1px solid hsla(0, 0%, 100%, 0.08);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+  }
+
+  .prestige-detail__fact:nth-child(even) {
+    border-right: 0;
+  }
+
+  .prestige-detail__fact:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+}
+
 @media (max-width: 575.98px) {
   :deep(.prestige-project-detail-hero .prestige-hero-band__inner) {
     padding-right: 24px;
@@ -522,13 +580,35 @@ function requestDocument(doc: { raw: string; label: string }) {
     padding-bottom: 0;
   }
 
-  .prestige-detail__facts .row {
-    justify-content: center;
-    text-align: center;
+  .prestige-detail__facts-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .prestige-detail__fact {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 13px;
+    min-height: 92px;
+    padding: 20px;
+    border-right: 0;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+  }
+
+  .prestige-detail__fact :deep(.prestige-project-fact-icon) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .prestige-detail__fact:nth-last-child(2) {
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+  }
+
+  .prestige-detail__fact:last-child {
+    border-bottom: 0;
   }
 
   .prestige-detail__fact-value {
-    font-size: 20px;
+    font-size: clamp(16px, 1.35vw, 17px);
   }
 
   :deep(.prestige-heading),

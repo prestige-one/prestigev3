@@ -38,10 +38,7 @@
               </nuxt-link>
             </li>
           </ul>
-          <div class="lnv__project-actions">
-            <nuxt-link :to="localePath('/projects')" class="lnv__viewall" @click="close">{{ $t('cta.viewAllProjects') }} →</nuxt-link>
-            <nuxt-link :to="localePath('/project-locations')" class="lnv__maplink" @click="close">Project locations</nuxt-link>
-          </div>
+          <nuxt-link :to="localePath('/projects')" class="lnv__viewall" @click="close">{{ $t('cta.viewAllProjects') }} →</nuxt-link>
         </div>
       </li>
 
@@ -312,17 +309,4 @@ onBeforeUnmount(cancelClose);
   transition: background 0.25s ease, color 0.25s ease;
 }
 .lnv__viewall:hover { background: var(--tp-common-gold, #ffffff); color: #0b0b0d; }
-.lnv__project-actions { display: grid; grid-template-columns: 1fr auto; gap: 7px; align-items: center; }
-.lnv__project-actions .lnv__viewall { margin-right: 0; }
-.lnv__maplink {
-  display: block;
-  margin: 8px 6px 4px 0;
-  padding: 11px 12px;
-  border-radius: 10px;
-  font-size: 11px;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.05);
-}
-.lnv__maplink:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
 </style>
