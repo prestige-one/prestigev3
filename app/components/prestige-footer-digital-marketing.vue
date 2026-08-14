@@ -130,8 +130,11 @@
 </template>
 
 <script setup lang="ts">
+import { submitPrestigeForm } from "~/utils/prestige-form-submission";
+
 const { t } = useI18n();
 const router = useRouter();
+const { getSubmissionContext } = usePrestigeSubmissionContext();
 
 const newsletterEmail = ref("");
 const newsletterStatus = ref<"idle" | "submitting" | "success" | "error">("idle");
@@ -170,9 +173,10 @@ async function subscribe() {
   newsletterStatus.value = "submitting";
   newsletterMsg.value = "";
   try {
-    const res = await $fetch<{ ok: boolean; message: string }>("/api/newsletter", {
-      method: "POST",
-      body: { email: newsletterEmail.value },
+    const res = await submitPrestigeForm("/api/newsletter", {
+        email: newsletterEmail.value,
+        submissionSource: "footer_newsletter",
+        ...getSubmissionContext(),
     });
     newsletterStatus.value = "success";
     newsletterMsg.value = res.message;

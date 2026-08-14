@@ -38,10 +38,8 @@
                   <div class="csr-quote__portrait">
                     <img src="/assets/images/v3/Ajmal-CEO-short-new-740x850-1.webp" alt="Mr. Ajmal Saifi">
                   </div>
-                  <div class="csr-quote__content">
-                    <blockquote>“When you’re in a position to change lives, giving isn’t generosity — it’s duty.”</blockquote>
-                    <figcaption><strong>Mr. Ajmal Saifi</strong><span>Founder & CEO, Prestige One</span></figcaption>
-                  </div>
+                  <blockquote>“When you’re in a position to change lives, giving isn’t generosity — it’s duty.”</blockquote>
+                  <figcaption><strong>Mr. Ajmal Saifi</strong><span>Founder & CEO, Prestige One</span></figcaption>
                 </figure>
               </div>
             </section>
@@ -118,15 +116,15 @@ usePrestigePage({ hero: false });
 .csr-mission h3,.csr-program h3 { margin: 0 0 9px; color: #fff; font-size: 20px; }
 .csr-mission p,.csr-program p { margin: 0; color: rgba(255,255,255,.62); line-height: 1.6; }
 .csr-quote { padding: 0 0 48px; }
-.csr-quote__card { display: grid; max-width: 880px; grid-template-columns: 170px minmax(0,1fr); align-items: center; gap: clamp(24px,3.5vw,42px); margin: 0 auto; padding: 24px; border: 1px solid rgba(255,255,255,.12); background: #141416; color: #fff; }
-.csr-quote__portrait { width: 170px; height: 190px; overflow: hidden; background: #1b1b1d; }
+.csr-quote__card { display: grid; max-width: 880px; grid-template-areas: "portrait quote" "portrait caption"; grid-template-columns: 170px minmax(0,1fr); align-items: center; column-gap: clamp(24px,3.5vw,42px); margin: 0 auto; padding: 24px; border: 1px solid rgba(255,255,255,.12); background: #141416; color: #fff; }
+.csr-quote__portrait { grid-area: portrait; width: 170px; height: 190px; overflow: hidden; background: #1b1b1d; }
 .csr-quote img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(1); }
-.csr-quote blockquote { max-width: 580px; margin: 0 0 16px; color: #fff; font-size: clamp(19px,2vw,26px); line-height: 1.3; }
-.csr-quote figcaption { display: flex; flex-direction: column; gap: 2px; }.csr-quote figcaption strong { font-size: 14px; }.csr-quote figcaption span { color: rgba(255,255,255,.55); font-size: 12px; }
+.csr-quote blockquote { grid-area: quote; align-self: end; max-width: 580px; margin: 0 0 16px; color: #fff; font-size: clamp(19px,2vw,26px); line-height: 1.3; }
+.csr-quote figcaption { display: flex; grid-area: caption; align-self: start; flex-direction: column; gap: 2px; }.csr-quote figcaption strong { font-size: 14px; }.csr-quote figcaption span { color: rgba(255,255,255,.55); font-size: 12px; }
 .csr-programs { padding-top: 72px; padding-bottom: 78px; }
 .csr-programs__head { max-width: 680px; margin-bottom: 32px; }
 .csr-programs__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
 .csr-program { position: relative; min-height: 195px; padding: 26px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(145deg,#171719,#101012); }
 .csr-program__number { display: block; margin-bottom: 25px; color: rgba(255,255,255,.45); font-size: 12px; letter-spacing: .15em; }
-@media (max-width: 767px) { .csr-intro__grid,.csr-programs__grid { grid-template-columns: 1fr; } .csr-quote__card { grid-template-columns: 105px minmax(0,1fr); gap: 16px; padding: 16px; } .csr-quote__portrait { width: 105px; height: 130px; } .csr-quote blockquote { margin-bottom: 12px; font-size: 17px; } .csr-program { min-height: auto; } }
+@media (max-width: 767px) { .csr-intro__grid,.csr-programs__grid { grid-template-columns: 1fr; } .csr-quote__card { grid-template-columns: 105px minmax(0,1fr); column-gap: 16px; padding: 16px; } .csr-quote__portrait { width: 105px; height: 130px; } .csr-quote blockquote { margin-bottom: 12px; font-size: 17px; } .csr-program { min-height: auto; } }
 </style>

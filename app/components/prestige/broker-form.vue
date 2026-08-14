@@ -23,11 +23,7 @@
         <div class="tp-contact-form-input mb-20">
           <label>{{ t('sh.form.phoneNumber') }}</label>
           <div class="prestige-phone-field">
-            <select v-model="form.phoneCountry" name="phone_country" class="prestige-phone-code">
-              <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
-                {{ getFlagEmoji(country.iso2) }} {{ country.dial }}
-              </option>
-            </select>
+            <form-country-phone-select v-model="form.phoneCountry" />
             <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number">
           </div>
         </div>
@@ -75,8 +71,10 @@
 
 <script setup lang="ts">
 import { countries, getFlagEmoji } from "~/data/countries-data";
+import { submitPrestigeForm } from "~/utils/prestige-form-submission";
 
 const { t } = useI18n();
+const { getSubmissionContext } = usePrestigeSubmissionContext();
 
 interface BrokerForm {
   name: string;
@@ -107,6 +105,7 @@ const form = reactive<BrokerForm>({
 
 const submitting = ref(false);
 const status = ref<FormStatus | null>(null);
+const dialFor = (iso2: string) => countries.find((country) => country.iso2 === iso2)?.dial ?? "";
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -130,7 +129,12 @@ async function onSubmit() {
 
   submitting.value = true;
   try {
-    await $fetch("/api/broker", { method: "POST", body: { ...form } });
+    await submitPrestigeForm("/api/broker", {
+        ...form,
+        countryCode: dialFor(form.phoneCountry),
+        submissionSource: "broker_enquiry",
+        ...getSubmissionContext(),
+    });
     status.value = {
       type: "success",
       message: t("sh.form.successRegistered"),
@@ -157,17 +161,6 @@ async function onSubmit() {
   display: flex;
   gap: 12px;
 }
-.prestige-phone-code {
-  flex: 0 0 auto;
-  width: 110px;
-  height: 60px;
-  padding: 0 10px;
-  border-radius: 8px;
-  background: #1f1f1f;
-  border: 1px solid #484646;
-  color: #fff;
-  font-size: 16px;
-}
 .prestige-phone-number {
   flex: 1;
   min-width: 0;
@@ -193,15 +186,4 @@ async function onSubmit() {
   color: #ff8a8a;
 }
 
-@media (max-width: 575.98px) {
-  .prestige-phone-field {
-    flex-wrap: wrap;
-  }
-  .prestige-phone-code {
-    width: 100%;
-  }
-  .prestige-phone-number {
-    flex-basis: 100%;
-  }
-}
 </style>

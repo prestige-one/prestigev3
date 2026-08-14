@@ -9,6 +9,9 @@
     <p v-if="submitError" class="prestige-broker-reg-form-submit-error" role="alert">
       {{ submitError }}
     </p>
+    <p v-if="submitSuccess" class="prestige-broker-reg-form-submit-success" role="status">
+      {{ submitSuccess }}
+    </p>
 
     <fieldset
       v-for="block in definition.blocks"
@@ -157,18 +160,25 @@
     </fieldset>
 
     <div class="prestige-broker-reg-form-actions prestige-broker-reg-form-actions-panel">
-      <prestige-submit-button :label="definition.submitLabel" />
+      <prestige-submit-button
+        :label="submitting ? 'Submitting...' : definition.submitLabel"
+        :disabled="submitting"
+      />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
 import { brokerRegistrationForms, type BrokerRegistrationSlug } from "~/data/broker-registration";
+import { submitPrestigeForm } from "~/utils/prestige-form-submission";
 
 const props = defineProps<{ slug: BrokerRegistrationSlug }>();
 const definition = computed(() => brokerRegistrationForms[props.slug]);
+const { getSubmissionContext } = usePrestigeSubmissionContext();
 const fieldErrors = ref<Record<string, string>>({});
 const submitError = ref("");
+const submitSuccess = ref("");
+const submitting = ref(false);
 
 function fieldId(name: string): string {
   return `prestige-broker-form-${props.slug}-${name}`;
@@ -220,7 +230,31 @@ function validateForm(form: HTMLFormElement): Record<string, string> {
   return errors;
 }
 
-function validateSubmission(event: SubmitEvent): void {
+function serializeForm(form: HTMLFormElement): Record<string, unknown> {
+  const fields: Record<string, unknown> = {};
+
+  for (const [name, value] of new FormData(form).entries()) {
+    if (value instanceof File) {
+      if (!value.size) continue;
+      fields[name] = {
+        fileName: value.name,
+        fileType: value.type,
+        fileSize: value.size,
+      };
+    } else {
+      fields[name] = value;
+    }
+  }
+
+  form.querySelectorAll<HTMLInputElement>('input[type="checkbox"][name]').forEach((checkbox) => {
+    fields[checkbox.name] = checkbox.checked;
+  });
+
+  return fields;
+}
+
+async function validateSubmission(event: SubmitEvent): Promise<void> {
+  event.preventDefault();
   const form = event.currentTarget;
   if (!(form instanceof HTMLFormElement)) return;
 
@@ -229,11 +263,28 @@ function validateSubmission(event: SubmitEvent): void {
   if (!firstFieldWithError) {
     fieldErrors.value = {};
     submitError.value = "";
+    submitSuccess.value = "";
+    submitting.value = true;
+
+    try {
+      const response = await submitPrestigeForm("/api/broker-registration", {
+          registrationType: props.slug,
+          submissionSource: "broker_registration",
+          fields: serializeForm(form),
+          ...getSubmissionContext(),
+      });
+      submitSuccess.value = response.message;
+      form.reset();
+    } catch {
+      submitError.value = "We could not submit your registration. Please try again.";
+    } finally {
+      submitting.value = false;
+    }
     return;
   }
 
-  event.preventDefault();
   fieldErrors.value = errors;
+  submitSuccess.value = "";
   submitError.value = "Please complete all required fields before submitting the form.";
   const firstInvalid = form.elements.namedItem(firstFieldWithError);
   if (
@@ -388,6 +439,16 @@ select.prestige-broker-reg-form-control {
   border: 1px solid rgba(255, 120, 120, 0.35);
   border-radius: 6px;
   color: #ff9a9a;
+  font-size: 0.84rem;
+}
+
+.prestige-broker-reg-form-submit-success {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(126, 226, 160, 0.35);
+  border-radius: 6px;
+  background: rgba(126, 226, 160, 0.1);
+  color: #7ee2a0;
   font-size: 0.84rem;
 }
 

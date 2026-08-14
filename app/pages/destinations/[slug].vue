@@ -93,7 +93,7 @@
               eyebrow="PRESTIGE ONE IN DUBAI MARITIME CITY"
               title="Meet Hilton Residences"
               text="Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality."
-              image="/assets/images/v3/hilton-full.webp"
+              image="/assets/images/v3/Pool-View2.webp"
               primary-label="Explore Hilton Residences →"
               :primary-to="localePath('/projects/hilton-residences-dubai-maritime-city')"
             />

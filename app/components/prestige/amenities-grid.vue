@@ -16,8 +16,16 @@
             :data-delay="0.2 + (i % 4) * 0.07"
           >
             <span class="prestige-amen__media">
+              <img
+                v-if="originalImages && images[i]"
+                class="prestige-amen__image prestige-amen__image--original"
+                :src="images[i]"
+                :alt="a"
+                loading="lazy"
+                decoding="async"
+              >
               <NuxtImg
-                v-if="images[i]"
+                v-else-if="images[i]"
                 class="prestige-amen__image"
                 :src="images[i]"
                 :alt="a"
@@ -42,8 +50,16 @@
 
 <script setup lang="ts">
 withDefaults(
-  defineProps<{ items: string[]; images?: string[]; title: string; eyebrow: string; lead?: string; headingClass?: string }>(),
-  { images: () => [], lead: "", headingClass: "" },
+  defineProps<{
+    items: string[];
+    images?: string[];
+    title: string;
+    eyebrow: string;
+    lead?: string;
+    headingClass?: string;
+    originalImages?: boolean;
+  }>(),
+  { images: () => [], lead: "", headingClass: "", originalImages: false },
 );
 
 </script>
@@ -136,6 +152,9 @@ withDefaults(
   height: 100%;
   object-fit: cover;
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.prestige-amen__image--original {
+  object-fit: cover;
 }
 .prestige-amen__copy {
   display: block;

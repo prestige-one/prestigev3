@@ -17,11 +17,7 @@
         <div class="tp-contact-form-input mb-20">
           <label>{{ $t('contact.phoneNumber') }}</label>
           <div class="prestige-phone-field">
-            <select v-model="selectedCountry" name="phone_country" class="prestige-phone-code">
-              <option v-for="country in countries" :key="country.iso2" :value="country.iso2">
-                {{ getFlagEmoji(country.iso2) }} {{ country.dial }}
-              </option>
-            </select>
+            <form-country-phone-select v-model="selectedCountry" size="compact" />
             <input v-model="form.phone" name="phone" type="tel" class="prestige-phone-number" :placeholder="$t('contact.phonePlaceholder')">
           </div>
         </div>
@@ -44,10 +40,15 @@
 </template>
 
 <script setup lang="ts">
-import { countries, getFlagEmoji } from "~/data/countries-data";
+import { countries } from "~/data/countries-data";
+import { submitPrestigeForm } from "~/utils/prestige-form-submission";
 
-const props = defineProps<{ prefillMessage?: string }>();
+const props = defineProps<{
+  prefillMessage?: string;
+  currentProject?: string;
+}>();
 const { t } = useI18n();
+const { getSubmissionContext } = usePrestigeSubmissionContext();
 const selectedCountry = ref("AE");
 const form = reactive({ name: "", email: "", phone: "", message: props.prefillMessage ?? "" });
 const status = ref<"idle" | "submitting" | "success" | "error">("idle");
@@ -65,9 +66,11 @@ async function onSubmit() {
   status.value = "submitting";
   responseMsg.value = "";
   try {
-    const res = await $fetch<{ ok: boolean; message: string }>("/api/contact", {
-      method: "POST",
-      body: { ...form, countryCode: dialFor(selectedCountry.value) },
+    const res = await submitPrestigeForm("/api/contact", {
+        ...form,
+        countryCode: dialFor(selectedCountry.value),
+        submissionSource: props.prefillMessage ? "document_request" : "contact_form",
+        ...getSubmissionContext(props.currentProject),
     });
     status.value = "success";
     responseMsg.value = res.message;
@@ -83,8 +86,7 @@ async function onSubmit() {
 /* uniform field border colour */
 .tp-contact-form-input input,
 .tp-contact-form-input textarea,
-.prestige-phone-number,
-.prestige-phone-code {
+.prestige-phone-number {
   border: 1px solid #484646;
 }
 
@@ -143,19 +145,6 @@ async function onSubmit() {
   gap: 12px;
 }
 
-.prestige-phone-code {
-  flex: 0 0 auto;
-  width: 110px;
-  height: 50px;
-  min-height: 50px;
-  padding: 0 10px;
-  border-radius: 8px;
-  background: #1f1f1f;
-  border: 1px solid #484646;
-  color: #fff;
-  font-size: 16px;
-}
-
 .prestige-phone-number {
   flex: 1;
   min-width: 0;
@@ -164,17 +153,6 @@ async function onSubmit() {
 @media (max-width: 575.98px) {
   .prestige-phone-field {
     gap: 8px;
-    flex-wrap: nowrap;
-  }
-
-  .prestige-phone-code {
-    width: 92px;
-    padding-inline: 7px;
-    font-size: 14px;
-  }
-
-  .prestige-phone-number {
-    flex: 1 1 auto;
   }
 }
 </style>

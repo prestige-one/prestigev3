@@ -53,7 +53,7 @@ interface Milestone {
 const { t } = useI18n();
 
 const milestones = computed<Milestone[]>(() => [
-  { year: "1967", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text"), image: "/assets/images/v3/timeline/saifi-group.webp" },
+  { year: "1968", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text"), image: "/assets/images/v3/timeline/saifi-group.webp" },
   { year: "2007", title: t("ap.journey.m2Title"), text: t("ap.journey.m2Text"), image: "/assets/images/v3/timeline/2007.webp" },
   { year: "2009", title: t("ap.journey.m3Title"), text: t("ap.journey.m3Text"), image: "/assets/images/v3/timeline/2009-expanding.webp" },
   { year: "2018", title: t("ap.journey.m4Title"), text: t("ap.journey.m4Text"), image: "/assets/images/v3/timeline/2018-invest.webp" },

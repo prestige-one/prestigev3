@@ -9,6 +9,7 @@
 // from the card data and is marked TODO(content) for a later copy pass.
 
 export type ProjectCategory = "residential" | "commercial" | "upcoming";
+export type ProjectType = "Residences" | "Commercial" | "Residences and Commercial" | "Villa";
 
 export interface DevelopmentSlide {
   id: string;
@@ -32,6 +33,12 @@ export interface PaymentMilestone {
 export interface ProjectPOI {
   name: string;
   time: string;
+}
+
+export interface ProjectMapLocation {
+  mapsUrl: string;
+  latitude: number;
+  longitude: number;
 }
 
 export interface Project {
@@ -59,6 +66,7 @@ export interface Project {
   documents: string[];
   closingTitle?: string;
   closingImage?: string;
+  mapLocation?: ProjectMapLocation;
   video: string;
 }
 
@@ -85,6 +93,7 @@ interface ProjectEnrichment {
 interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
   category: ProjectCategory;
   brand?: string;
+  type?: ProjectType;
   configuration?: string;
   unitTypes?: string;
 }
@@ -155,6 +164,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Meydan Horizon",
     description: "Commercial spaces ideal for businesses seeking visibility and connectivity.",
     category: "commercial",
+    type: "Commercial",
   },
   {
     id: "hilton-residences",
@@ -244,6 +254,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Barsha Heights",
     description: "A commercial hub within a striking G+14 development.",
     category: "commercial",
+    type: "Commercial",
     configuration: "3B+G+14+R",
   },
   {
@@ -293,6 +304,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Palm Jumeirah",
     description: "Private villa living with timeless elegance.",
     category: "residential",
+    type: "Villa",
     configuration: "G+2",
     unitTypes: "Villa",
   },
@@ -303,6 +315,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Palm Jumeirah",
     description: "A private escape by the sea.",
     category: "residential",
+    type: "Villa",
   },
   {
     id: "palm-villa",
@@ -311,6 +324,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Palm Jumeirah",
     description: "Exclusive living, designed for privacy.",
     category: "residential",
+    type: "Villa",
     configuration: "G+2",
     unitTypes: "Villa",
   },
@@ -366,7 +380,91 @@ const PROJECT_HERO_VIDEO_BY_ID: Record<string, string> = {
   "prestige-square": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
 };
 
+const PROJECT_MAP_LOCATION_BY_ID: Partial<Record<string, ProjectMapLocation>> = {
+  "vista": {
+    mapsUrl: "https://maps.app.goo.gl/9dvns7VZHggGaC676",
+    latitude: 25.040118,
+    longitude: 55.21662,
+  },
+  "golf-residences": {
+    mapsUrl: "https://maps.app.goo.gl/KfBsXnRTkqYV1aXD9",
+    latitude: 25.0371028,
+    longitude: 55.2213451,
+  },
+  "the-boulevard": {
+    mapsUrl: "https://maps.app.goo.gl/1ypg7XEn9LVx8HgAA",
+    latitude: 25.0926875,
+    longitude: 55.3820625,
+  },
+  "the-residence": {
+    mapsUrl: "https://maps.app.goo.gl/sX7cEzwqtuwmumCo9",
+    latitude: 25.0523125,
+    longitude: 55.2168125,
+  },
+  "berkeley-square-north": {
+    mapsUrl: "https://maps.app.goo.gl/dXvE8i6dBTfh6w7h9",
+    latitude: 25.0493582,
+    longitude: 55.2093418,
+  },
+  "berkeley-square-south": {
+    mapsUrl: "https://maps.app.goo.gl/dXvE8i6dBTfh6w7h9",
+    latitude: 25.0493582,
+    longitude: 55.2093418,
+  },
+  "coastal-haven": {
+    mapsUrl: "https://maps.app.goo.gl/gyXRBsUvFLyqzTPQ8",
+    latitude: 25.2904375,
+    longitude: 55.3080625,
+  },
+  "the-one": {
+    mapsUrl: "https://maps.app.goo.gl/aga8BFn2cBnzQGDG9",
+    latitude: 25.0988033,
+    longitude: 55.176097,
+  },
+  "seaside": {
+    mapsUrl: "https://maps.app.goo.gl/CeGCBCtP5FHBXPj59",
+    latitude: 25.2922382,
+    longitude: 55.302234,
+  },
+  "waterway": {
+    mapsUrl: "https://maps.app.goo.gl/s3Dq8RGneYmXgmta9",
+    latitude: 25.1816875,
+    longitude: 55.3278125,
+  },
+  "parkway": {
+    mapsUrl: "https://maps.app.goo.gl/89TPKPWWdtZzPkC6A",
+    latitude: 25.179734,
+    longitude: 55.326234,
+  },
+  "hilton-residences": {
+    mapsUrl: "https://maps.app.goo.gl/2AcqxGtgAWqxsN556",
+    latitude: 25.2736667,
+    longitude: 55.2674167,
+  },
+  "luxury-canal-residences": {
+    mapsUrl: "https://maps.app.goo.gl/Bx4FapGCZF46y3D3A",
+    latitude: 25.2906875,
+    longitude: 55.3085625,
+  },
+  "sanctuary-residences": {
+    mapsUrl: "https://maps.app.goo.gl/DxWpq81bFAVTB11t7",
+    latitude: 25.184032,
+    longitude: 55.333024,
+  },
+  "sanctuary-hive": {
+    mapsUrl: "https://maps.app.goo.gl/DxWpq81bFAVTB11t7",
+    latitude: 25.184032,
+    longitude: 55.333024,
+  },
+  "fauchon-residences": {
+    mapsUrl: "https://maps.app.goo.gl/8p6wuWhXNTLJ7Dgj6",
+    latitude: 25.219147,
+    longitude: 55.274575,
+  },
+};
+
 const V2 = "/assets/images/v2/project-featured-images";
+const FAUCHON_AMENITY_ROOT = "/assets/images/v3/project-amenities/fauchon/v3";
 
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
 // everything else falls back to derived defaults below.
@@ -374,6 +472,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
   "hilton-residences-dubai-maritime-city": {
     status: "Now Selling",
     hero: `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
+    closingImage: "/assets/images/v3/Pool-View2.webp",
     gallery: [
       `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
       `${V2}/hilton/2BED_Living-Dining-Kitchen.webp`,
@@ -430,6 +529,26 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Parisian art-de-vivre life-styles and interiors.",
       "Signature FAUCHON gastronomy on your doorstep",
     ],
+    amenities: [
+      "Co-Working Zone",
+      "Digital Library",
+      "Podcast Nook",
+      "The Infinity Oasis",
+      "Poolside Retreat",
+      "BBQ Garden",
+      "Prestige Owners’ Lounge",
+      "Prestige One Fitness",
+    ],
+    amenityImages: [
+      `${FAUCHON_AMENITY_ROOT}/01X644LUKSPICJUGHV3ND3QGIYDM4QQEMM.png`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/12-amenity-multipurpose-hall.webp`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/14-amenity-residents-lounge.webp`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/02-exterior-pool.webp`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/06-exterior-private-pool.webp`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/04-exterior-rooftop-dining.webp`,
+      `${FAUCHON_AMENITY_ROOT}/01X644LUOLSFSKRVS5QVGJ4DFVTDQV4X4E.png`,
+      `${FAUCHON_AMENITY_ROOT}/gallery/07-exterior-gym.webp`,
+    ],
   },
   "sanctuary-residences-by-prestige-one": {
     status: "Now Selling",
@@ -460,7 +579,7 @@ const CATEGORY_DEFAULT_STATUS: Record<ProjectCategory, string> = {
 
 // and the "closer look" grid always lead with the building.
 const GAL = "/assets/project-galleries";
-const FAUCHON_V3_GALLERY = "/assets/images/v3/project-amenities/fauchon/v3/gallery";
+const FAUCHON_V3_GALLERY = `${FAUCHON_AMENITY_ROOT}/gallery`;
 function galleryAt(root: string, files: string[]): string[] {
   return files.map((file) => `${root}/${file}`);
 }
@@ -651,6 +770,13 @@ function resolveAmenityImages(amenities: string[], gallery: string[]): string[] 
   });
 }
 
+function resolveProjectType(slide: ProjectSource): ProjectType {
+  if (slide.type) return slide.type;
+  if (slide.category === "commercial") return "Commercial";
+  if (slide.unitTypes === "Villa" || /villa/i.test(slide.title)) return "Villa";
+  return "Residences";
+}
+
 function toProject(slide: ProjectSource): Project {
   const { category } = slide;
   const slug = slugify(slide.title);
@@ -688,7 +814,7 @@ function toProject(slide: ProjectSource): Project {
     specs:
       e.specs ?? [
         { label: "Location", value: slide.location },
-        { label: "Brand", value: slide.brand ?? "Prestige One" },
+        { label: "Type", value: resolveProjectType(slide) },
         { label: "Configuration", value: slide.configuration ?? "Contact for Details" },
         { label: "Unit Types", value: slide.unitTypes ?? "Contact for Details" },
       ],
@@ -702,6 +828,7 @@ function toProject(slide: ProjectSource): Project {
     documents: e.documents ?? DEFAULT_DOCUMENTS,
     closingTitle: e.closingTitle,
     closingImage: e.closingImage,
+    mapLocation: PROJECT_MAP_LOCATION_BY_ID[slide.id],
     video: PROJECT_HERO_VIDEO_BY_ID[slide.id] ?? `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
   };
 }

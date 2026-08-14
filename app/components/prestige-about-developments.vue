@@ -81,6 +81,11 @@ const YEARS: { year: string; projectSlugs: string[] }[] = [
 
 const byProjectSlug = new Map(getAllProjects().map((project) => [project.slug, project]));
 
+const PRESTIGE_ABOUT_PROJECT_IMAGE_OVERRIDES: Partial<Record<string, string>> = {
+  "the-residence-by-prestige-one":
+    "/assets/project-featured-images/residence/residence-featured-live-image.webp",
+};
+
 const developmentsByYear = YEARS.map((block) => ({
   year: block.year,
   comingSoon: block.year === "2026",
@@ -91,7 +96,7 @@ const developmentsByYear = YEARS.map((block) => ({
       return {
         name: project.title,
         location: project.location,
-        image: project.image,
+        image: PRESTIGE_ABOUT_PROJECT_IMAGE_OVERRIDES[project.slug] ?? project.image,
         slug: project.slug,
       };
     })
@@ -203,7 +208,8 @@ const developmentsByYear = YEARS.map((block) => ({
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background:
-    radial-gradient(circle at 50% 42%, rgba(153, 188, 211, 0.08), transparent 54%), linear-gradient(145deg, #45464b, #0b0b0d);
+    linear-gradient(180deg, rgba(7, 8, 11, 0.2), rgba(7, 8, 11, 0.72)),
+    url("/assets/project-featured-images/prestige-square/prestige-square--blur.webp") center / cover no-repeat;
 }
 
 .prestige-devyears-coming-soon span {

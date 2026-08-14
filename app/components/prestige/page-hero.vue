@@ -13,6 +13,8 @@
         :poster="image"
         :style="mediaPosition ? { objectPosition: mediaPosition } : undefined"
         @canplay="playVideo"
+        @loadedmetadata="playVideo"
+        @pause="resumeVideo"
       />
       <img
         v-else-if="image"
@@ -59,16 +61,27 @@ function playVideo() {
   const element = videoRef.value;
   if (!element) return;
   element.muted = true;
+  element.defaultMuted = true;
   void element.play().catch(() => {
     // The muted autoplay attributes handle supported browsers; a rejected
     // promise simply means the browser requires direct user interaction.
   });
 }
 
-// layered parallax: the hero copy drifts up and fades as the hero scrolls
-// away, at a different rate than the ken-burns image behind it - depth.
+function resumeVideo() {
+  if (document.visibilityState === "visible") playVideo();
+}
+
+function handleVisibilityChange() {
+  if (document.visibilityState === "visible") playVideo();
+}
+
+// The hero copy drifts up and fades as the hero scrolls away. The media stays
+// static so project and destination imagery keeps its intended framing.
 onMounted(async () => {
   if (import.meta.server) return;
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+  window.addEventListener("pageshow", playVideo);
   playVideo();
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!root.value || !inner.value) return;
@@ -87,6 +100,12 @@ onMounted(async () => {
     },
   });
 });
+
+onBeforeUnmount(() => {
+  if (import.meta.server) return;
+  document.removeEventListener("visibilitychange", handleVisibilityChange);
+  window.removeEventListener("pageshow", playVideo);
+});
 </script>
 
 <style scoped>
@@ -100,20 +119,9 @@ onMounted(async () => {
   gap: 14px;
 }
 
-/* slow ken-burns drift on the hero media for a living, cinematic feel */
 .prestige-hero-band :deep(.prestige-hero-band__media img),
 .prestige-hero-band :deep(.prestige-hero-band__media video) {
-  animation: prestigeKenBurns 22s ease-in-out infinite alternate;
-  transform-origin: center;
-}
-@keyframes prestigeKenBurns {
-  from { transform: scale(1.02); }
-  to { transform: scale(1.12); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .prestige-hero-band :deep(.prestige-hero-band__media img),
-  .prestige-hero-band :deep(.prestige-hero-band__media video) {
-    animation: none;
-  }
+  animation: none;
+  transform: none;
 }
 </style>

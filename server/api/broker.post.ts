@@ -5,9 +5,14 @@ interface BrokerBody {
   company?: string;
   email?: string;
   phone?: string;
+  phoneCountry?: string;
   countryCode?: string;
+  country?: string;
   rera?: string;
   message?: string;
+  submissionSource?: string;
+  currentUrl?: string;
+  currentProject?: string;
 }
 
 export default defineEventHandler(async (event) => {
@@ -24,14 +29,24 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, statusMessage: "Validation failed", data: { errors } });
   }
 
-  await deliver("broker", {
+  const delivery = await deliver(event, "broker", {
+    submissionSource: body.submissionSource ?? "broker_enquiry",
     name: body.name,
     company: body.company,
     email: body.email,
     phone: `${body.countryCode ?? ""} ${body.phone}`.trim(),
+    phoneCountry: body.phoneCountry ?? "",
+    country: body.country ?? "",
     rera: body.rera ?? "",
     message: body.message ?? "",
+  }, {
+    currentUrl: body.currentUrl,
+    currentProject: body.currentProject,
   });
 
-  return { ok: true, message: "Thank you — our team will review your registration and be in touch." };
+  return {
+    ok: !delivery.zapierFallback,
+    message: "Thank you — our team will review your registration and be in touch.",
+    ...delivery,
+  };
 });

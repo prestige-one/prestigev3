@@ -2,6 +2,9 @@ import { collect, deliver, isEmail } from "../utils/forms";
 
 interface NewsletterBody {
   email?: string;
+  submissionSource?: string;
+  currentUrl?: string;
+  currentProject?: string;
 }
 
 export default defineEventHandler(async (event) => {
@@ -15,7 +18,17 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, statusMessage: "Validation failed", data: { errors } });
   }
 
-  await deliver("newsletter", { email: body.email });
+  const delivery = await deliver(event, "newsletter", {
+    submissionSource: body.submissionSource ?? "footer_newsletter",
+    email: body.email,
+  }, {
+    currentUrl: body.currentUrl,
+    currentProject: body.currentProject,
+  });
 
-  return { ok: true, message: "You're subscribed — thank you." };
+  return {
+    ok: !delivery.zapierFallback,
+    message: "You're subscribed — thank you.",
+    ...delivery,
+  };
 });

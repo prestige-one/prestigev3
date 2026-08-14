@@ -11,7 +11,7 @@
         />
 
         <div class="prestige-contact-form-card">
-          <form-contact-prestige />
+          <form-contact-prestige :current-project="currentProject" />
         </div>
       </div>
 
@@ -30,18 +30,25 @@
           <div class="prestige-contact-map-box">
             <iframe
               class="prestige-contact-map-frame"
-              src="https://www.google.com/maps?q=Marina+Plaza,+Dubai+Marina,+Dubai,+UAE&z=12&output=embed"
-              title="Prestige One Developments - Marina Plaza, Dubai Marina"
+              :src="mapEmbedUrl"
+              :title="mapFrameTitle"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             />
+            <a
+              v-if="mapLocation"
+              class="prestige-contact-map-link"
+              :href="mapLocation.mapsUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >View on Google Maps</a>
           </div>
         </div>
 
         <!-- right column: form card -->
         <div class="prestige-contact-right">
           <div class="prestige-contact-form-card">
-            <form-contact-prestige />
+            <form-contact-prestige :current-project="currentProject" />
           </div>
         </div>
       </div>
@@ -50,7 +57,32 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
+const props = withDefaults(defineProps<{
+  centered?: boolean;
+  mapLocation?: {
+    mapsUrl: string;
+    latitude: number;
+    longitude: number;
+  };
+  mapTitle?: string;
+  currentProject?: string;
+}>(), {
+  centered: false,
+  mapLocation: undefined,
+  mapTitle: "Prestige One Developments - Marina Plaza, Dubai Marina",
+  currentProject: undefined,
+});
+
+const mapEmbedUrl = computed(() => {
+  if (!props.mapLocation) {
+    return "https://www.google.com/maps?q=Marina+Plaza,+Dubai+Marina,+Dubai,+UAE&z=12&output=embed";
+  }
+
+  const { latitude, longitude } = props.mapLocation;
+  return `https://www.google.com/maps?q=${latitude},${longitude}&z=16&output=embed`;
+});
+
+const mapFrameTitle = computed(() => `${props.mapTitle} location map`);
 </script>
 
 <style scoped>
@@ -119,6 +151,27 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   filter: grayscale(1) contrast(1.05) brightness(0.9);
 }
 
+.prestige-contact-map-link {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(14, 14, 18, 0.88);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.prestige-contact-map-link:hover {
+  background: #fff;
+  color: #111;
+}
+
 /* ---- centered variant ---- */
 
 .prestige-contact-centered {
@@ -148,7 +201,7 @@ withDefaults(defineProps<{ centered?: boolean }>(), { centered: false });
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* soft sheen in the top-right corner, matching the reference card's subtle

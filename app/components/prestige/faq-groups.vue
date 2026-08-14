@@ -38,7 +38,18 @@
             :aria-labelledby="buttonId(groupIndex, itemIndex)"
           >
             <div class="prestige-faqgroups__answer-inner">
-              <p v-if="item.answer">{{ item.answer }}</p>
+              <p v-if="item.answer">
+                {{ item.answer }}
+                <span
+                  v-if="item.contactLinks?.length"
+                  class="prestige-faqgroups__contact-links"
+                >
+                  <span v-for="link in item.contactLinks" :key="link.href">
+                    <strong>{{ link.label }}:</strong>
+                    <a :href="link.href">{{ link.text }}</a>
+                  </span>
+                </span>
+              </p>
               <ol v-if="item.answerList?.length">
                 <li v-for="line in item.answerList" :key="line">{{ line }}</li>
               </ol>
@@ -182,6 +193,32 @@ function toggle(groupIndex: number, itemIndex: number) {
 .prestige-faqgroups__answer p {
   margin: 0;
   padding: 0 52px 24px 4px;
+}
+
+.prestige-faqgroups__contact-links {
+  display: flex;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+.prestige-faqgroups__contact-links strong {
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 500;
+}
+
+.prestige-faqgroups__contact-links a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+.prestige-faqgroups__contact-links a:hover {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration-color: currentcolor;
 }
 
 .prestige-faqgroups__answer ol {

@@ -5,7 +5,7 @@
       <circle cx="12" cy="10" r="2.5" />
     </svg>
 
-    <svg v-else-if="name === 'Brand'" viewBox="0 0 24 24">
+    <svg v-else-if="name === 'Type'" viewBox="0 0 24 24">
       <path d="m4 13 9-9h7v7l-9 9L4 13Z" />
       <circle cx="16.5" cy="7.5" r="1.2" />
     </svg>

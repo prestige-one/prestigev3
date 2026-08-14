@@ -2,6 +2,11 @@ export interface PrestigeFaqItem {
   question: string;
   answer?: string;
   answerList?: string[];
+  contactLinks?: Array<{
+    label: string;
+    text: string;
+    href: string;
+  }>;
 }
 
 export interface PrestigeFaqGroup {
@@ -107,6 +112,23 @@ export const prestigeFaqGroups: PrestigeFaqGroup[] = [
       {
         question: "How can I update my communication details?",
         answer: "You can contact the CRM department by email or visit the sales office to update your details.",
+        contactLinks: [
+          {
+            label: "Email",
+            text: "crm@prestigeone.ae",
+            href: "mailto:crm@prestigeone.ae",
+          },
+          {
+            label: "Call",
+            text: "800 PRESTIGE / 800 77378443",
+            href: "tel:80077378443",
+          },
+          {
+            label: "More details",
+            text: "Contact Us page",
+            href: "/contact-us/",
+          },
+        ],
       },
       {
         question: "Can I secure a home loan and register a mortgage?",

@@ -50,7 +50,7 @@ const secondaryLabelText = computed(() => props.secondaryLabel || t("sh.viewDeve
   padding: clamp(90px, 15vh, 190px) 0;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 .prestige-ctaband__veil {
   position: absolute;
@@ -75,10 +75,6 @@ const secondaryLabelText = computed(() => props.secondaryLabel || t("sh.viewDeve
   gap: 14px;
   justify-content: center;
 }
-@media (max-width: 991px) {
-  .prestige-ctaband { background-attachment: scroll; }
-}
-
 @media (max-width: 767.98px) {
   .prestige-ctaband {
     padding: 64px 0;

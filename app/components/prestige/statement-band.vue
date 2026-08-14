@@ -22,7 +22,7 @@ defineProps<{ text: string; image: string; eyebrow?: string }>();
   padding: clamp(90px, 16vh, 200px) 0;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 .pstate__veil {
   position: absolute;
@@ -37,8 +37,5 @@ defineProps<{ text: string; image: string; eyebrow?: string }>();
   color: #fff;
   margin: 14px 0 0;
   font-weight: 400;
-}
-@media (max-width: 991px) {
-  .pstate { background-attachment: scroll; }
 }
 </style>

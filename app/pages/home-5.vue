@@ -19,7 +19,7 @@
             <!-- why prestige one area end -->
 
             <!-- why dubai area start -->
-            <prestige-why-dubai />
+            <prestige-why-dubai-row />
             <!-- why dubai area end -->
 
 

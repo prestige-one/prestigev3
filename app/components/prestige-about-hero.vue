@@ -22,7 +22,7 @@
             <video
               ref="aboutVideo"
               class="prestige-about-hero-video"
-              src="/assets/videos/company-showcase.mp4"
+              src="/assets/videos/company-showcase-full-opt-1.mp4"
               :aria-label="t('ap.hero.videoAria')"
               autoplay
               muted

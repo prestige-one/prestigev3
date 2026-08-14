@@ -46,7 +46,7 @@ const timeline = ref<HTMLOListElement | null>(null);
 const progressLine = ref<HTMLElement | null>(null);
 
 const milestones = computed<PrestigeJourneyMilestone[]>(() => [
-  { year: "1967", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text") },
+  { year: "1968", title: t("ap.journey.m1Title"), text: t("ap.journey.m1Text") },
   { year: "2007", title: t("ap.journey.m2Title"), text: t("ap.journey.m2Text") },
   { year: "2009", title: t("ap.journey.m3Title"), text: t("ap.journey.m3Text") },
   { year: "2018", title: t("ap.journey.m4Title"), text: t("ap.journey.m4Text") },

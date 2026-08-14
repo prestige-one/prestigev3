@@ -62,7 +62,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p4Title"),
     description: t("ap.drives.p4Desc"),
-    image: "/assets/images/v3/residence-ahead.webp",
+    image: "/assets/images/v3/Always-Thinking-5.webp",
   },
 ]);
 </script>

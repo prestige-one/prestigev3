@@ -56,6 +56,7 @@
               :lead="t('pp.detail.amenities.lead')"
               :items="amenities"
               :images="project.amenityImages"
+              :original-images="slug === 'fauchon-residences-by-prestige-one'"
             />
 
             <!-- 4 · gallery -->
@@ -162,7 +163,11 @@
               :secondary-to="localePath('/projects')"
             />
 
-            <prestige-contact-form />
+            <prestige-contact-form
+              :map-location="project.mapLocation"
+              :map-title="pName(project)"
+              :current-project="pName(project)"
+            />
           </main>
 
           <prestige-footer-digital-marketing />

@@ -6,6 +6,9 @@ interface ContactBody {
   phone?: string;
   countryCode?: string;
   message?: string;
+  submissionSource?: string;
+  currentUrl?: string;
+  currentProject?: string;
 }
 
 export default defineEventHandler(async (event) => {
@@ -22,12 +25,20 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, statusMessage: "Validation failed", data: { errors } });
   }
 
-  await deliver("contact", {
+  const delivery = await deliver(event, "contact", {
+    submissionSource: body.submissionSource ?? "contact_form",
     name: body.name,
     email: body.email,
     phone: `${body.countryCode ?? ""} ${body.phone}`.trim(),
     message: body.message,
+  }, {
+    currentUrl: body.currentUrl,
+    currentProject: body.currentProject,
   });
 
-  return { ok: true, message: "Thank you — we'll be in touch shortly." };
+  return {
+    ok: !delivery.zapierFallback,
+    message: "Thank you — we'll be in touch shortly.",
+    ...delivery,
+  };
 });

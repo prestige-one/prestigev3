@@ -18,7 +18,10 @@
           <p class="prestige-modal__lead">
             {{ t('pp.doc.lead', { doc: documentName.toLowerCase(), project: projectTitle }) }}
           </p>
-          <form-contact-prestige :prefill-message="prefillMessage" />
+          <form-contact-prestige
+            :prefill-message="prefillMessage"
+            :current-project="projectTitle"
+          />
         </div>
       </div>
     </transition>

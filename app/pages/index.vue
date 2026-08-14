@@ -7,7 +7,7 @@
           <main>
             <hero-prestige />
             <prestige-home5-how-we-work />
-            <prestige-why-dubai />
+            <prestige-why-dubai-row />
 
             <prestige-our-developments :slides="mainProjects" />
             <prestige-upcoming-developments />

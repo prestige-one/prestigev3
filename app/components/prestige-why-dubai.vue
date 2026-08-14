@@ -44,89 +44,14 @@
 </template>
 
 <script setup lang="ts">
-interface PrestigeDubaiReason {
-  stat: string;
-  title: string;
-  text: string;
-  image: string;
-  icon: "visa" | "ownership" | "tax" | "protect" | "safe" | "global";
-  compact?: boolean;
-}
+import { PRESTIGE_DUBAI_V2_REASON_IMAGES } from "~/composables/usePrestigeWhyDubaiReasons";
 
-const { locale, t } = useI18n();
+const { reasons: sharedReasons } = usePrestigeWhyDubaiReasons();
 
-const reasonImages = [
-  "/assets/images/v3/home/visa.webp",
-  "/assets/images/v3/home/ownership.webp",
-  "/assets/images/v3/home/tax.webp",
-  "/assets/images/v3/home/protect.webp",
-  "/assets/images/v3/home/safe.webp",
-  "/assets/images/v3/home/global.webp",
-] as const;
-
-const reasons = computed<PrestigeDubaiReason[]>(() => {
-  if (locale.value === "en") {
-    return [
-      {
-        stat: "Build Your Future in Dubai",
-        text: "2-10 Year Golden Visa",
-        title: "Long-term residency for you and your family.",
-        image: reasonImages[0],
-        icon: "visa",
-        compact: true,
-      },
-      {
-        stat: "Own Without Limits",
-        text: "100% Freehold Ownership",
-        title: "Full ownership in Dubai's designated freehold communities.",
-        image: reasonImages[1],
-        icon: "ownership",
-        compact: true,
-      },
-      {
-        stat: "Keep More of What You Earn",
-        text: "0% Property Tax",
-        title: "No annual property tax on residential real estate.",
-        image: reasonImages[2],
-        icon: "tax",
-        compact: true,
-      },
-      {
-        stat: "Invest with Confidence",
-        text: "Government-Regulated Escrow Accounts",
-        title: "Your investment is protected every step of the way.",
-        image: reasonImages[3],
-        icon: "protect",
-        compact: true,
-      },
-      {
-        stat: "Live with Peace of Mind",
-        text: "#1 Safe & Stable",
-        title: "One of the world's safest places to live and invest.",
-        image: reasonImages[4],
-        icon: "safe",
-        compact: true,
-      },
-      {
-        stat: "Stay Connected to the World",
-        text: "Global Hub",
-        title: "Where business, people, and opportunity come together.",
-        image: reasonImages[5],
-        icon: "global",
-        compact: true,
-      },
-    ];
-  }
-
-  return [
-    { stat: "0%", title: t("hp.whyDubai.r1Title"), text: t("hp.whyDubai.r1Text"), image: reasonImages[0], icon: "visa" },
-    { stat: "6–8%", title: t("hp.whyDubai.r2Title"), text: t("hp.whyDubai.r2Text"), image: reasonImages[1], icon: "ownership" },
-    { stat: "10-Yr", title: t("hp.whyDubai.r3Title"), text: t("hp.whyDubai.r3Text"), image: reasonImages[2], icon: "tax" },
-    { stat: "100%", title: t("hp.whyDubai.r6Title"), text: t("hp.whyDubai.r6Text"), image: reasonImages[3], icon: "protect" },
-    { stat: "#1", title: t("hp.whyDubai.r4Title"), text: t("hp.whyDubai.r4Text"), image: reasonImages[4], icon: "safe" },
-    { stat: "200+", title: t("hp.whyDubai.r7Title"), text: t("hp.whyDubai.r7Text"), image: reasonImages[5], icon: "global" },
-  ];
-});
+const reasons = computed(() => sharedReasons.value.map((reason, index) => ({
+  ...reason,
+  image: PRESTIGE_DUBAI_V2_REASON_IMAGES[index] ?? reason.image,
+})));
 </script>
 
 <style scoped>
@@ -258,6 +183,84 @@ const reasons = computed<PrestigeDubaiReason[]>(() => {
 
   .prestige-whydubai__card:hover .prestige-whydubai__image {
     transform: scale(1.045);
+  }
+}
+
+@media (min-width: 1200px) {
+  .prestige-whydubai {
+    display: flex;
+    min-height: 100svh;
+    box-sizing: border-box;
+    align-items: center;
+    padding-block: clamp(24px, 4vh, 42px);
+  }
+
+  .prestige-whydubai > .container {
+    width: 100%;
+  }
+
+  .prestige-whydubai__head {
+    margin-bottom: clamp(18px, 2.8vh, 28px);
+  }
+
+  .prestige-whydubai__head :deep(.prestige-section-heading__title) {
+    font-size: clamp(30px, 2.5vw, 35px);
+  }
+
+  .prestige-whydubai__head :deep(.prestige-section-heading__subtitle) {
+    margin-top: 10px;
+    font-size: clamp(15px, 1.2vw, 17px);
+  }
+
+  .prestige-whydubai__head :deep(.prestige-section-heading__description) {
+    margin-top: 7px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .prestige-whydubai__grid {
+    --prestige-whydubai-card-gap: clamp(10px, 1.7vh, 16px);
+  }
+
+  .prestige-whydubai__card {
+    border-radius: 14px;
+  }
+
+  .prestige-whydubai__media {
+    height: clamp(130px, 22vh, 165px);
+    aspect-ratio: auto;
+  }
+
+  .prestige-whydubai__content {
+    min-height: 110px;
+    padding: clamp(25px, 2.4vh, 23px) 18px 25px;
+  }
+
+  .prestige-whydubai__icon {
+    top: -21px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .prestige-whydubai__stat {
+    margin-bottom: 5px;
+  }
+
+  .prestige-whydubai__stat--compact {
+    font-size: clamp(18px, 1.45vw, 21px);
+    line-height: 1.1;
+  }
+
+  .prestige-whydubai__text {
+    margin-bottom: 15px;
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.25;
+  }
+
+  .prestige-whydubai__cardtitle {
+    font-size: 15px;
+    line-height: 1.25;
   }
 }
 

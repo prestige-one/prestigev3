@@ -55,7 +55,7 @@ const principles = computed<PrestigePrinciple[]>(() => [
   {
     title: t("hp.whyUs.item4Title"),
     description: t("hp.whyUs.item4Desc"),
-    image: "/assets/images/v3/connected.jpeg",
+    image: "/assets/images/v3/connected-v2.webp",
   },
 ]);
 </script>
