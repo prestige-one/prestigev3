@@ -66,7 +66,7 @@ const reasons = computed(() => sharedReasons.value.filter((reason) => reason.ico
 
 .prestige-whydubai-row__item {
   min-width: 0;
-  border: 1px solid #191919;
+  border: 1px solid #3a3a3a;
   border-radius: 5px;
   text-align: center;
 }
