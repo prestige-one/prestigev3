@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/projects.ts; app/data/destinations-data.ts; app/data/project-distance-slides.ts; i18n/locales/projects/en.json -->
 <template>
   <div>
     <common-magic-cursor />
@@ -56,7 +57,7 @@
               :lead="t('pp.detail.amenities.lead')"
               :items="amenities"
               :images="project.amenityImages"
-              :original-images="slug === 'fauchon-residences-by-prestige-one'"
+              :original-images="project.originalAmenityImages"
             />
 
             <!-- 4 · gallery -->
@@ -264,6 +265,8 @@ const related = computed(() => {
 
 const faqs = computed<FaqItem[]>(() => {
   const p = project.value!;
+  if (p.faqItems?.length) return p.faqItems;
+
   // Answers are translated via `pdata.faq.a.*` with the data (names, times,
   // %, place names) kept as interpolated placeholders; each falls back to
   // English through the locale fallback chain.
@@ -274,7 +277,10 @@ const faqs = computed<FaqItem[]>(() => {
   const plan = p.paymentPlan
     .map((m) => t("pdata.faq.a.paymentItem", { value: m.value, label: tPayment(m.label) }))
     .join(", ");
-  const amenList = amenities.value.slice(0, 5).join(", ");
+  const faqAmenityNames = (p.faqAmenities ?? amenities.value.slice(0, 5)).map(tAmenity);
+  const amenList = Array.from(
+    new Map(faqAmenityNames.map((amenity) => [amenity.trim().toLocaleLowerCase(), amenity])).values(),
+  ).join(", ");
 
   const items: FaqItem[] = [
     { q: t("pdata.faq.q.location", { name: shortName.value }), a: t("pdata.faq.a.location", { title: p.title, location: p.location, nearby: nearby2 }) },

@@ -1,3 +1,4 @@
+<!-- Data sources: i18n/locales/home/en.json; page-specific media is inline in this file. -->
 <template>
   <div>
     <common-magic-cursor />

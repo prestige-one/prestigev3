@@ -1,3 +1,4 @@
+<!-- Data sources: i18n/locales/home/en.json; page composition is inline in this file. -->
 <template>
   <div>
     <!-- Begin magic cursor -->

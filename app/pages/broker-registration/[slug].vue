@@ -1,3 +1,4 @@
+<!-- Data source: app/data/broker-registration.ts -->
 <template>
   <div>
     <common-magic-cursor />

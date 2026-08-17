@@ -35,6 +35,11 @@ export interface ProjectPOI {
   time: string;
 }
 
+export interface ProjectFaq {
+  q: string;
+  a: string;
+}
+
 export interface ProjectMapLocation {
   mapsUrl: string;
   latitude: number;
@@ -57,7 +62,10 @@ export interface Project {
   highlights: string[];
   specs: ProjectSpec[];
   amenities: string[];
+  faqAmenities?: string[];
+  faqItems?: ProjectFaq[];
   amenityImages: string[];
+  originalAmenityImages?: boolean;
   paymentPlan: PaymentMilestone[];
   connectivity: string[];
   nearby: ProjectPOI[];
@@ -79,7 +87,10 @@ interface ProjectEnrichment {
   highlights?: string[];
   specs?: ProjectSpec[];
   amenities?: string[];
+  faqAmenities?: string[];
+  faqItems?: ProjectFaq[];
   amenityImages?: string[];
+  originalAmenityImages?: boolean;
   paymentPlan?: PaymentMilestone[];
   connectivity?: string[];
   nearby?: ProjectPOI[];
@@ -245,7 +256,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     description: "Uninterrupted golf course views, every day.",
     category: "residential",
     configuration: "G+3P+19+R",
-    unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
+    unitTypes: "2-Bedroom, 3-Bedroom",
   },
   {
     id: "the-one",
@@ -264,7 +275,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "Dubai Islands",
     description: "A peaceful waterfront retreat.",
     category: "residential",
-    configuration: "G+2P+10",
+    configuration: "G+12",
     unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
@@ -465,54 +476,399 @@ const PROJECT_MAP_LOCATION_BY_ID: Partial<Record<string, ProjectMapLocation>> = 
 
 const V2 = "/assets/images/v2/project-featured-images";
 const FAUCHON_AMENITY_ROOT = "/assets/images/v3/project-amenities/fauchon/v3";
+const GOLF_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/golf-residences/gallery";
+const GOLF_GALLERY_FILES = [
+  "Golf Place- Exterior Hero.webp",
+  "Golf Place- Exterior Facade 2 Day.webp",
+  "Golf Place- Exterior.webp",
+  "Golf Place- Amenities- Dropoff.webp",
+  "Amenities- Podium.webp",
+  "Skyline-Infinity-Pool.webp",
+  "Private Pool.webp",
+  "Outdoor Cinema.webp",
+  "Club-Lounge.webp",
+  "Fitness.webp",
+  "Kids-Play-Area.webp",
+  "Golf Place- 3BHK- living 1.webp",
+  "Golf Place- 3BHK- living 4.webp",
+  "Golf Place- 1BHK- master bedroom 02.webp",
+  "Golf Place- 2BHK- Bathroom Typical.webp",
+  "Golf Place- Amenities- running track.webp",
+];
+const HILTON_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/hilton/gallery";
+const SEASIDE_GALLERY_ROOT = "/assets/images/v3/project-amenities/seaside/gallery";
+const SEASIDE_OVERVIEW_IMAGE = `${SEASIDE_GALLERY_ROOT}/Night - Front Side.webp`;
+const SEASIDE_GALLERY_FILES = [
+  "Night - Front Side.webp",
+  "Night - Rear Side.webp",
+  "Seaside_Building Night.webp",
+  "Exterior 1.webp",
+  "Exterior 2.webp",
+  "Swimming Pool 2.webp",
+  "swimming pool.webp",
+  "Swimming Pool-2.webp",
+  "Gym-1.webp",
+  "Kids Play Area.webp",
+  "Mini Putt Golf.webp",
+  "Spapool.webp",
+  "Changing Room 2.webp",
+  "Lobby_.webp",
+  "Retail Shop.webp",
+  "Living Room.webp",
+  "Living Area and Kitchen-2.webp",
+  "Bedroom 1.webp",
+  "Bathroom 1.webp",
+  "Master Bathroom.webp",
+];
+const SANCTUARY_AMENITY_ROOT = "/assets/images/v3/project-amenities/Sanctuary";
+const SANCTUARY_GALLERY_ROOT = `${SANCTUARY_AMENITY_ROOT}/gallery`;
+const SANCTUARY_GALLERY_FILES = [
+  "Sanctuary Facade Angle 4.webp",
+  "1.-Residential-Lobby.webp",
+  "8.-Residential-Amenities---Gym---Level-9---Option-2.webp",
+  "9th-floor-water-feature.webp",
+  "10.-Residential-Amenities---Cinema---Level-9.webp",
+  "11.-Residential-Amenities---Multipurpose-Room---Roof-Level.webp",
+  "15.-1-&-2-Bedroom-Unit---Master-Bedroom.webp",
+  "18.--3-Bedroom-Unit---Toilet-1.webp",
+  "Kids-Play-Area.webp",
+  "Rooftop-FLoor-Barbeque.webp",
+  "RoofTop-Floor-Sitting-Area.webp",
+  "Rooftop-Pool.webp",
+];
 
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
 // everything else falls back to derived defaults below.
 const enrichment: Record<string, ProjectEnrichment> = {
+  "golf-residences-by-prestige-one": {
+    status: "Now Selling",
+    introImage: `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- Exterior Hero.webp`,
+    closingTitle: "Live overlooking uninterrupted greens",
+    closingImage: `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- cta.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "Golf Residences by Prestige One brings expansive contemporary living to the heart of Dubai Sports City, framed by uninterrupted views across the community's championship greens.",
+      "The collection comprises spacious two- and three-bedroom residences, with two-bedroom homes starting from 1,294 sq ft and three-bedroom homes starting from 1,720 sq ft.",
+      "Ground-floor arrival spaces, an activity-rich podium and a rooftop wellness deck create a complete lifestyle centred on recreation, connection and relaxed golf-course living.",
+    ],
+    highlights: [
+      "Uninterrupted golf-course views in Dubai Sports City",
+      "Two-bedroom residences from 1,294 sq ft",
+      "Three-bedroom residences from 1,720 sq ft",
+      "Anticipated completion in Q2 2027",
+    ],
+    amenities: [
+      "Skyline Infinity Pool",
+      "Prestige Owners' Lounge",
+      "Outdoor Cinema",
+      "Podium Amenities",
+      "Private Pool",
+      "Kids Play Area",
+      "Prestige One Fitness",
+      "Running Track",
+    ],
+    faqAmenities: [
+      "Drop-Off Area",
+      "Pick-Up Area",
+      "Prestige Owners' Lounge",
+      "Concierge Assistance",
+      "Rolling Terrain",
+      "Running Track",
+      "Seating Area",
+      "Grand Entrance Lobby",
+      "24/7 Security",
+      "The Clubhouse",
+      "Library Lounge",
+      "Digital Library",
+      "The Clubhouse Cafe",
+      "Badminton Court",
+      "Basketball Court",
+      "Children's Adventure Park",
+      "Mini Rock Climbing Wall",
+      "Plant Nursery",
+      "Miniature Golf Course",
+      "Event Function Space",
+      "Billiard Table",
+      "Barbeque Garden",
+      "Outdoor Amphitheater",
+      "Sky Deck",
+      "Female Changing Room",
+      "Prestige Wellness Centre",
+      "Locker Area",
+      "Virtual Trainer",
+      "Little Explorers' Zone",
+      "Prestige One Fitness",
+      "Pool Bar",
+      "Sun Deck",
+      "Floating Cabanas",
+      "Splash Adventure Zone",
+      "Outdoor Shower",
+      "Sunken Loungers",
+      "Skyline Infinity Pool",
+      "Male Changing Room",
+    ],
+    amenityImages: [
+      `${GOLF_AMENITY_GALLERY_ROOT}/Skyline-Infinity-Pool.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Club-Lounge.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Outdoor Cinema.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Amenities- Podium.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Private Pool.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Kids-Play-Area.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Fitness.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- Amenities- running track.webp`,
+    ],
+    paymentPlan: [
+      { label: "Down payment", value: "20%" },
+      { label: "During construction", value: "20%" },
+      { label: "Upon handover", value: "60%" },
+    ],
+    nearby: [
+      { name: "ICC Academy", time: "3 min" },
+      { name: "Dubai International Cricket Stadium", time: "3 min" },
+      { name: "The Els Club", time: "4 min" },
+      { name: "Dubai Autodrome", time: "5 min" },
+      { name: "Dubai Polo & Equestrian Club", time: "12 min" },
+      { name: "Burj Khalifa", time: "20 min" },
+    ],
+    schools: ["Victory Heights Primary School", "GEMS United School", "Renaissance School"],
+    hospitals: ["Mediclinic Parkview Hospital", "NMC Royal Hospital DIP", "King's College Hospital Dubai Hills"],
+    faqItems: [
+      {
+        q: "What is Golf Residences by Prestige One?",
+        a: "Golf Residences is a contemporary residential development in Dubai Sports City, designed around expansive two- and three-bedroom homes, active living and uninterrupted golf-course views.",
+      },
+      {
+        q: "What are the unit types?",
+        a: "The development offers two-bedroom residences starting from 1,294 sq ft and three-bedroom residences starting from 1,720 sq ft. Anticipated completion is Q2 2027.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities extend across the ground, podium and rooftop floors. Highlights include the Prestige Owners' Lounge, Prestige One Fitness, Skyline Infinity Pool, Barbeque Garden, Outdoor Cinema, Children's Adventure Park, Digital Library and sports courts.",
+      },
+      {
+        q: "How well connected is Golf Residences?",
+        a: "The ICC Academy and Dubai International Cricket Stadium are approximately three minutes away, The Els Club four minutes, Dubai Autodrome five minutes and Burj Khalifa approximately 20 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Golf Residences?",
+        a: "Nearby schools include Victory Heights Primary School, GEMS United School and Renaissance School. Healthcare options include Mediclinic Parkview Hospital, NMC Royal Hospital DIP and King's College Hospital Dubai Hills.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The standard payment plan is 20% as the down payment, 20% during construction and 60% upon handover.",
+      },
+    ],
+  },
+  "seaside-by-prestige-one": {
+    status: "Now Selling",
+    introImage: SEASIDE_OVERVIEW_IMAGE,
+    closingTitle: "Find your place by the water",
+    closingImage: `${SEASIDE_GALLERY_ROOT}/Night - Rear Side.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "Seaside by Prestige One is an exclusive Dubai Islands retreat that brings together the ease of urban living and the calm of island life.",
+      "Floor-to-ceiling windows and expansive balconies draw the surrounding seascape into every one-, two- and three-bedroom residence.",
+      "Clean modern lines and a tiered architectural form create privacy, generous outdoor space and panoramic waterfront views.",
+    ],
+    highlights: [
+      "Waterfront living on Dubai Islands",
+      "One-, two- and three-bedroom residences",
+      "Floor-to-ceiling windows and expansive balconies",
+      "Anticipated completion in Q4 2026",
+    ],
+    amenities: [
+      "Swimming Pool",
+      "Prestige One Fitness",
+      "Kids' Play Area",
+      "Mini Putt Golf",
+      "Private Pool",
+      "Changing Rooms",
+      "Grand Lobby",
+      "Retail Shop",
+    ],
+    faqAmenities: [
+      "Swimming Pool",
+      "Prestige One Fitness",
+      "Kids' Pool & Fountains",
+      "Kids' Play Area",
+      "Mini Putt Golf",
+      "BBQ Area",
+      "Outdoor Cinema & Lawn",
+      "Private Pool",
+    ],
+    amenityImages: [
+      `${SEASIDE_GALLERY_ROOT}/swimming pool.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Gym-1.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Kids Play Area.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Mini Putt Golf.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Spapool.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Changing Room 2.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Lobby_.webp`,
+      `${SEASIDE_GALLERY_ROOT}/Retail Shop.webp`,
+    ],
+    paymentPlan: [
+      { label: "Down payment", value: "20%" },
+      { label: "Quarterly", value: "5%" },
+      { label: "At handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Dubai Islands Mall", time: "1 min" },
+      { name: "Souk Al Marfa", time: "5 min" },
+      { name: "Dubai Islands Marina", time: "7 min" },
+      { name: "Dubai International Airport", time: "16 min" },
+    ],
+    schools: ["Elite English School", "The Westminster School", "Pristine Private School"],
+    hospitals: ["Dubai Hospital", "Canadian Specialist Hospital", "Al Kuwait Hospital Dubai"],
+    faqItems: [
+      {
+        q: "What is Seaside by Prestige One?",
+        a: "Seaside by Prestige One is a waterfront residential development on Dubai Islands, designed to combine urban convenience with the calm of island life and panoramic sea views.",
+      },
+      {
+        q: "What are the unit types?",
+        a: "The development offers one-bedroom residences from 751 sq ft, two-bedroom residences from 1,194 sq ft and three-bedroom residences from 1,975 sq ft. Anticipated completion is Q4 2026.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities include a swimming pool, Prestige One Fitness, kids' pool and fountains, kids' play area, mini putt golf, BBQ area, outdoor cinema and lawn, and a private pool.",
+      },
+      {
+        q: "How well connected is Seaside?",
+        a: "Dubai Islands Mall is approximately one minute away, Souk Al Marfa five minutes, Dubai Islands Marina seven minutes and Dubai International Airport approximately 16 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Seaside?",
+        a: "Nearby education options include Elite English School, The Westminster School and Pristine Private School. Healthcare options include Dubai Hospital, Canadian Specialist Hospital and Al Kuwait Hospital Dubai.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan comprises a 20% down payment, 5% quarterly installments and 35% at handover.",
+      },
+    ],
+  },
   "hilton-residences-dubai-maritime-city": {
     status: "Now Selling",
     hero: `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
+    introImage: `${HILTON_AMENITY_GALLERY_ROOT}/1-hilton-1.webp`,
     closingImage: "/assets/images/v3/Pool-View2.webp",
-    gallery: [
-      `${V2}/hilton/HILTON-NIGHT-VIEW-1.webp`,
-      `${V2}/hilton/2BED_Living-Dining-Kitchen.webp`,
-      `${V2}/hilton/Duplex_Master-Bedroom.webp`,
-      `${V2}/hilton/25770800-Prestige_V24_ALFRESCO-LOUNGE_20251113.webp`,
-      `${V2}/hilton/25770800-Prestige_V26_Outdoor-Gym_20251113-1.webp`,
-      `${V2}/hilton/25770800_Prestige_SPL-3BED_M-Bathroom__.webp`,
-    ],
+    originalAmenityImages: true,
     overview: [
-      "Life at Hilton Residences by Prestige One is a balance of elegance and ease - one of the most defining landmarks taking shape in Dubai Maritime City.",
-      "Impeccable design, enriched by thoughtful amenities and elevated by the trusted Hilton name, brings branded waterfront living to a peninsula wrapped by the sea, with sweeping views of the harbour and the Dubai skyline.",
-      "Residences range from considered one- and two-bedroom apartments to expansive duplexes, each finished to hotel-brand standards.",
+      "Hilton Residences Dubai Maritime City introduces the first waterfront Hilton-branded residences, balancing elegance and ease against uninterrupted views of the sea and Dubai skyline.",
+      "Impeccable design and more than 45 thoughtful amenities are complemented by the trusted Hilton name, lifetime Gold Hilton Honors status for owners and full hotel-level services.",
+      "Set within the 249-hectare Dubai Maritime City district between Port Rashid and Dubai Drydocks, the address combines direct shoreline living with convenient access to Downtown Dubai, Dubai Mall and Dubai International Airport.",
     ],
     highlights: [
-      "Branded residences operated to Hilton hospitality standards",
-      "Waterfront living on the Dubai Maritime City peninsula",
-      "Infinity skyline pool, outdoor cinema and resort amenities",
-      "One- and two-bedroom apartments plus signature duplexes",
+      "The first waterfront Hilton-branded residences",
+      "Gold Hilton Honors status for owners for life",
+      "Full hotel-level services for owners",
+      "45+ amenities across four dedicated levels",
     ],
     amenities: [
-      "Infinity skyline pool",
-      "Outdoor cinema",
+      "BBQ Garden",
       "Prestige One Fitness",
-      "Running track",
-      "Multi-sports court",
-      "BBQ deck",
-      "Outdoor kids' play area",
-      "Juice bar",
+      "Game Area",
+      "Outdoor Cinema Lawn",
+      "Kids Play Area",
+      "Infinity Swimming Pool",
+      "Casual Sky Lounge",
+      "City View Work Area",
+    ],
+    faqAmenities: [
+      "Horizon Edge Lagoon",
+      "Aromatherapy Jacuzzi",
+      "Lagoon Cabanas",
+      "Wet Deck",
+      "Sunrise Bar",
+      "Outdoor Lounge",
+      "Mist Garden",
+      "Little's Lagoon",
+      "Splash Grove",
+      "Little Explorer's Hub",
+      "Swings Garden",
+      "BBQ Deck",
+      "Sculpted Terrain",
+      "Glow Track Run",
+      "Multipurpose Court",
+      "Palm Waterfall Feature",
+      "Buffer Planting",
+      "Table Tennis Zone",
+      "Sunset Cinema Lawn",
+      "Seating Planter",
+      "Heated Stone Loungers",
+      "Stargaze Grove",
+      "Fire Ring Retreat",
+      "Hammock Library",
+      "Zen Lawn",
+      "Floating Garden",
+      "Prestige One Fitness",
+      "Sky Climb",
+      "Teens Hub - Ping Pong",
+      "Teens Hub - Foosball Table",
+      "Sculpture Terrace",
+      "Raised Planters",
+      "Shower Stalls",
+      "Cloudtop Juice Bar",
+      "Casual Sky Lounge",
+      "City View Work Area",
+      "Panorama Music Nook",
+      "Infinity Skyline Pool",
+      "Infinity Wet Deck",
+      "Sky Jacuzzi",
+      "Pool Cabanas",
+      "Palm Planters",
+    ],
+    amenityImages: [
+      `${HILTON_AMENITY_GALLERY_ROOT}/13-BBQ-Zone- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/5-Outdoor-Gym- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/8-Game-Area- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/3-SUNSET-CINEMA-LAWN- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/9-Kids-Area- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/2-Pool-View- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/14-ALFRESCO-LOUNGE- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/4-Terrace- Hilton Residences DMC.webp`,
     ],
     nearby: [
-      { name: "Downtown Dubai", time: "5–10 min" },
-      { name: "Dubai International Airport", time: "10–15 min" },
-      { name: "Jumeirah Beach Residence (JBR)", time: "10–15 min" },
-      { name: "Mall of the Emirates", time: "15 min" },
+      { name: "Downtown Dubai", time: "15 min" },
+      { name: "Dubai International Airport", time: "15 min" },
+      { name: "Burj Khalifa and Dubai Mall", time: "15 min" },
+      { name: "Mall of the Emirates", time: "20 min" },
+      { name: "Palm Jumeirah", time: "25 min" },
+      { name: "Dubai Marina", time: "25 min" },
+    ],
+    schools: ["New Academy School", "Ambassador School", "GEMS Legacy School"],
+    hospitals: ["International Modern Hospital", "Aster Hospital Mankhool", "Rashid Hospital"],
+    faqItems: [
+      {
+        q: "What is Hilton Residences Dubai Maritime City?",
+        a: "Hilton Residences Dubai Maritime City is a waterfront branded residential development by Prestige One, designed around elegant waterfront living, thoughtful amenities and the trusted Hilton name.",
+      },
+      {
+        q: "What are the unit types?",
+        a: "The collection includes one-bedroom residences, two-bedroom residences, two-bedroom residences with a maid's room, three-bedroom residences, and two-, three- and five-bedroom penthouses.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Residents have access to more than 45 amenities across four dedicated levels: the podium paradise, wellness deck, living deck and rooftop. Highlights include the BBQ Garden, Prestige One Fitness, BBQ Deck, Cinema Lawn, Kids Play Area, Infinity Swimming Pool, Casual Sky Lounge and City View Work Area.",
+      },
+      {
+        q: "How well connected is Dubai Maritime City?",
+        a: "Downtown Dubai, Burj Khalifa, Dubai Mall and Dubai International Airport are approximately 15 minutes away. Mall of the Emirates is approximately 20 minutes away, while Palm Jumeirah and Dubai Marina are approximately 25 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Hilton Residences?",
+        a: "Nearby schools include New Academy School, Ambassador School and GEMS Legacy School. Nearby healthcare options include International Modern Hospital, Aster Hospital Mankhool and Rashid Hospital.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan is 20% on booking, 40% during construction and 40% on handover.",
+      },
     ],
   },
   "fauchon-residences-by-prestige-one": {
     status: "Now Selling",
     hero: `${V2}/fauchon/fauchon-banner.webp`,
     introImage: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
+    originalAmenityImages: true,
     closingTitle: "Live the FAUCHON art de vivre",
     closingImage: "/assets/project-featured-images/fauchon/fauchon-banner.webp",
     gallery: [
@@ -539,6 +895,38 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Prestige Owners’ Lounge",
       "Prestige One Fitness",
     ],
+    faqAmenities: [
+      "Co-Working Zone",
+      "Digital Library",
+      "Podcast Nook",
+      "The Infinity Oasis",
+      "Poolside Retreat",
+      "BBQ Garden",
+      "Prestige Owners’ Lounge",
+      "Prestige One Fitness",
+      "The Little Oasis",
+      "Sun Retreat Deck",
+      "Fauchon Gourmet Bar",
+      "Prestige Yoga Retreat",
+      "Grill Pavilion",
+      "Prestige Yoga",
+      "Outdoor Fitness Deck",
+      "Floating Cinema",
+      "Social Garden",
+      "The Water Cascade",
+      "Grand Lobby",
+      "Entrance Lounge",
+      "Lift Lobby",
+      "Gourmet Lounge",
+      "Social Seating Lounge",
+      "Dining Lounge",
+      "Culinary Kitchen",
+      "Executive Suite",
+      "Relaxation Area",
+      "The Reading Atelier",
+      "Gentlemen’s Washroom",
+      "Ladies’ Washroom",
+    ],
     amenityImages: [
       `${FAUCHON_AMENITY_ROOT}/01X644LUKSPICJUGHV3ND3QGIYDM4QQEMM.png`,
       `${FAUCHON_AMENITY_ROOT}/gallery/12-amenity-multipurpose-hall.webp`,
@@ -553,20 +941,101 @@ const enrichment: Record<string, ProjectEnrichment> = {
   "sanctuary-residences-by-prestige-one": {
     status: "Now Selling",
     hero: `${V2}/sanctuary/sanctuary-residential-exterior-view.webp`,
-    gallery: [
-      `${V2}/sanctuary/sanctuary-residential-exterior-view.webp`,
-      `${V2}/sanctuary/sanctuary-aprtment.webp`,
-      `${V2}/sanctuary/3-Bedroom-Unit-Living-Room-1.webp`,
-      `${V2}/sanctuary/Rooftop-Pool-scaled.jpg`,
-      `${V2}/sanctuary/8.-Residential-Amenities-Gym-Level-9-Option-1-scaled.jpg`,
-    ],
+    introImage: `${SANCTUARY_AMENITY_ROOT}/sanctuary-aprtment.webp`,
+    closingTitle: "Find your sanctuary in Meydan",
+    closingImage: `/assets/images/v3/project-amenities/Sanctuary/ras-al-khor-wildlife.webp`,
+    originalAmenityImages: true,
     overview: [
-      "Sanctuary by Prestige One is a more balanced kind of Dubai living in Meydan - residences and considered commercial spaces arranged around calm, greenery and connection.",
+      "Sanctuary Residences by Prestige One brings serene living and sophisticated design together in Meydan Horizon, with panoramic views towards Ras Al Khor Wildlife Sanctuary and the Dubai skyline.",
+      "The address combines a peaceful setting with convenient access to Business Bay, Downtown Dubai, DIFC and Dubai International Airport.",
+      "A collection of one-, two- and three-bedroom residences is complemented by wellness, leisure and family amenities across the Living Deck on Level 9 and the Sky Garden on Level 21.",
     ],
     highlights: [
-      "Residential and commercial in one balanced community",
-      "Set in the heart of Meydan",
-      "Designed around wellbeing and everyday convenience",
+      "Views of Ras Al Khor Wildlife Sanctuary and the Dubai skyline",
+      "10 minutes to Business Bay and 12 minutes to Downtown Dubai",
+      "Living Deck on Level 9 and Sky Garden on Level 21",
+      "One-, two- and three-bedroom residences",
+    ],
+    amenities: [
+      "BBQ Garden",
+      "Prestige One Fitness",
+      "Cinema Lawn",
+      "Kids Play Area",
+      "Infinity Swimming Pool",
+      "Observation Deck",
+      "Serenity Garden",
+      "Relaxation Pool Jacuzzi",
+    ],
+    faqAmenities: [
+      "Kids Play Area with Water Features",
+      "Prestige One Fitness",
+      "Observation Deck",
+      "Outdoor Cinema",
+      "Waterfall Feature and Sunken Island Pool",
+      "Kids Pool",
+      "Serenity Garden",
+      "Mini Picnic Park",
+      "Outdoor Spa and Relaxation Pool",
+      "Relaxation Area Park",
+      "Tranquility Seating with Bonsai Trees",
+      "BBQ Area",
+      "Jacuzzi",
+      "Skylight Infinity Pool",
+    ],
+    amenityImages: [
+      `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/RoofTop-Floor-Sitting-Area.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/9th-floor-water-feature.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+    ],
+    paymentPlan: [
+      { label: "On booking", value: "20%" },
+      { label: "During construction", value: "45%" },
+      { label: "On completion", value: "35%" },
+    ],
+    nearby: [
+      { name: "Business Bay", time: "10 min" },
+      { name: "Downtown Dubai", time: "12 min" },
+      { name: "DIFC", time: "15 min" },
+      { name: "Dubai International Airport", time: "18 min" },
+      { name: "Dubai Design District", time: "20 min" },
+      { name: "Dubai Marina", time: "25 min" },
+    ],
+    schools: [
+      "North London Collegiate School Dubai",
+      "Hartland International School",
+      "GEMS Wellington Academy - Al Khail",
+    ],
+    hospitals: ["Mediclinic City Hospital", "American Hospital Dubai", "Fakeeh University Hospital"],
+    faqItems: [
+      {
+        q: "What is Sanctuary Residences by Prestige One?",
+        a: "Sanctuary Residences is a residential development in Meydan Horizon, created around serene living, sophisticated design and views towards Ras Al Khor Wildlife Sanctuary and the Dubai skyline.",
+      },
+      {
+        q: "What are the unit types?",
+        a: "The development includes 71 one-bedroom residences from 655.3 to 1,543 sq ft, 49 two-bedroom residences from 1,042.9 to 2,561.3 sq ft, and eight three-bedroom residences from 2,069.8 to 2,088 sq ft.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities are arranged across the Living Deck on Level 9 and Sky Garden on Level 21. Highlights include Prestige One Fitness, an outdoor cinema, kids' play and pool areas, an observation deck, serenity garden, BBQ area, jacuzzi and skylight infinity pool.",
+      },
+      {
+        q: "How well connected is Sanctuary Residences?",
+        a: "Business Bay is approximately 10 minutes away, Downtown Dubai 12 minutes, DIFC 15 minutes and Dubai International Airport 18 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Sanctuary Residences?",
+        a: "Nearby education options include North London Collegiate School Dubai, Hartland International School and GEMS Wellington Academy - Al Khail. Healthcare options include Mediclinic City Hospital, American Hospital Dubai and Fakeeh University Hospital.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The 65/35 payment plan begins with 20% on booking, followed by 45% across construction milestones and 35% on completion.",
+      },
     ],
   },
 };
@@ -632,23 +1101,28 @@ const galleryData: Record<string, string[]> = {
     "19-room-bedroom.webp",
     "20-room-bathroom.webp",
   ]),
-  "golf-residences-by-prestige-one": gal("golf-residences-by-prestige-one", [
-    "the-place-banner.webp",
-    "living-1-scaled.webp",
-    "living-3-scaled.webp",
-    "bedroom-1-02-scaled-1.webp",
-    "club-lounge-02-scaled-1.webp",
-    "mens-gym-01-scaled.webp",
-    "kids-1-scaled.webp",
-  ]),
-  "hilton-residences-dubai-maritime-city": gal("hilton-residences-dubai-maritime-city", [
-    "hilton-night-view-1.webp",
-    "2bed_living-dining-kitchen.webp",
-    "duplex_master-bedroom.webp",
-    "25770800_prestige_spl-3bed_m-bathroom__.webp",
-    "pool.webp",
-    "25770800-prestige_v24_alfresco-lounge_20251113.webp",
-    "25770800-prestige_v26_outdoor-gym_20251113-1.webp",
+  "golf-residences-by-prestige-one": galleryAt(GOLF_AMENITY_GALLERY_ROOT, GOLF_GALLERY_FILES),
+  "hilton-residences-dubai-maritime-city": galleryAt(HILTON_AMENITY_GALLERY_ROOT, [
+    "1-hilton-1.webp",
+    "2-Pool-View- Hilton Residences DMC.webp",
+    "3-SUNSET-CINEMA-LAWN- Hilton Residences DMC.webp",
+    "4-Terrace- Hilton Residences DMC.webp",
+    "5-Outdoor-Gym- Hilton Residences DMC.webp",
+    "6-Facade 8- Hilton Residences DMC.webp",
+    "7-Facade 9- Hilton Residences DMC.webp",
+    "8-Game-Area- Hilton Residences DMC.webp",
+    "9-Kids-Area- Hilton Residences DMC.webp",
+    "11-Facade 3- Hilton Residences DMC.webp",
+    "12-Facade 2- Hilton Residences DMC.webp",
+    "13-BBQ-Zone- Hilton Residences DMC.webp",
+    "14-ALFRESCO-LOUNGE- Hilton Residences DMC.webp",
+    "15-Penthouse_Living- Hilton Residences DMC.webp",
+    "16-Penthouse 3BED_M-Bathroom- Hilton Residences DMC.webp",
+    "18-1BED_Bedroom-Hilton-Residences-DMC.webp",
+    "19-2B-+-M-Bedroom_- Hilton Residences DMC.webp",
+    "20-2BED_Living-Dining-Kitchen- Hilton Residences DMC.webp",
+    "21-3BR_Living-Dining-kitchen_V2- Hilton Residences DMC.webp",
+    "22-Main-Lobby- Hilton Residences DMC.webp",
   ]),
   "luxe-villa-by-prestige-one": gal("luxe-villa-by-prestige-one", [
     "luxe-villas.webp",
@@ -677,30 +1151,14 @@ const galleryData: Record<string, string[]> = {
     "indoor-cinema-scaled.webp",
     "yoga-area.webp",
   ]),
-  "sanctuary-residences-by-prestige-one": gal("sanctuary-residences-by-prestige-one", [
-    "sanctuary-aprtment.webp",
-    "3-bedroom-unit-living-room-1.webp",
-    "17.-3-bedroom-unit-master-bedroom.jpg",
-    "3-bedroom-unit-toilet-1.webp",
-    "rooftop-pool-scaled.jpg",
-    "8.-residential-amenities-gym-level-9-option-1-scaled.jpg",
-    "10.-residential-amenities-cinema-level-9-scaled.jpg",
-  ]),
+  "sanctuary-residences-by-prestige-one": galleryAt(SANCTUARY_GALLERY_ROOT, SANCTUARY_GALLERY_FILES),
   "seascape-villa": gal("seascape-villa", [
     "seascape2.jpg",
     "seascape-ext2.jpg",
     "seascape-ext4.jpg",
     "seascape-ext5.jpg",
   ]),
-  "seaside-by-prestige-one": gal("seaside-by-prestige-one", [
-    "seaside-featured-image.webp",
-    "seaside-2bhk-living.webp",
-    "seaside-3bhk-livingkitchen.webp",
-    "seaside-2bhk-kitchen.webp",
-    "seaside-3bhk-kitchen.webp",
-    "seaside-2bhk-kitchen-1.webp",
-    "seaside-3bhk-masterbedbathroom.webp",
-  ]),
+  "seaside-by-prestige-one": galleryAt(SEASIDE_GALLERY_ROOT, SEASIDE_GALLERY_FILES),
   "the-boulevard-by-prestige-one": gal("the-boulevard-by-prestige-one", [
     "boulevard.webp",
     "living-scaled.webp",
@@ -819,7 +1277,10 @@ function toProject(slide: ProjectSource): Project {
         { label: "Unit Types", value: slide.unitTypes ?? "Contact for Details" },
       ],
     amenities,
+    faqAmenities: e.faqAmenities,
+    faqItems: e.faqItems,
     amenityImages: e.amenityImages ?? resolveAmenityImages(amenities, projectGallery),
+    originalAmenityImages: e.originalAmenityImages,
     paymentPlan: e.paymentPlan ?? DEFAULT_PAYMENT_PLAN,
     connectivity: e.connectivity ?? [],
     nearby: e.nearby ?? [],
@@ -840,7 +1301,7 @@ export function getAllProjects(): Project[] {
 }
 
 export function getAmenityDisplayName(amenity: string): string {
-  return /fitness|gym/i.test(amenity) ? "Prestige One Fitness" : amenity;
+  return /fitness|gym|hiit/i.test(amenity) ? "Prestige One Fitness" : amenity;
 }
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {

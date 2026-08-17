@@ -1,3 +1,4 @@
+<!-- Data source: app/data/legal-v2-content.ts -->
 <template>
   <prestige-legal-document-page :document="privacyDocument" />
 </template>

@@ -52,7 +52,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
   {
     title: t("ap.drives.p2Title"),
     description: t("ap.drives.p2Desc"),
-    image: "/assets/images/v3/the-vista-construction-updates-march-2026-PONE7898-1.webp",
+    image: "/assets/images/v3/Lounge.webp",
   },
   {
     title: t("ap.drives.p3Title"),
@@ -133,7 +133,7 @@ const principles = computed<PrestigeDrivePrinciple[]>(() => [
 }
 
 .prestige-drives-description {
-  max-width: 480px;
+  max-width: 520px;
   margin: 0;
   font-size: clamp(14px, 1.2vw, 17px);
   line-height: 1.65;

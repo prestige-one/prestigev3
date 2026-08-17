@@ -150,27 +150,30 @@
       "hilton-residences-dubai-maritime-city": {
         "tagline": "Waterfront living inspired by the Hilton way of life.",
         "overview": [
-          "Life at Hilton Residences by Prestige One is a balance of elegance and ease - one of the most defining landmarks taking shape in Dubai Maritime City.",
-          "Impeccable design, enriched by thoughtful amenities and elevated by the trusted Hilton name, brings branded waterfront living to a peninsula wrapped by the sea, with sweeping views of the harbour and the Dubai skyline.",
-          "Residences range from considered one- and two-bedroom apartments to expansive duplexes, each finished to hotel-brand standards."
+          "Hilton Residences Dubai Maritime City introduces the first waterfront Hilton-branded residences, balancing elegance and ease against uninterrupted views of the sea and Dubai skyline.",
+          "Impeccable design and more than 45 thoughtful amenities are complemented by the trusted Hilton name, lifetime Gold Hilton Honors status for owners and full hotel-level services.",
+          "Set within the 249-hectare Dubai Maritime City district between Port Rashid and Dubai Drydocks, the address combines direct shoreline living with convenient access to Downtown Dubai, Dubai Mall and Dubai International Airport."
         ],
         "highlights": [
-          "Branded residences operated to Hilton hospitality standards",
-          "Waterfront living on the Dubai Maritime City peninsula",
-          "Infinity skyline pool, outdoor cinema and resort amenities",
-          "One- and two-bedroom apartments plus signature duplexes"
+          "The first waterfront Hilton-branded residences",
+          "Gold Hilton Honors status for owners for life",
+          "Full hotel-level services for owners",
+          "45+ amenities across four dedicated levels"
         ],
         "name": "Hilton Residences by Prestige One"
       },
       "sanctuary-residences-by-prestige-one": {
         "tagline": "Panoramic lagoon views overlooking Ras Al Khor Wildlife Sanctuary.",
         "overview": [
-          "Sanctuary by Prestige One is a more balanced kind of Dubai living in Meydan - residences and considered commercial spaces arranged around calm, greenery and connection."
+          "Sanctuary Residences by Prestige One brings serene living and sophisticated design together in Meydan Horizon, with panoramic views towards Ras Al Khor Wildlife Sanctuary and the Dubai skyline.",
+          "The address combines a peaceful setting with convenient access to Business Bay, Downtown Dubai, DIFC and Dubai International Airport.",
+          "A collection of one-, two- and three-bedroom residences is complemented by wellness, leisure and family amenities across the Living Deck on Level 9 and the Sky Garden on Level 21."
         ],
         "highlights": [
-          "Residential and commercial in one balanced community",
-          "Set in the heart of Meydan",
-          "Designed around wellbeing and everyday convenience"
+          "Views of Ras Al Khor Wildlife Sanctuary and the Dubai skyline",
+          "10 minutes to Business Bay and 12 minutes to Downtown Dubai",
+          "Living Deck on Level 9 and Sky Garden on Level 21",
+          "One-, two- and three-bedroom residences"
         ],
         "name": "Sanctuary Residences by Prestige One"
       },
@@ -189,6 +192,17 @@
       },
       "golf-residences-by-prestige-one": {
         "tagline": "Uninterrupted golf course views, every day.",
+        "overview": [
+          "Golf Residences by Prestige One brings expansive contemporary living to the heart of Dubai Sports City, framed by uninterrupted views across the community's championship greens.",
+          "The collection comprises spacious two- and three-bedroom residences, with two-bedroom homes starting from 1,294 sq ft and three-bedroom homes starting from 1,720 sq ft.",
+          "Ground-floor arrival spaces, an activity-rich podium and a rooftop wellness deck create a complete lifestyle centred on recreation, connection and relaxed golf-course living."
+        ],
+        "highlights": [
+          "Uninterrupted golf-course views in Dubai Sports City",
+          "Two-bedroom residences from 1,294 sq ft",
+          "Three-bedroom residences from 1,720 sq ft",
+          "Anticipated completion in Q2 2027"
+        ],
         "name": "Golf Residences by Prestige One"
       },
       "seascape-villa": {
@@ -217,7 +231,7 @@
       }
     },
     "amenities": {
-      "infinity-swimming-pool": "Infinity swimming pool",
+      "infinity-swimming-pool": "Infinity Swimming Pool",
       "state-of-the-art-fitness-centre": "State-of-the-art fitness centre",
       "landscaped-podium-gardens": "Landscaped podium gardens",
       "24-7-concierge-security": "24/7 concierge & security",
@@ -230,7 +244,7 @@
       "fitness-centre": "Fitness centre",
       "running-track": "Running track",
       "multi-sports-court": "Multi-sports court",
-      "bbq-deck": "BBQ deck",
+      "bbq-deck": "BBQ Deck",
       "outdoor-kids-play-area": "Outdoor kids' play area",
       "indoor-play-area": "Indoor play area",
       "juice-bar": "Juice bar"

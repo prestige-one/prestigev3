@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/destination-listing.ts; app/data/destinations-data.ts; i18n/locales/destinations/en.json -->
 <template>
   <div>
     <common-magic-cursor />

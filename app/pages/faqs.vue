@@ -1,3 +1,4 @@
+<!-- Data source: app/data/faq-data.ts -->
 <template>
   <div>
     <common-magic-cursor />

@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/construction-updates.ts; app/data/construction-updates-content.json -->
 <template>
   <div>
     <common-magic-cursor />

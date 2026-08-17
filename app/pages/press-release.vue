@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/editorial-data.ts; i18n/locales/shared/en.json -->
 <template>
   <div>
     <common-magic-cursor />

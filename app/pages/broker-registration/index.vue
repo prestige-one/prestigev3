@@ -1,3 +1,4 @@
+<!-- Data sources: i18n/locales/shared/en.json; registration options are inline in this file. -->
 <template>
   <div>
     <common-magic-cursor />

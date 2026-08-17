@@ -1,5 +1,5 @@
 <template>
-  <section class="prestige-ctaband" :style="{ backgroundImage: `url(${image})` }">
+  <section class="prestige-ctaband" :style="{ backgroundImage: `url('${image}')` }">
     <div class="prestige-ctaband__veil" />
     <div class="container container-1430">
       <div class="row justify-content-center">

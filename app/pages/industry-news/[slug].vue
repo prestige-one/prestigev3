@@ -1,3 +1,4 @@
+<!-- Data source: app/data/editorial-data.ts -->
 <template>
   <div>
     <common-magic-cursor />

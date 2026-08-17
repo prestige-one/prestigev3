@@ -1,3 +1,4 @@
+<!-- Data sources: i18n/locales/about/en.json; section content is in the nested about components. -->
 <template>
   <div>
     <!-- Begin magic cursor -->

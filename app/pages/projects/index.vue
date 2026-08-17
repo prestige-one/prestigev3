@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/projects.ts; i18n/locales/projects/en.json -->
 <template>
   <div>
     <common-magic-cursor />

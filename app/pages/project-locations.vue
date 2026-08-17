@@ -1,3 +1,4 @@
+<!-- Data source: app/data/project-locations.ts -->
 <template>
   <div>
     <common-magic-cursor />

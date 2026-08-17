@@ -16,7 +16,6 @@
         >
           <img :src="image" :alt="`${projectTitle} - view ${index + 1}`" loading="lazy" draggable="false">
           <span class="prestige-pgallery__tile-shade" aria-hidden="true" />
-          <span class="prestige-pgallery__tile-count">{{ pad(index + 1) }}</span>
           <span class="prestige-pgallery__tile-open" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
               <circle cx="11" cy="11" r="6" />
@@ -98,7 +97,6 @@
                 @click="activeIndex = index"
               >
                 <img :src="image" alt="" loading="lazy" draggable="false">
-                <span>{{ pad(index + 1) }}</span>
               </button>
             </div>
           </div>
@@ -224,13 +222,6 @@ onBeforeUnmount(() => {
   inset: 0;
   background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.58));
   opacity: 0.75;
-}
-.prestige-pgallery__tile-count {
-  position: absolute;
-  right: 18px;
-  bottom: 15px;
-  font-size: 11px;
-  letter-spacing: 0.14em;
 }
 .prestige-pgallery__tile-open {
   position: absolute;
@@ -420,14 +411,6 @@ onBeforeUnmount(() => {
   transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 .prestige-pgallery__thumb img { width: 100%; height: 100%; object-fit: cover; }
-.prestige-pgallery__thumb span {
-  position: absolute;
-  right: 5px;
-  bottom: 3px;
-  font-size: 9px;
-  color: #fff;
-  text-shadow: 0 1px 5px #000;
-}
 .prestige-pgallery__thumb:hover,
 .prestige-pgallery__thumb:focus-visible,
 .prestige-pgallery__thumb--active { border-color: rgba(255, 255, 255, 0.9); opacity: 1; outline: none; }

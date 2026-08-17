@@ -1,3 +1,4 @@
+<!-- Data sources: app/data/construction-updates.ts; app/data/construction-updates-content.json -->
 <template>
   <prestige-construction-update-detail v-if="project" :project="project" />
 </template>

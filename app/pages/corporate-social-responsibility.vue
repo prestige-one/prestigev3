@@ -1,3 +1,4 @@
+<!-- Data source: content is inline in this file. -->
 <template>
   <div>
     <common-magic-cursor />
