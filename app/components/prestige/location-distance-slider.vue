@@ -1,5 +1,10 @@
 <template>
-  <section ref="root" class="prestige-distance" aria-label="Nearby driving distances">
+  <section
+    ref="root"
+    class="prestige-distance"
+    aria-label="Nearby driving distances"
+    :style="{ '--prestige-distance-title-color': titleColor }"
+  >
     <div class="prestige-distance__swiper swiper">
       <div class="swiper-wrapper">
         <div v-for="slide in slides" :key="slide.name" class="prestige-distance__slide swiper-slide">
@@ -36,7 +41,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import type { ProjectDistanceSlide } from "~/data/project-distance-slides";
 
-defineProps<{ slides: ProjectDistanceSlide[] }>();
+withDefaults(defineProps<{
+  slides: ProjectDistanceSlide[];
+  titleColor?: string;
+}>(), {
+  titleColor: "#f28bd7",
+});
 
 const root = ref<HTMLElement | null>(null);
 const prevButton = ref<HTMLElement | null>(null);
@@ -147,10 +157,9 @@ onBeforeUnmount(() => {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: var(--prestige-distance-title-color);
 }
-.prestige-distance__slide.swiper-slide-active .prestige-distance__copy span,
-.prestige-distance__slide.swiper-slide-active .prestige-distance__copy h3 { color: #f28bd7; }
+.prestige-distance__slide.swiper-slide-active .prestige-distance__copy span { color: var(--prestige-distance-title-color); }
 .prestige-distance__edge {
   position: absolute;
   top: 0;
@@ -170,23 +179,27 @@ onBeforeUnmount(() => {
   height: 58px;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(242, 139, 215, 0.8);
+  border: 1px solid var(--prestige-distance-title-color);
   border-radius: 50%;
-  background: rgba(24, 11, 24, 0.72);
-  color: #f28bd7;
-  box-shadow: 0 0 22px rgba(226, 75, 185, 0.25);
+  background: rgba(8, 9, 12, 0.76);
+  color: var(--prestige-distance-title-color);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--prestige-distance-title-color) 28%, transparent);
   cursor: pointer;
   transform: translateY(-50%);
   transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
-.prestige-distance__arrow svg { width: 25px; height: 25px; }
+.prestige-distance__arrow svg {
+  width: 25px;
+  height: 25px;
+  stroke: currentColor;
+}
 .prestige-distance__arrow--prev { left: clamp(18px, 3vw, 58px); }
 .prestige-distance__arrow--next { right: clamp(18px, 3vw, 58px); }
 .prestige-distance__arrow:hover,
 .prestige-distance__arrow:focus-visible {
-  background: #f28bd7;
+  background: var(--prestige-distance-title-color);
   color: #0a070a;
-  box-shadow: 0 0 30px rgba(226, 75, 185, 0.48);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--prestige-distance-title-color) 50%, transparent);
   outline: none;
 }
 .prestige-distance__progress {

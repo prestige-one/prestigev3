@@ -48,9 +48,15 @@ defineProps<{
 }
 /* equal-height variant: image matches the text column's height */
 .prestige-fsplit__media.is-fill {
+  position: relative;
   aspect-ratio: auto;
   width: 100%;
+  height: 100%;
   min-height: 340px;
+}
+.prestige-fsplit__media.is-fill img {
+  position: absolute;
+  inset: 0;
 }
 .prestige-fsplit__media img {
   width: 100%;

@@ -78,7 +78,11 @@
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
                   </div>
                 </div>
-                <prestige-location-distance-slider v-if="distanceSlides.length" :slides="distanceSlides" />
+                <prestige-location-distance-slider
+                  v-if="distanceSlider"
+                  :slides="distanceSlider.slides"
+                  :title-color="distanceSlider.titleColor"
+                />
                 <prestige-location-info-grid :groups="locationInfoGroups" />
               </div>
             </section>
@@ -181,7 +185,7 @@
 <script setup lang="ts">
 import { getAmenityDisplayName, getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
 import { destinations } from "~/data/destinations-data";
-import { getProjectDistanceSlides } from "~/data/project-distance-slides";
+import { getProjectDistanceSliderConfig } from "~/data/project-distance-slides";
 
 interface FaqItem { q: string; a: string }
 
@@ -222,8 +226,10 @@ const highlights = computed<string[]>(() => {
   return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.highlights;
 });
 
+const projectsWithOfficialAmenityTitles = new Set(["the-boulevard-by-prestige-one"]);
+
 function tAmenity(a: string) {
-  const displayName = getAmenityDisplayName(a);
+  const displayName = projectsWithOfficialAmenityTitles.has(slug.value) ? a : getAmenityDisplayName(a);
   if (displayName !== a) return displayName;
 
   const k = `pdata.amenities.${slugify(displayName)}`;
@@ -233,7 +239,7 @@ function tPayment(l: string) { const k = `pdata.payment.${slugify(l)}`; return t
 function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? t(k) : d; }
 
 const amenities = computed(() => project.value!.amenities.map(tAmenity));
-const distanceSlides = computed(() => getProjectDistanceSlides(slug.value));
+const distanceSlider = computed(() => getProjectDistanceSliderConfig(slug.value));
 const paymentPlan = computed(() => project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
 const documents = computed(() => project.value!.documents.map((d) => ({ raw: d, label: tDoc(d) })));
 const statusLabel = computed(() => {

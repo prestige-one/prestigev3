@@ -173,9 +173,11 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     image: "/assets/images/v2/project-featured-images/sanctuary/sanctuary-hive-2.webp",
     title: "Sanctuary Hive by Prestige One",
     location: "Meydan Horizon",
-    description: "Commercial spaces ideal for businesses seeking visibility and connectivity.",
+    description: "Where work breathes easier beside Ras Al Khor Wildlife Sanctuary.",
     category: "commercial",
     type: "Commercial",
+    configuration: "G+2P+Coworking Forum+Office Floors",
+    unitTypes: "Commercial Offices",
   },
   {
     id: "hilton-residences",
@@ -235,7 +237,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     location: "DLRC",
     description: "Bold urban living for modern lifestyles.",
     category: "residential",
-    configuration: "G+2P+16+R",
+    configuration: "G+17",
     unitTypes: "Studio, 1-Bedroom, 2-Bedroom",
   },
   {
@@ -476,6 +478,35 @@ const PROJECT_MAP_LOCATION_BY_ID: Partial<Record<string, ProjectMapLocation>> = 
 
 const V2 = "/assets/images/v2/project-featured-images";
 const FAUCHON_AMENITY_ROOT = "/assets/images/v3/project-amenities/fauchon/v3";
+const BOULEVARD_AMENITY_ROOT = "/assets/images/v3/project-amenities/boulevard";
+const BOULEVARD_GALLERY_ROOT = `${BOULEVARD_AMENITY_ROOT}/gallery`;
+const BOULEVARD_OVERVIEW_IMAGE = `${BOULEVARD_GALLERY_ROOT}/the-boulevard-by-prestige-one.webp`;
+const BOULEVARD_GALLERY_FILES = [
+  "the-boulevard-by-prestige-one.webp",
+  "NIGHT 4c.webp",
+  "NIGHT 12b.webp",
+  "1_Front View.jpg",
+  "12.webp",
+  "5.jpg",
+  "rooftop.jpg",
+  "podium-amenities.webp",
+  "Skyline Infinity Pool.webp",
+  "Infinity Sunken Beds.webp",
+  "Poolside Lounge.webp",
+  "Relaxation Pond.webp",
+  "Tranquility Corner-1.webp",
+  "Cozy Lounger Retreat.webp",
+  "Outdoor Theatre.webp",
+  "Library Lounge.webp",
+  "1_Gym.jpg",
+  "Gym-1.webp",
+  "Little Explorers Zone.webp",
+  "Gaming Zone.webp",
+  "Creativity Studio.webp",
+  "Digital Library.webp",
+  "Living-room.webp",
+  "bedroom.webp",
+];
 const GOLF_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/golf-residences/gallery";
 const GOLF_GALLERY_FILES = [
   "Golf Place- Exterior Hero.webp",
@@ -536,10 +567,123 @@ const SANCTUARY_GALLERY_FILES = [
   "RoofTop-Floor-Sitting-Area.webp",
   "Rooftop-Pool.webp",
 ];
+const SANCTUARY_HIVE_AMENITY_ROOT = "/assets/images/v3/project-amenities/Sanctuary-Hive";
+const SANCTUARY_HIVE_GALLERY_ROOT = `${SANCTUARY_HIVE_AMENITY_ROOT}/gallery`;
+const SANCTUARY_HIVE_GALLERY = [
+  `${SANCTUARY_HIVE_GALLERY_ROOT}/sanctuary-hive-exterior-evening.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/1.-Residential-Lobby.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/RoofTop-Floor-Sitting-Area.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+];
 
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
 // everything else falls back to derived defaults below.
 const enrichment: Record<string, ProjectEnrichment> = {
+  "the-boulevard-by-prestige-one": {
+    status: "Now Selling",
+    introImage: BOULEVARD_OVERVIEW_IMAGE,
+    closingTitle: "Live connected at The Boulevard",
+    closingImage: `${BOULEVARD_AMENITY_ROOT}/boulevard.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "The Boulevard by Prestige One brings seamless design and wellness-focused living together in DLRC, where luxury and convenience shape a smart, connected lifestyle.",
+      "The collection includes studios from 437.98 to 534.97 sq ft, one-bedroom residences from 677.91 to 1,201.25 sq ft, and two-bedroom residences from 1,025.26 to 1,487.68 sq ft.",
+      "A complete podium and rooftop amenity programme creates spaces for fitness, creativity, productivity, family time and relaxed poolside living.",
+    ],
+    highlights: [
+      "Studios from 437.98 to 534.97 sq ft",
+      "One-bedroom residences from 677.91 to 1,201.25 sq ft",
+      "Two-bedroom residences from 1,025.26 to 1,487.68 sq ft",
+      "Anticipated completion in Q1 2028",
+    ],
+    amenities: [
+      "Skyline Infinity Pool",
+      "Prestige Fitness Center",
+      "Little Explorers Zone",
+      "Gaming Zone",
+      "Creativity Studio",
+      "Digital Library",
+      "Outdoor Theatre",
+      "Cozy Lounger Retreat",
+    ],
+    faqAmenities: [
+      "Lift Lobby",
+      "Male/Female Toilet & Changing Room",
+      "Little Explorers Zone",
+      "Prestige Clubhouse",
+      "Digital Library",
+      "Productivity Hub",
+      "Gaming Zone",
+      "Creativity Studio",
+      "Prestige Fitness Center",
+      "Artic Pool",
+      "Calm Garden Corner",
+      "Green Labyrinth",
+      "Poolside Lounge",
+      "Pool Promenade",
+      "Aqua Loungers",
+      "Floating Passage",
+      "Serenity Pool",
+      "Jacuzzi Retreat",
+      "Observation Deck",
+      "Sky Lounge",
+      "Bayside Loungers",
+      "Skyline Infinity Pool",
+      "Female and Male Restroom",
+      "Aqua Pool Bar",
+      "Infinity Sunken Beds",
+      "Library Lounge",
+      "Infinity Promenade",
+      "Tranquility Corner",
+      "Outdoor Theatre",
+      "Fire Place",
+      "Grill Spot",
+      "Serenity Pond",
+      "Relaxation Pond",
+      "Productivity Suite",
+      "Cozy Lounger Retreat",
+    ],
+    amenityImages: [
+      `${BOULEVARD_GALLERY_ROOT}/Skyline Infinity Pool.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/1_Gym.jpg`,
+      `${BOULEVARD_GALLERY_ROOT}/Little Explorers Zone.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/Gaming Zone.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/Creativity Studio.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/Digital Library.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/Outdoor Theatre.webp`,
+      `${BOULEVARD_GALLERY_ROOT}/Cozy Lounger Retreat.webp`,
+    ],
+    paymentPlan: [
+      { label: "Total installments", value: "65%" },
+      { label: "Upon handover", value: "35%" },
+    ],
+    faqItems: [
+      {
+        q: "What is The Boulevard by Prestige One?",
+        a: "The Boulevard is a G+17 residential development in DLRC, designed around seamless contemporary living, wellness-focused amenities and everyday connectivity.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The development offers studios from 437.98 to 534.97 sq ft, one-bedroom residences from 677.91 to 1,201.25 sq ft, and two-bedroom residences from 1,025.26 to 1,487.68 sq ft.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "The podium and rooftop amenity programmes include the Prestige Clubhouse, Little Explorers Zone, Digital Library, Productivity Hub, Gaming Zone, Creativity Studio, Prestige Fitness Center, Serenity Pool, Skyline Infinity Pool, Outdoor Theatre and more.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan is structured as 65% in total installments and 35% upon handover.",
+      },
+      {
+        q: "When is The Boulevard expected to be completed?",
+        a: "The Boulevard is anticipated to be completed in Q1 2028.",
+      },
+    ],
+  },
   "golf-residences-by-prestige-one": {
     status: "Now Selling",
     introImage: `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- Exterior Hero.webp`,
@@ -960,11 +1104,11 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "BBQ Garden",
       "Prestige One Fitness",
       "Cinema Lawn",
-      "Kids Play Area",
+      "Outdoor Kids Play Area",
       "Infinity Swimming Pool",
       "Observation Deck",
       "Serenity Garden",
-      "Relaxation Pool Jacuzzi",
+      "Indoor Kids Play Area",
     ],
     faqAmenities: [
       "Kids Play Area with Water Features",
@@ -990,7 +1134,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
       `${SANCTUARY_GALLERY_ROOT}/RoofTop-Floor-Sitting-Area.webp`,
       `${SANCTUARY_GALLERY_ROOT}/9th-floor-water-feature.webp`,
-      `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/indoor-kids-area.webp`,
     ],
     paymentPlan: [
       { label: "On booking", value: "20%" },
@@ -1030,6 +1174,89 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "Which schools and hospitals are near Sanctuary Residences?",
+        a: "Nearby education options include North London Collegiate School Dubai, Hartland International School and GEMS Wellington Academy - Al Khail. Healthcare options include Mediclinic City Hospital, American Hospital Dubai and Fakeeh University Hospital.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The 65/35 payment plan begins with 20% on booking, followed by 45% across construction milestones and 35% on completion.",
+      },
+    ],
+  },
+  "sanctuary-hive-by-prestige-one": {
+    status: "Now Selling",
+    introImage: `${V2}/sanctuary/sanctuary-hive-2.webp`,
+    closingTitle: "Give your business room to breathe",
+    closingImage: `${SANCTUARY_HIVE_GALLERY_ROOT}/sanctuary-hive-exterior-evening.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "Sanctuary Hive by Prestige One is a business hub in Meydan Horizon, surrounded by the calm of Ras Al Khor Wildlife Sanctuary and connected to the pulse of Dubai.",
+      "Its sculpted glass facade creates a dialogue between progress and peace, bringing natural light, clarity and balance into office environments designed for focused, productive work.",
+      "A dedicated Coworking Forum combines professional, social and wellbeing spaces so ideas, collaboration and everyday business can flow naturally.",
+    ],
+    highlights: [
+      "Business hub overlooking Ras Al Khor Wildlife Sanctuary",
+      "10 minutes to Business Bay and 12 minutes to Downtown Dubai",
+      "Ground floor, two podium floors, Coworking Forum and office floors",
+      "Work, collaboration, fitness and wellbeing spaces in one address",
+    ],
+    amenities: [
+      "Prestige One Fitness",
+      "Private Cinema",
+      "Kids Play Area",
+      "Rooftop Barbecue Area",
+      "Rooftop Sitting Area",
+      "Rooftop Pool",
+      "Padel Court",
+      "Restroom",
+    ],
+    amenityImages: [
+      `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/RoofTop-Floor-Sitting-Area.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/sanctuary-hive-padel.webp`,
+      `${SANCTUARY_HIVE_GALLERY_ROOT}/restroom.webp`,
+    ],
+    paymentPlan: [
+      { label: "On booking", value: "20%" },
+      { label: "During construction", value: "45%" },
+      { label: "On completion", value: "35%" },
+    ],
+    nearby: [
+      { name: "Business Bay", time: "10 min" },
+      { name: "Downtown Dubai", time: "12 min" },
+      { name: "DIFC", time: "15 min" },
+      { name: "Dubai Design District", time: "15 min" },
+      { name: "Dubai International Airport", time: "18 min" },
+      { name: "Dubai Marina", time: "25 min" },
+    ],
+    schools: [
+      "North London Collegiate School Dubai",
+      "Hartland International School",
+      "GEMS Wellington Academy - Al Khail",
+    ],
+    hospitals: ["Mediclinic City Hospital", "American Hospital Dubai", "Fakeeh University Hospital"],
+    faqItems: [
+      {
+        q: "What is Sanctuary Hive by Prestige One?",
+        a: "Sanctuary Hive is a commercial office development in Meydan Horizon, created as a calm, connected business hub beside Ras Al Khor Wildlife Sanctuary.",
+      },
+      {
+        q: "What workspace types are available?",
+        a: "The development offers commercial office floors supported by shared coworking, collaboration, social and wellbeing spaces.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "The amenity programme includes Prestige One Fitness, a private cinema, kids play area, rooftop barbecue and sitting areas, rooftop pool, padel court and restroom facilities.",
+      },
+      {
+        q: "How well connected is Sanctuary Hive?",
+        a: "Business Bay is approximately 10 minutes away, Downtown Dubai 12 minutes, DIFC and Dubai Design District 15 minutes, Dubai International Airport 18 minutes and Dubai Marina 25 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Sanctuary Hive?",
         a: "Nearby education options include North London Collegiate School Dubai, Hartland International School and GEMS Wellington Academy - Al Khail. Healthcare options include Mediclinic City Hospital, American Hospital Dubai and Fakeeh University Hospital.",
       },
       {
@@ -1152,6 +1379,7 @@ const galleryData: Record<string, string[]> = {
     "yoga-area.webp",
   ]),
   "sanctuary-residences-by-prestige-one": galleryAt(SANCTUARY_GALLERY_ROOT, SANCTUARY_GALLERY_FILES),
+  "sanctuary-hive-by-prestige-one": SANCTUARY_HIVE_GALLERY,
   "seascape-villa": gal("seascape-villa", [
     "seascape2.jpg",
     "seascape-ext2.jpg",
@@ -1159,15 +1387,7 @@ const galleryData: Record<string, string[]> = {
     "seascape-ext5.jpg",
   ]),
   "seaside-by-prestige-one": galleryAt(SEASIDE_GALLERY_ROOT, SEASIDE_GALLERY_FILES),
-  "the-boulevard-by-prestige-one": gal("the-boulevard-by-prestige-one", [
-    "boulevard.webp",
-    "living-scaled.webp",
-    "kitchen-scaled.webp",
-    "k2-scaled.webp",
-    "bahtrrom-scaled.webp",
-    "art-room-scaled.webp",
-    "gameroom-scaled.webp",
-  ]),
+  "the-boulevard-by-prestige-one": galleryAt(BOULEVARD_GALLERY_ROOT, BOULEVARD_GALLERY_FILES),
   "the-one-by-prestige-one": gal("the-one-by-prestige-one", [
     "the-one.webp",
     "4.webp",
