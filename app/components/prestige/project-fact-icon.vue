@@ -5,7 +5,7 @@
       <circle cx="12" cy="10" r="2.5" />
     </svg>
 
-    <svg v-else-if="name === 'Type'" viewBox="0 0 24 24">
+    <svg v-else-if="name === 'Type' || name === 'Brand'" viewBox="0 0 24 24">
       <path d="m4 13 9-9h7v7l-9 9L4 13Z" />
       <circle cx="16.5" cy="7.5" r="1.2" />
     </svg>
@@ -13,6 +13,11 @@
     <svg v-else-if="name === 'Configuration'" viewBox="0 0 24 24">
       <path d="M5 21V5h9v16M14 10h5v11M3 21h18" />
       <path d="M8 9h3M8 13h3M8 17h3M17 14h1M17 17h1" />
+    </svg>
+
+    <svg v-else-if="name === 'Completion'" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M7 3v4M17 3v4M3 10h18M8 15l2.5 2.5L16 12" />
     </svg>
 
     <svg v-else viewBox="0 0 24 24">

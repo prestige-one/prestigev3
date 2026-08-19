@@ -8,12 +8,12 @@
           <p v-if="lead" class="prestige-amen__lead tp_fade_anim" data-delay=".4">{{ lead }}</p>
         </header>
 
-        <div class="prestige-amen__grid">
+        <div ref="waterHoverRoot" class="prestige-amen__grid">
           <article
             v-for="(a, i) in items"
             :key="a"
             class="prestige-amen__item tp_fade_anim"
-            :data-delay="0.2 + (i % 4) * 0.07"
+            :data-delay="0.2 + (i % 3) * 0.07"
           >
             <span class="prestige-amen__media">
               <img
@@ -62,6 +62,7 @@ withDefaults(
   { images: () => [], lead: "", headingClass: "", originalImages: false },
 );
 
+const { waterHoverRoot } = useAmenityWaterHover();
 </script>
 
 <style scoped>
@@ -87,17 +88,13 @@ withDefaults(
   mix-blend-mode: soft-light;
 }
 .prestige-amen__layout {
-  display: grid;
-  grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.7fr);
-  align-items: center;
-  gap: clamp(52px, 6vw, 96px);
+  display: block;
 }
 .prestige-amen__intro {
-  display: flex;
-  max-width: 390px;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: clamp(34px, 4vw, 50px);
+  text-align: center;
 }
 .prestige-amen__title {
   margin: 14px 0 0;
@@ -109,8 +106,8 @@ withDefaults(
   color: #f7f7f8;
 }
 .prestige-amen__lead {
-  max-width: 360px;
-  margin: 20px 0 0;
+  max-width: 720px;
+  margin: 20px auto 0;
   font-size: clamp(13px, 1.25vw, 15px);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.68);
@@ -118,7 +115,7 @@ withDefaults(
 .prestige-amen__grid {
   --prestige-amen-gap: clamp(12px, 1.4vw, 20px);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--prestige-amen-gap);
 }
 .prestige-amen__item {
@@ -133,12 +130,13 @@ withDefaults(
   overflow: hidden;
   border: 1px solid hsla(0, 0%, 100%, 0.08);
   border-radius: 10px;
-  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.035), hsla(0, 0%, 100%, 0.012));
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.04), hsla(0, 0%, 100%, 0.03));
   text-align: left;
   color: rgba(255, 255, 255, 0.86);
   transition: border-color 240ms ease, background-color 240ms ease, transform 240ms ease;
 }
 .prestige-amen__media {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
@@ -151,7 +149,17 @@ withDefaults(
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateZ(0) scale(1);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.prestige-amen__media :deep(.prestige-amen__water-canvas) {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
 }
 .prestige-amen__image--original {
   object-fit: cover;
@@ -175,18 +183,17 @@ withDefaults(
     transform: translateY(-2px);
   }
   .prestige-amen__item:hover .prestige-amen__image {
-    transform: scale(1.045);
+    transform: translateZ(0) scale(1.025);
   }
 }
-@media (max-width: 1199.98px) {
-  .prestige-amen__layout {
-    grid-template-columns: 1fr;
+@media (prefers-reduced-motion: reduce) {
+  .prestige-amen__image {
+    transition-duration: 0.01ms;
   }
-  .prestige-amen__intro {
-    max-width: 720px;
-  }
-  .prestige-amen__lead {
-    max-width: 600px;
+}
+@media (max-width: 991.98px) {
+  .prestige-amen__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

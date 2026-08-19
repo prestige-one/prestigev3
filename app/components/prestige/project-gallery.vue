@@ -1,8 +1,10 @@
 <template>
   <section v-if="images.length" class="prestige-pgallery prestige-section">
     <div class="container container-1430">
-      <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
-      <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ title }}</h2>
+      <header class="prestige-pgallery__intro">
+        <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
+        <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ title }}</h2>
+      </header>
 
       <div class="prestige-pgallery__grid">
         <button
@@ -194,6 +196,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .prestige-pgallery { overflow: hidden; }
+.prestige-pgallery__intro {
+  text-align: center;
+}
 .prestige-pgallery__grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));

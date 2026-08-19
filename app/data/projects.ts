@@ -56,6 +56,7 @@ export interface Project {
   description: string;
   image: string; // card / slider image
   hero: string; // large hero image
+  registrationUrl?: string;
   introImage?: string;
   gallery: string[];
   overview: string[];
@@ -102,6 +103,8 @@ interface ProjectEnrichment {
 }
 
 interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
+  slug?: string;
+  registrationUrl?: string;
   category: ProjectCategory;
   brand?: string;
   type?: ProjectType;
@@ -153,6 +156,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "FAUCHON Résidences by Prestige One",
     location: "Jumeirah Garden City, Dubai",
     description: "Parisian-inspired living with the iconic FAUCHON lifestyle.",
+    registrationUrl: "https://fauchonresidencesbyprestigeone.ae",
     category: "residential",
     brand: "FAUCHON Paris",
     configuration: "G+2P+8+R",
@@ -185,6 +189,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "Hilton Residences Dubai Maritime City",
     location: "Dubai Maritime City",
     description: "Waterfront living inspired by the Hilton way of life.",
+    registrationUrl: "https://hiltonresidencesdubaimaritimecity.ae",
     category: "residential",
     brand: "Hilton",
     configuration: "G+2P+33+R",
@@ -195,19 +200,22 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     image: "/assets/project-featured-images/sliders/berkeley-north.webp",
     title: "Berkeley Square North",
     location: "Jumeirah Village Circle",
-    description: "Timeless architecture inspired by London living.",
+    description: "Classic English elegance, reimagined for modern Dubai living.",
+    registrationUrl: "https://berkeleysquare.ae",
     category: "residential",
-    configuration: "2B+G+5+Roof",
+    configuration: "2B+G+5+ROOF",
     unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "berkeley-square-south",
+    slug: "berkeley-square-south",
     image: "/assets/project-featured-images/sliders/berkeley-south.webp",
     title: "Berkeley Square South",
     location: "Jumeirah Village Circle",
-    description: "Where open spaces shape everyday living.",
+    description: "Classic English ideals, reimagined for Dubai's most discerning residents.",
+    registrationUrl: "https://berkeleysquare.ae",
     category: "residential",
-    configuration: "2B+G+5+Roof",
+    configuration: "2B+G+5+ROOF",
     unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
@@ -222,8 +230,9 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
   },
   {
     id: "coastal-haven",
+    slug: "coastal-haven-by-prestige-one",
     image: "/assets/project-featured-images/sliders/coastal-heaven.webp",
-    title: "Coastal Haven by Prestige One",
+    title: "Coastal Haven by Prestige Harbour",
     location: "Dubai Islands",
     description: "Coastal living with breathtaking Gulf views.",
     category: "residential",
@@ -246,6 +255,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "Parkway by Prestige One",
     location: "Meydan Horizon",
     description: "Nature-inspired living designed for balance.",
+    registrationUrl: "https://parkway.prestigeone.ae",
     category: "residential",
     configuration: "G+4P+30",
     unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
@@ -256,6 +266,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "Golf Residences by Prestige One",
     location: "Dubai Sports City",
     description: "Uninterrupted golf course views, every day.",
+    registrationUrl: "https://golfresidences.prestigeone.ae",
     category: "residential",
     configuration: "G+3P+19+R",
     unitTypes: "2-Bedroom, 3-Bedroom",
@@ -269,6 +280,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     category: "commercial",
     type: "Commercial",
     configuration: "3B+G+14+R",
+    unitTypes: "Commercial Offices, Half Floors, Full Floors",
   },
   {
     id: "seaside",
@@ -276,18 +288,21 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "Seaside by Prestige One",
     location: "Dubai Islands",
     description: "A peaceful waterfront retreat.",
+    registrationUrl: "https://seaside.prestigeone.ae",
     category: "residential",
     configuration: "G+12",
     unitTypes: "1-Bedroom, 2-Bedroom, 3-Bedroom",
   },
   {
     id: "waterway",
+    slug: "waterway-by-prestige-one",
     image: "/assets/project-featured-images/sliders/waterway.webp",
-    title: "Waterway by Prestige One",
+    title: "The Waterway by Prestige One",
     location: "Meydan Horizon",
-    description: "Serene living inspired by the water.",
+    description: "Serene waterfront living beside the crystal lagoons.",
+    registrationUrl: "https://thewaterway.prestigeone.ae",
     category: "residential",
-    configuration: "G+3P+16+R",
+    configuration: "G+20",
     unitTypes: "1-Bedroom, 2-Bedroom",
   },
   {
@@ -296,6 +311,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "Vista by Prestige One",
     location: "Dubai Sports City",
     description: "Contemporary residences designed around panoramic views.",
+    registrationUrl: "https://vista.prestigeone.ae",
     category: "residential",
     configuration: "G+2P+14+R",
     unitTypes: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom",
@@ -306,6 +322,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     title: "The Residence by Prestige One",
     location: "Jumeirah Village Circle",
     description: "Boutique living with thoughtful design.",
+    registrationUrl: "https://residence.prestigeone.ae",
     category: "residential",
     configuration: "G+5",
     unitTypes: "Studio, 1-Bedroom, 2-Bedroom",
@@ -527,6 +544,405 @@ const GOLF_GALLERY_FILES = [
   "Golf Place- Amenities- running track.webp",
 ];
 const HILTON_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/hilton/gallery";
+const BERKELEY_NORTH_FEATURED_IMAGE = "/assets/project-featured-images/berkeley/Berkeley-Square-North.webp";
+const BERKELEY_NORTH_AMENITY_ROOT = "/assets/images/v3/project-amenities/berkeley-square-north";
+const BERKELEY_NORTH_GALLERY_ROOT = `${BERKELEY_NORTH_AMENITY_ROOT}/gallery`;
+const BERKELEY_SOUTH_HERO_IMAGE = "/assets/project-featured-images/sliders/berkeley-south.webp";
+const BERKELEY_SOUTH_OVERVIEW_IMAGE = "/assets/project-featured-images/berkeley/Berkeley-Square-South.webp";
+const BERKELEY_NORTH_GALLERY_FILES = [
+  "Berkeley Square Bird's Eye Night View.webp",
+  "Berkeley Square Courtyard Pool Night.webp",
+  "Berkeley Square Outdoor Cinema Night View.webp",
+  "Berkeley Square Pool Retreat Night.webp",
+  "Berkeley Square Poolside Seating Night.webp",
+  "Berkeley Square Rooftop.webp",
+  "Berkeley Square Padel Court Night View.webp",
+  "Berkeley Square- Clubhouse 1.webp",
+  "Berkeley Square- Lobby 1.webp",
+  "Berkeley Square- Lobby 3.webp",
+  "Berkeley Square- Podcast Room- Sitting Setup-1.webp",
+  "Berkeley Square- Podcast Room.webp",
+  "Gym 4.webp",
+  "Kids play area 1.webp",
+  "BS_DR_07.webp",
+  "BS_DR_10.webp",
+  "Berkeley Square- STUDIO 03.webp",
+  "Berkeley Square- 1BHK- BEDROOM.webp",
+  "Berkeley Square- 2BR- Kitchen.webp",
+  "Berkeley Square- 3BR- Bathroom.webp",
+];
+const BERKELEY_NORTH_AMENITIES = [
+  "Podcast Room",
+  "Outdoor Cinema",
+  "Prestige One Clubhouse",
+  "Grand Atrium",
+  "Courtyard Pool",
+  "Mini Golf",
+  "Floating Cabanas",
+  "Prestige Fitness Centre",
+  "Pool Retreat",
+  "Garden BBQ Pavilion",
+  "Organic Farming Terrace",
+  "Multi-purpose Court",
+];
+const BERKELEY_SQUARE_AMENITY_IMAGES = [
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square- Podcast Room.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Outdoor Cinema Night View.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square- Clubhouse 1.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square- Lobby 1.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Courtyard Pool Night.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Padel Court Night View.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Poolside Seating Night.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Gym 4.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Pool Retreat Night.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/BS_DR_10.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Rooftop.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Padel Court Night View.webp`,
+];
+const LUXURY_CANAL_AMENITY_ROOT = "/assets/images/v3/project-amenities/luxury-canal-residences";
+const LUXURY_CANAL_GALLERY_ROOT = `${LUXURY_CANAL_AMENITY_ROOT}/gallery`;
+const LUXURY_CANAL_OVERVIEW_IMAGE = `${LUXURY_CANAL_GALLERY_ROOT}/luxury-canal-residences-main.webp`;
+const LUXURY_CANAL_FACADE_IMAGE = `${LUXURY_CANAL_GALLERY_ROOT}/luxury-canal-residences-Facade.webp`;
+const LUXURY_CANAL_GALLERY_FILES = [
+  "luxury-canal-residences-Facade.webp",
+  "luxury-canal-residences-main.webp",
+  "luxury-canal-residences.webp",
+  "07 Facade.webp",
+  "11 Facade.webp",
+  "01 Main Entrance.webp",
+  "infinity-pool.webp",
+  "Sun Deck.webp",
+  "Jacuzzi.webp",
+  "prestige-fitness.webp",
+  "Prestige Wellness Area.webp",
+  "Badminton Court.webp",
+  "06 Lounge.webp",
+  "01 Game Room View.webp",
+  "02 Game Room View.webp",
+  "04 Kids Play Area.webp",
+  "02 2-Bedroom.webp",
+  "04 3-Bedroom - living dining.webp",
+  "05 3-Bedroom penthouse - living dining.webp",
+  "Pent Kitchen.webp",
+  "Bathroom.webp",
+];
+const LUXURY_CANAL_AMENITIES = [
+  "Infinity Pool",
+  "Prestige Fitness Center",
+  "Children's Adventure Zone",
+  "Game Room",
+  "Lounge",
+  "Badminton Court",
+  "Sun Deck",
+  "Prestige Wellness Area",
+];
+const LUXURY_CANAL_AMENITY_IMAGES = [
+  `${LUXURY_CANAL_GALLERY_ROOT}/infinity-pool.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/prestige-fitness.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/04 Kids Play Area.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/01 Game Room View.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/06 Lounge.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/Badminton Court.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/Sun Deck.webp`,
+  `${LUXURY_CANAL_GALLERY_ROOT}/Prestige Wellness Area.webp`,
+];
+const COASTAL_HAVEN_GALLERY_ROOT = "/assets/images/v3/project-amenities/coastal-haven/gallery";
+const COASTAL_HAVEN_HERO_IMAGE = "/assets/project-featured-images/coastal-haven/Coastal-Haven.webp";
+const COASTAL_HAVEN_OVERVIEW_IMAGE = `${COASTAL_HAVEN_GALLERY_ROOT}/02 Facade(1).webp`;
+const COASTAL_HAVEN_GALLERY_FILES = [
+  "02 Facade(1).webp",
+  "03 Main Entrance.webp",
+  "01 Game Room View.webp",
+  "02 Game Room View.webp",
+  "04 Kids Play Area.webp",
+  "prestige-fitness.webp",
+  "Prestige Wellness Area.webp",
+  "Badminton Court.webp",
+  "Sun Deck.webp",
+  "02 2-Bedroom(1).webp",
+  "Pent Kitchen.webp",
+  "Bathroom.webp",
+];
+const COASTAL_HAVEN_AMENITIES = [
+  "Game Room",
+  "Little Explorer Zone",
+  "Prestige Fitness Center",
+  "Prestige Wellness Area",
+  "Badminton Court",
+  "Sun Deck",
+];
+const COASTAL_HAVEN_AMENITY_IMAGES = [
+  `${COASTAL_HAVEN_GALLERY_ROOT}/02 Game Room View.webp`,
+  `${COASTAL_HAVEN_GALLERY_ROOT}/04 Kids Play Area.webp`,
+  `${COASTAL_HAVEN_GALLERY_ROOT}/prestige-fitness.webp`,
+  `${COASTAL_HAVEN_GALLERY_ROOT}/Prestige Wellness Area.webp`,
+  `${COASTAL_HAVEN_GALLERY_ROOT}/Badminton Court.webp`,
+  `${COASTAL_HAVEN_GALLERY_ROOT}/Sun Deck.webp`,
+];
+const COASTAL_HAVEN_ALL_AMENITIES = [
+  "Prestige Owner's Lounge",
+  "Prestige Clubhouse",
+  "Badminton Court",
+  "Tennis Court",
+  "Basketball Court",
+  "Prestige Spa",
+  "Prestige Fitness Center",
+  "Prestige Wellness Area",
+  "Game Room",
+  "Library Lounge",
+  "Little Explorer Zone",
+  "Infinity Pool",
+  "Sun Deck",
+  "Jacuzzi",
+  "Outdoor Gym",
+  "BBQ Terrace",
+  "Outdoor Cinema",
+  "Splash Zone",
+  "Adventure Zone",
+  "Children Adventure Park",
+  "Miniature Golf Course",
+  "Grand Entrance Lobby",
+  "Water Garden",
+  "Lobby Lounge",
+  "Promenade",
+];
+const PARKWAY_GALLERY_ROOT = "/assets/images/v3/project-amenities/parkway/gallery";
+const PARKWAY_HERO_IMAGE = "/assets/project-featured-images/parkway/parkway.webp";
+const PARKWAY_OVERVIEW_IMAGE = `${PARKWAY_GALLERY_ROOT}/parkway-farcade-full.webp`;
+const PARKWAY_GALLERY_FILES = [
+  "parkway-farcade-full.webp",
+  "Front Exterior - 3(1).webp",
+  "Front Exterior - 4.webp",
+  "V10_Prestige_Exteriors_Landscape.webp",
+  "Lobby - 3.webp",
+  "Adult Pool.webp",
+  "Family Pool.webp",
+  "Gym-1.webp",
+  "Indoor Cinema.webp",
+  "outdoor-Cinema.webp",
+  "Kids' Play Area.webp",
+  "Yoga Area.webp",
+  "Living Area.webp",
+  "Kitchen.webp",
+];
+const PARKWAY_AMENITIES = [
+  "Family Lagoon",
+  "Skyline Infinity Pool",
+  "Prestige Fitness Center",
+  "Indoor Theater",
+  "Outdoor Cinema",
+  "Little Explorers' Zone",
+  "Prestige Yoga",
+  "Social Lounge",
+  "Grand Entrance Lobby",
+];
+const PARKWAY_AMENITY_IMAGES = [
+  `${PARKWAY_GALLERY_ROOT}/Adult Pool.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Family Pool.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Gym-1.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Indoor Cinema.webp`,
+  `${PARKWAY_GALLERY_ROOT}/outdoor-Cinema.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Kids' Play Area.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Yoga Area.webp`,
+  `${PARKWAY_GALLERY_ROOT}/V10_Prestige_Exteriors_Landscape.webp`,
+  `${PARKWAY_GALLERY_ROOT}/Lobby - 3.webp`,
+];
+const PARKWAY_ALL_AMENITIES = [
+  "Drop-Off Service",
+  "Pick-Up Service",
+  "Prestige Owners' Lounge",
+  "Concierge Assistance",
+  "24/7 Security",
+  "Grand Entrance Lobby",
+  "Splash Adventure Zone",
+  "Aqua Play Park",
+  "Children's Adventure Park",
+  "Tennis Court",
+  "Volleyball Court",
+  "Badminton Court",
+  "Basketball Court",
+  "Miniature Golf Course",
+  "Family Lagoon",
+  "Pool Bar",
+  "Outdoor Theater",
+  "Barbecue Garden",
+  "The Clubhouse",
+  "Cigar Lounge",
+  "Library Lounge",
+  "Digital Library",
+  "Indoor Theater",
+  "Arcade",
+  "Pinball",
+  "VR",
+  "Little Explorers' Zone",
+  "Amazonica",
+  "Urban Farm",
+  "Hanging Garden",
+  "Plant Nursery",
+  "Culinary Kitchen",
+  "Observation Deck",
+  "Telescope Viewing Deck",
+  "Social Lounge",
+  "Zen Garden",
+  "Skyline Infinity Pool",
+  "Prestige Fitness Center",
+  "Virtual Trainer",
+  "Sunken Loungers",
+  "Prestige Wellness Center",
+  "Prestige Yoga",
+  "Prestige Spa & Sauna",
+];
+const WATERWAY_GALLERY_ROOT = "/assets/images/v3/project-amenities/waterway/gallery";
+const WATERWAY_FEATURED_IMAGE = `${WATERWAY_GALLERY_ROOT}/Waterway-pic.webp`;
+const WATERWAY_GALLERY_FILES = [
+  "Waterway-pic.webp",
+  "16 Flr_The Waterway_03.webp",
+  "Reception 1.webp",
+  "Lobby-2.webp",
+  "Lift Lobby.webp",
+  "Private Pool.webp",
+  "Sunset-area.webp",
+  "Gym 1.webp",
+  "Changing Room.webp",
+  "Living & Dining View 2.webp",
+  "Living Room.webp",
+  "Living Room 2.webp",
+  "Dining Room.webp",
+  "Master Bedroom.webp",
+];
+const WATERWAY_AMENITIES = [
+  "Rooftop Swimming Pool",
+  "Prestige One Fitness",
+  "Rock Climbing Wall",
+  "Men's and Women's Changing Rooms",
+  "Rooftop BBQ and Lounge Area",
+  "Outdoor Cinema",
+  "Outdoor Lounges with Water Features",
+  "Grand Entrance Lobby with Water Features",
+];
+const WATERWAY_AMENITY_IMAGES = [
+  `${WATERWAY_GALLERY_ROOT}/Private Pool.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Gym 1.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Gym 1.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Changing Room.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Sunset-area.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Sunset-area.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Private Pool.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Lobby-2.webp`,
+];
+const THE_ONE_GALLERY_ROOT = "/assets/images/v3/project-amenities/the-one/gallery";
+const THE_ONE_OVERVIEW_IMAGE = `${THE_ONE_GALLERY_ROOT}/the-one-outside.webp`;
+const THE_ONE_GALLERY_FILES = [
+  "the-one-farcade-full.webp",
+  "One-outside.webp",
+  "the-one-outside.webp",
+  "Prestige Offices Tower_Reception Lobby2.webp",
+  "Prestige Offices Tower_Reception Cafe.webp",
+  "Prestige Offices Tower_9th flr Cafe Area.webp",
+  "Prestige Offices Tower_9th flr Left Wing.webp",
+  "Prestige Offices Tower_9th flr Reception opt 1.webp",
+  "Prestige Offices Tower_9th Flr SPA view1.webp",
+  "Prestige Offices Tower_GYM View 3.webp",
+  "Prestige Offices Tower_Corridor View 1.webp",
+];
+const THE_ONE_AMENITIES = [
+  "Prestige Cafe",
+  "Grand Reception Lounge",
+  "Sky Lounge",
+  "Virtual Golf Studio",
+  "Botanical Garden",
+  "Prestige Wellness Centre",
+  "Prestige Fitness Centre",
+  "Prestige Business Lounge",
+];
+const THE_ONE_ALL_AMENITIES = [
+  ...THE_ONE_AMENITIES,
+  "24 Hour Security",
+  "Valet Hospitality",
+  "Concierge Assistance",
+  "Skyline Terrace",
+  "Meeting Rooms",
+  "Conference Room",
+  "Library Lounge",
+  "Digital Library",
+  "Cigar Lounge",
+  "Observation Deck",
+  "Virtual Trainer",
+  "State-of-the-Art Workout Equipment",
+  "Men's Changing Suites",
+  "Women's Changing Suites",
+  "Lockers",
+  "Rainforest Shower",
+  "Pool Pod",
+  "Ice Bath",
+  "Spa Pool",
+  "Jacuzzi",
+  "Telescope View Deck",
+];
+const THE_ONE_AMENITY_IMAGES = [
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_Reception Cafe.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_Reception Lobby2.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_9th flr Left Wing.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_9th flr Cafe Area.webp`,
+  `${THE_ONE_GALLERY_ROOT}/the-one-outside.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_9th Flr SPA view1.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_GYM View 3.webp`,
+  `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_9th flr Reception opt 1.webp`,
+];
+const VISTA_GALLERY_ROOT = "/assets/images/v3/project-amenities/vista/gallery";
+const VISTA_OVERVIEW_IMAGE = `${VISTA_GALLERY_ROOT}/Exterior.webp`;
+const VISTA_GALLERY_FILES = [
+  "Exterior.webp",
+  "Entrance_view.webp",
+  "entrance.webp",
+  "lobby.webp",
+  "reception.webp",
+  "Observation Deck 1.webp",
+  "infinity-pool.webp",
+  "gym.webp",
+  "open-cinema.webp",
+  "tennis-couart.webp",
+  "Changing Room.webp",
+  "Sauna.webp",
+  "kids-play-area.webp",
+  "outside-play-area.webp",
+  "living-room.webp",
+  "livingroom-2.webp",
+  "Bedroom.webp",
+  "bedroom1.webp",
+  "Bathroom.webp",
+];
+const VISTA_AMENITIES = [
+  "Grand Hotel-like Entrance & Lobby",
+  "Observation Deck / Lounge",
+  "Rooftop Infinity Pool & Kids Pool",
+  "Rooftop Gym",
+  "Outdoor Cinema with Terrace Seating",
+  "Multi-Sport & Basketball Court",
+  "Men and Women's Spa",
+  "Indoor & Outdoor Kids Play Area",
+];
+const VISTA_ALL_AMENITIES = [
+  ...VISTA_AMENITIES,
+  "Padel Court",
+  "Mini Putting Green",
+  "BBQ, Sunken Seating & Pergolas",
+  "Open Lawn",
+  "Landscaped Jogging with Benches & Callisthenics Equipment",
+  "Extensive Hardscape & Landscaping",
+  "Electric Vehicle Charging / Parking",
+  "Wired for Smart Home",
+];
+const VISTA_AMENITY_IMAGES = [
+  `${VISTA_GALLERY_ROOT}/lobby.webp`,
+  `${VISTA_GALLERY_ROOT}/Observation Deck 1.webp`,
+  `${VISTA_GALLERY_ROOT}/infinity-pool.webp`,
+  `${VISTA_GALLERY_ROOT}/gym.webp`,
+  `${VISTA_GALLERY_ROOT}/open-cinema.webp`,
+  `${VISTA_GALLERY_ROOT}/tennis-couart.webp`,
+  `${VISTA_GALLERY_ROOT}/Sauna.webp`,
+  `${VISTA_GALLERY_ROOT}/kids-play-area.webp`,
+];
 const SEASIDE_GALLERY_ROOT = "/assets/images/v3/project-amenities/seaside/gallery";
 const SEASIDE_OVERVIEW_IMAGE = `${SEASIDE_GALLERY_ROOT}/Night - Front Side.webp`;
 const SEASIDE_GALLERY_FILES = [
@@ -583,6 +999,580 @@ const SANCTUARY_HIVE_GALLERY = [
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
 // everything else falls back to derived defaults below.
 const enrichment: Record<string, ProjectEnrichment> = {
+  "berkeley-square-north": {
+    status: "Now Selling",
+    introImage: BERKELEY_NORTH_FEATURED_IMAGE,
+    closingTitle: "Discover the signature of grace",
+    closingImage: BERKELEY_NORTH_FEATURED_IMAGE,
+    overview: [
+      "Berkeley Square North brings classic English composure to Jumeirah Village Circle through a carved facade, measured proportions and a timeless architectural presence.",
+      "Its refined character is reimagined for contemporary Dubai living, balancing dignified design with thoughtfully planned homes and an extensive lifestyle programme.",
+      "The collection comprises 241 residences, from studios to three-bedroom homes, supported by amenities across the ground, first, second and rooftop levels.",
+    ],
+    highlights: [
+      "241 residential units",
+      "103 studios, 125 one-bedroom, 7 two-bedroom and 6 three-bedroom residences",
+      "Building configuration: 2B+G+5+ROOF",
+      "Anticipated completion in Q1 2028",
+    ],
+    specs: [
+      { label: "Location", value: "Jumeirah Village Circle" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "2B+G+5+ROOF" },
+      { label: "Unit Types", value: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom" },
+    ],
+    amenities: BERKELEY_NORTH_AMENITIES,
+    faqAmenities: BERKELEY_NORTH_AMENITIES,
+    amenityImages: BERKELEY_SQUARE_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "Pre-handover", value: "55%" },
+      { label: "Upon handover", value: "10%" },
+      { label: "Post-handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Mall of the Emirates", time: "15 min" },
+      { name: "Palm Jumeirah", time: "16 min" },
+      { name: "Dubai Marina", time: "18 min" },
+      { name: "Downtown Dubai", time: "18 min" },
+      { name: "Burj Khalifa and Dubai Mall", time: "25 min" },
+      { name: "Dubai International Airport", time: "30 min" },
+    ],
+    hospitals: [
+      "Karama Medical Centre",
+      "Emirates Hospital Day Surgery, Motor City",
+      "Mediclinic Parkview Hospital",
+      "King's College Hospital London - Dubai Hills",
+    ],
+    faqItems: [
+      {
+        q: "What is Berkeley Square North?",
+        a: "Berkeley Square North is a classic English-inspired residential development by Prestige One in Jumeirah Village Circle, with 241 homes and amenities distributed across four levels.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The development comprises 103 studios, 125 one-bedroom residences, seven two-bedroom residences and six three-bedroom residences. The building configuration is 2B+G+5+ROOF, with anticipated completion in Q1 2028.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, organic farming terrace and multi-purpose court.",
+      },
+      {
+        q: "How well connected is Berkeley Square North?",
+        a: "Mall of the Emirates is approximately 15 minutes away, Palm Jumeirah 16 minutes, Dubai Marina and Downtown Dubai 18 minutes, Burj Khalifa and Dubai Mall 25 minutes, and Dubai International Airport 30 minutes away.",
+      },
+      {
+        q: "Which hospitals are near Berkeley Square North?",
+        a: "Nearby healthcare options include Karama Medical Centre, Emirates Hospital Day Surgery in Motor City, Mediclinic Parkview Hospital and King's College Hospital London in Dubai Hills.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The post-handover payment plan comprises 55% before handover, 10% upon handover and 35% after handover.",
+      },
+    ],
+  },
+  "berkeley-square-south": {
+    status: "Now Selling",
+    hero: BERKELEY_SOUTH_HERO_IMAGE,
+    introImage: BERKELEY_SOUTH_OVERVIEW_IMAGE,
+    closingTitle: "Discover the signature of grace",
+    closingImage: BERKELEY_SOUTH_OVERVIEW_IMAGE,
+    overview: [
+      "Berkeley Square South is quintessentially English - composed, crafted and undeniably refined.",
+      "A quiet strength flows through its carved facade and measured proportions, creating a presence that feels both dignified and timeless.",
+      "Classic English ideals are reimagined for contemporary Dubai living across 241 thoughtfully planned residences, from studios to three-bedroom homes.",
+    ],
+    highlights: [
+      "241 residential units",
+      "103 studios, 125 one-bedroom, 7 two-bedroom and 6 three-bedroom residences",
+      "Building configuration: 2B+G+5+ROOF",
+      "Anticipated completion in Q1 2028",
+    ],
+    specs: [
+      { label: "Location", value: "Jumeirah Village Circle" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "2B+G+5+ROOF" },
+      { label: "Unit Types", value: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom" },
+    ],
+    amenities: BERKELEY_NORTH_AMENITIES,
+    faqAmenities: BERKELEY_NORTH_AMENITIES,
+    amenityImages: BERKELEY_SQUARE_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "Pre-handover", value: "55%" },
+      { label: "Upon handover", value: "10%" },
+      { label: "Post-handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Mall of the Emirates", time: "15 min" },
+      { name: "Palm Jumeirah", time: "16 min" },
+      { name: "Dubai Marina", time: "18 min" },
+      { name: "Downtown Dubai", time: "18 min" },
+      { name: "Burj Khalifa and Dubai Mall", time: "25 min" },
+      { name: "Dubai International Airport", time: "30 min" },
+    ],
+    hospitals: [
+      "Karama Medical Centre",
+      "Emirates Hospital Day Surgery, Motor City",
+      "Mediclinic Parkview Hospital",
+      "King's College Hospital London - Dubai Hills",
+    ],
+    faqItems: [
+      {
+        q: "What is Berkeley Square South?",
+        a: "Berkeley Square South is a classic English-inspired residential development by Prestige One in Jumeirah Village Circle, with 241 homes and amenities distributed across four levels.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The development comprises 103 studios, 125 one-bedroom residences, seven two-bedroom residences and six three-bedroom residences. The building configuration is 2B+G+5+ROOF, with anticipated completion in Q1 2028.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, organic farming terrace and multi-purpose court.",
+      },
+      {
+        q: "How well connected is Berkeley Square South?",
+        a: "Mall of the Emirates is approximately 15 minutes away, Palm Jumeirah 16 minutes, Dubai Marina and Downtown Dubai 18 minutes, Burj Khalifa and Dubai Mall 25 minutes, and Dubai International Airport 30 minutes away.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The post-handover payment plan comprises 55% before handover, 10% upon handover and 35% after handover.",
+      },
+    ],
+  },
+  "luxury-canal-residences-by-prestige-one": {
+    status: "Now Selling",
+    hero: LUXURY_CANAL_FACADE_IMAGE,
+    introImage: LUXURY_CANAL_OVERVIEW_IMAGE,
+    closingTitle: "Let life flow by the water",
+    closingImage: LUXURY_CANAL_FACADE_IMAGE,
+    overview: [
+      "An oasis along the harbour of Dubai Islands, Luxury Canal Residences by Prestige One embodies peaceful waterfront living.",
+      "The elegant residences are designed for those who value calmness and sophistication, with architecture and interiors connected to the soothing essence of water.",
+      "A freehold collection of 73 one-, two- and three-bedroom residences and penthouses is complemented by wellness, leisure, family and social amenities across the ground and podium levels.",
+    ],
+    highlights: [
+      "73 freehold residences on Dubai Islands",
+      "One-bedroom residences from 809.66 to 830.33 sq ft",
+      "Two-bedroom residences from 1,200.07 to 1,244.20 sq ft",
+      "Three-bedroom residences and penthouses up to 4,430.33 sq ft",
+      "Anticipated completion in Q1 2028",
+    ],
+    specs: [
+      { label: "Location", value: "Dubai Islands" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "G+2P+12 Floors" },
+      { label: "Unit Types", value: "1-Bedroom, 2-Bedroom, 3-Bedroom, Penthouse" },
+    ],
+    amenities: LUXURY_CANAL_AMENITIES,
+    faqAmenities: LUXURY_CANAL_AMENITIES,
+    amenityImages: LUXURY_CANAL_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "Pre-handover", value: "65%" },
+      { label: "Upon handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Dubai International Airport", time: "16 min" },
+      { name: "Museum of the Future", time: "20 min" },
+      { name: "Downtown Dubai", time: "25 min" },
+      { name: "Burj Khalifa", time: "25 min" },
+      { name: "Jumeirah Beach", time: "30 min" },
+      { name: "Palm Jumeirah", time: "35 min" },
+      { name: "Dubai Marina", time: "35 min" },
+    ],
+    schools: [
+      "Elite English School",
+      "The Westminster School",
+      "Pristine Private School",
+    ],
+    hospitals: [
+      "Dubai Hospital",
+      "Canadian Specialist Hospital",
+      "Al Kuwait Hospital Dubai",
+    ],
+    faqItems: [
+      {
+        q: "Where is Luxury Canal Residences located?",
+        a: "Luxury Canal Residences is a freehold waterfront development on Dubai Islands, with a building configuration of G+2P+12 floors.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The development comprises 30 one-bedroom residences, 32 two-bedroom residences, nine three-bedroom residences and two penthouses, for a total of 73 homes.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities include an infinity pool, Prestige Fitness Center, children's adventure zone, game room, lounge, badminton court, sun deck and Prestige Wellness Area.",
+      },
+      {
+        q: "When is Luxury Canal Residences expected to be completed?",
+        a: "Completion is anticipated in Q1 2028.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan comprises 65% before handover and 35% upon handover, beginning with 20% at booking and staged construction instalments.",
+      },
+    ],
+  },
+  "coastal-haven-by-prestige-one": {
+    status: "Now Selling",
+    hero: COASTAL_HAVEN_HERO_IMAGE,
+    introImage: COASTAL_HAVEN_OVERVIEW_IMAGE,
+    closingTitle: "Find your haven by the coast",
+    closingImage: COASTAL_HAVEN_OVERVIEW_IMAGE,
+    overview: [
+      "Coastal Haven by Prestige Harbour brings effortless waterfront elegance to Dubai Islands, with every detail designed around comfort, convenience and refined coastal living.",
+      "Fine materials and considered technologies shape a calm residential environment, complemented by an extensive collection of wellness, leisure, family and social amenities.",
+      "The collection spans one-, two- and three-bedroom residences and expansive penthouses, with homes ranging from approximately 810 to 4,420 sq ft.",
+    ],
+    highlights: [
+      "One-bedroom residences from 810 to 830 sq ft",
+      "Two-bedroom residences from 1,200 to 1,245 sq ft",
+      "Three-bedroom residences from 1,665 to 2,045 sq ft",
+      "Penthouses from 4,415 to 4,420 sq ft",
+      "Anticipated completion in Q1 2028",
+    ],
+    specs: [
+      { label: "Location", value: "Dubai Islands" },
+      { label: "Brand", value: "Prestige Harbour" },
+      { label: "Configuration", value: "G+2P+12 Floors" },
+      { label: "Unit Types", value: "1-Bedroom, 2-Bedroom, 3-Bedroom, Penthouse" },
+    ],
+    amenities: COASTAL_HAVEN_AMENITIES,
+    faqAmenities: COASTAL_HAVEN_ALL_AMENITIES,
+    amenityImages: COASTAL_HAVEN_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "Pre-handover", value: "65%" },
+      { label: "Upon handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Dubai International Airport", time: "16 min" },
+      { name: "Museum of the Future", time: "20 min" },
+      { name: "Downtown Dubai", time: "25 min" },
+      { name: "Burj Khalifa", time: "25 min" },
+      { name: "Jumeirah Beach", time: "30 min" },
+      { name: "Palm Jumeirah", time: "35 min" },
+      { name: "Dubai Marina", time: "35 min" },
+    ],
+    schools: [
+      "Elite English School",
+      "The Westminster School",
+      "Pristine Private School",
+    ],
+    hospitals: [
+      "Dubai Hospital",
+      "Canadian Specialist Hospital",
+      "Al Kuwait Hospital Dubai",
+    ],
+    faqItems: [
+      {
+        q: "Where is Coastal Haven located?",
+        a: "Coastal Haven by Prestige Harbour is a waterfront residential development on Dubai Islands, with a building configuration of G+2P+12 floors.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The development offers one-bedroom residences from 810 to 830 sq ft, two-bedroom residences from 1,200 to 1,245 sq ft, three-bedroom residences from 1,665 to 2,045 sq ft, and penthouses from 4,415 to 4,420 sq ft.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities include the Prestige Clubhouse, Prestige Spa, Prestige Fitness Center, Prestige Wellness Area, infinity pool, sports courts, outdoor cinema, children's adventure areas, game room, library lounge and more.",
+      },
+      {
+        q: "When is Coastal Haven expected to be completed?",
+        a: "Completion is anticipated in Q1 2028.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan comprises 65% before handover and 35% upon handover, beginning with 20% at booking and staged construction instalments.",
+      },
+    ],
+  },
+  "parkway-by-prestige-one": {
+    status: "Now Selling",
+    hero: PARKWAY_HERO_IMAGE,
+    introImage: PARKWAY_OVERVIEW_IMAGE,
+    closingTitle: "Come home to nature in Meydan",
+    closingImage: "/assets/images/v3/project-amenities/Sanctuary/ras-al-khor-wildlife.webp",
+    originalAmenityImages: true,
+    overview: [
+      "Parkway by Prestige One is a nature-inspired residential address in Meydan Horizon, bringing refined urban living together with expansive greenery, crystal lagoon views and direct access to the energy of Dubai.",
+      "Designed by KIEFERLE & Partner, its flowing curves and organic lines connect contemporary architecture with the landscape, while interiors balance comfort, sophistication and everyday functionality.",
+      "Amenities extend from the welcoming ground-floor arrival through indoor and outdoor podium experiences to elevated gardens, leisure spaces and a dedicated 21st-floor wellness destination.",
+    ],
+    highlights: [
+      "Designed by KIEFERLE & Partner",
+      "Views of the crystal lagoon and Meydan's largest park",
+      "One-, two- and three-bedroom residences",
+      "Amenities across the ground, podium, 12th and 21st floors",
+    ],
+    specs: [
+      { label: "Location", value: "Meydan Horizon" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "G+4P+30" },
+      { label: "Unit Types", value: "1-Bedroom, 2-Bedroom, 3-Bedroom" },
+    ],
+    amenities: PARKWAY_AMENITIES,
+    faqAmenities: PARKWAY_ALL_AMENITIES,
+    amenityImages: PARKWAY_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "Down payment", value: "30%" },
+      { label: "During construction", value: "70%" },
+    ],
+    nearby: [
+      { name: "Dubai Marina", time: "20 min" },
+      { name: "Palm Jumeirah", time: "24 min" },
+      { name: "Burj Al Arab", time: "25 min" },
+    ],
+    schools: [
+      "North London Collegiate School Dubai",
+      "Hartland International School",
+      "GEMS Wellington Academy - Al Khail",
+    ],
+    hospitals: [
+      "Meydan One Health Clinic",
+      "King's College Hospital London - Dubai",
+      "Mediclinic City Hospital",
+    ],
+    faqItems: [
+      {
+        q: "Where is Parkway by Prestige One located?",
+        a: "Parkway is located in Meydan Horizon, with views towards the crystal lagoon, Meydan's largest park and the wider Dubai skyline.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "Parkway offers one-, two- and three-bedroom residences in a G+4P+30 residential tower.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities span the ground, podium, 12th and 21st floors. Highlights include a family lagoon, skyline infinity pool, Prestige Fitness Center, Prestige Wellness Center, indoor and outdoor theaters, sports courts, Little Explorers' Zone, elevated gardens and observation decks.",
+      },
+      {
+        q: "How well connected is Parkway?",
+        a: "Dubai Marina is approximately 20 minutes away, Palm Jumeirah 24 minutes and Burj Al Arab 25 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are near Parkway?",
+        a: "Nearby education options include North London Collegiate School Dubai, Hartland International School and GEMS Wellington Academy - Al Khail. Healthcare options include Meydan One Health Clinic, King's College Hospital London - Dubai and Mediclinic City Hospital.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan comprises a 30% down payment followed by 70% during construction.",
+      },
+    ],
+  },
+  "waterway-by-prestige-one": {
+    status: "Now Selling",
+    introImage: WATERWAY_FEATURED_IMAGE,
+    closingTitle: "Flow into life by the water",
+    closingImage: "/assets/images/v3/project-amenities/Sanctuary/ras-al-khor-wildlife.webp",
+    originalAmenityImages: true,
+    overview: [
+      "The Waterway by Prestige One is a serene waterfront residence in Meydan Horizon, Mohammed Bin Rashid City, set beside the crystal lagoons and connected to Dubai's key destinations.",
+      "The G+20 development pairs spacious one- and two-bedroom homes with a calm minimalist aesthetic inspired by the simplicity and balance of Japanese design.",
+      "From the rooftop swimming pool and double-height Prestige One Fitness to outdoor cinema, water-feature lounges and social spaces, every amenity is designed around effortless relaxation.",
+    ],
+    highlights: [
+      "Waterfront setting beside the crystal lagoons",
+      "Japanese-inspired minimalist interiors",
+      "One- and two-bedroom residences",
+      "Rooftop leisure, wellness and social amenities",
+    ],
+    specs: [
+      { label: "Location", value: "Meydan Horizon" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "G+20" },
+      { label: "Unit Types", value: "1-Bedroom, 2-Bedroom" },
+    ],
+    amenities: WATERWAY_AMENITIES,
+    faqAmenities: WATERWAY_AMENITIES,
+    amenityImages: WATERWAY_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "On booking", value: "20%" },
+      { label: "During construction", value: "45%" },
+      { label: "On completion", value: "35%" },
+    ],
+    nearby: [
+      { name: "Business Bay", time: "10 min" },
+      { name: "Downtown Dubai", time: "12 min" },
+      { name: "DIFC", time: "15 min" },
+      { name: "Dubai Design District", time: "15 min" },
+      { name: "Dubai International Airport", time: "18 min" },
+      { name: "Dubai Marina", time: "25 min" },
+    ],
+    schools: [
+      "North London Collegiate School Dubai",
+      "Hartland International School",
+      "GEMS Wellington Academy - Al Khail",
+    ],
+    hospitals: ["Mediclinic City Hospital", "American Hospital Dubai", "Fakeeh University Hospital"],
+    faqItems: [
+      {
+        q: "Where is The Waterway by Prestige One located?",
+        a: "The Waterway is located in Meydan Horizon within Mohammed Bin Rashid City, beside the crystal lagoons and close to Ras Al Khor Wildlife Sanctuary.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The Waterway offers spacious one- and two-bedroom residences in a G+20 waterfront development.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities include a rooftop swimming pool, double-height Prestige One Fitness, rock climbing wall, changing rooms, rooftop BBQ and lounge area, outdoor cinema, outdoor lounges and a grand entrance lobby with water features.",
+      },
+      {
+        q: "How well connected is The Waterway?",
+        a: "Business Bay is approximately 10 minutes away, Downtown Dubai 12 minutes, Dubai Design District and DIFC 15 minutes, Dubai International Airport 18 minutes and Dubai Marina 25 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are nearby?",
+        a: "Nearby education options include North London Collegiate School Dubai, Hartland International School and GEMS Wellington Academy - Al Khail. Healthcare options include Mediclinic City Hospital, American Hospital Dubai and Fakeeh University Hospital.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The 65/35 payment plan begins with 20% on booking, followed by 45% during construction and 35% on completion.",
+      },
+    ],
+  },
+  "the-one-by-prestige-one": {
+    status: "Now Selling",
+    introImage: THE_ONE_OVERVIEW_IMAGE,
+    closingTitle: "One vision. One landmark. One legacy.",
+    closingImage: `${THE_ONE_GALLERY_ROOT}/One-outside.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "The One by Prestige One is a commercial landmark created for visionaries in Barsha Heights, one of Dubai's most connected and dynamic business districts.",
+      "Its sculpted architecture, premium interiors and flexible office environments bring together modern design and functionality, creating an inspiring setting for forward-thinking companies.",
+      "A complete hospitality, productivity and wellness programme - from meeting spaces and business lounges to virtual golf, Prestige Fitness and the spa pool - redefines the modern workplace experience.",
+    ],
+    highlights: [
+      "Prime commercial address in Barsha Heights",
+      "Flexible commercial offices, half floors and full floors",
+      "Direct access to Sheikh Zayed Road and nearby metro stations",
+      "Business, hospitality, fitness and wellness amenities",
+    ],
+    specs: [
+      { label: "Location", value: "Barsha Heights" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "3B+G+14+R" },
+      { label: "Unit Types", value: "Commercial Offices, Half Floors, Full Floors" },
+    ],
+    amenities: THE_ONE_AMENITIES,
+    faqAmenities: THE_ONE_ALL_AMENITIES,
+    amenityImages: THE_ONE_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "On booking", value: "20%" },
+      { label: "During construction", value: "45%" },
+      { label: "Post-handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "Dubai Marina", time: "15 min" },
+      { name: "Palm Jumeirah", time: "16 min" },
+      { name: "Burj Al Arab", time: "15 min" },
+      { name: "Downtown Dubai", time: "20 min" },
+      { name: "Burj Khalifa", time: "20 min" },
+      { name: "Dubai International Airport", time: "25 min" },
+    ],
+    schools: [
+      "GEMS Founders School",
+      "Dubai Heights Academy",
+      "American University in Dubai",
+    ],
+    hospitals: ["Saudi German Hospital", "Al Zahra Hospital", "Aster Clinic"],
+    faqItems: [
+      {
+        q: "Where is The One by Prestige One located?",
+        a: "The One is located in Barsha Heights, with convenient access to Sheikh Zayed Road, metro stations, Dubai Internet City, Dubai Media City and the city's key commercial and lifestyle destinations.",
+      },
+      {
+        q: "What commercial spaces are available?",
+        a: "The development offers commercial offices as well as half-floor and full-floor office opportunities within a 3B+G+14+R tower.",
+      },
+      {
+        q: "What amenities are included?",
+        a: "Amenities include Prestige Cafe, a grand reception lounge, sky lounge, virtual golf studio, botanical garden, Prestige Wellness Centre, Prestige Fitness Centre, business lounge, meeting and conference rooms, digital library, cigar lounge, spa pool and observation areas.",
+      },
+      {
+        q: "How well connected is The One?",
+        a: "Dubai Marina and Burj Al Arab are approximately 15 minutes away, Palm Jumeirah 16 minutes, Downtown Dubai and Burj Khalifa 20 minutes, and Dubai International Airport 25 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are nearby?",
+        a: "Nearby education options include GEMS Founders School, Dubai Heights Academy and American University in Dubai. Healthcare options include Saudi German Hospital, Al Zahra Hospital and Aster Clinic.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The payment plan comprises 20% on booking, 45% during construction and 35% post-handover.",
+      },
+    ],
+  },
+  "vista-by-prestige-one": {
+    status: "Handed Over",
+    introImage: VISTA_OVERVIEW_IMAGE,
+    closingTitle: "Wake up to a wider view",
+    closingImage: `${VISTA_GALLERY_ROOT}/Exterior.webp`,
+    originalAmenityImages: true,
+    overview: [
+      "Vista by Prestige One is a view-centric residential address in Dubai Sports City, positioned to maximise panoramas across The Els Club golf course and the Dubai Marina skyline.",
+      "Designed by award-winning architectural firm LACASA, the residences combine refined elegance with a calm, contemporary design language created for both leisure and productivity.",
+      "Studios and one-, two- and three-bedroom residences are complemented by rooftop leisure, wellness, sport and family amenities, creating a complete lifestyle above the greens.",
+    ],
+    highlights: [
+      "Panoramic views across The Els Club golf course",
+      "Studios and one-, two- and three-bedroom residences",
+      "Residential sizes from 506 to 1,761 sq ft",
+      "Architecture by award-winning LACASA",
+    ],
+    specs: [
+      { label: "Location", value: "Dubai Sports City" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "G+2P+14+R" },
+      { label: "Unit Types", value: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom" },
+    ],
+    amenities: VISTA_AMENITIES,
+    faqAmenities: VISTA_ALL_AMENITIES,
+    amenityImages: VISTA_AMENITY_IMAGES,
+    paymentPlan: [
+      { label: "At booking", value: "10%" },
+      { label: "During construction", value: "55%" },
+      { label: "Upon handover", value: "35%" },
+    ],
+    nearby: [
+      { name: "The Els Club", time: "4 min" },
+      { name: "Dubai International Cricket Stadium", time: "5 min" },
+      { name: "Dubai Autodrome", time: "10 min" },
+      { name: "Mall of the Emirates", time: "15 min" },
+      { name: "Dubai Marina", time: "20 min" },
+      { name: "Dubai International Airport", time: "25 min" },
+    ],
+    schools: [
+      "Victory Heights Primary School",
+      "GEMS Metropole School",
+      "Renaissance School",
+    ],
+    hospitals: ["Mediclinic Parkview Hospital", "NMC Royal Hospital", "Aster Clinic"],
+    faqItems: [
+      {
+        q: "Where is Vista by Prestige One located?",
+        a: "Vista is located in Dubai Sports City, close to The Els Club, Dubai International Cricket Stadium, Dubai Autodrome and the community's schools, retail and dining destinations.",
+      },
+      {
+        q: "What residence types are available at Vista?",
+        a: "Vista includes studios from 506 to 509 sq ft, one-bedroom residences from 779 to 1,065 sq ft, two-bedroom residences from 1,388 to 1,613 sq ft and three-bedroom residences from 1,756 to 1,761 sq ft.",
+      },
+      {
+        q: "What amenities are available?",
+        a: "Amenities include a grand hotel-like entrance and lobby, observation lounge, rooftop infinity and kids pools, rooftop gym, outdoor cinema, sports and padel courts, spa, indoor and outdoor kids play areas, putting green, barbecue spaces, jogging areas and EV charging.",
+      },
+      {
+        q: "What views does Vista offer?",
+        a: "The view-centric residences are positioned to maximise vistas across The Els Club golf course and towards the Dubai Marina skyline.",
+      },
+      {
+        q: "Which schools and hospitals are nearby?",
+        a: "Nearby education options include Victory Heights Primary School, GEMS Metropole School and Renaissance School. Healthcare options include Mediclinic Parkview Hospital, NMC Royal Hospital and Aster Clinic.",
+      },
+      {
+        q: "What is the payment plan?",
+        a: "The launch-sheet payment plan comprises 10% at booking, a further 55% across scheduled construction installments and 35% upon handover.",
+      },
+    ],
+  },
   "the-boulevard-by-prestige-one": {
     status: "Now Selling",
     introImage: BOULEVARD_OVERVIEW_IMAGE,
@@ -1283,33 +2273,13 @@ function gal(slug: string, files: string[]): string[] {
   return galleryAt(`${GAL}/${slug}`, files);
 }
 const galleryData: Record<string, string[]> = {
-  "berkeley-square-north": gal("berkeley-square-north", [
-    "berkeley-square-north.webp",
-    "berkeley-square-2br-living-room-02-scaled.webp",
-    "berkeley-square-kitchen.webp",
-    "berkeley-square-3br-bathroom-scaled.webp",
-    "berkeley-square-podcast-room-scaled.webp",
-    "gym-4-scaled.webp",
-    "kids-play-area-1-scaled.webp",
-  ]),
-  "berkeley-square-south": gal("berkeley-square-south", [
-    "berkeley-square-south.webp",
-    "berkeley-square-2br-living-room-02-scaled.webp",
-    "berkeley-square-kitchen.webp",
-    "berkeley-square-3br-bathroom-scaled.webp",
-    "berkeley-square-podcast-room-scaled.webp",
-    "gym-4-scaled.webp",
-    "kids-play-area-1-scaled.webp",
-  ]),
-  "coastal-haven-by-prestige-one": gal("coastal-haven-by-prestige-one", [
-    "coastal-haven.webp",
-    "04-3-bedroom-living-dining-scaled.webp",
-    "06-3-bedroom-kitchen-scaled.webp",
-    "bathroom-scaled.webp",
-    "01-game-room-view-scaled.webp",
-    "03-gym-scaled.webp",
-    "04-kids-play-area-scaled.webp",
-  ]),
+  "berkeley-square-north": galleryAt(BERKELEY_NORTH_GALLERY_ROOT, BERKELEY_NORTH_GALLERY_FILES),
+  "berkeley-square-south": [
+    BERKELEY_SOUTH_HERO_IMAGE,
+    BERKELEY_SOUTH_OVERVIEW_IMAGE,
+    ...galleryAt(BERKELEY_NORTH_GALLERY_ROOT, BERKELEY_NORTH_GALLERY_FILES),
+  ],
+  "coastal-haven-by-prestige-one": galleryAt(COASTAL_HAVEN_GALLERY_ROOT, COASTAL_HAVEN_GALLERY_FILES),
   "fauchon-residences-by-prestige-one": galleryAt(FAUCHON_V3_GALLERY, [
     "01-exterior-building.webp",
     "02-exterior-pool.webp",
@@ -1360,24 +2330,8 @@ const galleryData: Record<string, string[]> = {
     "the-luxe-villas-interior-firstfloor-2.jpg",
     "the-luxe-villas-majlis.jpg",
   ]),
-  "luxury-canal-residences-by-prestige-one": gal("luxury-canal-residences-by-prestige-one", [
-    "luxury-canal.webp",
-    "04-3-bedroom-living-dining-scaled.webp",
-    "06-3-bedroom-kitchen-scaled.webp",
-    "bathroom-scaled.webp",
-    "01-game-room-view-scaled.webp",
-    "03-gym-scaled.webp",
-    "04-kids-play-area-scaled.webp",
-  ]),
-  "parkway-by-prestige-one": gal("parkway-by-prestige-one", [
-    "parkway.webp",
-    "living-area-scaled.webp",
-    "bedroom-1.webp",
-    "bathroom-scaled.webp",
-    "lobby-2-1200x900.webp",
-    "indoor-cinema-scaled.webp",
-    "yoga-area.webp",
-  ]),
+  "luxury-canal-residences-by-prestige-one": galleryAt(LUXURY_CANAL_GALLERY_ROOT, LUXURY_CANAL_GALLERY_FILES),
+  "parkway-by-prestige-one": galleryAt(PARKWAY_GALLERY_ROOT, PARKWAY_GALLERY_FILES),
   "sanctuary-residences-by-prestige-one": galleryAt(SANCTUARY_GALLERY_ROOT, SANCTUARY_GALLERY_FILES),
   "sanctuary-hive-by-prestige-one": SANCTUARY_HIVE_GALLERY,
   "seascape-villa": gal("seascape-villa", [
@@ -1388,15 +2342,7 @@ const galleryData: Record<string, string[]> = {
   ]),
   "seaside-by-prestige-one": galleryAt(SEASIDE_GALLERY_ROOT, SEASIDE_GALLERY_FILES),
   "the-boulevard-by-prestige-one": galleryAt(BOULEVARD_GALLERY_ROOT, BOULEVARD_GALLERY_FILES),
-  "the-one-by-prestige-one": gal("the-one-by-prestige-one", [
-    "the-one.webp",
-    "4.webp",
-    "5.webp",
-    "owners-lounge_final_4.webp",
-    "9th-floor-spa-2.webp",
-    "pre_one_cigar_lounge_f2-scaled.webp",
-    "pre_one_gym_f1.webp",
-  ]),
+  "the-one-by-prestige-one": galleryAt(THE_ONE_GALLERY_ROOT, THE_ONE_GALLERY_FILES),
   "the-residence-by-prestige-one": gal("the-residence-by-prestige-one", [
     "the-residence.webp",
     "the-residence-carousel-2.webp",
@@ -1406,22 +2352,8 @@ const galleryData: Record<string, string[]> = {
     "berkeley-square-2br-living-room-02-scaled.webp",
     "berkeley-square-kitchen.webp",
   ]),
-  "vista-by-prestige-one": gal("vista-by-prestige-one", [
-    "vista.webp",
-    "vista-living-room.webp",
-    "vista-master-bedroom.webp",
-    "vista-carousel-bathroom-1.jpg",
-    "vista-observation-deck.webp",
-    "mens-gym-01-scaled.webp",
-    "kids-1-scaled.webp",
-  ]),
-  "waterway-by-prestige-one": gal("waterway-by-prestige-one", [
-    "waterway-pic-2.webp",
-    "the-waterway-living.webp",
-    "the-waterway-living-1.webp",
-    "the-waterway-bedroom.webp",
-    "the-waterway-bathroom.webp",
-  ]),
+  "vista-by-prestige-one": galleryAt(VISTA_GALLERY_ROOT, VISTA_GALLERY_FILES),
+  "waterway-by-prestige-one": galleryAt(WATERWAY_GALLERY_ROOT, WATERWAY_GALLERY_FILES),
 };
 
 const AMENITY_RENDER_PATTERNS: Array<[RegExp, RegExp]> = [
@@ -1457,11 +2389,11 @@ function resolveProjectType(slide: ProjectSource): ProjectType {
 
 function toProject(slide: ProjectSource): Project {
   const { category } = slide;
-  const slug = slugify(slide.title);
+  const slug = slide.slug ?? slugify(slide.title);
   const e = enrichment[slug] ?? {};
   // real gallery (from copied renders) drives both the gallery and the cover
   const realGallery = galleryData[slug];
-  const hero = realGallery ? realGallery[0]! : (e.hero ?? slide.image);
+  const hero = e.hero ?? (realGallery ? realGallery[0]! : slide.image);
   const projectGallery = realGallery ?? e.gallery ?? [hero];
   const amenities = e.amenities ?? DEFAULT_AMENITIES;
   return {
@@ -1474,6 +2406,7 @@ function toProject(slide: ProjectSource): Project {
     description: slide.description,
     image: slide.image,
     hero,
+    registrationUrl: slide.registrationUrl,
     introImage: e.introImage,
     gallery: projectGallery,
     overview:

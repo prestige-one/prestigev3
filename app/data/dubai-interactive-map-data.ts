@@ -170,7 +170,7 @@ export const DUBAI_MAP_PROJECTS: DubaiMapProject[] = [
     lng: 55.314,
     lat: 25.162,
     desc: "Waterfront homes in Meydan Horizon that bring the flow and calm of water to everyday life.",
-    url: "/projects/the-waterway-by-prestige-one",
+    url: "/projects/waterway-by-prestige-one",
     image: "/assets/images/v2/project-featured-images/waterway/Waterway-pic-2.webp",
   },
   {

@@ -7,7 +7,11 @@
   >
     <div class="prestige-distance__swiper swiper">
       <div class="swiper-wrapper">
-        <div v-for="slide in slides" :key="slide.name" class="prestige-distance__slide swiper-slide">
+        <div
+          v-for="(slide, index) in carouselSlides"
+          :key="`${slide.name}-${index}`"
+          class="prestige-distance__slide swiper-slide"
+        >
           <article class="prestige-distance__card">
             <img :src="slide.image" :alt="slide.name" loading="lazy">
             <div class="prestige-distance__card-shade" aria-hidden="true" />
@@ -41,11 +45,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 import type { ProjectDistanceSlide } from "~/data/project-distance-slides";
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   slides: ProjectDistanceSlide[];
   titleColor?: string;
 }>(), {
-  titleColor: "#f28bd7",
+  titleColor: "#ffffff",
+});
+
+// Swiper requires more rendered slides than the largest slides-per-view value
+// for a seamless loop. Repeat short project datasets without changing their
+// authored order so even three-location sliders autoplay continuously.
+const carouselSlides = computed(() => {
+  if (props.slides.length < 2) return props.slides;
+  const minimumLoopSlides = 8;
+  const repetitions = Math.max(1, Math.ceil(minimumLoopSlides / props.slides.length));
+  return Array.from({ length: repetitions }, () => props.slides).flat();
 });
 
 const root = ref<HTMLElement | null>(null);
@@ -61,7 +75,8 @@ onMounted(() => {
   distanceSwiper = new Swiper(swiperElement, {
     modules: [Autoplay, Navigation, Pagination],
     centeredSlides: true,
-    loop: true,
+    loop: carouselSlides.value.length > 1,
+    loopAdditionalSlides: 2,
     speed: 900,
     grabCursor: true,
     slidesPerView: 1.12,
@@ -85,6 +100,8 @@ onMounted(() => {
       1400: { slidesPerView: 3.5, spaceBetween: 20 },
     },
   });
+
+  distanceSwiper.autoplay.start();
 });
 
 onBeforeUnmount(() => {
@@ -149,7 +166,7 @@ onBeforeUnmount(() => {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.68);
+  color: #fff;
 }
 .prestige-distance__copy h3 {
   margin: 0;
@@ -197,8 +214,8 @@ onBeforeUnmount(() => {
 .prestige-distance__arrow--next { right: clamp(18px, 3vw, 58px); }
 .prestige-distance__arrow:hover,
 .prestige-distance__arrow:focus-visible {
-  background: var(--prestige-distance-title-color);
-  color: #0a070a;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--prestige-distance-title-color);
   box-shadow: 0 0 30px color-mix(in srgb, var(--prestige-distance-title-color) 50%, transparent);
   outline: none;
 }
@@ -214,7 +231,7 @@ onBeforeUnmount(() => {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.17);
 }
-.prestige-distance__progress :deep(.swiper-pagination-progressbar-fill) { background: #ed64ca; }
+.prestige-distance__progress :deep(.swiper-pagination-progressbar-fill) { background: #fff; }
 
 @media (max-width: 767.98px) {
   .prestige-distance { padding-top: 8px; }

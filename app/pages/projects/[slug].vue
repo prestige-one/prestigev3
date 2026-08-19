@@ -15,7 +15,12 @@
               :video="project.video"
             >
               <template #actions>
-                <a href="#" class="prestige-detail__badge">{{ t('pp.detail.registerInterest') }}</a>
+                <a
+                  :href="project.registrationUrl || localePath('/contact-us')"
+                  class="prestige-detail__badge"
+                  :target="project.registrationUrl ? '_blank' : undefined"
+                  :rel="project.registrationUrl ? 'noopener noreferrer' : undefined"
+                >{{ t('pp.detail.registerInterest') }}</a>
                 <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('pp.detail.enquireNow') }}</nuxt-link>
               </template>
             </prestige-page-hero>
@@ -30,8 +35,17 @@
                       <span class="prestige-detail__fact-label">{{ spec.label }}</span>
                       <span
                         class="prestige-detail__fact-value"
-                        :class="{ 'prestige-detail__fact-value--fixed-lines': spec.value.includes('\n') }"
-                      >{{ spec.value }}</span>
+                        :class="{ 'prestige-detail__fact-value--fixed-lines': spec.label !== 'Unit Types' && spec.value.includes('\n') }"
+                      >
+                        <template v-if="spec.label === 'Unit Types'">
+                          <span
+                            v-for="(unitType, index) in unitTypeParts(spec.value)"
+                            :key="`${unitType}-${index}`"
+                            class="prestige-detail__fact-value-part"
+                          >{{ unitType }}</span>
+                        </template>
+                        <template v-else>{{ spec.value }}</template>
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -72,7 +86,7 @@
             <!-- 5 · location & nearby -->
             <section class="prestige-section prestige-detail__loc prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <div class="row mb-40 prestige-detail__heading-row">
+                <div class="row justify-content-center mb-40 prestige-detail__heading-row prestige-detail__heading-row--centered">
                   <div class="col-lg-9 prestige-detail__heading-column">
                     <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.eyebrow') }}</span>
                     <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
@@ -104,7 +118,7 @@
             <!-- 7 · documents -->
             <section class="prestige-section--tight prestige-detail__docs">
               <div class="container container-1430">
-                <h2 class="prestige-heading mb-40 tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.title') }}</h2>
+                <h2 class="prestige-heading prestige-detail__uppercase-title mb-40 tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.title') }}</h2>
                 <div class="prestige-docgrid">
                   <button
                     v-for="(d, i) in documents"
@@ -142,7 +156,7 @@
             <section v-if="related.length" class="prestige-section prestige-section--tight prestige-detail__related">
               <div class="container container-1430">
                 <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.related.eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.related.title') }}</h2>
+                <h2 class="prestige-heading prestige-detail__uppercase-title mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.related.title') }}</h2>
                 <div class="row">
                   <div
                     v-for="rel in related"
@@ -189,6 +203,11 @@ import { getProjectDistanceSliderConfig } from "~/data/project-distance-slides";
 
 interface FaqItem { q: string; a: string }
 
+function unitTypeParts(value: string): string[] {
+  const parts = value.split(/,\s*/).filter(Boolean);
+  return parts.map((part, index) => `${part.trim()}${index < parts.length - 1 ? "," : ""}`);
+}
+
 definePageMeta({ layout: false });
 
 const { t, tm, rt, te } = useI18n();
@@ -226,10 +245,22 @@ const highlights = computed<string[]>(() => {
   return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.highlights;
 });
 
-const projectsWithOfficialAmenityTitles = new Set(["the-boulevard-by-prestige-one"]);
+const projectsWithOfficialAmenityTitles = new Set([
+  "berkeley-square-north",
+  "berkeley-square-south",
+  "coastal-haven-by-prestige-one",
+  "luxury-canal-residences-by-prestige-one",
+  "parkway-by-prestige-one",
+  "the-boulevard-by-prestige-one",
+  "the-one-by-prestige-one",
+  "vista-by-prestige-one",
+  "waterway-by-prestige-one",
+]);
 
 function tAmenity(a: string) {
-  const displayName = projectsWithOfficialAmenityTitles.has(slug.value) ? a : getAmenityDisplayName(a);
+  if (projectsWithOfficialAmenityTitles.has(slug.value)) return a;
+
+  const displayName = getAmenityDisplayName(a);
   if (displayName !== a) return displayName;
 
   const k = `pdata.amenities.${slugify(displayName)}`;
@@ -369,6 +400,13 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-page :deep(.prestige-detail__amenities-heading) {
   font-size: clamp(38px, 4vw, 56px);
 }
+.prestige-detail__heading-row--centered .prestige-detail__heading-column {
+  margin-inline: auto;
+  text-align: center;
+}
+.prestige-detail__uppercase-title {
+  text-transform: uppercase;
+}
 .prestige-detail__pp .row.mb-40 {
   margin-bottom: 20px !important;
 }
@@ -501,6 +539,13 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 .prestige-detail__fact-value--fixed-lines {
   white-space: pre;
+}
+.prestige-detail__fact-value-part {
+  display: inline-block;
+  white-space: nowrap;
+}
+.prestige-detail__fact-value-part + .prestige-detail__fact-value-part {
+  margin-left: 0.25em;
 }
 .prestige-detail__plan {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
