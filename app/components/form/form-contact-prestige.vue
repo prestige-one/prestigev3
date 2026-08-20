@@ -131,6 +131,8 @@ async function onSubmit() {
 }
 
 .ajax-response {
+  width: 100%;
+  text-align: center;
   font-size: 14px;
 }
 .ajax-response.is-success {

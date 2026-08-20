@@ -73,13 +73,15 @@ const props = withDefaults(defineProps<{
   currentProject: undefined,
 });
 
+const PROJECT_MAP_ZOOM = 14;
+
 const mapEmbedUrl = computed(() => {
   if (!props.mapLocation) {
     return "https://www.google.com/maps?q=Marina+Plaza,+Dubai+Marina,+Dubai,+UAE&z=12&output=embed";
   }
 
   const { latitude, longitude } = props.mapLocation;
-  return `https://www.google.com/maps?q=${latitude},${longitude}&z=16&output=embed`;
+  return `https://www.google.com/maps?q=${latitude},${longitude}&z=${PROJECT_MAP_ZOOM}&output=embed`;
 });
 
 const mapFrameTitle = computed(() => `${props.mapTitle} location map`);
@@ -115,6 +117,7 @@ const mapFrameTitle = computed(() => `${props.mapTitle} location map`);
 }
 .prestige-contact-right .prestige-contact-form-card {
   height: 100%;
+  overflow: hidden;
 }
 .prestige-contact-form-field label {
   text-align: left;

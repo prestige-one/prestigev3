@@ -6,37 +6,44 @@
         <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ title }}</h2>
       </header>
 
-      <div class="prestige-pgallery__grid">
+      <div
+        class="prestige-pgallery__collection"
+        :class="{ 'prestige-pgallery__collection--expanded': expanded }"
+      >
+        <div class="prestige-pgallery__grid">
+          <button
+            v-for="(image, index) in visibleImages"
+            :key="`${image}-${index}`"
+            type="button"
+            class="prestige-pgallery__tile tp_fade_anim"
+            :data-delay="0.2 + (index % 3) * 0.08"
+            :aria-label="`Open ${projectTitle} gallery image ${index + 1}`"
+            @click="openGallery(index, $event)"
+          >
+            <img :src="image" :alt="`${projectTitle} - view ${index + 1}`" loading="lazy" draggable="false">
+            <span class="prestige-pgallery__tile-shade" aria-hidden="true" />
+            <span class="prestige-pgallery__tile-open" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="11" cy="11" r="6" />
+                <path d="m16 16 4 4M11 8v6M8 11h6" />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <span v-if="hasMoreImages && !expanded" class="prestige-pgallery__row-fade" aria-hidden="true" />
+
         <button
-          v-for="(image, index) in visibleImages"
-          :key="`${image}-${index}`"
+          v-if="hasMoreImages"
           type="button"
-          class="prestige-pgallery__tile tp_fade_anim"
-          :data-delay="0.2 + (index % 3) * 0.08"
-          :aria-label="`Open ${projectTitle} gallery image ${index + 1}`"
-          @click="openGallery(index, $event)"
+          class="prestige-pgallery__more"
+          :aria-expanded="expanded"
+          @click="expanded = !expanded"
         >
-          <img :src="image" :alt="`${projectTitle} - view ${index + 1}`" loading="lazy" draggable="false">
-          <span class="prestige-pgallery__tile-shade" aria-hidden="true" />
-          <span class="prestige-pgallery__tile-open" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-              <circle cx="11" cy="11" r="6" />
-              <path d="m16 16 4 4M11 8v6M8 11h6" />
-            </svg>
-          </span>
+          <span>{{ expanded ? 'View less' : 'View more' }}</span>
+          <span class="prestige-pgallery__more-mark" aria-hidden="true">{{ expanded ? '−' : '+' }}</span>
         </button>
       </div>
-
-      <button
-        v-if="hasMoreImages"
-        type="button"
-        class="prestige-pgallery__more"
-        :aria-expanded="expanded"
-        @click="expanded = !expanded"
-      >
-        <span>{{ expanded ? 'View less' : 'View more' }}</span>
-        <span class="prestige-pgallery__more-mark" aria-hidden="true">{{ expanded ? '−' : '+' }}</span>
-      </button>
     </div>
 
     <Teleport to="body">
@@ -199,6 +206,12 @@ onBeforeUnmount(() => {
 .prestige-pgallery__intro {
   text-align: center;
 }
+.prestige-pgallery__collection {
+  position: relative;
+}
+.prestige-pgallery__collection:not(.prestige-pgallery__collection--expanded) {
+  margin-bottom: 23px;
+}
 .prestige-pgallery__grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -250,7 +263,20 @@ onBeforeUnmount(() => {
 .prestige-pgallery__tile:hover .prestige-pgallery__tile-open,
 .prestige-pgallery__tile:focus-visible .prestige-pgallery__tile-open { opacity: 1; transform: translateY(0); }
 .prestige-pgallery__tile:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.prestige-pgallery__row-fade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: clamp(58px, 5.5vw, 78px);
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(180deg, rgba(10, 11, 14, 0), rgba(10, 11, 14, 0.12) 48%, rgba(10, 11, 14, 0.54));
+  pointer-events: none;
+}
 .prestige-pgallery__more {
+  position: relative;
+  z-index: 4;
   display: flex;
   min-width: 154px;
   min-height: 46px;
@@ -259,16 +285,24 @@ onBeforeUnmount(() => {
   gap: 18px;
   margin: 28px auto 0;
   padding: 10px 20px;
-  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
   border-radius: 999px;
-  background: transparent;
+  background: rgba(12, 13, 17, 0.96);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.36), inset 0 0 0 1px hsla(0, 0%, 100%, 0.04);
   color: #fff;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 220ms ease, background-color 220ms ease;
+  transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
+.prestige-pgallery__collection:not(.prestige-pgallery__collection--expanded) .prestige-pgallery__more {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, 50%);
 }
 .prestige-pgallery__more-mark {
   font-size: 18px;
@@ -277,8 +311,10 @@ onBeforeUnmount(() => {
 }
 .prestige-pgallery__more:hover,
 .prestige-pgallery__more:focus-visible {
-  border-color: hsla(0, 0%, 100%, 0.52);
-  background: hsla(0, 0%, 100%, 0.06);
+  border-color: #fff;
+  background: #fff;
+  color: #0b0c0f;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.44);
   outline: none;
 }
 
@@ -432,12 +468,16 @@ onBeforeUnmount(() => {
 
 @media (max-width: 991.98px) {
   .prestige-pgallery__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .prestige-pgallery__collection:not(.prestige-pgallery__collection--expanded) .prestige-pgallery__tile:nth-child(n + 4) { display: none; }
   .prestige-pgallery__lightbox { padding-inline: 16px; }
   .prestige-pgallery__stage { grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 8px; }
   .prestige-pgallery__arrow { width: 44px; height: 44px; }
 }
 @media (max-width: 575.98px) {
   .prestige-pgallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .prestige-pgallery__collection:not(.prestige-pgallery__collection--expanded) .prestige-pgallery__tile:nth-child(n + 3) { display: none; }
+  .prestige-pgallery__row-fade { height: 54px; }
+  .prestige-pgallery__more { min-width: 142px; min-height: 44px; }
   .prestige-pgallery__lightbox { padding: 10px 10px 12px; }
   .prestige-pgallery__lightbox-head { grid-template-columns: 1fr auto; }
   .prestige-pgallery__lightbox-head > div { display: block; }

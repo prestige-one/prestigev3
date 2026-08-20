@@ -20,6 +20,11 @@
       <path d="M7 3v4M17 3v4M3 10h18M8 15l2.5 2.5L16 12" />
     </svg>
 
+    <svg v-else-if="name === 'Status'" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="m8 12 2.6 2.6L16.5 9" />
+    </svg>
+
     <svg v-else viewBox="0 0 24 24">
       <rect x="3" y="3" width="7" height="7" rx="1" />
       <rect x="14" y="3" width="7" height="7" rx="1" />

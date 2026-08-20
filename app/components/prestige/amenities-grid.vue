@@ -16,8 +16,19 @@
             :data-delay="0.2 + (i % 3) * 0.07"
           >
             <span class="prestige-amen__media">
+              <video
+                v-if="isVideoSource(images[i])"
+                class="prestige-amen__image prestige-amen__video"
+                :src="images[i]"
+                :aria-label="a"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              />
               <img
-                v-if="originalImages && images[i]"
+                v-else-if="originalImages && images[i]"
                 class="prestige-amen__image prestige-amen__image--original"
                 :src="images[i]"
                 :alt="a"
@@ -49,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     items: string[];
     images?: string[];
@@ -63,6 +74,44 @@ withDefaults(
 );
 
 const { waterHoverRoot } = useAmenityWaterHover();
+let videoVisibilityObserver: IntersectionObserver | null = null;
+
+function isVideoSource(source?: string): boolean {
+  return Boolean(source && /\.(?:mp4|webm|ogg)(?:\?.*)?$/i.test(source));
+}
+
+function observeAmenityVideos() {
+  videoVisibilityObserver?.disconnect();
+  videoVisibilityObserver = null;
+
+  const videos = waterHoverRoot.value?.querySelectorAll<HTMLVideoElement>(".prestige-amen__video");
+  if (!videos?.length || typeof IntersectionObserver === "undefined") return;
+
+  videoVisibilityObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
+      if (entry.isIntersecting) {
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
+    });
+  }, { rootMargin: "120px 0px", threshold: 0.12 });
+
+  videos.forEach((video) => videoVisibilityObserver?.observe(video));
+}
+
+onMounted(async () => {
+  await nextTick();
+  observeAmenityVideos();
+});
+
+watch(() => props.images, async () => {
+  await nextTick();
+  observeAmenityVideos();
+});
+
+onBeforeUnmount(() => videoVisibilityObserver?.disconnect());
 </script>
 
 <style scoped>
@@ -125,7 +174,8 @@ const { waterHoverRoot } = useAmenityWaterHover();
   align-items: center;
   gap: 0;
   min-width: 0;
-  min-height: 116px;
+  height: clamp(116px, 9.2vw, 142px);
+  min-height: 0;
   padding: 0;
   overflow: hidden;
   border: 1px solid hsla(0, 0%, 100%, 0.08);
@@ -164,6 +214,9 @@ const { waterHoverRoot } = useAmenityWaterHover();
 .prestige-amen__image--original {
   object-fit: cover;
 }
+.prestige-amen__video {
+  background: #090a0c;
+}
 .prestige-amen__copy {
   display: block;
   min-width: 0;
@@ -174,6 +227,7 @@ const { waterHoverRoot } = useAmenityWaterHover();
   max-width: 180px;
   font-size: clamp(14px, 1.05vw, 16px);
   line-height: 1.4;
+  text-transform: capitalize;
   color: rgba(255, 255, 255, 0.92);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -207,7 +261,8 @@ const { waterHoverRoot } = useAmenityWaterHover();
   }
   .prestige-amen__item {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    min-height: 96px;
+    height: 104px;
+    min-height: 0;
     padding: 0;
   }
   .prestige-amen__label {

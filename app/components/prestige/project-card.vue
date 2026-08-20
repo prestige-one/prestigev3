@@ -1,5 +1,10 @@
 <template>
-  <nuxt-link :to="`/projects/${project.slug}`" class="prestige-pcard">
+  <component
+    :is="cardComponent"
+    v-bind="cardAttributes"
+    class="prestige-pcard"
+    :class="{ 'prestige-pcard--static': isStatic }"
+  >
     <div class="prestige-pcard__media">
       <img :src="project.image" :alt="project.title" loading="lazy">
       <span v-if="handedOver" class="prestige-pcard__status prestige-pcard__status--handedover">
@@ -21,11 +26,11 @@
       <p v-if="showDescription" class="prestige-pcard__description">
         {{ project.description }}
       </p>
-      <span class="prestige-pcard__cta">
+      <span v-if="!isStatic" class="prestige-pcard__cta">
         {{ $t('cta.viewProject') }} <i class="prestige-pcard__arrow">→</i>
       </span>
     </div>
-  </nuxt-link>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -40,16 +45,24 @@ const props = withDefaults(defineProps<{
   showComingSoon: false,
 });
 const { pName } = useLocalizedNames();
+const NuxtLinkComponent = resolveComponent("NuxtLink");
 
 const HANDED_OVER = new Set(["vista-by-prestige-one", "the-residence-by-prestige-one"]);
 const handedOver = computed(() => HANDED_OVER.has(props.project.slug));
-const comingSoon = computed(() => props.showComingSoon && props.project.category === "upcoming");
+const isComingSoon = computed(() => props.project.category === "upcoming");
+const isStatic = computed(() => isComingSoon.value || !props.project.hasDetailPage);
+const comingSoon = computed(() => props.showComingSoon && isComingSoon.value);
+const cardComponent = computed(() => (isStatic.value ? "article" : NuxtLinkComponent));
+const cardAttributes = computed(() => (isStatic.value ? {} : { to: `/projects/${props.project.slug}` }));
 </script>
 
 <style scoped>
 .prestige-pcard {
   display: block;
   color: #fff;
+}
+.prestige-pcard--static {
+  cursor: default;
 }
 .prestige-pcard__media {
   position: relative;

@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: var(--prestige-distance-title-color);
 }
 .prestige-distance__copy h3 {
   margin: 0;
@@ -176,7 +176,6 @@ onBeforeUnmount(() => {
   letter-spacing: 0.02em;
   color: var(--prestige-distance-title-color);
 }
-.prestige-distance__slide.swiper-slide-active .prestige-distance__copy span { color: var(--prestige-distance-title-color); }
 .prestige-distance__edge {
   position: absolute;
   top: 0;

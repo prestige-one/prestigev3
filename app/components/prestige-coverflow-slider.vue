@@ -28,7 +28,11 @@
                   <div class="coverflow-slider-item">
                     <div class="coverflow-slider-content text-center">
                       <h4 class="coverflow-slider-title-sm">
-                        <NuxtLink class="tp-line-white" :to="item.href">
+                        <span v-if="!item.hasDetailPage" class="tp-line-white coverflow-slider-title-static">
+                          {{ pNameFromTitle(item.title) }}
+                          <span class="coverflow-slider-location">[{{ item.location }}]</span>
+                        </span>
+                        <NuxtLink v-else class="tp-line-white" :to="item.href">
                           {{ pNameFromTitle(item.title) }}
                           <div class="coverflow-slider-location">[{{ item.location }}]</div>
                         </NuxtLink>
@@ -256,6 +260,11 @@ onBeforeUnmount(() => {
 <style scoped>
 .coverflow-slider-main {
   position: relative;
+}
+
+.coverflow-slider-title-static {
+  display: inline-block;
+  cursor: default;
 }
 
 /* the theme's base .coverflow-slider-text-wrap is `position: absolute;

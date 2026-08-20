@@ -102,7 +102,7 @@
             </section>
 
             <!-- 6 · payment plan -->
-            <section class="prestige-section prestige-section--tight prestige-detail__pp prestige-detail-heading--swapped">
+            <section v-if="paymentPlan.length" class="prestige-section prestige-section--tight prestige-detail__pp prestige-detail-heading--swapped">
               <div class="container container-1430">
                 <div class="row mb-40 prestige-detail__heading-row">
                   <div class="col-lg-8 prestige-detail__heading-column">
@@ -116,7 +116,7 @@
             </section>
 
             <!-- 7 · documents -->
-            <section class="prestige-section--tight prestige-detail__docs">
+            <section v-if="documents.length" class="prestige-section--tight prestige-detail__docs">
               <div class="container container-1430">
                 <h2 class="prestige-heading prestige-detail__uppercase-title mb-40 tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.title') }}</h2>
                 <div class="prestige-docgrid">
@@ -143,6 +143,7 @@
             </section>
 
             <prestige-doc-request-modal
+              v-if="documents.length"
               :open="docModalOpen"
               :document-name="activeDocument"
               :project-title="shortName"
@@ -197,7 +198,7 @@
 </template>
 
 <script setup lang="ts">
-import { getAmenityDisplayName, getProjectBySlug, getAllProjects, slugify } from "~/data/projects";
+import { getAmenityDisplayName, getProjectBySlug, getAllProjects, slugify, type Project } from "~/data/projects";
 import { destinations } from "~/data/destinations-data";
 import { getProjectDistanceSliderConfig } from "~/data/project-distance-slides";
 
@@ -218,7 +219,7 @@ const route = useRoute();
 const slug = computed(() => String(route.params.slug));
 const project = computed(() => getProjectBySlug(slug.value));
 
-if (!project.value) {
+if (!project.value?.hasDetailPage) {
   throw createError({ statusCode: 404, statusMessage: "Project not found", fatal: true });
 }
 
@@ -253,12 +254,14 @@ const projectsWithOfficialAmenityTitles = new Set([
   "parkway-by-prestige-one",
   "the-boulevard-by-prestige-one",
   "the-one-by-prestige-one",
+  "the-residence-by-prestige-one",
   "vista-by-prestige-one",
   "waterway-by-prestige-one",
 ]);
 
 function tAmenity(a: string) {
   if (projectsWithOfficialAmenityTitles.has(slug.value)) return a;
+  if (a === "Gym, Yoga and Relaxation") return a;
 
   const displayName = getAmenityDisplayName(a);
   if (displayName !== a) return displayName;
@@ -271,8 +274,13 @@ function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? 
 
 const amenities = computed(() => project.value!.amenities.map(tAmenity));
 const distanceSlider = computed(() => getProjectDistanceSliderConfig(slug.value));
-const paymentPlan = computed(() => project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
-const documents = computed(() => project.value!.documents.map((d) => ({ raw: d, label: tDoc(d) })));
+const isVilla = computed(() => project.value!.type === "Villa");
+const paymentPlan = computed(() => isVilla.value
+  ? []
+  : project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
+const documents = computed(() => isVilla.value
+  ? []
+  : project.value!.documents.map((d) => ({ raw: d, label: tDoc(d) })));
 const statusLabel = computed(() => {
   const k = `pdata.status.${slugify(project.value!.status)}`;
   return te(k) ? t(k) : project.value!.status;
@@ -293,16 +301,48 @@ const locationInfoGroups = computed(() => [
   { key: "healthcare", title: t("pp.detail.location.healthcare"), items: hospitals.value },
 ].filter((group) => group.items.length));
 
+function projectDistanceKm(origin: Project, candidate: Project): number {
+  if (origin.location.trim().toLocaleLowerCase() === candidate.location.trim().toLocaleLowerCase()) return -1;
+  if (!origin.mapLocation || !candidate.mapLocation) return Number.POSITIVE_INFINITY;
+
+  const toRadians = Math.PI / 180;
+  const latitudeDelta = (candidate.mapLocation.latitude - origin.mapLocation.latitude) * toRadians;
+  const longitudeDelta = (candidate.mapLocation.longitude - origin.mapLocation.longitude) * toRadians;
+  const originLatitude = origin.mapLocation.latitude * toRadians;
+  const candidateLatitude = candidate.mapLocation.latitude * toRadians;
+  const haversine = Math.sin(latitudeDelta / 2) ** 2
+    + Math.cos(originLatitude) * Math.cos(candidateLatitude) * Math.sin(longitudeDelta / 2) ** 2;
+
+  return 6371 * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
+}
+
 const related = computed(() => {
   const p = project.value!;
+  if (p.type === "Villa") {
+    return getAllProjects()
+      .filter((candidate) => candidate.slug !== p.slug && candidate.type === "Villa" && candidate.location === p.location)
+      .slice(0, 2);
+  }
+
   return getAllProjects()
-    .filter((x) => x.slug !== p.slug && (x.category === p.category || x.location === p.location))
-    .slice(0, 3);
+    .filter((candidate) => candidate.slug !== p.slug && candidate.category !== "upcoming")
+    .map((candidate, catalogueIndex) => ({
+      candidate,
+      catalogueIndex,
+      distance: projectDistanceKm(p, candidate),
+    }))
+    .sort((left, right) => left.distance - right.distance || left.catalogueIndex - right.catalogueIndex)
+    .slice(0, 3)
+    .map(({ candidate }) => candidate);
 });
 
 const faqs = computed<FaqItem[]>(() => {
   const p = project.value!;
-  if (p.faqItems?.length) return p.faqItems;
+  if (p.faqItems?.length) {
+    return isVilla.value
+      ? p.faqItems.filter((item) => !/payment/i.test(item.q))
+      : p.faqItems;
+  }
 
   // Answers are translated via `pdata.faq.a.*` with the data (names, times,
   // %, place names) kept as interpolated placeholders; each falls back to
@@ -321,9 +361,11 @@ const faqs = computed<FaqItem[]>(() => {
 
   const items: FaqItem[] = [
     { q: t("pdata.faq.q.location", { name: shortName.value }), a: t("pdata.faq.a.location", { title: p.title, location: p.location, nearby: nearby2 }) },
-    { q: t("pdata.faq.q.payment"), a: t("pdata.faq.a.payment", { plan }) },
     { q: t("pdata.faq.q.amenities"), a: t("pdata.faq.a.amenities", { list: amenList }) },
   ];
+  if (!isVilla.value) {
+    items.splice(1, 0, { q: t("pdata.faq.q.payment"), a: t("pdata.faq.a.payment", { plan }) });
+  }
   if (schools.value.length || hospitals.value.length) {
     const list = [...schools.value.slice(0, 2), ...hospitals.value.slice(0, 1)].join(", ");
     items.push({ q: t("pdata.faq.q.schools"), a: t("pdata.faq.a.schools", { list }) });
@@ -511,19 +553,24 @@ function requestDocument(doc: { raw: string; label: string }) {
   border-right: 0;
 }
 .prestige-detail__fact-copy {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   min-width: 0;
+  overflow: visible;
 }
 .prestige-detail__loc {
   background: #000;
 }
 .prestige-detail__fact-label {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 4px;
+  padding-block: 2px 1px;
+  overflow: visible;
   color: rgba(255, 255, 255, 0.48);
   font-size: 10px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.5;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }

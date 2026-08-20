@@ -37,13 +37,15 @@ const BERKELEY_SQUARE_SLIDES: ProjectDistanceSlide[] = [
 ];
 
 const GOLF_SLIDES: ProjectDistanceSlide[] = [
-  { name: "Dubai Marina", time: "18 min", image: `${DARK_ROOT}/dubai_marina.webp` },
-  { name: "Palm Jumeirah", time: "20 min", image: `${DARK_ROOT}/palm_jumeirah.webp` },
-  { name: "Jumeirah Beach", time: "22 min", image: `${DARK_ROOT}/jumeira_beach.webp` },
-  { name: "Downtown Dubai", time: "20 min", image: `${DARK_ROOT}/downtown_dubai.webp` },
-  { name: "Burj Khalifa", time: "20 min", image: `${DARK_ROOT}/burj-klf.webp` },
-  { name: "Museum of the Future", time: "22 min", image: `${DARK_ROOT}/museum.webp` },
-  { name: "Dubai International Airport", time: "28 min", image: `${DARK_ROOT}/dxb.webp` },
+  { name: "Jumeirah Golf Estates", time: "15 min", image: `${SANCTUARY_ROOT}/Jumeirah Golf Estates.webp` },
+  { name: "Dubai Marina", time: "18 min", image: `${SANCTUARY_ROOT}/dubai-marina.webp` },
+  { name: "Global Village", time: "18 min", image: `${SANCTUARY_ROOT}/global-village.webp` },
+  { name: "Palm Jumeirah", time: "20 min", image: `${SANCTUARY_ROOT}/palm_jumeirah.webp` },
+  { name: "Downtown Dubai", time: "20 min", image: `${SANCTUARY_ROOT}/downtown-dubai.webp` },
+  { name: "Burj Khalifa", time: "20 min", image: `${SANCTUARY_ROOT}/burj-khalifa-1.webp` },
+  { name: "Jumeirah Beach", time: "22 min", image: `${SANCTUARY_ROOT}/jumeirah-beach.webp` },
+  { name: "Museum of the Future", time: "22 min", image: `${SANCTUARY_ROOT}/museum.webp` },
+  { name: "Dubai International Airport", time: "28 min", image: `${SANCTUARY_ROOT}/dxb.webp` },
 ];
 
 const BOULEVARD_SLIDES: ProjectDistanceSlide[] = [
@@ -56,7 +58,7 @@ const BOULEVARD_SLIDES: ProjectDistanceSlide[] = [
   { name: "Dubai Marina", time: "30 min", image: `${DARK_ROOT}/dubai_marina.webp` },
 ];
 
-const SEASIDE_SLIDES: ProjectDistanceSlide[] = [
+const DUBAI_ISLANDS_SLIDES: ProjectDistanceSlide[] = [
   { name: "Dubai International Airport", time: "16 min", image: `${DARK_ROOT}/dxb.webp` },
   { name: "Museum of the Future", time: "20 min", image: `${DARK_ROOT}/museum.webp` },
   { name: "Downtown Dubai", time: "25 min", image: `${DARK_ROOT}/downtown_dubai.webp` },
@@ -64,6 +66,13 @@ const SEASIDE_SLIDES: ProjectDistanceSlide[] = [
   { name: "Jumeirah Beach", time: "30 min", image: `${DARK_ROOT}/jumeira_beach.webp` },
   { name: "Palm Jumeirah", time: "35 min", image: `${DARK_ROOT}/palm_jumeirah.webp` },
   { name: "Dubai Marina", time: "35 min", image: `${DARK_ROOT}/dubai_marina.webp` },
+];
+
+const SEASIDE_SLIDES: ProjectDistanceSlide[] = [
+  { name: "Waterfront Market", time: "7 min", image: `${DARK_ROOT}/dubai_marina.webp` },
+  { name: "Dubai Hospital", time: "8 min", image: `${DARK_ROOT}/museum.webp` },
+  { name: "Dubai International Airport", time: "18 min", image: `${DARK_ROOT}/dxb.webp` },
+  { name: "Burj Khalifa / Downtown Dubai", time: "20 min", image: `${DARK_ROOT}/burj-klf.webp` },
 ];
 
 const PARKWAY_SLIDES: ProjectDistanceSlide[] = [
@@ -94,13 +103,35 @@ const THE_ONE_SLIDES: ProjectDistanceSlide[] = [
   { name: "Dubai International Airport", time: "25 min", image: `${DARK_ROOT}/dxb.webp` },
 ];
 
-const VISTA_SLIDES: ProjectDistanceSlide[] = [
+const LUXE_VILLA_SLIDES: ProjectDistanceSlide[] = [
+  { name: "Dubai Marina", time: "15 min", image: `${DARK_ROOT}/dubai_marina.webp` },
   { name: "Mall of the Emirates", time: "15 min", image: `${DARK_ROOT}/mall-of-emirates.webp` },
-  { name: "Dubai Marina", time: "20 min", image: `${DARK_ROOT}/dubai_marina.webp` },
-  { name: "Jumeirah Beach", time: "20 min", image: `${DARK_ROOT}/jumeira_beach.webp` },
-  { name: "Downtown Dubai", time: "25 min", image: `${DARK_ROOT}/downtown_dubai.webp` },
-  { name: "Burj Khalifa", time: "25 min", image: `${DARK_ROOT}/burj-klf.webp` },
+  { name: "Burj Al Arab", time: "15 min", image: `${DARK_ROOT}/jumeira_beach.webp` },
+  { name: "Museum of the Future", time: "20 min", image: `${DARK_ROOT}/museum.webp` },
+  { name: "Burj Khalifa", time: "20 min", image: `${DARK_ROOT}/burj-klf.webp` },
   { name: "Dubai International Airport", time: "25 min", image: `${DARK_ROOT}/dxb.webp` },
+  { name: "The Dubai Mall", time: "27 min", image: `${DARK_ROOT}/downtown_dubai.webp` },
+];
+
+const VISTA_SLIDES: ProjectDistanceSlide[] = [
+  { name: "Mall of the Emirates", time: "15 min", image: `${SANCTUARY_ROOT}/emirates-mall.webp` },
+  { name: "Dubai Marina", time: "20 min", image: `${SANCTUARY_ROOT}/dubai-marina.webp` },
+  { name: "Jumeirah Beach", time: "20 min", image: `${SANCTUARY_ROOT}/jumeirah-beach.webp` },
+  { name: "Downtown Dubai", time: "25 min", image: `${SANCTUARY_ROOT}/downtown-dubai.webp` },
+  { name: "Burj Khalifa", time: "25 min", image: `${SANCTUARY_ROOT}/burj-khalifa-1.webp` },
+  { name: "Dubai International Airport", time: "25 min", image: `${SANCTUARY_ROOT}/dxb.webp` },
+];
+
+const RESIDENCE_SLIDES: ProjectDistanceSlide[] = [
+  { name: "Dubai International Airport", time: "28 min", image: `${SANCTUARY_ROOT}/dxb.webp` },
+  { name: "Burj Khalifa", time: "28 min", image: `${SANCTUARY_ROOT}/burj-khalifa-1.webp` },
+  { name: "Downtown Dubai", time: "28 min", image: `${SANCTUARY_ROOT}/downtown-dubai.webp` },
+  { name: "Mall of the Emirates", time: "18 min", image: `${SANCTUARY_ROOT}/emirates-mall.webp` },
+  { name: "Jumeirah Beach", time: "25 min", image: `${SANCTUARY_ROOT}/jumeirah-beach.webp` },
+  { name: "Palm Jumeirah", time: "20 min", image: `${SANCTUARY_ROOT}/palm_jumeirah.webp` },
+  { name: "Dubai Marina", time: "23 min", image: `${SANCTUARY_ROOT}/dubai-marina.webp` },
+  { name: "Dubai Autodrome", time: "14 min", image: `${SANCTUARY_ROOT}/Dubai-Autodrome.webp` },
+  { name: "Vista by Prestige One", time: "12 min", image: `${SANCTUARY_ROOT}/vista-green.webp` },
 ];
 
 const projectDistanceSliders: Record<string, ProjectDistanceSliderConfig> = {
@@ -128,21 +159,22 @@ const projectDistanceSliders: Record<string, ProjectDistanceSliderConfig> = {
       { name: "Burj Khalifa", time: "15 min", image: `${HILTON_ROOT}/burj-klf.webp` },
       { name: "The Dubai Mall", time: "15 min", image: `${HILTON_ROOT}/dubai-mall.webp` },
       { name: "Dubai International Airport", time: "15 min", image: `${HILTON_ROOT}/dxb.webp` },
+      { name: "Mall of the Emirates", time: "20 min", image: `${HILTON_ROOT}/mall-of-emirates.webp` },
       { name: "Jumeirah Beach", time: "22 min", image: `${HILTON_ROOT}/jumeira_beach.webp` },
       { name: "Palm Jumeirah", time: "25 min", image: `${HILTON_ROOT}/palm_jumeirah.webp` },
       { name: "Dubai Marina", time: "25 min", image: `${HILTON_ROOT}/dubai_marina.webp` },
     ],
   },
   "berkeley-square-north": {
-    titleColor: "#ffffff",
+    titleColor: "#6bffba",
     slides: BERKELEY_SQUARE_SLIDES,
   },
   "berkeley-square-south": {
-    titleColor: "#ffffff",
+    titleColor: "#6bffba",
     slides: BERKELEY_SQUARE_SLIDES,
   },
   "golf-residences-by-prestige-one": {
-    titleColor: "#ffffff",
+    titleColor: "#6bffba",
     slides: GOLF_SLIDES,
   },
   "the-boulevard-by-prestige-one": {
@@ -155,11 +187,11 @@ const projectDistanceSliders: Record<string, ProjectDistanceSliderConfig> = {
   },
   "luxury-canal-residences-by-prestige-one": {
     titleColor: "#ffffff",
-    slides: SEASIDE_SLIDES,
+    slides: DUBAI_ISLANDS_SLIDES,
   },
   "coastal-haven-by-prestige-one": {
     titleColor: "#ffffff",
-    slides: SEASIDE_SLIDES,
+    slides: DUBAI_ISLANDS_SLIDES,
   },
   "parkway-by-prestige-one": {
     titleColor: "#20c48e",
@@ -173,9 +205,17 @@ const projectDistanceSliders: Record<string, ProjectDistanceSliderConfig> = {
     titleColor: "#ffffff",
     slides: THE_ONE_SLIDES,
   },
-  "vista-by-prestige-one": {
+  "luxe-villa-by-prestige-one": {
     titleColor: "#ffffff",
+    slides: LUXE_VILLA_SLIDES,
+  },
+  "vista-by-prestige-one": {
+    titleColor: "#6bffba",
     slides: VISTA_SLIDES,
+  },
+  "the-residence-by-prestige-one": {
+    titleColor: "#6bffba",
+    slides: RESIDENCE_SLIDES,
   },
   "sanctuary-residences-by-prestige-one": {
     titleColor: "#6bffba",

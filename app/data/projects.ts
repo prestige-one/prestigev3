@@ -18,6 +18,8 @@ export interface DevelopmentSlide {
   location: string;
   description: string;
   href: string;
+  category: ProjectCategory;
+  hasDetailPage: boolean;
 }
 
 export interface ProjectSpec {
@@ -50,7 +52,9 @@ export interface Project {
   slug: string;
   title: string;
   location: string;
+  type: ProjectType;
   category: ProjectCategory;
+  hasDetailPage: boolean;
   status: string;
   tagline: string;
   description: string;
@@ -76,7 +80,7 @@ export interface Project {
   closingTitle?: string;
   closingImage?: string;
   mapLocation?: ProjectMapLocation;
-  video: string;
+  video?: string;
 }
 
 interface ProjectEnrichment {
@@ -102,10 +106,11 @@ interface ProjectEnrichment {
   closingImage?: string;
 }
 
-interface ProjectSource extends Omit<DevelopmentSlide, "href"> {
+interface ProjectSource extends Omit<DevelopmentSlide, "href" | "hasDetailPage"> {
   slug?: string;
   registrationUrl?: string;
   category: ProjectCategory;
+  hasDetailPage?: boolean;
   brand?: string;
   type?: ProjectType;
   configuration?: string;
@@ -346,6 +351,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     description: "A private escape by the sea.",
     category: "residential",
     type: "Villa",
+    unitTypes: "Villa",
   },
   {
     id: "palm-villa",
@@ -357,6 +363,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     type: "Villa",
     configuration: "G+2",
     unitTypes: "Villa",
+    hasDetailPage: false,
   },
   {
     id: "vista-hub",
@@ -385,8 +392,9 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
 ];
 
 const PROJECT_VIDEO_ROOT = "/assets/images/v2/project-features-videos";
+const IMAGE_ONLY_HERO_PROJECT_IDS = new Set(["luxe-villa", "seascape-villa", "palm-villa"]);
 const PROJECT_HERO_VIDEO_BY_ID: Record<string, string> = {
-  "fauchon-residences": `${PROJECT_VIDEO_ROOT}/v3/Fauchon.mp4`,
+  "fauchon-residences": `${PROJECT_VIDEO_ROOT}/v3/Fauchon-v3.mp4`,
   "sanctuary-residences": `${PROJECT_VIDEO_ROOT}/v3/Sanctuary.mp4`,
   "sanctuary-hive": `${PROJECT_VIDEO_ROOT}/teaser-hive.mp4`,
   "hilton-residences": `${PROJECT_VIDEO_ROOT}/v3/Hilton.mp4`,
@@ -402,9 +410,6 @@ const PROJECT_HERO_VIDEO_BY_ID: Record<string, string> = {
   "waterway": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-Waterway.mp4`,
   "vista": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-VISTA.mp4`,
   "the-residence": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-RESIDENCE.mp4`,
-  "luxe-villa": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
-  "seascape-villa": `${PROJECT_VIDEO_ROOT}/v2-Teaser-Video_Seascape.mp4`,
-  "palm-villa": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
   "vista-hub": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The-VISTA.mp4`,
   "prestige-seaside": `${PROJECT_VIDEO_ROOT}/compressed-Project-Teaser-Video_The_SEASIDE.mp4`,
   "prestige-square": `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
@@ -495,6 +500,19 @@ const PROJECT_MAP_LOCATION_BY_ID: Partial<Record<string, ProjectMapLocation>> = 
 
 const V2 = "/assets/images/v2/project-featured-images";
 const FAUCHON_AMENITY_ROOT = "/assets/images/v3/project-amenities/fauchon/v3";
+const LUXE_VILLA_AMENITY_ROOT = "/assets/images/v3/project-amenities/luxe-villa";
+const LUXE_VILLA_GALLERY_ROOT = `${LUXE_VILLA_AMENITY_ROOT}/gallery`;
+const LUXE_VILLA_FEATURED_IMAGE = `${LUXE_VILLA_AMENITY_ROOT}/luxe-villas.webp`;
+const LUXE_VILLA_OVERVIEW_IMAGE = `${LUXE_VILLA_GALLERY_ROOT}/The-Luxe-Villas-amenity-video-New-Recovered.jpg`;
+const LUXE_VILLA_GALLERY_FILES = [
+  "The-Luxe-Villas-1.jpg",
+  "The-Luxe-Villas-Entrance.jpg",
+  "The-Luxe-Villas-Entrance-2.jpg",
+  "The-Luxe-Villas-Interior-Firstfloor.jpg",
+  "The-Luxe-Villas-Interior-Firstfloor-2.jpg",
+  "The-Luxe-Villas-Majlis.jpg",
+];
+const LUXE_VILLA_AMENITY_IMAGES = galleryAt(LUXE_VILLA_GALLERY_ROOT, LUXE_VILLA_GALLERY_FILES);
 const BOULEVARD_AMENITY_ROOT = "/assets/images/v3/project-amenities/boulevard";
 const BOULEVARD_GALLERY_ROOT = `${BOULEVARD_AMENITY_ROOT}/gallery`;
 const BOULEVARD_OVERVIEW_IMAGE = `${BOULEVARD_GALLERY_ROOT}/the-boulevard-by-prestige-one.webp`;
@@ -526,7 +544,7 @@ const BOULEVARD_GALLERY_FILES = [
 ];
 const GOLF_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/golf-residences/gallery";
 const GOLF_GALLERY_FILES = [
-  "Golf Place- Exterior Hero.webp",
+  "golf-featured-image.webp",
   "Golf Place- Exterior Facade 2 Day.webp",
   "Golf Place- Exterior.webp",
   "Golf Place- Amenities- Dropoff.webp",
@@ -544,6 +562,19 @@ const GOLF_GALLERY_FILES = [
   "Golf Place- Amenities- running track.webp",
 ];
 const HILTON_AMENITY_GALLERY_ROOT = "/assets/images/v3/project-amenities/hilton/gallery";
+const HILTON_AMENITY_VIDEO_ROOT = "/assets/images/v3/project-amenities/hilton/videos";
+const HILTON_AMENITY_VIDEO_FILES = [
+  "Entertainment and Flexible Spaces.mp4",
+  "Fitness and Wellness.mp4",
+  "Lifestyle and Business Amenities.mp4",
+  "Outdoor Active and Recreation Zones.mp4",
+  "Outdoor Relaxation and Garden Amenities.mp4",
+  "Water Based Amenities.mp4",
+];
+const HILTON_AMENITY_VIDEO_TITLES = HILTON_AMENITY_VIDEO_FILES.map((file) => {
+  const title = file.replace(/\.mp4$/i, "");
+  return title === "Fitness and Wellness" ? "Gym, Yoga and Relaxation" : title;
+});
 const BERKELEY_NORTH_FEATURED_IMAGE = "/assets/project-featured-images/berkeley/Berkeley-Square-North.webp";
 const BERKELEY_NORTH_AMENITY_ROOT = "/assets/images/v3/project-amenities/berkeley-square-north";
 const BERKELEY_NORTH_GALLERY_ROOT = `${BERKELEY_NORTH_AMENITY_ROOT}/gallery`;
@@ -581,7 +612,7 @@ const BERKELEY_NORTH_AMENITIES = [
   "Floating Cabanas",
   "Prestige Fitness Centre",
   "Pool Retreat",
-  "Garden BBQ Pavilion",
+  "Zen Garden",
   "Organic Farming Terrace",
   "Multi-purpose Court",
 ];
@@ -890,7 +921,7 @@ const THE_ONE_AMENITY_IMAGES = [
   `${THE_ONE_GALLERY_ROOT}/Prestige Offices Tower_9th flr Reception opt 1.webp`,
 ];
 const VISTA_GALLERY_ROOT = "/assets/images/v3/project-amenities/vista/gallery";
-const VISTA_OVERVIEW_IMAGE = `${VISTA_GALLERY_ROOT}/Exterior.webp`;
+const VISTA_OVERVIEW_IMAGE = `${VISTA_GALLERY_ROOT}/vista-main.webp`;
 const VISTA_GALLERY_FILES = [
   "Exterior.webp",
   "Entrance_view.webp",
@@ -943,6 +974,53 @@ const VISTA_AMENITY_IMAGES = [
   `${VISTA_GALLERY_ROOT}/Sauna.webp`,
   `${VISTA_GALLERY_ROOT}/kids-play-area.webp`,
 ];
+const RESIDENCE_GALLERY_ROOT = "/assets/images/v3/project-amenities/residence/gallery";
+const RESIDENCE_PLACEHOLDER_IMAGE = `${RESIDENCE_GALLERY_ROOT}/THE-RESIDENCE.webp`;
+const RESIDENCE_GALLERY_FILES = [
+  "THE-RESIDENCE.webp",
+  "residence-featured-live-image.webp",
+  "THE RESIDENCE - Ext Day View.webp",
+  "THE RESIDENCE - Ext Rear 1.webp",
+  "THE RESIDENCE - Ext Rear 3.webp",
+  "THE RESIDENCE - Ext Rood Night.webp",
+  "Pool-area.webp",
+  "THE RESIDENCE - Gym.webp",
+  "THE RESIDENCE - Lobby.webp",
+  "THE RESIDENCE - Lobby 2.webp",
+  "THE RESIDENCE - Lift.webp",
+  "THE RESIDENCE - Kitchen and Living.webp",
+  "THE RESIDENCE - Kitchen.webp",
+  "THE RESIDENCE - Studio.webp",
+  "Bedroom.webp",
+  "THE RESIDENCE - Powder Room.webp",
+];
+const RESIDENCE_AMENITIES = [
+  "Fitness Centre",
+  "Swimming Pool and Hot Tub",
+  "Roof Deck and Outdoor Cinema",
+  "Putting Green",
+  "BBQ, Sunken Seating & Deck Areas",
+  "Outdoor Kids Play Area",
+  "Cabanas & Sunbeds",
+  "Open Terrain Rolling Lawn",
+];
+const RESIDENCE_ALL_AMENITIES = [
+  ...RESIDENCE_AMENITIES,
+  "Floor Fountains",
+  "Electric Vehicle Charging / Parking",
+  "Bicycle Parking",
+  "Male / Female Locker Rooms",
+];
+const RESIDENCE_AMENITY_IMAGES = [
+  `${RESIDENCE_GALLERY_ROOT}/THE RESIDENCE - Gym.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/Pool-area.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/THE RESIDENCE - Ext Rood Night.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/THE RESIDENCE - Ext Rear 3.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/THE RESIDENCE - Ext Rear 1.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/Outdoor Kids Play Area.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/Cabanas & Sunbeds.webp`,
+  `${RESIDENCE_GALLERY_ROOT}/Open Terrain Rolling Lawn.webp`,
+];
 const SEASIDE_GALLERY_ROOT = "/assets/images/v3/project-amenities/seaside/gallery";
 const SEASIDE_OVERVIEW_IMAGE = `${SEASIDE_GALLERY_ROOT}/Night - Front Side.webp`;
 const SEASIDE_GALLERY_FILES = [
@@ -973,6 +1051,7 @@ const SANCTUARY_GALLERY_FILES = [
   "Sanctuary Facade Angle 4.webp",
   "1.-Residential-Lobby.webp",
   "8.-Residential-Amenities---Gym---Level-9---Option-2.webp",
+  "Residential-Amenities---Spa---Roof-Level.webp",
   "9th-floor-water-feature.webp",
   "10.-Residential-Amenities---Cinema---Level-9.webp",
   "11.-Residential-Amenities---Multipurpose-Room---Roof-Level.webp",
@@ -982,6 +1061,9 @@ const SANCTUARY_GALLERY_FILES = [
   "Rooftop-FLoor-Barbeque.webp",
   "RoofTop-Floor-Sitting-Area.webp",
   "Rooftop-Pool.webp",
+  "17.-3-Bedroom-Unit---Master-Bedroom.webp",
+  "14.-2-Bedroom-Unit---Living-Room---Option-1.webp",
+  "14.-2-Bedroom-Unit---Living-Room-.jpg.webp",
 ];
 const SANCTUARY_HIVE_AMENITY_ROOT = "/assets/images/v3/project-amenities/Sanctuary-Hive";
 const SANCTUARY_HIVE_GALLERY_ROOT = `${SANCTUARY_HIVE_AMENITY_ROOT}/gallery`;
@@ -989,11 +1071,15 @@ const SANCTUARY_HIVE_GALLERY = [
   `${SANCTUARY_HIVE_GALLERY_ROOT}/sanctuary-hive-exterior-evening.webp`,
   `${SANCTUARY_GALLERY_ROOT}/1.-Residential-Lobby.webp`,
   `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/Residential-Amenities---Spa---Roof-Level.webp`,
   `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
   `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
   `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
   `${SANCTUARY_GALLERY_ROOT}/RoofTop-Floor-Sitting-Area.webp`,
   `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/17.-3-Bedroom-Unit---Master-Bedroom.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/14.-2-Bedroom-Unit---Living-Room---Option-1.webp`,
+  `${SANCTUARY_GALLERY_ROOT}/14.-2-Bedroom-Unit---Living-Room-.jpg.webp`,
 ];
 
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
@@ -1010,10 +1096,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "The collection comprises 241 residences, from studios to three-bedroom homes, supported by amenities across the ground, first, second and rooftop levels.",
     ],
     highlights: [
-      "241 residential units",
-      "103 studios, 125 one-bedroom, 7 two-bedroom and 6 three-bedroom residences",
-      "Building configuration: 2B+G+5+ROOF",
-      "Anticipated completion in Q1 2028",
+      "Live amid classic English elegance reimagined for modern Dubai",
+      "Unwind across courtyard, pool and rooftop retreats",
+      "Connect in thoughtfully designed clubhouse and social spaces",
+      "Balance every day with fitness, recreation and landscaped gardens",
     ],
     specs: [
       { label: "Location", value: "Jumeirah Village Circle" },
@@ -1082,10 +1168,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Classic English ideals are reimagined for contemporary Dubai living across 241 thoughtfully planned residences, from studios to three-bedroom homes.",
     ],
     highlights: [
-      "241 residential units",
-      "103 studios, 125 one-bedroom, 7 two-bedroom and 6 three-bedroom residences",
-      "Building configuration: 2B+G+5+ROOF",
-      "Anticipated completion in Q1 2028",
+      "Experience timeless English character in a contemporary setting",
+      "Relax beside the courtyard pool and floating cabanas",
+      "Gather at the clubhouse, outdoor cinema and garden BBQ pavilion",
+      "Embrace wellbeing through fitness, sport and green terraces",
     ],
     specs: [
       { label: "Location", value: "Jumeirah Village Circle" },
@@ -1150,11 +1236,11 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "A freehold collection of 73 one-, two- and three-bedroom residences and penthouses is complemented by wellness, leisure, family and social amenities across the ground and podium levels.",
     ],
     highlights: [
-      "73 freehold residences on Dubai Islands",
-      "One-bedroom residences from 809.66 to 830.33 sq ft",
-      "Two-bedroom residences from 1,200.07 to 1,244.20 sq ft",
-      "Three-bedroom residences and penthouses up to 4,430.33 sq ft",
-      "Anticipated completion in Q1 2028",
+      "Begin each day in a peaceful harbour-side setting on Dubai Islands",
+      "Embrace a waterfront lifestyle shaped by calm, light and open horizons",
+      "Unwind through resort-style wellness, leisure and family amenities",
+      "Stay connected to Downtown Dubai and Dubai International Airport",
+      "Move effortlessly between island serenity and the energy of the city",
     ],
     specs: [
       { label: "Location", value: "Dubai Islands" },
@@ -1520,7 +1606,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
     ],
     specs: [
       { label: "Location", value: "Dubai Sports City" },
-      { label: "Brand", value: "Prestige One" },
+      { label: "Status", value: "Handed Over" },
       { label: "Configuration", value: "G+2P+14+R" },
       { label: "Unit Types", value: "Studio, 1-Bedroom, 2-Bedroom, 3-Bedroom" },
     ],
@@ -1570,6 +1656,156 @@ const enrichment: Record<string, ProjectEnrichment> = {
       {
         q: "What is the payment plan?",
         a: "The launch-sheet payment plan comprises 10% at booking, a further 55% across scheduled construction installments and 35% upon handover.",
+      },
+    ],
+  },
+  "the-residence-by-prestige-one": {
+    status: "Handed Over",
+    introImage: RESIDENCE_PLACEHOLDER_IMAGE,
+    closingTitle: "A more thoughtful way to live in JVC",
+    closingImage: "/assets/images/v3/jvc-bg.webp",
+    originalAmenityImages: true,
+    overview: [
+      "The Residence by Prestige One is a boutique residential address in Jumeirah Village Circle, created around detailed design, contemporary comfort and an intimate community atmosphere.",
+      "Its dynamic exterior gives way to refined interiors and practical, liveable layouts, with expansive windows framing Dubai's skyline and the greenery surrounding JVC.",
+      "Studios and one- and two-bedroom residences are complemented by rooftop leisure, wellness, family and landscaped amenities designed to make everyday living feel effortless.",
+    ],
+    highlights: [
+      "Boutique G+5 residential address in Jumeirah Village Circle",
+      "Studio, one-bedroom and two-bedroom residences",
+      "Contemporary architecture and interiors by LACASA",
+      "Rooftop leisure, wellness and landscaped amenities",
+    ],
+    specs: [
+      { label: "Location", value: "Jumeirah Village Circle" },
+      { label: "Status", value: "Handed Over" },
+      { label: "Configuration", value: "G+5" },
+      { label: "Unit Types", value: "Studio, 1-Bedroom, 2-Bedroom" },
+    ],
+    amenities: RESIDENCE_AMENITIES,
+    faqAmenities: RESIDENCE_ALL_AMENITIES,
+    amenityImages: RESIDENCE_AMENITY_IMAGES,
+    paymentPlan: [],
+    nearby: [
+      { name: "Vista by Prestige One", time: "12 min" },
+      { name: "Dubai Autodrome", time: "14 min" },
+      { name: "Mall of the Emirates", time: "18 min" },
+      { name: "Palm Jumeirah", time: "20 min" },
+      { name: "Dubai Marina", time: "23 min" },
+      { name: "Jumeirah Beach", time: "25 min" },
+      { name: "Burj Khalifa / Downtown Dubai", time: "28 min" },
+      { name: "Dubai International Airport", time: "28 min" },
+    ],
+    schools: [
+      "JSS International School",
+      "Nord Anglia International School",
+      "GEMS Founders School Dubai",
+    ],
+    hospitals: [
+      "Mediclinic Me'aisem",
+      "Emirates Hospital Day Surgery & Medical Center",
+      "Karama Medical Centre",
+    ],
+    faqItems: [
+      {
+        q: "Where is The Residence by Prestige One located?",
+        a: "The Residence is located in Jumeirah Village Circle, with direct access to Sheikh Mohammed Bin Zayed Road and convenient connections to Dubai's major lifestyle and business destinations.",
+      },
+      {
+        q: "What residence types are available?",
+        a: "The boutique G+5 development includes studios and one- and two-bedroom residences designed around comfort, natural light and contemporary living.",
+      },
+      {
+        q: "What amenities are available?",
+        a: "Amenities include a fitness centre, swimming pool and hot tub, private roof deck and outdoor cinema, putting green, barbecue and sunken seating areas, landscaped lawns, an outdoor kids play area, cabanas, locker rooms, bicycle parking and EV charging.",
+      },
+      {
+        q: "How well connected is The Residence?",
+        a: "The brochure places Dubai Autodrome approximately 14 minutes away, Mall of the Emirates 18 minutes, Palm Jumeirah 20 minutes, Dubai Marina 23 minutes and Downtown Dubai and Dubai International Airport 28 minutes away.",
+      },
+      {
+        q: "Which schools and hospitals are nearby?",
+        a: "Nearby education options include JSS International School, Nord Anglia International School and GEMS Founders School Dubai. Healthcare options include Mediclinic Me'aisem, Emirates Hospital Day Surgery & Medical Center and Karama Medical Centre.",
+      },
+      {
+        q: "Has The Residence been handed over?",
+        a: "Yes. The Residence by Prestige One is a completed and handed-over development in Jumeirah Village Circle.",
+      },
+    ],
+  },
+  "luxe-villa-by-prestige-one": {
+    status: "Completed",
+    hero: LUXE_VILLA_FEATURED_IMAGE,
+    introImage: LUXE_VILLA_OVERVIEW_IMAGE,
+    closingTitle: "A private expression of Palm Jumeirah living",
+    closingImage: "/assets/images/v2/our-destinations/palm-jumeira.webp",
+    originalAmenityImages: true,
+    overview: [
+      "Prestige is an inherent trait, not merely an ambition. At Luxe Villa by Prestige One, it defines every aspect of an exceptional private home on Palm Jumeirah.",
+      "Constructed with close attention to detail and high-quality materials, the villa combines flawless design with uncompromising craftsmanship in one of Dubai's most coveted communities.",
+      "Created for discerning residents, its generous interiors, elegant entertaining spaces and calm private retreats bring sophistication and effortless island living together.",
+    ],
+    highlights: [
+      "Exclusive G+2 private villa on Palm Jumeirah",
+      "Refined contemporary architecture and interiors",
+      "Formal majlis and generous family living spaces",
+      "Crafted around privacy, comfort and lasting quality",
+    ],
+    specs: [
+      { label: "Location", value: "Palm Jumeirah" },
+      { label: "Brand", value: "Prestige One" },
+      { label: "Configuration", value: "G+2" },
+      { label: "Unit Types", value: "Villa" },
+    ],
+    amenities: [
+      "Master Suite",
+      "Grand Entrance",
+      "Gallery Foyer",
+      "Family Lounge",
+      "Private Retreat",
+      "Formal Majlis",
+    ],
+    amenityImages: LUXE_VILLA_AMENITY_IMAGES,
+    paymentPlan: [],
+    nearby: [
+      { name: "Dubai Marina", time: "15 min" },
+      { name: "Mall of the Emirates", time: "15 min" },
+      { name: "Burj Al Arab", time: "15 min" },
+      { name: "Museum of the Future", time: "20 min" },
+      { name: "Burj Khalifa", time: "20 min" },
+      { name: "Dubai International Airport", time: "25 min" },
+      { name: "The Dubai Mall", time: "27 min" },
+    ],
+    schools: [
+      "Dubai College",
+      "American School of Dubai",
+      "GEMS Wellington International School",
+    ],
+    hospitals: [
+      "Emirates Hospital Clinic - The Palm",
+      "Al Zahra Hospital Dubai",
+      "Saudi German Hospital Dubai",
+    ],
+    faqItems: [
+      {
+        q: "Where is Luxe Villa by Prestige One located?",
+        a: "Luxe Villa is located on Palm Jumeirah, Dubai's iconic island destination and one of its most exclusive waterfront communities.",
+      },
+      {
+        q: "What type of property is Luxe Villa?",
+        a: "Luxe Villa is a G+2 private villa designed around privacy, generous living spaces, refined interiors and contemporary luxury.",
+      },
+      {
+        q: "What features are included in Luxe Villa?",
+        a: "Key features include a master suite, grand entrance, gallery foyer, family lounge, private retreat and formal majlis.",
+      },
+      {
+        q: "How well connected is Luxe Villa?",
+        a: "Dubai Marina, Mall of the Emirates and Burj Al Arab are approximately 15 minutes away, Museum of the Future and Burj Khalifa 20 minutes, Dubai International Airport 25 minutes and The Dubai Mall 27 minutes away. Driving times are approximate and traffic dependent.",
+      },
+      {
+        q: "Which schools and hospitals are near Luxe Villa?",
+        a: "Nearby education options include Dubai College, American School of Dubai and GEMS Wellington International School. Healthcare options include Emirates Hospital Clinic - The Palm, Al Zahra Hospital Dubai and Saudi German Hospital Dubai.",
       },
     ],
   },
@@ -1676,7 +1912,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
   },
   "golf-residences-by-prestige-one": {
     status: "Now Selling",
-    introImage: `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- Exterior Hero.webp`,
+    introImage: `${GOLF_AMENITY_GALLERY_ROOT}/golf-featured-image.webp`,
     closingTitle: "Live overlooking uninterrupted greens",
     closingImage: `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- cta.webp`,
     originalAmenityImages: true,
@@ -1686,10 +1922,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Ground-floor arrival spaces, an activity-rich podium and a rooftop wellness deck create a complete lifestyle centred on recreation, connection and relaxed golf-course living.",
     ],
     highlights: [
-      "Uninterrupted golf-course views in Dubai Sports City",
-      "Two-bedroom residences from 1,294 sq ft",
-      "Three-bedroom residences from 1,720 sq ft",
-      "Anticipated completion in Q2 2027",
+      "Wake up to uninterrupted championship golf-course views",
+      "Stay active across the activity-rich podium",
+      "Unwind at the rooftop wellness and leisure deck",
+      "Connect through thoughtfully designed social spaces",
     ],
     amenities: [
       "Skyline Infinity Pool",
@@ -1700,6 +1936,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Kids Play Area",
       "Prestige One Fitness",
       "Running Track",
+      "Floating Cabanas",
     ],
     faqAmenities: [
       "Drop-Off Area",
@@ -1750,6 +1987,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${GOLF_AMENITY_GALLERY_ROOT}/Kids-Play-Area.webp`,
       `${GOLF_AMENITY_GALLERY_ROOT}/Fitness.webp`,
       `${GOLF_AMENITY_GALLERY_ROOT}/Golf Place- Amenities- running track.webp`,
+      `${GOLF_AMENITY_GALLERY_ROOT}/FLOATING-CABANAS.webp`,
     ],
     paymentPlan: [
       { label: "Down payment", value: "20%" },
@@ -1764,8 +2002,16 @@ const enrichment: Record<string, ProjectEnrichment> = {
       { name: "Dubai Polo & Equestrian Club", time: "12 min" },
       { name: "Burj Khalifa", time: "20 min" },
     ],
-    schools: ["Victory Heights Primary School", "GEMS United School", "Renaissance School"],
-    hospitals: ["Mediclinic Parkview Hospital", "NMC Royal Hospital DIP", "King's College Hospital Dubai Hills"],
+    schools: [
+      "GEMS FirstPoint School — 5 minutes",
+      "Repton School Dubai — 8 minutes",
+      "Nord Anglia International School Dubai — 12 minutes",
+    ],
+    hospitals: [
+      "Mediclinic Parkview Hospital — 10 minutes",
+      "Saudi German Hospital — 20 minutes",
+      "American Hospital Dubai — 25 minutes",
+    ],
     faqItems: [
       {
         q: "What is Golf Residences by Prestige One?",
@@ -1785,7 +2031,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "Which schools and hospitals are near Golf Residences?",
-        a: "Nearby schools include Victory Heights Primary School, GEMS United School and Renaissance School. Healthcare options include Mediclinic Parkview Hospital, NMC Royal Hospital DIP and King's College Hospital Dubai Hills.",
+        a: "Nearby schools include GEMS FirstPoint School (5 minutes), Repton School Dubai (8 minutes) and Nord Anglia International School Dubai (12 minutes). Healthcare options include Mediclinic Parkview Hospital (10 minutes), Saudi German Hospital (20 minutes) and American Hospital Dubai (25 minutes).",
       },
       {
         q: "What is the payment plan?",
@@ -1819,6 +2065,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Changing Rooms",
       "Grand Lobby",
       "Retail Shop",
+      "EV Charging",
     ],
     faqAmenities: [
       "Swimming Pool",
@@ -1829,6 +2076,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "BBQ Area",
       "Outdoor Cinema & Lawn",
       "Private Pool",
+      "EV Charging",
     ],
     amenityImages: [
       `${SEASIDE_GALLERY_ROOT}/swimming pool.webp`,
@@ -1839,6 +2087,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${SEASIDE_GALLERY_ROOT}/Changing Room 2.webp`,
       `${SEASIDE_GALLERY_ROOT}/Lobby_.webp`,
       `${SEASIDE_GALLERY_ROOT}/Retail Shop.webp`,
+      `${SEASIDE_GALLERY_ROOT}/ev-charging.webp`,
     ],
     paymentPlan: [
       { label: "Down payment", value: "20%" },
@@ -1846,10 +2095,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       { label: "At handover", value: "35%" },
     ],
     nearby: [
-      { name: "Dubai Islands Mall", time: "1 min" },
-      { name: "Souk Al Marfa", time: "5 min" },
-      { name: "Dubai Islands Marina", time: "7 min" },
-      { name: "Dubai International Airport", time: "16 min" },
+      { name: "Waterfront Market", time: "7 min" },
+      { name: "Dubai Hospital", time: "8 min" },
+      { name: "Dubai International Airport", time: "18 min" },
+      { name: "Burj Khalifa / Downtown Dubai", time: "20 min" },
     ],
     schools: ["Elite English School", "The Westminster School", "Pristine Private School"],
     hospitals: ["Dubai Hospital", "Canadian Specialist Hospital", "Al Kuwait Hospital Dubai"],
@@ -1868,7 +2117,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "How well connected is Seaside?",
-        a: "Dubai Islands Mall is approximately one minute away, Souk Al Marfa five minutes, Dubai Islands Marina seven minutes and Dubai International Airport approximately 16 minutes away.",
+        a: "Waterfront Market is approximately seven minutes away, Dubai Hospital eight minutes, Dubai International Airport 18 minutes and Burj Khalifa and Downtown Dubai approximately 20 minutes away.",
       },
       {
         q: "Which schools and hospitals are near Seaside?",
@@ -1906,6 +2155,8 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Infinity Swimming Pool",
       "Casual Sky Lounge",
       "City View Work Area",
+      "Pool Cabanas",
+      ...HILTON_AMENITY_VIDEO_TITLES,
     ],
     faqAmenities: [
       "Horizon Edge Lagoon",
@@ -1960,6 +2211,8 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${HILTON_AMENITY_GALLERY_ROOT}/2-Pool-View- Hilton Residences DMC.webp`,
       `${HILTON_AMENITY_GALLERY_ROOT}/14-ALFRESCO-LOUNGE- Hilton Residences DMC.webp`,
       `${HILTON_AMENITY_GALLERY_ROOT}/4-Terrace- Hilton Residences DMC.webp`,
+      `${HILTON_AMENITY_GALLERY_ROOT}/2-Facade 7- Hilton Residences DMC.webp`,
+      ...HILTON_AMENITY_VIDEO_FILES.map((file) => `${HILTON_AMENITY_VIDEO_ROOT}/${file}`),
     ],
     nearby: [
       { name: "Downtown Dubai", time: "15 min" },
@@ -2093,8 +2346,9 @@ const enrichment: Record<string, ProjectEnrichment> = {
     amenities: [
       "BBQ Garden",
       "Prestige One Fitness",
+      "Spa",
       "Cinema Lawn",
-      "Outdoor Kids Play Area",
+      "Outdoor Kids' Play Area",
       "Infinity Swimming Pool",
       "Observation Deck",
       "Serenity Garden",
@@ -2103,6 +2357,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
     faqAmenities: [
       "Kids Play Area with Water Features",
       "Prestige One Fitness",
+      "Spa",
       "Observation Deck",
       "Outdoor Cinema",
       "Waterfall Feature and Sunken Island Pool",
@@ -2119,6 +2374,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
     amenityImages: [
       `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
       `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Residential-Amenities---Spa---Roof-Level.webp`,
       `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
       `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
       `${SANCTUARY_GALLERY_ROOT}/Rooftop-Pool.webp`,
@@ -2191,8 +2447,9 @@ const enrichment: Record<string, ProjectEnrichment> = {
     ],
     amenities: [
       "Prestige One Fitness",
+      "Spa",
       "Private Cinema",
-      "Kids Play Area",
+      "Outdoor Kids' Play Area",
       "Rooftop Barbecue Area",
       "Rooftop Sitting Area",
       "Rooftop Pool",
@@ -2201,6 +2458,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
     ],
     amenityImages: [
       `${SANCTUARY_GALLERY_ROOT}/8.-Residential-Amenities---Gym---Level-9---Option-2.webp`,
+      `${SANCTUARY_GALLERY_ROOT}/Residential-Amenities---Spa---Roof-Level.webp`,
       `${SANCTUARY_GALLERY_ROOT}/10.-Residential-Amenities---Cinema---Level-9.webp`,
       `${SANCTUARY_GALLERY_ROOT}/Kids-Play-Area.webp`,
       `${SANCTUARY_GALLERY_ROOT}/Rooftop-FLoor-Barbeque.webp`,
@@ -2321,15 +2579,7 @@ const galleryData: Record<string, string[]> = {
     "21-3BR_Living-Dining-kitchen_V2- Hilton Residences DMC.webp",
     "22-Main-Lobby- Hilton Residences DMC.webp",
   ]),
-  "luxe-villa-by-prestige-one": gal("luxe-villa-by-prestige-one", [
-    "luxe-villas.webp",
-    "the-luxe-villas-1.jpg",
-    "the-luxe-villas-entrance.jpg",
-    "the-luxe-villas-entrance-2.jpg",
-    "the-luxe-villas-interior-firstfloor.jpg",
-    "the-luxe-villas-interior-firstfloor-2.jpg",
-    "the-luxe-villas-majlis.jpg",
-  ]),
+  "luxe-villa-by-prestige-one": galleryAt(LUXE_VILLA_GALLERY_ROOT, LUXE_VILLA_GALLERY_FILES),
   "luxury-canal-residences-by-prestige-one": galleryAt(LUXURY_CANAL_GALLERY_ROOT, LUXURY_CANAL_GALLERY_FILES),
   "parkway-by-prestige-one": galleryAt(PARKWAY_GALLERY_ROOT, PARKWAY_GALLERY_FILES),
   "sanctuary-residences-by-prestige-one": galleryAt(SANCTUARY_GALLERY_ROOT, SANCTUARY_GALLERY_FILES),
@@ -2343,15 +2593,7 @@ const galleryData: Record<string, string[]> = {
   "seaside-by-prestige-one": galleryAt(SEASIDE_GALLERY_ROOT, SEASIDE_GALLERY_FILES),
   "the-boulevard-by-prestige-one": galleryAt(BOULEVARD_GALLERY_ROOT, BOULEVARD_GALLERY_FILES),
   "the-one-by-prestige-one": galleryAt(THE_ONE_GALLERY_ROOT, THE_ONE_GALLERY_FILES),
-  "the-residence-by-prestige-one": gal("the-residence-by-prestige-one", [
-    "the-residence.webp",
-    "the-residence-carousel-2.webp",
-    "the-residence-carousel-3.jpg",
-    "the-residence-carousel-6.webp",
-    "the-residence-carousel-10.webp",
-    "berkeley-square-2br-living-room-02-scaled.webp",
-    "berkeley-square-kitchen.webp",
-  ]),
+  "the-residence-by-prestige-one": galleryAt(RESIDENCE_GALLERY_ROOT, RESIDENCE_GALLERY_FILES),
   "vista-by-prestige-one": galleryAt(VISTA_GALLERY_ROOT, VISTA_GALLERY_FILES),
   "waterway-by-prestige-one": galleryAt(WATERWAY_GALLERY_ROOT, WATERWAY_GALLERY_FILES),
 };
@@ -2393,14 +2635,17 @@ function toProject(slide: ProjectSource): Project {
   const e = enrichment[slug] ?? {};
   // real gallery (from copied renders) drives both the gallery and the cover
   const realGallery = galleryData[slug];
-  const hero = e.hero ?? (realGallery ? realGallery[0]! : slide.image);
+  const imageOnlyHero = IMAGE_ONLY_HERO_PROJECT_IDS.has(slide.id);
+  const hero = e.hero ?? (imageOnlyHero ? slide.image : realGallery ? realGallery[0]! : slide.image);
   const projectGallery = realGallery ?? e.gallery ?? [hero];
   const amenities = e.amenities ?? DEFAULT_AMENITIES;
   return {
     slug,
     title: slide.title,
     location: slide.location,
+    type: resolveProjectType(slide),
     category,
+    hasDetailPage: slide.hasDetailPage ?? category !== "upcoming",
     status: e.status ?? CATEGORY_DEFAULT_STATUS[category],
     tagline: slide.description,
     description: slide.description,
@@ -2443,7 +2688,9 @@ function toProject(slide: ProjectSource): Project {
     closingTitle: e.closingTitle,
     closingImage: e.closingImage,
     mapLocation: PROJECT_MAP_LOCATION_BY_ID[slide.id],
-    video: PROJECT_HERO_VIDEO_BY_ID[slide.id] ?? `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
+    video: imageOnlyHero
+      ? undefined
+      : PROJECT_HERO_VIDEO_BY_ID[slide.id] ?? `${PROJECT_VIDEO_ROOT}/prestigeone_corporate_video.mp4`,
   };
 }
 
@@ -2469,6 +2716,8 @@ function toDevelopmentSlide(project: Project): DevelopmentSlide {
     location: project.location,
     description: project.description,
     href: `/projects/${project.slug}`,
+    category: project.category,
+    hasDetailPage: project.hasDetailPage,
   };
 }
 
