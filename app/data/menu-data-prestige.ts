@@ -71,7 +71,7 @@ export const primaryNav: NavItem[] = [
       { title: "Dubai Islands", link: "/destinations/dubai-islands" },
       { title: "Palm Jumeirah", link: "/destinations/palm-jumeirah" },
       { title: "Jumeirah Village Circle", link: "/destinations/jumeirah-village-circle" },
-      { title: "Mohammed Bin Rashid City", link: "/destinations/mohammed-bin-rashid-city" },
+      { title: "Meydan City", link: "/destinations/meydan-city" },
       { title: "All Destinations", link: "/destinations" },
     ],
   },

@@ -171,12 +171,12 @@ const NEW_PROJECT_SLUGS = [
 ];
 const projectBySlug = new Map(menuProjects.map((p) => [p.slug, p]));
 const newProjects = NEW_PROJECT_SLUGS.map((s) => projectBySlug.get(s)).filter(
-  (p): p is NonNullable<typeof p> => Boolean(p),
+  (p): p is NonNullable<typeof p> => Boolean(p?.hasDetailPage),
 );
 const upcomingProjects = menuProjects.filter((p) => p.category === "upcoming");
 // destinations menu: show a trimmed set of 9 (rest via "view all")
 const menuDestinations = destinations
-  .filter((destination) => destination.slug !== "mohammed-bin-rashid-city")
+  .filter((destination) => destination.slug !== "meydan-city")
   .slice(0, 9);
 
 const aboutLinks = [

@@ -25,7 +25,7 @@
               class="prestige-destinations-feature"
               :eyebrow="t('dp.feature.eyebrow')"
               :title="t('dp.feature.title')"
-              image="/assets/images/v3/dubai-view.webp"
+              image="/assets/images/v3/city-view.webp"
               :paragraphs="[t('dp.feature.p1')]"
               equal-height
             />
@@ -195,6 +195,9 @@ usePrestigePage({ hero: false });
 }
 :deep(.prestige-destinations-feature .prestige-fsplit__body) {
   width: 100%;
+}
+:deep(.prestige-destinations-feature .prestige-fsplit__media.is-fill) {
+  min-height: 440px;
 }
 .prestige-destinations-grid__heading {
   margin-bottom: clamp(38px, 5vw, 64px);

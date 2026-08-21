@@ -10,7 +10,7 @@
       "eyebrow": "Location Matters",
       "title": "It's More Than an Address",
       "p1": "The right location shapes more than where you live. It shapes how you live, what surrounds you, and the value your home can hold over time. That’s why we choose well-connected destinations with vibrant communities and room to grow.",
-      "p2": "From the beaches of Dubai Islands to the lagoons of Mohammed Bin Rashid City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.",
+      "p2": "From the beaches of Dubai Islands to the lagoons of Meydan City and the fairways of Dubai Sports City, each Prestige One address is chosen for how it connects to schools, retail, work and the water - the everyday things that make a place worth returning to.",
       "point1": "Waterfront, community and landmark destinations across Dubai",
       "point2": "Minutes from the metro, Sheikh Zayed Road and the airport",
       "point3": "Locations selected for long-term liveability and value",
@@ -123,10 +123,10 @@
         ],
         "name": "Dubai Islands"
       },
-      "mohammed-bin-rashid-city": {
+      "meydan-city": {
         "intro": "A green, central district around the Meydan lifestyle.",
         "about": [
-          "Mohammed Bin Rashid City (MBR City) is a landmark AED 30 billion master development set at the green heart of Dubai, wrapped around one of the world's largest man-made crystal lagoons and threaded with parks, promenades and the Meydan lifestyle.",
+          "Meydan City is a landmark AED 30 billion master development set at the green heart of Dubai, wrapped around one of the world's largest man-made crystal lagoons and threaded with parks, promenades and the Meydan lifestyle.",
           "Framed by three of the city's key arteries - Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) and Al Khail Road (E44) - it puts Downtown, DIFC and the Dubai Mall within a five-minute reach while keeping the calm of lagoons and open green space.",
           "It is where several of Prestige One's Meydan Horizon addresses take shape, balancing nature, connectivity and lasting value in one of Dubai's most sought-after central districts."
         ],
@@ -149,7 +149,7 @@
           "Minutes from Downtown",
           "Meydan racecourse & golf"
         ],
-        "name": "Mohammed Bin Rashid City"
+        "name": "Meydan City"
       },
       "dubai-sports-city": {
         "intro": "An active, family-focused community built around sport.",

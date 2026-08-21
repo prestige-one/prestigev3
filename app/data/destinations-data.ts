@@ -93,13 +93,13 @@ export const destinations: Destination[] = [
     match: ["Dubai Islands"],
   },
   {
-    slug: "mohammed-bin-rashid-city",
-    name: "Mohammed Bin Rashid City",
+    slug: "meydan-city",
+    name: "Meydan City",
     region: "Central · Dubai",
     image: `${OD}/mbr-city.webp`,
     intro: "A green, central district around the Meydan lifestyle.",
     about: [
-      "Mohammed Bin Rashid City (MBR City) is a landmark AED 30 billion master development set at the green heart of Dubai, wrapped around one of the world's largest man-made crystal lagoons and threaded with parks, promenades and the Meydan lifestyle.",
+      "Meydan City is a landmark AED 30 billion master development set at the green heart of Dubai, wrapped around one of the world's largest man-made crystal lagoons and threaded with parks, promenades and the Meydan lifestyle.",
       "Framed by three of the city's key arteries - Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) and Al Khail Road (E44) - it puts Downtown, DIFC and the Dubai Mall within a five-minute reach while keeping the calm of lagoons and open green space.",
       "It is where several of Prestige One's Meydan Horizon addresses take shape, balancing nature, connectivity and lasting value in one of Dubai's most sought-after central districts.",
     ],

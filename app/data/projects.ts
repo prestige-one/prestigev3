@@ -67,6 +67,7 @@ export interface Project {
   highlights: string[];
   specs: ProjectSpec[];
   amenities: string[];
+  showAmenitiesSection: boolean;
   faqAmenities?: string[];
   faqItems?: ProjectFaq[];
   amenityImages: string[];
@@ -92,6 +93,7 @@ interface ProjectEnrichment {
   highlights?: string[];
   specs?: ProjectSpec[];
   amenities?: string[];
+  showAmenitiesSection?: boolean;
   faqAmenities?: string[];
   faqItems?: ProjectFaq[];
   amenityImages?: string[];
@@ -352,6 +354,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     category: "residential",
     type: "Villa",
     unitTypes: "Villa",
+    hasDetailPage: false,
   },
   {
     id: "palm-villa",
@@ -613,7 +616,7 @@ const BERKELEY_NORTH_AMENITIES = [
   "Prestige Fitness Centre",
   "Pool Retreat",
   "Zen Garden",
-  "Organic Farming Terrace",
+  "Covered Football Court",
   "Multi-purpose Court",
 ];
 const BERKELEY_SQUARE_AMENITY_IMAGES = [
@@ -627,7 +630,7 @@ const BERKELEY_SQUARE_AMENITY_IMAGES = [
   `${BERKELEY_NORTH_GALLERY_ROOT}/Gym 4.webp`,
   `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Pool Retreat Night.webp`,
   `${BERKELEY_NORTH_GALLERY_ROOT}/BS_DR_10.webp`,
-  `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Rooftop.webp`,
+  `${BERKELEY_NORTH_GALLERY_ROOT}/Covered Football Court.webp`,
   `${BERKELEY_NORTH_GALLERY_ROOT}/Berkeley Square Padel Court Night View.webp`,
 ];
 const LUXURY_CANAL_AMENITY_ROOT = "/assets/images/v3/project-amenities/luxury-canal-residences";
@@ -637,7 +640,6 @@ const LUXURY_CANAL_FACADE_IMAGE = `${LUXURY_CANAL_GALLERY_ROOT}/luxury-canal-res
 const LUXURY_CANAL_GALLERY_FILES = [
   "luxury-canal-residences-Facade.webp",
   "luxury-canal-residences-main.webp",
-  "luxury-canal-residences.webp",
   "07 Facade.webp",
   "11 Facade.webp",
   "01 Main Entrance.webp",
@@ -834,6 +836,7 @@ const WATERWAY_GALLERY_FILES = [
   "Private Pool.webp",
   "Sunset-area.webp",
   "Gym 1.webp",
+  "Rock Climbing Wall.webp",
   "Changing Room.webp",
   "Living & Dining View 2.webp",
   "Living Room.webp",
@@ -842,21 +845,21 @@ const WATERWAY_GALLERY_FILES = [
   "Master Bedroom.webp",
 ];
 const WATERWAY_AMENITIES = [
-  "Rooftop Swimming Pool",
+  "Swimming Pool",
   "Prestige One Fitness",
   "Rock Climbing Wall",
   "Men's and Women's Changing Rooms",
   "Rooftop BBQ and Lounge Area",
-  "Outdoor Cinema",
+  "Rooftop Sunset Area",
   "Outdoor Lounges with Water Features",
   "Grand Entrance Lobby with Water Features",
 ];
 const WATERWAY_AMENITY_IMAGES = [
-  `${WATERWAY_GALLERY_ROOT}/Private Pool.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Private Pool Area.webp`,
   `${WATERWAY_GALLERY_ROOT}/Gym 1.webp`,
-  `${WATERWAY_GALLERY_ROOT}/Gym 1.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Rock Climbing Wall.webp`,
   `${WATERWAY_GALLERY_ROOT}/Changing Room.webp`,
-  `${WATERWAY_GALLERY_ROOT}/Sunset-area.webp`,
+  `${WATERWAY_GALLERY_ROOT}/Rooftop BBQ and Lounge Area.webp`,
   `${WATERWAY_GALLERY_ROOT}/Sunset-area.webp`,
   `${WATERWAY_GALLERY_ROOT}/Private Pool.webp`,
   `${WATERWAY_GALLERY_ROOT}/Lobby-2.webp`,
@@ -1085,6 +1088,9 @@ const SANCTUARY_HIVE_GALLERY = [
 // Per-project real content. Keyed by slug. Only flagships are fully enriched;
 // everything else falls back to derived defaults below.
 const enrichment: Record<string, ProjectEnrichment> = {
+  "seascape-villa": {
+    showAmenitiesSection: false,
+  },
   "berkeley-square-north": {
     status: "Now Selling",
     introImage: BERKELEY_NORTH_FEATURED_IMAGE,
@@ -1140,7 +1146,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "What amenities are included?",
-        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, organic farming terrace and multi-purpose court.",
+        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, covered football court and multi-purpose court.",
       },
       {
         q: "How well connected is Berkeley Square North?",
@@ -1212,7 +1218,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "What amenities are included?",
-        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, organic farming terrace and multi-purpose court.",
+        a: "Selected amenities include a podcast room, outdoor cinema, Prestige One Clubhouse, grand atrium, courtyard pool, mini golf, floating cabanas, Prestige Fitness Centre, pool retreat, garden BBQ pavilion, covered football court and multi-purpose court.",
       },
       {
         q: "How well connected is Berkeley Square South?",
@@ -1309,11 +1315,11 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "The collection spans one-, two- and three-bedroom residences and expansive penthouses, with homes ranging from approximately 810 to 4,420 sq ft.",
     ],
     highlights: [
-      "One-bedroom residences from 810 to 830 sq ft",
-      "Two-bedroom residences from 1,200 to 1,245 sq ft",
-      "Three-bedroom residences from 1,665 to 2,045 sq ft",
-      "Penthouses from 4,415 to 4,420 sq ft",
-      "Anticipated completion in Q1 2028",
+      "Wake up to serene waterfront living on Dubai Islands",
+      "Enjoy refined interiors shaped by light, comfort and calm",
+      "Unwind across wellness, leisure and poolside spaces",
+      "Share meaningful moments in family and social amenities",
+      "Stay connected to Dubai while embracing coastal life",
     ],
     specs: [
       { label: "Location", value: "Dubai Islands" },
@@ -1383,10 +1389,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Amenities extend from the welcoming ground-floor arrival through indoor and outdoor podium experiences to elevated gardens, leisure spaces and a dedicated 21st-floor wellness destination.",
     ],
     highlights: [
-      "Designed by KIEFERLE & Partner",
-      "Views of the crystal lagoon and Meydan's largest park",
-      "One-, two- and three-bedroom residences",
-      "Amenities across the ground, podium, 12th and 21st floors",
+      "Wake up to crystal lagoon, park and skyline views",
+      "Live in harmony with nature-inspired architecture",
+      "Move between gardens, leisure and social spaces",
+      "Restore your balance at the 21st-floor wellness destination",
     ],
     specs: [
       { label: "Location", value: "Meydan Horizon" },
@@ -1450,15 +1456,15 @@ const enrichment: Record<string, ProjectEnrichment> = {
     closingImage: "/assets/images/v3/project-amenities/Sanctuary/ras-al-khor-wildlife.webp",
     originalAmenityImages: true,
     overview: [
-      "The Waterway by Prestige One is a serene waterfront residence in Meydan Horizon, Mohammed Bin Rashid City, set beside the crystal lagoons and connected to Dubai's key destinations.",
+      "The Waterway by Prestige One is a serene waterfront residence in Meydan Horizon, Meydan City, set beside the crystal lagoons and connected to Dubai's key destinations.",
       "The G+20 development pairs spacious one- and two-bedroom homes with a calm minimalist aesthetic inspired by the simplicity and balance of Japanese design.",
-      "From the rooftop swimming pool and double-height Prestige One Fitness to outdoor cinema, water-feature lounges and social spaces, every amenity is designed around effortless relaxation.",
+      "From the swimming pool and double-height Prestige One Fitness to the rooftop sunset area, water-feature lounges and social spaces, every amenity is designed around effortless relaxation.",
     ],
     highlights: [
-      "Waterfront setting beside the crystal lagoons",
-      "Japanese-inspired minimalist interiors",
-      "One- and two-bedroom residences",
-      "Rooftop leisure, wellness and social amenities",
+      "Wake up beside the crystal lagoons in Meydan Horizon",
+      "Find calm in Japanese-inspired minimalist interiors",
+      "Unwind by the rooftop pool and water-feature lounges",
+      "Stay close to Downtown while living at the water's pace",
     ],
     specs: [
       { label: "Location", value: "Meydan Horizon" },
@@ -1491,7 +1497,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
     faqItems: [
       {
         q: "Where is The Waterway by Prestige One located?",
-        a: "The Waterway is located in Meydan Horizon within Mohammed Bin Rashid City, beside the crystal lagoons and close to Ras Al Khor Wildlife Sanctuary.",
+        a: "The Waterway is located in Meydan Horizon within Meydan City, beside the crystal lagoons and close to Ras Al Khor Wildlife Sanctuary.",
       },
       {
         q: "What residence types are available?",
@@ -1499,7 +1505,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       },
       {
         q: "What amenities are included?",
-        a: "Amenities include a rooftop swimming pool, double-height Prestige One Fitness, rock climbing wall, changing rooms, rooftop BBQ and lounge area, outdoor cinema, outdoor lounges and a grand entrance lobby with water features.",
+        a: "Amenities include a swimming pool, double-height Prestige One Fitness, rock climbing wall, changing rooms, rooftop BBQ and lounge area, rooftop sunset area, outdoor lounges and a grand entrance lobby with water features.",
       },
       {
         q: "How well connected is The Waterway?",
@@ -1527,10 +1533,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "A complete hospitality, productivity and wellness programme - from meeting spaces and business lounges to virtual golf, Prestige Fitness and the spa pool - redefines the modern workplace experience.",
     ],
     highlights: [
-      "Prime commercial address in Barsha Heights",
-      "Flexible commercial offices, half floors and full floors",
-      "Direct access to Sheikh Zayed Road and nearby metro stations",
-      "Business, hospitality, fitness and wellness amenities",
+      "Work from a connected address in dynamic Barsha Heights",
+      "Shape flexible workspaces around your business ambitions",
+      "Meet and collaborate in hospitality-led business spaces",
+      "Balance productivity with fitness and wellness experiences",
     ],
     specs: [
       { label: "Location", value: "Barsha Heights" },
@@ -1599,10 +1605,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Studios and one-, two- and three-bedroom residences are complemented by rooftop leisure, wellness, sport and family amenities, creating a complete lifestyle above the greens.",
     ],
     highlights: [
-      "Panoramic views across The Els Club golf course",
-      "Studios and one-, two- and three-bedroom residences",
-      "Residential sizes from 506 to 1,761 sq ft",
-      "Architecture by award-winning LACASA",
+      "Wake up to sweeping views across The Els Club",
+      "Live between golf-side calm and Dubai Sports City's energy",
+      "Recharge with rooftop wellness, sport and leisure",
+      "Make space for family time, focus and everyday connection",
     ],
     specs: [
       { label: "Location", value: "Dubai Sports City" },
@@ -1671,10 +1677,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Studios and one- and two-bedroom residences are complemented by rooftop leisure, wellness, family and landscaped amenities designed to make everyday living feel effortless.",
     ],
     highlights: [
-      "Boutique G+5 residential address in Jumeirah Village Circle",
-      "Studio, one-bedroom and two-bedroom residences",
-      "Contemporary architecture and interiors by LACASA",
-      "Rooftop leisure, wellness and landscaped amenities",
+      "Enjoy boutique community living in the heart of JVC",
+      "Fill every day with natural light, comfort and thoughtful design",
+      "Unwind across rooftop leisure and landscaped retreats",
+      "Stay connected to Dubai's key lifestyle destinations",
     ],
     specs: [
       { label: "Location", value: "Jumeirah Village Circle" },
@@ -1746,10 +1752,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Created for discerning residents, its generous interiors, elegant entertaining spaces and calm private retreats bring sophistication and effortless island living together.",
     ],
     highlights: [
-      "Exclusive G+2 private villa on Palm Jumeirah",
-      "Refined contemporary architecture and interiors",
-      "Formal majlis and generous family living spaces",
-      "Crafted around privacy, comfort and lasting quality",
+      "Experience private island living on Palm Jumeirah",
+      "Welcome guests through a grand entrance and formal majlis",
+      "Gather in generous family spaces crafted for effortless living",
+      "Retreat into calm interiors shaped by privacy and lasting quality",
     ],
     specs: [
       { label: "Location", value: "Palm Jumeirah" },
@@ -1821,10 +1827,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "A complete podium and rooftop amenity programme creates spaces for fitness, creativity, productivity, family time and relaxed poolside living.",
     ],
     highlights: [
-      "Studios from 437.98 to 534.97 sq ft",
-      "One-bedroom residences from 677.91 to 1,201.25 sq ft",
-      "Two-bedroom residences from 1,025.26 to 1,487.68 sq ft",
-      "Anticipated completion in Q1 2028",
+      "Live a smart, connected lifestyle in DLRC",
+      "Recharge across poolside, garden and wellness retreats",
+      "Create, focus and connect in flexible social spaces",
+      "Enjoy everyday balance from the podium to the rooftop",
     ],
     amenities: [
       "Skyline Infinity Pool",
@@ -2051,10 +2057,10 @@ const enrichment: Record<string, ProjectEnrichment> = {
       "Clean modern lines and a tiered architectural form create privacy, generous outdoor space and panoramic waterfront views.",
     ],
     highlights: [
-      "Waterfront living on Dubai Islands",
-      "One-, two- and three-bedroom residences",
-      "Floor-to-ceiling windows and expansive balconies",
-      "Anticipated completion in Q4 2026",
+      "Wake up to panoramic waterfront views on Dubai Islands",
+      "Let natural light and generous balconies shape each day",
+      "Spend easy moments by the pool, cinema and landscaped lawns",
+      "Balance island calm with convenient city connections",
     ],
     amenities: [
       "Swimming Pool",
@@ -2675,6 +2681,7 @@ function toProject(slide: ProjectSource): Project {
         { label: "Unit Types", value: slide.unitTypes ?? "Contact for Details" },
       ],
     amenities,
+    showAmenitiesSection: e.showAmenitiesSection ?? true,
     faqAmenities: e.faqAmenities,
     faqItems: e.faqItems,
     amenityImages: e.amenityImages ?? resolveAmenityImages(amenities, projectGallery),

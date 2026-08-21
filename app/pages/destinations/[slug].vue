@@ -13,13 +13,8 @@
               :title="isDubaiMaritimeCity ? 'Waterfront Living, Close to the Heart of Dubai' : dName(dest)"
               :lead="isDubaiMaritimeCity ? undefined : dIntro"
               :image="dest.image"
-              :show-actions="!isDubaiMaritimeCity"
-            >
-              <template #actions>
-                <span class="prestige-detail__badge">{{ areaProjects.length ? developmentsBadge : t('dp.detail.badge_new') }}</span>
-                <nuxt-link :to="localePath('/contact-us')" class="prestige-btn">{{ t('dp.detail.enquire') }}</nuxt-link>
-              </template>
-            </prestige-page-hero>
+              :show-actions="false"
+            />
 
             <!-- 1 · about + sub-areas -->
             <prestige-feature-split
@@ -29,146 +24,45 @@
               ]"
               :eyebrow="destinationOverviewEyebrow"
               :title="destinationOverviewTitle"
-              :image="dest.image"
+              :image="destinationOverviewImage"
               :paragraphs="destinationOverviewParagraphs"
               :points="[]"
               equal-height
               reverse
             />
 
-            <!-- 2 · key stats -->
-            <prestige-stat-band
-              v-if="!isDubaiMaritimeCity"
-              class="prestige-destination-statband"
-              :stats="dest.stats"
-            />
-
-            <section v-if="isDubaiMaritimeCity" class="prestige-maritime-distance">
+            <!-- distance -->
+            <section class="prestige-maritime-distance prestige-maritime-distance--desktop">
               <img
-                :src="maritimeDistanceImage"
-                alt="Travel times from Dubai Maritime City to key Dubai destinations"
+                :src="destinationDistanceImage"
+                :alt="`Travel times from ${dName(dest)} to key Dubai destinations`"
                 loading="lazy"
               >
             </section>
+            <prestige-destination-distance-slider :slides="destinationDistanceSlides" />
 
-            <!-- 3 · nearby attractions -->
-            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-4 mb-40">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.nearby_eyebrow') }}</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('dp.detail.nearby_title') }}</h2>
-                  </div>
-                  <div class="col-xl-8">
-                    <ul class="prestige-detail__poi prestige-dest-poi tp_fade_anim" data-delay=".3">
-                      <li v-for="(p, i) in dest.attractions" :key="i">
-                        <span>{{ p.name }}</span><span class="prestige-detail__poi-time">{{ p.time }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- 4 · connectivity -->
-            <section v-if="!isDubaiMaritimeCity" class="prestige-section--tight prestige-dest-band prestige-detail-heading--swapped">
-              <div class="container container-1430">
-                <div class="row">
-                  <div class="col-xl-4 mb-30">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.transport_eyebrow') }}</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('dp.detail.transport_title') }}</h2>
-                  </div>
-                  <div class="col-xl-8">
-                    <ul class="prestige-detail__conn tp_fade_anim" data-delay=".3">
-                      <li v-for="(transport, i) in dTransport" :key="i"><span class="prestige-detail__dot" />{{ transport }}</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- cinematic interlude -->
-            <prestige-cta-band
-              v-if="isDubaiMaritimeCity"
-              class="prestige-destination-cta--maritime"
-              eyebrow="PRESTIGE ONE IN DUBAI MARITIME CITY"
-              title="Meet Hilton Residences"
-              text="Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality."
-              image="/assets/images/v3/Pool-View2.webp"
-              primary-label="Explore Hilton Residences →"
-              :primary-to="localePath('/projects/hilton-residences-dubai-maritime-city')"
-            />
-            <prestige-statement-band
-              v-else
-              :eyebrow="t('dp.detail.statement_eyebrow')"
-              :text="dIntro"
-              :image="dest.image"
+            <!-- Good to know -->
+            <prestige-faq-accordion
+              class="prestige-destination-faq"
+              :eyebrow="t('dp.detail.faq_eyebrow')"
+              :title="t('dp.detail.faq_title', { name: dest.name })"
+              :items="faqs"
             />
 
-            <!-- 5 · essentials -->
-            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-detail-heading--swapped">
-              <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.essentials_eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.essentials_title') }}</h2>
-                <div class="row">
-                  <div class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".3">{{ t('dp.detail.education') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".35">
-                      <li v-for="(e, i) in dest.education" :key="i">{{ e }}</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".4">{{ t('dp.detail.healthcare') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".45">
-                      <li v-for="(h, i) in dest.healthcare" :key="i">{{ h }}</li>
-                    </ul>
-                  </div>
-                  <div v-if="dest.worship?.length" class="col-md-4 mb-30">
-                    <h4 class="prestige-detail__mini tp_fade_anim" data-delay=".5">{{ t('dp.detail.worship') }}</h4>
-                    <ul class="prestige-detail__list tp_fade_anim" data-delay=".55">
-                      <li v-for="(w, i) in dest.worship" :key="i">{{ w }}</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- 6 · investment -->
-            <section v-if="!isDubaiMaritimeCity" class="prestige-section prestige-dest-invest prestige-detail-heading--swapped">
-              <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.invest_eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ t('dp.detail.invest_title') }}</h2>
-                <div class="row">
-                  <div
-                    v-for="(inv, i) in dInvestment"
-                    :key="i"
-                    class="col-xl-4 col-md-6 mb-30 tp_fade_anim"
-                    data-delay=".2"
-                  >
-                    <div class="prestige-dest-invest__item">
-                      <span class="prestige-dest-invest__num">{{ String(i + 1).padStart(2, '0') }}</span>
-                      <p>{{ inv }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- 7 · developments -->
+            <!-- developments -->
             <section
-              v-if="areaProjects.length && !isDubaiMaritimeCity"
-              class="prestige-section prestige-section--tight prestige-detail-heading--swapped"
+              v-if="areaProjects.length"
+              class="prestige-section prestige-section--tight prestige-destination-developments"
             >
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('dp.detail.devs_eyebrow') }}</span>
-                <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">
-                  {{ t('dp.detail.devs_title', { name: dest.name }) }}
+                <h2 class="prestige-heading prestige-destination-developments__title tp_fade_anim" data-delay=".2">
+                  {{ developmentsTitle }}
                 </h2>
-                <div class="row justify-content-center">
+                <div class="row g-4 justify-content-start">
                   <div
                     v-for="p in areaProjects"
                     :key="p.slug"
-                    class="col-xl-4 col-lg-4 col-md-6 mb-30 tp_fade_anim"
+                    class="col-xl-4 col-lg-4 col-md-6 tp_fade_anim"
                     data-delay=".2"
                   >
                     <prestige-project-card :project="p" />
@@ -176,29 +70,27 @@
                 </div>
               </div>
             </section>
-            <section v-else-if="!isDubaiMaritimeCity" class="prestige-section prestige-section--tight text-center">
+            <section v-else class="prestige-section prestige-section--tight text-center">
               <div class="container container-1430">
                 <p class="prestige-prose">{{ t('dp.detail.devs_empty', { name: dest.name }) }}</p>
                 <nuxt-link :to="localePath('/contact-us')" class="prestige-btn mt-20">{{ t('dp.detail.register') }}</nuxt-link>
               </div>
             </section>
 
-            <!-- 8 · FAQ -->
-            <prestige-faq-accordion class="prestige-detail-heading--swapped prestige-destination-faq" :eyebrow="t('dp.detail.faq_eyebrow')" :title="t('dp.detail.faq_title', { name: dest.name })" :items="faqs" />
-
-            <!-- 9 · CTA + contact -->
+            <!-- CTA -->
             <prestige-cta-band
-              v-if="!isDubaiMaritimeCity"
-              :class="{ 'prestige-destination-cta--maritime': isDubaiMaritimeCity }"
-              :eyebrow="isDubaiMaritimeCity ? 'PRESTIGE ONE IN DUBAI MARITIME CITY' : t('dp.detail.cta_eyebrow')"
-              :title="isDubaiMaritimeCity ? 'Meet Hilton Residences' : t('dp.detail.cta_title', { name: dest.name })"
-              :text="isDubaiMaritimeCity ? 'Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality.' : t('dp.detail.cta_text', { name: dest.name })"
-              :image="dest.image"
-              :primary-label="isDubaiMaritimeCity ? 'Explore Hilton Residences →' : t('dp.detail.enquire')"
-              :primary-to="isDubaiMaritimeCity ? localePath('/projects/hilton-residences-dubai-maritime-city') : localePath('/contact-us')"
-              :secondary-label="isDubaiMaritimeCity ? '' : t('dp.detail.cta_secondary')"
-              :secondary-to="isDubaiMaritimeCity ? '' : localePath('/destinations')"
+              class="prestige-destination-cta"
+              :eyebrow="t('dp.detail.cta_eyebrow')"
+              :title="t('dp.detail.cta_title', { name: dest.name })"
+              :text="t('dp.detail.cta_text', { name: dest.name })"
+              :image="destinationCtaImage"
+              :primary-label="t('dp.detail.enquire')"
+              :primary-to="localePath('/contact-us')"
+              :secondary-label="t('dp.detail.cta_secondary')"
+              :secondary-to="localePath('/destinations')"
             />
+
+            <!-- Get In Touch -->
             <prestige-contact-form />
           </main>
           <prestige-footer-digital-marketing />
@@ -210,6 +102,7 @@
 
 <script setup lang="ts">
 import { getDestinationBySlug, getProjectsForDestination } from "~/data/destinations-data";
+import { getDestinationDistanceImage, getDestinationDistanceSlides } from "~/data/destination-distance-slides";
 
 interface FaqItem { q: string; a: string }
 
@@ -220,12 +113,34 @@ const localePath = useLocalePath();
 const { dName } = useLocalizedNames();
 
 const route = useRoute();
-const maritimeDistanceImage = "/assets/images/v3/maritime-distance.webp";
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
+const destinationOverviewImages: Readonly<Record<string, string>> = {
+  "dubai-maritime-city": "/assets/images/v3/our-destinations/maritime.webp",
+  "dubai-sports-city": "/assets/images/v3/our-destinations/dubai-sport-city.webp",
+  "meydan-city": "/assets/images/v3/our-destinations/meydan-city.webp",
+};
+const destinationCtaImages: Readonly<Record<string, string>> = {
+  "jumeirah-garden-city": "/assets/project-featured-images/fauchon/fauchon-banner-x.webp",
+  "meydan-city": "/assets/images/v3/project-amenities/Sanctuary/ras-al-khor-wildlife.webp",
+};
 const maritimeOverview = [
   "Set along Dubai’s coastline, Dubai Maritime City brings together sea views, city connectivity, and modern urban living. Its unique setting offers the calm of life by the water while keeping Dubai’s key destinations within easy reach.",
 ];
+const destinationTravelFaqs: Partial<Record<string, FaqItem>> = {
+  "dubai-sports-city": {
+    q: "What's nearby?",
+    a: "ICC Academy – 3 mins; Dubai International Cricket Stadium – 3 mins; LALIGA Academy – 3 mins; The Els Club – 4 mins; Dubai Autodrome – 5 mins; Dubai Polo & Equestrian Club – 12 mins; Mall of the Emirates – 14 mins; Burj Khalifa – 20 mins.",
+  },
+  "palm-jumeirah": {
+    q: "How far is Palm Jumeirah from Dubai’s key destinations?",
+    a: "Dubai Marina – 15 mins; Dubai International Airport – 25 mins; Aquaventure Waterpark – 7 mins; Dubai Mall – 16 mins; Museum of the Future – 18 mins; Burj Khalifa – 16 mins.",
+  },
+  "meydan-city": {
+    q: "How far is Meydan City from Dubai’s key destinations?",
+    a: "Meydan One Mall – 3 mins; Meydan Racecourse District – 8 mins; Dubai International Airport – 16 mins; Ras Al Khor Wildlife Sanctuary – 5 mins; Dubai Mall – 5 mins; Museum of the Future – 15 mins; Burj Khalifa – 5 mins.",
+  },
+};
 
 if (!dest.value) {
   throw createError({ statusCode: 404, statusMessage: "Destination not found", fatal: true });
@@ -259,22 +174,36 @@ const destinationOverviewEyebrow = computed(() => `About ${dName(dest.value!)}`)
 const destinationOverviewTitle = computed(() =>
   isDubaiMaritimeCity.value ? "Where the Waterfront Meets the City" : `Experience ${dName(dest.value!)}`
 );
+const destinationOverviewImage = computed(() =>
+  destinationOverviewImages[dest.value!.slug] ?? dest.value!.image
+);
+const destinationCtaImage = computed(() =>
+  destinationCtaImages[dest.value!.slug] ?? dest.value!.image
+);
 const destinationOverviewParagraphs = computed(() =>
   isDubaiMaritimeCity.value ? maritimeOverview : dAbout.value
 );
+const destinationDistanceSlides = computed(() =>
+  getDestinationDistanceSlides(dest.value!.slug)
+);
+const destinationDistanceImage = computed(() =>
+  getDestinationDistanceImage(dest.value!.slug)
+);
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
-const developmentsBadge = computed(() => {
-  const n = areaProjects.value.length;
-  return n === 1 ? t("dp.card.count_one", { n }) : t("dp.card.count_other", { n });
-});
+const developmentsTitle = computed(() => `Prestige One Developments in ${dName(dest.value!)}`);
 
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;
+  const travelFaq = destinationTravelFaqs[d.slug] ?? {
+    q: t("dp.detail.faq.q3"),
+    a: `${d.attractions.slice(0, 3).map((a) => `${a.name} (${a.time})`).join(", ")} and more.`,
+  };
+
   return [
     { q: t("dp.detail.faq.q1", { name: d.name }), a: `${dAbout.value[0] ?? d.about[0]}` },
     { q: t("dp.detail.faq.q2", { name: d.name }), a: `${dTransport.value.slice(0, 2).join(". ")}.` },
-    { q: t("dp.detail.faq.q3"), a: `${d.attractions.slice(0, 3).map((a) => `${a.name} (${a.time})`).join(", ")} and more.` },
+    travelFaq,
     { q: t("dp.detail.faq.q4", { name: d.name }), a: `${dInvestment.value.slice(0, 3).join("; ")}.` },
   ];
 });
@@ -289,6 +218,9 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+.prestige-page {
+  --prestige-destination-section-heading-size: clamp(25px, 4.4vw, 30px);
+}
 .prestige-destination-detail-hero {
   align-items: flex-end;
 }
@@ -349,128 +281,69 @@ usePrestigePage({ hero: false });
 :deep(.prestige-destination-overview .prestige-fsplit__body) {
   width: 100%;
 }
-:deep(.prestige-destination-cta--maritime .prestige-heading) {
-  font-size: clamp(25px, 4.4vw, 30px);
+:deep(.prestige-destination-overview .prestige-eyebrow) {
+  font-size: var(--prestige-destination-section-heading-size);
+  letter-spacing: 1px;
 }
-.prestige-detail__badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fff;
+.prestige-page :deep(.prestige-destination-overview .prestige-heading) {
+  font-size: 20px !important;
 }
-.prestige-page :deep(.prestige-destination-statband .prestige-statband__value) {
-  color: #fff;
-  background: none;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-text-fill-color: #fff;
-  -webkit-text-stroke: 0;
+:deep(.prestige-destination-overview .prestige-prose) {
+  font-size: 15px;
 }
-.prestige-detail__mini {
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--tp-common-gold, #ffffff);
-  margin-bottom: 16px;
+:deep(.prestige-destination-overview .prestige-fsplit__media.is-fill) {
+  min-height: 440px;
 }
-.prestige-detail__dot {
-  flex: 0 0 auto;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--tp-common-gold, #ffffff);
+:deep(.prestige-destination-faq .prestige-eyebrow),
+:deep(.prestige-destination-developments__title),
+:deep(.prestige-destination-cta .prestige-heading),
+:deep(.prestige-contact-heading .prestige-section-heading__title) {
+  font-size: var(--prestige-destination-section-heading-size) !important;
+  line-height: 1.15;
 }
-.prestige-dest-sub {
-  margin-bottom: 30px;
+:deep(.prestige-destination-faq .prestige-heading) {
+  font-size: 20px !important;
 }
-.prestige-dest-sub ul,
-.prestige-dest-highlights {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+:deep(.prestige-destination-faq .prestige-eyebrow) {
+  letter-spacing: 0;
 }
-.prestige-dest-sub li,
-.prestige-dest-highlights li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.82);
+.prestige-destination-developments__title {
+  margin-bottom: clamp(12px, 2.5vw, 15px);
+  text-align: left;
 }
-.prestige-detail__poi {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.prestige-destination-developments :deep(.row) {
+  text-align: left;
 }
-.prestige-detail__poi li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.85);
-}
-.prestige-dest-poi { border-top: 1px solid rgba(255, 255, 255, 0.12); }
-.prestige-detail__poi-time { color: var(--tp-common-gold, #ffffff); white-space: nowrap; }
-.prestige-detail__conn {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-.prestige-detail__conn li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.82);
-}
-.prestige-detail__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.prestige-detail__list li {
-  padding: 12px 0;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.prestige-dest-band {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-.prestige-dest-invest__item {
-  padding-right: 16px;
-}
-.prestige-dest-invest__num {
-  display: block;
-  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: 38px;
-  color: var(--tp-common-gold, #ffffff);
-  margin-bottom: 10px;
-}
-.prestige-dest-invest__item p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
+
+@media (max-width: 767.98px) {
+  :deep(.prestige-destination-overview .prestige-eyebrow),
+  :deep(.prestige-destination-overview .prestige-heading),
+  :deep(.prestige-destination-faq .prestige-eyebrow),
+  :deep(.prestige-destination-faq .prestige-heading),
+  :deep(.prestige-destination-cta .prestige-eyebrow),
+  :deep(.prestige-destination-cta .prestige-heading),
+  :deep(.prestige-contact-heading .prestige-section-heading__title),
+  :deep(.prestige-contact-heading .prestige-section-heading__subtitle),
+  .prestige-destination-developments__title {
+    text-align: center;
+  }
+
+  :deep(.prestige-destination-overview .prestige-eyebrow),
+  :deep(.prestige-destination-faq .prestige-eyebrow) {
+    display: block;
+    width: 100%;
+  }
+
+  :deep(.prestige-destination-overview .prestige-prose) {
+    text-align: center;
+  }
 }
 
 @media (max-width: 575.98px) {
+  .prestige-maritime-distance--desktop {
+    display: none;
+  }
+
   :deep(.prestige-destination-detail-hero .prestige-hero-band__inner) {
     padding-right: 24px;
     padding-left: 24px;
@@ -480,25 +353,13 @@ usePrestigePage({ hero: false });
     font-size: clamp(25px, 7vw, 40px);
   }
 
-  :deep(.prestige-heading),
-  .prestige-page :deep(.prestige-fsplit .prestige-heading) {
-    font-size: 28px !important;
-    line-height: 1.15;
+  :deep(.prestige-destination-overview .prestige-eyebrow) {
+    font-size: var(--prestige-destination-section-heading-size);
+    letter-spacing: 1px;
   }
 
-  .prestige-page .prestige-detail-heading--swapped :deep(.prestige-heading) {
-    font-size: 17px !important;
-    line-height: 1.4;
-  }
-
-  .prestige-detail-heading--swapped :deep(.prestige-eyebrow),
-  .prestige-detail-heading--swapped :deep(.prestige-heading) {
-    display: block;
-    text-align: center;
-  }
-
-  .prestige-page :deep(.prestige-contact-heading .prestige-section-heading__title) {
-    font-size: 28px;
+  .prestige-page :deep(.prestige-destination-overview .prestige-heading) {
+    font-size: 20px !important;
   }
 }
 </style>

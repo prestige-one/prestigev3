@@ -25,7 +25,7 @@ export const destinationListing: DestinationListingItem[] = [
     tagline: "A New Destination for Island Living.",
   },
   {
-    slug: "mohammed-bin-rashid-city",
+    slug: "meydan-city",
     title: "Meydan City",
     tagline: "Close to Downtown. Made for Modern Living.",
   },

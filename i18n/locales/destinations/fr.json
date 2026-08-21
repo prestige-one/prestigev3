@@ -9,7 +9,7 @@
       "eyebrow": "Pourquoi l'emplacement compte",
       "title": "Nous construisons là où Dubaï vit le mieux",
       "p1": "Une résidence ne vaut jamais plus que la vie qui l'entoure. Cette conviction guide chacune de nos acquisitions - avant même de concevoir un seul plateau, nous nous demandons si un emplacement peut porter une communauté pendant des décennies, et non le seul week-end d'un lancement.",
-      "p2": "Des plages de Dubai Islands aux lagons de Mohammed Bin Rashid City et aux fairways de Dubai Sports City, chaque adresse Prestige One est choisie pour sa proximité aux écoles, aux commerces, au travail et à l'eau - ces gestes du quotidien qui donnent envie de revenir.",
+      "p2": "Des plages de Dubai Islands aux lagons de Meydan City et aux fairways de Dubai Sports City, chaque adresse Prestige One est choisie pour sa proximité aux écoles, aux commerces, au travail et à l'eau - ces gestes du quotidien qui donnent envie de revenir.",
       "point1": "Des destinations en front de mer, communautaires et emblématiques à travers Dubaï",
       "point2": "À quelques minutes du métro, de Sheikh Zayed Road et de l'aéroport",
       "point3": "Des emplacements choisis pour leur qualité de vie et leur valeur à long terme",
@@ -118,11 +118,11 @@
         ],
         "highlights": ["20 km de plages", "Marinas et complexes hôteliers", "À quelques minutes de Deira et de l'aéroport"]
       },
-      "mohammed-bin-rashid-city": {
-        "name": "Mohammed Bin Rashid City",
+      "meydan-city": {
+        "name": "Meydan City",
         "intro": "Un quartier central et verdoyant au cœur de l'art de vivre Meydan.",
         "about": [
-          "Mohammed Bin Rashid City (MBR City) est un projet phare de 30 milliards d'AED, implanté au cœur verdoyant de Dubaï, déployé autour de l'un des plus vastes lagons cristallins artificiels au monde et parcouru de parcs, de promenades et de l'art de vivre Meydan.",
+          "Meydan City est un projet phare de 30 milliards d'AED, implanté au cœur verdoyant de Dubaï, déployé autour de l'un des plus vastes lagons cristallins artificiels au monde et parcouru de parcs, de promenades et de l'art de vivre Meydan.",
           "Encadré par trois des grands axes de la ville - Sheikh Mohammed Bin Zayed Road (E311), Sheikh Zayed Road (E11) et Al Khail Road (E44) - il place Downtown, DIFC et le Dubai Mall à cinq minutes tout en préservant la quiétude des lagons et des vastes espaces verts.",
           "C'est ici que prennent forme plusieurs des adresses Meydan Horizon de Prestige One, conjuguant nature, connectivité et valeur pérenne dans l'un des quartiers centraux les plus prisés de Dubaï."
         ],

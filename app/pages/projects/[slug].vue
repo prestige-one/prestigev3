@@ -64,6 +64,7 @@
 
             <!-- 3 · amenities -->
             <prestige-amenities-grid
+              v-if="project.showAmenitiesSection"
               class="prestige-detail-heading--swapped"
               :eyebrow="t('pp.detail.amenities.eyebrow')"
               :title="t('pp.detail.amenities.title')"

@@ -160,8 +160,11 @@ export function useAmenityWaterHover() {
     frameId = 0;
   }
 
-  function animateTo(target: number) {
-    if (!renderer || !material || !scene || !camera) return;
+  function animateTo(target: number, onComplete?: () => void) {
+    if (!renderer || !material || !scene || !camera) {
+      onComplete?.();
+      return;
+    }
 
     stopAnimation();
     const start = progress;
@@ -174,11 +177,25 @@ export function useAmenityWaterHover() {
       material!.uniforms.prestigeAmenProgress!.value = progress;
       renderer!.render(scene!, camera!);
 
-      if (elapsed < 1) frameId = window.requestAnimationFrame(renderFrame);
-      else frameId = 0;
+      if (elapsed < 1) {
+        frameId = window.requestAnimationFrame(renderFrame);
+      } else {
+        frameId = 0;
+        onComplete?.();
+      }
     };
 
     frameId = window.requestAnimationFrame(renderFrame);
+  }
+
+  function resetMedia(media: HTMLElement | null) {
+    if (!media || activeMedia !== media) return;
+
+    resizeObserver?.disconnect();
+    resizeObserver = null;
+    media.classList.remove("prestige-amen__media--water-active");
+    renderer?.domElement.remove();
+    activeMedia = null;
   }
 
   async function activateItem(item: HTMLElement) {
@@ -241,7 +258,8 @@ export function useAmenityWaterHover() {
     if (!item || item.contains(event.relatedTarget as Node | null) || activeItem !== item) return;
 
     activeItem = null;
-    animateTo(0);
+    const exitingMedia = activeMedia;
+    animateTo(0, () => resetMedia(exitingMedia));
   }
 
   onMounted(() => {
