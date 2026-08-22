@@ -48,6 +48,11 @@ export interface ProjectMapLocation {
   longitude: number;
 }
 
+export interface ProjectOverviewFeature {
+  title: string;
+  text: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -64,6 +69,8 @@ export interface Project {
   introImage?: string;
   gallery: string[];
   overview: string[];
+  overviewTitle?: string;
+  overviewFeatures?: ProjectOverviewFeature[];
   highlights: string[];
   specs: ProjectSpec[];
   amenities: string[];
@@ -2270,8 +2277,7 @@ const enrichment: Record<string, ProjectEnrichment> = {
       `${V2}/fauchon/fauchon-banner-x.webp`,
     ],
     overview: [
-      "FAUCHON Résidences brings the art de vivre of the storied Parisian maison to Dubai - branded residences where French elegance shapes every detail.",
-      "From curated interiors to signature gastronomy, life at FAUCHON is designed around comfort, character and everyday luxury.",
+      "FAUCHON Résidences brings the world of FAUCHON into everyday living, combining Parisian heritage with contemporary residences in Dubai. From refined interiors to signature experiences, every detail reflects the character of the brand.",
     ],
     highlights: [
       "The first FAUCHON branded residences in the world.",
@@ -2628,6 +2634,164 @@ function resolveAmenityImages(amenities: string[], gallery: string[]): string[] 
   });
 }
 
+interface ProjectOverviewContent {
+  title: string;
+  paragraphs: string[];
+  features: ProjectOverviewFeature[];
+}
+
+const PROJECT_OVERVIEW_CONTENT: Partial<Record<string, ProjectOverviewContent>> = {
+  "fauchon-residences-by-prestige-one": {
+    title: "A Parisian Icon. Now a Dubai Address.",
+    paragraphs: ["FAUCHON Résidences brings the world of FAUCHON into everyday living, combining Parisian heritage with contemporary residences in Dubai. From refined interiors to signature experiences, every detail reflects the character of the brand."],
+    features: [
+      { title: "The First", text: "FAUCHON branded residences in the world." },
+      { title: "Parisian Heritage", text: "Inspired by a legacy dating back to 1886." },
+      { title: "Signature Living", text: "FAUCHON hospitality, design, and gastronomy brought home." },
+    ],
+  },
+  "sanctuary-residences-by-prestige-one": {
+    title: "Nature in View. Dubai Within Reach.",
+    paragraphs: ["Sanctuary Residences brings calm, contemporary living to Meydan Horizon, with views towards Ras Al Khor Wildlife Sanctuary and the Dubai skyline. Thoughtfully designed residences are complemented by wellness, leisure, and family spaces across the Living Deck and Sky Garden."],
+    features: [
+      { title: "Nature Views", text: "Ras Al Khor Wildlife Sanctuary and Dubai skyline." },
+      { title: "Connected Location", text: "Easy access to Business Bay, Downtown Dubai, DIFC, and DXB." },
+      { title: "Elevated Amenities", text: "Living Deck on Level 9 and Sky Garden on Level 21." },
+      { title: "1-3 Bedroom Residences", text: "Designed for modern everyday living." },
+    ],
+  },
+  "sanctuary-hive-by-prestige-one": {
+    title: "Work, In a Better Rhythm.",
+    paragraphs: ["Sanctuary Hive brings modern offices to Meydan Horizon, with views of Ras Al Khor Wildlife Sanctuary and easy access to key areas of Dubai. It combines smart workspaces, shared areas, wellness, and everyday comfort to create a better place to work and grow."],
+    features: [
+      { title: "Work With a View", text: "Offices overlooking Ras Al Khor Wildlife Sanctuary." },
+      { title: "Connected Location", text: "Easy access to Business Bay and Downtown Dubai." },
+      { title: "Space to Connect", text: "Shared spaces for meetings, ideas, and collaboration." },
+      { title: "More to Your Workday", text: "Fitness, wellness, and everyday amenities in one place." },
+    ],
+  },
+  "hilton-residences-dubai-maritime-city": {
+    title: "Hilton Living. Every Day.",
+    paragraphs: ["Hilton Residences Dubai Maritime City brings Hilton's world-class hospitality to waterfront living in Dubai. With sea and skyline views, thoughtful design, and a wide range of amenities, every day is shaped around comfort and ease."],
+    features: [
+      { title: "Hilton Hospitality", text: "World-class hospitality and services at home." },
+      { title: "Gold Status", text: "Hilton Honors Gold Status for owners." },
+      { title: "45+ Amenities", text: "Lifestyle, wellness, and leisure across four dedicated levels." },
+      { title: "Waterfront Living", text: "Sea and Dubai skyline views from Dubai Maritime City." },
+    ],
+  },
+  "berkeley-square-north": {
+    title: "Made for Everyday Life.",
+    paragraphs: ["Berkeley Square North brings comfortable, modern living to Jumeirah Village Circle. Thoughtful homes, green spaces, and a wide range of amenities come together to make everyday life easier, more active, and more enjoyable."],
+    features: [
+      { title: "Homes for Every Lifestyle", text: "Studios to three-bedroom residences." },
+      { title: "Space to Unwind", text: "Pool, courtyard, rooftop, and landscaped areas." },
+      { title: "Space to Connect", text: "Clubhouse and social spaces made for time together." },
+      { title: "More to Do", text: "Fitness, sports, and recreation for every day." },
+    ],
+  },
+  "berkeley-square-south": {
+    title: "More Ways to Enjoy Every Day.",
+    paragraphs: ["Berkeley Square South brings comfortable living and everyday experiences together in Jumeirah Village Circle. From relaxing by the pool to spending time outdoors, its homes and amenities are designed around an active and enjoyable lifestyle."],
+    features: [
+      { title: "Relax & Unwind", text: "Courtyard pool and floating cabanas." },
+      { title: "Time Together", text: "Clubhouse, outdoor cinema, and garden BBQ area." },
+      { title: "Stay Active", text: "Fitness, sports, and wellness spaces." },
+      { title: "Homes for Every Lifestyle", text: "Studios to three-bedroom residences." },
+    ],
+  },
+  "luxury-canal-residences-by-prestige-one": {
+    title: "Life, Closer to the Water.",
+    paragraphs: ["Luxury Canal Residences brings calm waterfront living to Dubai Islands. With open views, bright homes, and spaces designed for comfort, it offers a relaxed lifestyle with easy access to the city."],
+    features: [
+      { title: "Waterfront Living", text: "Peaceful canal and open water views." },
+      { title: "Space to Unwind", text: "Wellness, leisure, and family amenities." },
+      { title: "Homes for Everyday Life", text: "One-, two-, and three-bedroom residences and penthouses." },
+      { title: "Connected to Dubai", text: "Easy access to Downtown Dubai and Dubai International Airport." },
+    ],
+  },
+  "coastal-haven-by-prestige-one": {
+    title: "Calm by the Coast.",
+    paragraphs: ["Coastal Haven brings relaxed coastal living to Dubai Islands, with bright homes, open views, and spaces designed for comfort. A wide range of wellness, leisure, family, and social amenities makes everyday life feel easy and complete."],
+    features: [
+      { title: "Coastal Living", text: "Open views and a calm setting by the water." },
+      { title: "Space to Relax", text: "Wellness, leisure, and poolside amenities." },
+      { title: "Made for Everyday Life", text: "Family and social spaces for time together." },
+      { title: "Spacious Homes", text: "One-, two-, and three-bedroom residences and penthouses." },
+    ],
+  },
+  "the-boulevard-by-prestige-one": {
+    title: "Made for Modern Living.",
+    paragraphs: ["The Boulevard brings modern living to DLRC, with comfortable homes and a wide range of spaces for wellness, leisure, creativity, and time together."],
+    features: [
+      { title: "Homes for Everyday Life", text: "Studios, one-, and two-bedroom residences." },
+      { title: "Wellness & Fitness", text: "Gym, yoga, pools, and spaces to relax." },
+      { title: "More Ways to Enjoy the Day", text: "Cinema, gaming, creative, and social spaces." },
+      { title: "From Podium to Rooftop", text: "Amenities designed for leisure and everyday life." },
+    ],
+  },
+  "parkway-by-prestige-one": {
+    title: "Closer to Nature. Closer to the City.",
+    paragraphs: ["Parkway brings nature and modern living together in Meydan Horizon, with views of the crystal lagoon, park, and Dubai skyline. Its nature-inspired design brings together comfortable homes, green spaces, leisure, and wellness."],
+    features: [
+      { title: "Open Views", text: "Crystal lagoon, park, and Dubai skyline views." },
+      { title: "Nature-Inspired Design", text: "Architecture inspired by the natural surroundings." },
+      { title: "Space to Enjoy", text: "Gardens, leisure, and social spaces." },
+      { title: "Wellness on Level 21", text: "A dedicated wellness destination on the 21st floor." },
+    ],
+  },
+  "golf-residences-by-prestige-one": {
+    title: "Life with the Golf Course in View.",
+    paragraphs: ["Golf Residences brings spacious living to Dubai Sports City, with uninterrupted views across the championship golf course. Large homes, active spaces, and a rooftop wellness deck create a lifestyle made for comfort, movement, and time to unwind."],
+    features: [
+      { title: "Golf Course Views", text: "Uninterrupted views across the championship greens." },
+      { title: "Spacious Homes", text: "Two- and three-bedroom residences." },
+      { title: "Active Living", text: "An activity-rich podium for recreation and everyday life." },
+      { title: "Rooftop Wellness", text: "A dedicated rooftop deck for wellness and leisure." },
+    ],
+  },
+  "the-one-by-prestige-one": {
+    title: "Business, Made Better.",
+    paragraphs: ["The One brings modern workspaces to Barsha Heights, one of Dubai's most connected business areas. Flexible offices, meeting spaces, business lounges, fitness, and wellness come together to create a better place to work."],
+    features: [
+      { title: "Connected Location", text: "A business address in Barsha Heights." },
+      { title: "Flexible Workspaces", text: "Office spaces designed for different business needs." },
+      { title: "Space to Connect", text: "Meeting spaces and business lounges." },
+      { title: "Work & Wellness", text: "Prestige Fitness, virtual golf, and spa pool." },
+    ],
+  },
+  "seaside-by-prestige-one": {
+    title: "Island Living, Open to the View.",
+    paragraphs: ["Seaside brings calm island living to Dubai Islands, with panoramic waterfront views, natural light, and generous balconies. Modern residences and outdoor spaces come together to create a relaxed way of living by the water."],
+    features: [
+      { title: "Panoramic Waterfront Views", text: "Open views across the surrounding seascape." },
+      { title: "Light & Open Space", text: "Floor-to-ceiling windows and generous balconies." },
+      { title: "Space to Unwind", text: "Pool, cinema, and landscaped lawns." },
+      { title: "Island Living", text: "A calm setting with convenient city connections." },
+    ],
+  },
+  "waterway-by-prestige-one": {
+    title: "Calm, Designed Around Water.",
+    paragraphs: ["The Waterway brings calm waterfront living to Meydan Horizon, beside the crystal lagoons and close to Dubai's key destinations. Japanese-inspired interiors, spacious homes, and relaxing social spaces create a simple and peaceful way of living."],
+    features: [
+      { title: "Crystal Lagoon Living", text: "A waterfront setting beside the crystal lagoons." },
+      { title: "Japanese-Inspired Design", text: "Minimalist interiors designed around simplicity and balance." },
+      { title: "Rooftop Relaxation", text: "Rooftop pool, sunset area, and water-feature lounges." },
+      { title: "Close to the City", text: "Stay close to Downtown while living by the water." },
+    ],
+  },
+  "vista-by-prestige-one": {
+    title: "Golf Views. City in Sight.",
+    paragraphs: ["Vista brings contemporary living to Dubai Sports City, with panoramic views across The Els Club golf course and the Dubai Marina skyline. Designed by LACASA, the residences combine refined design with rooftop spaces for leisure, wellness, sport, and family time."],
+    features: [
+      { title: "Panoramic Views", text: "The Els Club golf course and Dubai Marina skyline." },
+      { title: "Designed by LACASA", text: "Contemporary architecture with a refined character." },
+      { title: "Rooftop Living", text: "Spaces for leisure, wellness, and sport." },
+      { title: "Homes for Everyday Life", text: "Studios and one-, two-, and three-bedroom residences." },
+    ],
+  },
+};
+
 function resolveProjectType(slide: ProjectSource): ProjectType {
   if (slide.type) return slide.type;
   if (slide.category === "commercial") return "Commercial";
@@ -2639,6 +2803,7 @@ function toProject(slide: ProjectSource): Project {
   const { category } = slide;
   const slug = slide.slug ?? slugify(slide.title);
   const e = enrichment[slug] ?? {};
+  const overviewContent = PROJECT_OVERVIEW_CONTENT[slug];
   // real gallery (from copied renders) drives both the gallery and the cover
   const realGallery = galleryData[slug];
   const imageOnlyHero = IMAGE_ONLY_HERO_PROJECT_IDS.has(slide.id);
@@ -2661,11 +2826,13 @@ function toProject(slide: ProjectSource): Project {
     introImage: e.introImage,
     gallery: projectGallery,
     overview:
-      e.overview ?? [
+      overviewContent?.paragraphs ?? e.overview ?? [
         slide.description,
         `Set in ${slide.location}, ${slide.title} reflects the Prestige One approach - well-connected locations, architecture designed around real living, and quality you can rely on. Every residence is planned to make the everyday feel effortless.`,
         "Backed by in-house expertise and careful execution, it is an address built to hold its value and its appeal for years to come.",
       ],
+    overviewTitle: overviewContent?.title,
+    overviewFeatures: overviewContent?.features,
     highlights:
       e.highlights ?? [
         `A signature address in ${slide.location}`,

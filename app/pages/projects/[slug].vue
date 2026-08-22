@@ -54,11 +54,13 @@
 
             <!-- 2 · overview -->
             <prestige-feature-split
+              class="prestige-project-overview"
               :eyebrow="t('pp.detail.overview.eyebrow')"
-              :title="t('pp.detail.overview.title', { name: shortName })"
+              :title="overviewTitle"
               :image="project.introImage || project.gallery[1] || project.hero"
               :paragraphs="overview"
-              :points="highlights"
+              :points="overviewPoints"
+              :feature-cards="overviewFeatureCards"
               equal-height
             />
 
@@ -241,6 +243,7 @@ const heroLead = computed(() => {
 });
 
 const overview = computed<string[]>(() => {
+  if (project.value!.overviewFeatures?.length) return project.value!.overview;
   const raw = tm(`${pKey.value}.overview`) as unknown[];
   return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.overview;
 });
@@ -249,6 +252,12 @@ const highlights = computed<string[]>(() => {
   const raw = tm(`${pKey.value}.highlights`) as unknown[];
   return Array.isArray(raw) && raw.length ? raw.map((p) => rt(p as string)) : project.value!.highlights;
 });
+
+const overviewTitle = computed(() =>
+  project.value!.overviewTitle ?? t("pp.detail.overview.title", { name: shortName.value }),
+);
+const overviewPoints = computed(() => project.value!.overviewFeatures?.length ? [] : highlights.value);
+const overviewFeatureCards = computed(() => project.value!.overviewFeatures ?? []);
 
 const projectsWithOfficialAmenityTitles = new Set([
   "berkeley-square-north",
@@ -414,6 +423,19 @@ function requestDocument(doc: { raw: string; label: string }) {
 /* project detail page: larger hero + intro (overview) heading */
 .prestige-page {
   --prestige-project-section-title-size: clamp(25px, 4.4vw, 30px);
+}
+.prestige-project-overview :deep(.prestige-fsplit__media.is-fill) {
+  min-height: 440px;
+}
+.prestige-project-overview :deep(.prestige-fsplit__body) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .prestige-project-overview :deep(.prestige-fsplit__body) {
+    min-height: 440px;
+  }
 }
 .prestige-project-detail-hero {
   align-items: center;
