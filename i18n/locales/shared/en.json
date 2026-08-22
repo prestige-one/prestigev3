@@ -263,7 +263,7 @@
     "tour": {
       "heroEyebrow": "Experience",
       "heroTitle": "Virtual Tour",
-      "heroLead": "Step inside our landmark residences from anywhere in the world. Explore each development through an immersive, cinematic tour.",
+      "heroLead": "Explore our developments across Dubai on an interactive map. See where each project sits and discover the locations shaping everyday life.",
       "introEyebrow": "The Tour",
       "introTitle": "See it before you visit",
       "introParas": [
@@ -284,7 +284,7 @@
       ],
       "ctaEyebrow": "Ready for the real thing?",
       "ctaTitle": "From screen to sales gallery",
-      "ctaText": "A virtual tour is the perfect first step. When a residence catches your eye, our team will arrange a private viewing and walk you through floor plans, pricing and payment terms."
+      "ctaText": "Use the interactive map to explore our developments across Dubai. When a project catches your eye, our team will guide you through floor plans, availability, pricing and payment terms."
     },
     "broker": {
       "heroEyebrow": "Partners",

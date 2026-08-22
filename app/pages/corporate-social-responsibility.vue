@@ -65,7 +65,7 @@
               eyebrow="A shared responsibility"
               title="Building for generations ahead"
               text="Discover how responsible design and thoughtful development guide every Prestige One community."
-              image="/assets/images/v3/A-Global-Perspective.webp"
+              image="/assets/images/v3/dubai-skyline-view.webp"
               primary-label="About Prestige One"
               :primary-to="localePath('/about-us')"
               secondary-label="Contact us"

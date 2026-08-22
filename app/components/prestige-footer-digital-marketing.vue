@@ -78,7 +78,7 @@
                                 <p>{{ $t('footer.newsletterText') }}</p>
                             </div>
                             <div class="dgm-footer-widget-input p-relative">
-                                <form novalidate @submit.prevent="subscribe">
+                                <form class="prestige-newsletter-form" novalidate @submit.prevent="subscribe">
                                     <input v-model="newsletterEmail" type="email" :placeholder="$t('footer.newsletterPlaceholder')">
                                     <span class="input-icon">
                                         <svg-email-one color-name="#A1A4AA" stroke-width="1.5"/>
@@ -333,6 +333,9 @@ async function subscribe() {
 
 .dgm-footer-widget-input .input-button span svg {
 	color: #FFF;
+}
+.prestige-newsletter-form {
+	position: relative;
 }
 .prestige-newsletter-msg {
 	margin-top: 12px;

@@ -39,7 +39,7 @@
               :eyebrow="t('mdata.blog.ctaEyebrow')"
               :title="t('mdata.blog.ctaTitle')"
               :text="t('mdata.blog.ctaText')"
-              image="/assets/images/v2/our-destinations/palm-jumeira.webp"
+              image="/assets/images/v3/our-destinations/Landing-Cover.webp"
               :primary-label="t('mdata.common.getInTouch')"
               :primary-to="localePath('/contact-us')"
               :secondary-label="t('mdata.common.exploreDevelopments')"

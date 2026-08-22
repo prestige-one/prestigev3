@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     email: body.email,
   }, {
     currentUrl: body.currentUrl,
-    currentProject: body.currentProject,
+    currentProject: "Newsletter Subscription",
   });
 
   return {

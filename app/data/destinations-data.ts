@@ -398,7 +398,7 @@ export const destinations: Destination[] = [
     slug: "dlrc",
     name: "Dubai Land Residence Complex",
     region: "Community · Dubai",
-    image: `${OD}/DLRC.webp`,
+    image: "/assets/images/v3/our-destinations/dlrc-img-new.webp",
     intro: "A fast-growing, value-driven residential community.",
     about: [
       "Dubai Land Residence Complex (DLRC) is a self-contained freehold community spanning roughly 14 million square feet within Dubailand's expansive vision - a value-driven address offering studios to townhouses and land plots along the Al Ain Road spine.",

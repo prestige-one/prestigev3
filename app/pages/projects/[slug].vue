@@ -185,8 +185,6 @@
             />
 
             <prestige-contact-form
-              :map-location="project.mapLocation"
-              :map-title="pName(project)"
               :current-project="pName(project)"
             />
           </main>

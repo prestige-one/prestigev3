@@ -106,7 +106,7 @@
 
             <div
               v-else-if="field.kind === 'file'"
-              class="prestige-broker-reg-form-cell prestige-broker-reg-form-cell--full"
+              class="prestige-broker-reg-form-cell prestige-broker-reg-form-cell--upload"
             >
               <label :for="fieldId(field.name)">{{ field.label }}{{ field.required ? " *" : "" }}</label>
               <input

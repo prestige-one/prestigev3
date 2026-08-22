@@ -54,7 +54,7 @@ defineProps<{
 }
 
 .prestige-broker-reg-hero {
-  padding: clamp(12.5rem, 15vh, 11.5rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
+  padding: clamp(7rem, 12vw, 9rem) 0;
   background: #000;
   border-bottom: 1px solid #2a2a2a;
 }

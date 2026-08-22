@@ -8,7 +8,7 @@
       :image="article.cover"
     />
 
-    <section class="prestige-section">
+    <section class="prestige-section prestige-editorial__article">
       <div class="container container-1430">
         <div class="row">
           <div class="col-xl-8 offset-xl-2">
@@ -22,7 +22,7 @@
             <div class="prestige-prose prestige-editorial__body tp_fade_anim" data-delay=".3" v-html="cleanBody" />
 
             <div
-              v-if="article.categories?.length || article.tags?.length"
+              v-if="showTaxonomy && (article.categories?.length || article.tags?.length)"
               class="prestige-editorial__taxonomy tp_fade_anim"
               data-delay=".2"
             >
@@ -47,7 +47,7 @@
     <section v-if="moreStories.length" class="prestige-section prestige-section--tight prestige-editorial__more">
       <div class="container container-1430">
         <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">Keep reading</span>
-        <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">More stories</h2>
+        <h2 class="prestige-heading prestige-editorial__more-title tp_fade_anim" data-delay=".3">More stories</h2>
         <div class="row">
           <div
             v-for="story in moreStories"
@@ -65,7 +65,7 @@
       eyebrow="Prestige One"
       title="Discover what comes next"
       text="Explore our developments or speak with our team for more information."
-      :image="article.cover"
+      :image="ctaImage || article.cover"
       primary-label="Get in touch"
       :primary-to="localePath('/contact-us')"
       secondary-label="View developments"
@@ -79,11 +79,17 @@ import {
   editorialCategoryLabel,
   type EditorialArticle,
 } from "~/data/editorial-data";
+import { openExternalLinksInNewTab } from "~/utils/editorial-html";
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   article: EditorialArticle;
   articles: EditorialArticle[];
-}>();
+  ctaImage?: string;
+  showTaxonomy?: boolean;
+}>(), {
+  ctaImage: undefined,
+  showTaxonomy: true,
+});
 
 const localePath = useLocalePath();
 const categoryLabel = computed(() => editorialCategoryLabel(props.article.category));
@@ -98,9 +104,11 @@ const formattedDate = computed(() => {
   });
 });
 const cleanBody = computed(() =>
-  props.article.body
-    .replace(/<p[^>]*>(?:\s|&nbsp;|\u00a0)*<\/p>/gi, "")
-    .trim(),
+  openExternalLinksInNewTab(
+    props.article.body
+      .replace(/<p[^>]*>(?:\s|&nbsp;|\u00a0)*<\/p>/gi, "")
+      .trim(),
+  ),
 );
 const moreStories = computed(() =>
   props.articles.filter((item) => item.slug !== props.article.slug).slice(0, 3),

@@ -191,7 +191,7 @@ const destinationDistanceImage = computed(() =>
 );
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
-const developmentsTitle = computed(() => `Prestige One Developments in ${dName(dest.value!)}`);
+const developmentsTitle = computed(() => `Our Developments in ${dName(dest.value!)}`);
 
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;

@@ -74,7 +74,7 @@
             <prestige-cta-band
               :title="t('pp.cta.title')"
               :text="t('pp.cta.text')"
-              image="/assets/project-featured-images/sliders/luxury-canal.webp"
+              image="/assets/images/v3/dubai-skyline-view.webp"
               :primary-label="t('pp.cta.primary')"
               :primary-to="localePath('/contact-us')"
               :secondary-label="t('pp.cta.secondary')"

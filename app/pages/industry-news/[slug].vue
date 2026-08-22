@@ -5,7 +5,11 @@
     <nuxt-layout name="layout-one">
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <prestige-editorial-article-page :article="article" :articles="articles" />
+          <prestige-editorial-article-page
+            :article="article"
+            :articles="articles"
+            cta-image="/assets/images/v2/blogs/Dubai-scaled.webp"
+          />
           <prestige-footer-digital-marketing />
         </div>
       </div>

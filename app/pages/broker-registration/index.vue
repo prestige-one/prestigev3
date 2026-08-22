@@ -7,6 +7,7 @@
         <div id="smooth-content">
           <main class="prestige-page">
             <prestige-page-hero
+              class="prestige-broker-reg-listing-hero"
               :eyebrow="t('mdata.broker.heroEyebrow')"
               :title="t('mdata.broker.heroTitle')"
               :lead="t('mdata.broker.heroLead')"
@@ -71,6 +72,15 @@ usePrestigePage({ hero: false });
 </script>
 
 <style scoped>
+:deep(.prestige-broker-reg-listing-hero) {
+  align-items: center;
+}
+
+:deep(.prestige-broker-reg-listing-hero .prestige-hero-band__inner) {
+  padding-top: clamp(7rem, 12vw, 9rem);
+  padding-bottom: clamp(7rem, 12vw, 9rem);
+}
+
 .prestige-broker-options {
   padding: clamp(80px, 9vw, 140px) 0;
   background: #111;

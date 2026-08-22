@@ -5,7 +5,12 @@
     <nuxt-layout name="layout-one">
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <prestige-editorial-article-page class="prestige-blog-detail" :article="article" :articles="articles" />
+          <prestige-editorial-article-page
+            class="prestige-blog-detail"
+            :article="article"
+            :articles="articles"
+            :show-taxonomy="false"
+          />
           <prestige-footer-digital-marketing />
         </div>
       </div>
@@ -38,5 +43,18 @@ usePrestigePage({ hero: false });
 <style scoped>
 :deep(.prestige-blog-detail .prestige-editorial__body h2) {
   font-size: clamp(20px, 3vw, 23px);
+}
+
+:deep(.prestige-blog-detail .prestige-editorial__article) {
+  padding-bottom: clamp(30px, 4vw, 50px);
+}
+
+:deep(.prestige-blog-detail .prestige-editorial__more) {
+  padding-top: clamp(30px, 4vw, 50px);
+}
+
+:deep(.prestige-blog-detail .prestige-editorial__more-title) {
+  margin-bottom: 10px;
+  font-size: clamp(15px, 3.2vw, 30px);
 }
 </style>
