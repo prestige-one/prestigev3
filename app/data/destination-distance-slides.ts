@@ -66,7 +66,7 @@ const desktopImageByDestination: Readonly<Record<string, string>> = {
   "jumeirah-village-circle": "/assets/images/v3/our-destinations/jumeirah-village-circle-distances.webp",
   "majan-city": "/assets/images/v3/our-destinations/majan-city-distance.webp",
   "meydan-city": "/assets/images/v3/our-destinations/meydan-city-destinations.webp",
-  "palm-jumeirah": "/assets/images/v3/our-destinations/palm-jumeirah-landmark-distances-neon-blue.webp",
+  "palm-jumeirah": "/assets/images/v3/our-destinations/palm-jumeirah-distance.webp",
 };
 
 export function getDestinationDistanceSlides(slug: string): DestinationDistanceSlide[] {
