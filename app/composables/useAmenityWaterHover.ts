@@ -258,8 +258,10 @@ export function useAmenityWaterHover() {
     if (!item || item.contains(event.relatedTarget as Node | null) || activeItem !== item) return;
 
     activeItem = null;
-    const exitingMedia = activeMedia;
-    animateTo(0, () => resetMedia(exitingMedia));
+    stopAnimation();
+    progress = 0;
+    if (material) material.uniforms.prestigeAmenProgress!.value = 0;
+    resetMedia(activeMedia);
   }
 
   onMounted(() => {

@@ -75,8 +75,8 @@ const sidebarNav = [
   { key: "nav.projects", to: "/projects" },
   { key: "nav.destinations", to: "/destinations" },
   { key: "sh.contactUs", to: "/contact-us" },
+  { key: "nav.virtualTour", to: "/virtual-tour" },
   { key: "sh.pressRelease", to: "/press-release" },
-  { key: "sh.faqs", to: "/faqs" },
 ] as const;
 
 async function goToAboutTop(event: MouseEvent) {

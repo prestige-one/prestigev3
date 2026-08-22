@@ -180,8 +180,8 @@
               :image="project.closingImage || project.hero"
               :primary-label="t('pp.detail.closing.primary')"
               :primary-to="localePath('/contact-us')"
-              :secondary-label="t('pp.detail.closing.secondary')"
-              :secondary-to="localePath('/projects')"
+              :secondary-label="t('sh.constructionUpdates')"
+              :secondary-to="localePath(constructionUpdatePath)"
             />
 
             <prestige-contact-form
@@ -198,6 +198,7 @@
 
 <script setup lang="ts">
 import { getAmenityDisplayName, getProjectBySlug, getAllProjects, slugify, type Project } from "~/data/projects";
+import { getConstructionProjectForProject } from "~/data/construction-updates";
 import { destinations } from "~/data/destinations-data";
 import { getProjectDistanceSliderConfig } from "~/data/project-distance-slides";
 
@@ -223,6 +224,10 @@ if (!project.value?.hasDetailPage) {
 }
 
 const shortName = computed(() => project.value!.title.split(" by ")[0] ?? project.value!.title);
+const constructionUpdatePath = computed(() => {
+  const update = getConstructionProjectForProject(project.value!.slug);
+  return update ? `/construction-update-${update.slug}` : "/construction-updates";
+});
 
 // Per-project marketing copy resolved from the `pdata` locale namespace, each
 // falling back to the original (English) project data when a key is absent so
@@ -403,6 +408,9 @@ function requestDocument(doc: { raw: string; label: string }) {
 
 <style scoped>
 /* project detail page: larger hero + intro (overview) heading */
+.prestige-page {
+  --prestige-project-section-title-size: clamp(25px, 4.4vw, 30px);
+}
 .prestige-project-detail-hero {
   align-items: center;
 }
@@ -433,13 +441,13 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 /* all main section headings on the detail page share one size */
 :deep(.prestige-heading) {
-  font-size: clamp(34px, 4.4vw, 40px);
+  font-size: var(--prestige-project-section-title-size);
 }
 .prestige-page :deep(.prestige-fsplit .prestige-heading) {
-  font-size: clamp(25px, 4.4vw, 30px);
+  font-size: var(--prestige-project-section-title-size);
 }
 .prestige-page :deep(.prestige-detail__amenities-heading) {
-  font-size: clamp(38px, 4vw, 56px);
+  font-size: var(--prestige-project-section-title-size) !important;
 }
 .prestige-detail__heading-row--centered .prestige-detail__heading-column {
   margin-inline: auto;
@@ -453,11 +461,11 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 .prestige-detail__docs .prestige-heading {
   margin-bottom: 24px !important;
-  font-size: clamp(34px, 4.4vw, 35px);
+  font-size: var(--prestige-project-section-title-size);
 }
 .prestige-detail__related .prestige-heading {
   margin-bottom: 13px !important;
-  font-size: clamp(25px, 4.4vw, 30px);
+  font-size: var(--prestige-project-section-title-size);
 }
 /* project documents as cards */
 .prestige-docgrid {

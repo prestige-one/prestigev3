@@ -109,7 +109,7 @@ usePrestigePage({ hero: false });
 .csr-kicker { color: rgba(255,255,255,.58); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
 .csr-intro { padding-top: 72px; padding-bottom: 72px; }
 .csr-intro__grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: clamp(36px,5vw,76px); }
-.csr-intro__copy h2,.csr-programs__head h2 { margin: 12px 0 16px; color: #fff; font-size: clamp(28px,3vw,38px); font-weight: 400; line-height: 1.1; }
+.csr-intro__copy h2,.csr-programs__head h2 { margin: 12px 0 16px; color: #fff; font-size: clamp(20px,3vw,28px); font-weight: 400; line-height: 1.1; }
 .csr-intro__copy p { max-width: 540px; margin: 0; color: rgba(255,255,255,.66); font-size: 17px; line-height: 1.7; }
 .csr-mission { display: grid; gap: 12px; }
 .csr-mission__card { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 21px; border: 1px solid rgba(255,255,255,.12); background: #151517; }

@@ -1,4 +1,4 @@
-import { collect, deliver, isEmail } from "../utils/forms";
+import { collect, contactDeliveryFields, deliver, isEmail } from "../utils/forms";
 
 interface NewsletterBody {
   email?: string;
@@ -18,10 +18,13 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, statusMessage: "Validation failed", data: { errors } });
   }
 
-  const delivery = await deliver(event, "newsletter", {
+  const delivery = await deliver(event, "contact", contactDeliveryFields({
     submissionSource: body.submissionSource ?? "footer_newsletter",
+    name: "NA",
     email: body.email,
-  }, {
+    phone: "NA",
+    message: "Newsletter Subscription",
+  }), {
     currentUrl: body.currentUrl,
     currentProject: "Newsletter Subscription",
   });

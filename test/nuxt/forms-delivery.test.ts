@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { H3Event } from "h3";
-import { deliver } from "../../server/utils/forms";
+import { contactDeliveryFields, deliver } from "../../server/utils/forms";
 import { submitPrestigeForm } from "../../app/utils/prestige-form-submission";
 
 function submissionEvent(): H3Event {
@@ -21,6 +21,22 @@ function submissionEvent(): H3Event {
 
 describe("Zapier form delivery", () => {
   afterEach(() => vi.unstubAllGlobals());
+
+  it("keeps newsletter data aligned with the contact field schema", () => {
+    expect(contactDeliveryFields({
+      submissionSource: "footer_newsletter",
+      name: "NA",
+      email: "subscriber@example.com",
+      phone: "NA",
+      message: "Newsletter Subscription",
+    })).toEqual({
+      submissionSource: "footer_newsletter",
+      name: "NA",
+      email: "subscriber@example.com",
+      phone: "NA",
+      message: "Newsletter Subscription",
+    });
+  });
 
   it("sends form fields with request and project context", async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response("ok", { status: 200 }));

@@ -22,6 +22,24 @@ export interface DeliveryResult {
   };
 }
 
+export interface ContactDeliveryFields {
+  submissionSource: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+}
+
+export function contactDeliveryFields(fields: ContactDeliveryFields): Record<string, string | undefined> {
+  return {
+    submissionSource: fields.submissionSource,
+    name: fields.name,
+    email: fields.email,
+    phone: fields.phone,
+    message: fields.message,
+  };
+}
+
 export function isEmail(value: unknown): value is string {
   return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }

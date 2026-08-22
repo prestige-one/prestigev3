@@ -74,7 +74,7 @@
                     <div class="prestige-footer-column prestige-footer-column--newsletter col-xl-3 col-lg-3 col-md-6 mb-40">
                         <div class="dgm-footer-widget dgm-footer-col-4 z-index-1 tp_fade_anim" data-delay=".6">
                             <h4 class="dgm-footer-widget-title">{{ $t('footer.newsletter') }}</h4>
-                            <div class="dgm-footer-widget-paragraph color-style mb-35">
+                            <div class="dgm-footer-widget-paragraph color-style">
                                 <p>{{ $t('footer.newsletterText') }}</p>
                             </div>
                             <div class="dgm-footer-widget-input p-relative">
@@ -404,6 +404,10 @@ async function subscribe() {
 
   .prestige-dgm-footer .dgm-footer-widget-title {
     margin-bottom: 18px;
+  }
+
+  .prestige-footer-column--newsletter .dgm-footer-widget-paragraph {
+    margin-bottom: 0 !important;
   }
 
   .prestige-footer-column--newsletter {

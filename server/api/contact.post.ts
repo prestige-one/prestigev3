@@ -1,4 +1,4 @@
-import { collect, deliver, isEmail, isNonEmpty, isPhone } from "../utils/forms";
+import { collect, contactDeliveryFields, deliver, isEmail, isNonEmpty, isPhone } from "../utils/forms";
 
 interface ContactBody {
   name?: string;
@@ -25,13 +25,13 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, statusMessage: "Validation failed", data: { errors } });
   }
 
-  const delivery = await deliver(event, "contact", {
+  const delivery = await deliver(event, "contact", contactDeliveryFields({
     submissionSource: body.submissionSource ?? "contact_form",
     name: body.name,
     email: body.email,
     phone: `${body.countryCode ?? ""} ${body.phone}`.trim(),
     message: body.message,
-  }, {
+  }), {
     currentUrl: body.currentUrl,
     currentProject: body.currentProject,
   });
