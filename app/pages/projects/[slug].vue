@@ -279,7 +279,11 @@ function tDoc(d: string) { const k = `pdata.docs.${slugify(d)}`; return te(k) ? 
 const amenities = computed(() => project.value!.amenities.map(tAmenity));
 const distanceSlider = computed(() => getProjectDistanceSliderConfig(slug.value));
 const isVilla = computed(() => project.value!.type === "Villa");
-const paymentPlan = computed(() => isVilla.value
+const projectsWithoutPaymentPlan = new Set([
+  "the-residence-by-prestige-one",
+  "vista-by-prestige-one",
+]);
+const paymentPlan = computed(() => isVilla.value || projectsWithoutPaymentPlan.has(slug.value)
   ? []
   : project.value!.paymentPlan.map((m) => ({ value: m.value, label: tPayment(m.label) })));
 const documents = computed(() => isVilla.value

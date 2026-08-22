@@ -77,7 +77,7 @@ const { t } = useI18n();
 }
 .prestige-pw__value {
   font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(38px, 4vw, 52px);
+  font-size: clamp(38px, 4vw, 38px);
   line-height: 1;
   color: #fff;
 }
