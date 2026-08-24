@@ -8,7 +8,6 @@
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
               class="prestige-destination-detail-hero"
-              :class="{ 'prestige-destination-detail-hero--centered': isDubaiMaritimeCity }"
               :eyebrow="isDubaiMaritimeCity ? 'DUBAI MARITIME CITY' : dest.region"
               :title="isDubaiMaritimeCity ? 'Waterfront Living, Close to the Heart of Dubai' : dName(dest)"
               :lead="isDubaiMaritimeCity ? undefined : dIntro"
@@ -29,6 +28,7 @@
               :points="[]"
               equal-height
               reverse
+              reveal-eyebrow
             />
 
             <!-- distance -->
@@ -47,6 +47,7 @@
               :eyebrow="t('dp.detail.faq_eyebrow')"
               :title="t('dp.detail.faq_title', { name: dest.name })"
               :items="faqs"
+              reveal-eyebrow
             />
 
             <!-- developments -->
@@ -55,17 +56,19 @@
               class="prestige-section prestige-section--tight prestige-destination-developments"
             >
               <div class="container container-1430">
-                <h2 class="prestige-heading prestige-destination-developments__title tp_fade_anim" data-delay=".2">
-                  {{ developmentsTitle }}
-                </h2>
-                <div class="row g-4 justify-content-start">
+                <prestige-project-section-heading
+                  class="prestige-destination-developments__heading"
+                  :title="developmentsTitle"
+                  title-class="prestige-destination-developments__title"
+                />
+                <div class="row g-4 justify-content-center prestige-destination-developments__grid">
                   <div
                     v-for="p in areaProjects"
                     :key="p.slug"
                     class="col-xl-4 col-lg-4 col-md-6 tp_fade_anim"
                     data-delay=".2"
                   >
-                    <prestige-project-card :project="p" />
+                    <prestige-project-card class="prestige-destination-developments__card" :project="p" />
                   </div>
                 </div>
               </div>
@@ -224,13 +227,6 @@ usePrestigePage({ hero: false });
 .prestige-destination-detail-hero {
   align-items: flex-end;
 }
-.prestige-destination-detail-hero--centered {
-  align-items: center;
-}
-:deep(.prestige-destination-detail-hero--centered .prestige-hero-band__inner) {
-  padding-top: clamp(110px, 15vh, 170px);
-  padding-bottom: clamp(60px, 9vh, 110px);
-}
 :deep(.prestige-destination-detail-hero .row) {
   justify-content: center;
   text-align: center;
@@ -307,12 +303,11 @@ usePrestigePage({ hero: false });
 :deep(.prestige-destination-faq .prestige-eyebrow) {
   letter-spacing: 0;
 }
-.prestige-destination-developments__title {
-  margin-bottom: clamp(12px, 2.5vw, 15px);
-  text-align: left;
+.prestige-destination-developments__heading {
+  margin-bottom: clamp(34px, 4vw, 50px);
 }
-.prestige-destination-developments :deep(.row) {
-  text-align: left;
+.prestige-destination-developments :deep(.prestige-destination-developments__card .prestige-pcard__body) {
+  text-align: center;
 }
 
 @media (max-width: 767.98px) {

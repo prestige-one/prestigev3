@@ -12,8 +12,23 @@
         </div>
         <div class="col-lg-6" :class="reverse ? 'pe-lg-5' : 'ps-lg-5'">
           <div class="prestige-fsplit__body">
-            <span v-if="eyebrow" class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
-            <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
+            <prestige-project-section-heading
+              v-if="revealHeading"
+              class="prestige-fsplit__heading"
+              :eyebrow="eyebrow"
+              :title="title"
+              :zoom-title="false"
+              align="left"
+            />
+            <template v-else>
+              <span
+                v-if="eyebrow"
+                class="prestige-eyebrow"
+                :class="revealEyebrow ? 'prestige-text-paint' : 'tp_fade_anim'"
+                data-delay=".2"
+              >{{ eyebrow }}</span>
+              <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ title }}</h2>
+            </template>
             <div class="prestige-prose tp_fade_anim" data-delay=".4" style="margin-top: 22px;">
               <p v-for="(p, i) in paragraphs" :key="i">{{ p }}</p>
             </div>
@@ -53,6 +68,8 @@ defineProps<{
   featureCards?: FeatureCard[];
   reverse?: boolean;
   equalHeight?: boolean;
+  revealHeading?: boolean;
+  revealEyebrow?: boolean;
 }>();
 </script>
 
@@ -139,16 +156,16 @@ defineProps<{
 .prestige-fsplit__feature h3 {
   margin: 0 0 12px;
   color: #fff;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.25;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 .prestige-fsplit__feature p {
   margin: 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.55;
 }
 @media (max-width: 1199px) {

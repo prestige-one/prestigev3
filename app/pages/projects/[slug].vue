@@ -62,6 +62,7 @@
               :points="overviewPoints"
               :feature-cards="overviewFeatureCards"
               equal-height
+              reveal-heading
             />
 
             <!-- 3 · amenities -->
@@ -75,6 +76,7 @@
               :items="amenities"
               :images="project.amenityImages"
               :original-images="project.originalAmenityImages"
+              reveal-heading
             />
 
             <!-- 4 · gallery -->
@@ -84,17 +86,17 @@
               :eyebrow="t('pp.detail.gallery.eyebrow')"
               :title="t('pp.detail.gallery.title')"
               :project-title="pName(project)"
+              reveal-heading
             />
 
             <!-- 5 · location & nearby -->
             <section class="prestige-section prestige-detail__loc prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <div class="row justify-content-center mb-40 prestige-detail__heading-row prestige-detail__heading-row--centered">
-                  <div class="col-lg-9 prestige-detail__heading-column">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.location.eyebrow') }}</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.location.title', { location: project.location }) }}</h2>
-                  </div>
-                </div>
+                <prestige-project-section-heading
+                  class="prestige-detail__section-heading mb-40"
+                  :eyebrow="t('pp.detail.location.eyebrow')"
+                  :title="t('pp.detail.location.title', { location: project.location })"
+                />
                 <prestige-location-distance-slider
                   v-if="distanceSlider"
                   :slides="distanceSlider.slides"
@@ -107,21 +109,26 @@
             <!-- 6 · payment plan -->
             <section v-if="paymentPlan.length" class="prestige-section prestige-section--tight prestige-detail__pp prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <div class="row mb-40 prestige-detail__heading-row">
-                  <div class="col-lg-8 prestige-detail__heading-column">
-                    <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.payment.eyebrow') }}</span>
-                    <h2 class="prestige-heading tp_fade_anim" data-delay=".3">{{ t('pp.detail.payment.title') }}</h2>
-                    <p class="prestige-detail__note tp_fade_anim" data-delay=".4">{{ t('pp.detail.payment.note') }}</p>
-                  </div>
-                </div>
+                <prestige-project-section-heading
+                  class="prestige-detail__section-heading prestige-detail__payment-heading"
+                  :eyebrow="t('pp.detail.payment.eyebrow')"
+                  :title="t('pp.detail.payment.title')"
+                  :description="t('pp.detail.payment.note')"
+                  description-class="prestige-detail__note"
+                />
                 <prestige-payment-wizard :steps="paymentPlan" />
               </div>
             </section>
 
             <!-- 7 · documents -->
-            <section v-if="documents.length" class="prestige-section--tight prestige-detail__docs">
+            <section v-if="documents.length" class="prestige-section--tight prestige-detail__docs prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <h2 class="prestige-heading prestige-detail__uppercase-title mb-40 tp_fade_anim" data-delay=".2">{{ t('pp.detail.resources.title') }}</h2>
+                <prestige-project-section-heading
+                  class="prestige-detail__section-heading prestige-detail__documents-heading"
+                  :eyebrow="t('pp.detail.resources.eyebrow')"
+                  :title="t('pp.detail.resources.title')"
+                  uppercase
+                />
                 <div class="prestige-docgrid">
                   <button
                     v-for="(d, i) in documents"
@@ -157,18 +164,22 @@
             <prestige-faq-accordion class="prestige-detail-heading--swapped" :title="t('pp.detail.faqTitle')" :items="faqs" />
 
             <!-- 9 · related -->
-            <section v-if="related.length" class="prestige-section prestige-section--tight prestige-detail__related">
+            <section v-if="related.length" class="prestige-section prestige-section--tight prestige-detail__related prestige-detail-heading--swapped">
               <div class="container container-1430">
-                <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ t('pp.detail.related.eyebrow') }}</span>
-                <h2 class="prestige-heading prestige-detail__uppercase-title mb-50 tp_fade_anim" data-delay=".3">{{ t('pp.detail.related.title') }}</h2>
-                <div class="row">
+                <prestige-project-section-heading
+                  class="prestige-detail__section-heading prestige-detail__related-heading"
+                  :eyebrow="t('pp.detail.related.eyebrow')"
+                  :title="t('pp.detail.related.title')"
+                  uppercase
+                />
+                <div class="row justify-content-center prestige-detail__related-grid">
                   <div
                     v-for="rel in related"
                     :key="rel.slug"
                     class="col-xl-4 col-lg-4 col-md-6 mb-30 tp_fade_anim"
                     data-delay=".2"
                   >
-                    <prestige-project-card :project="rel" />
+                    <prestige-project-card class="prestige-detail__related-card" :project="rel" />
                   </div>
                 </div>
               </div>
@@ -439,9 +450,11 @@ function requestDocument(doc: { raw: string; label: string }) {
 }
 .prestige-project-detail-hero {
   align-items: center;
+  justify-content: center;
 }
 :deep(.prestige-project-detail-hero .prestige-hero-band__inner) {
-  padding-top: clamp(110px, 15vh, 170px);
+  width: 100%;
+  padding-top: clamp(60px, 9vh, 110px);
   padding-bottom: clamp(60px, 9vh, 110px);
 }
 :deep(.prestige-project-detail-hero .row) {
@@ -452,6 +465,8 @@ function requestDocument(doc: { raw: string; label: string }) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 :deep(.prestige-project-detail-hero .prestige-hero-band__lead) {
   margin-right: auto;
@@ -475,23 +490,18 @@ function requestDocument(doc: { raw: string; label: string }) {
 .prestige-page :deep(.prestige-detail__amenities-heading) {
   font-size: var(--prestige-project-section-title-size) !important;
 }
-.prestige-detail__heading-row--centered .prestige-detail__heading-column {
+.prestige-detail__section-heading {
   margin-inline: auto;
+}
+.prestige-detail__payment-heading,
+.prestige-detail__documents-heading {
+  margin-bottom: 40px;
+}
+.prestige-detail__related-heading {
+  margin-bottom: 50px;
+}
+.prestige-detail__related :deep(.prestige-detail__related-card .prestige-pcard__body) {
   text-align: center;
-}
-.prestige-detail__uppercase-title {
-  text-transform: uppercase;
-}
-.prestige-detail__pp .row.mb-40 {
-  margin-bottom: 20px !important;
-}
-.prestige-detail__docs .prestige-heading {
-  margin-bottom: 24px !important;
-  font-size: var(--prestige-project-section-title-size);
-}
-.prestige-detail__related .prestige-heading {
-  margin-bottom: 13px !important;
-  font-size: var(--prestige-project-section-title-size);
 }
 /* project documents as cards */
 .prestige-docgrid {
@@ -773,6 +783,10 @@ function requestDocument(doc: { raw: string; label: string }) {
     text-align: center;
   }
 
+  .prestige-project-overview :deep(.prestige-project-heading) {
+    text-align: center;
+  }
+
   .prestige-page :deep(.prestige-amen__intro) {
     align-items: center;
   }
@@ -797,10 +811,7 @@ function requestDocument(doc: { raw: string; label: string }) {
   }
 
   .prestige-detail-heading--swapped :deep(.prestige-eyebrow),
-  .prestige-detail-heading--swapped :deep(.prestige-heading),
-  .prestige-detail__docs .prestige-heading,
-  .prestige-detail__related .prestige-eyebrow,
-  .prestige-detail__related .prestige-heading {
+  .prestige-detail-heading--swapped :deep(.prestige-heading) {
     display: block;
     text-align: center;
   }

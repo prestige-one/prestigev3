@@ -2,7 +2,16 @@
   <section class="prestige-amen">
     <div class="container container-1430">
       <div class="prestige-amen__layout">
-        <header class="prestige-amen__intro">
+        <prestige-project-section-heading
+          v-if="revealHeading"
+          class="prestige-amen__intro"
+          :eyebrow="eyebrow"
+          :title="title"
+          :description="lead"
+          :title-class="`prestige-amen__title ${headingClass}`"
+          description-class="prestige-amen__lead"
+        />
+        <header v-else class="prestige-amen__intro">
           <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
           <h2 class="prestige-amen__title tp_fade_anim" :class="headingClass" data-delay=".3">{{ title }}</h2>
           <p v-if="lead" class="prestige-amen__lead tp_fade_anim" data-delay=".4">{{ lead }}</p>
@@ -69,8 +78,9 @@ const props = withDefaults(
     lead?: string;
     headingClass?: string;
     originalImages?: boolean;
+    revealHeading?: boolean;
   }>(),
-  { images: () => [], lead: "", headingClass: "", originalImages: false },
+  { images: () => [], lead: "", headingClass: "", originalImages: false, revealHeading: false },
 );
 
 const { waterHoverRoot } = useAmenityWaterHover();

@@ -2770,6 +2770,26 @@ const PROJECT_OVERVIEW_CONTENT: Partial<Record<string, ProjectOverviewContent>> 
       { title: "Island Living", text: "A calm setting with convenient city connections." },
     ],
   },
+  "the-residence-by-prestige-one": {
+    title: "Boutique Living in the Heart of JVC.",
+    paragraphs: ["The Residence brings contemporary living to Jumeirah Village Circle, with refined interiors, practical layouts, and expansive windows that fill the homes with natural light. Rooftop leisure, wellness, and landscaped spaces create an easy and comfortable everyday lifestyle."],
+    features: [
+      { title: "Refined Living", text: "Contemporary interiors and practical layouts." },
+      { title: "Light & Open Views", text: "Expansive windows with skyline and greenery views." },
+      { title: "Rooftop Retreats", text: "Leisure, wellness, and landscaped spaces." },
+      { title: "Connected Location", text: "Close to Dubai’s key lifestyle destinations." },
+    ],
+  },
+  "luxe-villa-by-prestige-one": {
+    title: "Private Living on Palm Jumeirah.",
+    paragraphs: ["Luxe Villa brings privacy, refined design, and generous living spaces together on Palm Jumeirah. High-quality materials, elegant interiors, and spaces for family and entertaining create a private home designed with close attention to detail."],
+    features: [
+      { title: "Private Island Living", text: "A private home on Palm Jumeirah." },
+      { title: "Refined Interiors", text: "High-quality materials and detailed design." },
+      { title: "Space to Gather", text: "Generous family and entertaining spaces." },
+      { title: "Made for Privacy", text: "Calm private spaces designed for everyday living." },
+    ],
+  },
   "waterway-by-prestige-one": {
     title: "Calm, Designed Around Water.",
     paragraphs: ["The Waterway brings calm waterfront living to Meydan Horizon, beside the crystal lagoons and close to Dubai's key destinations. Japanese-inspired interiors, spacious homes, and relaxing social spaces create a simple and peaceful way of living."],

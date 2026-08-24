@@ -182,6 +182,20 @@ body {
 .prestige-prose ul { margin: 0 0 1.3em 1.1em; }
 .prestige-prose li { margin-bottom: 0.5em; }
 
+/* Shared scroll-paint surface used by the global Prestige reveal utility. */
+.prestige-text-paint {
+	color: transparent;
+	background-image: linear-gradient(
+		to right,
+		#fff 50%,
+		rgba(255, 255, 255, 0.32) 50%
+	);
+	background-position-x: 100%;
+	background-size: 200% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
 /* gold pill button */
 .prestige-btn {
 	display: inline-flex;

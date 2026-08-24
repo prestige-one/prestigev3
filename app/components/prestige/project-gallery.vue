@@ -1,7 +1,13 @@
 <template>
   <section v-if="images.length" class="prestige-pgallery prestige-section">
     <div class="container container-1430">
-      <header class="prestige-pgallery__intro">
+      <prestige-project-section-heading
+        v-if="revealHeading"
+        class="prestige-pgallery__intro mb-50"
+        :eyebrow="eyebrow"
+        :title="title"
+      />
+      <header v-else class="prestige-pgallery__intro">
         <span class="prestige-eyebrow tp_fade_anim" data-delay=".2">{{ eyebrow }}</span>
         <h2 class="prestige-heading mb-50 tp_fade_anim" data-delay=".3">{{ title }}</h2>
       </header>
@@ -121,6 +127,7 @@ const props = defineProps<{
   eyebrow: string;
   title: string;
   projectTitle: string;
+  revealHeading?: boolean;
 }>();
 
 const isOpen = ref(false);
