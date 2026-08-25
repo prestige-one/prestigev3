@@ -40,22 +40,22 @@ const principles = computed<PrestigePrinciple[]>(() => [
   {
     title: t("hp.whyUs.item1Title"),
     description: t("hp.whyUs.item1Desc"),
-    image: "/assets/images/v3/Where-Opportunity-Grows.webp",
+    image: "/assets/images/v3/home/v2/Where-Opportunity-Grows-md.webp",
   },
   {
     title: t("hp.whyUs.item2Title"),
     description: t("hp.whyUs.item2Desc"),
-    image: "/assets/images/v3/Designed-Around-Life-8.webp",
+    image: "/assets/images/v3/home/v2/Designed-Around-Life-8-md.webp",
   },
   {
     title: t("hp.whyUs.item3Title"),
     description: t("hp.whyUs.item3Desc"),
-    image: "/assets/images/v3/Built-on-Trust-new.webp",
+    image: "/assets/images/v3/home/v2/Built-on-Trust-new-md.webp",
   },
   {
     title: t("hp.whyUs.item4Title"),
     description: t("hp.whyUs.item4Desc"),
-    image: "/assets/images/v3/connected-v2.webp",
+    image: "/assets/images/v3/home/v2/connected-v2-md.webp",
   },
 ]);
 </script>

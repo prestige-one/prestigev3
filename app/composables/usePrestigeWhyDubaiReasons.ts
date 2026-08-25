@@ -8,12 +8,12 @@ export interface PrestigeDubaiReason {
 }
 
 const PRESTIGE_DUBAI_REASON_IMAGES = [
-  "/assets/images/v3/home/v2/Build-Your-Future.webp",
-  "/assets/images/v3/home/v2/own-by.webp",
-  "/assets/images/v3/home/v2/Keep-More-of-What-You-Earn-1.webp",
+  "/assets/images/v3/home/v2/Build-Your-Future-md.webp",
+  "/assets/images/v3/home/v2/own-by-md.webp",
+  "/assets/images/v3/home/v2/Keep-More-of-What-You-Earn-1-md.webp",
   "/assets/images/v3/home/protect.webp",
-  "/assets/images/v3/home/v2/Live-with-Peace-of-Mind.webp",
-  "/assets/images/v3/home/v2/Stay-Connected-6.webp",
+  "/assets/images/v3/home/v2/Live-with-Peace-of-Mind-md.webp",
+  "/assets/images/v3/home/v2/Stay-Connected-6-md.webp",
 ] as const;
 
 export const PRESTIGE_DUBAI_V2_REASON_IMAGES = [

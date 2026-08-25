@@ -14,10 +14,19 @@ export interface PrestigePageOptions {
   panelPins?: boolean;
   /** pixel offset used when process panels pin below the header */
   panelPinOffset?: number;
+  /** wait for every page image before starting animations (default: true) */
+  waitForImages?: boolean;
 }
 
 export function usePrestigePage(options: PrestigePageOptions = {}) {
-  const { hero = true, portfolioOffset = 80, panelPins = false, panelPinOffset = 80 } = options;
+  const {
+    hero = true,
+    portfolioOffset = 80,
+    panelPins = false,
+    panelPinOffset = 80,
+    waitForImages = true,
+  } = options;
+  let stopImageRefresh: (() => void) | null = null;
 
   onMounted(async () => {
     const { gsap } = await import("gsap");
@@ -39,17 +48,33 @@ export function usePrestigePage(options: PrestigePageOptions = {}) {
       });
     }
 
-    // distortion / webgl hover images
-    distortionImg();
+    // Only load the WebGL distortion implementation on pages that use it.
+    if (document.querySelector(".tp-image-distortion")) void distortionImg();
 
-    const imagesLoaded = (await import("imagesloaded")).default;
     const smoothWrapper = document.getElementById("smooth-wrapper");
-    if (!smoothWrapper) {
-      // no smooth wrapper on this page - still run reveal animations
+    if (!smoothWrapper || !waitForImages) {
+      // The homepage has stable image aspect ratios, so animations can start
+      // immediately instead of forcing every native-lazy image to download.
       runAnimations();
+
+      if (smoothWrapper && !waitForImages) {
+        let refreshFrame = 0;
+        const refreshAfterImageLoad = (event: Event) => {
+          if (!(event.target instanceof HTMLImageElement)) return;
+          cancelAnimationFrame(refreshFrame);
+          refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
+        };
+
+        smoothWrapper.addEventListener("load", refreshAfterImageLoad, true);
+        stopImageRefresh = () => {
+          cancelAnimationFrame(refreshFrame);
+          smoothWrapper.removeEventListener("load", refreshAfterImageLoad, true);
+        };
+      }
       return;
     }
 
+    const imagesLoaded = (await import("imagesloaded")).default;
     const imgLoad = imagesLoaded(smoothWrapper, { background: true });
     imgLoad.on("always", runAnimations);
 
@@ -65,4 +90,6 @@ export function usePrestigePage(options: PrestigePageOptions = {}) {
       ScrollTrigger.refresh();
     }
   });
+
+  onBeforeUnmount(() => stopImageRefresh?.());
 }

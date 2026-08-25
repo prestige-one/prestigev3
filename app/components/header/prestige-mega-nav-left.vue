@@ -21,7 +21,7 @@
       </li>
 
       <!-- PROJECTS -->
-      <li class="lnv__has" :class="{ active: active === 'projects' }" @mouseenter="open('projects')">
+      <li class="lnv__has" :class="{ active: active === 'projects' }" @mouseenter="open('projects')" @focusin="open('projects')">
         <nuxt-link :to="localePath('/projects')" @click="close">{{ $t('nav.projects') }}</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
@@ -33,7 +33,17 @@
           <ul class="lnv__cards">
             <li v-for="p in featuredProjects" :key="p.slug">
               <nuxt-link :to="`/projects/${p.slug}`" class="lnv__card" @click="close">
-                <span class="lnv__thumb"><img :src="p.image" :alt="p.title" loading="lazy"></span>
+                <span class="lnv__thumb">
+                  <img
+                    v-if="loadedMenus.projects"
+                    :src="projectSubmenuImage(p.slug)"
+                    :alt="p.title"
+                    width="156"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </span>
                 <span class="lnv__cardname">{{ pName(p) }}</span>
               </nuxt-link>
             </li>
@@ -43,7 +53,7 @@
       </li>
 
       <!-- DESTINATIONS -->
-      <li class="lnv__has" :class="{ active: active === 'destinations' }" @mouseenter="open('destinations')">
+      <li class="lnv__has" :class="{ active: active === 'destinations' }" @mouseenter="open('destinations')" @focusin="open('destinations')">
         <nuxt-link :to="localePath('/destinations')" @click="close">{{ $t('nav.destinations') }}</nuxt-link>
         <div
           class="lnv__dd lnv__dd--rich"
@@ -55,7 +65,17 @@
           <ul class="lnv__cards">
             <li v-for="d in featuredDestinations" :key="d.slug">
               <nuxt-link :to="`/destinations/${d.slug}`" class="lnv__card" @click="close">
-                <span class="lnv__thumb"><img :src="d.image" :alt="d.name" loading="lazy"></span>
+                <span class="lnv__thumb">
+                  <img
+                    v-if="loadedMenus.destinations"
+                    :src="destinationSubmenuImage(d.slug)"
+                    :alt="d.name"
+                    width="156"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </span>
                 <span class="lnv__cardname">{{ dName(d) }}</span>
               </nuxt-link>
             </li>
@@ -78,7 +98,12 @@ const router = useRouter();
 const { pName, dName } = useLocalizedNames();
 
 const active = ref<"about" | "projects" | "destinations" | null>(null);
+const loadedMenus = reactive({ projects: false, destinations: false });
 let closeTimer: ReturnType<typeof setTimeout> | null = null;
+const SUBMENU_THUMBNAIL_ROOT = "/assets/images/v3/submenu-thumbnails";
+
+const projectSubmenuImage = (slug: string) => `${SUBMENU_THUMBNAIL_ROOT}/prestige-project-${slug}.webp`;
+const destinationSubmenuImage = (slug: string) => `${SUBMENU_THUMBNAIL_ROOT}/prestige-destination-${slug}.webp`;
 
 const menuProjects = getAllProjects().filter((p) => p.slug !== "vista-hub");
 // featured NEW launches (branded / current) - 6 for the compact dropdown
@@ -118,6 +143,7 @@ const aboutLinks = [
 
 function open(key: "about" | "projects" | "destinations") {
   cancelClose();
+  if (key === "projects" || key === "destinations") loadedMenus[key] = true;
   active.value = key;
 }
 function cancelClose() {

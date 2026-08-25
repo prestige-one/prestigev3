@@ -1,13 +1,16 @@
 <template>
   <div class="prestige-hero">
     <video
+      ref="heroVideo"
       class="prestige-hero-video"
       autoplay
       muted
       loop
       playsinline
+      preload="none"
+      poster="/assets/videos/hero-poster-v3.jpg"
     >
-      <source src="/assets/videos/prestige-hero-video-v3.mp4" type="video/mp4">
+      <source v-if="videoReady" src="/assets/videos/prestige-hero-video-v3.mp4" type="video/mp4">
     </video>
     <div class="prestige-hero-overlay" />
     <div class="prestige-hero-bottom-fade" />
@@ -31,7 +34,41 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const heroVideo = ref<HTMLVideoElement | null>(null);
+const videoReady = ref(false);
+let videoTimer: ReturnType<typeof setTimeout> | null = null;
+
+function loadHeroVideo() {
+  if (videoReady.value) return;
+
+  videoReady.value = true;
+  nextTick(() => {
+    const video = heroVideo.value;
+    if (!video) return;
+
+    video.load();
+    void video.play().catch(() => {
+      // Autoplay can be blocked by local browser settings. The poster remains
+      // visible and the browser can retry playback after user interaction.
+    });
+  });
+}
+
+function scheduleVideoLoad() {
+  videoTimer = setTimeout(loadHeroVideo, 450);
+}
+
+onMounted(() => {
+  if (document.readyState === "complete") scheduleVideoLoad();
+  else window.addEventListener("load", scheduleVideoLoad, { once: true });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("load", scheduleVideoLoad);
+  if (videoTimer) clearTimeout(videoTimer);
+});
+</script>
 
 <style scoped>
 .prestige-hero {

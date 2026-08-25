@@ -10,11 +10,27 @@
       <div class="prestige-stories__grid">
         <article v-for="(v, i) in videos" :key="v.name" class="prestige-stories__card">
           <div class="prestige-stories__media">
+            <img
+              v-if="!activatedVideos.has(i)"
+              class="prestige-stories__video"
+              :src="v.poster"
+              :alt="v.name"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+              role="button"
+              tabindex="0"
+              :aria-label="`${v.name} — play video`"
+              @click="activateVideo(i)"
+              @keydown.enter.prevent="activateVideo(i)"
+              @keydown.space.prevent="activateVideo(i)"
+            >
             <video
+              v-else
+              :ref="(element) => setVideoRef(element, i)"
               class="prestige-stories__video"
               playsinline
               preload="none"
-              :poster="v.poster"
               tabindex="0"
               :aria-label="`${v.name} — play or pause video`"
               @click="toggleVideo"
@@ -45,6 +61,8 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const playingIndex = ref<number | null>(null);
+const activatedVideos = reactive(new Set<number>());
+const videoElements = ref<Array<HTMLVideoElement | null>>([]);
 
 const videos = computed(() => [
   { name: t("hp.stories.v1Name"), video: "/assets/videos/story-1.mp4", poster: "/assets/videos/story-1.webp" },
@@ -66,6 +84,18 @@ function toggleVideo(event: MouseEvent | KeyboardEvent) {
 
 function clearPlayingIndex(index: number) {
   if (playingIndex.value === index) playingIndex.value = null;
+}
+
+function setVideoRef(element: Element | ComponentPublicInstance | null, index: number) {
+  videoElements.value[index] = element instanceof HTMLVideoElement ? element : null;
+}
+
+async function activateVideo(index: number) {
+  activatedVideos.add(index);
+  await nextTick();
+  await videoElements.value[index]?.play().catch(() => {
+    // The preview remains visible if local autoplay/media policies block play.
+  });
 }
 </script>
 

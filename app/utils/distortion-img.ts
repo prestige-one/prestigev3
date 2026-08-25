@@ -1,17 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import {
-  Renderer,
-  Program,
-  Mesh,
-  Vec2,
-  Texture,
-  Flowmap,
-  Plane
-} from "./distortion-img-depend";
+export async function distortionImg() {
+    const background = document.querySelector(".tp-image-distortion");
+    if (!background) return;
 
+    const {
+      Renderer,
+      Program,
+      Mesh,
+      Vec2,
+      Texture,
+      Flowmap,
+      Plane,
+    } = await import("./distortion-img-depend");
 
-export function distortionImg() {
     const vertex = `
         attribute vec2 uv;
         attribute vec2 position;
@@ -38,10 +40,6 @@ export function distortionImg() {
             gl_FragColor.a = 1.0;
         }
     `;
-
-    const background = document.querySelector(".tp-image-distortion");
-    // If the element doesn't exist, exit the function
-    if (!background) return;
 
     // Read image source from data attribute
     const imageSrc = background.getAttribute("data-background");

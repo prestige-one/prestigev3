@@ -7,14 +7,17 @@
         <div id="smooth-content">
           <main>
             <hero-prestige />
-            <prestige-home5-how-we-work />
-            <prestige-why-dubai-row />
+            <LazyPrestigeHome5HowWeWork hydrate-on-visible />
+            <LazyPrestigeWhyDubaiRow hydrate-on-visible />
 
-            <prestige-our-developments :slides="mainProjects" />
-            <prestige-upcoming-developments />
+            <LazyPrestigeOurDevelopments
+              :slides="mainProjects"
+              :hydrate-on-visible="{ rootMargin: '600px' }"
+            />
+            <LazyPrestigeUpcomingDevelopments :hydrate-on-visible="{ rootMargin: '600px' }" />
 
-            <prestige-client-stories />
-            <prestige-contact-form centered />
+            <LazyPrestigeClientStories :hydrate-on-visible="{ rootMargin: '500px' }" />
+            <LazyPrestigeContactForm centered :hydrate-on-visible="{ rootMargin: '300px' }" />
           </main>
 
           <prestige-footer-digital-marketing />
@@ -44,5 +47,5 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-usePrestigePage({ panelPins: true, panelPinOffset: 80 });
+usePrestigePage({ panelPins: true, panelPinOffset: 80, waitForImages: false });
 </script>
