@@ -8,7 +8,7 @@
       loop
       playsinline
       preload="none"
-      poster="/assets/videos/hero-poster-v3.jpg"
+      poster="/assets/images/v3/prestige-hero-video-cover.webp"
     >
       <source v-if="videoReady" src="/assets/videos/prestige-hero-video-v3.mp4" type="video/mp4">
     </video>
