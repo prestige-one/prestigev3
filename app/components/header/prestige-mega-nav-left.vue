@@ -7,7 +7,7 @@
       <li class="lnv__has" :class="{ active: active === 'about' }" @mouseenter="open('about')">
         <nuxt-link :to="localePath('/about-us')" @click.prevent="goToAboutTop">{{ $t('nav.about') }}</nuxt-link>
         <div
-          class="lnv__dd"
+          class="lnv__dd lnv__dd--about"
           :class="{ open: active === 'about' }"
           @mouseenter="cancelClose"
           @mouseleave="scheduleClose"
@@ -270,11 +270,16 @@ onBeforeUnmount(cancelClose);
 }
 
 /* simple text list (About) */
+.lnv__dd--about {
+  top: calc(100% + 10px);
+  min-width: 210px;
+  padding: 6px;
+}
 .lnv__list { list-style: none; margin: 0; padding: 0; }
 .lnv__list a {
   display: block;
-  padding: 11px 14px;
-  border-radius: 9px;
+  padding: 7px 10px;
+  border-radius: 7px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 15px;
   white-space: nowrap;

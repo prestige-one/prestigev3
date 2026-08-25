@@ -15,33 +15,49 @@
             <div id="our-story" class="prestige-anchor"><prestige-about-hero /></div>
             <!-- about us hero area end -->
 
+            <prestige-section-gradient-border />
+
             <!-- legacy & credibility area start -->
             <div class="prestige-about-us-legacy"><prestige-legacy-stats /></div>
             <!-- legacy & credibility area end -->
+
+            <prestige-section-gradient-border />
 
             <!-- founder and CEO area start -->
             <div id="about-ceo" class="prestige-anchor"><prestige-founder-profile /></div>
             <!-- founder and CEO area end -->
 
+            <prestige-section-gradient-border />
+
             <!-- our leadership area start -->
             <div id="leadership" class="prestige-anchor"><prestige-leadership /></div>
             <!-- our leadership area end -->
+
+            <prestige-section-gradient-border />
 
             <!-- what drives us area start -->
             <div id="what-drives-us" class="prestige-anchor"><prestige-drives-us /></div>
             <!-- what drives us area end -->
 
+            <prestige-section-gradient-border />
+
             <!-- our journey / timeline area start -->
             <div id="our-journey" class="prestige-anchor"><prestige-journey-scroll /></div>
             <!-- our journey / timeline area end -->
+
+            <prestige-section-gradient-border />
 
             <!-- our developments (by year) area start -->
             <prestige-about-developments />
             <!-- our developments (by year) area end -->
 
+            <prestige-section-gradient-border />
+
             <!-- global perspective area start -->
             <div id="global-perspective" class="prestige-anchor"><prestige-global-perspective /></div>
             <!-- global perspective area end -->
+
+            <prestige-section-gradient-border />
 
             <!-- the next chapter / closing CTA area start -->
             <prestige-next-chapter />
