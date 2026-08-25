@@ -59,7 +59,7 @@ const slidesByDestination: Readonly<Record<string, DestinationDistanceSlide[]>> 
 const desktopImageByDestination: Readonly<Record<string, string>> = {
   "barsha-heights": "/assets/images/v3/our-destinations/distance-barsha.webp",
   "dlrc": "/assets/images/v3/our-destinations/dlrc-distance.webp",
-  "dubai-maritime-city": "/assets/images/v3/maritime-distance.webp",
+  "dubai-maritime-city": "/assets/images/v3/our-destinations/maritime-distance.webp",
   "dubai-islands": "/assets/images/v3/our-destinations/dubai-island-distances.webp",
   "dubai-sports-city": "/assets/images/v3/our-destinations/sport-city-distances.webp",
   "jumeirah-garden-city": "/assets/images/v3/our-destinations/distance-Jumeirah -Garden-City.webp",

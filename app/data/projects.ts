@@ -202,7 +202,7 @@ const PROJECT_CATALOGUE: ProjectSource[] = [
     image: "/assets/project-featured-images/sliders/hilton-1.webp",
     title: "Hilton Residences Dubai Maritime City",
     location: "Dubai Maritime City",
-    description: "Waterfront living inspired by the Hilton way of life.",
+    description: "Waterfront residences bringing together refined design, exceptional views, and Hilton’s renowned hospitality.",
     registrationUrl: "https://hiltonresidencesdubaimaritimecity.ae",
     category: "residential",
     brand: "Hilton",

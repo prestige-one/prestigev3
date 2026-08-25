@@ -4,8 +4,6 @@
     class="prestige-destination-distance-mobile"
     aria-label="Driving Distances"
   >
-    <h2 class="prestige-destination-distance-mobile__title">Driving Distances</h2>
-
     <div
       class="prestige-destination-distance-mobile__viewport"
       @pointerdown="onPointerDown"
@@ -159,18 +157,8 @@ onBeforeUnmount(() => {
   .prestige-destination-distance-mobile {
     display: block;
     overflow: hidden;
-    padding: 42px 18px 48px;
+    padding: 0 18px;
     background: #000;
-  }
-
-  .prestige-destination-distance-mobile__title {
-    margin: 0 0 22px;
-    color: #fff;
-    font-size: clamp(25px, 8vw, 30px);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: 0;
-    text-align: center;
   }
 
   .prestige-destination-distance-mobile__viewport {

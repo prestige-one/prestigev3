@@ -15,6 +15,10 @@
       class="prestige-heading prestige-project-heading__title prestige-text-paint"
       :class="[titleClass, { 'prestige-developments-title': zoomTitle }]"
     >{{ title }}</h2>
+    <h3
+      v-if="subtitle"
+      class="prestige-project-heading__subtitle prestige-text-paint"
+    >{{ subtitle }}</h3>
     <p
       v-if="description"
       class="prestige-project-heading__description prestige-developments-subtitle"
@@ -27,6 +31,7 @@
 withDefaults(defineProps<{
   eyebrow?: string;
   title: string;
+  subtitle?: string;
   description?: string;
   align?: "left" | "center";
   uppercase?: boolean;
@@ -35,6 +40,7 @@ withDefaults(defineProps<{
   descriptionClass?: string;
 }>(), {
   eyebrow: "",
+  subtitle: "",
   description: "",
   align: "center",
   uppercase: false,
@@ -82,6 +88,13 @@ withDefaults(defineProps<{
 }
 .prestige-project-heading__eyebrow + .prestige-project-heading__title {
   margin-top: 14px;
+}
+.prestige-project-heading__subtitle {
+  margin: 18px 0 0;
+  font-family: var(--tp-ff-cormorant, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  line-height: 1.25;
 }
 .prestige-project-heading--uppercase .prestige-project-heading__title {
   text-transform: uppercase;

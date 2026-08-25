@@ -8,9 +8,8 @@
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
               class="prestige-destination-detail-hero"
-              :eyebrow="isDubaiMaritimeCity ? 'DUBAI MARITIME CITY' : dest.region"
               :title="isDubaiMaritimeCity ? 'Waterfront Living, Close to the Heart of Dubai' : dName(dest)"
-              :lead="isDubaiMaritimeCity ? undefined : dIntro"
+              :lead="destinationHeroLead"
               :image="dest.image"
               :show-actions="false"
             />
@@ -32,14 +31,21 @@
             />
 
             <!-- distance -->
-            <section class="prestige-maritime-distance prestige-maritime-distance--desktop">
+            <section class="prestige-maritime-distance">
+              <prestige-project-section-heading
+                class="prestige-maritime-distance__heading"
+                title="Close to What Matters"
+                title-class="prestige-maritime-distance__title"
+                :zoom-title="false"
+              />
               <img
+                class="prestige-maritime-distance__image"
                 :src="destinationDistanceImage"
                 :alt="`Travel times from ${dName(dest)} to key Dubai destinations`"
                 loading="lazy"
               >
+              <prestige-destination-distance-slider :slides="destinationDistanceSlides" />
             </section>
-            <prestige-destination-distance-slider :slides="destinationDistanceSlides" />
 
             <!-- Good to know -->
             <prestige-faq-accordion
@@ -59,6 +65,8 @@
                 <prestige-project-section-heading
                   class="prestige-destination-developments__heading"
                   :title="developmentsTitle"
+                  :subtitle="destinationDevelopmentsSubtitle"
+                  :description="destinationDevelopmentsDescription"
                   title-class="prestige-destination-developments__title"
                 />
                 <div class="row g-4 justify-content-center prestige-destination-developments__grid">
@@ -68,7 +76,11 @@
                     class="col-xl-4 col-lg-4 col-md-6 tp_fade_anim"
                     data-delay=".2"
                   >
-                    <prestige-project-card class="prestige-destination-developments__card" :project="p" />
+                    <prestige-project-card
+                      class="prestige-destination-developments__card"
+                      :project="p"
+                      :show-description="isDubaiMaritimeCity"
+                    />
                   </div>
                 </div>
               </div>
@@ -83,13 +95,12 @@
             <!-- CTA -->
             <prestige-cta-band
               class="prestige-destination-cta"
-              :eyebrow="t('dp.detail.cta_eyebrow')"
-              :title="t('dp.detail.cta_title', { name: dest.name })"
-              :text="t('dp.detail.cta_text', { name: dest.name })"
+              :title="destinationCtaTitle"
+              :text="isDubaiMaritimeCity ? 'Waterfront Living, Within Reach.' : t('dp.detail.cta_text', { name: dest.name })"
               :image="destinationCtaImage"
-              :primary-label="t('dp.detail.enquire')"
+              :primary-label="isDubaiMaritimeCity ? 'ENQUIRE NOW' : t('dp.detail.enquire')"
               :primary-to="localePath('/contact-us')"
-              :secondary-label="t('dp.detail.cta_secondary')"
+              :secondary-label="isDubaiMaritimeCity ? 'EXPLORE ALL DESTINATIONS' : t('dp.detail.cta_secondary')"
               :secondary-to="localePath('/destinations')"
             />
 
@@ -118,6 +129,7 @@ const { dName } = useLocalizedNames();
 const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
+const isDubaiIslands = computed(() => dest.value?.slug === "dubai-islands");
 const destinationOverviewImages: Readonly<Record<string, string>> = {
   "dubai-maritime-city": "/assets/images/v3/our-destinations/maritime.webp",
   "dubai-sports-city": "/assets/images/v3/our-destinations/dubai-sport-city.webp",
@@ -129,6 +141,9 @@ const destinationCtaImages: Readonly<Record<string, string>> = {
 };
 const maritimeOverview = [
   "Set along Dubai’s coastline, Dubai Maritime City brings together sea views, city connectivity, and modern urban living. Its unique setting offers the calm of life by the water while keeping Dubai’s key destinations within easy reach.",
+];
+const dubaiIslandsOverview = [
+  "Dubai Islands brings together waterfront living, open coastal surroundings, and easy access to the city. With a growing mix of residences, leisure, and hospitality, it offers a fresh way to experience Dubai with the sea at the heart of everyday life.",
 ];
 const destinationTravelFaqs: Partial<Record<string, FaqItem>> = {
   "dubai-sports-city": {
@@ -173,19 +188,28 @@ const dIntro = computed(() => ddScalar("intro", dest.value?.intro ?? ""));
 const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
 const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
 const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
+const destinationHeroLead = computed(() => {
+  if (isDubaiMaritimeCity.value) return undefined;
+  if (isDubaiIslands.value) return "A New Destination for Island Living";
+  return dIntro.value;
+});
 const destinationOverviewEyebrow = computed(() => `About ${dName(dest.value!)}`);
-const destinationOverviewTitle = computed(() =>
-  isDubaiMaritimeCity.value ? "Where the Waterfront Meets the City" : `Experience ${dName(dest.value!)}`
-);
+const destinationOverviewTitle = computed(() => {
+  if (isDubaiMaritimeCity.value) return "Where the Waterfront Meets the City";
+  if (isDubaiIslands.value) return "A New Side of Dubai, Shaped by the Sea.";
+  return `Experience ${dName(dest.value!)}`;
+});
 const destinationOverviewImage = computed(() =>
   destinationOverviewImages[dest.value!.slug] ?? dest.value!.image
 );
 const destinationCtaImage = computed(() =>
   destinationCtaImages[dest.value!.slug] ?? dest.value!.image
 );
-const destinationOverviewParagraphs = computed(() =>
-  isDubaiMaritimeCity.value ? maritimeOverview : dAbout.value
-);
+const destinationOverviewParagraphs = computed(() => {
+  if (isDubaiMaritimeCity.value) return maritimeOverview;
+  if (isDubaiIslands.value) return dubaiIslandsOverview;
+  return dAbout.value;
+});
 const destinationDistanceSlides = computed(() =>
   getDestinationDistanceSlides(dest.value!.slug)
 );
@@ -194,7 +218,20 @@ const destinationDistanceImage = computed(() =>
 );
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
-const developmentsTitle = computed(() => `Our Developments in ${dName(dest.value!)}`);
+const developmentsTitle = computed(() => `PRESTIGE ONE IN ${dName(dest.value!).toUpperCase()}`);
+const destinationDevelopmentsSubtitle = computed(() =>
+  isDubaiIslands.value ? "Homes Shaped by Island Living." : ""
+);
+const destinationDevelopmentsDescription = computed(() =>
+  isDubaiIslands.value
+    ? "Explore Prestige One developments created to make the most of Dubai Islands’ coastal setting and relaxed way of life."
+    : ""
+);
+const destinationCtaTitle = computed(() => {
+  if (isDubaiMaritimeCity.value) return "Dubai Maritime City";
+  if (isDubaiIslands.value) return "A Different Side of Island Living";
+  return t("dp.detail.cta_title", { name: dest.value!.name });
+});
 
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;
@@ -225,7 +262,11 @@ usePrestigePage({ hero: false });
   --prestige-destination-section-heading-size: clamp(25px, 4.4vw, 30px);
 }
 .prestige-destination-detail-hero {
-  align-items: flex-end;
+  align-items: center;
+}
+:deep(.prestige-destination-detail-hero .prestige-hero-band__inner) {
+  padding-top: clamp(50px, 8vh, 110px);
+  padding-bottom: clamp(50px, 8vh, 110px);
 }
 :deep(.prestige-destination-detail-hero .row) {
   justify-content: center;
@@ -258,15 +299,19 @@ usePrestigePage({ hero: false });
 }
 .prestige-maritime-distance {
   width: 100%;
-  padding: 0 0 clamp(40px, 6vw, 80px);
+  padding: clamp(40px, 6vw, 80px) 0;
   border: 0;
   background: #000;
 }
-
-.prestige-maritime-distance img {
+.prestige-maritime-distance__heading {
+  margin-bottom: clamp(26px, 3vw, 42px);
+}
+.prestige-maritime-distance__image {
   display: block;
   width: 100%;
+  max-width: 70vw;
   height: auto;
+  margin: 0 auto;
   border: 0;
   border-radius: 0;
 }
@@ -306,11 +351,23 @@ usePrestigePage({ hero: false });
 .prestige-destination-developments__heading {
   margin-bottom: clamp(34px, 4vw, 50px);
 }
+.prestige-destination-developments__heading :deep(.prestige-project-heading__subtitle) {
+  margin-top: 10px;
+}
+.prestige-destination-developments__heading :deep(.prestige-project-heading__description) {
+  width: 100%;
+  max-width: 620px;
+  margin-top: 10px;
+}
 .prestige-destination-developments :deep(.prestige-destination-developments__card .prestige-pcard__body) {
   text-align: center;
 }
 
 @media (max-width: 767.98px) {
+  .prestige-maritime-distance__image {
+    display: none;
+  }
+
   :deep(.prestige-destination-overview .prestige-eyebrow),
   :deep(.prestige-destination-overview .prestige-heading),
   :deep(.prestige-destination-faq .prestige-eyebrow),
@@ -335,10 +392,6 @@ usePrestigePage({ hero: false });
 }
 
 @media (max-width: 575.98px) {
-  .prestige-maritime-distance--desktop {
-    display: none;
-  }
-
   :deep(.prestige-destination-detail-hero .prestige-hero-band__inner) {
     padding-right: 24px;
     padding-left: 24px;
