@@ -52,6 +52,8 @@
               </div>
             </section>
 
+            <prestige-project-award-highlight v-if="isHiltonProject" />
+
             <!-- 2 · overview -->
             <prestige-feature-split
               class="prestige-project-overview"
@@ -231,6 +233,7 @@ const localePath = useLocalePath();
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
 const project = computed(() => getProjectBySlug(slug.value));
+const isHiltonProject = computed(() => slug.value === "hilton-residences-dubai-maritime-city");
 
 if (!project.value?.hasDetailPage) {
   throw createError({ statusCode: 404, statusMessage: "Project not found", fatal: true });
@@ -442,6 +445,9 @@ function requestDocument(doc: { raw: string; label: string }) {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.prestige-project-overview :deep(.prestige-fsplit__features) {
+  border-top: 0;
 }
 @media (min-width: 992px) {
   .prestige-project-overview :deep(.prestige-fsplit__body) {

@@ -31,7 +31,10 @@
             />
 
             <!-- distance -->
-            <section class="prestige-maritime-distance">
+            <section
+              class="prestige-maritime-distance"
+              :class="{ 'prestige-maritime-distance--sports-city': isDubaiSportsCity }"
+            >
               <prestige-project-section-heading
                 class="prestige-maritime-distance__heading"
                 title="Close to What Matters"
@@ -130,6 +133,7 @@ const route = useRoute();
 const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
 const isDubaiIslands = computed(() => dest.value?.slug === "dubai-islands");
+const isDubaiSportsCity = computed(() => dest.value?.slug === "dubai-sports-city");
 const destinationOverviewImages: Readonly<Record<string, string>> = {
   "dubai-maritime-city": "/assets/images/v3/our-destinations/maritime.webp",
   "dubai-sports-city": "/assets/images/v3/our-destinations/dubai-sport-city.webp",
@@ -306,6 +310,9 @@ usePrestigePage({ hero: false });
 .prestige-maritime-distance__heading {
   margin-bottom: clamp(26px, 3vw, 42px);
 }
+:deep(.prestige-maritime-distance__title) {
+  font-size: clamp(25px, 4.4vw, 30px) !important;
+}
 .prestige-maritime-distance__image {
   display: block;
   width: 100%;
@@ -314,6 +321,9 @@ usePrestigePage({ hero: false });
   margin: 0 auto;
   border: 0;
   border-radius: 0;
+}
+.prestige-maritime-distance--sports-city .prestige-maritime-distance__image {
+  max-width: 80vw;
 }
 :deep(.prestige-destination-overview .col-lg-6:last-child) {
   display: flex;

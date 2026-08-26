@@ -7,51 +7,91 @@ const SLIDER_ROOT = "/assets/images/v3/our-destinations/destination-slider-respo
 
 const maritimeSlides: DestinationDistanceSlide[] = [
   {
-    image: `${SLIDER_ROOT}/maritime/slide-burj.webp`,
+    image: `${SLIDER_ROOT}/hilton/hil-downtown.webp`,
     alt: "Driving distance from Dubai Maritime City to Downtown Dubai",
   },
   {
-    image: `${SLIDER_ROOT}/maritime/slide-difc.webp`,
+    image: `${SLIDER_ROOT}/hilton/hil-difc.webp`,
     alt: "Driving distance from Dubai Maritime City to DIFC",
   },
   {
-    image: `${SLIDER_ROOT}/maritime/slide-dxb.webp`,
+    image: `${SLIDER_ROOT}/hilton/hil-dxb.webp`,
     alt: "Driving distance from Dubai Maritime City to Dubai International Airport",
   },
   {
-    image: `${SLIDER_ROOT}/maritime/slide-jumeirah.webp`,
+    image: `${SLIDER_ROOT}/hilton/hil-jumierah.webp`,
     alt: "Driving distance from Dubai Maritime City to Jumeirah",
   },
 ];
 
 const palmJumeirahSlides: DestinationDistanceSlide[] = [
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-marina.webp`,
+    image: `${SLIDER_ROOT}/palm-jumeirah/pj-marina.webp`,
     alt: "Driving distance from Palm Jumeirah to Dubai Marina",
   },
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-dxb.webp`,
+    image: `${SLIDER_ROOT}/palm-jumeirah/pj-dxb.webp`,
     alt: "Driving distance from Palm Jumeirah to Dubai International Airport",
   },
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-water.webp`,
+    image: `${SLIDER_ROOT}/palm-jumeirah/pj-aqua.webp`,
     alt: "Driving distance from Palm Jumeirah to Aquaventure Waterpark",
   },
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-dubai-mall.webp`,
-    alt: "Driving distance from Palm Jumeirah to Dubai Mall",
+    image: `${SLIDER_ROOT}/palm-jumeirah/pj-downt.webp`,
+    alt: "Driving distance from Palm Jumeirah to Downtown Dubai",
   },
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-mesuem.webp`,
+    image: `${SLIDER_ROOT}/palm-jumeirah/pj-mes.webp`,
     alt: "Driving distance from Palm Jumeirah to Museum of the Future",
   },
+];
+
+const barshaHeightsSlides: DestinationDistanceSlide[] = [
   {
-    image: `${SLIDER_ROOT}/palm-jumeirah/b-burj-k.webp`,
-    alt: "Driving distance from Palm Jumeirah to Burj Khalifa",
+    image: `${SLIDER_ROOT}/barsha/b-al-sufouh.webp`,
+    alt: "Driving distance from Barsha Heights to Al Sufouh Beach",
+  },
+  {
+    image: `${SLIDER_ROOT}/barsha/b-marina.webp`,
+    alt: "Driving distance from Barsha Heights to Dubai Marina",
+  },
+  {
+    image: `${SLIDER_ROOT}/barsha/b-downtown.webp`,
+    alt: "Driving distance from Barsha Heights to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/barsha/b-meseum.webp`,
+    alt: "Driving distance from Barsha Heights to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/barsha/b-dxb.webp`,
+    alt: "Driving distance from Barsha Heights to Dubai International Airport",
+  },
+];
+
+const dubaiIslandsSlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/dubai-island/dubai-i-marina.webp`,
+    alt: "Driving distance from Dubai Islands to Dubai Marina",
+  },
+  {
+    image: `${SLIDER_ROOT}/dubai-island/dubai-i-downt.webp`,
+    alt: "Driving distance from Dubai Islands to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/dubai-island/dubai-i-mall.webp`,
+    alt: "Driving distance from Dubai Islands to Dubai Mall",
+  },
+  {
+    image: `${SLIDER_ROOT}/dubai-island/dubai-i-dxb.webp`,
+    alt: "Driving distance from Dubai Islands to Dubai International Airport",
   },
 ];
 
 const slidesByDestination: Readonly<Record<string, DestinationDistanceSlide[]>> = {
+  "barsha-heights": barshaHeightsSlides,
+  "dubai-islands": dubaiIslandsSlides,
   "dubai-maritime-city": maritimeSlides,
   "palm-jumeirah": palmJumeirahSlides,
 };

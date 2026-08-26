@@ -9,7 +9,18 @@
         >
           {{ t("ap.legacy.title") }}
         </h2>
-        <span class="prestige-legacy-copy-line" aria-hidden="true"></span>
+
+        <div v-if="showAward" class="prestige-legacy-award">
+          <span class="prestige-legacy-award__label">Best Branded Residence in Dubai</span>
+          <img
+            class="prestige-legacy-award__image"
+            src="/assets/images/v3/awards/AR_26_PropertyBadge%202.webp"
+            alt="Arabian Property Awards winner 2026–2027"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <span v-else class="prestige-legacy-copy-line" aria-hidden="true"></span>
       </header>
 
       <figure class="prestige-legacy-artwork anim-zoomin">
@@ -65,6 +76,12 @@ interface LegacyStat {
 }
 
 const { t } = useI18n();
+
+withDefaults(defineProps<{
+  showAward?: boolean;
+}>(), {
+  showAward: false,
+});
 
 const legacyStats = computed<LegacyStat[]>(() => [
   { id: 1, value: 20, unit: t("ap.legacy.yearsSuffix").trim(), label: t("ap.legacy.stat2") },
@@ -203,6 +220,29 @@ onBeforeUnmount(() => {
   height: 1px;
   margin-top: clamp(34px, 4vw, 56px);
   background: linear-gradient(90deg, rgba(235, 242, 247, 0.9), rgba(235, 242, 247, 0));
+}
+
+.prestige-legacy-award {
+  width: min(100%, 330px);
+  margin-top: clamp(24px, 2.5vw, 38px);
+}
+
+.prestige-legacy-award__label {
+  display: block;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.prestige-legacy-award__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 16px rgba(218, 229, 236, 0.15));
 }
 
 .prestige-legacy-artwork {
@@ -402,8 +442,15 @@ onBeforeUnmount(() => {
 
 @media (max-width: 1199.98px) {
   .prestige-legacy-shell {
-    grid-template-columns: minmax(230px, 0.8fr) minmax(320px, 1fr) minmax(380px, 1.15fr);
+    grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
     width: 100%;
+    row-gap: 32px;
+  }
+
+  .prestige-legacy-metrics {
+    grid-column: 1 / -1;
+    width: min(100%, 820px);
+    margin: 0 auto;
   }
 
   .prestige-legacy-title {
@@ -411,8 +458,8 @@ onBeforeUnmount(() => {
   }
 
   .prestige-legacy-metric {
-    grid-template-columns: 110px minmax(155px, 1fr);
-    column-gap: 8px;
+    grid-template-columns: 120px minmax(210px, 1fr);
+    column-gap: 10px;
   }
 
   .prestige-legacy-label {
@@ -434,7 +481,7 @@ onBeforeUnmount(() => {
   .prestige-legacy-metrics {
     grid-column: 1 / -1;
     width: min(100%, 720px);
-    margin: 40px auto 0;
+    margin: 0 auto;
   }
 
   .prestige-legacy-metric {
@@ -480,6 +527,11 @@ onBeforeUnmount(() => {
 
   .prestige-legacy-copy-line {
     margin: 30px auto 0;
+  }
+
+  .prestige-legacy-award {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .prestige-legacy-artwork {

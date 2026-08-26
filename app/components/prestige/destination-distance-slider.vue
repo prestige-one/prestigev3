@@ -166,6 +166,7 @@ onBeforeUnmount(() => {
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
+    background: #000;
     touch-action: pan-y;
   }
 
@@ -197,14 +198,19 @@ onBeforeUnmount(() => {
   }
 
   .prestige-destination-distance-mobile__slide {
+    display: flex;
     flex: 0 0 100%;
+    justify-content: center;
     min-width: 0;
+    background: #000;
   }
 
   .prestige-destination-distance-mobile__slide img {
     display: block;
     width: 100%;
+    max-width: 300px;
     height: auto;
+    margin: 0 auto;
     aspect-ratio: 400 / 710;
     object-fit: contain;
     background: #05080d;

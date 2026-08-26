@@ -18,7 +18,7 @@
             <prestige-section-gradient-border />
 
             <!-- legacy & credibility area start -->
-            <div class="prestige-about-us-legacy"><prestige-legacy-stats /></div>
+            <div class="prestige-about-us-legacy"><prestige-legacy-stats show-award /></div>
             <!-- legacy & credibility area end -->
 
             <prestige-section-gradient-border />
