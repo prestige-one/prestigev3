@@ -27,7 +27,7 @@
         {{ project.description }}
       </p>
       <span v-if="!isStatic" class="prestige-pcard__cta">
-        {{ $t('cta.viewProject') }} <i class="prestige-pcard__arrow">→</i>
+        {{ ctaLabel || $t('cta.viewProject') }} <i class="prestige-pcard__arrow">→</i>
       </span>
     </div>
   </component>
@@ -40,9 +40,11 @@ const props = withDefaults(defineProps<{
   project: Project;
   showDescription?: boolean;
   showComingSoon?: boolean;
+  ctaLabel?: string;
 }>(), {
   showDescription: false,
   showComingSoon: false,
+  ctaLabel: "",
 });
 const { pName } = useLocalizedNames();
 const NuxtLinkComponent = resolveComponent("NuxtLink");

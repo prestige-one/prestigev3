@@ -8,10 +8,24 @@
       loop
       playsinline
       preload="none"
-      poster="/assets/images/v3/prestige-hero-video-cover.webp"
+      :poster="heroCover"
+      @playing="onPlaying"
+      @waiting="cancelPendingReveal"
+      @pause="cancelPendingReveal"
+      @error="restoreCover"
     >
       <source v-if="videoReady" src="/assets/videos/prestige-hero-video-v3.mp4" type="video/mp4">
     </video>
+    <img
+      v-if="coverMounted"
+      class="prestige-hero-cover"
+      :class="{ 'prestige-hero-cover--revealed': videoRevealed }"
+      :src="heroCover"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      @transitionend="onCoverTransitionEnd"
+    >
     <div class="prestige-hero-overlay" />
     <div class="prestige-hero-bottom-fade" />
 
@@ -35,7 +49,11 @@
 </template>
 
 <script setup lang="ts">
+import { usePrestigeVideoCover } from "~/composables/usePrestigeVideoCover";
+
+const heroCover = "/assets/images/v3/prestige-hero-video-cover.webp";
 const heroVideo = ref<HTMLVideoElement | null>(null);
+const { coverMounted, videoRevealed, onPlaying, cancelPendingReveal, restoreCover, onCoverTransitionEnd } = usePrestigeVideoCover(heroVideo);
 const videoReady = ref(false);
 let videoTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -48,10 +66,8 @@ function loadHeroVideo() {
     if (!video) return;
 
     video.load();
-    void video.play().catch(() => {
-      // Autoplay can be blocked by local browser settings. The poster remains
-      // visible and the browser can retry playback after user interaction.
-    });
+    // Keep the cover if autoplay is blocked; `playing` handles any later retry.
+    void video.play().catch(restoreCover);
   });
 }
 
@@ -79,7 +95,8 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-.prestige-hero-video {
+.prestige-hero-video,
+.prestige-hero-cover {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -87,6 +104,22 @@ onBeforeUnmount(() => {
   height: 100%;
   object-fit: cover;
   transform: translate(-50%, -50%);
+}
+
+.prestige-hero-cover {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 800ms ease;
+}
+
+.prestige-hero-cover--revealed {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prestige-hero-cover {
+    transition: none;
+  }
 }
 
 /* hidden by default so the video reads clean and bright on load - GSAP

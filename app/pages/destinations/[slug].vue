@@ -1,4 +1,4 @@
-<!-- Data sources: app/data/destinations-data.ts; app/data/destination-timeline-data.ts; app/data/projects.ts; i18n/locales/destinations/en.json -->
+<!-- Data sources: app/data/destinations-data.ts; app/data/destination-page-copy.ts; app/data/projects.ts; i18n/locales/destinations/en.json -->
 <template>
   <div>
     <common-magic-cursor />
@@ -8,7 +8,7 @@
           <main v-if="dest" class="prestige-page">
             <prestige-page-hero
               class="prestige-destination-detail-hero"
-              :title="isDubaiMaritimeCity ? 'Waterfront Living, Close to the Heart of Dubai' : dName(dest)"
+              :title="destinationHeroTitle"
               :lead="destinationHeroLead"
               :image="dest.image"
               :show-actions="false"
@@ -83,6 +83,8 @@
                       class="prestige-destination-developments__card"
                       :project="p"
                       :show-description="isDubaiMaritimeCity"
+                      :cta-label="destinationPageCopy?.developments?.cardCtaLabel"
+                      :show-coming-soon="destinationPageCopy?.developments?.showComingSoon"
                     />
                   </div>
                 </div>
@@ -99,11 +101,11 @@
             <prestige-cta-band
               class="prestige-destination-cta"
               :title="destinationCtaTitle"
-              :text="isDubaiMaritimeCity ? 'Waterfront Living, Within Reach.' : t('dp.detail.cta_text', { name: dest.name })"
+              :text="destinationCtaText"
               :image="destinationCtaImage"
-              :primary-label="isDubaiMaritimeCity ? 'ENQUIRE NOW' : t('dp.detail.enquire')"
+              :primary-label="hasDestinationCtaLabels ? 'ENQUIRE NOW' : t('dp.detail.enquire')"
               :primary-to="localePath('/contact-us')"
-              :secondary-label="isDubaiMaritimeCity ? 'EXPLORE ALL DESTINATIONS' : t('dp.detail.cta_secondary')"
+              :secondary-label="hasDestinationCtaLabels ? 'EXPLORE ALL DESTINATIONS' : t('dp.detail.cta_secondary')"
               :secondary-to="localePath('/destinations')"
             />
 
@@ -120,6 +122,7 @@
 <script setup lang="ts">
 import { getDestinationBySlug, getProjectsForDestination } from "~/data/destinations-data";
 import { getDestinationDistanceImage, getDestinationDistanceSlides } from "~/data/destination-distance-slides";
+import { getDestinationPageCopy } from "~/data/destination-page-copy";
 
 interface FaqItem { q: string; a: string }
 
@@ -134,6 +137,7 @@ const dest = computed(() => getDestinationBySlug(String(route.params.slug)));
 const isDubaiMaritimeCity = computed(() => dest.value?.slug === "dubai-maritime-city");
 const isDubaiIslands = computed(() => dest.value?.slug === "dubai-islands");
 const isDubaiSportsCity = computed(() => dest.value?.slug === "dubai-sports-city");
+const destinationPageCopy = computed(() => getDestinationPageCopy(dest.value?.slug ?? "", locale.value));
 const destinationOverviewImages: Readonly<Record<string, string>> = {
   "dubai-maritime-city": "/assets/images/v3/our-destinations/maritime.webp",
   "dubai-sports-city": "/assets/images/v3/our-destinations/dubai-sport-city.webp",
@@ -192,13 +196,20 @@ const dIntro = computed(() => ddScalar("intro", dest.value?.intro ?? ""));
 const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
 const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
 const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
+const destinationHeroTitle = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.heroTitle;
+  if (isDubaiMaritimeCity.value) return "Waterfront Living, Close to the Heart of Dubai";
+  return dName(dest.value!);
+});
 const destinationHeroLead = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.heroLead;
   if (isDubaiMaritimeCity.value) return undefined;
   if (isDubaiIslands.value) return "A New Destination for Island Living";
   return dIntro.value;
 });
 const destinationOverviewEyebrow = computed(() => `About ${dName(dest.value!)}`);
 const destinationOverviewTitle = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.overviewTitle;
   if (isDubaiMaritimeCity.value) return "Where the Waterfront Meets the City";
   if (isDubaiIslands.value) return "A New Side of Dubai, Shaped by the Sea.";
   return `Experience ${dName(dest.value!)}`;
@@ -210,6 +221,7 @@ const destinationCtaImage = computed(() =>
   destinationCtaImages[dest.value!.slug] ?? dest.value!.image
 );
 const destinationOverviewParagraphs = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.overviewParagraphs;
   if (isDubaiMaritimeCity.value) return maritimeOverview;
   if (isDubaiIslands.value) return dubaiIslandsOverview;
   return dAbout.value;
@@ -223,19 +235,32 @@ const destinationDistanceImage = computed(() =>
 
 const areaProjects = computed(() => (dest.value ? getProjectsForDestination(dest.value) : []));
 const developmentsTitle = computed(() => `PRESTIGE ONE IN ${dName(dest.value!).toUpperCase()}`);
-const destinationDevelopmentsSubtitle = computed(() =>
-  isDubaiIslands.value ? "Homes Shaped by Island Living." : ""
-);
-const destinationDevelopmentsDescription = computed(() =>
-  isDubaiIslands.value
+const destinationDevelopmentsSubtitle = computed(() => {
+  if (destinationPageCopy.value?.developments) return destinationPageCopy.value.developments.subtitle;
+  return isDubaiIslands.value ? "Homes Shaped by Island Living." : "";
+});
+const destinationDevelopmentsDescription = computed(() => {
+  if (destinationPageCopy.value?.developments) {
+    return destinationPageCopy.value.developments.description;
+  }
+  return isDubaiIslands.value
     ? "Explore Prestige One developments created to make the most of Dubai Islands’ coastal setting and relaxed way of life."
-    : ""
-);
+    : "";
+});
 const destinationCtaTitle = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.ctaTitle;
   if (isDubaiMaritimeCity.value) return "Dubai Maritime City";
   if (isDubaiIslands.value) return "A Different Side of Island Living";
   return t("dp.detail.cta_title", { name: dest.value!.name });
 });
+const destinationCtaText = computed(() => {
+  if (destinationPageCopy.value) return destinationPageCopy.value.ctaText;
+  if (isDubaiMaritimeCity.value) return "Waterfront Living, Within Reach.";
+  return t("dp.detail.cta_text", { name: dest.value!.name });
+});
+const hasDestinationCtaLabels = computed(() =>
+  isDubaiMaritimeCity.value || !!destinationPageCopy.value
+);
 
 const faqs = computed<FaqItem[]>(() => {
   const d = dest.value!;
