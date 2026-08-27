@@ -17,7 +17,7 @@
               <div class="container container-1430">
                 <div class="cu-hub__grid">
                   <nuxt-link v-for="project in constructionProjects" :key="project.slug" :to="`/construction-update-${project.slug}`" class="cu-hub-card">
-                    <div class="cu-hub-card__media"><img :src="project.hero" :alt="project.shortTitle" loading="lazy"></div>
+                    <div class="cu-hub-card__media"><img :src="project.cardImage ?? project.hero" :alt="project.shortTitle" loading="lazy"></div>
                     <div class="cu-hub-card__body">
                       <h2>{{ project.shortTitle }}</h2>
                       <p>Follow construction progress, key milestones and the latest on-site imagery.</p>

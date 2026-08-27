@@ -73,7 +73,7 @@ const barshaHeightsSlides: DestinationDistanceSlide[] = [
 const dubaiIslandsSlides: DestinationDistanceSlide[] = [
   {
     image: `${SLIDER_ROOT}/dubai-island/dubai-i-marina.webp`,
-    alt: "Driving distance from Dubai Islands to Dubai Marina",
+    alt: "Driving distance from Dubai Islands to Dubai Islands Marina",
   },
   {
     image: `${SLIDER_ROOT}/dubai-island/dubai-i-downt.webp`,
@@ -81,7 +81,7 @@ const dubaiIslandsSlides: DestinationDistanceSlide[] = [
   },
   {
     image: `${SLIDER_ROOT}/dubai-island/dubai-i-mall.webp`,
-    alt: "Driving distance from Dubai Islands to Dubai Mall",
+    alt: "Driving distance from Dubai Islands to Dubai Islands Mall",
   },
   {
     image: `${SLIDER_ROOT}/dubai-island/dubai-i-dxb.webp`,
@@ -89,10 +89,170 @@ const dubaiIslandsSlides: DestinationDistanceSlide[] = [
   },
 ];
 
+const meydanCitySlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-meydan-mall.webp`,
+    alt: "Driving distance from Meydan City to Meydan One Mall",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-race.webp`,
+    alt: "Driving distance from Meydan City to Meydan Racecourse District",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-dxb.webp`,
+    alt: "Driving distance from Meydan City to Dubai International Airport",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-ras-al.webp`,
+    alt: "Driving distance from Meydan City to Ras Al Khor Wildlife Sanctuary",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-dubai-mall.webp`,
+    alt: "Driving distance from Meydan City to Dubai Mall",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-museum.webp`,
+    alt: "Driving distance from Meydan City to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/meydan-city/mh-burj.webp`,
+    alt: "Driving distance from Meydan City to Burj Khalifa",
+  },
+];
+
+const dlrcSlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/dlrc/dlrc-globl.webp`,
+    alt: "Driving distance from Dubai Land Residence Complex to Global Village",
+  },
+  {
+    image: `${SLIDER_ROOT}/dlrc/dlrc-img.webp`,
+    alt: "Driving distance from Dubai Land Residence Complex to IMG Worlds of Adventure",
+  },
+  {
+    image: `${SLIDER_ROOT}/dlrc/dlrc-downtown.webp`,
+    alt: "Driving distance from Dubai Land Residence Complex to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/dlrc/dlrc-meseum.webp`,
+    alt: "Driving distance from Dubai Land Residence Complex to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/dlrc/dlrc-dxb.webp`,
+    alt: "Driving distance from Dubai Land Residence Complex to Dubai International Airport",
+  },
+];
+
+const jumeirahGardenCitySlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/jumeirah-garden-city/jgc-difc.webp`,
+    alt: "Driving distance from Jumeirah Garden City to DIFC",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-garden-city/jgc-meseum.webp`,
+    alt: "Driving distance from Jumeirah Garden City to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-garden-city/jgc-metro.webp`,
+    alt: "Driving distance from Jumeirah Garden City to Emirates Towers Metro Station",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-garden-city/jgc-downtown.webp`,
+    alt: "Driving distance from Jumeirah Garden City to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-garden-city/jgc-dxb.webp`,
+    alt: "Driving distance from Jumeirah Garden City to Dubai International Airport",
+  },
+];
+
+const jumeirahVillageCircleSlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-cyclemall.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Circle Mall",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-moe.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Mall of the Emirates",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-marina.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Dubai Marina",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-downtown.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-meseum.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/jumeirah-village-circle/jvc-dxb.webp`,
+    alt: "Driving distance from Jumeirah Village Circle to Dubai International Airport",
+  },
+];
+
+const majanCitySlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/majan-city/majan-img.webp`,
+    alt: "Driving distance from Majan City to IMG Worlds of Adventure",
+  },
+  {
+    image: `${SLIDER_ROOT}/majan-city/majan-global-v.webp`,
+    alt: "Driving distance from Majan City to Global Village",
+  },
+  {
+    image: `${SLIDER_ROOT}/majan-city/majan-downtown.webp`,
+    alt: "Driving distance from Majan City to Downtown Dubai",
+  },
+  {
+    image: `${SLIDER_ROOT}/majan-city/majan-meseum.webp`,
+    alt: "Driving distance from Majan City to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/majan-city/majan-dxb.webp`,
+    alt: "Driving distance from Majan City to Dubai International Airport",
+  },
+];
+
+const dubaiSportsCitySlides: DestinationDistanceSlide[] = [
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-cricket.webp`,
+    alt: "Driving distance from Dubai Sports City to Dubai International Cricket Stadium",
+  },
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-moe.webp`,
+    alt: "Driving distance from Dubai Sports City to Mall of the Emirates",
+  },
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-marina.webp`,
+    alt: "Driving distance from Dubai Sports City to Dubai Marina",
+  },
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-burj.webp`,
+    alt: "Driving distance from Dubai Sports City to Burj Khalifa",
+  },
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-meseum.webp`,
+    alt: "Driving distance from Dubai Sports City to Museum of the Future",
+  },
+  {
+    image: `${SLIDER_ROOT}/sport-city/sport-city-dxb.webp`,
+    alt: "Driving distance from Dubai Sports City to Dubai International Airport",
+  },
+];
+
 const slidesByDestination: Readonly<Record<string, DestinationDistanceSlide[]>> = {
   "barsha-heights": barshaHeightsSlides,
+  "dlrc": dlrcSlides,
   "dubai-islands": dubaiIslandsSlides,
   "dubai-maritime-city": maritimeSlides,
+  "dubai-sports-city": dubaiSportsCitySlides,
+  "jumeirah-garden-city": jumeirahGardenCitySlides,
+  "jumeirah-village-circle": jumeirahVillageCircleSlides,
+  "majan-city": majanCitySlides,
+  "meydan-city": meydanCitySlides,
   "palm-jumeirah": palmJumeirahSlides,
 };
 
@@ -110,7 +270,7 @@ const desktopImageByDestination: Readonly<Record<string, string>> = {
 };
 
 export function getDestinationDistanceSlides(slug: string): DestinationDistanceSlide[] {
-  return slidesByDestination[slug] ?? maritimeSlides;
+  return slidesByDestination[slug] ?? [];
 }
 
 export function getDestinationDistanceImage(slug: string): string {

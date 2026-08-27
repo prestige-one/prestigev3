@@ -213,7 +213,7 @@ onBeforeUnmount(() => {
     margin: 0 auto;
     aspect-ratio: 400 / 710;
     object-fit: contain;
-    background: #05080d;
+    background: #000;
   }
 
   .prestige-destination-distance-mobile__dots {
