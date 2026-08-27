@@ -121,7 +121,10 @@ function openMonth(month: string) {
   openedIndex.value = 0;
 }
 
-watch(activeMonth, () => { openedIndex.value = null; });
+watch(() => props.project.slug, () => {
+  activeMonth.value = props.project.galleries[0]?.month || "";
+  openedIndex.value = null;
+});
 usePrestigePage({ hero: false });
 </script>
 

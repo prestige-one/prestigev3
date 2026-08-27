@@ -1,4 +1,15 @@
 {
+  "fauchon-residences-by-prestige-one": {
+    "technicalSpecifications": [],
+    "galleries": [
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/fauchon/june-2026/facuhcon-construction-updates-june-2026.webp"
+        ]
+      }
+    ]
+  },
   "seaside-by-prestige-one": {
     "technicalSpecifications": [
       "Planned Concrete Utilization: 6 Olympic-sized pools (~15,000 m3)",
@@ -14,6 +25,46 @@
       "Planned Landscaped Area: 1,100 m2 (5 mini forests)"
     ],
     "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/07-2026/seaside-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/07-2026/seaside-construction-updates-july-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/07-2026/seaside-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/07-2026/seaside-construction-updates-july-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/07-2026/seaside-construction-updates-july-5.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/06-2026/seaside-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/06-2026/seaside-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/06-2026/seaside-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/06-2026/seaside-construction-updates-june-2026-4.webp"
+        ]
+      },
+      {
+        "month": "May 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/05-2026/05-2026.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/05-2026/may-2026-construction-updates-seaside-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/05-2026/may-2026-construction-updates-seaside-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/05-2026/may-2026-construction-updates-seaside-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/05-2026/may-2026-construction-updates-seaside-5.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/seaside-by-prestige-one/04-2026/Construction-updates-april-2026-seaside-6.webp"
+        ]
+      },
       {
         "month": "March 2026",
         "images": [
@@ -84,6 +135,28 @@
     "technicalSpecifications": [],
     "galleries": [
       {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/07-2026/1-hilton-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/07-2026/hilton-construction-updates-june-2026-1-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/07-2026/hilton-construction-updates-june-2026-2-1.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/06-2026/1-hilton-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/06-2026/hilton-construction-updates-june-2026-2.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/04-2026/1-Hilton-constructions.jpg",
+          "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/04-2026/Construction-updates-april-2026-hilton-6.webp"
+        ]
+      },
+      {
         "month": "February 2026",
         "images": [
           "/assets/images/v2/pages/pages-internal-images/constructions/hilton-residences-by-prestige-one/february-2026/hilton-1.webp",
@@ -113,6 +186,36 @@
       "Number of Elevators: 2 (travel a combined 0.6 km daily)"
     ],
     "galleries": [
+      {
+        "month": "March 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-11.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-4-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-7.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-8.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-april-9.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-2K6A6335.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-2K6A6537.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-2K6A6771.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-2K6A6782.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/03-2026/the-residence-construction-updates-april-2026-5.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/02-2026/residence-construction-updates-feb-2026-.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/02-2026/residence-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/02-2026/residence-construction-updates-feb-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/02-2026/residence-construction-updates-feb-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/the-residence-by-prestige-one/02-2026/residence-construction-updates-feb-2026-5.webp"
+        ]
+      },
       {
         "month": "August 2025",
         "images": [
@@ -245,19 +348,312 @@
       "Rooftop Track Distance (Upon Completion): 152 m = 40 laps (full marathon = 105.5 laps)",
       "Planned Landscaped Area: 200 m2 (1 mini forest)"
     ],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/07-2026/luxury-canal-construction-updates-july-.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/07-2026/luxury-canal-construction-updates-july-2-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/07-2026/luxury-canal-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/07-2026/luxury-canal-construction-updates-july-4.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/06-2026/canal-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/06-2026/canal-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/06-2026/canal-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/06-2026/canal-construction-updates-june-2026-4.webp"
+        ]
+      },
+      {
+        "month": "May 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2026/may-2026-construction-updates-canal-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2026/may-2026-construction-updates-canal-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2026/may-2026-construction-updates-canal-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2026/may-2026-construction-updates-canal-4.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/04-2026/Construction-updates-april-2026-canal-2.webp"
+        ]
+      },
+      {
+        "month": "March 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/03-2026/luxury-canal-construction-updates-mar-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/03-2026/luxury-canal-construction-updates-mar-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/03-2026/luxury-canal-construction-updates-mar-2026-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/03-2026/luxury-canal-construction-updates-mar-2026-6.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/03-2026/luxury-canal-construction-updates-mar-2026-7.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/02-2026/luxury-canal-construction-updates-feb-2026-.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/02-2026/luxury-canal-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/02-2026/luxury-canal-construction-updates-feb-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/02-2026/luxury-canal-construction-updates-feb-2026-5.webp"
+        ]
+      },
+      {
+        "month": "August 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/08-2025/Construction-Update-Canal-1-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/08-2025/Construction-Update-Canal-3-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/08-2025/Construction-Update-Canal-6-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/08-2025/Construction-Update-Canal-9-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/08-2025/luxury-canal-construction-updates-feb-2026-3.webp"
+        ]
+      },
+      {
+        "month": "May 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/Construction-updates-april-2026-canal-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/Construction-updates-april-2026-canal-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/Construction-updates-april-2026-canal-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/PONE9874-Recovered-copy-2-ed-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/PONE9877-copy-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/canal/05-2025/PONE9887-copy-scaled.webp"
+        ]
+      }
+    ]
   },
   "coastal-haven-by-prestige-harbour": {
     "technicalSpecifications": [],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/07-2026/coastal-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/07-2026/coastal-construction-updates-july-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/07-2026/coastal-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/07-2026/coastal-construction-updates-july-4.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-5-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/06-2026/coastal-construction-updates-june-2026-6.webp"
+        ]
+      },
+      {
+        "month": "May 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2026/may-2026-construction-updates-coastal-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2026/may-2026-construction-updates-coastal-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2026/may-2026-construction-updates-coastal-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2026/may-2026-construction-updates-coastal-4.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/04-2026/Construction-updates-april-2026-coastal-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/04-2026/Construction-updates-april-2026-coastal-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/04-2026/Construction-updates-april-2026-coastal-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/04-2026/Construction-updates-april-2026-coastal-4.webp"
+        ]
+      },
+      {
+        "month": "March 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-6.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/03-2026/coastal-construction-updates-mar-2026-7.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/02-2026/coastal-haven-construction-updates-feb-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/02-2026/coastal-haven-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/02-2026/coastal-haven-construction-updates-feb-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/02-2026/coastal-haven-construction-updates-feb-2026-5.webp"
+        ]
+      },
+      {
+        "month": "August 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/08-2025/Coastal-Haven-Construction-Update-1-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/08-2025/Coastal-Haven-Construction-Update-10-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/08-2025/Coastal-Haven-Construction-Update-14-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/08-2025/Coastal-Haven-Construction-Update-8-scaled.webp"
+        ]
+      },
+      {
+        "month": "May 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2025/PONE9894-copy-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2025/PONE9899-copy-EdB-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/05-2025/PONE9902-copy-scaled.webp"
+        ]
+      },
+      {
+        "month": "Additional updates",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/Coastal-Haven-Construction-Update-1-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/coastal/Coastal-Haven-Construction-Update-8-scaled.webp"
+        ]
+      }
+    ]
   },
   "the-boluevard-by-prestige-one": {
     "technicalSpecifications": [],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/07-2026/Boluevard-canal-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/07-2026/Boluevard-canal-construction-updates-july-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/07-2026/Boluevard-canal-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/07-2026/Boluevard-canal-construction-updates-july-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/07-2026/Boluevard-canal-construction-updates-july-5.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2026/boulevard-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2026/boulevard-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2026/boulevard-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2026/boulevard-construction-updates-june-2026-4.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/04-2026/04-2026-main.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/04-2026/Construction-updates-april-2026-boluevard-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/04-2026/Construction-updates-april-2026-boluevard-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/04-2026/Construction-updates-april-2026-boluevard-4.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/02-2026/boulevard-construction-updates-feb-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/02-2026/boulevard-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/02-2026/boulevard-construction-updates-feb-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/02-2026/boulevard-construction-updates-feb-2026-4.webp"
+        ]
+      },
+      {
+        "month": "December 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/12-2025/boulevard-construction-updates-dec-2025-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/12-2025/boulevard-construction-updates-dec-2025-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/12-2025/boulevard-construction-updates-dec-2025-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/12-2025/boulevard-construction-updates-dec-2025-5.webp"
+        ]
+      },
+      {
+        "month": "September 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/09-2025/boulevard-construction-updates-sept-2025-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/09-2025/boulevard-construction-updates-sept-2025-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/09-2025/boulevard-construction-updates-sept-2025-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/09-2025/boulevard-construction-updates-sept-2025-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/09-2025/boulevard-construction-updates-sept-2025-5.webp"
+        ]
+      },
+      {
+        "month": "August 2024",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/08-2024/1-The-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/08-2024/Construction-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/08-2024/Construction.webp"
+        ]
+      },
+      {
+        "month": "June 2024",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2024/1-hamdan-sports-complex-poi.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/boluevard/06-2024/PAI-08.webp"
+        ]
+      }
+    ]
   },
   "parkway-by-prestige-one": {
     "technicalSpecifications": [],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/07-2026/07-2026.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/07-2026/parkway-canal-construction-updates-july-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/07-2026/parkway-canal-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/07-2026/parkway-canal-construction-updates-july-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/07-2026/parkway-canal-construction-updates-july-5.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/06-2026/parkway-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/06-2026/parkway-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/06-2026/parkway-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/06-2026/parkway-construction-updates-june-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/06-2026/parkway-construction-updates-june-2026-5.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/04-2026/Construction-updates-april-2026-parkway-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/04-2026/Construction-updates-april-2026-parkway-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/04-2026/Construction-updates-april-2026-parkway-3.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway-construction-updates-feb-2026-36-PM.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway-construction-updates-feb-2026-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway-construction-updates-feb-2026-.webp"
+        ]
+      },
+      {
+        "month": "August 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/Parkway-Construction-Update-8.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/Parkway-Construction-Update-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/Parkway-Construction-Update-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/Parkway-Construction-Update-1.webp"
+        ]
+      },
+      {
+        "month": "January 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/01-2025/2K6A3918-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/01-2025/2K6A3938-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/01-2025/2K6A3953-HDR-scaled.webp"
+        ]
+      },
+      {
+        "month": "December 2024",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/12-2024/2K6A3897-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/12-2024/2K6A3911-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/parkway/12-2024/2K6A3953-HDR-scaled.webp"
+        ]
+      }
+    ]
   },
   "vista-by-prestigeone": {
     "technicalSpecifications": [
@@ -277,6 +673,29 @@
       "Number of Elevators: 4 (travel a combined 1.18 km daily)"
     ],
     "galleries": [
+      {
+        "month": "March 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-2K6A5512-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-2K6A5521-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-lobby.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7685-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7748-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7769-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7781.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7788-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7823.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7891.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7893.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7898.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7911-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7959-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE7974-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/the-vista-construction-updates-march-2026-PONE8034-HDR.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/vista-by-prestigeone/03-2026/Vista-construction-updates-april-2026-2.webp"
+        ]
+      },
       {
         "month": "February 2026",
         "images": [
@@ -447,11 +866,143 @@
   },
   "the-waterway-by-prestige-one": {
     "technicalSpecifications": [],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/07-2026/waterway-canal-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/07-2026/waterway-canal-construction-updates-july-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/07-2026/waterway-canal-construction-updates-july-4-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/07-2026/waterway-canal-construction-updates-july-4.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2026/waterway-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2026/waterway-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2026/waterway-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2026/waterway-construction-updates-june-2026-4.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2026/Construction-updates-april-2026-waterway-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2026/Construction-updates-april-2026-waterway-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2026/Construction-updates-april-2026-waterway-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2026/Construction-updates-april-2026-waterway-6.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/02-2026/waterway-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/02-2026/waterway-construction-updates-feb-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/02-2026/waterway-construction-updates-feb-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/02-2026/waterway-construction-updates-feb-2026-5.webp"
+        ]
+      },
+      {
+        "month": "August 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-12.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-14.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-5.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/08-2025/The-Waterway-Construction-Update-6.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/The-Waterway-Construction-Update-12.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/The-Waterway-Construction-Update-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/The-Waterway-Construction-Update-6.webp"
+        ]
+      },
+      {
+        "month": "June 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2025/2K6A3768-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2025/2K6A3777-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/06-2025/2K6A3780-HDR-scaled.jpg"
+        ]
+      },
+      {
+        "month": "April 2024",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2024/2K6A3756-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2024/2K6A3759-HDR-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/water/04-2024/2K6A3762-HDR-scaled.webp"
+        ]
+      }
+    ]
   },
   "the-one-by-prestige-one": {
     "technicalSpecifications": [],
-    "galleries": []
+    "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/07-2026/the-one-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/07-2026/the-one-construction-updates-july-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/07-2026/the-one-construction-updates-july-3.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2026/the-one-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2026/the-one-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2026/the-one-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2026/the-one-construction-updates-june-2026-4.webp"
+        ]
+      },
+      {
+        "month": "May 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/05-2026/may-2026-construction-updates-the-one-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/05-2026/may-2026-construction-updates-the-one-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/05-2026/may-2026-construction-updates-the-one-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/05-2026/may-2026-construction-updates-the-one-4.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/04-2026/Construction-updates-april-2026-the-one-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/04-2026/Construction-updates-april-2026-the-one-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/04-2026/Construction-updates-april-2026-the-one-3.webp"
+        ]
+      },
+      {
+        "month": "February 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-6.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/02-2026/the-one-construction-updates-feb-2026-5.webp"
+        ]
+      },
+      {
+        "month": "August 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-11.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-7.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-6.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/08-2025/The-One-Construction-Update-1.webp"
+        ]
+      },
+      {
+        "month": "June 2025",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2025/THE-ONE-C-U-11-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2025/THE-ONE-C-U-2-scaled.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/one/06-2025/THE-ONE-C-U-8-scaled.webp"
+        ]
+      }
+    ]
   },
   "golf-residences-by-prestige-one": {
     "technicalSpecifications": [
@@ -470,6 +1021,42 @@
       "Planned Landscaped Area: 605 m2 (equal to three mini forests of 200 m2 each)"
     ],
     "galleries": [
+      {
+        "month": "July 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/07-2026/golf-construction-updates-july-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/07-2026/golf-construction-updates-july-2-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/07-2026/golf-construction-updates-july-3-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/07-2026/golf-construction-updates-july-5-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/07-2026/golf-construction-updates-july-5-2.webp"
+        ]
+      },
+      {
+        "month": "June 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/06-2026/golf-construction-updates-june-2026-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/06-2026/golf-construction-updates-june-2026-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/06-2026/golf-construction-updates-june-2026-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/06-2026/golf-construction-updates-june-2026-5.webp"
+        ]
+      },
+      {
+        "month": "May 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/05-2026/may-2026-construction-updates-golf-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/05-2026/may-2026-construction-updates-golf-4.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/05-2026/may-2026-construction-updates-golf-5.webp"
+        ]
+      },
+      {
+        "month": "April 2026",
+        "images": [
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/04-2026/Construction-updates-april-2026-golf-residences-1.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/04-2026/Construction-updates-april-2026-golf-residences-2.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/04-2026/Construction-updates-april-2026-golf-residences-3.webp",
+          "/assets/images/v2/pages/pages-internal-images/constructions/golf-residences-by-prestige-one/04-2026/Construction-updates-april-2026-golf-residences-4.webp"
+        ]
+      },
       {
         "month": "March 2026",
         "images": [

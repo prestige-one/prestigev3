@@ -55,29 +55,10 @@
 
 <script setup lang="ts">
 import { getAllProjects } from "~/data/projects";
+import { DEVELOPMENT_YEARS } from "~/data/development-years";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
-
-// Timeline presentation order. Project content comes from the shared catalogue.
-const YEARS: { year: string; projectSlugs: string[] }[] = [
-  {
-    year: "2023",
-    projectSlugs: ["vista-by-prestige-one", "the-residence-by-prestige-one"],
-  },
-  {
-    year: "2024",
-    projectSlugs: ["waterway-by-prestige-one", "seaside-by-prestige-one", "golf-residences-by-prestige-one", "parkway-by-prestige-one", "the-one-by-prestige-one"],
-  },
-  {
-    year: "2025",
-    projectSlugs: ["the-boulevard-by-prestige-one", "coastal-haven-by-prestige-one", "luxury-canal-residences-by-prestige-one", "berkeley-square-south", "berkeley-square-north", "hilton-residences-dubai-maritime-city"],
-  },
-  {
-    year: "2026",
-    projectSlugs: ["sanctuary-residences-by-prestige-one", "sanctuary-hive-by-prestige-one", "fauchon-residences-by-prestige-one"],
-  },
-];
 
 const byProjectSlug = new Map(getAllProjects().map((project) => [project.slug, project]));
 
@@ -86,7 +67,7 @@ const PRESTIGE_ABOUT_PROJECT_IMAGE_OVERRIDES: Partial<Record<string, string>> = 
     "/assets/project-featured-images/residence/residence-featured-live-image.webp",
 };
 
-const developmentsByYear = YEARS.map((block) => ({
+const developmentsByYear = DEVELOPMENT_YEARS.map((block) => ({
   year: block.year,
   comingSoon: block.year === "2026",
   projects: block.projectSlugs

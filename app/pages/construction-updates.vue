@@ -16,7 +16,7 @@
             <section class="cu-hub__section">
               <div class="container container-1430">
                 <div class="cu-hub__grid">
-                  <nuxt-link v-for="project in constructionProjects" :key="project.slug" :to="`/construction-update-${project.slug}`" class="cu-hub-card">
+                  <nuxt-link v-for="project in constructionListingProjects" :key="project.slug" :to="`/construction-update-${project.slug}`" class="cu-hub-card">
                     <div class="cu-hub-card__media"><img :src="project.cardImage ?? project.hero" :alt="project.shortTitle" loading="lazy"></div>
                     <div class="cu-hub-card__body">
                       <h2>{{ project.shortTitle }}</h2>
@@ -36,7 +36,9 @@
 </template>
 
 <script setup lang="ts">
-import { constructionProjects } from "~/data/construction-updates";
+import { getConstructionProjectsForListing } from "~/data/construction-updates";
+
+const constructionListingProjects = getConstructionProjectsForListing();
 
 definePageMeta({ layout: false });
 useSeoMeta({ title: "Construction Updates | Prestige One Developments", description: "Track construction progress across Prestige One developments in Dubai." });
