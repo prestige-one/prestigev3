@@ -1,6 +1,7 @@
 interface DestinationPageCopy {
-  heroTitle: string;
-  heroLead: string;
+  /** Omit hero fields when the PDF marks the existing hero as "Keep". */
+  heroTitle?: string;
+  heroLead?: string;
   overviewTitle: string;
   overviewParagraphs: string[];
   developments?: {
@@ -16,6 +17,20 @@ interface DestinationPageCopy {
 // Approved English destination copy. "Closing Section" in the supplied PDFs
 // maps to the final CTA band, not the contact form. Preserve other locales.
 const destinationPageCopy: Readonly<Record<string, DestinationPageCopy>> = {
+  "dubai-sports-city": {
+    overviewTitle: "Built Around an Active Way of Life.",
+    overviewParagraphs: [
+      "Dubai Sports City is a purpose-built community for active living, combining golf, international sports venues, schools, retail, and everyday convenience in one connected neighbourhood.",
+      "Home to Dubai International Cricket Stadium, Dubai Autodrome, The Els Club golf course, and Sports Village, it brings sport and community into everyday life.",
+    ],
+    developments: {
+      subtitle: "Homes Shaped by Active Living.",
+      description: "Explore Prestige One developments created around the active lifestyle and sporting character of Dubai Sports City.",
+      cardCtaLabel: "Explore Development",
+    },
+    ctaTitle: "Dubai Sports City",
+    ctaText: "Where Active Living Feels at Home.",
+  },
   "dubai-islands": {
     heroTitle: "DUBAI ISLANDS",
     heroLead: "A New Destination for Island Living",

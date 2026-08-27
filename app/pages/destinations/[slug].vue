@@ -197,12 +197,12 @@ const dAbout = computed(() => ddArray("about", dest.value?.about ?? []));
 const dTransport = computed(() => ddArray("transport", dest.value?.transport ?? []));
 const dInvestment = computed(() => ddArray("investment", dest.value?.investment ?? []));
 const destinationHeroTitle = computed(() => {
-  if (destinationPageCopy.value) return destinationPageCopy.value.heroTitle;
+  if (destinationPageCopy.value?.heroTitle !== undefined) return destinationPageCopy.value.heroTitle;
   if (isDubaiMaritimeCity.value) return "Waterfront Living, Close to the Heart of Dubai";
   return dName(dest.value!);
 });
 const destinationHeroLead = computed(() => {
-  if (destinationPageCopy.value) return destinationPageCopy.value.heroLead;
+  if (destinationPageCopy.value?.heroLead !== undefined) return destinationPageCopy.value.heroLead;
   if (isDubaiMaritimeCity.value) return undefined;
   if (isDubaiIslands.value) return "A New Destination for Island Living";
   return dIntro.value;

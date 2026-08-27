@@ -19,7 +19,7 @@ mockNuxtImport("useLocalePath", () => () => (path: string) => path);
 
 const updatedDestinations = [
   "jumeirah-village-circle", "jumeirah-garden-city", "barsha-heights", "majan-city", "dlrc",
-  "palm-jumeirah", "meydan-city", "dubai-islands",
+  "palm-jumeirah", "meydan-city", "dubai-islands", "dubai-sports-city",
 ];
 
 describe("PDF destination page copy", () => {
@@ -27,18 +27,21 @@ describe("PDF destination page copy", () => {
     pageState.slug = slug;
     const destination = getDestinationBySlug(slug)!;
     const copy = getDestinationPageCopy(slug, "en")!;
+    const i18n = createI18n<[typeof englishDestinations], "en", false>({
+      legacy: false, locale: "en", messages: { en: englishDestinations },
+    });
     const wrapper = shallowMount(DestinationPage, {
       global: {
-        plugins: [createI18n<[typeof englishDestinations], "en", false>({
-          legacy: false, locale: "en", messages: { en: englishDestinations },
-        })],
+        plugins: [i18n],
         stubs: { NuxtLayout: { template: "<div><slot /></div>" } },
       },
     });
     try {
       const hero = wrapper.findComponent(PageHero);
-      expect(hero.props("title")).toBe(copy.heroTitle);
-      expect(hero.props("lead")).toBe(copy.heroLead);
+      const introKey = `ddata.d.${slug}.intro`;
+      const translatedIntro = i18n.global.te(introKey) ? i18n.global.t(introKey) : destination.intro;
+      expect(hero.props("title")).toBe(copy.heroTitle ?? destination.name);
+      expect(hero.props("lead")).toBe(copy.heroLead ?? translatedIntro ?? destination.intro);
       expect(hero.props("image")).toBe(destination.image);
 
       const overview = wrapper.findComponent(FeatureSplit);
@@ -76,11 +79,16 @@ describe("PDF destination page copy", () => {
     for (const slug of updatedDestinations) expect(getDestinationPageCopy(slug, locale)).toBeUndefined();
   });
 
-  it.each(["dubai-maritime-city", "dubai-sports-city", "unknown", "toString"])(
+  it.each(["dubai-maritime-city", "unknown", "toString"])(
     "does not apply another PDF to %s", (slug) => expect(getDestinationPageCopy(slug, "en")).toBeUndefined(),
   );
 
   it("preserves the PDF paragraph breaks and title casing", () => {
+    const sportsCity = getDestinationPageCopy("dubai-sports-city", "en");
+    expect(sportsCity?.heroTitle).toBeUndefined();
+    expect(sportsCity?.heroLead).toBeUndefined();
+    expect(sportsCity?.overviewParagraphs).toHaveLength(2);
+    expect(sportsCity?.ctaText).toBe("Where Active Living Feels at Home.");
     expect(getDestinationPageCopy("dubai-islands", "en")?.ctaTitle).toBe("Dubai Islands");
     expect(getDestinationPageCopy("dubai-islands", "en")?.ctaText).toBe("A Different Side of Island Living.");
     expect(getDestinationPageCopy("jumeirah-garden-city", "en")?.overviewParagraphs).toHaveLength(2);
