@@ -2586,7 +2586,7 @@ const galleryData: Record<string, string[]> = {
     "15-Penthouse_Living- Hilton Residences DMC.webp",
     "16-Penthouse 3BED_M-Bathroom- Hilton Residences DMC.webp",
     "18-1BED_Bedroom-Hilton-Residences-DMC.webp",
-    "19-2B-+-M-Bedroom_- Hilton Residences DMC.webp",
+    "19-2B-M-Bedroom-Hilton-Residences-DMC.webp",
     "20-2BED_Living-Dining-Kitchen- Hilton Residences DMC.webp",
     "21-3BR_Living-Dining-kitchen_V2- Hilton Residences DMC.webp",
     "22-Main-Lobby- Hilton Residences DMC.webp",
